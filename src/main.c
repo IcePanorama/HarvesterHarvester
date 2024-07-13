@@ -13,7 +13,7 @@ void improper_usage_error (void);
 void fopen_error (char *filename);
 void process_DAT_file (FILE *fptr);
 void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
-void process_volume_descriptor (FILE *fptr, volume_descriptor *vd);
+void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
 
 int
 main (int argc, char **argv)
@@ -64,6 +64,7 @@ process_DAT_file (FILE *fptr)
 
   /*
    * First 32k (up to 0x8000) stores the `system area` of the disk.
+   * Unused by HARVEST.DAT, HARVEST3.DAT, HARVEST4.DAT.
    * See: https://wiki.osdev.org/ISO_9660#System_Area
    */
   fseek (fptr, 0x8000, SEEK_SET);
@@ -74,8 +75,17 @@ process_DAT_file (FILE *fptr)
   fseek (fptr, -sizeof (buffer), SEEK_CUR);
 
   volume_descriptor vd;
-  process_volume_descriptor (fptr, &vd);
+  process_volume_descriptor_header (fptr, &vd);
   print_volume_descriptor_header (&vd);
+
+  if (vd.type_code != 0x01)
+    {
+      puts ("Error: Unexpected volume descriptor type code.");
+      printf ("\tExpected %02x, got %02x.\n", 0x01, vd.type_code);
+      puts ("Note: Extracting files from HARVEST2.DAT is currently unsupported.");
+      fclose (fptr);
+      exit (1);
+    }
 }
 
 void
@@ -97,7 +107,7 @@ print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
 }
 
 void
-process_volume_descriptor (FILE *fptr, volume_descriptor *vd)
+process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
 {
   uint8_t descriptor_type;
   fread (&descriptor_type, sizeof (uint8_t), 1, fptr);

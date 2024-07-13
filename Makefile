@@ -1,5 +1,6 @@
 CC=gcc
 SRC_DIR=src
+DAT_DIR=dat\ files
 SRC_FILES=$(SRC_DIR)/*.c
 INCL_FILES=$(SRC_DIR)/*.h
 LIBS=
@@ -15,7 +16,7 @@ $(TARGET):
 	$(CC) -o $(TARGET) $(SRC_FILES) $(CFLAGS) # -I./$(INCL_FILES) $(LIBS)
 
 test: $(TARGET)
-	valgrind --leak-check=yes ./$(TARGET) HARVEST.DAT
+	valgrind --leak-check=yes ./$(TARGET) $(DAT_DIR)/HARVEST.DAT
 
 clean:
 	-@rm $(TARGET) 2>/dev/null || true

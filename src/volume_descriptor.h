@@ -6,9 +6,9 @@
 
 // See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors
 typedef struct volume_descriptor {
-  uint8_t volume_descriptor_type_code;
+  uint8_t type_code;
   char identifier[6]; // always `CD001`
-  uint8_t volume_descriptor_version;
+  uint8_t version;
   uint8_t data[2041];
 } volume_descriptor;
 
