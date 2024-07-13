@@ -78,11 +78,13 @@ process_DAT_file (FILE *fptr)
   process_volume_descriptor_header (fptr, &vd);
   print_volume_descriptor_header (&vd);
 
+  // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
     {
       puts ("Error: Unexpected volume descriptor type code.");
       printf ("\tExpected %02x, got %02x.\n", 0x01, vd.type_code);
-      puts ("Note: Extracting files from HARVEST2.DAT is currently unsupported.");
+      puts ("Note: Extracting files from HARVEST2.DAT is currently "
+            "unsupported.");
       fclose (fptr);
       exit (1);
     }
