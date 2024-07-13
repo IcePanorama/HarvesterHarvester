@@ -1,3 +1,9 @@
+# HarvesterHarvester specific
+main
+
+# Valgrind related
+vgcore.*
+
 # Prerequisites
 *.d
 
