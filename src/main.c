@@ -1,3 +1,4 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,6 +8,7 @@ FILE *setup_extractor (int argc, char **argv);
 void improper_usage_error (void);
 void fopen_error (char *filename);
 void process_DAT_file (FILE *fptr);
+void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
 
 int
 main (int argc, char **argv)
@@ -57,7 +59,13 @@ process_DAT_file (FILE *fptr)
 
   fread (buffer, sizeof (buffer), 1, fptr);
 
-  for (int i = 0; i < BYTES_TO_READ; i++)
+  print_hex_data (buffer, BYTES_TO_READ);
+}
+
+void
+print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
+{
+  for (uint8_t i = 0; i < BUFFER_LEN; i++)
     {
       printf (" %02x", buffer[i]);
       if ((i != 0) && (i % 4 == 3))
