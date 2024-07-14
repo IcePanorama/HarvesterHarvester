@@ -20,7 +20,8 @@
 #define BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN 38
 
 // See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
-typedef struct volume_descriptor_data {
+typedef struct volume_descriptor_data
+{
   char system_identifier[SYSTEM_IDENTIFIER_LEN];
   char volume_identifier[VOLUME_IDENTIFIER_LEN];
   uint32_t volume_space_size;
@@ -44,18 +45,20 @@ typedef struct volume_descriptor_data {
   dec_datetime volume_modification_date_and_time;
   dec_datetime volume_expiration_date_and_time;
   dec_datetime volume_effective_date_and_time;
-  uint8_t file_structure_version;                   // always `0x01`
+  uint8_t file_structure_version; // always `0x01`
 } volume_descriptor_data;
 
 // See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors
-typedef struct volume_descriptor {
+typedef struct volume_descriptor
+{
   uint8_t type_code;
   char identifier[6]; // always `CD001`
   uint8_t version;
   volume_descriptor_data data;
 } volume_descriptor;
 
-void create_volume_descriptor(volume_descriptor* vd, uint8_t type, uint8_t version);
+void create_volume_descriptor (volume_descriptor *vd, uint8_t type,
+                               uint8_t version);
 void print_volume_descriptor_header (volume_descriptor *vd);
 
 #endif

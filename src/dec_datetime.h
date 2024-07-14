@@ -2,7 +2,8 @@
 #define _DEC_DATETIME_H_
 
 // See: https://wiki.osdev.org/ISO_9660#Date/time_format
-typedef struct dec_datetime {
+typedef struct dec_datetime
+{
   char year[5];
   char month[3];
   char day[3];
