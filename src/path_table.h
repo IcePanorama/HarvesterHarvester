@@ -24,5 +24,6 @@ typedef struct path_table
 int8_t create_path_table (path_table *pt);
 void destroy_path_table (path_table *pt);
 void add_entry_to_path_table (path_table *pt, path_table_entry *entry);
+void print_path_table (path_table *pt);
 
 #endif

@@ -2,7 +2,7 @@
 main
 HARVEST*
 
-# Valgrind related
+# Valgrind
 vgcore.*
 
 # Prerequisites
@@ -28,7 +28,6 @@ vgcore.*
 *.a
 *.la
 *.lo
-!libs/*
 
 # Shared objects (inc. Windows DLLs)
 *.dll

@@ -206,8 +206,6 @@ print_some_data_from_file (FILE *fptr)
 void
 process_type_l_path_table (FILE *fptr, path_table *pt)
 {
-  print_some_data_from_file (fptr);
-
   uint8_t dir_identifier_length = read_single_uint8 (fptr);
   do
     {
@@ -248,14 +246,12 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
 
       add_entry_to_path_table (pt, &curr_entry);
 
-      printf ("Current entry identifier: %s\n",
-              curr_entry.directory_identifier);
-
       dir_identifier_length = read_single_uint8 (fptr);
 
       if (dir_identifier_length == 0) // handle padding field
         dir_identifier_length = read_single_uint8 (fptr);
-      printf ("len: %02X\n", dir_identifier_length);
     }
   while (dir_identifier_length != 0);
+
+  print_path_table (pt);
 }
