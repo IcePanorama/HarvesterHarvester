@@ -17,6 +17,7 @@ void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
 void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
 void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 void print_some_data_from_file (FILE *fptr);
+void process_type_l_path_table (FILE *fptr, path_table *pt);
 
 int
 main (int argc, char **argv)
@@ -83,14 +84,14 @@ process_DAT_file (FILE *fptr)
   fseek (fptr, logical_block_size_be * vd.data.type_l_path_table_location,
          SEEK_SET);
 
-  print_some_data_from_file (fptr);
-
   path_table pt;
   if (create_path_table (&pt) != 0)
     {
       fclose (fptr);
       exit (1);
     }
+
+  process_type_l_path_table (fptr, &pt);
 
   destroy_path_table (&pt);
 }
@@ -200,4 +201,61 @@ print_some_data_from_file (FILE *fptr)
     }
   print_hex_data (buffer, BYTES_TO_READ);
   fseek (fptr, -sizeof (buffer), SEEK_CUR);
+}
+
+void
+process_type_l_path_table (FILE *fptr, path_table *pt)
+{
+  print_some_data_from_file (fptr);
+
+  uint8_t dir_identifier_length = read_single_uint8 (fptr);
+  do
+    {
+      path_table_entry curr_entry;
+      curr_entry.directory_identifier_length = dir_identifier_length;
+
+      if (curr_entry.directory_identifier_length != 1)
+        curr_entry.directory_identifier_length += 1;
+
+      curr_entry.extended_attribute_record_length = read_single_uint8 (fptr);
+      curr_entry.location_of_extent = read_little_endian_data_uint32_t (fptr);
+      curr_entry.parent_directory_number
+          = read_little_endian_data_uint16_t (fptr);
+
+      curr_entry.directory_identifier = (char *)calloc (
+          curr_entry.directory_identifier_length, sizeof (char));
+      if (curr_entry.directory_identifier_length != 1)
+        {
+          size_t bytes_read
+              = fread (curr_entry.directory_identifier, sizeof (char),
+                       curr_entry.directory_identifier_length - 1, fptr);
+          curr_entry
+              .directory_identifier[curr_entry.directory_identifier_length - 1]
+              = '\0';
+          if (bytes_read
+              != sizeof (char) * (curr_entry.directory_identifier_length - 1))
+            {
+              handle_fread_error (
+                  fptr, bytes_read,
+                  sizeof (char)
+                      * (curr_entry.directory_identifier_length - 1));
+            }
+        }
+      else
+        {
+          fseek (fptr, 1, SEEK_CUR);
+        }
+
+      add_entry_to_path_table (pt, &curr_entry);
+
+      printf ("Current entry identifier: %s\n",
+              curr_entry.directory_identifier);
+
+      dir_identifier_length = read_single_uint8 (fptr);
+
+      if (dir_identifier_length == 0) // handle padding field
+        dir_identifier_length = read_single_uint8 (fptr);
+      printf ("len: %02X\n", dir_identifier_length);
+    }
+  while (dir_identifier_length != 0);
 }

@@ -18,6 +18,8 @@ create_path_table (path_table *pt)
     }
 
   pt->size = PATH_TABLE_STARTING_NUM_ENTRIES;
+  pt->current_entry = 0;
+
   for (size_t i = 0; i < PATH_TABLE_STARTING_NUM_ENTRIES; i++)
     {
       pt->entries[i].directory_identifier = NULL;
@@ -40,4 +42,19 @@ destroy_path_table (path_table *pt)
 
   free (pt->entries);
   pt->entries = NULL;
+}
+
+void
+add_entry_to_path_table (path_table *pt, path_table_entry *entry)
+{
+  if (pt->current_entry >= pt->size)
+    {
+      // TODO: handle resizing entries
+      free (entry->directory_identifier);
+      entry->directory_identifier = NULL;
+      return;
+    }
+
+  pt->entries[pt->current_entry] = *entry;
+  pt->current_entry++;
 }

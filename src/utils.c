@@ -8,7 +8,6 @@
 /* clang-format on */
 
 static uint32_t read_big_endian_data_uint32_t (FILE *fptr);
-static uint16_t read_little_endian_data_uint16_t (FILE *fptr);
 static uint16_t read_big_endian_data_uint16_t (FILE *fptr);
 
 uint32_t

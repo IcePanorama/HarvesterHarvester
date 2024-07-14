@@ -18,9 +18,11 @@ typedef struct path_table
 {
   path_table_entry *entries;
   size_t size;
+  size_t current_entry;
 } path_table;
 
 int8_t create_path_table (path_table *pt);
 void destroy_path_table (path_table *pt);
+void add_entry_to_path_table (path_table *pt, path_table_entry *entry);
 
 #endif
