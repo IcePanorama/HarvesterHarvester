@@ -6,6 +6,7 @@
 #include "errors.h"
 #include "volume_descriptor.h"
 #include "utils.h"
+#include "dec_datetime.h"
 /* clang-format on */
 
 #define BYTES_TO_READ 32
@@ -109,7 +110,11 @@ process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
   fseek (fptr, 5, SEEK_CUR);
 
   uint8_t descriptor_ver;
-  fread (&descriptor_ver, sizeof (uint8_t), 1, fptr);
+  bytes_read = fread (&descriptor_ver, sizeof (uint8_t), 1, fptr);
+  if (bytes_read != sizeof (uint8_t))
+    {
+      handle_fread_error (fptr, bytes_read, sizeof (uint8_t));
+    }
 
   create_volume_descriptor (vd, descriptor_type, descriptor_ver);
 }
@@ -128,7 +133,6 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 
   fseek (fptr, 32, SEEK_CUR); // Unused field
 
-  print_some_data_from_file (fptr);
   vdd->volume_set_size = read_both_endian_data_uint16 (fptr);
   vdd->volume_sequence_number = read_both_endian_data_uint16 (fptr);
   vdd->logical_block_size = read_both_endian_data_uint16 (fptr);
@@ -177,6 +181,11 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
   printf ("Abstract file identifier: %s\n", vdd->abstract_file_identifier);
   printf ("Bibliographic file identifier: %s\n",
           vdd->bibliographic_file_identifier);
+
+  print_some_data_from_file (fptr);
+  vdd->volume_creation_date_and_time = read_dec_datetime (fptr);
+  printf ("Volume creation date and time: ");
+  print_dec_datetime (vdd->volume_creation_date_and_time);
 }
 
 void

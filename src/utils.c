@@ -1,7 +1,11 @@
-#include "utils.h"
-#include "errors.h"
+/* clang-format off */
 #include <stdint.h>
 #include <stdio.h>
+
+#include "dec_datetime.h"
+#include "errors.h"
+#include "utils.h"
+/* clang-format on */
 
 static uint32_t read_big_endian_data_uint32_t (FILE *fptr);
 static uint16_t read_little_endian_data_uint16_t (FILE *fptr);
@@ -94,7 +98,7 @@ void
 read_string (FILE *fptr, char *output, uint8_t length)
 {
   size_t bytes_read = fread (output, sizeof (char), length - 1, fptr);
-  output[sizeof (output) - 1] = '\0';
+  output[length - 1] = '\0';
   if (bytes_read != sizeof (char) * length - 1)
     {
       handle_fread_error (fptr, bytes_read, sizeof (char) * length - 1);
@@ -109,4 +113,25 @@ read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length)
     {
       handle_fread_error (fptr, bytes_read, sizeof (uint8_t) * length);
     }
+}
+
+dec_datetime
+read_dec_datetime (FILE *fptr)
+{
+  dec_datetime dt;
+  read_string (fptr, dt.year, YEAR_FIELD_LEN);
+  read_string (fptr, dt.month, MONTH_FIELD_LEN);
+  read_string (fptr, dt.day, DAY_FIELD_LEN);
+  read_string (fptr, dt.hour, HOUR_FIELD_LEN);
+  read_string (fptr, dt.minute, MINUTE_FIELD_LEN);
+  read_string (fptr, dt.second, SECOND_FIELD_LEN);
+  read_string (fptr, dt.hundredths_of_a_second,
+               HUNDREDTHS_OF_A_SECOND_FIELD_LEN);
+  size_t bytes_read = fread (&dt.time_zone_offset, sizeof (uint8_t), 1, fptr);
+  if (bytes_read != sizeof (uint8_t))
+    {
+      handle_fread_error (fptr, bytes_read, sizeof (uint8_t));
+    }
+
+  return dt;
 }
