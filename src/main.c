@@ -3,7 +3,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "datetime.h"
+#include "directory.h"
 #include "errors.h"
+#include "file_flags.h"
 #include "path_table.h"
 #include "utils.h"
 #include "volume_descriptor.h"
@@ -18,6 +21,7 @@ void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
 void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 void print_some_data_from_file (FILE *fptr);
 void process_type_l_path_table (FILE *fptr, path_table *pt);
+void process_directory (FILE *fptr, directory *d);
 
 int
 main (int argc, char **argv)
@@ -77,11 +81,11 @@ process_DAT_file (FILE *fptr)
   // TODO: print the volume descriptor header/data to some file/log.
 
   // logical block size in big endian form
-  uint16_t logical_block_size_be
+  const uint16_t LOGICAL_BLOCK_SIZE_BE
       = change_endianness_uint16 (vd.data.logical_block_size);
 
   // Beginning of type-l path table
-  fseek (fptr, logical_block_size_be * vd.data.type_l_path_table_location,
+  fseek (fptr, LOGICAL_BLOCK_SIZE_BE * vd.data.type_l_path_table_location,
          SEEK_SET);
 
   path_table pt;
@@ -93,12 +97,22 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
-  printf ("Logical block size: %04X\n", logical_block_size_be);
+  printf ("Logical block size: %04X\n", LOGICAL_BLOCK_SIZE_BE);
 
   // The first directory
-  fseek (fptr, logical_block_size_be * pt.entries[0].location_of_extent,
+  directory dir;
+  if (create_directory (&dir) != 0)
+    {
+      fclose (fptr);
+      exit (1);
+      return;
+    }
+
+  fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[0].location_of_extent,
          SEEK_SET);
-  print_some_data_from_file (fptr);
+  process_directory (fptr, &dir);
+
+  destroy_directory (&dir);
 
   destroy_path_table (&pt);
 }
@@ -259,4 +273,58 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
         dir_identifier_length = read_single_uint8 (fptr);
     }
   while (dir_identifier_length != 0);
+}
+
+void
+process_directory (FILE *fptr, directory *d)
+{
+  print_some_data_from_file (fptr);
+
+  directory_record dr;
+  dr.record_length = read_single_uint8 (fptr);
+  dr.extended_attribute_record_length = read_single_uint8 (fptr);
+  dr.location_of_extent = read_both_endian_data_uint32 (fptr);
+  dr.data_length = read_both_endian_data_uint32 (fptr);
+  dr.recording_datetime = read_dir_datetime (fptr);
+  dr.file_flags = create_file_flags ();
+  read_file_flags (fptr, &dr.file_flags);
+  dr.file_unit_size = read_single_uint8 (fptr);
+  dr.interleave_gap_size = read_single_uint8 (fptr);
+  dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);
+  dr.file_identifier_length = read_single_uint8 (fptr);
+
+  // TODO: combine this and the above malloc'd string function to the utils
+  // file.
+  dr.file_identifier
+      = (char *)calloc (dr.file_identifier_length, sizeof (char));
+  if (dr.file_identifier_length != 1)
+    {
+      size_t bytes_read = fread (dr.file_identifier, sizeof (char),
+                                 dr.file_identifier_length - 1, fptr);
+      dr.file_identifier[dr.file_identifier_length - 1] = '\0';
+      if (bytes_read != sizeof (char) * (dr.file_identifier_length - 1))
+        {
+          handle_fread_error (fptr, bytes_read,
+                              sizeof (char) * (dr.file_identifier_length - 1));
+        }
+    }
+  else
+    {
+      fseek (fptr, 1, SEEK_CUR);
+    }
+
+  printf ("Record length: %02X\n", dr.record_length);
+  printf ("Extended attribute record length: %02X\n",
+          dr.extended_attribute_record_length);
+  printf ("Location of extent: %08X\n", dr.location_of_extent);
+  printf ("Data length: %08X\n", dr.data_length);
+  print_dir_datetime (dr.recording_datetime);
+  print_file_flags (&dr.file_flags);
+  printf ("File unit size: %02X\n", dr.file_unit_size);
+  printf ("Interleave gap size: %02X\n", dr.interleave_gap_size);
+  printf ("Volume sequence number: %04X\n", dr.volume_sequence_number);
+  printf ("File identifier length: %02X\n", dr.file_identifier_length);
+  printf ("File identifier: %s\n", dr.file_identifier);
+
+  add_record_to_directory (d, &dr);
 }

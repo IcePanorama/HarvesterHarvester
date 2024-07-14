@@ -2,6 +2,7 @@
 #define _FILE_FLAGS_H_
 
 #include <stdbool.h>
+#include <stdio.h>
 
 typedef struct file_flags
 {
@@ -12,5 +13,8 @@ typedef struct file_flags
   bool final_directory_record; // if false, this is not the final directory
                                // record; file spans over multiple extents
 } file_flags;
+
+file_flags create_file_flags (void);
+void print_file_flags (file_flags *ff);
 
 #endif

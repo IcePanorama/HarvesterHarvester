@@ -1,9 +1,11 @@
 /* clang-format off */
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 
 #include "datetime.h"
 #include "errors.h"
+#include "file_flags.h"
 #include "utils.h"
 /* clang-format on */
 
@@ -126,11 +128,7 @@ read_dec_datetime (FILE *fptr)
   read_string (fptr, dt.second, SECOND_FIELD_LEN);
   read_string (fptr, dt.hundredths_of_a_second,
                HUNDREDTHS_OF_A_SECOND_FIELD_LEN);
-  size_t bytes_read = fread (&dt.time_zone_offset, sizeof (uint8_t), 1, fptr);
-  if (bytes_read != sizeof (uint8_t))
-    {
-      handle_fread_error (fptr, bytes_read, sizeof (uint8_t));
-    }
+  dt.time_zone_offset = read_single_uint8 (fptr);
 
   return dt;
 }
@@ -151,4 +149,47 @@ uint16_t
 change_endianness_uint16 (uint16_t value)
 {
   return (value << 8) | (value >> 8);
+}
+
+dir_datetime
+read_dir_datetime (FILE *fptr)
+{
+  dir_datetime dt;
+  dt.year = read_single_uint8 (fptr);
+  dt.month = read_single_uint8 (fptr);
+  dt.day = read_single_uint8 (fptr);
+  dt.hour = read_single_uint8 (fptr);
+  dt.minute = read_single_uint8 (fptr);
+  dt.second = read_single_uint8 (fptr);
+  dt.time_zone_offset = read_single_uint8 (fptr);
+
+  return dt;
+}
+
+void
+read_file_flags (FILE *fptr, file_flags *ff)
+{
+  uint8_t byte = read_single_uint8 (fptr);
+
+  if (byte & 0x1)
+    {
+      ff->hidden = true;
+    }
+  if (byte & 0x2)
+    {
+      ff->subdirectory = true;
+    }
+  if (byte & 0x3)
+    {
+      ff->associated_file = true;
+    }
+  if (byte & 0x4)
+    {
+      ff->extended_attribute_record_contains_owner_and_group_permissions
+          = true;
+    }
+  if (byte & 0x8)
+    {
+      ff->final_directory_record = true;
+    }
 }

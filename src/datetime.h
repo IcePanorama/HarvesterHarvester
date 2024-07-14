@@ -37,5 +37,6 @@ typedef struct dir_datetime
 } dir_datetime;
 
 void print_dec_datetime (dec_datetime dt);
+void print_dir_datetime (dir_datetime dt);
 
 #endif
