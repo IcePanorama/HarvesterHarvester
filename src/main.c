@@ -4,8 +4,9 @@
 #include <stdlib.h>
 
 #include "errors.h"
-#include "volume_descriptor.h"
+#include "path_table.h"
 #include "utils.h"
+#include "volume_descriptor.h"
 /* clang-format on */
 
 #define BYTES_TO_READ 32
@@ -83,6 +84,15 @@ process_DAT_file (FILE *fptr)
          SEEK_SET);
 
   print_some_data_from_file (fptr);
+
+  path_table pt;
+  if (create_path_table (&pt) != 0)
+    {
+      fclose (fptr);
+      exit (1);
+    }
+
+  destroy_path_table (&pt);
 }
 
 void

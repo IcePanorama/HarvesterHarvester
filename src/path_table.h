@@ -20,4 +20,7 @@ typedef struct path_table
   size_t size;
 } path_table;
 
+int8_t create_path_table (path_table *pt);
+void destroy_path_table (path_table *pt);
+
 #endif
