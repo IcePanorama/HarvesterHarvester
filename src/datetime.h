@@ -1,7 +1,6 @@
 #ifndef _DEC_DATETIME_H_
 #define _DEC_DATETIME_H_
 
-#include <cstdint>
 #include <stdint.h>
 
 #define YEAR_FIELD_LEN 5

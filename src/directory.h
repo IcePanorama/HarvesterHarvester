@@ -1,8 +1,8 @@
 #ifndef _DIRECTORY_H_
 #define _DIRECTORY_H_
 
-#include <stdlib.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 typedef struct directory_record
 {
