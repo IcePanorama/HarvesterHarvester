@@ -1,6 +1,7 @@
 #ifndef _DEC_DATETIME_H_
 #define _DEC_DATETIME_H_
 
+#include <cstdint>
 #include <stdint.h>
 
 #define YEAR_FIELD_LEN 5
@@ -23,6 +24,18 @@ typedef struct dec_datetime
   char hundredths_of_a_second[3];
   uint8_t time_zone_offset;
 } dec_datetime;
+
+// See: https://wiki.osdev.org/ISO_9660#Directories
+typedef struct dir_datetime
+{
+  uint8_t year; // number of years since 1900
+  uint8_t month;
+  uint8_t day;
+  uint8_t hour;
+  uint8_t minute;
+  uint8_t second;
+  uint8_t time_zone_offset;
+} dir_datetime;
 
 void print_dec_datetime (dec_datetime dt);
 

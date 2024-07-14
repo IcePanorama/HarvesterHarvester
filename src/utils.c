@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "dec_datetime.h"
+#include "datetime.h"
 #include "errors.h"
 #include "utils.h"
 /* clang-format on */

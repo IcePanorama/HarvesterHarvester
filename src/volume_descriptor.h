@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "dec_datetime.h"
+#include "datetime.h"
 /* clang-format on */
 
 #define SYSTEM_IDENTIFIER_LEN 33
