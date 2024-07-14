@@ -58,7 +58,6 @@ process_DAT_file (FILE *fptr)
 
   volume_descriptor vd;
   process_volume_descriptor_header (fptr, &vd);
-  // print_volume_descriptor_header (&vd);
 
   // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
@@ -72,7 +71,8 @@ process_DAT_file (FILE *fptr)
     }
 
   process_volume_descriptor_data (fptr, &vd.data);
-  // print_volume_descriptor_data (&vd.data);
+
+  // TODO: print the volume descriptor header/data to some file/log.
 
   // logical block size in big endian form
   uint16_t logical_block_size_be
