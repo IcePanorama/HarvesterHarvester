@@ -147,3 +147,9 @@ read_single_uint8 (FILE *fptr)
     }
   return value;
 }
+
+uint16_t
+change_endianness_uint16 (uint16_t value)
+{
+  return (value << 8) | (value >> 8);
+}

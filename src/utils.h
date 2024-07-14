@@ -11,5 +11,6 @@ void read_string (FILE *fptr, char *output, uint8_t length);
 void read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length);
 struct dec_datetime read_dec_datetime (FILE *fptr);
 uint8_t read_single_uint8 (FILE *fptr);
+uint16_t change_endianness_uint16 (uint16_t value);
 
 #endif

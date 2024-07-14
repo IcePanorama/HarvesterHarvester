@@ -58,7 +58,7 @@ process_DAT_file (FILE *fptr)
 
   volume_descriptor vd;
   process_volume_descriptor_header (fptr, &vd);
-  print_volume_descriptor_header (&vd);
+  // print_volume_descriptor_header (&vd);
 
   // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
@@ -72,7 +72,17 @@ process_DAT_file (FILE *fptr)
     }
 
   process_volume_descriptor_data (fptr, &vd.data);
-  print_volume_descriptor_data (&vd.data);
+  // print_volume_descriptor_data (&vd.data);
+
+  // logical block size in big endian form
+  uint16_t logical_block_size_be
+      = change_endianness_uint16 (vd.data.logical_block_size);
+
+  // Beginning of type-l path table
+  fseek (fptr, logical_block_size_be * vd.data.type_l_path_table_location,
+         SEEK_SET);
+
+  print_some_data_from_file (fptr);
 }
 
 void
