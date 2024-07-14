@@ -18,6 +18,7 @@ create_volume_descriptor (volume_descriptor *vd, uint8_t type_code,
 void
 print_volume_descriptor_header (volume_descriptor *vd)
 {
-  printf ("%02x - %s (ver: %02x)\n", vd->type_code, vd->identifier,
-          vd->version);
+  printf ("Volume descriptor type code: %02x\n", vd->type_code);
+  printf ("Volume descriptor identifier: %s\n", vd->identifier);
+  printf ("Volume descriptor version: %02x\n", vd->version);
 }
