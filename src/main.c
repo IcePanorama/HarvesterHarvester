@@ -93,6 +93,13 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
+  printf ("Logical block size: %04X\n", logical_block_size_be);
+
+  // The first directory
+  fseek (fptr, logical_block_size_be * pt.entries[0].location_of_extent,
+         SEEK_SET);
+  print_some_data_from_file (fptr);
+
   destroy_path_table (&pt);
 }
 
@@ -252,6 +259,4 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
         dir_identifier_length = read_single_uint8 (fptr);
     }
   while (dir_identifier_length != 0);
-
-  print_path_table (pt);
 }
