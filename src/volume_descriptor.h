@@ -18,6 +18,8 @@
 #define COPYRIGHT_FILE_IDENTIFIER_LEN 38
 #define ABSTRACT_FILE_IDENTIFIER_LEN 38
 #define BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN 38
+#define DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN 9
+#define DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN 11
 
 // See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
 typedef struct volume_descriptor_data
@@ -34,18 +36,22 @@ typedef struct volume_descriptor_data
   uint32_t type_m_path_table_location;
   uint32_t optional_type_m_path_table_location;
   uint8_t root_directory_entry[ROOT_DIRECTORY_ENTRY_LEN];
-  char volume_set_identifier[129];
-  char publisher_identifier[129];
-  char data_preparer_identifier[129];
-  char application_identifier[129];
-  char copyright_file_identifier[38];
-  char abstract_file_identifier[38];
-  char bibliographic_file_identifier[38];
+  char volume_set_identifier[VOLUME_SET_IDENTIFIER_LEN];
+  char publisher_identifier[PUBLISHER_IDENTIFIER_LEN];
+  char data_preparer_identifier[DATA_PREPARER_IDENTIFIER_LEN];
+  char application_identifier[APPLICATION_IDENTIFIER_LEN];
+  char copyright_file_identifier[COPYRIGHT_FILE_IDENTIFIER_LEN];
+  char abstract_file_identifier[ABSTRACT_FILE_IDENTIFIER_LEN];
+  char bibliographic_file_identifier[BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN];
   dec_datetime volume_creation_date_and_time;
   dec_datetime volume_modification_date_and_time;
   dec_datetime volume_expiration_date_and_time;
   dec_datetime volume_effective_date_and_time;
   uint8_t file_structure_version; // always `0x01`
+  char DAT_file_creation_software_identifier
+      [DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN];
+  char DAT_file_creation_software_version_number
+      [DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN];
 } volume_descriptor_data;
 
 // See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors
@@ -60,5 +66,6 @@ typedef struct volume_descriptor
 void create_volume_descriptor (volume_descriptor *vd, uint8_t type,
                                uint8_t version);
 void print_volume_descriptor_header (volume_descriptor *vd);
+void print_volume_descriptor_data (volume_descriptor_data *vdd);
 
 #endif

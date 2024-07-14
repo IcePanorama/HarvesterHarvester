@@ -6,7 +6,6 @@
 #include "errors.h"
 #include "volume_descriptor.h"
 #include "utils.h"
-#include "dec_datetime.h"
 /* clang-format on */
 
 #define BYTES_TO_READ 32
@@ -57,8 +56,6 @@ process_DAT_file (FILE *fptr)
    */
   fseek (fptr, 0x8000, SEEK_SET);
 
-  print_some_data_from_file (fptr);
-
   volume_descriptor vd;
   process_volume_descriptor_header (fptr, &vd);
   print_volume_descriptor_header (&vd);
@@ -75,6 +72,7 @@ process_DAT_file (FILE *fptr)
     }
 
   process_volume_descriptor_data (fptr, &vd.data);
+  print_volume_descriptor_data (&vd.data);
 }
 
 void
@@ -98,23 +96,11 @@ print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
 void
 process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
 {
-  uint8_t descriptor_type;
-  size_t bytes_read = fread (&descriptor_type, sizeof (uint8_t), 1, fptr);
-  if (bytes_read != sizeof (uint8_t))
-    {
-      handle_fread_error (fptr, bytes_read, sizeof (uint8_t));
-    }
+  uint8_t descriptor_type = read_single_uint8 (fptr);
 
-  // Identifier is always CD001, so we just skip it.
-  // See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors
   fseek (fptr, 5, SEEK_CUR);
 
-  uint8_t descriptor_ver;
-  bytes_read = fread (&descriptor_ver, sizeof (uint8_t), 1, fptr);
-  if (bytes_read != sizeof (uint8_t))
-    {
-      handle_fread_error (fptr, bytes_read, sizeof (uint8_t));
-    }
+  uint8_t descriptor_ver = read_single_uint8 (fptr);
 
   create_volume_descriptor (vd, descriptor_type, descriptor_ver);
 }
@@ -137,6 +123,7 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
   vdd->volume_sequence_number = read_both_endian_data_uint16 (fptr);
   vdd->logical_block_size = read_both_endian_data_uint16 (fptr);
   vdd->path_table_size = read_both_endian_data_uint32 (fptr);
+
   vdd->type_l_path_table_location = read_little_endian_data_uint32_t (fptr);
   vdd->optional_type_l_path_table_location
       = read_little_endian_data_uint32_t (fptr);
@@ -158,34 +145,28 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
   read_string (fptr, vdd->bibliographic_file_identifier,
                BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN);
 
-  printf ("System identifier: %s\n", vdd->system_identifier);
-  printf ("Volume identifier: %s\n", vdd->volume_identifier);
-  printf ("Vol space size: %08X\n", vdd->volume_space_size);
-  printf ("Vol set size: %04X\n", vdd->volume_set_size);
-  printf ("Vol sequence size: %04X\n", vdd->volume_sequence_number);
-  printf ("Logical block size: %04X\n", vdd->logical_block_size);
-  printf ("Path table size: %08X\n", vdd->path_table_size);
-  printf ("Type-L path table location: %08X\n",
-          vdd->type_l_path_table_location);
-  printf ("Optional Type-L path table location: %08X\n",
-          vdd->optional_type_l_path_table_location);
-  printf ("Type-M path table location: %08X\n",
-          vdd->type_m_path_table_location);
-  printf ("Optional Type-M path table location: %08X\n",
-          vdd->optional_type_m_path_table_location);
-  printf ("Volume set identifier: %s\n", vdd->volume_set_identifier);
-  printf ("Publisher identifier: %s\n", vdd->publisher_identifier);
-  printf ("Data preparer identifier: %s\n", vdd->data_preparer_identifier);
-  printf ("Application identifier: %s\n", vdd->application_identifier);
-  printf ("Copyright file identifier: %s\n", vdd->copyright_file_identifier);
-  printf ("Abstract file identifier: %s\n", vdd->abstract_file_identifier);
-  printf ("Bibliographic file identifier: %s\n",
-          vdd->bibliographic_file_identifier);
-
-  print_some_data_from_file (fptr);
   vdd->volume_creation_date_and_time = read_dec_datetime (fptr);
-  printf ("Volume creation date and time: ");
-  print_dec_datetime (vdd->volume_creation_date_and_time);
+  vdd->volume_modification_date_and_time = read_dec_datetime (fptr);
+  vdd->volume_expiration_date_and_time = read_dec_datetime (fptr);
+  vdd->volume_effective_date_and_time = read_dec_datetime (fptr);
+
+  vdd->file_structure_version = read_single_uint8 (fptr);
+
+  fseek (fptr, 1, SEEK_CUR); // Unused byte
+
+  read_string (fptr, vdd->DAT_file_creation_software_identifier,
+               DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN);
+
+  fseek (fptr, 1, SEEK_CUR); // Unused byte
+
+  read_string (fptr, vdd->DAT_file_creation_software_version_number,
+               DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN);
+
+  fseek (fptr, 1, SEEK_CUR); // Unused byte
+
+  fseek (fptr, 0x1EC, SEEK_CUR); // Unknown data (492 bytes)
+
+  fseek (fptr, 0x28D, SEEK_CUR); // Reserved by ISO
 }
 
 void

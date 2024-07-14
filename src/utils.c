@@ -135,3 +135,15 @@ read_dec_datetime (FILE *fptr)
 
   return dt;
 }
+
+uint8_t
+read_single_uint8 (FILE *fptr)
+{
+  uint8_t value;
+  size_t bytes_read = fread (&value, sizeof (uint8_t), 1, fptr);
+  if (bytes_read != sizeof (uint8_t))
+    {
+      handle_fread_error (fptr, bytes_read, sizeof (uint8_t));
+    }
+  return value;
+}
