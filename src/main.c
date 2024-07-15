@@ -11,8 +11,6 @@
 #include "volume_descriptor.h"
 /* clang-format on */
 
-#define BYTES_TO_READ 32
-
 FILE *setup_extractor (int argc, char **argv);
 void process_DAT_file (FILE *fptr);
 void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
@@ -222,6 +220,8 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 
   fseek (fptr, 0x28D, SEEK_CUR); // Reserved by ISO
 }
+
+#define BYTES_TO_READ 32
 
 void
 print_some_data_from_file (FILE *fptr)
