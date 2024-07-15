@@ -98,20 +98,24 @@ process_DAT_file (FILE *fptr)
 
   printf ("Logical block size: %04X\n", LOGICAL_BLOCK_SIZE_BE);
 
-  // The first directory
-  directory dir;
-  if (create_directory (&dir) != 0)
+  directory *directories = calloc (pt.current_entry, sizeof (directory));
+  for (size_t i = 0; i < pt.current_entry; i++)
     {
-      fclose (fptr);
-      exit (1);
-      return;
+      if (create_directory (&directories[i]) != 0)
+        {
+          fclose (fptr);
+          exit (1);
+          return;
+        }
+
+      fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[i].location_of_extent,
+             SEEK_SET);
+      process_directory (fptr, &directories[i]);
     }
 
-  fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[0].location_of_extent,
-         SEEK_SET);
-  process_directory (fptr, &dir);
-
-  destroy_directory (&dir);
+  for (size_t i = 0; i < pt.current_entry; i++)
+    destroy_directory (&directories[i]);
+  free (directories);
 
   destroy_path_table (&pt);
 }
@@ -277,8 +281,6 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
 void
 process_directory (FILE *fptr, directory *d)
 {
-  print_some_data_from_file (fptr);
-
   uint8_t single_byte = read_single_uint8 (fptr);
   do
     {
