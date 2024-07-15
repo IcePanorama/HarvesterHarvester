@@ -5,6 +5,7 @@ SRC_FILES=$(SRC_DIR)/*.c
 INCL_FILES=$(SRC_DIR)/*.h
 LIBS=
 TARGET=main
+OUTPUT=output/*
 CFLAGS=-std=c99 -Wpedantic -Wextra -Werror -Wall -Wstrict-aliasing=3 -Wwrite-strings -Wvla -Wcast-align=strict -Wstrict-prototypes -Wstringop-overflow=4 -Wshadow -fanalyzer
 STYLE=GNU
 
@@ -20,6 +21,7 @@ test: $(TARGET)
 
 clean:
 	-@rm $(TARGET) 2>/dev/null || true
+	-@rm $(OUTPUT) 2>/dev/null || true
 
 format: 
 	clang-format -style=$(STYLE) -i $(SRC_FILES) $(INCL_FILES)
