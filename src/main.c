@@ -11,7 +11,8 @@
 #include "volume_descriptor.h"
 /* clang-format on */
 
-FILE *setup_extractor (int argc, char **argv);
+/* function prototypes */
+FILE * setup_extractor (char *filename);
 void process_DAT_file (FILE *fptr);
 void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
 void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
@@ -19,11 +20,15 @@ void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 void print_some_data_from_file (FILE *fptr);
 void process_type_l_path_table (FILE *fptr, path_table *pt);
 void process_directory (FILE *fptr, directory *d);
+/**********************/
 
 int
 main (int argc, char **argv)
 {
-  FILE *fptr = setup_extractor (argc, argv);
+  if (argc < 2)
+    improper_usage_error ();
+
+  FILE *fptr = setup_extractor (argv[1]);
 
   process_DAT_file (fptr);
 
@@ -31,16 +36,28 @@ main (int argc, char **argv)
   return 0;
 }
 
-FILE *
-setup_extractor (int argc, char **argv)
+/*
+ *  setup_extractor
+ *
+ *  Creates a `FILE *` for the given `filename`, handling error messages as
+ *  needed.
+ *  In the future, this function will be used to search the `dat files`
+ *  directory and automatically prepare the necessary pointers for whatever
+ *  files it is passed. Additionally, this function will also be used to handle
+ *  commandline arguements from users.
+ *
+ *  param:
+ *    filename : char * - the name/path of the `HARVEST(X).DAT` file.
+ *  returns:
+ *    FILE * - a pointer to the given file, if it exist.
+ */
+FILE * 
+setup_extractor (char *filename)
 {
-  if (argc < 2)
-    improper_usage_error ();
-
-  FILE *fptr = fopen (argv[1], "rb");
+  FILE *fptr = fopen (filename, "rb");
   if (fptr == NULL)
     {
-      fopen_error (argv[1]);
+      fopen_error (filename);
       // fopen_error has an `exit(1)` in it, but not including this next line
       // produces a `use of NULL ‘fptr’ where non-null expected` Werror.
       exit (1);
@@ -49,6 +66,13 @@ setup_extractor (int argc, char **argv)
   return fptr;
 }
 
+/*
+ *  process_DAT_file
+ *
+ *  TODO: write some better documentation for this.
+ *  In the meantime, please see the comments of all the functions called within
+ *  for more details.
+ */
 void
 process_DAT_file (FILE *fptr)
 {
@@ -75,13 +99,13 @@ process_DAT_file (FILE *fptr)
 
   process_volume_descriptor_data (fptr, &vd.data);
 
-  // TODO: print the volume descriptor header/data to some file/log.
+// TODO: print the volume descriptor header/data to some file/log.
 
-  // logical block size in big endian form
+  // logical block size, in big endian form
   const uint16_t LOGICAL_BLOCK_SIZE_BE
       = change_endianness_uint16 (vd.data.logical_block_size);
 
-  // Beginning of type-l path table
+  // Move to beginning of type-l path table
   fseek (fptr, LOGICAL_BLOCK_SIZE_BE * vd.data.type_l_path_table_location,
          SEEK_SET);
 
@@ -94,6 +118,7 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
+  /* Extract files */
   fseek (fptr, pt.entries[0].location_of_extent * LOGICAL_BLOCK_SIZE_BE,
          SEEK_SET);
   directory dir;
@@ -123,10 +148,22 @@ process_DAT_file (FILE *fptr)
   // FILE *output_file;
   // fopen(const char *restrict filename, "wb");
 
+  /* Clean up */
   destroy_directory (&dir);
   destroy_path_table (&pt);
 }
 
+/*
+ *  print_hex_data
+ *
+ *  Outputs hex data from a given `buffer` to stdout, formatting said data to
+ *  add spaces between bytes, tabs after after every four bytes, and a new line
+ *  after every 16 bytes.
+ *
+ *  param:
+ *    buffer : unsigned char * - a buffer containing hex data.
+ *    BUFFER_LEN : const uint8_t - the size of the data buffer.
+ */
 void
 print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
 {
@@ -145,6 +182,12 @@ print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
   puts ("");
 }
 
+/*
+ *  process_volume_descriptor_header
+ *
+ *  TODO: write some better documentation for this.
+ *  In the meantime, see: https://wiki.osdev.org/ISO_9660#Volume_Descriptors
+ */
 void
 process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
 {
@@ -157,6 +200,13 @@ process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
   create_volume_descriptor (vd, descriptor_type, descriptor_ver);
 }
 
+/*
+ *  process_volume_descriptor_data
+ *
+ *  TODO: write some better documentation for this.
+ *  In the meantime, see:
+ *  https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
+ */
 void
 process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 {
@@ -221,8 +271,13 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
   fseek (fptr, 0x28D, SEEK_CUR); // Reserved by ISO
 }
 
+/*
+ *  print_some_data_from_file
+ *
+ *  Prints out the next `BYTES_TO_READ` many bytes to the stdout, formatted
+ *  properly in order to be easy to read. Useful for debugging.
+ */
 #define BYTES_TO_READ 32
-
 void
 print_some_data_from_file (FILE *fptr)
 {
@@ -236,6 +291,12 @@ print_some_data_from_file (FILE *fptr)
   fseek (fptr, -sizeof (buffer), SEEK_CUR);
 }
 
+/*
+ *  process_type_l_path_table
+ *
+ *  TODO: write some better documentation.
+ *  In the meantime, see: https://wiki.osdev.org/ISO_9660#The_Path_Table
+ */
 void
 process_type_l_path_table (FILE *fptr, path_table *pt)
 {
@@ -287,6 +348,12 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
   while (dir_identifier_length != 0);
 }
 
+/*
+ *  process_directory
+ *
+ *  TODO: write some better documentation.
+ *  In the meantime, see: https://wiki.osdev.org/ISO_9660#Directories
+ */
 void
 process_directory (FILE *fptr, directory *d)
 {
