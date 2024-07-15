@@ -96,27 +96,25 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
-  directory *directories = calloc (pt.current_entry, sizeof (directory));
-  for (size_t i = 0; i < pt.current_entry; i++)
+  fseek (fptr, pt.entries[0].location_of_extent * LOGICAL_BLOCK_SIZE_BE,
+         SEEK_SET);
+  directory dir;
+  create_directory (&dir);
+  process_directory (fptr, &dir);
+
+  // Get first non-subdirectory record (first file)
+  directory_record curr_file;
+  size_t i = 0;
+  do
     {
-      if (create_directory (&directories[i]) != 0)
-        {
-          fclose (fptr);
-          exit (1);
-          return;
-        }
-
-      fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[i].location_of_extent,
-             SEEK_SET);
-      process_directory (fptr, &directories[i]);
+      curr_file = dir.records[i];
+      i++;
     }
+  while (curr_file.file_flags.subdirectory);
 
-  print_directory (&directories[0]);
+  print_directory_record (&curr_file);
 
-  for (size_t i = 0; i < pt.current_entry; i++)
-    destroy_directory (&directories[i]);
-  free (directories);
-
+  destroy_directory (&dir);
   destroy_path_table (&pt);
 }
 
