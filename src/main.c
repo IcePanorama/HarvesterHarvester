@@ -113,6 +113,17 @@ process_DAT_file (FILE *fptr)
   while (curr_file.file_flags.subdirectory);
 
   print_directory_record (&curr_file);
+  fseek (fptr, curr_file.location_of_extent * LOGICAL_BLOCK_SIZE_BE, SEEK_SET);
+  print_some_data_from_file (fptr);
+
+  printf ("Dir identifier: %s\n", pt.entries[0].directory_identifier);
+  // TODO: Finish implementing file extraction.
+  // * find the filename of the substring [start, ';')
+  // * create the new file path (dir identifier + filename)
+  // * write data one bit at a time to "output/[new file path]"
+
+  // FILE *output_file;
+  // fopen(const char *restrict filename, "wb");
 
   destroy_directory (&dir);
   destroy_path_table (&pt);

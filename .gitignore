@@ -1,6 +1,7 @@
 # HarvesterHarvester specific
 main
 HARVEST*
+output/*
 
 # Valgrind
 vgcore.*
