@@ -21,9 +21,7 @@ void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 void print_some_data_from_file (FILE *fptr);
 void process_type_l_path_table (FILE *fptr, path_table *pt);
 void process_directory (FILE *fptr, directory *d);
-int8_t extract_file (FILE *fptr, directory_record *dr,
-                     const uint16_t BLOCK_SIZE,
-                     const char *directory_identifier);
+int8_t extract_file (FILE *fptr, directory_record *dr, const char *directory_identifier);
 /**********************/
 
 int
@@ -138,13 +136,10 @@ process_DAT_file (FILE *fptr)
       i++;
     }
   while (curr_file.file_flags.subdirectory);
-  print_directory_record (&curr_file);
 
   fseek (fptr, curr_file.location_of_extent * LOGICAL_BLOCK_SIZE_BE, SEEK_SET);
-  print_some_data_from_file (fptr);
 
-  if (extract_file (fptr, &curr_file, LOGICAL_BLOCK_SIZE_BE,
-                    (const char *)pt.entries[0].directory_identifier)
+  if (extract_file (fptr, &curr_file, (const char *)pt.entries[0].directory_identifier)
       != 0)
     {
       destroy_directory (&dir);
@@ -398,13 +393,10 @@ process_directory (FILE *fptr, directory *d)
   while (single_byte != 0);
 }
 
-int8_t
-extract_file (FILE *fptr, directory_record *dr, const uint16_t BLOCK_SIZE,
-              const char *directory_identifier)
+int8_t 
+extract_file (FILE *fptr, directory_record *dr, const char *directory_identifier)
 {
   const char *OUTPUT_DIR = "output/";
-
-  fseek (fptr, dr->location_of_extent * BLOCK_SIZE, SEEK_SET);
 
   /*
    *  the `file_identifier` terminates with a `;` character followed by the
