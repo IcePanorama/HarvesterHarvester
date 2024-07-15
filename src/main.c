@@ -127,37 +127,14 @@ process_DAT_file (FILE *fptr)
   fseek (fptr, pt.entries[0].location_of_extent * LOGICAL_BLOCK_SIZE_BE,
          SEEK_SET);
 
-  extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE,
-                     (const char *)pt.entries[0].directory_identifier);
-  /*
-  directory dir;
-  create_directory (&dir);
-  process_directory (fptr, &dir);
-
-  // ignoring subdirectories for the time being.
-  for (size_t i = 0x0; i < dir.current_record; i++)
+  if (extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE,
+                         (const char *)pt.entries[0].directory_identifier)
+      != 0)
     {
-      directory_record curr_file = dir.records[i];
-
-      if (curr_file.file_flags.subdirectory)
-        continue;
-
-      fseek (fptr, curr_file.location_of_extent * LOGICAL_BLOCK_SIZE_BE,
-             SEEK_SET);
-
-      if (extract_file (fptr, &curr_file,
-                        (const char *)pt.entries[0].directory_identifier)
-          != 0)
-        {
-          destroy_directory (&dir);
-          destroy_path_table (&pt);
-          fclose (fptr);
-          exit (1);
-        }
+      destroy_path_table (&pt);
+      fclose (fptr);
+      exit (1);
     }
-
-  destroy_directory (&dir);
-  */
 
   destroy_path_table (&pt);
 }
@@ -480,7 +457,6 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
 
   printf ("Extracting directory: %s\n", dir_identifier);
 
-  // ignoring subdirectories for the time being.
   for (size_t i = 0x0; i < dir.current_record; i++)
     {
       directory_record curr_file = dir.records[i];
@@ -493,8 +469,6 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
       if (extract_file (fptr, &curr_file, dir_identifier) != 0)
         {
           destroy_directory (&dir);
-          // destroy_path_table (&pt);
-          // fclose (fptr);
           return -1;
         }
     }
