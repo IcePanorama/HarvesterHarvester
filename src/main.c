@@ -23,6 +23,8 @@ void process_type_l_path_table (FILE *fptr, path_table *pt);
 void process_directory (FILE *fptr, directory *d);
 int8_t extract_file (FILE *fptr, directory_record *dr,
                      const char *directory_identifier);
+int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
+                          const char *dir_identifier);
 /**********************/
 
 int
@@ -124,6 +126,10 @@ process_DAT_file (FILE *fptr)
   /* Extract files */
   fseek (fptr, pt.entries[0].location_of_extent * LOGICAL_BLOCK_SIZE_BE,
          SEEK_SET);
+
+  extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE,
+                     (const char *)pt.entries[0].directory_identifier);
+  /*
   directory dir;
   create_directory (&dir);
   process_directory (fptr, &dir);
@@ -151,6 +157,8 @@ process_DAT_file (FILE *fptr)
     }
 
   destroy_directory (&dir);
+  */
+
   destroy_path_table (&pt);
 }
 
@@ -418,6 +426,8 @@ extract_file (FILE *fptr, directory_record *dr,
       actual_filename = dr->file_identifier;
     }
 
+  printf ("Extracting file: %s\n", actual_filename);
+
   // +1 for the null terminator
   size_t filename_length = strlen (OUTPUT_DIR) + strlen (directory_identifier)
                            + strlen (actual_filename) + 1;
@@ -457,5 +467,38 @@ extract_file (FILE *fptr, directory_record *dr,
   fclose (output_file);
   free (output_filename);
 
+  return 0;
+}
+
+int8_t
+extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
+                   const char *dir_identifier)
+{
+  directory dir;
+  create_directory (&dir);
+  process_directory (fptr, &dir);
+
+  printf ("Extracting directory: %s\n", dir_identifier);
+
+  // ignoring subdirectories for the time being.
+  for (size_t i = 0x0; i < dir.current_record; i++)
+    {
+      directory_record curr_file = dir.records[i];
+
+      if (curr_file.file_flags.subdirectory)
+        continue;
+
+      fseek (fptr, curr_file.location_of_extent * BLOCK_SIZE, SEEK_SET);
+
+      if (extract_file (fptr, &curr_file, dir_identifier) != 0)
+        {
+          destroy_directory (&dir);
+          // destroy_path_table (&pt);
+          // fclose (fptr);
+          return -1;
+        }
+    }
+
+  destroy_directory (&dir);
   return 0;
 }
