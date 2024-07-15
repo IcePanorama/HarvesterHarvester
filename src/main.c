@@ -21,6 +21,9 @@ void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 void print_some_data_from_file (FILE *fptr);
 void process_type_l_path_table (FILE *fptr, path_table *pt);
 void process_directory (FILE *fptr, directory *d);
+int8_t extract_file (FILE *fptr, directory_record *dr,
+                     const uint16_t BLOCK_SIZE,
+                     const char *directory_identifier);
 /**********************/
 
 int
@@ -135,67 +138,21 @@ process_DAT_file (FILE *fptr)
       i++;
     }
   while (curr_file.file_flags.subdirectory);
-
   print_directory_record (&curr_file);
+
   fseek (fptr, curr_file.location_of_extent * LOGICAL_BLOCK_SIZE_BE, SEEK_SET);
   print_some_data_from_file (fptr);
 
-  // TODO: Finish implementing file extraction.
-  // * find the filename of the substring [0, ';')
-  // * create the new file path (dir identifier + filename)
-  // * write data one bit at a time to "output/[new file path]"
-
-  char *actual_filename
-      = strtok (curr_file.file_identifier, (const char *)";");
-  if (actual_filename == NULL)
+  if (extract_file (fptr, &curr_file, LOGICAL_BLOCK_SIZE_BE,
+                    (const char *)pt.entries[0].directory_identifier)
+      != 0)
     {
-      // just use the default filename
-      actual_filename = curr_file.file_identifier;
-    }
-
-  const char *OUTPUT_DIR = "output/";
-  size_t filename_length = strlen (OUTPUT_DIR)
-                           + strlen (pt.entries[0].directory_identifier)
-                           + strlen (actual_filename) + 1;
-  char *output_filename = (char *)calloc (filename_length, sizeof (char));
-  if (output_filename == NULL)
-    {
-      exit (1);
-    }
-
-  char *tmp = strcpy (output_filename, OUTPUT_DIR);
-  tmp = strcat (output_filename, pt.entries->directory_identifier);
-  tmp = strcat (output_filename, actual_filename);
-  if (tmp == NULL)
-    {
-      free (output_filename);
-      exit (1);
-    }
-
-  printf ("Dir identifier: %s\n", pt.entries[0].directory_identifier);
-  printf ("File identifier: %s\n", curr_file.file_identifier);
-  printf ("Actual filename: %s\n", actual_filename);
-  printf ("Output filename: %s\n", output_filename);
-
-  FILE *output_file = fopen (output_filename, "wb");
-  if (output_file == NULL)
-    {
-      free (output_filename);
       destroy_directory (&dir);
       destroy_path_table (&pt);
+      fclose (fptr);
       exit (1);
     }
 
-  printf ("%08X\n", curr_file.data_length);
-  for (uint32_t j = 0x0; j < curr_file.data_length; j++)
-    {
-      uint8_t byte = read_single_uint8 (fptr);
-      fwrite (&byte, sizeof (uint8_t), 1, output_file);
-    }
-
-  /* Clean up */
-  fclose (output_file);
-  free (output_filename);
   destroy_directory (&dir);
   destroy_path_table (&pt);
 }
@@ -439,4 +396,71 @@ process_directory (FILE *fptr, directory *d)
       single_byte = read_single_uint8 (fptr);
     }
   while (single_byte != 0);
+}
+
+int8_t
+extract_file (FILE *fptr, directory_record *dr, const uint16_t BLOCK_SIZE,
+              const char *directory_identifier)
+{
+  const char *OUTPUT_DIR = "output/";
+
+  fseek (fptr, dr->location_of_extent * BLOCK_SIZE, SEEK_SET);
+
+  /*
+   *  the `file_identifier` terminates with a `;` character followed by the
+   *  file ID number in ASCII coded decimal (`1`).
+   *  See: https://wiki.osdev.org/ISO_9660#Directories
+   */
+  char *actual_filename = strtok (dr->file_identifier, (const char *)";");
+  if (actual_filename == NULL)
+    {
+      /*
+       *  Just use the default/existing filename.
+       *  It'll be incorrect, but probably not worth stoping execution over.
+       *  Users could just manually remove the `;1` part; the data itself
+       * should be fine.
+       */
+      actual_filename = dr->file_identifier;
+    }
+
+  // +1 for the null terminator
+  size_t filename_length = strlen (OUTPUT_DIR) + strlen (directory_identifier)
+                           + strlen (actual_filename) + 1;
+
+  char *output_filename = (char *)calloc (filename_length, sizeof (char));
+  if (output_filename == NULL)
+    {
+      perror ("ERROR: unable to calloc `output_filename`.");
+      return -1;
+    }
+
+  char *tmp = strcpy (output_filename, OUTPUT_DIR);
+  tmp = strcat (output_filename, directory_identifier);
+  tmp = strcat (output_filename, actual_filename);
+  if (tmp == NULL)
+    {
+      perror ("ERROR: unable to construct output filename.");
+      free (output_filename);
+      return -1;
+    }
+
+  FILE *output_file = fopen (output_filename, "wb");
+  if (output_file == NULL)
+    {
+      perror ("ERROR: unable to open output file.");
+      free (output_filename);
+      return -1;
+    }
+
+  // `j` must be in hex, otherwise `data_length` can be treated as an int value
+  for (uint32_t j = 0x0; j < dr->data_length; j++)
+    {
+      uint8_t byte = read_single_uint8 (fptr);
+      fwrite (&byte, sizeof (uint8_t), 1, output_file);
+    }
+
+  fclose (output_file);
+  free (output_filename);
+
+  return 0;
 }
