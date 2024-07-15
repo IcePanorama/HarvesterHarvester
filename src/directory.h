@@ -35,6 +35,7 @@ typedef struct directory
 int8_t create_directory (directory *d);
 void destroy_directory (directory *d);
 void add_record_to_directory (directory *d, directory_record *r);
+void print_directory (directory *d);
 void print_directory_record (directory_record *r);
 
 #endif

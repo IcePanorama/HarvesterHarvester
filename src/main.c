@@ -96,8 +96,6 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
-  printf ("Logical block size: %04X\n", LOGICAL_BLOCK_SIZE_BE);
-
   directory *directories = calloc (pt.current_entry, sizeof (directory));
   for (size_t i = 0; i < pt.current_entry; i++)
     {
@@ -112,6 +110,8 @@ process_DAT_file (FILE *fptr)
              SEEK_SET);
       process_directory (fptr, &directories[i]);
     }
+
+  print_directory (&directories[0]);
 
   for (size_t i = 0; i < pt.current_entry; i++)
     destroy_directory (&directories[i]);
@@ -309,9 +309,6 @@ process_directory (FILE *fptr, directory *d)
         }
 
       add_record_to_directory (d, &dr);
-
-      print_directory_record (&dr);
-      puts ("----------------------------");
 
       if (dr.file_identifier_length % 2 != 0) // handle padding field
         fseek (fptr, 1, SEEK_CUR);
