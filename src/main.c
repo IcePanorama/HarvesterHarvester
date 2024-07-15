@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "datetime.h"
 #include "directory.h"
 #include "errors.h"
 #include "file_flags.h"
@@ -280,25 +279,24 @@ process_directory (FILE *fptr, directory *d)
 {
   print_some_data_from_file (fptr);
 
-  directory_record dr;
-  dr.record_length = read_single_uint8 (fptr);
-  dr.extended_attribute_record_length = read_single_uint8 (fptr);
-  dr.location_of_extent = read_both_endian_data_uint32 (fptr);
-  dr.data_length = read_both_endian_data_uint32 (fptr);
-  dr.recording_datetime = read_dir_datetime (fptr);
-  dr.file_flags = create_file_flags ();
-  read_file_flags (fptr, &dr.file_flags);
-  dr.file_unit_size = read_single_uint8 (fptr);
-  dr.interleave_gap_size = read_single_uint8 (fptr);
-  dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);
-  dr.file_identifier_length = read_single_uint8 (fptr);
-
-  // TODO: combine this and the above malloc'd string function to the utils
-  // file.
-  dr.file_identifier
-      = (char *)calloc (dr.file_identifier_length, sizeof (char));
-  if (dr.file_identifier_length != 1)
+  uint8_t single_byte = read_single_uint8 (fptr);
+  do
     {
+      directory_record dr;
+      dr.record_length = single_byte;
+      dr.extended_attribute_record_length = read_single_uint8 (fptr);
+      dr.location_of_extent = read_both_endian_data_uint32 (fptr);
+      dr.data_length = read_both_endian_data_uint32 (fptr);
+      dr.recording_datetime = read_dir_datetime (fptr);
+      dr.file_flags = create_file_flags ();
+      read_file_flags (fptr, &dr.file_flags);
+      dr.file_unit_size = read_single_uint8 (fptr);
+      dr.interleave_gap_size = read_single_uint8 (fptr);
+      dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);
+      dr.file_identifier_length = read_single_uint8 (fptr) + 1;
+
+      dr.file_identifier
+          = (char *)calloc (dr.file_identifier_length, sizeof (char));
       size_t bytes_read = fread (dr.file_identifier, sizeof (char),
                                  dr.file_identifier_length - 1, fptr);
       dr.file_identifier[dr.file_identifier_length - 1] = '\0';
@@ -307,24 +305,16 @@ process_directory (FILE *fptr, directory *d)
           handle_fread_error (fptr, bytes_read,
                               sizeof (char) * (dr.file_identifier_length - 1));
         }
-    }
-  else
-    {
-      fseek (fptr, 1, SEEK_CUR);
-    }
 
-  printf ("Record length: %02X\n", dr.record_length);
-  printf ("Extended attribute record length: %02X\n",
-          dr.extended_attribute_record_length);
-  printf ("Location of extent: %08X\n", dr.location_of_extent);
-  printf ("Data length: %08X\n", dr.data_length);
-  print_dir_datetime (dr.recording_datetime);
-  print_file_flags (&dr.file_flags);
-  printf ("File unit size: %02X\n", dr.file_unit_size);
-  printf ("Interleave gap size: %02X\n", dr.interleave_gap_size);
-  printf ("Volume sequence number: %04X\n", dr.volume_sequence_number);
-  printf ("File identifier length: %02X\n", dr.file_identifier_length);
-  printf ("File identifier: %s\n", dr.file_identifier);
+      add_record_to_directory (d, &dr);
 
-  add_record_to_directory (d, &dr);
+      print_directory_record (&dr);
+      puts ("----------------------------");
+
+      if (dr.file_identifier_length % 2 != 0) // handle padding field
+        fseek (fptr, 1, SEEK_CUR);
+
+      single_byte = read_single_uint8 (fptr);
+    }
+  while (single_byte != 0);
 }

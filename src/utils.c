@@ -179,16 +179,16 @@ read_file_flags (FILE *fptr, file_flags *ff)
     {
       ff->subdirectory = true;
     }
-  if (byte & 0x3)
+  if (byte & 0x4)
     {
       ff->associated_file = true;
     }
-  if (byte & 0x4)
+  if (byte & 0x8)
     {
       ff->extended_attribute_record_contains_owner_and_group_permissions
           = true;
     }
-  if (byte & 0x8)
+  if (byte & 0x10)
     {
       ff->final_directory_record = true;
     }
