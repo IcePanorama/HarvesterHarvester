@@ -21,7 +21,8 @@ void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 void print_some_data_from_file (FILE *fptr);
 void process_type_l_path_table (FILE *fptr, path_table *pt);
 void process_directory (FILE *fptr, directory *d);
-int8_t extract_file (FILE *fptr, directory_record *dr, const char *directory_identifier);
+int8_t extract_file (FILE *fptr, directory_record *dr,
+                     const char *directory_identifier);
 /**********************/
 
 int
@@ -127,25 +128,26 @@ process_DAT_file (FILE *fptr)
   create_directory (&dir);
   process_directory (fptr, &dir);
 
-  // Get first non-subdirectory record (first file)
-  directory_record curr_file;
-  size_t i = 0;
-  do
+  // ignoring subdirectories for the time being.
+  for (size_t i = 0x0; i < dir.current_record; i++)
     {
-      curr_file = dir.records[i];
-      i++;
-    }
-  while (curr_file.file_flags.subdirectory);
+      directory_record curr_file = dir.records[i];
 
-  fseek (fptr, curr_file.location_of_extent * LOGICAL_BLOCK_SIZE_BE, SEEK_SET);
+      if (curr_file.file_flags.subdirectory)
+        continue;
 
-  if (extract_file (fptr, &curr_file, (const char *)pt.entries[0].directory_identifier)
-      != 0)
-    {
-      destroy_directory (&dir);
-      destroy_path_table (&pt);
-      fclose (fptr);
-      exit (1);
+      fseek (fptr, curr_file.location_of_extent * LOGICAL_BLOCK_SIZE_BE,
+             SEEK_SET);
+
+      if (extract_file (fptr, &curr_file,
+                        (const char *)pt.entries[0].directory_identifier)
+          != 0)
+        {
+          destroy_directory (&dir);
+          destroy_path_table (&pt);
+          fclose (fptr);
+          exit (1);
+        }
     }
 
   destroy_directory (&dir);
@@ -393,8 +395,9 @@ process_directory (FILE *fptr, directory *d)
   while (single_byte != 0);
 }
 
-int8_t 
-extract_file (FILE *fptr, directory_record *dr, const char *directory_identifier)
+int8_t
+extract_file (FILE *fptr, directory_record *dr,
+              const char *directory_identifier)
 {
   const char *OUTPUT_DIR = "output/";
 
