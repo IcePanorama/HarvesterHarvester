@@ -17,7 +17,7 @@ $(TARGET):
 	$(CC) -o $(TARGET) $(SRC_FILES) $(TEST_SRC_FILES) $(CFLAGS) -I./$(INCL_FILES)
 
 test: $(TARGET)
-	valgrind --leak-check=yes ./$(TARGET) $(DAT_DIR)/HARVEST.DAT
+	valgrind --leak-check=yes ./$(TARGET) $(DAT_DIR)/HARVEST.DAT --debug
 
 clean:
 	-@rm $(TARGET) 2>/dev/null || true

@@ -1,4 +1,5 @@
 /* clang-format off */
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,13 +26,20 @@ int8_t extract_file (FILE *fptr, directory_record *dr,
                      const char *directory_identifier);
 int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
                           const char *dir_identifier);
+void handle_command_line_args (int argc, char **argv);
+void handle_unknown_command_line_argument_error (char *arg);
 /**********************/
+
+static bool debug_mode = true;
 
 int
 main (int argc, char **argv)
 {
   if (argc < 2)
     improper_usage_error ();
+
+  if (argc >= 3)
+    handle_command_line_args (argc, argv);
 
   FILE *fptr = setup_extractor (argv[1]);
 
@@ -451,6 +459,9 @@ int8_t
 extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
                    const char *dir_identifier)
 {
+  // 0xF00000 == 15 MiB
+  const uint32_t DEBUG_FILE_SIZE_LIMIT = 0xF00000;
+
   directory dir;
   create_directory (&dir);
   process_directory (fptr, &dir);
@@ -462,7 +473,15 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
       directory_record curr_file = dir.records[i];
 
       if (curr_file.file_flags.subdirectory)
-        continue;
+        {
+          continue;
+        }
+      else if (debug_mode && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)
+        {
+          printf ("[DEBUG_MODE] Skipping file, %s.\n",
+                  curr_file.file_identifier);
+          continue;
+        }
 
       fseek (fptr, curr_file.location_of_extent * BLOCK_SIZE, SEEK_SET);
 
@@ -475,4 +494,36 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
 
   destroy_directory (&dir);
   return 0;
+}
+
+/*
+ *  handle_command_line_args
+ *
+ *  TODO: add documentation
+ */
+void
+handle_command_line_args (int argc, char **argv)
+{
+  for (int i = 2; i < argc; i++)
+    {
+      if (strcmp (argv[i], "--debug") == 0)
+        {
+          debug_mode = true;
+        }
+      else if (strcmp (argv[i], "--help") == 0)
+        {
+          // TODO: print out a list of possible command-line args
+        }
+      else
+        {
+          handle_unknown_command_line_argument_error (argv[i]);
+        }
+    }
+}
+
+void
+handle_unknown_command_line_argument_error (char *arg)
+{
+  printf ("ERROR: unknown command-line argument, %s.\n", arg);
+  exit (1);
 }
