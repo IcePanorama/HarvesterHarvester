@@ -133,8 +133,7 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
-  // int64_t is probably over kill, but just to be safe.
-  for (int64_t i = pt.current_entry - 1; i >= 0; i--)
+  for (size_t i = pt.current_entry - 1; i > 0; --i)
     {
       path_table_entry curr_dir = pt.entries[i];
       // path_table_entry target_dir = curr_dir;
