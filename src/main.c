@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 #include "directory.h"
 #include "errors.h"
@@ -31,6 +32,7 @@ void handle_unknown_command_line_argument_error (char *arg);
 /**********************/
 
 static bool debug_mode = true;
+static const char *OUTPUT_DIR = "output/";
 
 int
 main (int argc, char **argv)
@@ -131,17 +133,19 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
-  /* Extract files */
-  fseek (fptr, pt.entries[0].location_of_extent * LOGICAL_BLOCK_SIZE_BE,
-         SEEK_SET);
-
-  if (extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE,
-                         (const char *)pt.entries[0].directory_identifier)
-      != 0)
+  for (size_t i = 0; i < pt.current_entry; i++)
     {
-      destroy_path_table (&pt);
-      fclose (fptr);
-      exit (1);
+      fseek (fptr, pt.entries[i].location_of_extent * LOGICAL_BLOCK_SIZE_BE,
+             SEEK_SET);
+
+      if (extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE,
+                             (const char *)pt.entries[i].directory_identifier)
+          != 0)
+        {
+          destroy_path_table (&pt);
+          fclose (fptr);
+          exit (1);
+        }
     }
 
   destroy_path_table (&pt);
@@ -392,8 +396,6 @@ int8_t
 extract_file (FILE *fptr, directory_record *dr,
               const char *directory_identifier)
 {
-  const char *OUTPUT_DIR = "output/";
-
   /*
    *  the `file_identifier` terminates with a `;` character followed by the
    *  file ID number in ASCII coded decimal (`1`).
@@ -413,9 +415,9 @@ extract_file (FILE *fptr, directory_record *dr,
 
   printf ("Extracting file: %s\n", actual_filename);
 
-  // +1 for the null terminator
+  // +1 for the null terminator, +1 for `/` after directory identifier
   size_t filename_length = strlen (OUTPUT_DIR) + strlen (directory_identifier)
-                           + strlen (actual_filename) + 1;
+                           + strlen (actual_filename) + 2;
 
   char *output_filename = (char *)calloc (filename_length, sizeof (char));
   if (output_filename == NULL)
@@ -424,15 +426,16 @@ extract_file (FILE *fptr, directory_record *dr,
       return -1;
     }
 
-  char *tmp = strcpy (output_filename, OUTPUT_DIR);
-  tmp = strcat (output_filename, directory_identifier);
-  tmp = strcat (output_filename, actual_filename);
-  if (tmp == NULL)
+  strcpy (output_filename, OUTPUT_DIR);
+  strcat (output_filename, directory_identifier);
+
+  if ((strcmp (directory_identifier, "") != 0)
+      && (strcmp (directory_identifier, "\1") != 0))
     {
-      perror ("ERROR: unable to construct output filename.");
-      free (output_filename);
-      return -1;
+      strcat (output_filename, "/");
     }
+
+  strcat (output_filename, actual_filename);
 
   FILE *output_file = fopen (output_filename, "wb");
   if (output_file == NULL)
@@ -474,6 +477,41 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
 
       if (curr_file.file_flags.subdirectory)
         {
+          if ((strcmp (curr_file.file_identifier, "") == 0)
+              || (strcmp (curr_file.file_identifier, "\1") == 0))
+            {
+              continue;
+            }
+
+          char *folder_name = malloc (sizeof (char)
+                                      * (strlen (curr_file.file_identifier)
+                                         + strlen (OUTPUT_DIR) + 2));
+          if (folder_name == NULL)
+            {
+              printf ("ERROR: unable to create folder %s.",
+                      curr_file.file_identifier);
+              return -1;
+            }
+
+          strcpy (folder_name, OUTPUT_DIR);
+          strcat (folder_name, "/");
+          strcat (folder_name, curr_file.file_identifier);
+
+          // TODO: test me on Windows
+          int status;
+#ifdef _WIN32
+          status = _mkdir (folder_name);
+#else
+          status = mkdir (folder_name, 0700);
+#endif
+          free (folder_name);
+          if (status != 0)
+            {
+              printf ("ERROR: failed to create directory, %s\n",
+                      curr_file.file_identifier);
+              destroy_directory (&dir);
+              return -1;
+            }
           continue;
         }
       else if (debug_mode && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)
@@ -521,6 +559,11 @@ handle_command_line_args (int argc, char **argv)
     }
 }
 
+/*
+ *  handle_unknown_command_line_argument_error
+ *
+ *  TODO: add documentation.
+ */
 void
 handle_unknown_command_line_argument_error (char *arg)
 {

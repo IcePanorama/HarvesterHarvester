@@ -21,7 +21,7 @@ test: $(TARGET)
 
 clean:
 	-@rm $(TARGET) 2>/dev/null || true
-	-@rm $(OUTPUT) 2>/dev/null || true
+	-@rm -rf $(OUTPUT) 2>/dev/null || true
 
 format: 
 	clang-format -style=$(STYLE) -i $(SRC_FILES) $(INCL_FILES)
