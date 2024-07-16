@@ -30,3 +30,15 @@ handle_fread_error (FILE *fptr, size_t actual, size_t expected_bytes)
   fclose (fptr);
   exit (1);
 }
+
+/*
+ *  handle_unknown_command_line_argument_error
+ *
+ *  TODO: add documentation.
+ */
+void
+handle_unknown_command_line_argument_error (char *arg)
+{
+  printf ("ERROR: unknown command-line argument, %s.\n", arg);
+  exit (1);
+}

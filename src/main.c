@@ -9,6 +9,7 @@
 #include "directory.h"
 #include "errors.h"
 #include "file_flags.h"
+#include "options.h"
 #include "output.h"
 #include "path_table.h"
 #include "utils.h"
@@ -25,15 +26,10 @@ void process_directory (FILE *fptr, directory *d);
 int8_t extract_file (FILE *fptr, directory_record *dr, const char *path);
 int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
                           const char *path);
-void handle_command_line_args (int argc, char **argv);
-void handle_unknown_command_line_argument_error (char *arg);
 void create_directories_and_extract_data_from_path_file (FILE *fptr,
                                                          uint16_t BLOCK_SIZE,
                                                          path_table *pt);
 /**********************/
-
-static bool debug_mode = false;
-static bool separate_outputs = false;
 
 int
 main (int argc, char **argv)
@@ -340,6 +336,11 @@ process_directory (FILE *fptr, directory *d)
   while (single_byte != 0);
 }
 
+/*
+ *  extract_file
+ *
+ *  TODO: add documentation
+ */
 int8_t
 extract_file (FILE *fptr, directory_record *dr, const char *path)
 {
@@ -397,6 +398,11 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
   return 0;
 }
 
+/*
+ *  extract_directory
+ *
+ *  TODO: add documentation
+ */
 int8_t
 extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
 {
@@ -438,46 +444,10 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
 }
 
 /*
- *  handle_command_line_args
+ *  create_directories_and_extract_data_from_path_file
  *
  *  TODO: add documentation
  */
-void
-handle_command_line_args (int argc, char **argv)
-{
-  for (int i = 2; i < argc; i++)
-    {
-      if (strcmp (argv[i], "--debug") == 0)
-        {
-          debug_mode = true;
-        }
-      else if (strcmp (argv[i], "--separate") == 0)
-        {
-          separate_outputs = true;
-        }
-      else if (strcmp (argv[i], "--help") == 0)
-        {
-          // TODO: print out a list of possible command-line args
-        }
-      else
-        {
-          handle_unknown_command_line_argument_error (argv[i]);
-        }
-    }
-}
-
-/*
- *  handle_unknown_command_line_argument_error
- *
- *  TODO: add documentation.
- */
-void
-handle_unknown_command_line_argument_error (char *arg)
-{
-  printf ("ERROR: unknown command-line argument, %s.\n", arg);
-  exit (1);
-}
-
 void
 create_directories_and_extract_data_from_path_file (FILE *fptr,
                                                     uint16_t BLOCK_SIZE,
