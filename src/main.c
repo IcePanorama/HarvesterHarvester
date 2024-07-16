@@ -30,14 +30,9 @@ int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
                           const char *dir_identifier);
 void handle_command_line_args (int argc, char **argv);
 void handle_unknown_command_line_argument_error (char *arg);
-/*
-void create_output_directories (char *path);
-bool directory_exists (const char *dir);
-*/
 /**********************/
 
 static bool debug_mode = true;
-// static const char *OUTPUT_DIR = "output";
 
 int
 main (int argc, char **argv)
@@ -138,62 +133,45 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
-  // print_path_table (&pt);
-
-  fseek (fptr,
-         pt.entries[pt.current_entry - 1].location_of_extent
-             * LOGICAL_BLOCK_SIZE_BE,
-         SEEK_SET);
-
-  // build path to dir
-  path_table_entry curr_dir = pt.entries[pt.current_entry - 1];
-
-  // supports 10 levels of directories which is probably overkill.
-  const uint32_t PATH_MAX_LEN
-      = ((curr_dir.directory_identifier_length + 1) * 10)
-        + (strlen (OUTPUT_DIR) + 1) + 1;
-  char *path = calloc (PATH_MAX_LEN, sizeof (char));
-  if (path == NULL)
+  // int64_t is probably over kill, but just to be safe.
+  for (int64_t i = pt.current_entry - 1; i >= 0; i--)
     {
-      perror ("ERROR: unable to calloc path string");
-      destroy_path_table (&pt);
-      exit (1);
-    }
+      path_table_entry curr_dir = pt.entries[i];
+      // path_table_entry target_dir = curr_dir;
 
-  strcat (path, curr_dir.directory_identifier);
-
-  do
-    {
-      uint16_t i = change_endianness_uint16 (curr_dir.parent_directory_number);
-      curr_dir = pt.entries[i - 1]; // parent_directory_number is 1-based
-
-      /* path = dir_ID + path; */
-      char *tmp = calloc (PATH_MAX_LEN, sizeof (char));
-      if (tmp == NULL)
+      // supports 10 levels of directories which is probably overkill.
+      const uint32_t PATH_MAX_LEN
+          = ((curr_dir.directory_identifier_length + 1) * 10)
+            + (strlen (OUTPUT_DIR) + 1) + 1;
+      char *path = calloc (PATH_MAX_LEN, sizeof (char));
+      if (path == NULL)
         {
-          perror ("ERROR: unable to calloc tmp string");
+          perror ("ERROR: unable to calloc path string");
           destroy_path_table (&pt);
           exit (1);
         }
-      strcpy (tmp, path);
-      strcpy (path, curr_dir.directory_identifier);
-      strcat (path, "/");
-      strcat (path, tmp);
-      free (tmp);
 
-      printf ("Dir ID: %s\n", curr_dir.directory_identifier);
-      printf ("Path: %s\n", path);
+      strcat (path, curr_dir.directory_identifier);
+
+      do
+        {
+          uint16_t index
+              = change_endianness_uint16 (curr_dir.parent_directory_number);
+          curr_dir
+              = pt.entries[index - 1]; // parent_directory_number is 1-based
+
+          prepend_path_string (path,
+                               (const char *)curr_dir.directory_identifier);
+
+          printf ("Dir ID: %s\n", curr_dir.directory_identifier);
+          printf ("Path: %s\n", path);
+        }
+      while (curr_dir.parent_directory_number > 0x0100);
+
+      create_output_directories (path);
+
+      free (path);
     }
-  while (curr_dir.parent_directory_number > 0x0100);
-
-  create_output_directories (path);
-
-  free (path);
-  directory dir;
-  create_directory (&dir);
-  process_directory (fptr, &dir);
-
-  destroy_directory (&dir);
 
   destroy_path_table (&pt);
 }

@@ -10,7 +10,7 @@ typedef struct path_table_entry
   uint8_t directory_identifier_length;
   uint8_t extended_attribute_record_length;
   uint32_t location_of_extent;
-  uint16_t parent_directory_number;
+  uint16_t parent_directory_number; // 1-based
   char *directory_identifier;
 } path_table_entry;
 
