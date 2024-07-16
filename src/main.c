@@ -9,6 +9,7 @@
 #include "directory.h"
 #include "errors.h"
 #include "file_flags.h"
+#include "output.h"
 #include "path_table.h"
 #include "utils.h"
 #include "volume_descriptor.h"
@@ -29,12 +30,14 @@ int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
                           const char *dir_identifier);
 void handle_command_line_args (int argc, char **argv);
 void handle_unknown_command_line_argument_error (char *arg);
+/*
 void create_output_directories (char *path);
 bool directory_exists (const char *dir);
+*/
 /**********************/
 
 static bool debug_mode = true;
-static const char *OUTPUT_DIR = "output";
+// static const char *OUTPUT_DIR = "output";
 
 int
 main (int argc, char **argv)
@@ -620,6 +623,7 @@ handle_unknown_command_line_argument_error (char *arg)
  *
  *  TODO: add documentation
  */
+/*
 void
 create_output_directories (char *path)
 {
@@ -693,3 +697,4 @@ directory_exists (const char *dir)
   return (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));
 #endif
 }
+*/

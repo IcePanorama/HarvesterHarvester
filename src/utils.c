@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 #include "datetime.h"
 #include "errors.h"
@@ -192,4 +194,25 @@ read_file_flags (FILE *fptr, file_flags *ff)
     {
       ff->final_directory_record = true;
     }
+}
+
+/*
+ *  prepend_path_string
+ *
+ *  TODO: add documentation
+ */
+void
+prepend_path_string (char *str, const char *prefix)
+{
+  char *tmp = calloc (strlen (str) + strlen (prefix) + 2, sizeof (char));
+  if (tmp == NULL)
+    {
+      perror ("ERROR: unable to calloc tmp string");
+      exit (1);
+    }
+  strcpy (tmp, str);
+  strcpy (str, prefix);
+  strcat (str, "/");
+  strcat (str, tmp);
+  free (tmp);
 }
