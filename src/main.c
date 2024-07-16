@@ -24,15 +24,17 @@ void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 void print_some_data_from_file (FILE *fptr);
 void process_type_l_path_table (FILE *fptr, path_table *pt);
 void process_directory (FILE *fptr, directory *d);
-int8_t extract_file (FILE *fptr, directory_record *dr,
-                     const char *directory_identifier);
+int8_t extract_file (FILE *fptr, directory_record *dr, const char *path);
 int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
-                          const char *dir_identifier);
+                          const char *path);
 void handle_command_line_args (int argc, char **argv);
 void handle_unknown_command_line_argument_error (char *arg);
+void create_directories_and_extract_data_from_path_file (FILE *fptr,
+                                                         uint16_t BLOCK_SIZE,
+                                                         path_table *pt);
 /**********************/
 
-static bool debug_mode = true;
+static bool debug_mode = false;
 
 int
 main (int argc, char **argv)
@@ -120,7 +122,7 @@ process_DAT_file (FILE *fptr)
   const uint16_t LOGICAL_BLOCK_SIZE_BE
       = change_endianness_uint16 (vd.data.logical_block_size);
 
-  // Move to beginning of type-l path table
+  // move to beginning of type-l path table
   fseek (fptr, LOGICAL_BLOCK_SIZE_BE * vd.data.type_l_path_table_location,
          SEEK_SET);
 
@@ -133,44 +135,13 @@ process_DAT_file (FILE *fptr)
 
   process_type_l_path_table (fptr, &pt);
 
-  for (size_t i = pt.current_entry - 1; i > 0; --i)
-    {
-      path_table_entry curr_dir = pt.entries[i];
-      // path_table_entry target_dir = curr_dir;
+  create_directories_and_extract_data_from_path_file (
+      fptr, LOGICAL_BLOCK_SIZE_BE, &pt);
 
-      // supports 10 levels of directories which is probably overkill.
-      const uint32_t PATH_MAX_LEN
-          = ((curr_dir.directory_identifier_length + 1) * 10)
-            + (strlen (OUTPUT_DIR) + 1) + 1;
-      char *path = calloc (PATH_MAX_LEN, sizeof (char));
-      if (path == NULL)
-        {
-          perror ("ERROR: unable to calloc path string");
-          destroy_path_table (&pt);
-          exit (1);
-        }
-
-      strcat (path, curr_dir.directory_identifier);
-
-      do
-        {
-          uint16_t index
-              = change_endianness_uint16 (curr_dir.parent_directory_number);
-          curr_dir
-              = pt.entries[index - 1]; // parent_directory_number is 1-based
-
-          prepend_path_string (path,
-                               (const char *)curr_dir.directory_identifier);
-
-          printf ("Dir ID: %s\n", curr_dir.directory_identifier);
-          printf ("Path: %s\n", path);
-        }
-      while (curr_dir.parent_directory_number > 0x0100);
-
-      create_output_directories (path);
-
-      free (path);
-    }
+  // handle root directory
+  fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[0].location_of_extent,
+         SEEK_SET);
+  extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, OUTPUT_DIR);
 
   destroy_path_table (&pt);
 }
@@ -417,8 +388,7 @@ process_directory (FILE *fptr, directory *d)
 }
 
 int8_t
-extract_file (FILE *fptr, directory_record *dr,
-              const char *directory_identifier)
+extract_file (FILE *fptr, directory_record *dr, const char *path)
 {
   /*
    *  the `file_identifier` terminates with a `;` character followed by the
@@ -439,9 +409,8 @@ extract_file (FILE *fptr, directory_record *dr,
 
   printf ("Extracting file: %s\n", actual_filename);
 
-  // +1 for the null terminator, +1 for `/` after directory identifier
-  size_t filename_length = strlen (OUTPUT_DIR) + strlen (directory_identifier)
-                           + strlen (actual_filename) + 2;
+  // +1 for the null terminator, +1 for `/` between dir and filename
+  size_t filename_length = strlen (path) + strlen (actual_filename) + 2;
 
   char *output_filename = (char *)calloc (filename_length, sizeof (char));
   if (output_filename == NULL)
@@ -450,15 +419,8 @@ extract_file (FILE *fptr, directory_record *dr,
       return -1;
     }
 
-  strcpy (output_filename, OUTPUT_DIR);
-  strcat (output_filename, directory_identifier);
-
-  if ((strcmp (directory_identifier, "") != 0)
-      && (strcmp (directory_identifier, "\1") != 0))
-    {
-      strcat (output_filename, "/");
-    }
-
+  strcpy (output_filename, path);
+  strcat (output_filename, (const char *)"/");
   strcat (output_filename, actual_filename);
 
   FILE *output_file = fopen (output_filename, "wb");
@@ -483,8 +445,7 @@ extract_file (FILE *fptr, directory_record *dr,
 }
 
 int8_t
-extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
-                   const char *dir_identifier)
+extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
 {
   // 0xF00000 == 15 MiB
   const uint32_t DEBUG_FILE_SIZE_LIMIT = 0xF00000;
@@ -493,7 +454,7 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
   create_directory (&dir);
   process_directory (fptr, &dir);
 
-  printf ("Extracting directory: %s\n", dir_identifier);
+  printf ("Extracting directory: %s\n", path);
 
   for (size_t i = 0x0; i < dir.current_record; i++)
     {
@@ -501,41 +462,6 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
 
       if (curr_file.file_flags.subdirectory)
         {
-          if ((strcmp (curr_file.file_identifier, "") == 0)
-              || (strcmp (curr_file.file_identifier, "\1") == 0))
-            {
-              continue;
-            }
-
-          char *folder_name = malloc (sizeof (char)
-                                      * (strlen (curr_file.file_identifier)
-                                         + strlen (OUTPUT_DIR) + 2));
-          if (folder_name == NULL)
-            {
-              printf ("ERROR: unable to create folder %s.",
-                      curr_file.file_identifier);
-              return -1;
-            }
-
-          strcpy (folder_name, OUTPUT_DIR);
-          strcat (folder_name, "/");
-          strcat (folder_name, curr_file.file_identifier);
-
-          // TODO: test me on Windows
-          int status;
-#ifdef _WIN32
-          status = _mkdir (folder_name);
-#else
-          status = mkdir (folder_name, 0700);
-#endif
-          free (folder_name);
-          if (status != 0)
-            {
-              printf ("ERROR: failed to create directory, %s\n",
-                      curr_file.file_identifier);
-              destroy_directory (&dir);
-              return -1;
-            }
           continue;
         }
       else if (debug_mode && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)
@@ -547,7 +473,7 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
 
       fseek (fptr, curr_file.location_of_extent * BLOCK_SIZE, SEEK_SET);
 
-      if (extract_file (fptr, &curr_file, dir_identifier) != 0)
+      if (extract_file (fptr, &curr_file, path) != 0)
         {
           destroy_directory (&dir);
           return -1;
@@ -593,4 +519,50 @@ handle_unknown_command_line_argument_error (char *arg)
 {
   printf ("ERROR: unknown command-line argument, %s.\n", arg);
   exit (1);
+}
+
+void
+create_directories_and_extract_data_from_path_file (FILE *fptr,
+                                                    uint16_t BLOCK_SIZE,
+                                                    path_table *pt)
+{
+  for (size_t i = pt->current_entry - 1; i > 0; --i)
+    {
+      path_table_entry curr_dir = pt->entries[i];
+      path_table_entry target_dir = curr_dir;
+
+      // supports 10 levels of directories which is probably overkill.
+      const uint32_t PATH_MAX_LEN
+          = ((curr_dir.directory_identifier_length + 1) * 10)
+            + (strlen (OUTPUT_DIR) + 1) + 1;
+      char *path = calloc (PATH_MAX_LEN, sizeof (char));
+      if (path == NULL)
+        {
+          perror ("ERROR: unable to calloc path string");
+          destroy_path_table (pt);
+          exit (1);
+        }
+
+      strcat (path, curr_dir.directory_identifier);
+
+      do
+        {
+          uint16_t index
+              = change_endianness_uint16 (curr_dir.parent_directory_number);
+          // parent_directory_number is 1-based
+          curr_dir = pt->entries[index - 1];
+
+          prepend_path_string (path,
+                               (const char *)curr_dir.directory_identifier);
+        }
+      while (curr_dir.parent_directory_number > 0x0100);
+
+      create_output_directory (path);
+
+      fseek (fptr, BLOCK_SIZE * target_dir.location_of_extent, SEEK_SET);
+
+      extract_directory (fptr, BLOCK_SIZE, path);
+
+      free (path);
+    }
 }

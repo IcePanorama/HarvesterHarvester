@@ -204,6 +204,12 @@ read_file_flags (FILE *fptr, file_flags *ff)
 void
 prepend_path_string (char *str, const char *prefix)
 {
+  if (strcmp (prefix, (const char *)"") == 0
+      || strcmp (prefix, (const char *)"\1") == 0)
+    {
+      return;
+    }
+
   char *tmp = calloc (strlen (str) + strlen (prefix) + 2, sizeof (char));
   if (tmp == NULL)
     {

@@ -1,4 +1,5 @@
 #include "output.h"
+#include "path_table.h"
 #include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +14,7 @@ const char *OUTPUT_DIR = "output";
  *  TODO: add documentation
  */
 void
-create_output_directories (char *path)
+create_output_directory (char *path)
 {
   prepend_path_string (path, OUTPUT_DIR);
 
