@@ -9,6 +9,7 @@
 #include "directory.h"
 #include "errors.h"
 #include "file_flags.h"
+#include "log.h"
 #include "output.h"
 #include "path_table.h"
 #include "utils.h"
@@ -18,10 +19,10 @@
 /* function prototypes */
 FILE *setup_extractor (char *filename);
 void process_DAT_file (FILE *fptr);
-void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
+// void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
 void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
 void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
-void print_some_data_from_file (FILE *fptr);
+// void print_some_data_from_file (FILE *fptr);
 void process_type_l_path_table (FILE *fptr, path_table *pt);
 void process_directory (FILE *fptr, directory *d);
 int8_t extract_file (FILE *fptr, directory_record *dr, const char *path);
@@ -35,6 +36,7 @@ void create_directories_and_extract_data_from_path_file (FILE *fptr,
 /**********************/
 
 static bool debug_mode = false;
+static bool separate_outputs = false;
 
 int
 main (int argc, char **argv)
@@ -144,8 +146,12 @@ process_DAT_file (FILE *fptr)
   extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, OUTPUT_DIR);
 
   destroy_path_table (&pt);
+
+  // Volume identifier has the disk name
+  // print_volume_descriptor_data (&vd.data);
 }
 
+// TODO: move this to a "logging" function or something like that.
 /*
  *  print_hex_data
  *
@@ -157,6 +163,7 @@ process_DAT_file (FILE *fptr)
  *    buffer : unsigned char * - a buffer containing hex data.
  *    BUFFER_LEN : const uint8_t - the size of the data buffer.
  */
+/*
 void
 print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
 {
@@ -174,6 +181,7 @@ print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
     }
   puts ("");
 }
+*/
 
 /*
  *  process_volume_descriptor_header
@@ -270,6 +278,7 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
  *  Prints out the next `BYTES_TO_READ` many bytes to the stdout, formatted
  *  properly in order to be easy to read. Useful for debugging.
  */
+/*
 #define BYTES_TO_READ 32
 void
 print_some_data_from_file (FILE *fptr)
@@ -283,6 +292,7 @@ print_some_data_from_file (FILE *fptr)
   print_hex_data (buffer, BYTES_TO_READ);
   fseek (fptr, -sizeof (buffer), SEEK_CUR);
 }
+*/
 
 /*
  *  process_type_l_path_table
@@ -497,6 +507,10 @@ handle_command_line_args (int argc, char **argv)
       if (strcmp (argv[i], "--debug") == 0)
         {
           debug_mode = true;
+        }
+      else if (strcmp (argv[i], "--separate") == 0)
+        {
+          separate_outputs = true;
         }
       else if (strcmp (argv[i], "--help") == 0)
         {
