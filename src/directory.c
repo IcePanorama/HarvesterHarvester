@@ -104,7 +104,7 @@ print_directory (directory *d)
   printf ("Number of records: %ld\n", d->current_record + 1);
   for (size_t i = 0; i < d->current_record; i++)
     {
-      printf ("# Record #%ld\n", i + 1);
+      printf ("!!! Record #%ld\n", i + 1);
       print_directory_record (&d->records[i]);
       puts ("-------------------------------");
     }
