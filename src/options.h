@@ -5,7 +5,8 @@
 
 extern bool debug_mode;
 extern char *current_disk_name;
-extern bool OPT_USE_DEF_INPUT_DIR;
+extern char *OPT_INPUT_DIR;
+extern bool OPT_BATCH_PROCESS;
 
 void handle_command_line_args (int argc, char **argv);
 

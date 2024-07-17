@@ -8,7 +8,8 @@
 
 bool debug_mode = false;
 char *current_disk_name = NULL;
-bool OPT_USE_DEF_INPUT_DIR = true;
+char *OPT_INPUT_DIR = (char *)"dat-files";
+bool OPT_BATCH_PROCESS = true;
 
 // TODO: update me when finished
 static const char VERSION_NUMBER_STR[9] = "00.00.00";
@@ -47,7 +48,7 @@ handle_command_line_args (int argc, char **argv)
   if (len > target_len && strcmp (file + (len - target_len), target) == 0)
     {
       // just processing the user-provided file @ the user-provided path
-      OPT_USE_DEF_INPUT_DIR = false;
+      OPT_BATCH_PROCESS = false;
     }
   else
     {

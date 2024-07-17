@@ -42,7 +42,7 @@ main (int argc, char **argv)
   if (argc >= 2)
     handle_command_line_args (argc, argv);
 
-  if (OPT_USE_DEF_INPUT_DIR)
+  if (OPT_BATCH_PROCESS)
     {
       batch_process_DAT_files ();
     }
@@ -121,6 +121,7 @@ process_DAT_file (FILE *fptr)
   size_t current_disk_name_length = strcspn (vd.data.volume_identifier, " ");
   current_disk_name = vd.data.volume_identifier;
   current_disk_name[current_disk_name_length] = '\0';
+  print_volume_descriptor_data (&vd.data);
 
   // TODO: print the volume descriptor header/data to some file/log.
 
@@ -517,11 +518,38 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 }
 
 void
-batch_process_DAT_files (void)
+batch_process_DAT_files ()
 {
-  /*
-  fptr = setup_extractor (argv[argc - 1]);
+  const uint8_t DAT_FILENAME_LEN = strlen ("HARVESTX.DAT");
+  char *filename
+      = calloc (strlen (OPT_INPUT_DIR) + DAT_FILENAME_LEN + 2, sizeof (char));
+  if (filename == NULL)
+    {
+      perror ("ERROR: unable to calloc filename for batch processing");
+      exit (1);
+    }
+  FILE *fptr;
+
+  strcpy (filename, OPT_INPUT_DIR);
+  strcat (filename, "/");
+  strcat (filename, "HARVEST.DAT");
+  fptr = setup_extractor (filename);
   process_DAT_file (fptr);
   fclose (fptr);
-  */
+
+  strcpy (filename, OPT_INPUT_DIR);
+  strcat (filename, "/");
+  strcat (filename, "HARVEST3.DAT");
+  fptr = setup_extractor (filename);
+  process_DAT_file (fptr);
+  fclose (fptr);
+
+  strcpy (filename, OPT_INPUT_DIR);
+  strcat (filename, "/");
+  strcat (filename, "HARVEST4.DAT");
+  fptr = setup_extractor (filename);
+  process_DAT_file (fptr);
+  fclose (fptr);
+
+  free (filename);
 }

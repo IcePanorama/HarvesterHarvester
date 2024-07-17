@@ -1,6 +1,6 @@
 CC=gcc
 SRC_DIR=src
-DAT_DIR=dat\ files
+DAT_DIR=dat-files
 SRC_FILES=$(SRC_DIR)/*.c
 INCL_FILES=$(SRC_DIR)/*.h
 LIBS=
