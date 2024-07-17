@@ -34,16 +34,25 @@ void create_directories_and_extract_data_from_path_file (FILE *fptr,
 int
 main (int argc, char **argv)
 {
+  /*
   if (argc < 2)
     improper_usage_error ();
   else
+  */
+  FILE *fptr;
+
+  if (argc >= 2)
     handle_command_line_args (argc, argv);
 
-  FILE *fptr = setup_extractor (argv[1]);
-
-  process_DAT_file (fptr);
-
-  fclose (fptr);
+  if (OPT_USE_DEF_INPUT_DIR)
+    {
+    }
+  else
+    {
+      fptr = setup_extractor (argv[argc - 1]);
+      process_DAT_file (fptr);
+      fclose (fptr);
+    }
   return 0;
 }
 
@@ -110,6 +119,10 @@ process_DAT_file (FILE *fptr)
 
   process_volume_descriptor_data (fptr, &vd.data);
 
+  size_t current_disk_name_length = strcspn (vd.data.volume_identifier, " ");
+  current_disk_name = vd.data.volume_identifier;
+  current_disk_name[current_disk_name_length] = '\0';
+
   // TODO: print the volume descriptor header/data to some file/log.
 
   // logical block size, in big endian form
@@ -135,12 +148,23 @@ process_DAT_file (FILE *fptr)
   // handle root directory
   fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[0].location_of_extent,
          SEEK_SET);
-  extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, OUTPUT_DIR);
 
+  char *path = calloc (strlen (OUTPUT_DIR) + current_disk_name_length + 2,
+                       sizeof (char));
+  if (path == NULL)
+    {
+      extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, OUTPUT_DIR);
+      destroy_path_table (&pt);
+      return;
+    }
+
+  strcpy (path, OUTPUT_DIR);
+  strcat (path, "/");
+  strcat (path, current_disk_name);
+  extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, path);
+
+  free (path);
   destroy_path_table (&pt);
-
-  // Volume identifier has the disk name
-  // print_volume_descriptor_data (&vd.data);
 }
 
 /*
@@ -460,7 +484,7 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       // supports 10 levels of directories which is probably overkill.
       const uint32_t PATH_MAX_LEN
           = ((curr_dir.directory_identifier_length + 1) * 10)
-            + (strlen (OUTPUT_DIR) + 1) + 1;
+            + (strlen (OUTPUT_DIR) + 1) + (strlen (current_disk_name) + 1) + 1;
       char *path = calloc (PATH_MAX_LEN, sizeof (char));
       if (path == NULL)
         {

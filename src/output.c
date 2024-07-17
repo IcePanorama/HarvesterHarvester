@@ -1,10 +1,13 @@
-#include "output.h"
-#include "path_table.h"
-#include "utils.h"
+/* clang-format off */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+
+#include "output.h"
+#include "options.h"
+#include "utils.h"
+/* clang-format on */
 
 const char *OUTPUT_DIR = "output";
 
@@ -16,6 +19,9 @@ const char *OUTPUT_DIR = "output";
 void
 create_output_directory (char *path)
 {
+  if (current_disk_name != NULL)
+    prepend_path_string (path, current_disk_name);
+
   prepend_path_string (path, OUTPUT_DIR);
 
   char *tmp = calloc (strlen (path) + 2, sizeof (char));
