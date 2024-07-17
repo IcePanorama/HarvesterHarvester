@@ -24,7 +24,8 @@ static void process_flag (char *f);
 void
 handle_command_line_args (int argc, char **argv)
 {
-  for (int i = 1; i < argc; i++)
+  int i;
+  for (i = 1; i < argc; i++)
     {
       if (argv[i][0] == '-')
         {
@@ -35,6 +36,9 @@ handle_command_line_args (int argc, char **argv)
           break;
         }
     }
+
+  if (i == argc)
+    return;
 
   char *file = argv[argc - 1];
   size_t len = strlen (file) + 1; // +1 for null terminator

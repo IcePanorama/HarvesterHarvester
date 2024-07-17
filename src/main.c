@@ -17,28 +17,26 @@
 /* clang-format on */
 
 /* function prototypes */
-FILE *setup_extractor (char *filename);
-void process_DAT_file (FILE *fptr);
-void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
-void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
-void process_type_l_path_table (FILE *fptr, path_table *pt);
-void process_directory (FILE *fptr, directory *d);
-int8_t extract_file (FILE *fptr, directory_record *dr, const char *path);
-int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
-                          const char *path);
-void create_directories_and_extract_data_from_path_file (FILE *fptr,
-                                                         uint16_t BLOCK_SIZE,
-                                                         path_table *pt);
+static FILE *setup_extractor (char *filename);
+static void process_DAT_file (FILE *fptr);
+static void process_volume_descriptor_header (FILE *fptr,
+                                              volume_descriptor *vd);
+static void process_volume_descriptor_data (FILE *fptr,
+                                            volume_descriptor_data *vdd);
+static void process_type_l_path_table (FILE *fptr, path_table *pt);
+static void process_directory (FILE *fptr, directory *d);
+static int8_t extract_file (FILE *fptr, directory_record *dr,
+                            const char *path);
+static int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
+                                 const char *path);
+static void create_directories_and_extract_data_from_path_file (
+    FILE *fptr, uint16_t BLOCK_SIZE, path_table *pt);
+static void batch_process_DAT_files (void);
 /**********************/
 
 int
 main (int argc, char **argv)
 {
-  /*
-  if (argc < 2)
-    improper_usage_error ();
-  else
-  */
   FILE *fptr;
 
   if (argc >= 2)
@@ -46,6 +44,7 @@ main (int argc, char **argv)
 
   if (OPT_USE_DEF_INPUT_DIR)
     {
+      batch_process_DAT_files ();
     }
   else
     {
@@ -515,4 +514,14 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 
       free (path);
     }
+}
+
+void
+batch_process_DAT_files (void)
+{
+  /*
+  fptr = setup_extractor (argv[argc - 1]);
+  process_DAT_file (fptr);
+  fclose (fptr);
+  */
 }
