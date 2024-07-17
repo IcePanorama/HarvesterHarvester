@@ -1,4 +1,5 @@
 /* clang-format off */
+#include <stdbool.h>
 #include <stdlib.h>
 
 #include "errors.h"
@@ -7,10 +8,14 @@
 void
 improper_usage_error (void)
 {
-  const char *EXECUTABLE_NAME = "main";
-
+  bool windows;
+#ifdef __WIN32
+  windows = true;
+#else
+  windows = false;
+#endif
   puts ("ERROR: Improper usage!");
-  printf ("try: $./%s HARVEST.DAT\n", EXECUTABLE_NAME);
+  printf ("try: %s HARVEST.DAT\n", !windows ? "$ ./main" : "main.exe");
 
   exit (1);
 }
@@ -39,6 +44,14 @@ handle_fread_error (FILE *fptr, size_t actual, size_t expected_bytes)
 void
 handle_unknown_command_line_argument_error (char *arg)
 {
+  bool windows;
+#ifdef __WIN32
+  windows = true;
+#else
+  windows = false;
+#endif
   printf ("ERROR: unknown command-line argument, %s.\n", arg);
+  printf ("Run %s --help for a list of command-line arguments.\n",
+          !windows ? "./main" : "main.exe");
   exit (1);
 }

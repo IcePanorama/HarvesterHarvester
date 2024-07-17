@@ -36,8 +36,7 @@ main (int argc, char **argv)
 {
   if (argc < 2)
     improper_usage_error ();
-
-  if (argc >= 3)
+  else
     handle_command_line_args (argc, argv);
 
   FILE *fptr = setup_extractor (argv[1]);
