@@ -32,6 +32,7 @@ static int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
 static void create_directories_and_extract_data_from_path_file (
     FILE *fptr, uint16_t BLOCK_SIZE, path_table *pt);
 static void batch_process_DAT_files (void);
+//static void brute_force_HARVEST2_DAT (FILE* fptr);
 /**********************/
 
 int
@@ -546,12 +547,15 @@ batch_process_DAT_files ()
   process_DAT_file (fptr);
   fclose (fptr);
   
+  /* I want to clean some things up before I rush into brute forcing H2.DAT */
+  /*
   strcpy (filename, OPT_INPUT_DIR);
   strcat (filename, "/");
   strcat (filename, "HARVEST2.DAT");
   fptr = setup_extractor (filename);
-  // brute_force_HARVEST2_DAT (fptr);
+  brute_force_HARVEST2_DAT (fptr);
   fclose (fptr);
+  */
 
   strcpy (filename, OPT_INPUT_DIR);
   strcat (filename, "/");
@@ -568,4 +572,9 @@ batch_process_DAT_files ()
   fclose (fptr);
 
   free (filename);
+}
+
+void
+brute_force_HARVEST2_DAT (FILE* fptr)
+{
 }
