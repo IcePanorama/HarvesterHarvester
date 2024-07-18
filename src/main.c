@@ -517,6 +517,15 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
     }
 }
 
+/*
+ *  batch_process_DAT_files
+ *
+ *  Having this be super hard-coded is not ideal, but this should at least be
+ *  cross-platform. I just threw this together in like 5 minutes. Definitely
+ *  replace this in the future.
+ *
+ *  TODO: add better documentation.
+ */
 void
 batch_process_DAT_files ()
 {
@@ -535,6 +544,13 @@ batch_process_DAT_files ()
   strcat (filename, "HARVEST.DAT");
   fptr = setup_extractor (filename);
   process_DAT_file (fptr);
+  fclose (fptr);
+  
+  strcpy (filename, OPT_INPUT_DIR);
+  strcat (filename, "/");
+  strcat (filename, "HARVEST2.DAT");
+  fptr = setup_extractor (filename);
+  // brute_force_HARVEST2_DAT (fptr);
   fclose (fptr);
 
   strcpy (filename, OPT_INPUT_DIR);
