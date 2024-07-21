@@ -11,11 +11,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
+
+// For directory handling
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <dirent.h>
+#endif
 
 static FILE *setup_extractor (char *filename);
 static void process_DAT_file (FILE *fptr);
-static void batch_process_DAT_files (void);
+static int batch_process_DAT_files (void);
 
 int
 main (int argc, char **argv)
@@ -27,7 +33,10 @@ main (int argc, char **argv)
 
   if (OP_BATCH_PROCESS)
     {
-      batch_process_DAT_files ();
+      if (batch_process_DAT_files () != 0)
+        {
+          exit (1);
+        }
     }
   else
     {
@@ -64,6 +73,12 @@ setup_extractor (char *filename)
       // produces a `use of NULL ‘fptr’ where non-null expected` Werror.
       exit (1);
     }
+
+#ifdef _WIN32
+  OP_PATH_SEPARATOR = '\\';
+#else
+  OP_PATH_SEPARATOR = '/';
+#endif
 
   return fptr;
 }
@@ -104,7 +119,6 @@ process_DAT_file (FILE *fptr)
   size_t current_disk_name_length = strcspn (vd.data.volume_identifier, " ");
   OP_CURRENT_DISK_NAME = vd.data.volume_identifier;
   OP_CURRENT_DISK_NAME[current_disk_name_length] = '\0';
-  print_volume_descriptor_data (&vd.data);
 
   // TODO: print the volume descriptor header/data to some file/log.
 
@@ -159,39 +173,96 @@ process_DAT_file (FILE *fptr)
  *
  *  TODO: add better documentation.
  */
-void
+int
 batch_process_DAT_files ()
 {
   const uint8_t DAT_FILENAME_LEN = strlen ("HARVESTX.DAT");
-  char *filename
-      = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2, sizeof (char));
-  if (filename == NULL)
+  char *filename;
+
+#ifdef _WIN32
+  WIN32_FIND_DATAA file_data;
+  HANDLE hFind;
+  char search_path[MAX_PATH];
+  strcpy (search_path, OP_INPUT_DIR);
+  strcat (search_path, "\\*");
+
+  hFind = FindFirstFileA (search_path, &file_data);
+  if (hFind == INVALID_HANDLE_VALUE)
     {
-      perror ("ERROR: unable to calloc filename for batch processing");
-      exit (1);
+      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
+               OP_INPUT_DIR);
+      return -1;
     }
-  FILE *fptr;
 
-  strcpy (filename, OP_INPUT_DIR);
-  strcat (filename, "/");
-  strcat (filename, "HARVEST.DAT");
-  fptr = setup_extractor (filename);
-  process_DAT_file (fptr);
-  fclose (fptr);
+  do
+    {
+      if (strcmp (file_data.cFileName, ".") == 0
+          || strcmp (file_data.cFileName, "..") == 0
+          || !is_string_dat_file (file_data.cFileName))
+        {
+          continue;
+        }
 
-  strcpy (filename, OP_INPUT_DIR);
-  strcat (filename, "/");
-  strcat (filename, "HARVEST3.DAT");
-  fptr = setup_extractor (filename);
-  process_DAT_file (fptr);
-  fclose (fptr);
+      filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,
+                         sizeof (char));
+      if (filename == NULL)
+        {
+          perror ("ERROR: unable to calloc string for filename.");
+          exit (1);
+        }
 
-  strcpy (filename, OP_INPUT_DIR);
-  strcat (filename, "/");
-  strcat (filename, "HARVEST4.DAT");
-  fptr = setup_extractor (filename);
-  process_DAT_file (fptr);
-  fclose (fptr);
+      strcpy (filename, OP_INPUT_DIR);
+      strcat (filename, &OP_PATH_SEPARATOR);
+      strcat (filename, file_data.cFileName);
 
-  free (filename);
+      FILE *fptr = setup_extractor (filename);
+      process_DAT_file (fptr);
+
+      fclose (fptr);
+      free (filename);
+    }
+  while (FindNextFileA (hFind, &file_data) != 0);
+
+  FindClose (hFind);
+#else
+  struct dirent *entry;
+  DIR *dir;
+  dir = opendir (OP_INPUT_DIR);
+  if (dir == NULL)
+    {
+      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
+               OP_INPUT_DIR);
+      return -1;
+    }
+
+  while ((entry = readdir (dir)) != NULL)
+    {
+      if (strcmp (entry->d_name, ".") == 0 || strcmp (entry->d_name, "..") == 0
+          || !is_string_dat_file (entry->d_name))
+        {
+          continue;
+        }
+
+      filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,
+                         sizeof (char));
+      if (filename == NULL)
+        {
+          perror ("ERROR: unable to calloc string for filename.");
+          exit (1);
+        }
+
+      strcpy (filename, OP_INPUT_DIR);
+      strcat (filename, &OP_PATH_SEPARATOR);
+      strcat (filename, entry->d_name);
+
+      FILE *fptr = setup_extractor (filename);
+      process_DAT_file (fptr);
+
+      fclose (fptr);
+      free (filename);
+    }
+
+  closedir (dir);
+  return 0;
+#endif
 }
