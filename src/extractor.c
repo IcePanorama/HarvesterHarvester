@@ -92,7 +92,7 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
         {
           continue;
         }
-      else if (debug_mode && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)
+      else if (OP_DEBUG_MODE && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)
         {
           printf ("[DEBUG_MODE] Skipping file, %s.\n",
                   curr_file.file_identifier);
@@ -130,7 +130,8 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       // supports 10 levels of directories which is probably overkill.
       const uint32_t PATH_MAX_LEN
           = ((curr_dir.directory_identifier_length + 1) * 10)
-            + (strlen (OUTPUT_DIR) + 1) + (strlen (current_disk_name) + 1) + 1;
+            + (strlen (OUTPUT_DIR) + 1) + (strlen (OP_CURRENT_DISK_NAME) + 1)
+            + 1;
       char *path = calloc (PATH_MAX_LEN, sizeof (char));
       if (path == NULL)
         {

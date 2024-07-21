@@ -17,8 +17,8 @@ const char *OUTPUT_DIR = "output";
 void
 create_output_directory (char *path)
 {
-  if (current_disk_name != NULL)
-    prepend_path_string (path, current_disk_name);
+  if (OP_CURRENT_DISK_NAME != NULL)
+    prepend_path_string (path, OP_CURRENT_DISK_NAME);
 
   prepend_path_string (path, OUTPUT_DIR);
 

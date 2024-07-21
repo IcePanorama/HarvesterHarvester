@@ -6,8 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-bool debug_mode = false;
-char *current_disk_name = NULL;
+bool OP_DEBUG_MODE = false;
+char *OP_CURRENT_DISK_NAME = NULL;
 char *OPT_INPUT_DIR = (char *)"dat-files";
 bool OPT_BATCH_PROCESS = true;
 
@@ -86,7 +86,7 @@ process_flag (char *f)
 {
   if (strcmp (f, "--debug") == 0)
     {
-      debug_mode = true;
+      OP_DEBUG_MODE = true;
     }
   else if (strcmp (f, "--help") == 0)
     {

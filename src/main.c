@@ -104,8 +104,8 @@ process_DAT_file (FILE *fptr)
   process_volume_descriptor_data (fptr, &vd.data);
 
   size_t current_disk_name_length = strcspn (vd.data.volume_identifier, " ");
-  current_disk_name = vd.data.volume_identifier;
-  current_disk_name[current_disk_name_length] = '\0';
+  OP_CURRENT_DISK_NAME = vd.data.volume_identifier;
+  OP_CURRENT_DISK_NAME[current_disk_name_length] = '\0';
   print_volume_descriptor_data (&vd.data);
 
   // TODO: print the volume descriptor header/data to some file/log.
@@ -145,7 +145,7 @@ process_DAT_file (FILE *fptr)
 
   strcpy (path, OUTPUT_DIR);
   strcat (path, "/");
-  strcat (path, current_disk_name);
+  strcat (path, OP_CURRENT_DISK_NAME);
   extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, path);
 
   free (path);
