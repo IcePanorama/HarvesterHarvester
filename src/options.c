@@ -6,10 +6,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-bool OP_DEBUG_MODE = false;
+bool OP_BATCH_PROCESS = true;
 char *OP_CURRENT_DISK_NAME = NULL;
-char *OPT_INPUT_DIR = (char *)"dat-files";
-bool OPT_BATCH_PROCESS = true;
+bool OP_DEBUG_MODE = false;
+char *OP_INPUT_DIR = (char *)"dat-files";
 
 // TODO: update me when finished
 static const char VERSION_NUMBER_STR[9] = "00.00.00";
@@ -48,7 +48,7 @@ handle_command_line_args (int argc, char **argv)
   if (len > target_len && strcmp (file + (len - target_len), target) == 0)
     {
       // just processing the user-provided file @ the user-provided path
-      OPT_BATCH_PROCESS = false;
+      OP_BATCH_PROCESS = false;
     }
   else
     {

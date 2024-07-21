@@ -25,7 +25,7 @@ main (int argc, char **argv)
   if (argc >= 2)
     handle_command_line_args (argc, argv);
 
-  if (OPT_BATCH_PROCESS)
+  if (OP_BATCH_PROCESS)
     {
       batch_process_DAT_files ();
     }
@@ -164,7 +164,7 @@ batch_process_DAT_files ()
 {
   const uint8_t DAT_FILENAME_LEN = strlen ("HARVESTX.DAT");
   char *filename
-      = calloc (strlen (OPT_INPUT_DIR) + DAT_FILENAME_LEN + 2, sizeof (char));
+      = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2, sizeof (char));
   if (filename == NULL)
     {
       perror ("ERROR: unable to calloc filename for batch processing");
@@ -172,21 +172,21 @@ batch_process_DAT_files ()
     }
   FILE *fptr;
 
-  strcpy (filename, OPT_INPUT_DIR);
+  strcpy (filename, OP_INPUT_DIR);
   strcat (filename, "/");
   strcat (filename, "HARVEST.DAT");
   fptr = setup_extractor (filename);
   process_DAT_file (fptr);
   fclose (fptr);
 
-  strcpy (filename, OPT_INPUT_DIR);
+  strcpy (filename, OP_INPUT_DIR);
   strcat (filename, "/");
   strcat (filename, "HARVEST3.DAT");
   fptr = setup_extractor (filename);
   process_DAT_file (fptr);
   fclose (fptr);
 
-  strcpy (filename, OPT_INPUT_DIR);
+  strcpy (filename, OP_INPUT_DIR);
   strcat (filename, "/");
   strcat (filename, "HARVEST4.DAT");
   fptr = setup_extractor (filename);
