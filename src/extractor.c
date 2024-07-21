@@ -43,7 +43,7 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
     }
 
   strcpy (output_filename, path);
-  strcat (output_filename, (const char *)"/");
+  strcat (output_filename, &OP_PATH_SEPARATOR);
   strcat (output_filename, actual_filename);
 
   FILE *output_file = fopen (output_filename, "wb");

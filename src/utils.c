@@ -2,6 +2,7 @@
 #include "datetime.h"
 #include "errors.h"
 #include "file_flags.h"
+#include "options.h"
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -216,7 +217,7 @@ prepend_path_string (char *str, const char *prefix)
     }
   strcpy (tmp, str);
   strcpy (str, prefix);
-  strcat (str, "/");
+  strcat (str, &OP_PATH_SEPARATOR);
   strcat (str, tmp);
   free (tmp);
 }

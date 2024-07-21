@@ -30,7 +30,7 @@ create_output_directory (char *path)
     }
   strcpy (tmp, path);
 
-  char *token = strtok (tmp, "/");
+  char *token = strtok (tmp, &OP_PATH_SEPARATOR);
 
   char *dir = calloc (strlen (path) + 2, sizeof (char));
   if (dir == NULL)
@@ -61,8 +61,8 @@ create_output_directory (char *path)
             }
         }
 
-      strcat (dir, "/");
-      token = strtok (NULL, "/");
+      strcat (dir, &OP_PATH_SEPARATOR);
+      token = strtok (NULL, &OP_PATH_SEPARATOR);
     }
 
   free (dir);
