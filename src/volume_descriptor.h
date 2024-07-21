@@ -4,6 +4,7 @@
 #include "datetime.h"
 
 #include <stdint.h>
+#include <stdio.h>
 #include <string.h>
 
 #define SYSTEM_IDENTIFIER_LEN 33
@@ -65,5 +66,7 @@ void create_volume_descriptor (volume_descriptor *vd, uint8_t type,
                                uint8_t version);
 void print_volume_descriptor_header (volume_descriptor *vd);
 void print_volume_descriptor_data (volume_descriptor_data *vdd);
+void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
+void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 
 #endif

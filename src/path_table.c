@@ -1,6 +1,7 @@
 #include "path_table.h"
+#include "errors.h"
+#include "utils.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 
 static const size_t PT_STARTING_NUM_ENTRIES = 10;
@@ -101,4 +102,61 @@ print_path_table_entry (path_table_entry *e)
   printf ("\tLocation of extant: %08X\n", e->location_of_extent);
   printf ("\tParent directory number: %04X\n", e->parent_directory_number);
   printf ("\tDirectory identifier: %s\n", e->directory_identifier);
+}
+
+/*
+ *  process_type_l_path_table
+ *
+ *  TODO: write some better documentation.
+ *  In the meantime, see: https://wiki.osdev.org/ISO_9660#The_Path_Table
+ */
+void
+process_type_l_path_table (FILE *fptr, path_table *pt)
+{
+  uint8_t dir_identifier_length = read_single_uint8 (fptr);
+  do
+    {
+      path_table_entry curr_entry;
+      curr_entry.directory_identifier_length = dir_identifier_length;
+
+      if (curr_entry.directory_identifier_length != 1)
+        curr_entry.directory_identifier_length += 1;
+
+      curr_entry.extended_attribute_record_length = read_single_uint8 (fptr);
+      curr_entry.location_of_extent = read_little_endian_data_uint32_t (fptr);
+      curr_entry.parent_directory_number
+          = read_little_endian_data_uint16_t (fptr);
+
+      curr_entry.directory_identifier = (char *)calloc (
+          curr_entry.directory_identifier_length, sizeof (char));
+      if (curr_entry.directory_identifier_length != 1)
+        {
+          size_t bytes_read
+              = fread (curr_entry.directory_identifier, sizeof (char),
+                       curr_entry.directory_identifier_length - 1, fptr);
+          curr_entry
+              .directory_identifier[curr_entry.directory_identifier_length - 1]
+              = '\0';
+          if (bytes_read
+              != sizeof (char) * (curr_entry.directory_identifier_length - 1))
+            {
+              handle_fread_error (
+                  fptr, bytes_read,
+                  sizeof (char)
+                      * (curr_entry.directory_identifier_length - 1));
+            }
+        }
+      else
+        {
+          fseek (fptr, 1, SEEK_CUR);
+        }
+
+      add_entry_to_path_table (pt, &curr_entry);
+
+      dir_identifier_length = read_single_uint8 (fptr);
+
+      if (dir_identifier_length == 0) // handle padding field
+        dir_identifier_length = read_single_uint8 (fptr);
+    }
+  while (dir_identifier_length != 0);
 }

@@ -2,7 +2,7 @@
 #define _PATH_TABLE_H_
 
 #include <stdint.h>
-#include <stdlib.h>
+#include <stdio.h>
 
 // See: https://wiki.osdev.org/ISO_9660#The_Path_Table
 typedef struct path_table_entry
@@ -25,5 +25,6 @@ int8_t create_path_table (path_table *pt);
 void destroy_path_table (path_table *pt);
 void add_entry_to_path_table (path_table *pt, path_table_entry *entry);
 void print_path_table (path_table *pt);
+void process_type_l_path_table (FILE *fptr, path_table *pt);
 
 #endif
