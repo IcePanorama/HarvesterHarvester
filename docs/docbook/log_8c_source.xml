@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_log_8c_source" xml:lang="en-US">
+<title>log.c</title>
+<indexterm><primary>src/log.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_log_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_log_8h">log.h</link>&quot;</emphasis>
+<anchor xml:id="_log_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_errors_8h">errors.h</link>&quot;</emphasis>
+<anchor xml:id="_log_8c_source_1l00003"/>00003 
+<anchor xml:id="_log_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_log_8c_source_1l00005"/>00005 
+<anchor xml:id="_log_8c_source_1l00006"/>00006 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*buffer,&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;BUFFER_LEN);
+<anchor xml:id="_log_8c_source_1l00007"/>00007 
+<anchor xml:id="_log_8c_source_1l00008"/>00008 <emphasis role="comment">//&#32;TODO:&#32;move&#32;this&#32;to&#32;a&#32;&quot;logging&quot;&#32;function&#32;or&#32;something&#32;like&#32;that.</emphasis>
+<anchor xml:id="_log_8c_source_1l00009"/>00009 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_log_8c_source_1l00010"/>00010 <emphasis role="comment">&#32;*&#32;&#32;print_hex_data</emphasis>
+<anchor xml:id="_log_8c_source_1l00011"/>00011 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_log_8c_source_1l00012"/>00012 <emphasis role="comment">&#32;*&#32;&#32;Outputs&#32;hex&#32;data&#32;from&#32;a&#32;given&#32;`buffer`&#32;to&#32;stdout,&#32;formatting&#32;said&#32;data&#32;to</emphasis>
+<anchor xml:id="_log_8c_source_1l00013"/>00013 <emphasis role="comment">&#32;*&#32;&#32;add&#32;spaces&#32;between&#32;bytes,&#32;tabs&#32;after&#32;after&#32;every&#32;four&#32;bytes,&#32;and&#32;a&#32;new&#32;line</emphasis>
+<anchor xml:id="_log_8c_source_1l00014"/>00014 <emphasis role="comment">&#32;*&#32;&#32;after&#32;every&#32;16&#32;bytes.</emphasis>
+<anchor xml:id="_log_8c_source_1l00015"/>00015 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_log_8c_source_1l00016"/>00016 <emphasis role="comment">&#32;*&#32;&#32;param:</emphasis>
+<anchor xml:id="_log_8c_source_1l00017"/>00017 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;buffer&#32;:&#32;unsigned&#32;char&#32;*&#32;-&#32;a&#32;buffer&#32;containing&#32;hex&#32;data.</emphasis>
+<anchor xml:id="_log_8c_source_1l00018"/>00018 <emphasis role="comment">&#32;*&#32;&#32;&#32;&#32;BUFFER_LEN&#32;:&#32;const&#32;uint8_t&#32;-&#32;the&#32;size&#32;of&#32;the&#32;data&#32;buffer.</emphasis>
+<anchor xml:id="_log_8c_source_1l00019"/>00019 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_log_8c_source_1l00020"/>00020 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_log_8c_source_1l00021"/><link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">00021</link> <link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link>&#32;(<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*buffer,&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;BUFFER_LEN)
+<anchor xml:id="_log_8c_source_1l00022"/>00022 {
+<anchor xml:id="_log_8c_source_1l00023"/>00023 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(uint8_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;BUFFER_LEN;&#32;i++)
+<anchor xml:id="_log_8c_source_1l00024"/>00024 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_log_8c_source_1l00025"/>00025 &#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;&#32;%02x&quot;</emphasis>,&#32;buffer[i]);
+<anchor xml:id="_log_8c_source_1l00026"/>00026 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((i&#32;!=&#32;0)&#32;&amp;&amp;&#32;(i&#32;%&#32;4&#32;==&#32;3))
+<anchor xml:id="_log_8c_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_log_8c_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\t&quot;</emphasis>);
+<anchor xml:id="_log_8c_source_1l00029"/>00029 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_log_8c_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((i&#32;!=&#32;0)&#32;&amp;&amp;&#32;(i&#32;%&#32;16&#32;==&#32;15))
+<anchor xml:id="_log_8c_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_log_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;&quot;</emphasis>);
+<anchor xml:id="_log_8c_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_log_8c_source_1l00034"/>00034 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_log_8c_source_1l00035"/>00035 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;&quot;</emphasis>);
+<anchor xml:id="_log_8c_source_1l00036"/>00036 }
+<anchor xml:id="_log_8c_source_1l00037"/>00037 
+<anchor xml:id="_log_8c_source_1l00038"/>00038 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_log_8c_source_1l00039"/>00039 <emphasis role="comment">&#32;*&#32;&#32;print_some_data_from_file</emphasis>
+<anchor xml:id="_log_8c_source_1l00040"/>00040 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_log_8c_source_1l00041"/>00041 <emphasis role="comment">&#32;*&#32;&#32;Prints&#32;out&#32;the&#32;next&#32;`BYTES_TO_READ`&#32;many&#32;bytes&#32;to&#32;the&#32;stdout,&#32;formatted</emphasis>
+<anchor xml:id="_log_8c_source_1l00042"/>00042 <emphasis role="comment">&#32;*&#32;&#32;properly&#32;in&#32;order&#32;to&#32;be&#32;easy&#32;to&#32;read.&#32;Useful&#32;for&#32;debugging.</emphasis>
+<anchor xml:id="_log_8c_source_1l00043"/>00043 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_log_8c_source_1l00044"/><link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">00044</link> <emphasis role="preprocessor">#define&#32;BYTES_TO_READ&#32;32</emphasis>
+<anchor xml:id="_log_8c_source_1l00045"/>00045 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_log_8c_source_1l00046"/><link linkend="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304">00046</link> <link linkend="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link>&#32;(FILE&#32;*fptr)
+<anchor xml:id="_log_8c_source_1l00047"/>00047 {
+<anchor xml:id="_log_8c_source_1l00048"/>00048 &#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;buffer[<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>];
+<anchor xml:id="_log_8c_source_1l00049"/>00049 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;bytes_read&#32;=&#32;fread&#32;(buffer,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(buffer[0]),&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>,&#32;fptr);
+<anchor xml:id="_log_8c_source_1l00050"/>00050 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(bytes_read&#32;!=&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>)
+<anchor xml:id="_log_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_log_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a43d16be8297bee4a817aec3d78833cc9">handle_fread_error</link>&#32;(fptr,&#32;bytes_read,&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>);
+<anchor xml:id="_log_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_log_8c_source_1l00054"/>00054 &#32;&#32;<link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link>&#32;(buffer,&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>);
+<anchor xml:id="_log_8c_source_1l00055"/>00055 &#32;&#32;fseek&#32;(fptr,&#32;-<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>,&#32;SEEK_CUR);
+<anchor xml:id="_log_8c_source_1l00056"/>00056 }
+</programlisting></section>

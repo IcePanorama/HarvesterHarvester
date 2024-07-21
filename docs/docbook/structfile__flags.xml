@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structfile__flags" xml:lang="en-US">
+<title>file_flags Struct Reference</title>
+<indexterm><primary>file_flags</primary></indexterm>
+<para>
+<computeroutput>#include &lt;file_flags.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_structfile__flags_1a4139d9b02dc7f9d1649ed9d3466dd7af">hidden</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_structfile__flags_1a16bbb1c4299a88199b4bc23f29215049">subdirectory</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_structfile__flags_1a65c772bf6516b11d65fb49180812c109">associated_file</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_structfile__flags_1a86793fb0cad3076a0f21d6c4bb1f1059">extended_attribute_record_contains_owner_and_group_permissions</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_structfile__flags_1aef4a9f3598c6b75c602d7c7a969669a3">final_directory_record</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_file__flags_8h_source_1l00007">7</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structfile__flags_1a65c772bf6516b11d65fb49180812c109"/><section>
+    <title>associated_file</title>
+<indexterm><primary>associated_file</primary><secondary>file_flags</secondary></indexterm>
+<indexterm><primary>file_flags</primary><secondary>associated_file</secondary></indexterm>
+<para><computeroutput>bool file_flags::associated_file</computeroutput></para><para>
+Definition at line <link linkend="_file__flags_8h_source_1l00011">11</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+</section>
+<anchor xml:id="_structfile__flags_1a86793fb0cad3076a0f21d6c4bb1f1059"/><section>
+    <title>extended_attribute_record_contains_owner_and_group_permissions</title>
+<indexterm><primary>extended_attribute_record_contains_owner_and_group_permissions</primary><secondary>file_flags</secondary></indexterm>
+<indexterm><primary>file_flags</primary><secondary>extended_attribute_record_contains_owner_and_group_permissions</secondary></indexterm>
+<para><computeroutput>bool file_flags::extended_attribute_record_contains_owner_and_group_permissions</computeroutput></para><para>
+Definition at line <link linkend="_file__flags_8h_source_1l00012">12</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+</section>
+<anchor xml:id="_structfile__flags_1aef4a9f3598c6b75c602d7c7a969669a3"/><section>
+    <title>final_directory_record</title>
+<indexterm><primary>final_directory_record</primary><secondary>file_flags</secondary></indexterm>
+<indexterm><primary>file_flags</primary><secondary>final_directory_record</secondary></indexterm>
+<para><computeroutput>bool file_flags::final_directory_record</computeroutput></para><para>
+Definition at line <link linkend="_file__flags_8h_source_1l00013">13</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+</section>
+<anchor xml:id="_structfile__flags_1a4139d9b02dc7f9d1649ed9d3466dd7af"/><section>
+    <title>hidden</title>
+<indexterm><primary>hidden</primary><secondary>file_flags</secondary></indexterm>
+<indexterm><primary>file_flags</primary><secondary>hidden</secondary></indexterm>
+<para><computeroutput>bool file_flags::hidden</computeroutput></para><para>
+Definition at line <link linkend="_file__flags_8h_source_1l00009">9</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+</section>
+<anchor xml:id="_structfile__flags_1a16bbb1c4299a88199b4bc23f29215049"/><section>
+    <title>subdirectory</title>
+<indexterm><primary>subdirectory</primary><secondary>file_flags</secondary></indexterm>
+<indexterm><primary>file_flags</primary><secondary>subdirectory</secondary></indexterm>
+<para><computeroutput>bool file_flags::subdirectory</computeroutput></para><para>
+Definition at line <link linkend="_file__flags_8h_source_1l00010">10</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/<link linkend="_file__flags_8h">file_flags.h</link></section>
+</section>

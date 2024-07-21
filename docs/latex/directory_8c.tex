@@ -1,0 +1,127 @@
+\doxysection{src/directory.c File Reference}
+\hypertarget{directory_8c}{}\label{directory_8c}\index{src/directory.c@{src/directory.c}}
+{\ttfamily \#include "{}directory.\+h"{}}\newline
+{\ttfamily \#include "{}errors.\+h"{}}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{directory_8c_ae5167ce653e51a830c3b52138d61e94a}{resize\+\_\+directory\+\_\+records}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
+\item 
+int8\+\_\+t \mbox{\hyperlink{directory_8c_a588d5ddc87f420409a34325d09ba125a}{create\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
+\item 
+void \mbox{\hyperlink{directory_8c_a5bb3c915259dac9f8fb2c102cc72ccda}{destroy\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
+\item 
+void \mbox{\hyperlink{directory_8c_a8eb2a5a06d3bbcbc2081c28d726e301b}{add\+\_\+record\+\_\+to\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d, \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}r)
+\item 
+void \mbox{\hyperlink{directory_8c_aefcaed1602ed0c137cf53d3c297411b5}{print\+\_\+directory\+\_\+record}} (\mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}r)
+\item 
+void \mbox{\hyperlink{directory_8c_a62a8754d4c77904a749f780b57be2152}{print\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
+\item 
+void \mbox{\hyperlink{directory_8c_ac261e312adbf9507bf53bf1fae5b6e92}{process\+\_\+directory}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static const size\+\_\+t \mbox{\hyperlink{directory_8c_a6274f2bbe40695d0239392c544d25b8c}{DIR\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+RECORDS}} = 10
+\item 
+static const size\+\_\+t \mbox{\hyperlink{directory_8c_acf10cc9d69188bcb5abfd372b01091df}{DIR\+\_\+\+RECORDS\+\_\+\+GROWTH\+\_\+\+RATE}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{directory_8c_a8eb2a5a06d3bbcbc2081c28d726e301b}\index{directory.c@{directory.c}!add\_record\_to\_directory@{add\_record\_to\_directory}}
+\index{add\_record\_to\_directory@{add\_record\_to\_directory}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{add\_record\_to\_directory()}{add\_record\_to\_directory()}}
+{\footnotesize\ttfamily \label{directory_8c_a8eb2a5a06d3bbcbc2081c28d726e301b} 
+void add\+\_\+record\+\_\+to\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{, }\item[{\mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00051}{51}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+\Hypertarget{directory_8c_a588d5ddc87f420409a34325d09ba125a}\index{directory.c@{directory.c}!create\_directory@{create\_directory}}
+\index{create\_directory@{create\_directory}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{create\_directory()}{create\_directory()}}
+{\footnotesize\ttfamily \label{directory_8c_a588d5ddc87f420409a34325d09ba125a} 
+int8\+\_\+t create\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00014}{14}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+\Hypertarget{directory_8c_a5bb3c915259dac9f8fb2c102cc72ccda}\index{directory.c@{directory.c}!destroy\_directory@{destroy\_directory}}
+\index{destroy\_directory@{destroy\_directory}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{destroy\_directory()}{destroy\_directory()}}
+{\footnotesize\ttfamily \label{directory_8c_a5bb3c915259dac9f8fb2c102cc72ccda} 
+void destroy\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00035}{35}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+\Hypertarget{directory_8c_a62a8754d4c77904a749f780b57be2152}\index{directory.c@{directory.c}!print\_directory@{print\_directory}}
+\index{print\_directory@{print\_directory}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{print\_directory()}{print\_directory()}}
+{\footnotesize\ttfamily \label{directory_8c_a62a8754d4c77904a749f780b57be2152} 
+void print\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00102}{102}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+\Hypertarget{directory_8c_aefcaed1602ed0c137cf53d3c297411b5}\index{directory.c@{directory.c}!print\_directory\_record@{print\_directory\_record}}
+\index{print\_directory\_record@{print\_directory\_record}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{print\_directory\_record()}{print\_directory\_record()}}
+{\footnotesize\ttfamily \label{directory_8c_aefcaed1602ed0c137cf53d3c297411b5} 
+void print\+\_\+directory\+\_\+record (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00063}{63}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+\Hypertarget{directory_8c_ac261e312adbf9507bf53bf1fae5b6e92}\index{directory.c@{directory.c}!process\_directory@{process\_directory}}
+\index{process\_directory@{process\_directory}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{process\_directory()}{process\_directory()}}
+{\footnotesize\ttfamily \label{directory_8c_ac261e312adbf9507bf53bf1fae5b6e92} 
+void process\+\_\+directory (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00120}{120}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+\Hypertarget{directory_8c_ae5167ce653e51a830c3b52138d61e94a}\index{directory.c@{directory.c}!resize\_directory\_records@{resize\_directory\_records}}
+\index{resize\_directory\_records@{resize\_directory\_records}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{resize\_directory\_records()}{resize\_directory\_records()}}
+{\footnotesize\ttfamily \label{directory_8c_ae5167ce653e51a830c3b52138d61e94a} 
+void resize\+\_\+directory\+\_\+records (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00080}{80}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{directory_8c_acf10cc9d69188bcb5abfd372b01091df}\index{directory.c@{directory.c}!DIR\_RECORDS\_GROWTH\_RATE@{DIR\_RECORDS\_GROWTH\_RATE}}
+\index{DIR\_RECORDS\_GROWTH\_RATE@{DIR\_RECORDS\_GROWTH\_RATE}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{DIR\_RECORDS\_GROWTH\_RATE}{DIR\_RECORDS\_GROWTH\_RATE}}
+{\footnotesize\ttfamily \label{directory_8c_acf10cc9d69188bcb5abfd372b01091df} 
+const size\+\_\+t DIR\+\_\+\+RECORDS\+\_\+\+GROWTH\+\_\+\+RATE = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00011}{11}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+
+\Hypertarget{directory_8c_a6274f2bbe40695d0239392c544d25b8c}\index{directory.c@{directory.c}!DIR\_STARTING\_NUM\_RECORDS@{DIR\_STARTING\_NUM\_RECORDS}}
+\index{DIR\_STARTING\_NUM\_RECORDS@{DIR\_STARTING\_NUM\_RECORDS}!directory.c@{directory.c}}
+\doxysubsubsection{\texorpdfstring{DIR\_STARTING\_NUM\_RECORDS}{DIR\_STARTING\_NUM\_RECORDS}}
+{\footnotesize\ttfamily \label{directory_8c_a6274f2bbe40695d0239392c544d25b8c} 
+const size\+\_\+t DIR\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+RECORDS = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{directory_8c_source_l00010}{10}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+

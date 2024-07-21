@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_extractor_8h" xml:lang="en-US">
+<title>src/extractor.h File Reference</title>
+<indexterm><primary>src/extractor.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;directory.h&quot;<?linebreak?>#include &quot;path_table.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int8_t <link linkend="_extractor_8h_1a553117edee61f114d5f6fd9d28d57313">extract_file</link> (FILE *fptr, struct <link linkend="_structdirectory__record">directory_record</link> *dr, const char *path)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_extractor_8h_1a83bd0d1558bff60ba2a613868c6a138f">extract_directory</link> (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)</para>
+</listitem>
+            <listitem><para>void <link linkend="_extractor_8h_1a2b4cc3468a10bf1b72cdd4a672d4d154">create_directories_and_extract_data_from_path_file</link> (FILE *fptr, uint16_t BLOCK_SIZE, struct <link linkend="_structpath__table">path_table</link> *pt)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_extractor_8h_1a2b4cc3468a10bf1b72cdd4a672d4d154"/><section>
+    <title>create_directories_and_extract_data_from_path_file()</title>
+<indexterm><primary>create_directories_and_extract_data_from_path_file</primary><secondary>extractor.h</secondary></indexterm>
+<indexterm><primary>extractor.h</primary><secondary>create_directories_and_extract_data_from_path_file</secondary></indexterm>
+<para><computeroutput>void create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t BLOCK_SIZE, struct <link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+Definition at line <link linkend="_extractor_8c_source_1l00121">121</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+</section>
+<anchor xml:id="_extractor_8h_1a83bd0d1558bff60ba2a613868c6a138f"/><section>
+    <title>extract_directory()</title>
+<indexterm><primary>extract_directory</primary><secondary>extractor.h</secondary></indexterm>
+<indexterm><primary>extractor.h</primary><secondary>extract_directory</secondary></indexterm>
+<para><computeroutput>int8_t extract_directory (FILE * fptr, const uint16_t BLOCK_SIZE, const char * path)</computeroutput></para><para>
+Definition at line <link linkend="_extractor_8c_source_1l00076">76</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+</section>
+<anchor xml:id="_extractor_8h_1a553117edee61f114d5f6fd9d28d57313"/><section>
+    <title>extract_file()</title>
+<indexterm><primary>extract_file</primary><secondary>extractor.h</secondary></indexterm>
+<indexterm><primary>extractor.h</primary><secondary>extract_file</secondary></indexterm>
+<para><computeroutput>int8_t extract_file (FILE * fptr, struct <link linkend="_structdirectory__record">directory_record</link> * dr, const char * path)</computeroutput></para><para>
+Definition at line <link linkend="_extractor_8c_source_1l00014">14</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+</section>
+</section>
+</section>

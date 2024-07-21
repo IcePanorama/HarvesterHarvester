@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <stdio.h>
 
-// See: https://wiki.osdev.org/ISO_9660#The_Path_Table
 typedef struct path_table_entry
 {
   uint8_t directory_identifier_length;
@@ -14,6 +13,7 @@ typedef struct path_table_entry
   char *directory_identifier;
 } path_table_entry;
 
+/** @see  https://wiki.osdev.org/ISO_9660#The_Path_Table */
 typedef struct path_table
 {
   path_table_entry *entries;

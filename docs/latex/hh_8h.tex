@@ -1,0 +1,77 @@
+\doxysection{src/hh.h File Reference}
+\hypertarget{hh_8h}{}\label{hh_8h}\index{src/hh.h@{src/hh.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hh_8h_adc1a83a755870c0899977818898d13cb}{setup\+\_\+extractor}} (char \texorpdfstring{$\ast$}{*}filename)
+\item 
+static void \mbox{\hyperlink{hh_8h_af12d681a411f7fd2c48b09fc35df739c}{process\+\_\+\+DAT\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+\item 
+static int \mbox{\hyperlink{hh_8h_ab5fe38006fca7f224a00f75973e3d079}{batch\+\_\+process\+\_\+\+DAT\+\_\+files}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hh_8h_ab5fe38006fca7f224a00f75973e3d079}\index{hh.h@{hh.h}!batch\_process\_DAT\_files@{batch\_process\_DAT\_files}}
+\index{batch\_process\_DAT\_files@{batch\_process\_DAT\_files}!hh.h@{hh.h}}
+\doxysubsubsection{\texorpdfstring{batch\_process\_DAT\_files()}{batch\_process\_DAT\_files()}}
+{\footnotesize\ttfamily \label{hh_8h_ab5fe38006fca7f224a00f75973e3d079} 
+static int batch\+\_\+process\+\_\+\+DAT\+\_\+files (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}, one at a time. 
+
+Definition at line \mbox{\hyperlink{hh_8c_source_l00141}{141}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+
+\Hypertarget{hh_8h_af12d681a411f7fd2c48b09fc35df739c}\index{hh.h@{hh.h}!process\_DAT\_file@{process\_DAT\_file}}
+\index{process\_DAT\_file@{process\_DAT\_file}!hh.h@{hh.h}}
+\doxysubsubsection{\texorpdfstring{process\_DAT\_file()}{process\_DAT\_file()}}
+{\footnotesize\ttfamily \label{hh_8h_af12d681a411f7fd2c48b09fc35df739c} 
+static void process\+\_\+\+DAT\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Processes a DAT file pointed to by the given {\ttfamily FILE \texorpdfstring{$\ast$}{*}}. 
+
+This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the {\ttfamily OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME} variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the {\ttfamily OP\+\_\+\+OUTPUT\+\_\+\+DIR}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & a file pointer to a DAT file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\href{https://wiki.osdev.org/ISO_9660}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660}} 
+
+\doxylink{volume__descriptor_8c_ac90e9d56a0be0db4fa1e60d2a7a089ee}{process\+\_\+volume\+\_\+descriptor\+\_\+header()} 
+
+\doxylink{volume__descriptor_8c_aebf907c2282343b4b0d2c0ffed6a182a}{process\+\_\+volume\+\_\+descriptor\+\_\+data()} 
+
+\doxylink{path__table_8c_ac08be1296d016ba9a28db25b35ca9132}{create\+\_\+path\+\_\+table()} 
+
+\doxylink{path__table_8c_abc1fa6960cc549494e87d2884727e202}{process\+\_\+type\+\_\+l\+\_\+path\+\_\+table()} 
+
+\doxylink{extractor_8c_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{hh_8c_source_l00068}{68}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+
+\Hypertarget{hh_8h_adc1a83a755870c0899977818898d13cb}\index{hh.h@{hh.h}!setup\_extractor@{setup\_extractor}}
+\index{setup\_extractor@{setup\_extractor}!hh.h@{hh.h}}
+\doxysubsubsection{\texorpdfstring{setup\_extractor()}{setup\_extractor()}}
+{\footnotesize\ttfamily \label{hh_8h_adc1a83a755870c0899977818898d13cb} 
+static FILE \texorpdfstring{$\ast$}{*} setup\+\_\+extractor (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Creates a {\ttfamily FILE \texorpdfstring{$\ast$}{*}} for the given {\ttfamily filename}, handling error messages as needed, while also checking the end-\/user\textquotesingle{}s operating system and updating {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR}. The caller is responsible for closing the file pointer when they\textquotesingle{}re finished with it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & {\ttfamily char \texorpdfstring{$\ast$}{*}} of the path to a DAT file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the given file, if it exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{hh_8c_source_l00047}{47}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+

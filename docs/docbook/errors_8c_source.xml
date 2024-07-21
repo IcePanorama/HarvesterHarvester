@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_errors_8c_source" xml:lang="en-US">
+<title>errors.c</title>
+<indexterm><primary>src/errors.c</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_errors_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_errors_8h">errors.h</link>&quot;</emphasis>
+<anchor xml:id="_errors_8c_source_1l00002"/>00002 
+<anchor xml:id="_errors_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_errors_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_errors_8c_source_1l00005"/>00005 
+<anchor xml:id="_errors_8c_source_1l00006"/>00006 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_errors_8c_source_1l00007"/><link linkend="_errors_8c_1a1fa621098d550bb126a641aba0638f7f">00007</link> <link linkend="_errors_8c_1a1fa621098d550bb126a641aba0638f7f">improper_usage_error</link>&#32;(<emphasis role="keywordtype">void</emphasis>)
+<anchor xml:id="_errors_8c_source_1l00008"/>00008 {
+<anchor xml:id="_errors_8c_source_1l00009"/>00009 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;windows;
+<anchor xml:id="_errors_8c_source_1l00010"/>00010 <emphasis role="preprocessor">#ifdef&#32;__WIN32</emphasis>
+<anchor xml:id="_errors_8c_source_1l00011"/>00011 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_errors_8c_source_1l00012"/>00012 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_errors_8c_source_1l00013"/>00013 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_errors_8c_source_1l00014"/>00014 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_errors_8c_source_1l00015"/>00015 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;Improper&#32;usage!&quot;</emphasis>);
+<anchor xml:id="_errors_8c_source_1l00016"/>00016 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;try:&#32;%s&#32;HARVEST.DAT\n&quot;</emphasis>,&#32;!windows&#32;?&#32;<emphasis role="stringliteral">&quot;$&#32;./main&quot;</emphasis>&#32;:&#32;<emphasis role="stringliteral">&quot;main.exe&quot;</emphasis>);
+<anchor xml:id="_errors_8c_source_1l00017"/>00017 
+<anchor xml:id="_errors_8c_source_1l00018"/>00018 &#32;&#32;exit&#32;(1);
+<anchor xml:id="_errors_8c_source_1l00019"/>00019 }
+<anchor xml:id="_errors_8c_source_1l00020"/>00020 
+<anchor xml:id="_errors_8c_source_1l00021"/>00021 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_errors_8c_source_1l00022"/><link linkend="_errors_8c_1a9b9a6494b96286134308f2da3e179af9">00022</link> <link linkend="_errors_8c_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename)
+<anchor xml:id="_errors_8c_source_1l00023"/>00023 {
+<anchor xml:id="_errors_8c_source_1l00024"/>00024 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;Unable&#32;to&#32;open&#32;file,&#32;%s.\n&quot;</emphasis>,&#32;filename);
+<anchor xml:id="_errors_8c_source_1l00025"/>00025 &#32;&#32;exit&#32;(1);
+<anchor xml:id="_errors_8c_source_1l00026"/>00026 }
+<anchor xml:id="_errors_8c_source_1l00027"/>00027 
+<anchor xml:id="_errors_8c_source_1l00028"/>00028 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_errors_8c_source_1l00029"/><link linkend="_errors_8c_1a43d16be8297bee4a817aec3d78833cc9">00029</link> <link linkend="_errors_8c_1a43d16be8297bee4a817aec3d78833cc9">handle_fread_error</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes)
+<anchor xml:id="_errors_8c_source_1l00030"/>00030 {
+<anchor xml:id="_errors_8c_source_1l00031"/>00031 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;Only&#32;read&#32;%zu&#32;byte(s),&#32;expected&#32;%zu.\n&quot;</emphasis>,&#32;actual,
+<anchor xml:id="_errors_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;expected_bytes);
+<anchor xml:id="_errors_8c_source_1l00033"/>00033 &#32;&#32;fclose&#32;(fptr);
+<anchor xml:id="_errors_8c_source_1l00034"/>00034 &#32;&#32;exit&#32;(1);
+<anchor xml:id="_errors_8c_source_1l00035"/>00035 }
+<anchor xml:id="_errors_8c_source_1l00036"/>00036 
+<anchor xml:id="_errors_8c_source_1l00037"/>00037 <emphasis role="comment">/*</emphasis>
+<anchor xml:id="_errors_8c_source_1l00038"/>00038 <emphasis role="comment">&#32;*&#32;&#32;handle_unknown_command_line_argument_error</emphasis>
+<anchor xml:id="_errors_8c_source_1l00039"/>00039 <emphasis role="comment">&#32;*</emphasis>
+<anchor xml:id="_errors_8c_source_1l00040"/>00040 <emphasis role="comment">&#32;*&#32;&#32;TODO:&#32;add&#32;documentation.</emphasis>
+<anchor xml:id="_errors_8c_source_1l00041"/>00041 <emphasis role="comment">&#32;*/</emphasis>
+<anchor xml:id="_errors_8c_source_1l00042"/>00042 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_errors_8c_source_1l00043"/><link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">00043</link> <link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg)
+<anchor xml:id="_errors_8c_source_1l00044"/>00044 {
+<anchor xml:id="_errors_8c_source_1l00045"/>00045 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;windows;
+<anchor xml:id="_errors_8c_source_1l00046"/>00046 <emphasis role="preprocessor">#ifdef&#32;__WIN32</emphasis>
+<anchor xml:id="_errors_8c_source_1l00047"/>00047 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_errors_8c_source_1l00048"/>00048 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_errors_8c_source_1l00049"/>00049 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">false</emphasis>;
+<anchor xml:id="_errors_8c_source_1l00050"/>00050 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_errors_8c_source_1l00051"/>00051 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;unknown&#32;command-line&#32;argument,&#32;%s.\n&quot;</emphasis>,&#32;arg);
+<anchor xml:id="_errors_8c_source_1l00052"/>00052 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Run&#32;%s&#32;--help&#32;for&#32;a&#32;list&#32;of&#32;command-line&#32;arguments.\n&quot;</emphasis>,
+<anchor xml:id="_errors_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!windows&#32;?&#32;<emphasis role="stringliteral">&quot;./main&quot;</emphasis>&#32;:&#32;<emphasis role="stringliteral">&quot;main.exe&quot;</emphasis>);
+<anchor xml:id="_errors_8c_source_1l00054"/>00054 &#32;&#32;exit&#32;(1);
+<anchor xml:id="_errors_8c_source_1l00055"/>00055 }
+</programlisting></section>

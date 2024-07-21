@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_directory_8h_source" xml:lang="en-US">
+<title>directory.h</title>
+<indexterm><primary>src/directory.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_directory_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_DIRECTORY_H_</emphasis>
+<anchor xml:id="_directory_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_DIRECTORY_H_</emphasis>
+<anchor xml:id="_directory_8h_source_1l00003"/>00003 
+<anchor xml:id="_directory_8h_source_1l00004"/>00004 <emphasis role="comment">/*&#32;clang-format&#32;off&#32;*/</emphasis>
+<anchor xml:id="_directory_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_directory_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
+<anchor xml:id="_directory_8h_source_1l00007"/>00007 
+<anchor xml:id="_directory_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_datetime_8h">datetime.h</link>&quot;</emphasis>
+<anchor xml:id="_directory_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_file__flags_8h">file_flags.h</link>&quot;</emphasis>
+<anchor xml:id="_directory_8h_source_1l00010"/>00010 <emphasis role="comment">/*&#32;clang-format&#32;on&#32;*/</emphasis>
+<anchor xml:id="_directory_8h_source_1l00011"/>00011 
+<anchor xml:id="_directory_8h_source_1l00012"/><link linkend="_structdirectory__record">00012</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdirectory__record">directory_record</link>
+<anchor xml:id="_directory_8h_source_1l00013"/>00013 {
+<anchor xml:id="_directory_8h_source_1l00014"/><link linkend="_structdirectory__record_1ae46cf5b35328ad518d86aaaa6fb32ac8">00014</link> &#32;&#32;uint8_t&#32;<link linkend="_structdirectory__record_1ae46cf5b35328ad518d86aaaa6fb32ac8">record_length</link>;
+<anchor xml:id="_directory_8h_source_1l00015"/><link linkend="_structdirectory__record_1a6e6e77cb9de1ffe1253350f7f4a7b66a">00015</link> &#32;&#32;uint8_t&#32;<link linkend="_structdirectory__record_1a6e6e77cb9de1ffe1253350f7f4a7b66a">extended_attribute_record_length</link>;
+<anchor xml:id="_directory_8h_source_1l00016"/><link linkend="_structdirectory__record_1a20f2e0fd671b1791e6f2935aa44f9f63">00016</link> &#32;&#32;uint32_t&#32;<link linkend="_structdirectory__record_1a20f2e0fd671b1791e6f2935aa44f9f63">location_of_extent</link>;
+<anchor xml:id="_directory_8h_source_1l00017"/><link linkend="_structdirectory__record_1aa2a5c7f49a3edac5dfe11b6bcd19b49d">00017</link> &#32;&#32;uint32_t&#32;<link linkend="_structdirectory__record_1aa2a5c7f49a3edac5dfe11b6bcd19b49d">data_length</link>;
+<anchor xml:id="_directory_8h_source_1l00018"/><link linkend="_structdirectory__record_1ac1654a106d931729a0f2af11e4c85a97">00018</link> &#32;&#32;<link linkend="_structdir__datetime">dir_datetime</link>&#32;<link linkend="_structdirectory__record_1ac1654a106d931729a0f2af11e4c85a97">recording_datetime</link>;
+<anchor xml:id="_directory_8h_source_1l00019"/><link linkend="_structdirectory__record_1a25a79fcf15457ebc2f2f3fcf17028fe4">00019</link> &#32;&#32;<link linkend="_structfile__flags">file_flags</link>&#32;<link linkend="_structdirectory__record_1a25a79fcf15457ebc2f2f3fcf17028fe4">file_flags</link>;
+<anchor xml:id="_directory_8h_source_1l00020"/><link linkend="_structdirectory__record_1a57f5f98e6202bd369a4ce259dab5dd98">00020</link> &#32;&#32;uint8_t&#32;<link linkend="_structdirectory__record_1a57f5f98e6202bd369a4ce259dab5dd98">file_unit_size</link>;&#32;<emphasis role="comment">//&#32;only&#32;used&#32;by&#32;files&#32;recorded&#32;in&#32;interleaved&#32;mode</emphasis>
+<anchor xml:id="_directory_8h_source_1l00021"/>00021 &#32;&#32;uint8_t
+<anchor xml:id="_directory_8h_source_1l00022"/><link linkend="_structdirectory__record_1aa4308bfec1f0d16a68155bf9b63113d4">00022</link> &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structdirectory__record_1aa4308bfec1f0d16a68155bf9b63113d4">interleave_gap_size</link>;&#32;<emphasis role="comment">//&#32;only&#32;used&#32;by&#32;files&#32;recorded&#32;in&#32;interleaved&#32;mode</emphasis>
+<anchor xml:id="_directory_8h_source_1l00023"/><link linkend="_structdirectory__record_1a521be5065bacca09dd4f0d0317852a2c">00023</link> &#32;&#32;uint16_t&#32;<link linkend="_structdirectory__record_1a521be5065bacca09dd4f0d0317852a2c">volume_sequence_number</link>;
+<anchor xml:id="_directory_8h_source_1l00024"/><link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">00024</link> &#32;&#32;uint8_t&#32;<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>;
+<anchor xml:id="_directory_8h_source_1l00025"/><link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">00025</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>;
+<anchor xml:id="_directory_8h_source_1l00026"/><link linkend="_directory_8h_1a89963f6afcd6940c486d5138e16bbecc">00026</link> }&#32;<link linkend="_directory_8h_1a89963f6afcd6940c486d5138e16bbecc">directory_record</link>;
+<anchor xml:id="_directory_8h_source_1l00027"/>00027 
+<anchor xml:id="_directory_8h_source_1l00028"/><link linkend="_structdirectory">00028</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdirectory">directory</link>
+<anchor xml:id="_directory_8h_source_1l00029"/>00029 {
+<anchor xml:id="_directory_8h_source_1l00030"/><link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">00030</link> &#32;&#32;<link linkend="_structdirectory__record">directory_record</link>&#32;*<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>;
+<anchor xml:id="_directory_8h_source_1l00031"/><link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">00031</link> &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">size</link>;
+<anchor xml:id="_directory_8h_source_1l00032"/><link linkend="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7">00032</link> &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7">current_record</link>;
+<anchor xml:id="_directory_8h_source_1l00033"/><link linkend="_directory_8h_1a5902957cefb03c7562ff4ff662b9086e">00033</link> }&#32;<link linkend="_directory_8h_1a5902957cefb03c7562ff4ff662b9086e">directory</link>;
+<anchor xml:id="_directory_8h_source_1l00034"/>00034 
+<anchor xml:id="_directory_8h_source_1l00035"/>00035 int8_t&#32;<link linkend="_directory_8h_1a588d5ddc87f420409a34325d09ba125a">create_directory</link>&#32;(<link linkend="_structdirectory">directory</link>&#32;*d);
+<anchor xml:id="_directory_8h_source_1l00036"/>00036 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_directory_8h_1a5bb3c915259dac9f8fb2c102cc72ccda">destroy_directory</link>&#32;(<link linkend="_structdirectory">directory</link>&#32;*d);
+<anchor xml:id="_directory_8h_source_1l00037"/>00037 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_directory_8h_1a8eb2a5a06d3bbcbc2081c28d726e301b">add_record_to_directory</link>&#32;(<link linkend="_structdirectory">directory</link>&#32;*d,&#32;<link linkend="_structdirectory__record">directory_record</link>&#32;*r);
+<anchor xml:id="_directory_8h_source_1l00038"/>00038 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_directory_8h_1a62a8754d4c77904a749f780b57be2152">print_directory</link>&#32;(<link linkend="_structdirectory">directory</link>&#32;*d);
+<anchor xml:id="_directory_8h_source_1l00039"/>00039 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_directory_8h_1aefcaed1602ed0c137cf53d3c297411b5">print_directory_record</link>&#32;(<link linkend="_structdirectory__record">directory_record</link>&#32;*r);
+<anchor xml:id="_directory_8h_source_1l00040"/>00040 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_directory_8h_1ac261e312adbf9507bf53bf1fae5b6e92">process_directory</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structdirectory">directory</link>&#32;*d);
+<anchor xml:id="_directory_8h_source_1l00041"/>00041 
+<anchor xml:id="_directory_8h_source_1l00042"/>00042 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

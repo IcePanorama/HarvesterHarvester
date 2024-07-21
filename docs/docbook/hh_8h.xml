@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_hh_8h" xml:lang="en-US">
+<title>src/hh.h File Reference</title>
+<indexterm><primary>src/hh.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>static FILE * <link linkend="_hh_8h_1adc1a83a755870c0899977818898d13cb">setup_extractor</link> (char *filename)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_hh_8h_1af12d681a411f7fd2c48b09fc35df739c">process_DAT_file</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>static int <link linkend="_hh_8h_1ab5fe38006fca7f224a00f75973e3d079">batch_process_DAT_files</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_hh_8h_1ab5fe38006fca7f224a00f75973e3d079"/><section>
+    <title>batch_process_DAT_files()</title>
+<indexterm><primary>batch_process_DAT_files</primary><secondary>hh.h</secondary></indexterm>
+<indexterm><primary>hh.h</primary><secondary>batch_process_DAT_files</secondary></indexterm>
+<para><computeroutput>static int batch_process_DAT_files (void )<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Processes all the <computeroutput>.DAT</computeroutput> files found in <computeroutput>OP_INPUT_DIR</computeroutput>, one at a time. </para>
+<para>
+Definition at line <link linkend="_hh_8c_source_1l00141">141</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+</section>
+<anchor xml:id="_hh_8h_1af12d681a411f7fd2c48b09fc35df739c"/><section>
+    <title>process_DAT_file()</title>
+<indexterm><primary>process_DAT_file</primary><secondary>hh.h</secondary></indexterm>
+<indexterm><primary>hh.h</primary><secondary>process_DAT_file</secondary></indexterm>
+<para><computeroutput>static void process_DAT_file (FILE * fptr)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Processes a DAT file pointed to by the given <computeroutput>FILE *</computeroutput>. </para>
+
+<para>This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the <computeroutput>OP_CURRENT_DISK_NAME</computeroutput> variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the <computeroutput>OP_OUTPUT_DIR</computeroutput>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fptr</entry><entry>
+<para>a file pointer to a DAT file. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para><link xlink:href="https://wiki.osdev.org/ISO_9660">https://wiki.osdev.org/ISO_9660</link> </para>
+
+<para><link linkend="_volume__descriptor_8c_1ac90e9d56a0be0db4fa1e60d2a7a089ee">process_volume_descriptor_header()</link> </para>
+
+<para><link linkend="_volume__descriptor_8c_1aebf907c2282343b4b0d2c0ffed6a182a">process_volume_descriptor_data()</link> </para>
+
+<para><link linkend="_path__table_8c_1ac08be1296d016ba9a28db25b35ca9132">create_path_table()</link> </para>
+
+<para><link linkend="_path__table_8c_1abc1fa6960cc549494e87d2884727e202">process_type_l_path_table()</link> </para>
+
+<para><link linkend="_extractor_8c_1a83bd0d1558bff60ba2a613868c6a138f">extract_directory()</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_hh_8c_source_1l00068">68</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+</section>
+<anchor xml:id="_hh_8h_1adc1a83a755870c0899977818898d13cb"/><section>
+    <title>setup_extractor()</title>
+<indexterm><primary>setup_extractor</primary><secondary>hh.h</secondary></indexterm>
+<indexterm><primary>hh.h</primary><secondary>setup_extractor</secondary></indexterm>
+<para><computeroutput>static FILE * setup_extractor (char * filename)<computeroutput>[static]</computeroutput></computeroutput></para>
+<para>Creates a <computeroutput>FILE *</computeroutput> for the given <computeroutput>filename</computeroutput>, handling error messages as needed, while also checking the end-user&apos;s operating system and updating <computeroutput>OP_PATH_SEPARATOR</computeroutput>. The caller is responsible for closing the file pointer when they&apos;re finished with it.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>filename</entry><entry>
+<para><computeroutput>char *</computeroutput> of the path to a DAT file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>a pointer to the given file, if it exist. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_hh_8c_source_1l00047">47</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+</section>
+</section>
+</section>

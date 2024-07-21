@@ -1,0 +1,251 @@
+\doxysection{src/volume\+\_\+descriptor.h File Reference}
+\hypertarget{volume__descriptor_8h}{}\label{volume__descriptor_8h}\index{src/volume\_descriptor.h@{src/volume\_descriptor.h}}
+{\ttfamily \#include "{}datetime.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}}
+\item 
+struct \mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_a8d48399aa2b2f77c0f395a39c2a82ef8}{SYSTEM\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~33
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_a2ee43c4111a809b1668f9a5e6441f923}{VOLUME\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~33
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_a7a3cbe9af9a2561147611b5b58383b9a}{ROOT\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+LEN}}~34
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_a21844d31481be3e282c586beb1af42b5}{VOLUME\+\_\+\+SET\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~129
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_af84a95162e814cc57a4bb0eb3a94aed2}{PUBLISHER\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~129
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_a4611162362c6479337c5092cba68e630}{DATA\+\_\+\+PREPARER\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~129
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_ac6cb4e8045e278793e9662627423aa09}{APPLICATION\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~129
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_a6e1898726ea2bf0bc932ad3c3d8fd8d6}{COPYRIGHT\+\_\+\+FILE\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~38
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_ab6ba919808a912338d8e0abeb022b78c}{ABSTRACT\+\_\+\+FILE\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~38
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_afcc3b336c283fd14202e7ed2003035df}{BIBLIOGRAPHIC\+\_\+\+FILE\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~38
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_ae86e9446608da83762f62147c372c700}{DAT\+\_\+\+FILE\+\_\+\+CREATION\+\_\+\+SOFTWARE\+\_\+\+IDENTIFIER\+\_\+\+LEN}}~9
+\item 
+\#define \mbox{\hyperlink{volume__descriptor_8h_ad1b2c8a9e3551bb5aa364f0633996efa}{DAT\+\_\+\+FILE\+\_\+\+CREATION\+\_\+\+SOFTWARE\+\_\+\+VERSION\+\_\+\+NUMBER\+\_\+\+LEN}}~11
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct volume\+\_\+descriptor\+\_\+data \mbox{\hyperlink{volume__descriptor_8h_a29bc2260185566affada900857a0ad26}{volume\+\_\+descriptor\+\_\+data}}
+\item 
+typedef struct volume\+\_\+descriptor \mbox{\hyperlink{volume__descriptor_8h_a1007c0cbec03a369a1f09246acc3d550}{volume\+\_\+descriptor}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{volume__descriptor_8h_a927dff4d543f323e86784b784602c3f4}{create\+\_\+volume\+\_\+descriptor}} (\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}vd, uint8\+\_\+t type, uint8\+\_\+t version)
+\item 
+void \mbox{\hyperlink{volume__descriptor_8h_ac83303eab8ff516e07c13652ff4adece}{print\+\_\+volume\+\_\+descriptor\+\_\+header}} (\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}vd)
+\item 
+void \mbox{\hyperlink{volume__descriptor_8h_ae25c2f5ac41962af3d8db01bdacbb65d}{print\+\_\+volume\+\_\+descriptor\+\_\+data}} (\mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}vdd)
+\item 
+void \mbox{\hyperlink{volume__descriptor_8h_ac90e9d56a0be0db4fa1e60d2a7a089ee}{process\+\_\+volume\+\_\+descriptor\+\_\+header}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}vd)
+\item 
+void \mbox{\hyperlink{volume__descriptor_8h_aebf907c2282343b4b0d2c0ffed6a182a}{process\+\_\+volume\+\_\+descriptor\+\_\+data}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}vdd)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{volume__descriptor_8h_ab6ba919808a912338d8e0abeb022b78c}\index{volume\_descriptor.h@{volume\_descriptor.h}!ABSTRACT\_FILE\_IDENTIFIER\_LEN@{ABSTRACT\_FILE\_IDENTIFIER\_LEN}}
+\index{ABSTRACT\_FILE\_IDENTIFIER\_LEN@{ABSTRACT\_FILE\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{ABSTRACT\_FILE\_IDENTIFIER\_LEN}{ABSTRACT\_FILE\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_ab6ba919808a912338d8e0abeb022b78c} 
+\#define ABSTRACT\+\_\+\+FILE\+\_\+\+IDENTIFIER\+\_\+\+LEN~38}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00018}{18}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_ac6cb4e8045e278793e9662627423aa09}\index{volume\_descriptor.h@{volume\_descriptor.h}!APPLICATION\_IDENTIFIER\_LEN@{APPLICATION\_IDENTIFIER\_LEN}}
+\index{APPLICATION\_IDENTIFIER\_LEN@{APPLICATION\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{APPLICATION\_IDENTIFIER\_LEN}{APPLICATION\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_ac6cb4e8045e278793e9662627423aa09} 
+\#define APPLICATION\+\_\+\+IDENTIFIER\+\_\+\+LEN~129}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00016}{16}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_afcc3b336c283fd14202e7ed2003035df}\index{volume\_descriptor.h@{volume\_descriptor.h}!BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN@{BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN}}
+\index{BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN@{BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN}{BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_afcc3b336c283fd14202e7ed2003035df} 
+\#define BIBLIOGRAPHIC\+\_\+\+FILE\+\_\+\+IDENTIFIER\+\_\+\+LEN~38}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00019}{19}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_a6e1898726ea2bf0bc932ad3c3d8fd8d6}\index{volume\_descriptor.h@{volume\_descriptor.h}!COPYRIGHT\_FILE\_IDENTIFIER\_LEN@{COPYRIGHT\_FILE\_IDENTIFIER\_LEN}}
+\index{COPYRIGHT\_FILE\_IDENTIFIER\_LEN@{COPYRIGHT\_FILE\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{COPYRIGHT\_FILE\_IDENTIFIER\_LEN}{COPYRIGHT\_FILE\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a6e1898726ea2bf0bc932ad3c3d8fd8d6} 
+\#define COPYRIGHT\+\_\+\+FILE\+\_\+\+IDENTIFIER\+\_\+\+LEN~38}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00017}{17}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_ae86e9446608da83762f62147c372c700}\index{volume\_descriptor.h@{volume\_descriptor.h}!DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN@{DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN}}
+\index{DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN@{DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN}{DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_ae86e9446608da83762f62147c372c700} 
+\#define DAT\+\_\+\+FILE\+\_\+\+CREATION\+\_\+\+SOFTWARE\+\_\+\+IDENTIFIER\+\_\+\+LEN~9}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00020}{20}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_ad1b2c8a9e3551bb5aa364f0633996efa}\index{volume\_descriptor.h@{volume\_descriptor.h}!DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN@{DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN}}
+\index{DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN@{DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN}{DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_ad1b2c8a9e3551bb5aa364f0633996efa} 
+\#define DAT\+\_\+\+FILE\+\_\+\+CREATION\+\_\+\+SOFTWARE\+\_\+\+VERSION\+\_\+\+NUMBER\+\_\+\+LEN~11}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00021}{21}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_a4611162362c6479337c5092cba68e630}\index{volume\_descriptor.h@{volume\_descriptor.h}!DATA\_PREPARER\_IDENTIFIER\_LEN@{DATA\_PREPARER\_IDENTIFIER\_LEN}}
+\index{DATA\_PREPARER\_IDENTIFIER\_LEN@{DATA\_PREPARER\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{DATA\_PREPARER\_IDENTIFIER\_LEN}{DATA\_PREPARER\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a4611162362c6479337c5092cba68e630} 
+\#define DATA\+\_\+\+PREPARER\+\_\+\+IDENTIFIER\+\_\+\+LEN~129}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00015}{15}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_af84a95162e814cc57a4bb0eb3a94aed2}\index{volume\_descriptor.h@{volume\_descriptor.h}!PUBLISHER\_IDENTIFIER\_LEN@{PUBLISHER\_IDENTIFIER\_LEN}}
+\index{PUBLISHER\_IDENTIFIER\_LEN@{PUBLISHER\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{PUBLISHER\_IDENTIFIER\_LEN}{PUBLISHER\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_af84a95162e814cc57a4bb0eb3a94aed2} 
+\#define PUBLISHER\+\_\+\+IDENTIFIER\+\_\+\+LEN~129}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00014}{14}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_a7a3cbe9af9a2561147611b5b58383b9a}\index{volume\_descriptor.h@{volume\_descriptor.h}!ROOT\_DIRECTORY\_ENTRY\_LEN@{ROOT\_DIRECTORY\_ENTRY\_LEN}}
+\index{ROOT\_DIRECTORY\_ENTRY\_LEN@{ROOT\_DIRECTORY\_ENTRY\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{ROOT\_DIRECTORY\_ENTRY\_LEN}{ROOT\_DIRECTORY\_ENTRY\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a7a3cbe9af9a2561147611b5b58383b9a} 
+\#define ROOT\+\_\+\+DIRECTORY\+\_\+\+ENTRY\+\_\+\+LEN~34}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00012}{12}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_a8d48399aa2b2f77c0f395a39c2a82ef8}\index{volume\_descriptor.h@{volume\_descriptor.h}!SYSTEM\_IDENTIFIER\_LEN@{SYSTEM\_IDENTIFIER\_LEN}}
+\index{SYSTEM\_IDENTIFIER\_LEN@{SYSTEM\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{SYSTEM\_IDENTIFIER\_LEN}{SYSTEM\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a8d48399aa2b2f77c0f395a39c2a82ef8} 
+\#define SYSTEM\+\_\+\+IDENTIFIER\+\_\+\+LEN~33}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00010}{10}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_a2ee43c4111a809b1668f9a5e6441f923}\index{volume\_descriptor.h@{volume\_descriptor.h}!VOLUME\_IDENTIFIER\_LEN@{VOLUME\_IDENTIFIER\_LEN}}
+\index{VOLUME\_IDENTIFIER\_LEN@{VOLUME\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{VOLUME\_IDENTIFIER\_LEN}{VOLUME\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a2ee43c4111a809b1668f9a5e6441f923} 
+\#define VOLUME\+\_\+\+IDENTIFIER\+\_\+\+LEN~33}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00011}{11}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+\Hypertarget{volume__descriptor_8h_a21844d31481be3e282c586beb1af42b5}\index{volume\_descriptor.h@{volume\_descriptor.h}!VOLUME\_SET\_IDENTIFIER\_LEN@{VOLUME\_SET\_IDENTIFIER\_LEN}}
+\index{VOLUME\_SET\_IDENTIFIER\_LEN@{VOLUME\_SET\_IDENTIFIER\_LEN}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{VOLUME\_SET\_IDENTIFIER\_LEN}{VOLUME\_SET\_IDENTIFIER\_LEN}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a21844d31481be3e282c586beb1af42b5} 
+\#define VOLUME\+\_\+\+SET\+\_\+\+IDENTIFIER\+\_\+\+LEN~129}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00013}{13}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{volume__descriptor_8h_a1007c0cbec03a369a1f09246acc3d550}\index{volume\_descriptor.h@{volume\_descriptor.h}!volume\_descriptor@{volume\_descriptor}}
+\index{volume\_descriptor@{volume\_descriptor}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{volume\_descriptor}{volume\_descriptor}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a1007c0cbec03a369a1f09246acc3d550} 
+typedef struct volume\+\_\+descriptor volume\+\_\+descriptor}
+
+\Hypertarget{volume__descriptor_8h_a29bc2260185566affada900857a0ad26}\index{volume\_descriptor.h@{volume\_descriptor.h}!volume\_descriptor\_data@{volume\_descriptor\_data}}
+\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{volume\_descriptor\_data}{volume\_descriptor\_data}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a29bc2260185566affada900857a0ad26} 
+typedef struct volume\+\_\+descriptor\+\_\+data volume\+\_\+descriptor\+\_\+data}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{volume__descriptor_8h_a927dff4d543f323e86784b784602c3f4}\index{volume\_descriptor.h@{volume\_descriptor.h}!create\_volume\_descriptor@{create\_volume\_descriptor}}
+\index{create\_volume\_descriptor@{create\_volume\_descriptor}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{create\_volume\_descriptor()}{create\_volume\_descriptor()}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_a927dff4d543f323e86784b784602c3f4} 
+void create\+\_\+volume\+\_\+descriptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{, }\item[{uint8\+\_\+t}]{type}{, }\item[{uint8\+\_\+t}]{version}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00008}{8}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+
+\Hypertarget{volume__descriptor_8h_ae25c2f5ac41962af3d8db01bdacbb65d}\index{volume\_descriptor.h@{volume\_descriptor.h}!print\_volume\_descriptor\_data@{print\_volume\_descriptor\_data}}
+\index{print\_volume\_descriptor\_data@{print\_volume\_descriptor\_data}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{print\_volume\_descriptor\_data()}{print\_volume\_descriptor\_data()}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_ae25c2f5ac41962af3d8db01bdacbb65d} 
+void print\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{vdd}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00026}{26}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+
+\Hypertarget{volume__descriptor_8h_ac83303eab8ff516e07c13652ff4adece}\index{volume\_descriptor.h@{volume\_descriptor.h}!print\_volume\_descriptor\_header@{print\_volume\_descriptor\_header}}
+\index{print\_volume\_descriptor\_header@{print\_volume\_descriptor\_header}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{print\_volume\_descriptor\_header()}{print\_volume\_descriptor\_header()}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_ac83303eab8ff516e07c13652ff4adece} 
+void print\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00018}{18}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+
+\Hypertarget{volume__descriptor_8h_aebf907c2282343b4b0d2c0ffed6a182a}\index{volume\_descriptor.h@{volume\_descriptor.h}!process\_volume\_descriptor\_data@{process\_volume\_descriptor\_data}}
+\index{process\_volume\_descriptor\_data@{process\_volume\_descriptor\_data}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{process\_volume\_descriptor\_data()}{process\_volume\_descriptor\_data()}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_aebf907c2282343b4b0d2c0ffed6a182a} 
+void process\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{vdd}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00092}{92}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+
+\Hypertarget{volume__descriptor_8h_ac90e9d56a0be0db4fa1e60d2a7a089ee}\index{volume\_descriptor.h@{volume\_descriptor.h}!process\_volume\_descriptor\_header@{process\_volume\_descriptor\_header}}
+\index{process\_volume\_descriptor\_header@{process\_volume\_descriptor\_header}!volume\_descriptor.h@{volume\_descriptor.h}}
+\doxysubsubsection{\texorpdfstring{process\_volume\_descriptor\_header()}{process\_volume\_descriptor\_header()}}
+{\footnotesize\ttfamily \label{volume__descriptor_8h_ac90e9d56a0be0db4fa1e60d2a7a089ee} 
+void process\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00073}{73}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+

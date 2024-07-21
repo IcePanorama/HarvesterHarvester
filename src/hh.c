@@ -1,3 +1,4 @@
+#include "hh.h"
 #include "errors.h"
 #include "extractor.h"
 #include "options.h"
@@ -12,16 +13,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-// For directory handling
 #ifdef _WIN32
 #include <windows.h>
 #else
 #include <dirent.h>
 #endif
-
-static FILE *setup_extractor (char *filename);
-static void process_DAT_file (FILE *fptr);
-static int batch_process_DAT_files (void);
 
 int
 main (int argc, char **argv)
@@ -47,21 +43,6 @@ main (int argc, char **argv)
   return 0;
 }
 
-/*
- *  setup_extractor
- *
- *  Creates a `FILE *` for the given `filename`, handling error messages as
- *  needed.
- *  In the future, this function will be used to search the `dat files`
- *  directory and automatically prepare the necessary pointers for whatever
- *  files it is passed. Additionally, this function will also be used to handle
- *  commandline arguements from users.
- *
- *  param:
- *    filename : char * - the name/path of the `HARVEST(X).DAT` file.
- *  returns:
- *    FILE * - a pointer to the given file, if it exist.
- */
 FILE *
 setup_extractor (char *filename)
 {
@@ -83,13 +64,6 @@ setup_extractor (char *filename)
   return fptr;
 }
 
-/*
- *  process_DAT_file
- *
- *  TODO: write some better documentation for this.
- *  In the meantime, please see the comments of all the functions called within
- *  for more details.
- */
 void
 process_DAT_file (FILE *fptr)
 {
@@ -150,7 +124,6 @@ process_DAT_file (FILE *fptr)
                        sizeof (char));
   if (path == NULL)
     {
-      extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, OUTPUT_DIR);
       destroy_path_table (&pt);
       return;
     }
@@ -164,15 +137,6 @@ process_DAT_file (FILE *fptr)
   destroy_path_table (&pt);
 }
 
-/*
- *  batch_process_DAT_files
- *
- *  Having this be super hard-coded is not ideal, but this should at least be
- *  cross-platform. I just threw this together in like 5 minutes. Definitely
- *  replace this in the future.
- *
- *  TODO: add better documentation.
- */
 int
 batch_process_DAT_files ()
 {

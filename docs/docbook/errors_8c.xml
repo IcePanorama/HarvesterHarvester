@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_errors_8c" xml:lang="en-US">
+<title>src/errors.c File Reference</title>
+<indexterm><primary>src/errors.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;errors.h&quot;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_errors_8c_1a1fa621098d550bb126a641aba0638f7f">improper_usage_error</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_errors_8c_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link> (char *filename)</para>
+</listitem>
+            <listitem><para>void <link linkend="_errors_8c_1a43d16be8297bee4a817aec3d78833cc9">handle_fread_error</link> (FILE *fptr, size_t actual, size_t expected_bytes)</para>
+</listitem>
+            <listitem><para>void <link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link> (char *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_errors_8c_1a9b9a6494b96286134308f2da3e179af9"/><section>
+    <title>fopen_error()</title>
+<indexterm><primary>fopen_error</primary><secondary>errors.c</secondary></indexterm>
+<indexterm><primary>errors.c</primary><secondary>fopen_error</secondary></indexterm>
+<para><computeroutput>void fopen_error (char * filename)</computeroutput></para><para>
+Definition at line <link linkend="_errors_8c_source_1l00022">22</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+</section>
+<anchor xml:id="_errors_8c_1a43d16be8297bee4a817aec3d78833cc9"/><section>
+    <title>handle_fread_error()</title>
+<indexterm><primary>handle_fread_error</primary><secondary>errors.c</secondary></indexterm>
+<indexterm><primary>errors.c</primary><secondary>handle_fread_error</secondary></indexterm>
+<para><computeroutput>void handle_fread_error (FILE * fptr, size_t actual, size_t expected_bytes)</computeroutput></para><para>
+Definition at line <link linkend="_errors_8c_source_1l00029">29</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+</section>
+<anchor xml:id="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0"/><section>
+    <title>handle_unknown_command_line_argument_error()</title>
+<indexterm><primary>handle_unknown_command_line_argument_error</primary><secondary>errors.c</secondary></indexterm>
+<indexterm><primary>errors.c</primary><secondary>handle_unknown_command_line_argument_error</secondary></indexterm>
+<para><computeroutput>void handle_unknown_command_line_argument_error (char * arg)</computeroutput></para><para>
+Definition at line <link linkend="_errors_8c_source_1l00043">43</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+</section>
+<anchor xml:id="_errors_8c_1a1fa621098d550bb126a641aba0638f7f"/><section>
+    <title>improper_usage_error()</title>
+<indexterm><primary>improper_usage_error</primary><secondary>errors.c</secondary></indexterm>
+<indexterm><primary>errors.c</primary><secondary>improper_usage_error</secondary></indexterm>
+<para><computeroutput>void improper_usage_error (void )</computeroutput></para><para>
+Definition at line <link linkend="_errors_8c_source_1l00007">7</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+</section>
+</section>
+</section>

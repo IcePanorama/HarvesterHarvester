@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_options_8c" xml:lang="en-US">
+<title>src/options.c File Reference</title>
+<indexterm><primary>src/options.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;options.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>static void <link linkend="_options_8c_1a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</link> (void)</para>
+</listitem>
+            <listitem><para>static void <link linkend="_options_8c_1a6b175948738c4d93a820a0ada9e54669">process_flag</link> (char *f)</para>
+</listitem>
+            <listitem><para>void <link linkend="_options_8c_1a83aed94bb59dba20fc0286181dc64738">handle_command_line_args</link> (int argc, char **argv)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>bool <link linkend="_options_8c_1abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</link> = true</para>
+</listitem>
+            <listitem><para>char * <link linkend="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link> = NULL</para>
+</listitem>
+            <listitem><para>bool <link linkend="_options_8c_1a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</link> = false</para>
+</listitem>
+            <listitem><para>char * <link linkend="_options_8c_1a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</link> = (char *)&quot;dat-files&quot;</para>
+</listitem>
+            <listitem><para>char <link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link> = &apos;/&apos;</para>
+</listitem>
+            <listitem><para>static const char <link linkend="_options_8c_1a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</link> [9] = &quot;00.00.00&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_options_8c_1a83aed94bb59dba20fc0286181dc64738"/><section>
+    <title>handle_command_line_args()</title>
+<indexterm><primary>handle_command_line_args</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>handle_command_line_args</secondary></indexterm>
+<para><computeroutput>void handle_command_line_args (int argc, char ** argv)</computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00028">28</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1a5413a17f20b0c5daf64765e6c104768d"/><section>
+    <title>print_out_list_of_command_line_arguments()</title>
+<indexterm><primary>print_out_list_of_command_line_arguments</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>print_out_list_of_command_line_arguments</secondary></indexterm>
+<para><computeroutput>void print_out_list_of_command_line_arguments (void )<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00070">70</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1a6b175948738c4d93a820a0ada9e54669"/><section>
+    <title>process_flag()</title>
+<indexterm><primary>process_flag</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>process_flag</secondary></indexterm>
+<para><computeroutput>void process_flag (char * f)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00090">90</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_options_8c_1abf19eab4ae4469b24b2b34284bb72f5a"/><section>
+    <title>OP_BATCH_PROCESS</title>
+<indexterm><primary>OP_BATCH_PROCESS</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>OP_BATCH_PROCESS</secondary></indexterm>
+<para><computeroutput>bool OP_BATCH_PROCESS = true</computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00010">10</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007"/><section>
+    <title>OP_CURRENT_DISK_NAME</title>
+<indexterm><primary>OP_CURRENT_DISK_NAME</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>OP_CURRENT_DISK_NAME</secondary></indexterm>
+<para><computeroutput>char* OP_CURRENT_DISK_NAME = NULL</computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00011">11</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1a22750490a402211ccfd1c7dda808eb51"/><section>
+    <title>OP_DEBUG_MODE</title>
+<indexterm><primary>OP_DEBUG_MODE</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>OP_DEBUG_MODE</secondary></indexterm>
+<para><computeroutput>bool OP_DEBUG_MODE = false</computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00012">12</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1a9f2b83262a240b0baabccb91b801b096"/><section>
+    <title>OP_INPUT_DIR</title>
+<indexterm><primary>OP_INPUT_DIR</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>OP_INPUT_DIR</secondary></indexterm>
+<para><computeroutput>char* OP_INPUT_DIR = (char *)&quot;dat-files&quot;</computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00013">13</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1a845934c83dddb0516baadb1abd079d8d"/><section>
+    <title>OP_PATH_SEPARATOR</title>
+<indexterm><primary>OP_PATH_SEPARATOR</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>OP_PATH_SEPARATOR</secondary></indexterm>
+<para><computeroutput>char OP_PATH_SEPARATOR = &apos;/&apos;</computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00014">14</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1a59cde5c015f49e774b06103571d51dc9"/><section>
+    <title>VERSION_NUMBER_STR</title>
+<indexterm><primary>VERSION_NUMBER_STR</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>VERSION_NUMBER_STR</secondary></indexterm>
+<para><computeroutput>const char VERSION_NUMBER_STR[9] = &quot;00.00.00&quot;<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_options_8c_source_1l00017">17</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+</section>
+</section>

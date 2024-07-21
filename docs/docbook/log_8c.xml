@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_log_8c" xml:lang="en-US">
+<title>src/log.c File Reference</title>
+<indexterm><primary>src/log.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;log.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>&#160;&#160;&#160;32</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link> (unsigned char *buffer, const uint8_t BUFFER_LEN)</para>
+</listitem>
+            <listitem><para>void <link linkend="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link> (FILE *fptr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_log_8c_1a41e9ced92689f94ffc427d5e2e658382"/><section>
+    <title>BYTES_TO_READ</title>
+<indexterm><primary>BYTES_TO_READ</primary><secondary>log.c</secondary></indexterm>
+<indexterm><primary>log.c</primary><secondary>BYTES_TO_READ</secondary></indexterm>
+<para><computeroutput>#define BYTES_TO_READ&#160;&#160;&#160;32</computeroutput></para><para>
+Definition at line <link linkend="_log_8c_source_1l00044">44</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_log_8c_1aaaf9265dd175725985b56eeac3db2f30"/><section>
+    <title>print_hex_data()</title>
+<indexterm><primary>print_hex_data</primary><secondary>log.c</secondary></indexterm>
+<indexterm><primary>log.c</primary><secondary>print_hex_data</secondary></indexterm>
+<para><computeroutput>void print_hex_data (unsigned char * buffer, const uint8_t BUFFER_LEN)</computeroutput></para><para>
+Definition at line <link linkend="_log_8c_source_1l00021">21</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+</section>
+<anchor xml:id="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304"/><section>
+    <title>print_some_data_from_file()</title>
+<indexterm><primary>print_some_data_from_file</primary><secondary>log.c</secondary></indexterm>
+<indexterm><primary>log.c</primary><secondary>print_some_data_from_file</secondary></indexterm>
+<para><computeroutput>void print_some_data_from_file (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_log_8c_source_1l00046">46</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+</section>
+</section>
+</section>

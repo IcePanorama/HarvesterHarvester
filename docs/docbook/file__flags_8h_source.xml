@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_file__flags_8h_source" xml:lang="en-US">
+<title>file_flags.h</title>
+<indexterm><primary>src/file_flags.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_file__flags_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_FILE_FLAGS_H_</emphasis>
+<anchor xml:id="_file__flags_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_FILE_FLAGS_H_</emphasis>
+<anchor xml:id="_file__flags_8h_source_1l00003"/>00003 
+<anchor xml:id="_file__flags_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_file__flags_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_file__flags_8h_source_1l00006"/>00006 
+<anchor xml:id="_file__flags_8h_source_1l00007"/><link linkend="_structfile__flags">00007</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structfile__flags">file_flags</link>
+<anchor xml:id="_file__flags_8h_source_1l00008"/>00008 {
+<anchor xml:id="_file__flags_8h_source_1l00009"/><link linkend="_structfile__flags_1a4139d9b02dc7f9d1649ed9d3466dd7af">00009</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structfile__flags_1a4139d9b02dc7f9d1649ed9d3466dd7af">hidden</link>;
+<anchor xml:id="_file__flags_8h_source_1l00010"/><link linkend="_structfile__flags_1a16bbb1c4299a88199b4bc23f29215049">00010</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structfile__flags_1a16bbb1c4299a88199b4bc23f29215049">subdirectory</link>;
+<anchor xml:id="_file__flags_8h_source_1l00011"/><link linkend="_structfile__flags_1a65c772bf6516b11d65fb49180812c109">00011</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structfile__flags_1a65c772bf6516b11d65fb49180812c109">associated_file</link>;&#32;<emphasis role="comment">//&#32;No&#32;clue&#32;what&#32;this&#32;means</emphasis>
+<anchor xml:id="_file__flags_8h_source_1l00012"/><link linkend="_structfile__flags_1a86793fb0cad3076a0f21d6c4bb1f1059">00012</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structfile__flags_1a86793fb0cad3076a0f21d6c4bb1f1059">extended_attribute_record_contains_owner_and_group_permissions</link>;
+<anchor xml:id="_file__flags_8h_source_1l00013"/><link linkend="_structfile__flags_1aef4a9f3598c6b75c602d7c7a969669a3">00013</link> &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_structfile__flags_1aef4a9f3598c6b75c602d7c7a969669a3">final_directory_record</link>;&#32;<emphasis role="comment">//&#32;if&#32;false,&#32;this&#32;is&#32;not&#32;the&#32;final&#32;directory</emphasis>
+<anchor xml:id="_file__flags_8h_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;record;&#32;file&#32;spans&#32;over&#32;multiple&#32;extents</emphasis>
+<anchor xml:id="_file__flags_8h_source_1l00015"/><link linkend="_file__flags_8h_1a652fcfc727f62d263268a6c1b1b72a1c">00015</link> }&#32;<link linkend="_file__flags_8h_1a652fcfc727f62d263268a6c1b1b72a1c">file_flags</link>;
+<anchor xml:id="_file__flags_8h_source_1l00016"/>00016 
+<anchor xml:id="_file__flags_8h_source_1l00017"/>00017 <link linkend="_structfile__flags">file_flags</link>&#32;<link linkend="_file__flags_8h_1aacfa73039d80ff8aafa6b5cc1d8c54b5">create_file_flags</link>&#32;(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_file__flags_8h_source_1l00018"/>00018 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_file__flags_8h_1acac0358f9c6ab59a1d9913afb02f4f21">print_file_flags</link>&#32;(<link linkend="_structfile__flags">file_flags</link>&#32;*ff);
+<anchor xml:id="_file__flags_8h_source_1l00019"/>00019 
+<anchor xml:id="_file__flags_8h_source_1l00020"/>00020 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

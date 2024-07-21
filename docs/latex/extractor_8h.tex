@@ -1,0 +1,48 @@
+\doxysection{src/extractor.h File Reference}
+\hypertarget{extractor_8h}{}\label{extractor_8h}\index{src/extractor.h@{src/extractor.h}}
+{\ttfamily \#include "{}directory.\+h"{}}\newline
+{\ttfamily \#include "{}path\+\_\+table.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{extractor_8h_a553117edee61f114d5f6fd9d28d57313}{extract\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, struct \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}dr, const char \texorpdfstring{$\ast$}{*}path)
+\item 
+int8\+\_\+t \mbox{\hyperlink{extractor_8h_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory}} (FILE \texorpdfstring{$\ast$}{*}fptr, const uint16\+\_\+t BLOCK\+\_\+\+SIZE, const char \texorpdfstring{$\ast$}{*}path)
+\item 
+void \mbox{\hyperlink{extractor_8h_a2b4cc3468a10bf1b72cdd4a672d4d154}{create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t BLOCK\+\_\+\+SIZE, struct \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{extractor_8h_a2b4cc3468a10bf1b72cdd4a672d4d154}\index{extractor.h@{extractor.h}!create\_directories\_and\_extract\_data\_from\_path\_file@{create\_directories\_and\_extract\_data\_from\_path\_file}}
+\index{create\_directories\_and\_extract\_data\_from\_path\_file@{create\_directories\_and\_extract\_data\_from\_path\_file}!extractor.h@{extractor.h}}
+\doxysubsubsection{\texorpdfstring{create\_directories\_and\_extract\_data\_from\_path\_file()}{create\_directories\_and\_extract\_data\_from\_path\_file()}}
+{\footnotesize\ttfamily \label{extractor_8h_a2b4cc3468a10bf1b72cdd4a672d4d154} 
+void create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint16\+\_\+t}]{BLOCK\+\_\+\+SIZE}{, }\item[{struct \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00121}{121}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+
+\Hypertarget{extractor_8h_a83bd0d1558bff60ba2a613868c6a138f}\index{extractor.h@{extractor.h}!extract\_directory@{extract\_directory}}
+\index{extract\_directory@{extract\_directory}!extractor.h@{extractor.h}}
+\doxysubsubsection{\texorpdfstring{extract\_directory()}{extract\_directory()}}
+{\footnotesize\ttfamily \label{extractor_8h_a83bd0d1558bff60ba2a613868c6a138f} 
+int8\+\_\+t extract\+\_\+directory (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{const uint16\+\_\+t}]{BLOCK\+\_\+\+SIZE}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00076}{76}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+
+\Hypertarget{extractor_8h_a553117edee61f114d5f6fd9d28d57313}\index{extractor.h@{extractor.h}!extract\_file@{extract\_file}}
+\index{extract\_file@{extract\_file}!extractor.h@{extractor.h}}
+\doxysubsubsection{\texorpdfstring{extract\_file()}{extract\_file()}}
+{\footnotesize\ttfamily \label{extractor_8h_a553117edee61f114d5f6fd9d28d57313} 
+int8\+\_\+t extract\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{struct \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}}]{dr}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00014}{14}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+

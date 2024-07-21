@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8h_source" xml:lang="en-US">
+<title>utils.h</title>
+<indexterm><primary>src/utils.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_utils_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_UTILS_H_</emphasis>
+<anchor xml:id="_utils_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_UTILS_H_</emphasis>
+<anchor xml:id="_utils_8h_source_1l00003"/>00003 
+<anchor xml:id="_utils_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_file__flags_8h">file_flags.h</link>&quot;</emphasis>
+<anchor xml:id="_utils_8h_source_1l00005"/>00005 
+<anchor xml:id="_utils_8h_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
+<anchor xml:id="_utils_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_utils_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_utils_8h_source_1l00009"/>00009 
+<anchor xml:id="_utils_8h_source_1l00010"/>00010 <emphasis role="comment">//&#32;A&#32;lot&#32;of&#32;these&#32;probably&#32;shouldn&apos;t&#32;be&#32;in&#32;a&#32;utils.h&#32;file</emphasis>
+<anchor xml:id="_utils_8h_source_1l00011"/>00011 <emphasis role="comment">//&#32;Should&#32;probably&#32;make&#32;a&#32;data.h&#32;or&#32;dat.h&#32;or&#32;something&#32;like&#32;that</emphasis>
+<anchor xml:id="_utils_8h_source_1l00012"/>00012 uint32_t&#32;<link linkend="_utils_8h_1a778ae3162a4e12d7d7dbe8672ca0ec81">read_little_endian_data_uint32_t</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00013"/>00013 uint32_t&#32;<link linkend="_utils_8h_1a2384957f27e209d73a6377de962cbc15">read_both_endian_data_uint32</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00014"/>00014 uint16_t&#32;<link linkend="_utils_8h_1ad773a6c38ce11dd0812deea517043051">read_little_endian_data_uint16_t</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00015"/>00015 uint16_t&#32;<link linkend="_utils_8h_1a3046006fce30b3601ef7399ccead3499">read_both_endian_data_uint16</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00016"/>00016 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1af766a6928a4e6e0797f712af34344fbe">read_string</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*output,&#32;uint8_t&#32;length);
+<anchor xml:id="_utils_8h_source_1l00017"/>00017 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1a9a2b371ec7adbc610cbda9eeb8ed2f98">read_array_uint8</link>&#32;(FILE&#32;*fptr,&#32;uint8_t&#32;*arr,&#32;uint8_t&#32;length);
+<anchor xml:id="_utils_8h_source_1l00018"/>00018 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdec__datetime">dec_datetime</link>&#32;<link linkend="_utils_8h_1ab7d2bb7290bca9cbd3045ad2231e2f36">read_dec_datetime</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00019"/>00019 uint8_t&#32;<link linkend="_utils_8h_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00020"/>00020 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdir__datetime">dir_datetime</link>&#32;<link linkend="_utils_8h_1a892c1ea488d2c19d81290458818b8221">read_dir_datetime</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00021"/>00021 <emphasis role="comment">//&#32;these&#32;three&#32;are&#32;probably&#32;find&#32;though.</emphasis>
+<anchor xml:id="_utils_8h_source_1l00022"/>00022 uint16_t&#32;<link linkend="_utils_8h_1a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</link>&#32;(uint16_t&#32;value);
+<anchor xml:id="_utils_8h_source_1l00023"/>00023 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1a5d12d6ba0683fa0c576d2ee3a6006656">read_file_flags</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structfile__flags">file_flags</link>&#32;*ff);
+<anchor xml:id="_utils_8h_source_1l00024"/>00024 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1af6ebb1daf24f6259fa021c9a0e8e516c">prepend_path_string</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*prefix);
+<anchor xml:id="_utils_8h_source_1l00025"/>00025 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str);
+<anchor xml:id="_utils_8h_source_1l00026"/>00026 
+<anchor xml:id="_utils_8h_source_1l00027"/>00027 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

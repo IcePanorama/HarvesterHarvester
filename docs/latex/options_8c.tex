@@ -1,0 +1,129 @@
+\doxysection{src/options.c File Reference}
+\hypertarget{options_8c}{}\label{options_8c}\index{src/options.c@{src/options.c}}
+{\ttfamily \#include "{}options.\+h"{}}\newline
+{\ttfamily \#include "{}errors.\+h"{}}\newline
+{\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{options_8c_a5413a17f20b0c5daf64765e6c104768d}{print\+\_\+out\+\_\+list\+\_\+of\+\_\+command\+\_\+line\+\_\+arguments}} (void)
+\item 
+static void \mbox{\hyperlink{options_8c_a6b175948738c4d93a820a0ada9e54669}{process\+\_\+flag}} (char \texorpdfstring{$\ast$}{*}f)
+\item 
+void \mbox{\hyperlink{options_8c_a83aed94bb59dba20fc0286181dc64738}{handle\+\_\+command\+\_\+line\+\_\+args}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{options_8c_abf19eab4ae4469b24b2b34284bb72f5a}{OP\+\_\+\+BATCH\+\_\+\+PROCESS}} = true
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c8384eec4f447007}{OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME}} = NULL
+\item 
+bool \mbox{\hyperlink{options_8c_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}} = false
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_a9f2b83262a240b0baabccb91b801b096}{OP\+\_\+\+INPUT\+\_\+\+DIR}} = (char \texorpdfstring{$\ast$}{*})"{}dat-\/files"{}
+\item 
+char \mbox{\hyperlink{options_8c_a845934c83dddb0516baadb1abd079d8d}{OP\+\_\+\+PATH\+\_\+\+SEPARATOR}} = \textquotesingle{}/\textquotesingle{}
+\item 
+static const char \mbox{\hyperlink{options_8c_a59cde5c015f49e774b06103571d51dc9}{VERSION\+\_\+\+NUMBER\+\_\+\+STR}} \mbox{[}9\mbox{]} = "{}00.\+00.\+00"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{options_8c_a83aed94bb59dba20fc0286181dc64738}\index{options.c@{options.c}!handle\_command\_line\_args@{handle\_command\_line\_args}}
+\index{handle\_command\_line\_args@{handle\_command\_line\_args}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{handle\_command\_line\_args()}{handle\_command\_line\_args()}}
+{\footnotesize\ttfamily \label{options_8c_a83aed94bb59dba20fc0286181dc64738} 
+void handle\+\_\+command\+\_\+line\+\_\+args (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{argv}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_a5413a17f20b0c5daf64765e6c104768d}\index{options.c@{options.c}!print\_out\_list\_of\_command\_line\_arguments@{print\_out\_list\_of\_command\_line\_arguments}}
+\index{print\_out\_list\_of\_command\_line\_arguments@{print\_out\_list\_of\_command\_line\_arguments}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{print\_out\_list\_of\_command\_line\_arguments()}{print\_out\_list\_of\_command\_line\_arguments()}}
+{\footnotesize\ttfamily \label{options_8c_a5413a17f20b0c5daf64765e6c104768d} 
+void print\+\_\+out\+\_\+list\+\_\+of\+\_\+command\+\_\+line\+\_\+arguments (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00070}{70}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_a6b175948738c4d93a820a0ada9e54669}\index{options.c@{options.c}!process\_flag@{process\_flag}}
+\index{process\_flag@{process\_flag}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{process\_flag()}{process\_flag()}}
+{\footnotesize\ttfamily \label{options_8c_a6b175948738c4d93a820a0ada9e54669} 
+void process\+\_\+flag (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{f}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00090}{90}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{options_8c_abf19eab4ae4469b24b2b34284bb72f5a}\index{options.c@{options.c}!OP\_BATCH\_PROCESS@{OP\_BATCH\_PROCESS}}
+\index{OP\_BATCH\_PROCESS@{OP\_BATCH\_PROCESS}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{OP\_BATCH\_PROCESS}{OP\_BATCH\_PROCESS}}
+{\footnotesize\ttfamily \label{options_8c_abf19eab4ae4469b24b2b34284bb72f5a} 
+bool OP\+\_\+\+BATCH\+\_\+\+PROCESS = true}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00010}{10}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_ab0a46ab2ce382e77c8384eec4f447007}\index{options.c@{options.c}!OP\_CURRENT\_DISK\_NAME@{OP\_CURRENT\_DISK\_NAME}}
+\index{OP\_CURRENT\_DISK\_NAME@{OP\_CURRENT\_DISK\_NAME}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{OP\_CURRENT\_DISK\_NAME}{OP\_CURRENT\_DISK\_NAME}}
+{\footnotesize\ttfamily \label{options_8c_ab0a46ab2ce382e77c8384eec4f447007} 
+char\texorpdfstring{$\ast$}{*} OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME = NULL}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00011}{11}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_a22750490a402211ccfd1c7dda808eb51}\index{options.c@{options.c}!OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}}
+\index{OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{OP\_DEBUG\_MODE}{OP\_DEBUG\_MODE}}
+{\footnotesize\ttfamily \label{options_8c_a22750490a402211ccfd1c7dda808eb51} 
+bool OP\+\_\+\+DEBUG\+\_\+\+MODE = false}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00012}{12}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_a9f2b83262a240b0baabccb91b801b096}\index{options.c@{options.c}!OP\_INPUT\_DIR@{OP\_INPUT\_DIR}}
+\index{OP\_INPUT\_DIR@{OP\_INPUT\_DIR}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{OP\_INPUT\_DIR}{OP\_INPUT\_DIR}}
+{\footnotesize\ttfamily \label{options_8c_a9f2b83262a240b0baabccb91b801b096} 
+char\texorpdfstring{$\ast$}{*} OP\+\_\+\+INPUT\+\_\+\+DIR = (char \texorpdfstring{$\ast$}{*})"{}dat-\/files"{}}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00013}{13}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_a845934c83dddb0516baadb1abd079d8d}\index{options.c@{options.c}!OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}}
+\index{OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{OP\_PATH\_SEPARATOR}{OP\_PATH\_SEPARATOR}}
+{\footnotesize\ttfamily \label{options_8c_a845934c83dddb0516baadb1abd079d8d} 
+char OP\+\_\+\+PATH\+\_\+\+SEPARATOR = \textquotesingle{}/\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00014}{14}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_a59cde5c015f49e774b06103571d51dc9}\index{options.c@{options.c}!VERSION\_NUMBER\_STR@{VERSION\_NUMBER\_STR}}
+\index{VERSION\_NUMBER\_STR@{VERSION\_NUMBER\_STR}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{VERSION\_NUMBER\_STR}{VERSION\_NUMBER\_STR}}
+{\footnotesize\ttfamily \label{options_8c_a59cde5c015f49e774b06103571d51dc9} 
+const char VERSION\+\_\+\+NUMBER\+\_\+\+STR\mbox{[}9\mbox{]} = "{}00.\+00.\+00"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00017}{17}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+

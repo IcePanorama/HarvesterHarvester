@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_utils_8c" xml:lang="en-US">
+<title>src/utils.c File Reference</title>
+<indexterm><primary>src/utils.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;utils.h&quot;<?linebreak?>#include &quot;datetime.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;file_flags.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>static uint32_t <link linkend="_utils_8c_1a2a49f11a175c9b7e98151f4f2206991f">read_big_endian_data_uint32_t</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>static uint16_t <link linkend="_utils_8c_1a6c29cc4570af24fdd43af32901c72f95">read_big_endian_data_uint16_t</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_utils_8c_1a2384957f27e209d73a6377de962cbc15">read_both_endian_data_uint32</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_utils_8c_1a3046006fce30b3601ef7399ccead3499">read_both_endian_data_uint16</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_utils_8c_1a778ae3162a4e12d7d7dbe8672ca0ec81">read_little_endian_data_uint32_t</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_utils_8c_1ad773a6c38ce11dd0812deea517043051">read_little_endian_data_uint16_t</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>void <link linkend="_utils_8c_1af766a6928a4e6e0797f712af34344fbe">read_string</link> (FILE *fptr, char *output, uint8_t length)</para>
+</listitem>
+            <listitem><para>void <link linkend="_utils_8c_1a9a2b371ec7adbc610cbda9eeb8ed2f98">read_array_uint8</link> (FILE *fptr, uint8_t *arr, uint8_t length)</para>
+</listitem>
+            <listitem><para><link linkend="_structdec__datetime">dec_datetime</link> <link linkend="_utils_8c_1a1ce9a4bc57c45da7a72c9fa4effef5a7">read_dec_datetime</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>uint8_t <link linkend="_utils_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_utils_8c_1a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</link> (uint16_t value)</para>
+</listitem>
+            <listitem><para><link linkend="_structdir__datetime">dir_datetime</link> <link linkend="_utils_8c_1a5a98ed2c3f9d2d60f4ed387ca94f6413">read_dir_datetime</link> (FILE *fptr)</para>
+</listitem>
+            <listitem><para>void <link linkend="_utils_8c_1a5d12d6ba0683fa0c576d2ee3a6006656">read_file_flags</link> (FILE *fptr, <link linkend="_structfile__flags">file_flags</link> *ff)</para>
+</listitem>
+            <listitem><para>void <link linkend="_utils_8c_1af6ebb1daf24f6259fa021c9a0e8e516c">prepend_path_string</link> (char *str, const char *prefix)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_utils_8c_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link> (char *str)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_utils_8c_1a4965520bde2fd7164397a78f8026164a"/><section>
+    <title>change_endianness_uint16()</title>
+<indexterm><primary>change_endianness_uint16</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>change_endianness_uint16</secondary></indexterm>
+<para><computeroutput>uint16_t change_endianness_uint16 (uint16_t value)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00150">150</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1aee9f9bd7844e8e7d21d0965980b6e9ed"/><section>
+    <title>is_string_dat_file()</title>
+<indexterm><primary>is_string_dat_file</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>is_string_dat_file</secondary></indexterm>
+<para><computeroutput>bool is_string_dat_file (char * str)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00226">226</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1af6ebb1daf24f6259fa021c9a0e8e516c"/><section>
+    <title>prepend_path_string()</title>
+<indexterm><primary>prepend_path_string</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>prepend_path_string</secondary></indexterm>
+<para><computeroutput>void prepend_path_string (char * str, const char * prefix)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00204">204</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a9a2b371ec7adbc610cbda9eeb8ed2f98"/><section>
+    <title>read_array_uint8()</title>
+<indexterm><primary>read_array_uint8</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_array_uint8</secondary></indexterm>
+<para><computeroutput>void read_array_uint8 (FILE * fptr, uint8_t * arr, uint8_t length)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00111">111</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a6c29cc4570af24fdd43af32901c72f95"/><section>
+    <title>read_big_endian_data_uint16_t()</title>
+<indexterm><primary>read_big_endian_data_uint16_t</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_big_endian_data_uint16_t</secondary></indexterm>
+<para><computeroutput>uint16_t read_big_endian_data_uint16_t (FILE * fptr)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00088">88</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a2a49f11a175c9b7e98151f4f2206991f"/><section>
+    <title>read_big_endian_data_uint32_t()</title>
+<indexterm><primary>read_big_endian_data_uint32_t</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_big_endian_data_uint32_t</secondary></indexterm>
+<para><computeroutput>uint32_t read_big_endian_data_uint32_t (FILE * fptr)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00062">62</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a3046006fce30b3601ef7399ccead3499"/><section>
+    <title>read_both_endian_data_uint16()</title>
+<indexterm><primary>read_both_endian_data_uint16</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_both_endian_data_uint16</secondary></indexterm>
+<para><computeroutput>uint16_t read_both_endian_data_uint16 (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00033">33</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a2384957f27e209d73a6377de962cbc15"/><section>
+    <title>read_both_endian_data_uint32()</title>
+<indexterm><primary>read_both_endian_data_uint32</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_both_endian_data_uint32</secondary></indexterm>
+<para><computeroutput>uint32_t read_both_endian_data_uint32 (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00017">17</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a1ce9a4bc57c45da7a72c9fa4effef5a7"/><section>
+    <title>read_dec_datetime()</title>
+<indexterm><primary>read_dec_datetime</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_dec_datetime</secondary></indexterm>
+<para><computeroutput><link linkend="_structdec__datetime">dec_datetime</link> read_dec_datetime (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00121">121</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a5a98ed2c3f9d2d60f4ed387ca94f6413"/><section>
+    <title>read_dir_datetime()</title>
+<indexterm><primary>read_dir_datetime</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_dir_datetime</secondary></indexterm>
+<para><computeroutput><link linkend="_structdir__datetime">dir_datetime</link> read_dir_datetime (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00156">156</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a5d12d6ba0683fa0c576d2ee3a6006656"/><section>
+    <title>read_file_flags()</title>
+<indexterm><primary>read_file_flags</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_file_flags</secondary></indexterm>
+<para><computeroutput>void read_file_flags (FILE * fptr, <link linkend="_structfile__flags">file_flags</link> * ff)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00171">171</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1ad773a6c38ce11dd0812deea517043051"/><section>
+    <title>read_little_endian_data_uint16_t()</title>
+<indexterm><primary>read_little_endian_data_uint16_t</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_little_endian_data_uint16_t</secondary></indexterm>
+<para><computeroutput>uint16_t read_little_endian_data_uint16_t (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00076">76</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a778ae3162a4e12d7d7dbe8672ca0ec81"/><section>
+    <title>read_little_endian_data_uint32_t()</title>
+<indexterm><primary>read_little_endian_data_uint32_t</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_little_endian_data_uint32_t</secondary></indexterm>
+<para><computeroutput>uint32_t read_little_endian_data_uint32_t (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00049">49</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1a22c47ba484ea9cb25c69b484e2b6de34"/><section>
+    <title>read_single_uint8()</title>
+<indexterm><primary>read_single_uint8</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_single_uint8</secondary></indexterm>
+<para><computeroutput>uint8_t read_single_uint8 (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00138">138</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8c_1af766a6928a4e6e0797f712af34344fbe"/><section>
+    <title>read_string()</title>
+<indexterm><primary>read_string</primary><secondary>utils.c</secondary></indexterm>
+<indexterm><primary>utils.c</primary><secondary>read_string</secondary></indexterm>
+<para><computeroutput>void read_string (FILE * fptr, char * output, uint8_t length)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00100">100</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+</section>
+</section>

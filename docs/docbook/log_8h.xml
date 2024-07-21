@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_log_8h" xml:lang="en-US">
+<title>src/log.h File Reference</title>
+<indexterm><primary>src/log.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_log_8h_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link> (FILE *fptr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_log_8h_1af9859f7b27d46f040c836ecfdc1ac304"/><section>
+    <title>print_some_data_from_file()</title>
+<indexterm><primary>print_some_data_from_file</primary><secondary>log.h</secondary></indexterm>
+<indexterm><primary>log.h</primary><secondary>print_some_data_from_file</secondary></indexterm>
+<para><computeroutput>void print_some_data_from_file (FILE * fptr)</computeroutput></para><para>
+Definition at line <link linkend="_log_8c_source_1l00046">46</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+</section>
+</section>
+</section>

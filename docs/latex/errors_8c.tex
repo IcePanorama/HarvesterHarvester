@@ -1,0 +1,59 @@
+\doxysection{src/errors.c File Reference}
+\hypertarget{errors_8c}{}\label{errors_8c}\index{src/errors.c@{src/errors.c}}
+{\ttfamily \#include "{}errors.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{errors_8c_a1fa621098d550bb126a641aba0638f7f}{improper\+\_\+usage\+\_\+error}} (void)
+\item 
+void \mbox{\hyperlink{errors_8c_a9b9a6494b96286134308f2da3e179af9}{fopen\+\_\+error}} (char \texorpdfstring{$\ast$}{*}filename)
+\item 
+void \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\+\_\+fread\+\_\+error}} (FILE \texorpdfstring{$\ast$}{*}fptr, size\+\_\+t actual, size\+\_\+t expected\+\_\+bytes)
+\item 
+void \mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\+\_\+unknown\+\_\+command\+\_\+line\+\_\+argument\+\_\+error}} (char \texorpdfstring{$\ast$}{*}arg)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{errors_8c_a9b9a6494b96286134308f2da3e179af9}\index{errors.c@{errors.c}!fopen\_error@{fopen\_error}}
+\index{fopen\_error@{fopen\_error}!errors.c@{errors.c}}
+\doxysubsubsection{\texorpdfstring{fopen\_error()}{fopen\_error()}}
+{\footnotesize\ttfamily \label{errors_8c_a9b9a6494b96286134308f2da3e179af9} 
+void fopen\+\_\+error (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{errors_8c_source_l00022}{22}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+
+\Hypertarget{errors_8c_a43d16be8297bee4a817aec3d78833cc9}\index{errors.c@{errors.c}!handle\_fread\_error@{handle\_fread\_error}}
+\index{handle\_fread\_error@{handle\_fread\_error}!errors.c@{errors.c}}
+\doxysubsubsection{\texorpdfstring{handle\_fread\_error()}{handle\_fread\_error()}}
+{\footnotesize\ttfamily \label{errors_8c_a43d16be8297bee4a817aec3d78833cc9} 
+void handle\+\_\+fread\+\_\+error (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{size\+\_\+t}]{actual}{, }\item[{size\+\_\+t}]{expected\+\_\+bytes}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{errors_8c_source_l00029}{29}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+
+\Hypertarget{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}\index{errors.c@{errors.c}!handle\_unknown\_command\_line\_argument\_error@{handle\_unknown\_command\_line\_argument\_error}}
+\index{handle\_unknown\_command\_line\_argument\_error@{handle\_unknown\_command\_line\_argument\_error}!errors.c@{errors.c}}
+\doxysubsubsection{\texorpdfstring{handle\_unknown\_command\_line\_argument\_error()}{handle\_unknown\_command\_line\_argument\_error()}}
+{\footnotesize\ttfamily \label{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0} 
+void handle\+\_\+unknown\+\_\+command\+\_\+line\+\_\+argument\+\_\+error (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{arg}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{errors_8c_source_l00043}{43}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+
+\Hypertarget{errors_8c_a1fa621098d550bb126a641aba0638f7f}\index{errors.c@{errors.c}!improper\_usage\_error@{improper\_usage\_error}}
+\index{improper\_usage\_error@{improper\_usage\_error}!errors.c@{errors.c}}
+\doxysubsubsection{\texorpdfstring{improper\_usage\_error()}{improper\_usage\_error()}}
+{\footnotesize\ttfamily \label{errors_8c_a1fa621098d550bb126a641aba0638f7f} 
+void improper\+\_\+usage\+\_\+error (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{errors_8c_source_l00007}{7}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+

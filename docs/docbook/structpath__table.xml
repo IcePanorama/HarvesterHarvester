@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structpath__table" xml:lang="en-US">
+<title>path_table Struct Reference</title>
+<indexterm><primary>path_table</primary></indexterm>
+<para>
+<computeroutput>#include &lt;path_table.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structpath__table__entry">path_table_entry</link> * <link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><formalpara><title>See also</title>
+
+<para><link xlink:href="https://wiki.osdev.org/ISO_9660#The_Path_Table">https://wiki.osdev.org/ISO_9660#The_Path_Table</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_path__table_8h_source_1l00017">17</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structpath__table_1ae73602760f6f2a1939eb651087570e63"/><section>
+    <title>current_entry</title>
+<indexterm><primary>current_entry</primary><secondary>path_table</secondary></indexterm>
+<indexterm><primary>path_table</primary><secondary>current_entry</secondary></indexterm>
+<para><computeroutput>size_t path_table::current_entry</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8h_source_1l00021">21</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+</section>
+<anchor xml:id="_structpath__table_1a33d282004152acf2e3359dd2c40da884"/><section>
+    <title>entries</title>
+<indexterm><primary>entries</primary><secondary>path_table</secondary></indexterm>
+<indexterm><primary>path_table</primary><secondary>entries</secondary></indexterm>
+<para><computeroutput><link linkend="_structpath__table__entry">path_table_entry</link>* path_table::entries</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8h_source_1l00019">19</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+</section>
+<anchor xml:id="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b"/><section>
+    <title>size</title>
+<indexterm><primary>size</primary><secondary>path_table</secondary></indexterm>
+<indexterm><primary>path_table</primary><secondary>size</secondary></indexterm>
+<para><computeroutput>size_t path_table::size</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8h_source_1l00020">20</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/<link linkend="_path__table_8h">path_table.h</link></section>
+</section>

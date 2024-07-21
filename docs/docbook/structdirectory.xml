@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdirectory" xml:lang="en-US">
+<title>directory Struct Reference</title>
+<indexterm><primary>directory</primary></indexterm>
+<para>
+<computeroutput>#include &lt;directory.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structdirectory__record">directory_record</link> * <link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">size</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7">current_record</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_directory_8h_source_1l00028">28</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7"/><section>
+    <title>current_record</title>
+<indexterm><primary>current_record</primary><secondary>directory</secondary></indexterm>
+<indexterm><primary>directory</primary><secondary>current_record</secondary></indexterm>
+<para><computeroutput>size_t directory::current_record</computeroutput></para><para>
+Definition at line <link linkend="_directory_8h_source_1l00032">32</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+</section>
+<anchor xml:id="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b"/><section>
+    <title>records</title>
+<indexterm><primary>records</primary><secondary>directory</secondary></indexterm>
+<indexterm><primary>directory</primary><secondary>records</secondary></indexterm>
+<para><computeroutput><link linkend="_structdirectory__record">directory_record</link>* directory::records</computeroutput></para><para>
+Definition at line <link linkend="_directory_8h_source_1l00030">30</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+</section>
+<anchor xml:id="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721"/><section>
+    <title>size</title>
+<indexterm><primary>size</primary><secondary>directory</secondary></indexterm>
+<indexterm><primary>directory</primary><secondary>size</secondary></indexterm>
+<para><computeroutput>size_t directory::size</computeroutput></para><para>
+Definition at line <link linkend="_directory_8h_source_1l00031">31</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/<link linkend="_directory_8h">directory.h</link></section>
+</section>

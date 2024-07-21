@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_path__table_8c" xml:lang="en-US">
+<title>src/path_table.c File Reference</title>
+<indexterm><primary>src/path_table.c</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;path_table.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>void <link linkend="_path__table_8c_1a3c2e19bcf67a11cf80eddd62ebcd98a1">resize_path_table_entries</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
+</listitem>
+            <listitem><para>void <link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</link> (<link linkend="_structpath__table__entry">path_table_entry</link> *e)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_path__table_8c_1ac08be1296d016ba9a28db25b35ca9132">create_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
+</listitem>
+            <listitem><para>void <link linkend="_path__table_8c_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
+</listitem>
+            <listitem><para>void <link linkend="_path__table_8c_1a0bb44828b69a55bfc7b9bde95ad2276a">add_entry_to_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt, <link linkend="_structpath__table__entry">path_table_entry</link> *entry)</para>
+</listitem>
+            <listitem><para>void <link linkend="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84">print_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
+</listitem>
+            <listitem><para>void <link linkend="_path__table_8c_1abc1fa6960cc549494e87d2884727e202">process_type_l_path_table</link> (FILE *fptr, <link linkend="_structpath__table">path_table</link> *pt)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>static const size_t <link linkend="_path__table_8c_1aebeb334ad82449fb3d66fa49570ff70d">PT_STARTING_NUM_ENTRIES</link> = 10</para>
+</listitem>
+            <listitem><para>static const size_t <link linkend="_path__table_8c_1a6563a4197f62a248dd1f8760c2c4933d">PT_GROWTH_RATE</link> = 2</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_path__table_8c_1a0bb44828b69a55bfc7b9bde95ad2276a"/><section>
+    <title>add_entry_to_path_table()</title>
+<indexterm><primary>add_entry_to_path_table</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>add_entry_to_path_table</secondary></indexterm>
+<para><computeroutput>void add_entry_to_path_table (<link linkend="_structpath__table">path_table</link> * pt, <link linkend="_structpath__table__entry">path_table_entry</link> * entry)</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00050">50</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+<anchor xml:id="_path__table_8c_1ac08be1296d016ba9a28db25b35ca9132"/><section>
+    <title>create_path_table()</title>
+<indexterm><primary>create_path_table</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>create_path_table</secondary></indexterm>
+<para><computeroutput>int8_t create_path_table (<link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00013">13</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+<anchor xml:id="_path__table_8c_1afb0f3858425278e8f770eee3eaf010f9"/><section>
+    <title>destroy_path_table()</title>
+<indexterm><primary>destroy_path_table</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>destroy_path_table</secondary></indexterm>
+<para><computeroutput>void destroy_path_table (<link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00034">34</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+<anchor xml:id="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84"/><section>
+    <title>print_path_table()</title>
+<indexterm><primary>print_path_table</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>print_path_table</secondary></indexterm>
+<para><computeroutput>void print_path_table (<link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00086">86</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+<anchor xml:id="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566"/><section>
+    <title>print_path_table_entry()</title>
+<indexterm><primary>print_path_table_entry</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>print_path_table_entry</secondary></indexterm>
+<para><computeroutput>void print_path_table_entry (<link linkend="_structpath__table__entry">path_table_entry</link> * e)</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00096">96</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+<anchor xml:id="_path__table_8c_1abc1fa6960cc549494e87d2884727e202"/><section>
+    <title>process_type_l_path_table()</title>
+<indexterm><primary>process_type_l_path_table</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>process_type_l_path_table</secondary></indexterm>
+<para><computeroutput>void process_type_l_path_table (FILE * fptr, <link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00114">114</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+<anchor xml:id="_path__table_8c_1a3c2e19bcf67a11cf80eddd62ebcd98a1"/><section>
+    <title>resize_path_table_entries()</title>
+<indexterm><primary>resize_path_table_entries</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>resize_path_table_entries</secondary></indexterm>
+<para><computeroutput>void resize_path_table_entries (<link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00062">62</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_path__table_8c_1a6563a4197f62a248dd1f8760c2c4933d"/><section>
+    <title>PT_GROWTH_RATE</title>
+<indexterm><primary>PT_GROWTH_RATE</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>PT_GROWTH_RATE</secondary></indexterm>
+<para><computeroutput>const size_t PT_GROWTH_RATE = 2<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00008">8</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+<anchor xml:id="_path__table_8c_1aebeb334ad82449fb3d66fa49570ff70d"/><section>
+    <title>PT_STARTING_NUM_ENTRIES</title>
+<indexterm><primary>PT_STARTING_NUM_ENTRIES</primary><secondary>path_table.c</secondary></indexterm>
+<indexterm><primary>path_table.c</primary><secondary>PT_STARTING_NUM_ENTRIES</secondary></indexterm>
+<para><computeroutput>const size_t PT_STARTING_NUM_ENTRIES = 10<computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_path__table_8c_source_1l00007">7</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+</section>
+</section>
+</section>
