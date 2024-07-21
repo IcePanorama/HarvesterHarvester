@@ -7,6 +7,10 @@
 #include <string.h>
 #include <sys/stat.h>
 
+#ifdef _WIN32
+#include <direct.h>
+#endif
+
 const char *OUTPUT_DIR = "output";
 
 /*

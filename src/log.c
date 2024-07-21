@@ -52,5 +52,5 @@ print_some_data_from_file (FILE *fptr)
       handle_fread_error (fptr, bytes_read, BYTES_TO_READ);
     }
   print_hex_data (buffer, BYTES_TO_READ);
-  fseek (fptr, -sizeof (buffer), SEEK_CUR);
+  fseek (fptr, -BYTES_TO_READ, SEEK_CUR);
 }

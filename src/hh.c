@@ -14,7 +14,7 @@
 
 // For directory handling
 #ifdef _WIN32
-#include <Windows.h>
+#include <windows.h>
 #else
 #include <dirent.h>
 #endif
@@ -263,6 +263,6 @@ batch_process_DAT_files ()
     }
 
   closedir (dir);
-  return 0;
 #endif
+  return 0;
 }

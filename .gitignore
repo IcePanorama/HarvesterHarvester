@@ -1,7 +1,10 @@
 # HarvesterHarvester specific
 HarvesterHarvester
+HarvesterHarvester_win32
+HarvesterHarvester_win64
 HARVEST*
 output/*
+build/*
 
 # Valgrind
 vgcore.*

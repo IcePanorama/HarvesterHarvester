@@ -87,7 +87,7 @@ print_path_table (path_table *pt)
 {
   for (size_t i = 0; i < pt->current_entry; i++)
     {
-      printf ("Entry %ld:\n", i + 1);
+      printf ("Entry %zu:\n", i + 1);
       print_path_table_entry (&pt->entries[i]);
     }
 }

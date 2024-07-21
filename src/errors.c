@@ -28,7 +28,7 @@ fopen_error (char *filename)
 void
 handle_fread_error (FILE *fptr, size_t actual, size_t expected_bytes)
 {
-  printf ("ERROR: Only read %ld byte(s), expected %ld.\n", actual,
+  printf ("ERROR: Only read %zu byte(s), expected %zu.\n", actual,
           expected_bytes);
   fclose (fptr);
   exit (1);
