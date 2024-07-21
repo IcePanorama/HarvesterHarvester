@@ -1,5 +1,6 @@
 #include "log.h"
 #include "errors.h"
+
 #include <stdio.h>
 
 void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);

@@ -1,12 +1,10 @@
 #ifndef _VOLUME_DESCRIPTOR_H_
 #define _VOLUME_DESCRIPTOR_H_
 
-/* clang-format off */
+#include "datetime.h"
+
 #include <stdint.h>
 #include <string.h>
-
-#include "datetime.h"
-/* clang-format on */
 
 #define SYSTEM_IDENTIFIER_LEN 33
 #define VOLUME_IDENTIFIER_LEN 33

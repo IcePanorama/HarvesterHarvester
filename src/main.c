@@ -1,20 +1,17 @@
-/* clang-format off */
+#include "errors.h"
+#include "extractor.h"
+#include "options.h"
+#include "output.h"
+#include "path_table.h"
+#include "utils.h"
+#include "volume_descriptor.h"
+
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
-
-#include "directory.h"
-#include "errors.h"
-#include "file_flags.h"
-#include "options.h"
-#include "output.h"
-#include "path_table.h"
-#include "utils.h"
-#include "volume_descriptor.h"
-/* clang-format on */
 
 /* function prototypes */
 static FILE *setup_extractor (char *filename);
@@ -24,15 +21,7 @@ static void process_volume_descriptor_header (FILE *fptr,
 static void process_volume_descriptor_data (FILE *fptr,
                                             volume_descriptor_data *vdd);
 static void process_type_l_path_table (FILE *fptr, path_table *pt);
-static void process_directory (FILE *fptr, directory *d);
-static int8_t extract_file (FILE *fptr, directory_record *dr,
-                            const char *path);
-static int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
-                                 const char *path);
-static void create_directories_and_extract_data_from_path_file (
-    FILE *fptr, uint16_t BLOCK_SIZE, path_table *pt);
 static void batch_process_DAT_files (void);
-//static void brute_force_HARVEST2_DAT (FILE* fptr);
 /**********************/
 
 int
@@ -315,210 +304,6 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
 }
 
 /*
- *  process_directory
- *
- *  TODO: write some better documentation.
- *  In the meantime, see: https://wiki.osdev.org/ISO_9660#Directories
- */
-void
-process_directory (FILE *fptr, directory *d)
-{
-  uint8_t single_byte = read_single_uint8 (fptr);
-  do
-    {
-      directory_record dr;
-      dr.record_length = single_byte;
-      dr.extended_attribute_record_length = read_single_uint8 (fptr);
-      dr.location_of_extent = read_both_endian_data_uint32 (fptr);
-      dr.data_length = read_both_endian_data_uint32 (fptr);
-      dr.recording_datetime = read_dir_datetime (fptr);
-      dr.file_flags = create_file_flags ();
-      read_file_flags (fptr, &dr.file_flags);
-      dr.file_unit_size = read_single_uint8 (fptr);
-      dr.interleave_gap_size = read_single_uint8 (fptr);
-      dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);
-      dr.file_identifier_length = read_single_uint8 (fptr) + 1;
-
-      dr.file_identifier
-          = (char *)calloc (dr.file_identifier_length, sizeof (char));
-      size_t bytes_read = fread (dr.file_identifier, sizeof (char),
-                                 dr.file_identifier_length - 1, fptr);
-      dr.file_identifier[dr.file_identifier_length - 1] = '\0';
-      if (bytes_read != sizeof (char) * (dr.file_identifier_length - 1))
-        {
-          handle_fread_error (fptr, bytes_read,
-                              sizeof (char) * (dr.file_identifier_length - 1));
-        }
-
-      add_record_to_directory (d, &dr);
-
-      if (dr.file_identifier_length % 2 != 0) // handle padding field
-        fseek (fptr, 1, SEEK_CUR);
-
-      single_byte = read_single_uint8 (fptr);
-    }
-  while (single_byte != 0);
-}
-
-/*
- *  extract_file
- *
- *  TODO: add documentation
- */
-int8_t
-extract_file (FILE *fptr, directory_record *dr, const char *path)
-{
-  /*
-   *  the `file_identifier` terminates with a `;` character followed by the
-   *  file ID number in ASCII coded decimal (`1`).
-   *  See: https://wiki.osdev.org/ISO_9660#Directories
-   */
-  char *actual_filename = strtok (dr->file_identifier, (const char *)";");
-  if (actual_filename == NULL)
-    {
-      /*
-       *  Just use the default/existing filename.
-       *  It'll be incorrect, but probably not worth stoping execution over.
-       *  Users could just manually remove the `;1` part; the data itself
-       * should be fine.
-       */
-      actual_filename = dr->file_identifier;
-    }
-
-  printf ("Extracting file: %s\n", actual_filename);
-
-  // +1 for the null terminator, +1 for `/` between dir and filename
-  size_t filename_length = strlen (path) + strlen (actual_filename) + 2;
-
-  char *output_filename = (char *)calloc (filename_length, sizeof (char));
-  if (output_filename == NULL)
-    {
-      perror ("ERROR: unable to calloc `output_filename`.");
-      return -1;
-    }
-
-  strcpy (output_filename, path);
-  strcat (output_filename, (const char *)"/");
-  strcat (output_filename, actual_filename);
-
-  FILE *output_file = fopen (output_filename, "wb");
-  if (output_file == NULL)
-    {
-      perror ("ERROR: unable to open output file.");
-      free (output_filename);
-      return -1;
-    }
-
-  // `j` must be in hex, otherwise `data_length` can be treated as an int value
-  for (uint32_t j = 0x0; j < dr->data_length; j++)
-    {
-      uint8_t byte = read_single_uint8 (fptr);
-      fwrite (&byte, sizeof (uint8_t), 1, output_file);
-    }
-
-  fclose (output_file);
-  free (output_filename);
-
-  return 0;
-}
-
-/*
- *  extract_directory
- *
- *  TODO: add documentation
- */
-int8_t
-extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
-{
-  // 0xF00000 == 15 MiB
-  const uint32_t DEBUG_FILE_SIZE_LIMIT = 0xF00000;
-
-  directory dir;
-  create_directory (&dir);
-  process_directory (fptr, &dir);
-
-  printf ("Extracting directory: %s\n", path);
-
-  for (size_t i = 0x0; i < dir.current_record; i++)
-    {
-      directory_record curr_file = dir.records[i];
-
-      if (curr_file.file_flags.subdirectory)
-        {
-          continue;
-        }
-      else if (debug_mode && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)
-        {
-          printf ("[DEBUG_MODE] Skipping file, %s.\n",
-                  curr_file.file_identifier);
-          continue;
-        }
-
-      fseek (fptr, curr_file.location_of_extent * BLOCK_SIZE, SEEK_SET);
-
-      if (extract_file (fptr, &curr_file, path) != 0)
-        {
-          destroy_directory (&dir);
-          return -1;
-        }
-    }
-
-  destroy_directory (&dir);
-  return 0;
-}
-
-/*
- *  create_directories_and_extract_data_from_path_file
- *
- *  TODO: add documentation
- */
-void
-create_directories_and_extract_data_from_path_file (FILE *fptr,
-                                                    uint16_t BLOCK_SIZE,
-                                                    path_table *pt)
-{
-  for (size_t i = pt->current_entry - 1; i > 0; --i)
-    {
-      path_table_entry curr_dir = pt->entries[i];
-      path_table_entry target_dir = curr_dir;
-
-      // supports 10 levels of directories which is probably overkill.
-      const uint32_t PATH_MAX_LEN
-          = ((curr_dir.directory_identifier_length + 1) * 10)
-            + (strlen (OUTPUT_DIR) + 1) + (strlen (current_disk_name) + 1) + 1;
-      char *path = calloc (PATH_MAX_LEN, sizeof (char));
-      if (path == NULL)
-        {
-          perror ("ERROR: unable to calloc path string");
-          destroy_path_table (pt);
-          exit (1);
-        }
-
-      strcat (path, curr_dir.directory_identifier);
-
-      do
-        {
-          uint16_t index
-              = change_endianness_uint16 (curr_dir.parent_directory_number);
-          // parent_directory_number is 1-based
-          curr_dir = pt->entries[index - 1];
-
-          prepend_path_string (path,
-                               (const char *)curr_dir.directory_identifier);
-        }
-      while (curr_dir.parent_directory_number > 0x0100);
-
-      create_output_directory (path);
-
-      fseek (fptr, BLOCK_SIZE * target_dir.location_of_extent, SEEK_SET);
-
-      extract_directory (fptr, BLOCK_SIZE, path);
-
-      free (path);
-    }
-}
-
-/*
  *  batch_process_DAT_files
  *
  *  Having this be super hard-coded is not ideal, but this should at least be
@@ -546,16 +331,6 @@ batch_process_DAT_files ()
   fptr = setup_extractor (filename);
   process_DAT_file (fptr);
   fclose (fptr);
-  
-  /* I want to clean some things up before I rush into brute forcing H2.DAT */
-  /*
-  strcpy (filename, OPT_INPUT_DIR);
-  strcat (filename, "/");
-  strcat (filename, "HARVEST2.DAT");
-  fptr = setup_extractor (filename);
-  brute_force_HARVEST2_DAT (fptr);
-  fclose (fptr);
-  */
 
   strcpy (filename, OPT_INPUT_DIR);
   strcat (filename, "/");
@@ -572,9 +347,4 @@ batch_process_DAT_files ()
   fclose (fptr);
 
   free (filename);
-}
-
-void
-brute_force_HARVEST2_DAT (FILE* fptr)
-{
 }

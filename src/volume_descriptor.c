@@ -1,9 +1,7 @@
-/* clang-format off */
+#include "volume_descriptor.h"
+
 #include <stdio.h>
 #include <string.h>
-
-#include "volume_descriptor.h"
-/* clang-format on */
 
 void
 create_volume_descriptor (volume_descriptor *vd, uint8_t type_code,

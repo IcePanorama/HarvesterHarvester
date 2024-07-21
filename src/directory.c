@@ -1,9 +1,9 @@
-/* clang-format off */
+#include "directory.h"
+#include "errors.h"
+#include "utils.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "directory.h"
-/* clang-format on */
 
 void resize_directory_records (directory *d);
 
@@ -108,4 +108,50 @@ print_directory (directory *d)
       print_directory_record (&d->records[i]);
       puts ("-------------------------------");
     }
+}
+
+/*
+ *  process_directory
+ *
+ *  TODO: write some better documentation.
+ *  In the meantime, see: https://wiki.osdev.org/ISO_9660#Directories
+ */
+void
+process_directory (FILE *fptr, directory *d)
+{
+  uint8_t single_byte = read_single_uint8 (fptr);
+  do
+    {
+      directory_record dr;
+      dr.record_length = single_byte;
+      dr.extended_attribute_record_length = read_single_uint8 (fptr);
+      dr.location_of_extent = read_both_endian_data_uint32 (fptr);
+      dr.data_length = read_both_endian_data_uint32 (fptr);
+      dr.recording_datetime = read_dir_datetime (fptr);
+      dr.file_flags = create_file_flags ();
+      read_file_flags (fptr, &dr.file_flags);
+      dr.file_unit_size = read_single_uint8 (fptr);
+      dr.interleave_gap_size = read_single_uint8 (fptr);
+      dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);
+      dr.file_identifier_length = read_single_uint8 (fptr) + 1;
+
+      dr.file_identifier
+          = (char *)calloc (dr.file_identifier_length, sizeof (char));
+      size_t bytes_read = fread (dr.file_identifier, sizeof (char),
+                                 dr.file_identifier_length - 1, fptr);
+      dr.file_identifier[dr.file_identifier_length - 1] = '\0';
+      if (bytes_read != sizeof (char) * (dr.file_identifier_length - 1))
+        {
+          handle_fread_error (fptr, bytes_read,
+                              sizeof (char) * (dr.file_identifier_length - 1));
+        }
+
+      add_record_to_directory (d, &dr);
+
+      if (dr.file_identifier_length % 2 != 0) // handle padding field
+        fseek (fptr, 1, SEEK_CUR);
+
+      single_byte = read_single_uint8 (fptr);
+    }
+  while (single_byte != 0);
 }

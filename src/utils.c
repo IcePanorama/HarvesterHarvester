@@ -1,15 +1,13 @@
-/* clang-format off */
-#include <stdbool.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
+#include "utils.h"
 #include "datetime.h"
 #include "errors.h"
 #include "file_flags.h"
-#include "utils.h"
-/* clang-format on */
+
+#include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 static uint32_t read_big_endian_data_uint32_t (FILE *fptr);
 static uint16_t read_big_endian_data_uint16_t (FILE *fptr);

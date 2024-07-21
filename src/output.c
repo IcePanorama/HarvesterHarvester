@@ -1,13 +1,11 @@
-/* clang-format off */
+#include "output.h"
+#include "options.h"
+#include "utils.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
-
-#include "output.h"
-#include "options.h"
-#include "utils.h"
-/* clang-format on */
 
 const char *OUTPUT_DIR = "output";
 

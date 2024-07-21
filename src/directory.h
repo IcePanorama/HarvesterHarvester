@@ -37,5 +37,6 @@ void destroy_directory (directory *d);
 void add_record_to_directory (directory *d, directory_record *r);
 void print_directory (directory *d);
 void print_directory_record (directory_record *r);
+void process_directory (FILE *fptr, directory *d);
 
 #endif

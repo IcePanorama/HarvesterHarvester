@@ -1,9 +1,7 @@
-/* clang-format off */
+#include "path_table.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "path_table.h"
-/* clang-format on */
 
 static const size_t PT_STARTING_NUM_ENTRIES = 10;
 static const size_t PT_GROWTH_RATE = 2; // doubles in size every time it grows.

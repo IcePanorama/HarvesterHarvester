@@ -1,12 +1,10 @@
 #ifndef _UTILS_H_
 #define _UTILS_H_
 
-/* clang-format off */
+#include "file_flags.h"
+
 #include <stdint.h>
 #include <stdio.h>
-
-#include "file_flags.h"
-/* clang-format on */
 
 // A lot of these probably shouldn't be in a utils.h file
 // Should probably make a data.h or dat.h or something like that

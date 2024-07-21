@@ -1,8 +1,6 @@
-/* clang-format off */
-#include <stdio.h>
-
 #include "file_flags.h"
-/* clang-format on */
+
+#include <stdio.h>
 
 file_flags
 create_file_flags (void)

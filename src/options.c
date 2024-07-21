@@ -1,10 +1,10 @@
+#include "options.h"
+#include "errors.h"
+
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#include "errors.h"
-#include "options.h"
 
 bool debug_mode = false;
 char *current_disk_name = NULL;

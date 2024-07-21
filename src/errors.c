@@ -1,9 +1,7 @@
-/* clang-format off */
+#include "errors.h"
+
 #include <stdbool.h>
 #include <stdlib.h>
-
-#include "errors.h"
-/* clang-format on */
 
 void
 improper_usage_error (void)
