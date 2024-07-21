@@ -13,11 +13,9 @@
 #include <string.h>
 #include <sys/stat.h>
 
-/* function prototypes */
 static FILE *setup_extractor (char *filename);
 static void process_DAT_file (FILE *fptr);
 static void batch_process_DAT_files (void);
-/**********************/
 
 int
 main (int argc, char **argv)

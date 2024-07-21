@@ -4,7 +4,7 @@ DAT_DIR=dat-files
 SRC_FILES=$(SRC_DIR)/*.c
 INCL_FILES=$(SRC_DIR)/*.h
 LIBS=
-TARGET=main
+TARGET=HarvesterHarvester
 OUTPUT=output/*
 CFLAGS=-std=c99 -Wpedantic -Wextra -Werror -Wall -Wstrict-aliasing=3 -Wwrite-strings -Wvla -Wcast-align=strict -Wstrict-prototypes -Wstringop-overflow=4 -Wshadow -fanalyzer
 STYLE=GNU
