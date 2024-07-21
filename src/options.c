@@ -1,5 +1,6 @@
 #include "options.h"
 #include "errors.h"
+#include "utils.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -41,11 +42,14 @@ handle_command_line_args (int argc, char **argv)
   if (i == argc)
     return;
 
-  char *file = argv[argc - 1];
+  /*
   size_t len = strlen (file) + 1; // +1 for null terminator
   const char *target = ".DAT";
   const uint8_t target_len = 5;
   if (len > target_len && strcmp (file + (len - target_len), target) == 0)
+    {
+  */
+  if (is_string_dat_file (argv[argc - 1]))
     {
       // just processing the user-provided file @ the user-provided path
       OP_BATCH_PROCESS = false;

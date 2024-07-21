@@ -220,3 +220,14 @@ prepend_path_string (char *str, const char *prefix)
   strcat (str, tmp);
   free (tmp);
 }
+
+bool
+is_string_dat_file (char *str)
+{
+  const char *EXPECTED_EXTENSION = ".DAT";
+  const uint8_t EXTENSION_LEN = 5; // +1 for null terminator
+
+  size_t len = strlen (str) + 1;
+  return (len > EXTENSION_LEN
+          && strcmp (str + (len - EXTENSION_LEN), EXPECTED_EXTENSION) == 0);
+}
