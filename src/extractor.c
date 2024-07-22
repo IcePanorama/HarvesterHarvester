@@ -1,4 +1,5 @@
 #include "extractor.h"
+#include "data_reader.h"
 #include "options.h"
 #include "output.h"
 #include "utils.h"
