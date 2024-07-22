@@ -205,9 +205,11 @@ The date/time format used in the Primary Volume Descriptor })} \tab {\field\flde
 {\b {\b dir_datetime} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 The date/time format used by directory records })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHQ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b directory} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHY \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b directory} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A collection of directory records which together make a single directory })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHY \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b directory_record} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIC \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b directory_record} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A directory record })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b file_flags} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIO \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
@@ -636,6 +638,9 @@ directory Struct Reference\par \pard\plain
 {\bkmkend AAAAAAAAHY}
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A collection of directory records which together make a single directory. }}\par
+{
 {\f2 #include <directory.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Data Fields\par
@@ -646,16 +651,35 @@ Data Fields\par
 {\b directory_record} * {\b records}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 size_t {\b size}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+the max capacity of {\f2 records} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 size_t {\b current_record}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+last record in {\f2 records} . }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Detailed Description\par
 \pard\plain 
 {
-\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {
-Definition at line {\b 28} of file {\b directory.h}.}\par
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A collection of directory records which together make a single directory. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b directory_record} \par
+}}}{
+Definition at line {\b 36} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -673,7 +697,10 @@ size_t directory::current_record}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 32} of file {\b directory.h}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+last record in {\f2 records} . }}\par
+{
+Definition at line {\b 40} of file {\b directory.h}.}\par
 }
 {\xe \v records\:directory}
 {\xe \v directory\:records}
@@ -687,7 +714,7 @@ Definition at line {\b 32} of file {\b directory.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 30} of file {\b directory.h}.}\par
+Definition at line {\b 38} of file {\b directory.h}.}\par
 }
 {\xe \v size\:directory}
 {\xe \v directory\:size}
@@ -701,7 +728,10 @@ size_t directory::size}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 31} of file {\b directory.h}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+the max capacity of {\f2 records} . }}\par
+{
+Definition at line {\b 39} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -718,6 +748,9 @@ directory_record Struct Reference\par \pard\plain
 {\bkmkstart AAAAAAAAIC}
 {\bkmkend AAAAAAAAIC}
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A directory record. }}\par
 {
 {\f2 #include <directory.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -739,8 +772,18 @@ uint32_t {\b data_length}\par
 {\b file_flags} {\b file_flags}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint8_t {\b file_unit_size}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Only used by files recorded in interleaved mode. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint8_t {\b interleave_gap_size}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Only used by files recorded in interleaved mode. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint16_t {\b volume_sequence_number}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -753,8 +796,17 @@ char * {\b file_identifier}\par
 Detailed Description\par
 \pard\plain 
 {
-\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {
-Definition at line {\b 12} of file {\b directory.h}.}\par
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A directory record. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\f2 https://wiki.osdev.org/ISO_9660#Directories} \par
+}}}{
+Definition at line {\b 15} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -772,7 +824,7 @@ uint32_t directory_record::data_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 17} of file {\b directory.h}.}\par
+Definition at line {\b 20} of file {\b directory.h}.}\par
 }
 {\xe \v extended_attribute_record_length\:directory_record}
 {\xe \v directory_record\:extended_attribute_record_length}
@@ -786,7 +838,7 @@ uint8_t directory_record::extended_attribute_record_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 15} of file {\b directory.h}.}\par
+Definition at line {\b 18} of file {\b directory.h}.}\par
 }
 {\xe \v file_flags\:directory_record}
 {\xe \v directory_record\:file_flags}
@@ -800,7 +852,7 @@ Definition at line {\b 15} of file {\b directory.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 19} of file {\b directory.h}.}\par
+Definition at line {\b 22} of file {\b directory.h}.}\par
 }
 {\xe \v file_identifier\:directory_record}
 {\xe \v directory_record\:file_identifier}
@@ -814,7 +866,7 @@ char* directory_record::file_identifier}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 25} of file {\b directory.h}.}\par
+Definition at line {\b 28} of file {\b directory.h}.}\par
 }
 {\xe \v file_identifier_length\:directory_record}
 {\xe \v directory_record\:file_identifier_length}
@@ -828,7 +880,7 @@ uint8_t directory_record::file_identifier_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 24} of file {\b directory.h}.}\par
+Definition at line {\b 27} of file {\b directory.h}.}\par
 }
 {\xe \v file_unit_size\:directory_record}
 {\xe \v directory_record\:file_unit_size}
@@ -842,7 +894,10 @@ uint8_t directory_record::file_unit_size}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 20} of file {\b directory.h}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Only used by files recorded in interleaved mode. }}\par
+{
+Definition at line {\b 23} of file {\b directory.h}.}\par
 }
 {\xe \v interleave_gap_size\:directory_record}
 {\xe \v directory_record\:interleave_gap_size}
@@ -856,7 +911,10 @@ uint8_t directory_record::interleave_gap_size}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 22} of file {\b directory.h}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Only used by files recorded in interleaved mode. }}\par
+{
+Definition at line {\b 25} of file {\b directory.h}.}\par
 }
 {\xe \v location_of_extent\:directory_record}
 {\xe \v directory_record\:location_of_extent}
@@ -870,7 +928,7 @@ uint32_t directory_record::location_of_extent}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 16} of file {\b directory.h}.}\par
+Definition at line {\b 19} of file {\b directory.h}.}\par
 }
 {\xe \v record_length\:directory_record}
 {\xe \v directory_record\:record_length}
@@ -884,7 +942,7 @@ uint8_t directory_record::record_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 14} of file {\b directory.h}.}\par
+Definition at line {\b 17} of file {\b directory.h}.}\par
 }
 {\xe \v recording_datetime\:directory_record}
 {\xe \v directory_record\:recording_datetime}
@@ -898,7 +956,7 @@ Definition at line {\b 14} of file {\b directory.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 18} of file {\b directory.h}.}\par
+Definition at line {\b 21} of file {\b directory.h}.}\par
 }
 {\xe \v volume_sequence_number\:directory_record}
 {\xe \v directory_record\:volume_sequence_number}
@@ -912,7 +970,7 @@ uint16_t directory_record::volume_sequence_number}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 23} of file {\b directory.h}.}\par
+Definition at line {\b 26} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -2206,19 +2264,49 @@ Functions\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-void {\b resize_directory_records} ({\b directory} *d)\par
+static void {\b resize_directory_records} ({\b directory} *d)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b create_directory} ({\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a directory with {\f2 DIR_STARTING_NUM_RECORDS}  records. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b destroy_directory} ({\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys all the directory records within a given directory before then destroying the directory itself. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b add_record_to_directory} ({\b directory} *d, {\b directory_record} *r)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_directory_record} ({\b directory_record} *r)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory record to the stdout in a human-readable form. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_directory} ({\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory to stdout in a human-readable form. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b process_directory} (FILE *fptr, {\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }{
+}\par
+}\par}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Variables\par
@@ -2246,6 +2334,26 @@ void add_record_to_directory ({\b directory} * d, {\b directory_record} * r)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{the directory to which the given record should be added. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i r} \cell }{the record to add to the aforementioned directory. \cell }
+{\row }
+}
+}{
 Definition at line {\b 51} of file {\b directory.c}.}\par
 }
 {\xe \v create_directory\:directory.c}
@@ -2260,6 +2368,26 @@ int8_t create_directory ({\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a directory with {\f2 DIR_STARTING_NUM_RECORDS}  records. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{a pointer to a directory \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure.\par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+destory_directory() \par
+}}}{
 Definition at line {\b 14} of file {\b directory.c}.}\par
 }
 {\xe \v destroy_directory\:directory.c}
@@ -2274,6 +2402,14 @@ void destroy_directory ({\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys all the directory records within a given directory before then destroying the directory itself. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b create_directory()} \par
+}}}{
 Definition at line {\b 35} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory\:directory.c}
@@ -2288,6 +2424,23 @@ void print_directory ({\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory to stdout in a human-readable form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{the directory to be printed. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b print_directory_record()} \par
+}}}{
 Definition at line {\b 102} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory_record\:directory.c}
@@ -2302,6 +2455,20 @@ void print_directory_record ({\b directory_record} * r)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory record to the stdout in a human-readable form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i r} \cell }{the directory record to be printed. \cell }
+{\row }
+}
+}{
 Definition at line {\b 63} of file {\b directory.c}.}\par
 }
 {\xe \v process_directory\:directory.c}
@@ -2316,13 +2483,37 @@ void process_directory (FILE * fptr, {\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 120} of file {\b directory.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to the file containing directory data. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{the directory to which the directory records should be added. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b directory} \par
+{\b directory_record} \par
+}}}{
+Definition at line {\b 114} of file {\b directory.c}.}\par
 }
 {\xe \v resize_directory_records\:directory.c}
 {\xe \v directory.c\:resize_directory_records}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-void resize_directory_records ({\b directory} * d)}}
+void resize_directory_records ({\b directory} * d){\f2 [static]}}}
 \par
 {\bkmkstart AAAAAAAABT}
 {\bkmkend AAAAAAAABT}
@@ -2384,7 +2575,7 @@ Go to the documentation of this file.\par
 00005 {\cf21 #include <stdio.h>}\par
 00006 {\cf21 #include <stdlib.h>}\par
 00007 \par
-00008 {\cf18 void} resize_directory_records (directory *d);\par
+00008 {\cf17 static} {\cf18 void} resize_directory_records (directory *d);\par
 00009 \par
 00010 {\cf17 static} {\cf17 const} {\cf18 size_t} DIR_STARTING_NUM_RECORDS = 10;\par
 00011 {\cf17 static} {\cf17 const} {\cf18 size_t} DIR_RECORDS_GROWTH_RATE = 2;\par
@@ -2489,51 +2680,45 @@ Go to the documentation of this file.\par
 00110     \}\par
 00111 \}\par
 00112 \par
-00113 {\cf20 /*}\par
-00114 {\cf20  *  process_directory}\par
-00115 {\cf20  *}\par
-00116 {\cf20  *  TODO: write some better documentation.}\par
-00117 {\cf20  *  In the meantime, see: https://wiki.osdev.org/ISO_9660#Directories}\par
-00118 {\cf20  */}\par
-00119 {\cf18 void}\par
-00120 process_directory (FILE *fptr, directory *d)\par
-00121 \{\par
-00122   uint8_t single_byte = read_single_uint8 (fptr);\par
-00123   {\cf19 do}\par
-00124     \{\par
-00125       directory_record dr;\par
-00126       dr.record_length = single_byte;\par
-00127       dr.extended_attribute_record_length = read_single_uint8 (fptr);\par
-00128       dr.location_of_extent = read_both_endian_data_uint32 (fptr);\par
-00129       dr.data_length = read_both_endian_data_uint32 (fptr);\par
-00130       dr.recording_datetime = read_dir_datetime (fptr);\par
-00131       dr.file_flags = create_file_flags ();\par
-00132       read_file_flags (fptr, &dr.file_flags);\par
-00133       dr.file_unit_size = read_single_uint8 (fptr);\par
-00134       dr.interleave_gap_size = read_single_uint8 (fptr);\par
-00135       dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);\par
-00136       dr.file_identifier_length = read_single_uint8 (fptr) + 1;\par
-00137 \par
-00138       dr.file_identifier\par
-00139           = ({\cf18 char} *)calloc (dr.file_identifier_length, sizeof ({\cf18 char}));\par
-00140       {\cf18 size_t} bytes_read = fread (dr.file_identifier, sizeof ({\cf18 char}),\par
-00141                                  dr.file_identifier_length - 1, fptr);\par
-00142       dr.file_identifier[dr.file_identifier_length - 1] = {\cf23 '\\0'};\par
-00143       {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1))\par
-00144         \{\par
-00145           handle_fread_error (fptr, bytes_read,\par
-00146                               {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1));\par
-00147         \}\par
-00148 \par
-00149       add_record_to_directory (d, &dr);\par
-00150 \par
-00151       {\cf19 if} (dr.file_identifier_length % 2 != 0) {\cf20 // handle padding field}\par
-00152         fseek (fptr, 1, SEEK_CUR);\par
-00153 \par
-00154       single_byte = read_single_uint8 (fptr);\par
-00155     \}\par
-00156   {\cf19 while} (single_byte != 0);\par
-00157 \}\par
+00113 {\cf18 void}\par
+00114 process_directory (FILE *fptr, directory *d)\par
+00115 \{\par
+00116   uint8_t single_byte = read_single_uint8 (fptr);\par
+00117   {\cf19 do}\par
+00118     \{\par
+00119       directory_record dr;\par
+00120       dr.record_length = single_byte;\par
+00121       dr.extended_attribute_record_length = read_single_uint8 (fptr);\par
+00122       dr.location_of_extent = read_both_endian_data_uint32 (fptr);\par
+00123       dr.data_length = read_both_endian_data_uint32 (fptr);\par
+00124       dr.recording_datetime = read_dir_datetime (fptr);\par
+00125       dr.file_flags = create_file_flags ();\par
+00126       read_file_flags (fptr, &dr.file_flags);\par
+00127       dr.file_unit_size = read_single_uint8 (fptr);\par
+00128       dr.interleave_gap_size = read_single_uint8 (fptr);\par
+00129       dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);\par
+00130       dr.file_identifier_length = read_single_uint8 (fptr) + 1;\par
+00131 \par
+00132       dr.file_identifier\par
+00133           = ({\cf18 char} *)calloc (dr.file_identifier_length, sizeof ({\cf18 char}));\par
+00134       {\cf18 size_t} bytes_read = fread (dr.file_identifier, sizeof ({\cf18 char}),\par
+00135                                  dr.file_identifier_length - 1, fptr);\par
+00136       dr.file_identifier[dr.file_identifier_length - 1] = {\cf23 '\\0'};\par
+00137       {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1))\par
+00138         \{\par
+00139           handle_fread_error (fptr, bytes_read,\par
+00140                               {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1));\par
+00141         \}\par
+00142 \par
+00143       add_record_to_directory (d, &dr);\par
+00144 \par
+00145       {\cf19 if} (dr.file_identifier_length % 2 != 0) {\cf20 // handle padding field}\par
+00146         fseek (fptr, 1, SEEK_CUR);\par
+00147 \par
+00148       single_byte = read_single_uint8 (fptr);\par
+00149     \}\par
+00150   {\cf19 while} (single_byte != 0);\par
+00151 \}\par
 }
 \par \pard\plain 
 
@@ -2546,10 +2731,10 @@ src/directory.h File Reference\par \pard\plain
 {\bkmkstart AAAAAAAABW}
 {\bkmkend AAAAAAAABW}
 {
-\pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdint.h>}\par
-{\f2 #include <stdlib.h>}\par
-{\f2 #include "datetime.h"}\par
+\pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "datetime.h"}\par
 {\f2 #include "file_flags.h"}\par
+{\f2 #include <stdint.h>}\par
+{\f2 #include <stdlib.h>}\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Data Structures\par
@@ -2557,8 +2742,13 @@ Data Structures\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-struct {\b directory_record}\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-struct {\b directory}\par
+struct {\b directory_record}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A directory record. }}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+struct {\b directory}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A collection of directory records which together make a single directory. }}\par}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Functions\par
@@ -2567,16 +2757,46 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b create_directory} ({\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a directory with {\f2 DIR_STARTING_NUM_RECORDS}  records. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b destroy_directory} ({\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys all the directory records within a given directory before then destroying the directory itself. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b add_record_to_directory} ({\b directory} *d, {\b directory_record} *r)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_directory} ({\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory to stdout in a human-readable form. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_directory_record} ({\b directory_record} *r)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory record to the stdout in a human-readable form. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b process_directory} (FILE *fptr, {\b directory} *d)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -2594,6 +2814,26 @@ void add_record_to_directory ({\b directory} * d, {\b directory_record} * r)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{the directory to which the given record should be added. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i r} \cell }{the record to add to the aforementioned directory. \cell }
+{\row }
+}
+}{
 Definition at line {\b 51} of file {\b directory.c}.}\par
 }
 {\xe \v create_directory\:directory.h}
@@ -2608,6 +2848,26 @@ int8_t create_directory ({\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a directory with {\f2 DIR_STARTING_NUM_RECORDS}  records. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{a pointer to a directory \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure.\par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+destory_directory() \par
+}}}{
 Definition at line {\b 14} of file {\b directory.c}.}\par
 }
 {\xe \v destroy_directory\:directory.h}
@@ -2622,6 +2882,14 @@ void destroy_directory ({\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys all the directory records within a given directory before then destroying the directory itself. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b create_directory()} \par
+}}}{
 Definition at line {\b 35} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory\:directory.h}
@@ -2636,6 +2904,23 @@ void print_directory ({\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory to stdout in a human-readable form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{the directory to be printed. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b print_directory_record()} \par
+}}}{
 Definition at line {\b 102} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory_record\:directory.h}
@@ -2650,6 +2935,20 @@ void print_directory_record ({\b directory_record} * r)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a given directory record to the stdout in a human-readable form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i r} \cell }{the directory record to be printed. \cell }
+{\row }
+}
+}{
 Definition at line {\b 63} of file {\b directory.c}.}\par
 }
 {\xe \v process_directory\:directory.h}
@@ -2664,7 +2963,31 @@ void process_directory (FILE * fptr, {\b directory} * d)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 120} of file {\b directory.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to the file containing directory data. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i d} \cell }{the directory to which the directory records should be added. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b directory} \par
+{\b directory_record} \par
+}}}{
+Definition at line {\b 114} of file {\b directory.c}.}\par
 }
 \par \pard\plain 
 
@@ -2682,45 +3005,48 @@ Go to the documentation of this file.\par
 \pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #ifndef _DIRECTORY_H_}\par
 00002 {\cf21 #define _DIRECTORY_H_}\par
 00003 \par
-00004 {\cf20 /* clang-format off */}\par
-00005 {\cf21 #include <stdint.h>}\par
-00006 {\cf21 #include <stdlib.h>}\par
-00007 \par
-00008 {\cf21 #include "datetime.h"}\par
-00009 {\cf21 #include "file_flags.h"}\par
-00010 {\cf20 /* clang-format on */}\par
-00011 \par
-00012 {\cf17 typedef} {\cf17 struct }directory_record\par
-00013 \{\par
-00014   uint8_t record_length;\par
-00015   uint8_t extended_attribute_record_length;\par
-00016   uint32_t location_of_extent;\par
-00017   uint32_t data_length;\par
-00018   dir_datetime recording_datetime;\par
-00019   file_flags file_flags;\par
-00020   uint8_t file_unit_size; {\cf20 // only used by files recorded in interleaved mode}\par
-00021   uint8_t\par
-00022       interleave_gap_size; {\cf20 // only used by files recorded in interleaved mode}\par
-00023   uint16_t volume_sequence_number;\par
-00024   uint8_t file_identifier_length;\par
-00025   {\cf18 char} *file_identifier;\par
-00026 \} directory_record;\par
-00027 \par
-00028 {\cf17 typedef} {\cf17 struct }directory\par
-00029 \{\par
-00030   directory_record *records;\par
-00031   {\cf18 size_t} size;\par
-00032   {\cf18 size_t} current_record;\par
-00033 \} directory;\par
-00034 \par
-00035 int8_t create_directory (directory *d);\par
-00036 {\cf18 void} destroy_directory (directory *d);\par
-00037 {\cf18 void} add_record_to_directory (directory *d, directory_record *r);\par
-00038 {\cf18 void} print_directory (directory *d);\par
-00039 {\cf18 void} print_directory_record (directory_record *r);\par
-00040 {\cf18 void} process_directory (FILE *fptr, directory *d);\par
-00041 \par
-00042 {\cf21 #endif}\par
+00004 {\cf21 #include "datetime.h"}\par
+00005 {\cf21 #include "file_flags.h"}\par
+00006 \par
+00007 {\cf21 #include <stdint.h>}\par
+00008 {\cf21 #include <stdlib.h>}\par
+00009 \par
+00015 {\cf17 typedef} {\cf17 struct }directory_record\par
+00016 \{\par
+00017   uint8_t record_length;\par
+00018   uint8_t extended_attribute_record_length;\par
+00019   uint32_t location_of_extent;\par
+00020   uint32_t data_length;\par
+00021   dir_datetime recording_datetime;\par
+00022   file_flags file_flags;\par
+00023   uint8_t file_unit_size; \par
+00024   uint8_t\par
+00025       interleave_gap_size; \par
+00026   uint16_t volume_sequence_number;\par
+00027   uint8_t file_identifier_length;\par
+00028   {\cf18 char} *file_identifier;\par
+00029 \} directory_record;\par
+00030 \par
+00036 {\cf17 typedef} {\cf17 struct }directory\par
+00037 \{\par
+00038   directory_record *records;\par
+00039   {\cf18 size_t} size;  \par
+00040   {\cf18 size_t} current_record;  \par
+00041 \} directory;\par
+00042 \par
+00051 int8_t create_directory (directory *d);\par
+00052 \par
+00059 {\cf18 void} destroy_directory (directory *d);\par
+00060 \par
+00068 {\cf18 void} add_record_to_directory (directory *d, directory_record *r);\par
+00069 \par
+00076 {\cf18 void} print_directory (directory *d);\par
+00077 \par
+00083 {\cf18 void} print_directory_record (directory_record *r);\par
+00084 \par
+00095 {\cf18 void} process_directory (FILE *fptr, directory *d);\par
+00096 \par
+00097 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

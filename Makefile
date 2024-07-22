@@ -18,7 +18,10 @@ all: clean format $(TARGET)
 
 full: all test
 
-release: clean format $(TARGET) WIN32 WIN64
+.PHONY: docs
+
+release: clean format $(TARGET) WIN32 WIN64 docs
+
 
 $(TARGET):
 	gcc -o $(TARGET) $(SRC_FILES) $(TEST_SRC_FILES) $(CFLAGS) -I./$(INCL_FILES)
@@ -40,3 +43,6 @@ clean:
 
 format: 
 	clang-format -style=$(STYLE) -i $(SRC_FILES) $(INCL_FILES)
+
+docs:
+	doxygen docs/doxygen-config

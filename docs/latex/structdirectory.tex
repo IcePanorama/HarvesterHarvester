@@ -2,6 +2,11 @@
 \hypertarget{structdirectory}{}\label{structdirectory}\index{directory@{directory}}
 
 
+A collection of directory records which together make a single directory.  
+
+
+
+
 {\ttfamily \#include $<$directory.\+h$>$}
 
 \doxysubsubsection*{Data Fields}
@@ -10,15 +15,20 @@
 \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structdirectory_afb5ace37536c9d07d73e362194dbef2b}{records}}
 \item 
 size\+\_\+t \mbox{\hyperlink{structdirectory_a2b8b7f416abbf3cfd40f2587e43d0721}{size}}
-\item 
+\begin{DoxyCompactList}\small\item\em the max capacity of {\ttfamily records}. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{structdirectory_a1f1b2917abfe5c0625cf4034274797e7}{current\+\_\+record}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em last record in {\ttfamily records}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+A collection of directory records which together make a single directory. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{structdirectory__record}{directory\+\_\+record} 
+\end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00028}{28}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00036}{36}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 
 
@@ -31,7 +41,11 @@ size\+\_\+t directory\+::current\+\_\+record}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00032}{32}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+last record in {\ttfamily records}. 
+
+
+
+Definition at line \mbox{\hyperlink{directory_8h_source_l00040}{40}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory_afb5ace37536c9d07d73e362194dbef2b}\index{directory@{directory}!records@{records}}
 \index{records@{records}!directory@{directory}}
@@ -41,7 +55,7 @@ Definition at line \mbox{\hyperlink{directory_8h_source_l00032}{32}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00030}{30}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00038}{38}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory_a2b8b7f416abbf3cfd40f2587e43d0721}\index{directory@{directory}!size@{size}}
 \index{size@{size}!directory@{directory}}
@@ -51,7 +65,11 @@ size\+\_\+t directory\+::size}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00031}{31}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+the max capacity of {\ttfamily records}. 
+
+
+
+Definition at line \mbox{\hyperlink{directory_8h_source_l00039}{39}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 
 

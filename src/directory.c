@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void resize_directory_records (directory *d);
+static void resize_directory_records (directory *d);
 
 static const size_t DIR_STARTING_NUM_RECORDS = 10;
 static const size_t DIR_RECORDS_GROWTH_RATE = 2;
@@ -110,12 +110,6 @@ print_directory (directory *d)
     }
 }
 
-/*
- *  process_directory
- *
- *  TODO: write some better documentation.
- *  In the meantime, see: https://wiki.osdev.org/ISO_9660#Directories
- */
 void
 process_directory (FILE *fptr, directory *d)
 {
