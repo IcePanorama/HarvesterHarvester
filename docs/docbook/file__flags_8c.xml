@@ -6,8 +6,12 @@
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para><link linkend="_structfile__flags">file_flags</link> <link linkend="_file__flags_8c_1aacfa73039d80ff8aafa6b5cc1d8c54b5">create_file_flags</link> (void)</para>
+
+<para>Creates an instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput>, initializing all values to their defaults. </para>
 </listitem>
             <listitem><para>void <link linkend="_file__flags_8c_1acac0358f9c6ab59a1d9913afb02f4f21">print_file_flags</link> (<link linkend="_structfile__flags">file_flags</link> *ff)</para>
+
+<para>Outputs a given instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput> to stdout in a human-readable form. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -18,6 +22,20 @@
 <indexterm><primary>create_file_flags</primary><secondary>file_flags.c</secondary></indexterm>
 <indexterm><primary>file_flags.c</primary><secondary>create_file_flags</secondary></indexterm>
 <para><computeroutput><link linkend="_structfile__flags">file_flags</link> create_file_flags (void )</computeroutput></para><para>
+
+<para>Creates an instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput>, initializing all values to their defaults. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>initialized <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput> instance. </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para><link linkend="_structfile__flags">file_flags</link> </para>
+</formalpara>
+</para>
+<para>
 Definition at line <link linkend="_file__flags_8c_source_1l00006">6</link> of file <link linkend="_file__flags_8c_source">file_flags.c</link>.</para>
 </section>
 <anchor xml:id="_file__flags_8c_1acac0358f9c6ab59a1d9913afb02f4f21"/><section>
@@ -25,6 +43,36 @@ Definition at line <link linkend="_file__flags_8c_source_1l00006">6</link> of fi
 <indexterm><primary>print_file_flags</primary><secondary>file_flags.c</secondary></indexterm>
 <indexterm><primary>file_flags.c</primary><secondary>print_file_flags</secondary></indexterm>
 <para><computeroutput>void print_file_flags (<link linkend="_structfile__flags">file_flags</link> * ff)</computeroutput></para><para>
+
+<para>Outputs a given instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput> to stdout in a human-readable form. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>ff</entry><entry>
+<para>the instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput> to be printed. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para><link linkend="_structfile__flags">file_flags</link> </para>
+</formalpara>
+</para>
+<para>
 Definition at line <link linkend="_file__flags_8c_source_1l00018">18</link> of file <link linkend="_file__flags_8c_source">file_flags.c</link>.</para>
 </section>
 </section>

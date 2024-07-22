@@ -9,4 +9,6 @@ Here are the data structures with brief descriptions:<link linkend="_structdec__
 <para>A collection of directory records which together make a single directory </para>
 <link linkend="_structdirectory__record">directory_record</link>
 <para>A directory record </para>
-<link linkend="_structfile__flags">file_flags</link><link linkend="_structpath__table">path_table</link><link linkend="_structpath__table__entry">path_table_entry</link><link linkend="_structvolume__descriptor">volume_descriptor</link><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></section>
+<link linkend="_structfile__flags">file_flags</link>
+<para>The file flags for a directory record </para>
+<link linkend="_structpath__table">path_table</link><link linkend="_structpath__table__entry">path_table_entry</link><link linkend="_structvolume__descriptor">volume_descriptor</link><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></section>

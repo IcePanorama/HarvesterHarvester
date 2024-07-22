@@ -103,6 +103,9 @@ $(function(){initNavTree('structfile__flags.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
+<p>The file flags for a directory record.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="file__flags_8h_source.html">file_flags.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -112,15 +115,21 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a16bbb1c4299a88199b4bc23f29215049" id="r_a16bbb1c4299a88199b4bc23f29215049"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16bbb1c4299a88199b4bc23f29215049">subdirectory</a></td></tr>
 <tr class="separator:a16bbb1c4299a88199b4bc23f29215049"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65c772bf6516b11d65fb49180812c109" id="r_a65c772bf6516b11d65fb49180812c109"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65c772bf6516b11d65fb49180812c109">associated_file</a></td></tr>
+<tr class="memdesc:a65c772bf6516b11d65fb49180812c109"><td class="mdescLeft">&#160;</td><td class="mdescRight">No clue what this means.  <br /></td></tr>
 <tr class="separator:a65c772bf6516b11d65fb49180812c109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86793fb0cad3076a0f21d6c4bb1f1059" id="r_a86793fb0cad3076a0f21d6c4bb1f1059"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86793fb0cad3076a0f21d6c4bb1f1059">extended_attribute_record_contains_owner_and_group_permissions</a></td></tr>
 <tr class="separator:a86793fb0cad3076a0f21d6c4bb1f1059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aef4a9f3598c6b75c602d7c7a969669a3" id="r_aef4a9f3598c6b75c602d7c7a969669a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef4a9f3598c6b75c602d7c7a969669a3">final_directory_record</a></td></tr>
+<tr class="memdesc:aef4a9f3598c6b75c602d7c7a969669a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">If false, this directory record is not the file's final resting place; the file spans over multiple extents.  <br /></td></tr>
 <tr class="separator:aef4a9f3598c6b75c602d7c7a969669a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00007">7</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
+<div class="textblock"><p>The file flags for a directory record. </p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://wiki.osdev.org/ISO_9660#Directories">https://wiki.osdev.org/ISO_9660#Directories</a> </dd>
+<dd>
+<a class="el" href="structdirectory__record.html" title="A directory record.">directory_record</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00013">13</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a65c772bf6516b11d65fb49180812c109" name="a65c772bf6516b11d65fb49180812c109"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65c772bf6516b11d65fb49180812c109">&#9670;&#160;</a></span>associated_file</h2>
@@ -134,7 +143,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00011">11</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
+<p>No clue what this means. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00017">17</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
 
 </div>
 </div>
@@ -150,7 +161,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00012">12</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00018">18</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
 
 </div>
 </div>
@@ -166,7 +177,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00013">13</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
+<p>If false, this directory record is not the file's final resting place; the file spans over multiple extents. </p>
+
+<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00023">23</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
 
 </div>
 </div>
@@ -182,7 +195,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00009">9</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00015">15</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
 
 </div>
 </div>
@@ -198,7 +211,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00010">10</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file__flags_8h_source.html#l00016">16</a> of file <a class="el" href="file__flags_8h_source.html">file_flags.h</a>.</p>
 
 </div>
 </div>

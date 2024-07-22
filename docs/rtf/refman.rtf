@@ -211,7 +211,8 @@ A collection of directory records which together make a single directory })} \ta
 {\b {\b directory_record} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 A directory record })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b file_flags} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIO \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b file_flags} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+The file flags for a directory record })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIO \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b path_table} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIU \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
@@ -988,6 +989,9 @@ file_flags Struct Reference\par \pard\plain
 {\bkmkend AAAAAAAAIO}
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+The file flags for a directory record. }}\par
+{
 {\f2 #include <file_flags.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Data Fields\par
@@ -1000,18 +1004,38 @@ bool {\b hidden}\par
 bool {\b subdirectory}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b associated_file}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+No clue what this means. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b extended_attribute_record_contains_owner_and_group_permissions}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b final_directory_record}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If false, this directory record is not the file's final resting place; the file spans over multiple extents. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Detailed Description\par
 \pard\plain 
 {
-\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {
-Definition at line {\b 7} of file {\b file_flags.h}.}\par
+\pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+The file flags for a directory record. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\f2 https://wiki.osdev.org/ISO_9660#Directories} \par
+{\b directory_record} \par
+}}}{
+Definition at line {\b 13} of file {\b file_flags.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1029,7 +1053,10 @@ bool file_flags::associated_file}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 11} of file {\b file_flags.h}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+No clue what this means. }}\par
+{
+Definition at line {\b 17} of file {\b file_flags.h}.}\par
 }
 {\xe \v extended_attribute_record_contains_owner_and_group_permissions\:file_flags}
 {\xe \v file_flags\:extended_attribute_record_contains_owner_and_group_permissions}
@@ -1043,7 +1070,7 @@ bool file_flags::extended_attribute_record_contains_owner_and_group_permissions}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 12} of file {\b file_flags.h}.}\par
+Definition at line {\b 18} of file {\b file_flags.h}.}\par
 }
 {\xe \v final_directory_record\:file_flags}
 {\xe \v file_flags\:final_directory_record}
@@ -1057,7 +1084,10 @@ bool file_flags::final_directory_record}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 13} of file {\b file_flags.h}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If false, this directory record is not the file's final resting place; the file spans over multiple extents. }}\par
+{
+Definition at line {\b 23} of file {\b file_flags.h}.}\par
 }
 {\xe \v hidden\:file_flags}
 {\xe \v file_flags\:hidden}
@@ -1071,7 +1101,7 @@ bool file_flags::hidden}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 9} of file {\b file_flags.h}.}\par
+Definition at line {\b 15} of file {\b file_flags.h}.}\par
 }
 {\xe \v subdirectory\:file_flags}
 {\xe \v file_flags\:subdirectory}
@@ -1085,7 +1115,7 @@ bool file_flags::subdirectory}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 10} of file {\b file_flags.h}.}\par
+Definition at line {\b 16} of file {\b file_flags.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -4058,8 +4088,18 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b file_flags} {\b create_file_flags} (void)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_file_flags} ({\b file_flags} *ff)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Outputs a given instance of {\f2 {\b file_flags}}  to stdout in a human-readable form. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -4077,6 +4117,17 @@ Function Documentation\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+initialized {\f2 {\b file_flags}}  instance. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b file_flags} \par
+}}}{
 Definition at line {\b 6} of file {\b file_flags.c}.}\par
 }
 {\xe \v print_file_flags\:file_flags.c}
@@ -4091,6 +4142,23 @@ void print_file_flags ({\b file_flags} * ff)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Outputs a given instance of {\f2 {\b file_flags}}  to stdout in a human-readable form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i ff} \cell }{the instance of {\f2 {\b file_flags}}  to be printed. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b file_flags} \par
+}}}{
 Definition at line {\b 18} of file {\b file_flags.c}.}\par
 }
 \par \pard\plain 
@@ -4154,7 +4222,10 @@ Data Structures\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-struct {\b file_flags}}
+struct {\b file_flags}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+The file flags for a directory record. }}\par}
+}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Functions\par
 \pard\plain 
@@ -4162,8 +4233,18 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 {\b file_flags} {\b create_file_flags} (void)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_file_flags} ({\b file_flags} *ff)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Outputs a given instance of {\f2 {\b file_flags}}  to stdout in a human-readable form. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -4181,6 +4262,17 @@ Function Documentation\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+initialized {\f2 {\b file_flags}}  instance. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b file_flags} \par
+}}}{
 Definition at line {\b 6} of file {\b file_flags.c}.}\par
 }
 {\xe \v print_file_flags\:file_flags.h}
@@ -4195,6 +4287,23 @@ void print_file_flags ({\b file_flags} * ff)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Outputs a given instance of {\f2 {\b file_flags}}  to stdout in a human-readable form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i ff} \cell }{the instance of {\f2 {\b file_flags}}  to be printed. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b file_flags} \par
+}}}{
 Definition at line {\b 18} of file {\b file_flags.c}.}\par
 }
 \par \pard\plain 
@@ -4216,20 +4325,20 @@ Go to the documentation of this file.\par
 00004 {\cf21 #include <stdbool.h>}\par
 00005 {\cf21 #include <stdio.h>}\par
 00006 \par
-00007 {\cf17 typedef} {\cf17 struct }file_flags\par
-00008 \{\par
-00009   {\cf18 bool} hidden;\par
-00010   {\cf18 bool} subdirectory;\par
-00011   {\cf18 bool} associated_file; {\cf20 // No clue what this means}\par
-00012   {\cf18 bool} extended_attribute_record_contains_owner_and_group_permissions;\par
-00013   {\cf18 bool} final_directory_record; {\cf20 // if false, this is not the final directory}\par
-00014                                {\cf20 // record; file spans over multiple extents}\par
-00015 \} file_flags;\par
-00016 \par
-00017 file_flags create_file_flags ({\cf18 void});\par
-00018 {\cf18 void} print_file_flags (file_flags *ff);\par
-00019 \par
-00020 {\cf21 #endif}\par
+00013 {\cf17 typedef} {\cf17 struct }file_flags\par
+00014 \{\par
+00015   {\cf18 bool} hidden;\par
+00016   {\cf18 bool} subdirectory;\par
+00017   {\cf18 bool} associated_file; \par
+00018   {\cf18 bool} extended_attribute_record_contains_owner_and_group_permissions;\par
+00023   {\cf18 bool} final_directory_record;\par
+00024 \} file_flags;\par
+00025 \par
+00033 file_flags create_file_flags ({\cf18 void});\par
+00034 \par
+00042 {\cf18 void} print_file_flags (file_flags *ff);\par
+00043 \par
+00044 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
