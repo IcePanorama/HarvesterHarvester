@@ -6,6 +6,8 @@
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_log_8h_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link> (FILE *fptr)</para>
+
+<para>Prints out the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted properly in order to be easy to read. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -16,7 +18,35 @@
 <indexterm><primary>print_some_data_from_file</primary><secondary>log.h</secondary></indexterm>
 <indexterm><primary>log.h</primary><secondary>print_some_data_from_file</secondary></indexterm>
 <para><computeroutput>void print_some_data_from_file (FILE * fptr)</computeroutput></para><para>
-Definition at line <link linkend="_log_8c_source_1l00046">46</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+
+<para>Prints out the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted properly in order to be easy to read. </para>
+</para>
+
+<para>Useful for debugging. Note that <computeroutput>BYTES_TO_READ</computeroutput> is defined in <link linkend="_log_8c">log.c</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fptr</entry><entry>
+<para>pointer to where user currently is in a file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_log_8c_source_1l00034">34</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 </section>
 </section>

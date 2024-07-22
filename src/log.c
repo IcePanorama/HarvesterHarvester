@@ -3,19 +3,13 @@
 
 #include <stdio.h>
 
-void print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN);
-
-// TODO: move this to a "logging" function or something like that.
-/*
- *  print_hex_data
- *
+/**
  *  Outputs hex data from a given `buffer` to stdout, formatting said data to
  *  add spaces between bytes, tabs after after every four bytes, and a new line
  *  after every 16 bytes.
  *
- *  param:
- *    buffer : unsigned char * - a buffer containing hex data.
- *    BUFFER_LEN : const uint8_t - the size of the data buffer.
+ *  @param  buffer      a buffer containing hex data.
+ *  @param  BUFFER_LEN  the size of the data buffer.
  */
 void
 print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
@@ -35,12 +29,6 @@ print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
   puts ("");
 }
 
-/*
- *  print_some_data_from_file
- *
- *  Prints out the next `BYTES_TO_READ` many bytes to the stdout, formatted
- *  properly in order to be easy to read. Useful for debugging.
- */
 #define BYTES_TO_READ 32
 void
 print_some_data_from_file (FILE *fptr)

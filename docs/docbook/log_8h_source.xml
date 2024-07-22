@@ -8,7 +8,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_log_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
 <anchor xml:id="_log_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
 <anchor xml:id="_log_8h_source_1l00006"/>00006 
-<anchor xml:id="_log_8h_source_1l00007"/>00007 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_log_8h_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_log_8h_source_1l00008"/>00008 
-<anchor xml:id="_log_8h_source_1l00009"/>00009 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_log_8h_source_1l00014"/>00014 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_log_8h_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_log_8h_source_1l00015"/>00015 
+<anchor xml:id="_log_8h_source_1l00016"/>00016 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

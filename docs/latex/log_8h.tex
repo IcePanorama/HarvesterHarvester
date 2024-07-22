@@ -6,7 +6,7 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{log_8h_af9859f7b27d46f040c836ecfdc1ac304}{print\+\_\+some\+\_\+data\+\_\+from\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints out the next {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} many bytes to the stdout, formatted properly in order to be easy to read. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -18,5 +18,16 @@ void print\+\_\+some\+\_\+data\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\ite
 
 
 
-Definition at line \mbox{\hyperlink{log_8c_source_l00046}{46}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
+Prints out the next {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} many bytes to the stdout, formatted properly in order to be easy to read. 
+
+Useful for debugging. Note that {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} is defined in \doxylink{log_8c}{log.\+c}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & pointer to where user currently is in a file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{log_8c_source_l00034}{34}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 

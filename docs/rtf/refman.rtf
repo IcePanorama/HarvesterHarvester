@@ -4927,8 +4927,18 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_hex_data} (unsigned char *buffer, const uint8_t BUFFER_LEN)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Outputs hex data from a given {\f2 buffer}  to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_some_data_from_file} (FILE *fptr)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -4946,7 +4956,7 @@ Macro Definition Documentation\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 44} of file {\b log.c}.}\par
+Definition at line {\b 32} of file {\b log.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -4964,7 +4974,27 @@ void print_hex_data (unsigned char * buffer, const uint8_t BUFFER_LEN)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 21} of file {\b log.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Outputs hex data from a given {\f2 buffer}  to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i buffer} \cell }{a buffer containing hex data. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i BUFFER_LEN} \cell }{the size of the data buffer. \cell }
+{\row }
+}
+}{
+Definition at line {\b 15} of file {\b log.c}.}\par
 }
 {\xe \v print_some_data_from_file\:log.c}
 {\xe \v log.c\:print_some_data_from_file}
@@ -4978,7 +5008,21 @@ void print_some_data_from_file (FILE * fptr)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 46} of file {\b log.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Useful for debugging. Note that {\f2 BYTES_TO_READ}  is defined in {\b log.c}.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to where user currently is in a file \cell }
+{\row }
+}
+}{
+Definition at line {\b 34} of file {\b log.c}.}\par
 }
 \par \pard\plain 
 
@@ -4998,57 +5042,37 @@ Go to the documentation of this file.\par
 00003 \par
 00004 {\cf21 #include <stdio.h>}\par
 00005 \par
-00006 {\cf18 void} print_hex_data ({\cf18 unsigned} {\cf18 char} *buffer, {\cf17 const} uint8_t BUFFER_LEN);\par
-00007 \par
-00008 {\cf20 // TODO: move this to a "logging" function or something like that.}\par
-00009 {\cf20 /*}\par
-00010 {\cf20  *  print_hex_data}\par
-00011 {\cf20  *}\par
-00012 {\cf20  *  Outputs hex data from a given `buffer` to stdout, formatting said data to}\par
-00013 {\cf20  *  add spaces between bytes, tabs after after every four bytes, and a new line}\par
-00014 {\cf20  *  after every 16 bytes.}\par
-00015 {\cf20  *}\par
-00016 {\cf20  *  param:}\par
-00017 {\cf20  *    buffer : unsigned char * - a buffer containing hex data.}\par
-00018 {\cf20  *    BUFFER_LEN : const uint8_t - the size of the data buffer.}\par
-00019 {\cf20  */}\par
-00020 {\cf18 void}\par
-00021 print_hex_data ({\cf18 unsigned} {\cf18 char} *buffer, {\cf17 const} uint8_t BUFFER_LEN)\par
-00022 \{\par
-00023   {\cf19 for} (uint8_t i = 0; i < BUFFER_LEN; i++)\par
-00024     \{\par
-00025       printf ({\cf22 " %02x"}, buffer[i]);\par
-00026       {\cf19 if} ((i != 0) && (i % 4 == 3))\par
-00027         \{\par
-00028           printf ({\cf22 "\\t"});\par
-00029         \}\par
-00030       {\cf19 if} ((i != 0) && (i % 16 == 15))\par
-00031         \{\par
-00032           puts ({\cf22 ""});\par
-00033         \}\par
-00034     \}\par
-00035   puts ({\cf22 ""});\par
-00036 \}\par
-00037 \par
-00038 {\cf20 /*}\par
-00039 {\cf20  *  print_some_data_from_file}\par
-00040 {\cf20  *}\par
-00041 {\cf20  *  Prints out the next `BYTES_TO_READ` many bytes to the stdout, formatted}\par
-00042 {\cf20  *  properly in order to be easy to read. Useful for debugging.}\par
-00043 {\cf20  */}\par
-00044 {\cf21 #define BYTES_TO_READ 32}\par
-00045 {\cf18 void}\par
-00046 print_some_data_from_file (FILE *fptr)\par
-00047 \{\par
-00048   {\cf18 unsigned} {\cf18 char} buffer[BYTES_TO_READ];\par
-00049   {\cf18 size_t} bytes_read = fread (buffer, {\cf17 sizeof} (buffer[0]), BYTES_TO_READ, fptr);\par
-00050   {\cf19 if} (bytes_read != BYTES_TO_READ)\par
-00051     \{\par
-00052       handle_fread_error (fptr, bytes_read, BYTES_TO_READ);\par
-00053     \}\par
-00054   print_hex_data (buffer, BYTES_TO_READ);\par
-00055   fseek (fptr, -BYTES_TO_READ, SEEK_CUR);\par
-00056 \}\par
+00014 {\cf18 void}\par
+00015 print_hex_data ({\cf18 unsigned} {\cf18 char} *buffer, {\cf17 const} uint8_t BUFFER_LEN)\par
+00016 \{\par
+00017   {\cf19 for} (uint8_t i = 0; i < BUFFER_LEN; i++)\par
+00018     \{\par
+00019       printf ({\cf22 " %02x"}, buffer[i]);\par
+00020       {\cf19 if} ((i != 0) && (i % 4 == 3))\par
+00021         \{\par
+00022           printf ({\cf22 "\\t"});\par
+00023         \}\par
+00024       {\cf19 if} ((i != 0) && (i % 16 == 15))\par
+00025         \{\par
+00026           puts ({\cf22 ""});\par
+00027         \}\par
+00028     \}\par
+00029   puts ({\cf22 ""});\par
+00030 \}\par
+00031 \par
+00032 {\cf21 #define BYTES_TO_READ 32}\par
+00033 {\cf18 void}\par
+00034 print_some_data_from_file (FILE *fptr)\par
+00035 \{\par
+00036   {\cf18 unsigned} {\cf18 char} buffer[BYTES_TO_READ];\par
+00037   {\cf18 size_t} bytes_read = fread (buffer, {\cf17 sizeof} (buffer[0]), BYTES_TO_READ, fptr);\par
+00038   {\cf19 if} (bytes_read != BYTES_TO_READ)\par
+00039     \{\par
+00040       handle_fread_error (fptr, bytes_read, BYTES_TO_READ);\par
+00041     \}\par
+00042   print_hex_data (buffer, BYTES_TO_READ);\par
+00043   fseek (fptr, -BYTES_TO_READ, SEEK_CUR);\par
+00044 \}\par
 }
 \par \pard\plain 
 
@@ -5071,6 +5095,11 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_some_data_from_file} (FILE *fptr)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5088,7 +5117,21 @@ void print_some_data_from_file (FILE * fptr)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 46} of file {\b log.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Useful for debugging. Note that {\f2 BYTES_TO_READ}  is defined in {\b log.c}.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to where user currently is in a file \cell }
+{\row }
+}
+}{
+Definition at line {\b 34} of file {\b log.c}.}\par
 }
 \par \pard\plain 
 
@@ -5109,9 +5152,9 @@ Go to the documentation of this file.\par
 00004 {\cf21 #include <stdint.h>}\par
 00005 {\cf21 #include <stdio.h>}\par
 00006 \par
-00007 {\cf18 void} print_some_data_from_file (FILE *fptr);\par
-00008 \par
-00009 {\cf21 #endif}\par
+00014 {\cf18 void} print_some_data_from_file (FILE *fptr);\par
+00015 \par
+00016 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

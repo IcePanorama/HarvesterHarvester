@@ -117,8 +117,10 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aaaf9265dd175725985b56eeac3db2f30" id="r_aaaf9265dd175725985b56eeac3db2f30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaf9265dd175725985b56eeac3db2f30">print_hex_data</a> (unsigned char *buffer, const uint8_t BUFFER_LEN)</td></tr>
+<tr class="memdesc:aaaf9265dd175725985b56eeac3db2f30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs hex data from a given <code>buffer</code> to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.  <br /></td></tr>
 <tr class="separator:aaaf9265dd175725985b56eeac3db2f30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9859f7b27d46f040c836ecfdc1ac304" id="r_af9859f7b27d46f040c836ecfdc1ac304"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a> (FILE *fptr)</td></tr>
+<tr class="memdesc:af9859f7b27d46f040c836ecfdc1ac304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out the next <code>BYTES_TO_READ</code> many bytes to the stdout, formatted properly in order to be easy to read.  <br /></td></tr>
 <tr class="separator:af9859f7b27d46f040c836ecfdc1ac304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -134,7 +136,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00044">44</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00032">32</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
 </div>
 </div>
@@ -158,7 +160,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00021">21</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+<p>Outputs hex data from a given <code>buffer</code> to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>a buffer containing hex data. </td></tr>
+    <tr><td class="paramname">BUFFER_LEN</td><td>the size of the data buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00015">15</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
 </div>
 </div>
@@ -177,7 +188,16 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00046">46</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+<p>Prints out the next <code>BYTES_TO_READ</code> many bytes to the stdout, formatted properly in order to be easy to read. </p>
+<p>Useful for debugging. Note that <code>BYTES_TO_READ</code> is defined in <a class="el" href="log_8c.html">log.c</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fptr</td><td>pointer to where user currently is in a file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00034">34</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
 </div>
 </div>

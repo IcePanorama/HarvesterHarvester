@@ -12,9 +12,9 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\+\_\+hex\+\_\+data}} (unsigned char \texorpdfstring{$\ast$}{*}buffer, const uint8\+\_\+t BUFFER\+\_\+\+LEN)
-\item 
+\begin{DoxyCompactList}\small\item\em Outputs hex data from a given {\ttfamily buffer} to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{print\+\_\+some\+\_\+data\+\_\+from\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints out the next {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} many bytes to the stdout, formatted properly in order to be easy to read. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -26,7 +26,7 @@ void \mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{print\+\_\+some\
 
 
 
-Definition at line \mbox{\hyperlink{log_8c_source_l00044}{44}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
+Definition at line \mbox{\hyperlink{log_8c_source_l00032}{32}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 
 
 
@@ -39,7 +39,18 @@ void print\+\_\+hex\+\_\+data (\begin{DoxyParamCaption}\item[{unsigned char \tex
 
 
 
-Definition at line \mbox{\hyperlink{log_8c_source_l00021}{21}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
+Outputs hex data from a given {\ttfamily buffer} to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & a buffer containing hex data. \\
+\hline
+{\em BUFFER\+\_\+\+LEN} & the size of the data buffer. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{log_8c_source_l00015}{15}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 
 \Hypertarget{log_8c_af9859f7b27d46f040c836ecfdc1ac304}\index{log.c@{log.c}!print\_some\_data\_from\_file@{print\_some\_data\_from\_file}}
 \index{print\_some\_data\_from\_file@{print\_some\_data\_from\_file}!log.c@{log.c}}
@@ -49,5 +60,16 @@ void print\+\_\+some\+\_\+data\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\ite
 
 
 
-Definition at line \mbox{\hyperlink{log_8c_source_l00046}{46}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
+Prints out the next {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} many bytes to the stdout, formatted properly in order to be easy to read. 
+
+Useful for debugging. Note that {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} is defined in \doxylink{log_8c}{log.\+c}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & pointer to where user currently is in a file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{log_8c_source_l00034}{34}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 

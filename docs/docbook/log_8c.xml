@@ -13,8 +13,12 @@
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link> (unsigned char *buffer, const uint8_t BUFFER_LEN)</para>
+
+<para>Outputs hex data from a given <computeroutput>buffer</computeroutput> to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. </para>
 </listitem>
             <listitem><para>void <link linkend="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link> (FILE *fptr)</para>
+
+<para>Prints out the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted properly in order to be easy to read. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -25,7 +29,7 @@
 <indexterm><primary>BYTES_TO_READ</primary><secondary>log.c</secondary></indexterm>
 <indexterm><primary>log.c</primary><secondary>BYTES_TO_READ</secondary></indexterm>
 <para><computeroutput>#define BYTES_TO_READ&#160;&#160;&#160;32</computeroutput></para><para>
-Definition at line <link linkend="_log_8c_source_1l00044">44</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+Definition at line <link linkend="_log_8c_source_1l00032">32</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 </section>
 <section>
@@ -35,14 +39,73 @@ Definition at line <link linkend="_log_8c_source_1l00044">44</link> of file <lin
 <indexterm><primary>print_hex_data</primary><secondary>log.c</secondary></indexterm>
 <indexterm><primary>log.c</primary><secondary>print_hex_data</secondary></indexterm>
 <para><computeroutput>void print_hex_data (unsigned char * buffer, const uint8_t BUFFER_LEN)</computeroutput></para><para>
-Definition at line <link linkend="_log_8c_source_1l00021">21</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+
+<para>Outputs hex data from a given <computeroutput>buffer</computeroutput> to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>buffer</entry><entry>
+<para>a buffer containing hex data. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>BUFFER_LEN</entry><entry>
+<para>the size of the data buffer. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_log_8c_source_1l00015">15</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 <anchor xml:id="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304"/><section>
     <title>print_some_data_from_file()</title>
 <indexterm><primary>print_some_data_from_file</primary><secondary>log.c</secondary></indexterm>
 <indexterm><primary>log.c</primary><secondary>print_some_data_from_file</secondary></indexterm>
 <para><computeroutput>void print_some_data_from_file (FILE * fptr)</computeroutput></para><para>
-Definition at line <link linkend="_log_8c_source_1l00046">46</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+
+<para>Prints out the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted properly in order to be easy to read. </para>
+</para>
+
+<para>Useful for debugging. Note that <computeroutput>BYTES_TO_READ</computeroutput> is defined in <link linkend="_log_8c">log.c</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fptr</entry><entry>
+<para>pointer to where user currently is in a file </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_log_8c_source_1l00034">34</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 </section>
 </section>
