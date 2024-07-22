@@ -13,11 +13,6 @@
 
 const char *OUTPUT_DIR = "output";
 
-/*
- *  create_output_directories
- *
- *  TODO: add documentation
- */
 void
 create_output_directory (char *path)
 {
@@ -73,11 +68,6 @@ create_output_directory (char *path)
   free (tmp);
 }
 
-/*
- *  directory_exists
- *
- *  TODO: add documentation.
- */
 bool
 directory_exists (const char *dir)
 {

@@ -15,6 +15,8 @@
     <title>Variables    </title>
         <itemizedlist>
             <listitem><para>const char * <link linkend="_output_8c_1ac4251b470f6db454e004da4566ad4be2">OUTPUT_DIR</link> = &quot;output&quot;</para>
+
+<para>Default is <computeroutput>output/</computeroutput>. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -25,14 +27,14 @@
 <indexterm><primary>create_output_directory</primary><secondary>output.c</secondary></indexterm>
 <indexterm><primary>output.c</primary><secondary>create_output_directory</secondary></indexterm>
 <para><computeroutput>void create_output_directory (char * path)</computeroutput></para><para>
-Definition at line <link linkend="_output_8c_source_1l00022">22</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+Definition at line <link linkend="_output_8c_source_1l00017">17</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 <anchor xml:id="_output_8c_1a28cf3fb6f4d89ea760afeca3f07a377b"/><section>
     <title>directory_exists()</title>
 <indexterm><primary>directory_exists</primary><secondary>output.c</secondary></indexterm>
 <indexterm><primary>output.c</primary><secondary>directory_exists</secondary></indexterm>
 <para><computeroutput>bool directory_exists (const char * dir)</computeroutput></para><para>
-Definition at line <link linkend="_output_8c_source_1l00082">82</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+Definition at line <link linkend="_output_8c_source_1l00072">72</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>
 <section>
@@ -42,6 +44,10 @@ Definition at line <link linkend="_output_8c_source_1l00082">82</link> of file <
 <indexterm><primary>OUTPUT_DIR</primary><secondary>output.c</secondary></indexterm>
 <indexterm><primary>output.c</primary><secondary>OUTPUT_DIR</secondary></indexterm>
 <para><computeroutput>const char* OUTPUT_DIR = &quot;output&quot;</computeroutput></para><para>
+
+<para>Default is <computeroutput>output/</computeroutput>. </para>
+</para>
+<para>
 Definition at line <link linkend="_output_8c_source_1l00014">14</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>

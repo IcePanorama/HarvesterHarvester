@@ -5772,6 +5772,11 @@ Variables\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 const char * {\b OUTPUT_DIR} = "output"\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 output/} . }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5789,7 +5794,7 @@ void create_output_directory (char * path)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 22} of file {\b output.c}.}\par
+Definition at line {\b 17} of file {\b output.c}.}\par
 }
 {\xe \v directory_exists\:output.c}
 {\xe \v output.c\:directory_exists}
@@ -5803,7 +5808,7 @@ bool directory_exists (const char * dir)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 82} of file {\b output.c}.}\par
+Definition at line {\b 72} of file {\b output.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5820,6 +5825,9 @@ const char* OUTPUT_DIR = "output"}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 output/} . }}\par
 {
 Definition at line {\b 14} of file {\b output.c}.}\par
 }
@@ -5851,82 +5859,72 @@ Go to the documentation of this file.\par
 00013 \par
 00014 {\cf17 const} {\cf18 char} *OUTPUT_DIR = {\cf22 "output"};\par
 00015 \par
-00016 {\cf20 /*}\par
-00017 {\cf20  *  create_output_directories}\par
-00018 {\cf20  *}\par
-00019 {\cf20  *  TODO: add documentation}\par
-00020 {\cf20  */}\par
-00021 {\cf18 void}\par
-00022 create_output_directory ({\cf18 char} *path)\par
-00023 \{\par
-00024   {\cf19 if} (OP_CURRENT_DISK_NAME != NULL)\par
-00025     prepend_path_string (path, OP_CURRENT_DISK_NAME);\par
-00026 \par
-00027   prepend_path_string (path, OUTPUT_DIR);\par
-00028 \par
-00029   {\cf18 char} *tmp = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
-00030   {\cf19 if} (tmp == NULL)\par
-00031     \{\par
-00032       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
-00033       exit (1);\par
-00034     \}\par
-00035   strcpy (tmp, path);\par
-00036 \par
-00037   {\cf18 char} *token = strtok (tmp, &OP_PATH_SEPARATOR);\par
-00038 \par
-00039   {\cf18 char} *dir = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
-00040   {\cf19 if} (dir == NULL)\par
-00041     \{\par
-00042       perror ({\cf22 "ERROR: unable to calloc dir string"});\par
-00043       exit (1);\par
-00044     \}\par
-00045 \par
-00046   {\cf19 while} (token != NULL)\par
-00047     \{\par
-00048       strcat (dir, token);\par
-00049 \par
-00050       {\cf19 if} (!directory_exists (dir))\par
-00051         \{\par
-00052           {\cf20 // TODO: test me on Windows}\par
-00053           {\cf18 int} status;\par
-00054 {\cf21 #ifdef _WIN32}\par
-00055           status = _mkdir (dir);\par
-00056 {\cf21 #else}\par
-00057           status = mkdir (dir, 0700);\par
-00058 {\cf21 #endif}\par
-00059           {\cf19 if} (status != 0)\par
-00060             \{\par
-00061               printf ({\cf22 "ERROR: failed to create directory, %s\\n"}, path);\par
-00062               free (dir);\par
-00063               free (tmp);\par
-00064               exit (1);\par
-00065             \}\par
-00066         \}\par
-00067 \par
-00068       strcat (dir, &OP_PATH_SEPARATOR);\par
-00069       token = strtok (NULL, &OP_PATH_SEPARATOR);\par
-00070     \}\par
-00071 \par
-00072   free (dir);\par
-00073   free (tmp);\par
-00074 \}\par
-00075 \par
-00076 {\cf20 /*}\par
-00077 {\cf20  *  directory_exists}\par
-00078 {\cf20  *}\par
-00079 {\cf20  *  TODO: add documentation.}\par
-00080 {\cf20  */}\par
-00081 {\cf18 bool}\par
-00082 directory_exists ({\cf17 const} {\cf18 char} *dir)\par
-00083 \{\par
-00084 {\cf21 #ifdef _WIN32}\par
-00085   {\cf17 struct }_stat st;\par
-00086   {\cf19 return} (_stat (dir, &st) == 0 && (st.st_mode & _S_IFDIR));\par
-00087 {\cf21 #else}\par
-00088   {\cf17 struct }stat st;\par
-00089   {\cf19 return} (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));\par
-00090 {\cf21 #endif}\par
-00091 \}\par
+00016 {\cf18 void}\par
+00017 create_output_directory ({\cf18 char} *path)\par
+00018 \{\par
+00019   {\cf19 if} (OP_CURRENT_DISK_NAME != NULL)\par
+00020     prepend_path_string (path, OP_CURRENT_DISK_NAME);\par
+00021 \par
+00022   prepend_path_string (path, OUTPUT_DIR);\par
+00023 \par
+00024   {\cf18 char} *tmp = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
+00025   {\cf19 if} (tmp == NULL)\par
+00026     \{\par
+00027       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
+00028       exit (1);\par
+00029     \}\par
+00030   strcpy (tmp, path);\par
+00031 \par
+00032   {\cf18 char} *token = strtok (tmp, &OP_PATH_SEPARATOR);\par
+00033 \par
+00034   {\cf18 char} *dir = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
+00035   {\cf19 if} (dir == NULL)\par
+00036     \{\par
+00037       perror ({\cf22 "ERROR: unable to calloc dir string"});\par
+00038       exit (1);\par
+00039     \}\par
+00040 \par
+00041   {\cf19 while} (token != NULL)\par
+00042     \{\par
+00043       strcat (dir, token);\par
+00044 \par
+00045       {\cf19 if} (!directory_exists (dir))\par
+00046         \{\par
+00047           {\cf20 // TODO: test me on Windows}\par
+00048           {\cf18 int} status;\par
+00049 {\cf21 #ifdef _WIN32}\par
+00050           status = _mkdir (dir);\par
+00051 {\cf21 #else}\par
+00052           status = mkdir (dir, 0700);\par
+00053 {\cf21 #endif}\par
+00054           {\cf19 if} (status != 0)\par
+00055             \{\par
+00056               printf ({\cf22 "ERROR: failed to create directory, %s\\n"}, path);\par
+00057               free (dir);\par
+00058               free (tmp);\par
+00059               exit (1);\par
+00060             \}\par
+00061         \}\par
+00062 \par
+00063       strcat (dir, &OP_PATH_SEPARATOR);\par
+00064       token = strtok (NULL, &OP_PATH_SEPARATOR);\par
+00065     \}\par
+00066 \par
+00067   free (dir);\par
+00068   free (tmp);\par
+00069 \}\par
+00070 \par
+00071 {\cf18 bool}\par
+00072 directory_exists ({\cf17 const} {\cf18 char} *dir)\par
+00073 \{\par
+00074 {\cf21 #ifdef _WIN32}\par
+00075   {\cf17 struct }_stat st;\par
+00076   {\cf19 return} (_stat (dir, &st) == 0 && (st.st_mode & _S_IFDIR));\par
+00077 {\cf21 #else}\par
+00078   {\cf17 struct }stat st;\par
+00079   {\cf19 return} (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));\par
+00080 {\cf21 #endif}\par
+00081 \}\par
 }
 \par \pard\plain 
 
@@ -5958,6 +5956,11 @@ Variables\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 const char * {\b OUTPUT_DIR}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 output/} . }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5975,7 +5978,7 @@ void create_output_directory (char * path)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 22} of file {\b output.c}.}\par
+Definition at line {\b 17} of file {\b output.c}.}\par
 }
 {\xe \v directory_exists\:output.h}
 {\xe \v output.h\:directory_exists}
@@ -5989,7 +5992,7 @@ bool directory_exists (const char * dir)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 82} of file {\b output.c}.}\par
+Definition at line {\b 72} of file {\b output.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -6006,6 +6009,9 @@ const char* OUTPUT_DIR{\f2 [extern]}}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 output/} . }}\par
 {
 Definition at line {\b 14} of file {\b output.c}.}\par
 }
@@ -6027,12 +6033,13 @@ Go to the documentation of this file.\par
 00003 \par
 00004 {\cf21 #include <stdbool.h>}\par
 00005 \par
-00006 {\cf17 extern} {\cf17 const} {\cf18 char} *OUTPUT_DIR;\par
-00007 \par
-00008 {\cf18 void} create_output_directory ({\cf18 char} *path);\par
-00009 {\cf18 bool} directory_exists ({\cf17 const} {\cf18 char} *dir);\par
+00007 {\cf17 extern} {\cf17 const} {\cf18 char} *OUTPUT_DIR;\par
+00008 \par
+00009 {\cf18 void} create_output_directory ({\cf18 char} *path);\par
 00010 \par
-00011 {\cf21 #endif}\par
+00011 {\cf18 bool} directory_exists ({\cf17 const} {\cf18 char} *dir);\par
+00012 \par
+00013 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
