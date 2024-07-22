@@ -3030,8 +3030,8 @@ Go to the documentation of this file.\par
 00036 {\cf17 typedef} {\cf17 struct }directory\par
 00037 \{\par
 00038   directory_record *records;\par
-00039   {\cf18 size_t} size;  \par
-00040   {\cf18 size_t} current_record;  \par
+00039   {\cf18 size_t} size;           \par
+00040   {\cf18 size_t} current_record; \par
 00041 \} directory;\par
 00042 \par
 00051 int8_t create_directory (directory *d);\par
@@ -3070,12 +3070,32 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b improper_usage_error} (void)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an improper usage error. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b fopen_error} (char *filename)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fopen error. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_fread_error} (FILE *fptr, size_t actual, size_t expected_bytes)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fread error. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_unknown_command_line_argument_error} (char *arg)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an unknown command line argument error. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -3093,7 +3113,10 @@ void fopen_error (char * filename)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 22} of file {\b errors.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fopen error. }}\par
+{
+Definition at line {\b 23} of file {\b errors.c}.}\par
 }
 {\xe \v handle_fread_error\:errors.c}
 {\xe \v errors.c\:handle_fread_error}
@@ -3107,7 +3130,10 @@ void handle_fread_error (FILE * fptr, size_t actual, size_t expected_bytes)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 29} of file {\b errors.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fread error. }}\par
+{
+Definition at line {\b 30} of file {\b errors.c}.}\par
 }
 {\xe \v handle_unknown_command_line_argument_error\:errors.c}
 {\xe \v errors.c\:handle_unknown_command_line_argument_error}
@@ -3121,7 +3147,10 @@ void handle_unknown_command_line_argument_error (char * arg)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 43} of file {\b errors.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an unknown command line argument error. }}\par
+{
+Definition at line {\b 39} of file {\b errors.c}.}\par
 }
 {\xe \v improper_usage_error\:errors.c}
 {\xe \v errors.c\:improper_usage_error}
@@ -3134,6 +3163,9 @@ void improper_usage_error (void )}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an improper usage error. }}\par
 {
 Definition at line {\b 7} of file {\b errors.c}.}\par
 }
@@ -3165,46 +3197,42 @@ Go to the documentation of this file.\par
 00013   windows = {\cf17 false};\par
 00014 {\cf21 #endif}\par
 00015   puts ({\cf22 "ERROR: Improper usage!"});\par
-00016   printf ({\cf22 "try: %s HARVEST.DAT\\n"}, !windows ? {\cf22 "$ ./main"} : {\cf22 "main.exe"});\par
-00017 \par
-00018   exit (1);\par
-00019 \}\par
-00020 \par
-00021 {\cf18 void}\par
-00022 fopen_error ({\cf18 char} *filename)\par
-00023 \{\par
-00024   printf ({\cf22 "ERROR: Unable to open file, %s.\\n"}, filename);\par
-00025   exit (1);\par
-00026 \}\par
-00027 \par
-00028 {\cf18 void}\par
-00029 handle_fread_error (FILE *fptr, {\cf18 size_t} actual, {\cf18 size_t} expected_bytes)\par
-00030 \{\par
-00031   printf ({\cf22 "ERROR: Only read %zu byte(s), expected %zu.\\n"}, actual,\par
-00032           expected_bytes);\par
-00033   fclose (fptr);\par
-00034   exit (1);\par
-00035 \}\par
-00036 \par
-00037 {\cf20 /*}\par
-00038 {\cf20  *  handle_unknown_command_line_argument_error}\par
-00039 {\cf20  *}\par
-00040 {\cf20  *  TODO: add documentation.}\par
-00041 {\cf20  */}\par
-00042 {\cf18 void}\par
-00043 handle_unknown_command_line_argument_error ({\cf18 char} *arg)\par
-00044 \{\par
-00045   {\cf18 bool} windows;\par
-00046 {\cf21 #ifdef __WIN32}\par
-00047   windows = {\cf17 true};\par
-00048 {\cf21 #else}\par
-00049   windows = {\cf17 false};\par
-00050 {\cf21 #endif}\par
-00051   printf ({\cf22 "ERROR: unknown command-line argument, %s.\\n"}, arg);\par
-00052   printf ({\cf22 "Run %s --help for a list of command-line arguments.\\n"},\par
-00053           !windows ? {\cf22 "./main"} : {\cf22 "main.exe"});\par
-00054   exit (1);\par
-00055 \}\par
+00016   printf ({\cf22 "try: %s HARVEST.DAT\\n"},\par
+00017           !windows ? {\cf22 "$ ./HarvesterHarvester"} : {\cf22 "HarvesterHarvester.exe"});\par
+00018 \par
+00019   exit (1);\par
+00020 \}\par
+00021 \par
+00022 {\cf18 void}\par
+00023 fopen_error ({\cf18 char} *filename)\par
+00024 \{\par
+00025   printf ({\cf22 "ERROR: Unable to open file, %s.\\n"}, filename);\par
+00026   exit (1);\par
+00027 \}\par
+00028 \par
+00029 {\cf18 void}\par
+00030 handle_fread_error (FILE *fptr, {\cf18 size_t} actual, {\cf18 size_t} expected_bytes)\par
+00031 \{\par
+00032   printf ({\cf22 "ERROR: Only read %zu byte(s), expected %zu.\\n"}, actual,\par
+00033           expected_bytes);\par
+00034   fclose (fptr);\par
+00035   exit (1);\par
+00036 \}\par
+00037 \par
+00038 {\cf18 void}\par
+00039 handle_unknown_command_line_argument_error ({\cf18 char} *arg)\par
+00040 \{\par
+00041   {\cf18 bool} windows;\par
+00042 {\cf21 #ifdef __WIN32}\par
+00043   windows = {\cf17 true};\par
+00044 {\cf21 #else}\par
+00045   windows = {\cf17 false};\par
+00046 {\cf21 #endif}\par
+00047   printf ({\cf22 "ERROR: unknown command-line argument, %s.\\n"}, arg);\par
+00048   printf ({\cf22 "Run %s --help for a list of command-line arguments.\\n"},\par
+00049           !windows ? {\cf22 "./main"} : {\cf22 "main.exe"});\par
+00050   exit (1);\par
+00051 \}\par
 }
 \par \pard\plain 
 
@@ -3226,12 +3254,32 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b improper_usage_error} (void)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an improper usage error. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b fopen_error} (char *filename)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fopen error. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_fread_error} (FILE *fptr, size_t actual, size_t expected_bytes)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fread error. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_unknown_command_line_argument_error} (char *arg)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an unknown command line argument error. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -3249,7 +3297,10 @@ void fopen_error (char * filename)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 22} of file {\b errors.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fopen error. }}\par
+{
+Definition at line {\b 23} of file {\b errors.c}.}\par
 }
 {\xe \v handle_fread_error\:errors.h}
 {\xe \v errors.h\:handle_fread_error}
@@ -3263,7 +3314,10 @@ void handle_fread_error (FILE * fptr, size_t actual, size_t expected_bytes)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 29} of file {\b errors.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an fread error. }}\par
+{
+Definition at line {\b 30} of file {\b errors.c}.}\par
 }
 {\xe \v handle_unknown_command_line_argument_error\:errors.h}
 {\xe \v errors.h\:handle_unknown_command_line_argument_error}
@@ -3277,7 +3331,10 @@ void handle_unknown_command_line_argument_error (char * arg)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 43} of file {\b errors.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an unknown command line argument error. }}\par
+{
+Definition at line {\b 39} of file {\b errors.c}.}\par
 }
 {\xe \v improper_usage_error\:errors.h}
 {\xe \v errors.h\:improper_usage_error}
@@ -3290,6 +3347,9 @@ void improper_usage_error (void )}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an improper usage error. }}\par
 {
 Definition at line {\b 7} of file {\b errors.c}.}\par
 }
@@ -3311,12 +3371,15 @@ Go to the documentation of this file.\par
 00003 \par
 00004 {\cf21 #include <stdio.h>}\par
 00005 \par
-00006 {\cf18 void} improper_usage_error ({\cf18 void});\par
-00007 {\cf18 void} fopen_error ({\cf18 char} *filename);\par
-00008 {\cf18 void} handle_fread_error (FILE *fptr, {\cf18 size_t} actual, {\cf18 size_t} expected_bytes);\par
-00009 {\cf18 void} handle_unknown_command_line_argument_error ({\cf18 char} *arg);\par
-00010 \par
-00011 {\cf21 #endif}\par
+00007 {\cf18 void} improper_usage_error ({\cf18 void});\par
+00008 \par
+00010 {\cf18 void} fopen_error ({\cf18 char} *filename);\par
+00011 \par
+00013 {\cf18 void} handle_fread_error (FILE *fptr, {\cf18 size_t} actual, {\cf18 size_t} expected_bytes);\par
+00014 \par
+00016 {\cf18 void} handle_unknown_command_line_argument_error ({\cf18 char} *arg);\par
+00017 \par
+00018 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

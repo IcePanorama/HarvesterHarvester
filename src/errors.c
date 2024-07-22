@@ -13,7 +13,8 @@ improper_usage_error (void)
   windows = false;
 #endif
   puts ("ERROR: Improper usage!");
-  printf ("try: %s HARVEST.DAT\n", !windows ? "$ ./main" : "main.exe");
+  printf ("try: %s HARVEST.DAT\n",
+          !windows ? "$ ./HarvesterHarvester" : "HarvesterHarvester.exe");
 
   exit (1);
 }
@@ -34,11 +35,6 @@ handle_fread_error (FILE *fptr, size_t actual, size_t expected_bytes)
   exit (1);
 }
 
-/*
- *  handle_unknown_command_line_argument_error
- *
- *  TODO: add documentation.
- */
 void
 handle_unknown_command_line_argument_error (char *arg)
 {
