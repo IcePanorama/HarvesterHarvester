@@ -39,7 +39,6 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -49,7 +48,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"utils_8h.html#a2384957f27e209d73a6377de962cbc15"
+"utils_8h.html#ad773a6c38ce11dd0812deea517043051"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

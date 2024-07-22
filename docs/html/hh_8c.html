@@ -124,10 +124,13 @@ Functions</h2></td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627" id="r_a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8f0bce5a3bc19789bd443ded5f21cf3" id="r_ac8f0bce5a3bc19789bd443ded5f21cf3"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8f0bce5a3bc19789bd443ded5f21cf3">setup_extractor</a> (char *filename)</td></tr>
+<tr class="memdesc:ac8f0bce5a3bc19789bd443ded5f21cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <code>FILE *</code> for the given <code>filename</code>, handling error messages as needed, while also checking the end-user's operating system and updating <code>OP_PATH_SEPARATOR</code>.  <br /></td></tr>
 <tr class="separator:ac8f0bce5a3bc19789bd443ded5f21cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67bb984eb1ee850d67fa02073a40e0fd" id="r_a67bb984eb1ee850d67fa02073a40e0fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67bb984eb1ee850d67fa02073a40e0fd">process_DAT_file</a> (FILE *fptr)</td></tr>
+<tr class="memdesc:a67bb984eb1ee850d67fa02073a40e0fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a DAT file pointed to by the given <code>FILE *</code>.  <br /></td></tr>
 <tr class="separator:a67bb984eb1ee850d67fa02073a40e0fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e4d7540abe0fa0784f95dd98b33266a" id="r_a2e4d7540abe0fa0784f95dd98b33266a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e4d7540abe0fa0784f95dd98b33266a">batch_process_DAT_files</a> ()</td></tr>
+<tr class="memdesc:a2e4d7540abe0fa0784f95dd98b33266a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all the <code>.DAT</code> files found in <code>OP_INPUT_DIR</code>, one at a time.  <br /></td></tr>
 <tr class="separator:a2e4d7540abe0fa0784f95dd98b33266a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -145,6 +148,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Processes all the <code>.DAT</code> files found in <code>OP_INPUT_DIR</code>, one at a time. </p>
 
 <p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00141">141</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
@@ -188,6 +192,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Processes a DAT file pointed to by the given <code>FILE *</code>. </p>
 <p>This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the <code>OP_CURRENT_DISK_NAME</code> variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the <code>OP_OUTPUT_DIR</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -226,7 +231,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a <code>FILE *</code> for the given <code>filename</code>, handling error messages as needed, while also checking the end-user's operating system and updating <code>OP_PATH_SEPARATOR</code>. The caller is responsible for closing the file pointer when they're finished with it.</p>
+
+<p>Creates a <code>FILE *</code> for the given <code>filename</code>, handling error messages as needed, while also checking the end-user's operating system and updating <code>OP_PATH_SEPARATOR</code>. </p>
+<p>The caller is responsible for closing the file pointer when they're finished with it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">filename</td><td><code>char *</code> of the path to a DAT file </td></tr>

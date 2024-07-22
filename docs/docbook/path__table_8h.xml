@@ -12,15 +12,6 @@
         </itemizedlist>
 </simplesect>
 <simplesect>
-    <title>Typedefs    </title>
-        <itemizedlist>
-            <listitem><para>typedef struct path_table_entry <link linkend="_path__table_8h_1a5e7f41ace89734ae2d5fff6cbe426f78">path_table_entry</link></para>
-</listitem>
-            <listitem><para>typedef struct path_table <link linkend="_path__table_8h_1a1a9fa0edfd3ba350308191ea5cc29123">path_table</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
-<simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>int8_t <link linkend="_path__table_8h_1ac08be1296d016ba9a28db25b35ca9132">create_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
@@ -35,25 +26,6 @@
 </listitem>
         </itemizedlist>
 </simplesect>
-<section>
-<title>Typedef Documentation</title>
-<anchor xml:id="_path__table_8h_1a1a9fa0edfd3ba350308191ea5cc29123"/><section>
-    <title>path_table</title>
-<indexterm><primary>path_table</primary><secondary>path_table.h</secondary></indexterm>
-<indexterm><primary>path_table.h</primary><secondary>path_table</secondary></indexterm>
-<para><computeroutput>typedef struct path_table path_table</computeroutput></para>
-<para><formalpara><title>See also</title>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#The_Path_Table">https://wiki.osdev.org/ISO_9660#The_Path_Table</link> </para>
-</formalpara>
-</para>
-</section>
-<anchor xml:id="_path__table_8h_1a5e7f41ace89734ae2d5fff6cbe426f78"/><section>
-    <title>path_table_entry</title>
-<indexterm><primary>path_table_entry</primary><secondary>path_table.h</secondary></indexterm>
-<indexterm><primary>path_table.h</primary><secondary>path_table_entry</secondary></indexterm>
-<para><computeroutput>typedef struct path_table_entry path_table_entry</computeroutput></para></section>
-</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_path__table_8h_1a0bb44828b69a55bfc7b9bde95ad2276a"/><section>

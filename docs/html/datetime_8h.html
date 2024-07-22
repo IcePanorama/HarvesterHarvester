@@ -100,7 +100,6 @@ $(function(){initNavTree('datetime_8h.html',''); initResizable(true); });
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">datetime.h File Reference</div></div>
 </div><!--header-->
@@ -112,8 +111,10 @@ $(function(){initNavTree('datetime_8h.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdec__datetime.html">dec_datetime</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The date/time format used in the Primary Volume Descriptor.  <a href="structdec__datetime.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdir__datetime.html">dir_datetime</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The date/time format used by directory records.  <a href="structdir__datetime.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -133,18 +134,13 @@ Macros</h2></td></tr>
 <tr class="memitem:a718309da4d9ed9b2292e9461e98a7914" id="r_a718309da4d9ed9b2292e9461e98a7914"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a718309da4d9ed9b2292e9461e98a7914">HUNDREDTHS_OF_A_SECOND_FIELD_LEN</a>&#160;&#160;&#160;3</td></tr>
 <tr class="separator:a718309da4d9ed9b2292e9461e98a7914"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:ad6dfc8fb964fc14a036f0c5847b66260" id="r_ad6dfc8fb964fc14a036f0c5847b66260"><td class="memItemLeft" align="right" valign="top">typedef struct dec_datetime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6dfc8fb964fc14a036f0c5847b66260">dec_datetime</a></td></tr>
-<tr class="separator:ad6dfc8fb964fc14a036f0c5847b66260"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5207d9f86446113bd5a1c33deed4ac4" id="r_ae5207d9f86446113bd5a1c33deed4ac4"><td class="memItemLeft" align="right" valign="top">typedef struct dir_datetime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5207d9f86446113bd5a1c33deed4ac4">dir_datetime</a></td></tr>
-<tr class="separator:ae5207d9f86446113bd5a1c33deed4ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6e26118490d8999d5e73b1e3e7dd83ce" id="r_a6e26118490d8999d5e73b1e3e7dd83ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e26118490d8999d5e73b1e3e7dd83ce">print_dec_datetime</a> (<a class="el" href="structdec__datetime.html">dec_datetime</a> dt)</td></tr>
+<tr class="memdesc:a6e26118490d8999d5e73b1e3e7dd83ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the value of a <code><a class="el" href="structdec__datetime.html" title="The date/time format used in the Primary Volume Descriptor.">dec_datetime</a></code> to the console in a human-readable form.  <br /></td></tr>
 <tr class="separator:a6e26118490d8999d5e73b1e3e7dd83ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eec3bb9a53b14abd5f53c04f9a06a9e" id="r_a8eec3bb9a53b14abd5f53c04f9a06a9e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8eec3bb9a53b14abd5f53c04f9a06a9e">print_dir_datetime</a> (<a class="el" href="structdir__datetime.html">dir_datetime</a> dt)</td></tr>
+<tr class="memdesc:a8eec3bb9a53b14abd5f53c04f9a06a9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the value of a <code><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a></code> to the console in a human-readable form.  <br /></td></tr>
 <tr class="separator:a8eec3bb9a53b14abd5f53c04f9a06a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -260,35 +256,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="ad6dfc8fb964fc14a036f0c5847b66260" name="ad6dfc8fb964fc14a036f0c5847b66260"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6dfc8fb964fc14a036f0c5847b66260">&#9670;&#160;</a></span>dec_datetime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct dec_datetime dec_datetime</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae5207d9f86446113bd5a1c33deed4ac4" name="ae5207d9f86446113bd5a1c33deed4ac4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5207d9f86446113bd5a1c33deed4ac4">&#9670;&#160;</a></span>dir_datetime</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct dir_datetime dir_datetime</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a6e26118490d8999d5e73b1e3e7dd83ce" name="a6e26118490d8999d5e73b1e3e7dd83ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e26118490d8999d5e73b1e3e7dd83ce">&#9670;&#160;</a></span>print_dec_datetime()</h2>
@@ -305,7 +272,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="datetime_8c_source.html#l00008">8</a> of file <a class="el" href="datetime_8c_source.html">datetime.c</a>.</p>
+<p>Prints the value of a <code><a class="el" href="structdec__datetime.html" title="The date/time format used in the Primary Volume Descriptor.">dec_datetime</a></code> to the console in a human-readable form. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdec__datetime.html" title="The date/time format used in the Primary Volume Descriptor.">dec_datetime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="datetime_8c_source.html#l00006">6</a> of file <a class="el" href="datetime_8c_source.html">datetime.c</a>.</p>
 
 </div>
 </div>
@@ -324,7 +294,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="datetime_8c_source.html#l00016">16</a> of file <a class="el" href="datetime_8c_source.html">datetime.c</a>.</p>
+<p>Prints the value of a <code><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a></code> to the console in a human-readable form. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="datetime_8c_source.html#l00014">14</a> of file <a class="el" href="datetime_8c_source.html">datetime.c</a>.</p>
 
 </div>
 </div>

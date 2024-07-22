@@ -15,33 +15,32 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_datetime_8h_source_1l00011"/><link linkend="_datetime_8h_1abba1fa1a9450e11671e3f3793bef5861">00011</link> <emphasis role="preprocessor">#define&#32;SECOND_FIELD_LEN&#32;3</emphasis>
 <anchor xml:id="_datetime_8h_source_1l00012"/><link linkend="_datetime_8h_1a718309da4d9ed9b2292e9461e98a7914">00012</link> <emphasis role="preprocessor">#define&#32;HUNDREDTHS_OF_A_SECOND_FIELD_LEN&#32;3</emphasis>
 <anchor xml:id="_datetime_8h_source_1l00013"/>00013 
-<anchor xml:id="_datetime_8h_source_1l00014"/>00014 <emphasis role="comment">//&#32;See:&#32;https://wiki.osdev.org/ISO_9660#Date/time_format</emphasis>
-<anchor xml:id="_datetime_8h_source_1l00015"/><link linkend="_structdec__datetime">00015</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdec__datetime">dec_datetime</link>
-<anchor xml:id="_datetime_8h_source_1l00016"/>00016 {
-<anchor xml:id="_datetime_8h_source_1l00017"/><link linkend="_structdec__datetime_1aecdc0bb36e008959ec02964a90f26185">00017</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1aecdc0bb36e008959ec02964a90f26185">year</link>[5];
-<anchor xml:id="_datetime_8h_source_1l00018"/><link linkend="_structdec__datetime_1a9a49918f821ccde4fc3aa3c88cd2963c">00018</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1a9a49918f821ccde4fc3aa3c88cd2963c">month</link>[3];
-<anchor xml:id="_datetime_8h_source_1l00019"/><link linkend="_structdec__datetime_1af3fc3798050252f3dd1bacea9f5cf93f">00019</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1af3fc3798050252f3dd1bacea9f5cf93f">day</link>[3];
-<anchor xml:id="_datetime_8h_source_1l00020"/><link linkend="_structdec__datetime_1a186dc4e54850249d53afc571181ea4cd">00020</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1a186dc4e54850249d53afc571181ea4cd">hour</link>[3];
-<anchor xml:id="_datetime_8h_source_1l00021"/><link linkend="_structdec__datetime_1ae9f8578fefb8937e837cfad07e21ca3c">00021</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1ae9f8578fefb8937e837cfad07e21ca3c">minute</link>[3];
-<anchor xml:id="_datetime_8h_source_1l00022"/><link linkend="_structdec__datetime_1ad456741338a4fbfa1ce792c9458bdf49">00022</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1ad456741338a4fbfa1ce792c9458bdf49">second</link>[3];
-<anchor xml:id="_datetime_8h_source_1l00023"/><link linkend="_structdec__datetime_1a5d3eb33cf9dd5476ec640c559d86483e">00023</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1a5d3eb33cf9dd5476ec640c559d86483e">hundredths_of_a_second</link>[3];
-<anchor xml:id="_datetime_8h_source_1l00024"/><link linkend="_structdec__datetime_1a50b663ed16c5a54dab5fdfd8ef48a3d6">00024</link> &#32;&#32;uint8_t&#32;<link linkend="_structdec__datetime_1a50b663ed16c5a54dab5fdfd8ef48a3d6">time_zone_offset</link>;
-<anchor xml:id="_datetime_8h_source_1l00025"/><link linkend="_datetime_8h_1ad6dfc8fb964fc14a036f0c5847b66260">00025</link> }&#32;<link linkend="_datetime_8h_1ad6dfc8fb964fc14a036f0c5847b66260">dec_datetime</link>;
-<anchor xml:id="_datetime_8h_source_1l00026"/>00026 
-<anchor xml:id="_datetime_8h_source_1l00027"/>00027 <emphasis role="comment">//&#32;See:&#32;https://wiki.osdev.org/ISO_9660#Directories</emphasis>
-<anchor xml:id="_datetime_8h_source_1l00028"/><link linkend="_structdir__datetime">00028</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdir__datetime">dir_datetime</link>
-<anchor xml:id="_datetime_8h_source_1l00029"/>00029 {
-<anchor xml:id="_datetime_8h_source_1l00030"/><link linkend="_structdir__datetime_1aea1e1dd3a1027d5fe236a4dab033ef95">00030</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1aea1e1dd3a1027d5fe236a4dab033ef95">year</link>;&#32;<emphasis role="comment">//&#32;number&#32;of&#32;years&#32;since&#32;1900</emphasis>
-<anchor xml:id="_datetime_8h_source_1l00031"/><link linkend="_structdir__datetime_1a5481d120cb6827e5e732870f247fdd1f">00031</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1a5481d120cb6827e5e732870f247fdd1f">month</link>;
-<anchor xml:id="_datetime_8h_source_1l00032"/><link linkend="_structdir__datetime_1af54522a1af8ab65ee2952b64cbbfcd72">00032</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1af54522a1af8ab65ee2952b64cbbfcd72">day</link>;
-<anchor xml:id="_datetime_8h_source_1l00033"/><link linkend="_structdir__datetime_1a4c8fcd93cd358f7391eb1c76e0dc73c2">00033</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1a4c8fcd93cd358f7391eb1c76e0dc73c2">hour</link>;
-<anchor xml:id="_datetime_8h_source_1l00034"/><link linkend="_structdir__datetime_1aa4546643c94281e49bb4a4e877e85c36">00034</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1aa4546643c94281e49bb4a4e877e85c36">minute</link>;
-<anchor xml:id="_datetime_8h_source_1l00035"/><link linkend="_structdir__datetime_1ab591f62d74ab9b0a116f69a3fc950162">00035</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1ab591f62d74ab9b0a116f69a3fc950162">second</link>;
-<anchor xml:id="_datetime_8h_source_1l00036"/><link linkend="_structdir__datetime_1afd2ade26637ba3a84189bcb678130834">00036</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1afd2ade26637ba3a84189bcb678130834">time_zone_offset</link>;
-<anchor xml:id="_datetime_8h_source_1l00037"/><link linkend="_datetime_8h_1ae5207d9f86446113bd5a1c33deed4ac4">00037</link> }&#32;<link linkend="_datetime_8h_1ae5207d9f86446113bd5a1c33deed4ac4">dir_datetime</link>;
-<anchor xml:id="_datetime_8h_source_1l00038"/>00038 
-<anchor xml:id="_datetime_8h_source_1l00039"/>00039 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_datetime_8h_1a6e26118490d8999d5e73b1e3e7dd83ce">print_dec_datetime</link>&#32;(<link linkend="_structdec__datetime">dec_datetime</link>&#32;dt);
-<anchor xml:id="_datetime_8h_source_1l00040"/>00040 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_datetime_8h_1a8eec3bb9a53b14abd5f53c04f9a06a9e">print_dir_datetime</link>&#32;(<link linkend="_structdir__datetime">dir_datetime</link>&#32;dt);
-<anchor xml:id="_datetime_8h_source_1l00041"/>00041 
-<anchor xml:id="_datetime_8h_source_1l00042"/>00042 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_datetime_8h_source_1l00021"/><link linkend="_structdec__datetime">00021</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdec__datetime">dec_datetime</link>
+<anchor xml:id="_datetime_8h_source_1l00022"/>00022 {
+<anchor xml:id="_datetime_8h_source_1l00023"/><link linkend="_structdec__datetime_1aecdc0bb36e008959ec02964a90f26185">00023</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1aecdc0bb36e008959ec02964a90f26185">year</link>[5];
+<anchor xml:id="_datetime_8h_source_1l00024"/><link linkend="_structdec__datetime_1a9a49918f821ccde4fc3aa3c88cd2963c">00024</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1a9a49918f821ccde4fc3aa3c88cd2963c">month</link>[3];
+<anchor xml:id="_datetime_8h_source_1l00025"/><link linkend="_structdec__datetime_1af3fc3798050252f3dd1bacea9f5cf93f">00025</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1af3fc3798050252f3dd1bacea9f5cf93f">day</link>[3];
+<anchor xml:id="_datetime_8h_source_1l00026"/><link linkend="_structdec__datetime_1a186dc4e54850249d53afc571181ea4cd">00026</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1a186dc4e54850249d53afc571181ea4cd">hour</link>[3];
+<anchor xml:id="_datetime_8h_source_1l00027"/><link linkend="_structdec__datetime_1ae9f8578fefb8937e837cfad07e21ca3c">00027</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1ae9f8578fefb8937e837cfad07e21ca3c">minute</link>[3];
+<anchor xml:id="_datetime_8h_source_1l00028"/><link linkend="_structdec__datetime_1ad456741338a4fbfa1ce792c9458bdf49">00028</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1ad456741338a4fbfa1ce792c9458bdf49">second</link>[3];
+<anchor xml:id="_datetime_8h_source_1l00029"/><link linkend="_structdec__datetime_1a5d3eb33cf9dd5476ec640c559d86483e">00029</link> &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;<link linkend="_structdec__datetime_1a5d3eb33cf9dd5476ec640c559d86483e">hundredths_of_a_second</link>[3];
+<anchor xml:id="_datetime_8h_source_1l00030"/><link linkend="_structdec__datetime_1a50b663ed16c5a54dab5fdfd8ef48a3d6">00030</link> &#32;&#32;uint8_t&#32;<link linkend="_structdec__datetime_1a50b663ed16c5a54dab5fdfd8ef48a3d6">time_zone_offset</link>;
+<anchor xml:id="_datetime_8h_source_1l00031"/>00031 }&#32;<link linkend="_structdec__datetime">dec_datetime</link>;
+<anchor xml:id="_datetime_8h_source_1l00032"/>00032 
+<anchor xml:id="_datetime_8h_source_1l00040"/><link linkend="_structdir__datetime">00040</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdir__datetime">dir_datetime</link>
+<anchor xml:id="_datetime_8h_source_1l00041"/>00041 {
+<anchor xml:id="_datetime_8h_source_1l00042"/><link linkend="_structdir__datetime_1aea1e1dd3a1027d5fe236a4dab033ef95">00042</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1aea1e1dd3a1027d5fe236a4dab033ef95">year</link>;&#32;
+<anchor xml:id="_datetime_8h_source_1l00043"/><link linkend="_structdir__datetime_1a5481d120cb6827e5e732870f247fdd1f">00043</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1a5481d120cb6827e5e732870f247fdd1f">month</link>;
+<anchor xml:id="_datetime_8h_source_1l00044"/><link linkend="_structdir__datetime_1af54522a1af8ab65ee2952b64cbbfcd72">00044</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1af54522a1af8ab65ee2952b64cbbfcd72">day</link>;
+<anchor xml:id="_datetime_8h_source_1l00045"/><link linkend="_structdir__datetime_1a4c8fcd93cd358f7391eb1c76e0dc73c2">00045</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1a4c8fcd93cd358f7391eb1c76e0dc73c2">hour</link>;
+<anchor xml:id="_datetime_8h_source_1l00046"/><link linkend="_structdir__datetime_1aa4546643c94281e49bb4a4e877e85c36">00046</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1aa4546643c94281e49bb4a4e877e85c36">minute</link>;
+<anchor xml:id="_datetime_8h_source_1l00047"/><link linkend="_structdir__datetime_1ab591f62d74ab9b0a116f69a3fc950162">00047</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1ab591f62d74ab9b0a116f69a3fc950162">second</link>;
+<anchor xml:id="_datetime_8h_source_1l00048"/><link linkend="_structdir__datetime_1afd2ade26637ba3a84189bcb678130834">00048</link> &#32;&#32;uint8_t&#32;<link linkend="_structdir__datetime_1afd2ade26637ba3a84189bcb678130834">time_zone_offset</link>;
+<anchor xml:id="_datetime_8h_source_1l00049"/>00049 }&#32;<link linkend="_structdir__datetime">dir_datetime</link>;
+<anchor xml:id="_datetime_8h_source_1l00050"/>00050 
+<anchor xml:id="_datetime_8h_source_1l00057"/>00057 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_datetime_8h_1a6e26118490d8999d5e73b1e3e7dd83ce">print_dec_datetime</link>&#32;(<link linkend="_structdec__datetime">dec_datetime</link>&#32;dt);
+<anchor xml:id="_datetime_8h_source_1l00058"/>00058 
+<anchor xml:id="_datetime_8h_source_1l00065"/>00065 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_datetime_8h_1a8eec3bb9a53b14abd5f53c04f9a06a9e">print_dir_datetime</link>&#32;(<link linkend="_structdir__datetime">dir_datetime</link>&#32;dt);
+<anchor xml:id="_datetime_8h_source_1l00066"/>00066 
+<anchor xml:id="_datetime_8h_source_1l00067"/>00067 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['file_5fflags_0',['file_flags',['../structfile__flags.html',1,'file_flags'],['../structdirectory__record.html#a25a79fcf15457ebc2f2f3fcf17028fe4',1,'directory_record::file_flags'],['../file__flags_8h.html#a652fcfc727f62d263268a6c1b1b72a1c',1,'file_flags:&#160;file_flags.h']]],
+  ['file_5fflags_0',['file_flags',['../structfile__flags.html',1,'file_flags'],['../structdirectory__record.html#a25a79fcf15457ebc2f2f3fcf17028fe4',1,'directory_record::file_flags']]],
   ['file_5fflags_2ec_1',['file_flags.c',['../file__flags_8c.html',1,'']]],
   ['file_5fflags_2eh_2',['file_flags.h',['../file__flags_8h.html',1,'']]],
   ['file_5fidentifier_3',['file_identifier',['../structdirectory__record.html#ab415bc8d2753e0b33d43d9a57777df93',1,'directory_record']]],

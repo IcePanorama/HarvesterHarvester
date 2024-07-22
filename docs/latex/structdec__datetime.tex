@@ -2,6 +2,11 @@
 \hypertarget{structdec__datetime}{}\label{structdec__datetime}\index{dec\_datetime@{dec\_datetime}}
 
 
+The date/time format used in the Primary Volume Descriptor.  
+
+
+
+
 {\ttfamily \#include $<$datetime.\+h$>$}
 
 \doxysubsubsection*{Data Fields}
@@ -26,9 +31,18 @@ uint8\+\_\+t \mbox{\hyperlink{structdec__datetime_a50b663ed16c5a54dab5fdfd8ef48a
 
 
 \doxysubsection{Detailed Description}
+The date/time format used in the Primary Volume Descriptor. 
+
+Uses ASCII digits to represent the main parts of the date/time.
+
+\begin{DoxySeeAlso}{See also}
+\href{https://wiki.osdev.org/ISO_9660\#Date/time_format}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660\#\+Date/time\+\_\+format}} 
+
+\doxylink{structvolume__descriptor}{volume\+\_\+descriptor} 
+\end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00015}{15}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00021}{21}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 
 
@@ -41,7 +55,7 @@ char dec\+\_\+datetime\+::day\mbox{[}3\mbox{]}}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00019}{19}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00025}{25}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 \Hypertarget{structdec__datetime_a186dc4e54850249d53afc571181ea4cd}\index{dec\_datetime@{dec\_datetime}!hour@{hour}}
 \index{hour@{hour}!dec\_datetime@{dec\_datetime}}
@@ -51,7 +65,7 @@ char dec\+\_\+datetime\+::hour\mbox{[}3\mbox{]}}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00020}{20}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00026}{26}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 \Hypertarget{structdec__datetime_a5d3eb33cf9dd5476ec640c559d86483e}\index{dec\_datetime@{dec\_datetime}!hundredths\_of\_a\_second@{hundredths\_of\_a\_second}}
 \index{hundredths\_of\_a\_second@{hundredths\_of\_a\_second}!dec\_datetime@{dec\_datetime}}
@@ -61,7 +75,7 @@ char dec\+\_\+datetime\+::hundredths\+\_\+of\+\_\+a\+\_\+second\mbox{[}3\mbox{]}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00023}{23}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00029}{29}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 \Hypertarget{structdec__datetime_ae9f8578fefb8937e837cfad07e21ca3c}\index{dec\_datetime@{dec\_datetime}!minute@{minute}}
 \index{minute@{minute}!dec\_datetime@{dec\_datetime}}
@@ -71,7 +85,7 @@ char dec\+\_\+datetime\+::minute\mbox{[}3\mbox{]}}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00021}{21}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00027}{27}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 \Hypertarget{structdec__datetime_a9a49918f821ccde4fc3aa3c88cd2963c}\index{dec\_datetime@{dec\_datetime}!month@{month}}
 \index{month@{month}!dec\_datetime@{dec\_datetime}}
@@ -81,7 +95,7 @@ char dec\+\_\+datetime\+::month\mbox{[}3\mbox{]}}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00018}{18}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00024}{24}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 \Hypertarget{structdec__datetime_ad456741338a4fbfa1ce792c9458bdf49}\index{dec\_datetime@{dec\_datetime}!second@{second}}
 \index{second@{second}!dec\_datetime@{dec\_datetime}}
@@ -91,7 +105,7 @@ char dec\+\_\+datetime\+::second\mbox{[}3\mbox{]}}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00022}{22}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00028}{28}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 \Hypertarget{structdec__datetime_a50b663ed16c5a54dab5fdfd8ef48a3d6}\index{dec\_datetime@{dec\_datetime}!time\_zone\_offset@{time\_zone\_offset}}
 \index{time\_zone\_offset@{time\_zone\_offset}!dec\_datetime@{dec\_datetime}}
@@ -101,7 +115,7 @@ uint8\+\_\+t dec\+\_\+datetime\+::time\+\_\+zone\+\_\+offset}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00024}{24}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00030}{30}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 \Hypertarget{structdec__datetime_aecdc0bb36e008959ec02964a90f26185}\index{dec\_datetime@{dec\_datetime}!year@{year}}
 \index{year@{year}!dec\_datetime@{dec\_datetime}}
@@ -111,7 +125,7 @@ char dec\+\_\+datetime\+::year\mbox{[}5\mbox{]}}
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8h_source_l00017}{17}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
+Definition at line \mbox{\hyperlink{datetime_8h_source_l00023}{23}} of file \mbox{\hyperlink{datetime_8h_source}{datetime.\+h}}.
 
 
 

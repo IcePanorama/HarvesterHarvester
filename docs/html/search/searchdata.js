@@ -5,9 +5,8 @@ var indexSectionsWithContent =
   2: "defhlopruv",
   3: "abcdefhimprs",
   4: "abcdefhilmoprstvy",
-  5: "dfpv",
-  6: "abcdhmprsvy",
-  7: "h"
+  5: "abcdhmprsvy",
+  6: "h"
 };
 
 var indexSectionNames =
@@ -17,9 +16,8 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "typedefs",
-  6: "defines",
-  7: "pages"
+  5: "defines",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -29,8 +27,7 @@ var indexSectionLabels =
   2: "Files",
   3: "Functions",
   4: "Variables",
-  5: "Typedefs",
-  6: "Macros",
-  7: "Pages"
+  5: "Macros",
+  6: "Pages"
 };
 

@@ -15,34 +15,33 @@
 \DoxyCodeLine{\Hypertarget{datetime_8h_source_l00011}\mbox{\hyperlink{datetime_8h_abba1fa1a9450e11671e3f3793bef5861}{00011}}\ \textcolor{preprocessor}{\#define\ SECOND\_FIELD\_LEN\ 3}}
 \DoxyCodeLine{\Hypertarget{datetime_8h_source_l00012}\mbox{\hyperlink{datetime_8h_a718309da4d9ed9b2292e9461e98a7914}{00012}}\ \textcolor{preprocessor}{\#define\ HUNDREDTHS\_OF\_A\_SECOND\_FIELD\_LEN\ 3}}
 \DoxyCodeLine{\Hypertarget{datetime_8h_source_l00013}00013\ }
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00014}00014\ \textcolor{comment}{//\ See:\ https://wiki.osdev.org/ISO\_9660\#Date/time\_format}}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00015}\mbox{\hyperlink{structdec__datetime}{00015}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdec__datetime}{dec\_datetime}}}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00016}00016\ \{}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00017}\mbox{\hyperlink{structdec__datetime_aecdc0bb36e008959ec02964a90f26185}{00017}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_aecdc0bb36e008959ec02964a90f26185}{year}}[5];}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00018}\mbox{\hyperlink{structdec__datetime_a9a49918f821ccde4fc3aa3c88cd2963c}{00018}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_a9a49918f821ccde4fc3aa3c88cd2963c}{month}}[3];}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00019}\mbox{\hyperlink{structdec__datetime_af3fc3798050252f3dd1bacea9f5cf93f}{00019}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_af3fc3798050252f3dd1bacea9f5cf93f}{day}}[3];}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00020}\mbox{\hyperlink{structdec__datetime_a186dc4e54850249d53afc571181ea4cd}{00020}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_a186dc4e54850249d53afc571181ea4cd}{hour}}[3];}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00021}\mbox{\hyperlink{structdec__datetime_ae9f8578fefb8937e837cfad07e21ca3c}{00021}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_ae9f8578fefb8937e837cfad07e21ca3c}{minute}}[3];}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00022}\mbox{\hyperlink{structdec__datetime_ad456741338a4fbfa1ce792c9458bdf49}{00022}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_ad456741338a4fbfa1ce792c9458bdf49}{second}}[3];}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00023}\mbox{\hyperlink{structdec__datetime_a5d3eb33cf9dd5476ec640c559d86483e}{00023}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_a5d3eb33cf9dd5476ec640c559d86483e}{hundredths\_of\_a\_second}}[3];}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00024}\mbox{\hyperlink{structdec__datetime_a50b663ed16c5a54dab5fdfd8ef48a3d6}{00024}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdec__datetime_a50b663ed16c5a54dab5fdfd8ef48a3d6}{time\_zone\_offset}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00025}\mbox{\hyperlink{datetime_8h_ad6dfc8fb964fc14a036f0c5847b66260}{00025}}\ \}\ \mbox{\hyperlink{datetime_8h_ad6dfc8fb964fc14a036f0c5847b66260}{dec\_datetime}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00027}00027\ \textcolor{comment}{//\ See:\ https://wiki.osdev.org/ISO\_9660\#Directories}}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00028}\mbox{\hyperlink{structdir__datetime}{00028}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdir__datetime}{dir\_datetime}}}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00029}00029\ \{}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00030}\mbox{\hyperlink{structdir__datetime_aea1e1dd3a1027d5fe236a4dab033ef95}{00030}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_aea1e1dd3a1027d5fe236a4dab033ef95}{year}};\ \textcolor{comment}{//\ number\ of\ years\ since\ 1900}}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00031}\mbox{\hyperlink{structdir__datetime_a5481d120cb6827e5e732870f247fdd1f}{00031}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_a5481d120cb6827e5e732870f247fdd1f}{month}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00032}\mbox{\hyperlink{structdir__datetime_af54522a1af8ab65ee2952b64cbbfcd72}{00032}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_af54522a1af8ab65ee2952b64cbbfcd72}{day}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00033}\mbox{\hyperlink{structdir__datetime_a4c8fcd93cd358f7391eb1c76e0dc73c2}{00033}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_a4c8fcd93cd358f7391eb1c76e0dc73c2}{hour}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00034}\mbox{\hyperlink{structdir__datetime_aa4546643c94281e49bb4a4e877e85c36}{00034}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_aa4546643c94281e49bb4a4e877e85c36}{minute}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00035}\mbox{\hyperlink{structdir__datetime_ab591f62d74ab9b0a116f69a3fc950162}{00035}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_ab591f62d74ab9b0a116f69a3fc950162}{second}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00036}\mbox{\hyperlink{structdir__datetime_afd2ade26637ba3a84189bcb678130834}{00036}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_afd2ade26637ba3a84189bcb678130834}{time\_zone\_offset}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00037}\mbox{\hyperlink{datetime_8h_ae5207d9f86446113bd5a1c33deed4ac4}{00037}}\ \}\ \mbox{\hyperlink{datetime_8h_ae5207d9f86446113bd5a1c33deed4ac4}{dir\_datetime}};}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00039}00039\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{datetime_8h_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (\mbox{\hyperlink{structdec__datetime}{dec\_datetime}}\ dt);}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00040}00040\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{datetime_8h_a8eec3bb9a53b14abd5f53c04f9a06a9e}{print\_dir\_datetime}}\ (\mbox{\hyperlink{structdir__datetime}{dir\_datetime}}\ dt);}
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00041}00041\ }
-\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00042}00042\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00021}\mbox{\hyperlink{structdec__datetime}{00021}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdec__datetime}{dec\_datetime}}}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00023}\mbox{\hyperlink{structdec__datetime_aecdc0bb36e008959ec02964a90f26185}{00023}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_aecdc0bb36e008959ec02964a90f26185}{year}}[5];}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00024}\mbox{\hyperlink{structdec__datetime_a9a49918f821ccde4fc3aa3c88cd2963c}{00024}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_a9a49918f821ccde4fc3aa3c88cd2963c}{month}}[3];}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00025}\mbox{\hyperlink{structdec__datetime_af3fc3798050252f3dd1bacea9f5cf93f}{00025}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_af3fc3798050252f3dd1bacea9f5cf93f}{day}}[3];}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00026}\mbox{\hyperlink{structdec__datetime_a186dc4e54850249d53afc571181ea4cd}{00026}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_a186dc4e54850249d53afc571181ea4cd}{hour}}[3];}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00027}\mbox{\hyperlink{structdec__datetime_ae9f8578fefb8937e837cfad07e21ca3c}{00027}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_ae9f8578fefb8937e837cfad07e21ca3c}{minute}}[3];}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00028}\mbox{\hyperlink{structdec__datetime_ad456741338a4fbfa1ce792c9458bdf49}{00028}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_ad456741338a4fbfa1ce792c9458bdf49}{second}}[3];}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00029}\mbox{\hyperlink{structdec__datetime_a5d3eb33cf9dd5476ec640c559d86483e}{00029}}\ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{structdec__datetime_a5d3eb33cf9dd5476ec640c559d86483e}{hundredths\_of\_a\_second}}[3];}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00030}\mbox{\hyperlink{structdec__datetime_a50b663ed16c5a54dab5fdfd8ef48a3d6}{00030}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdec__datetime_a50b663ed16c5a54dab5fdfd8ef48a3d6}{time\_zone\_offset}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00031}00031\ \}\ \mbox{\hyperlink{structdec__datetime}{dec\_datetime}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00040}\mbox{\hyperlink{structdir__datetime}{00040}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdir__datetime}{dir\_datetime}}}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00041}00041\ \{}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00042}\mbox{\hyperlink{structdir__datetime_aea1e1dd3a1027d5fe236a4dab033ef95}{00042}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_aea1e1dd3a1027d5fe236a4dab033ef95}{year}};\ }
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00043}\mbox{\hyperlink{structdir__datetime_a5481d120cb6827e5e732870f247fdd1f}{00043}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_a5481d120cb6827e5e732870f247fdd1f}{month}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00044}\mbox{\hyperlink{structdir__datetime_af54522a1af8ab65ee2952b64cbbfcd72}{00044}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_af54522a1af8ab65ee2952b64cbbfcd72}{day}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00045}\mbox{\hyperlink{structdir__datetime_a4c8fcd93cd358f7391eb1c76e0dc73c2}{00045}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_a4c8fcd93cd358f7391eb1c76e0dc73c2}{hour}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00046}\mbox{\hyperlink{structdir__datetime_aa4546643c94281e49bb4a4e877e85c36}{00046}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_aa4546643c94281e49bb4a4e877e85c36}{minute}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00047}\mbox{\hyperlink{structdir__datetime_ab591f62d74ab9b0a116f69a3fc950162}{00047}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_ab591f62d74ab9b0a116f69a3fc950162}{second}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00048}\mbox{\hyperlink{structdir__datetime_afd2ade26637ba3a84189bcb678130834}{00048}}\ \ \ uint8\_t\ \mbox{\hyperlink{structdir__datetime_afd2ade26637ba3a84189bcb678130834}{time\_zone\_offset}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00049}00049\ \}\ \mbox{\hyperlink{structdir__datetime}{dir\_datetime}};}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00057}00057\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{datetime_8h_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (\mbox{\hyperlink{structdec__datetime}{dec\_datetime}}\ dt);}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00065}00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{datetime_8h_a8eec3bb9a53b14abd5f53c04f9a06a9e}{print\_dir\_datetime}}\ (\mbox{\hyperlink{structdir__datetime}{dir\_datetime}}\ dt);}
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{datetime_8h_source_l00067}00067\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

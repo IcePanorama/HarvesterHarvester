@@ -10,13 +10,6 @@
         </itemizedlist>
 </simplesect>
 <simplesect>
-    <title>Typedefs    </title>
-        <itemizedlist>
-            <listitem><para>typedef struct file_flags <link linkend="_file__flags_8h_1a652fcfc727f62d263268a6c1b1b72a1c">file_flags</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
-<simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para><link linkend="_structfile__flags">file_flags</link> <link linkend="_file__flags_8h_1aacfa73039d80ff8aafa6b5cc1d8c54b5">create_file_flags</link> (void)</para>
@@ -25,14 +18,6 @@
 </listitem>
         </itemizedlist>
 </simplesect>
-<section>
-<title>Typedef Documentation</title>
-<anchor xml:id="_file__flags_8h_1a652fcfc727f62d263268a6c1b1b72a1c"/><section>
-    <title>file_flags</title>
-<indexterm><primary>file_flags</primary><secondary>file_flags.h</secondary></indexterm>
-<indexterm><primary>file_flags.h</primary><secondary>file_flags</secondary></indexterm>
-<para><computeroutput>typedef struct file_flags file_flags</computeroutput></para></section>
-</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_file__flags_8h_1aacfa73039d80ff8aafa6b5cc1d8c54b5"/><section>

@@ -6,8 +6,12 @@
     <title>Data Structures    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_structdec__datetime">dec_datetime</link></para>
+
+<para>The date/time format used in the Primary Volume Descriptor. </para>
 </listitem>
             <listitem><para>struct <link linkend="_structdir__datetime">dir_datetime</link></para>
+
+<para>The date/time format used by directory records. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -31,20 +35,15 @@
         </itemizedlist>
 </simplesect>
 <simplesect>
-    <title>Typedefs    </title>
-        <itemizedlist>
-            <listitem><para>typedef struct dec_datetime <link linkend="_datetime_8h_1ad6dfc8fb964fc14a036f0c5847b66260">dec_datetime</link></para>
-</listitem>
-            <listitem><para>typedef struct dir_datetime <link linkend="_datetime_8h_1ae5207d9f86446113bd5a1c33deed4ac4">dir_datetime</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
-<simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_datetime_8h_1a6e26118490d8999d5e73b1e3e7dd83ce">print_dec_datetime</link> (<link linkend="_structdec__datetime">dec_datetime</link> dt)</para>
+
+<para>Prints the value of a <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> to the console in a human-readable form. </para>
 </listitem>
             <listitem><para>void <link linkend="_datetime_8h_1a8eec3bb9a53b14abd5f53c04f9a06a9e">print_dir_datetime</link> (<link linkend="_structdir__datetime">dir_datetime</link> dt)</para>
+
+<para>Prints the value of a <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> to the console in a human-readable form. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -101,33 +100,40 @@ Definition at line <link linkend="_datetime_8h_source_1l00006">6</link> of file 
 </section>
 </section>
 <section>
-<title>Typedef Documentation</title>
-<anchor xml:id="_datetime_8h_1ad6dfc8fb964fc14a036f0c5847b66260"/><section>
-    <title>dec_datetime</title>
-<indexterm><primary>dec_datetime</primary><secondary>datetime.h</secondary></indexterm>
-<indexterm><primary>datetime.h</primary><secondary>dec_datetime</secondary></indexterm>
-<para><computeroutput>typedef struct dec_datetime dec_datetime</computeroutput></para></section>
-<anchor xml:id="_datetime_8h_1ae5207d9f86446113bd5a1c33deed4ac4"/><section>
-    <title>dir_datetime</title>
-<indexterm><primary>dir_datetime</primary><secondary>datetime.h</secondary></indexterm>
-<indexterm><primary>datetime.h</primary><secondary>dir_datetime</secondary></indexterm>
-<para><computeroutput>typedef struct dir_datetime dir_datetime</computeroutput></para></section>
-</section>
-<section>
 <title>Function Documentation</title>
 <anchor xml:id="_datetime_8h_1a6e26118490d8999d5e73b1e3e7dd83ce"/><section>
     <title>print_dec_datetime()</title>
 <indexterm><primary>print_dec_datetime</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>print_dec_datetime</secondary></indexterm>
 <para><computeroutput>void print_dec_datetime (<link linkend="_structdec__datetime">dec_datetime</link> dt)</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8c_source_1l00008">8</link> of file <link linkend="_datetime_8c_source">datetime.c</link>.</para>
+
+<para>Prints the value of a <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> to the console in a human-readable form. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_structdec__datetime">dec_datetime</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_datetime_8c_source_1l00006">6</link> of file <link linkend="_datetime_8c_source">datetime.c</link>.</para>
 </section>
 <anchor xml:id="_datetime_8h_1a8eec3bb9a53b14abd5f53c04f9a06a9e"/><section>
     <title>print_dir_datetime()</title>
 <indexterm><primary>print_dir_datetime</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>print_dir_datetime</secondary></indexterm>
 <para><computeroutput>void print_dir_datetime (<link linkend="_structdir__datetime">dir_datetime</link> dt)</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8c_source_1l00016">16</link> of file <link linkend="_datetime_8c_source">datetime.c</link>.</para>
+
+<para>Prints the value of a <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> to the console in a human-readable form. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_structdir__datetime">dir_datetime</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_datetime_8c_source_1l00014">14</link> of file <link linkend="_datetime_8c_source">datetime.c</link>.</para>
 </section>
 </section>
 </section>

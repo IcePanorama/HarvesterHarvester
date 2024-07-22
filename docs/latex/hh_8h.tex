@@ -5,11 +5,11 @@
 \begin{DoxyCompactItemize}
 \item 
 static FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hh_8h_adc1a83a755870c0899977818898d13cb}{setup\+\_\+extractor}} (char \texorpdfstring{$\ast$}{*}filename)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily FILE \texorpdfstring{$\ast$}{*}} for the given {\ttfamily filename}, handling error messages as needed, while also checking the end-\/user\textquotesingle{}s operating system and updating {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR}. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{hh_8h_af12d681a411f7fd2c48b09fc35df739c}{process\+\_\+\+DAT\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
+\begin{DoxyCompactList}\small\item\em Processes a DAT file pointed to by the given {\ttfamily FILE \texorpdfstring{$\ast$}{*}}. \end{DoxyCompactList}\item 
 static int \mbox{\hyperlink{hh_8h_ab5fe38006fca7f224a00f75973e3d079}{batch\+\_\+process\+\_\+\+DAT\+\_\+files}} (void)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}, one at a time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -19,7 +19,11 @@ static int \mbox{\hyperlink{hh_8h_ab5fe38006fca7f224a00f75973e3d079}{batch\+\_\+
 {\footnotesize\ttfamily \label{hh_8h_ab5fe38006fca7f224a00f75973e3d079} 
 static int batch\+\_\+process\+\_\+\+DAT\+\_\+files (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
 Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}, one at a time. 
+
+
 
 Definition at line \mbox{\hyperlink{hh_8c_source_l00141}{141}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
@@ -28,6 +32,8 @@ Definition at line \mbox{\hyperlink{hh_8c_source_l00141}{141}} of file \mbox{\hy
 \doxysubsubsection{\texorpdfstring{process\_DAT\_file()}{process\_DAT\_file()}}
 {\footnotesize\ttfamily \label{hh_8h_af12d681a411f7fd2c48b09fc35df739c} 
 static void process\+\_\+\+DAT\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
 
 Processes a DAT file pointed to by the given {\ttfamily FILE \texorpdfstring{$\ast$}{*}}. 
 
@@ -61,7 +67,11 @@ Definition at line \mbox{\hyperlink{hh_8c_source_l00068}{68}} of file \mbox{\hyp
 {\footnotesize\ttfamily \label{hh_8h_adc1a83a755870c0899977818898d13cb} 
 static FILE \texorpdfstring{$\ast$}{*} setup\+\_\+extractor (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
-Creates a {\ttfamily FILE \texorpdfstring{$\ast$}{*}} for the given {\ttfamily filename}, handling error messages as needed, while also checking the end-\/user\textquotesingle{}s operating system and updating {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR}. The caller is responsible for closing the file pointer when they\textquotesingle{}re finished with it.
+
+
+Creates a {\ttfamily FILE \texorpdfstring{$\ast$}{*}} for the given {\ttfamily filename}, handling error messages as needed, while also checking the end-\/user\textquotesingle{}s operating system and updating {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR}. 
+
+The caller is responsible for closing the file pointer when they\textquotesingle{}re finished with it.
 
 
 \begin{DoxyParams}{Parameters}

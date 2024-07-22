@@ -8,10 +8,16 @@
             <listitem><para>int <link linkend="_hh_8c_1a3c04138a5bfe5d72780bb7e82a18e627">main</link> (int argc, char **argv)</para>
 </listitem>
             <listitem><para>FILE * <link linkend="_hh_8c_1ac8f0bce5a3bc19789bd443ded5f21cf3">setup_extractor</link> (char *filename)</para>
+
+<para>Creates a <computeroutput>FILE *</computeroutput> for the given <computeroutput>filename</computeroutput>, handling error messages as needed, while also checking the end-user&apos;s operating system and updating <computeroutput>OP_PATH_SEPARATOR</computeroutput>. </para>
 </listitem>
             <listitem><para>void <link linkend="_hh_8c_1a67bb984eb1ee850d67fa02073a40e0fd">process_DAT_file</link> (FILE *fptr)</para>
+
+<para>Processes a DAT file pointed to by the given <computeroutput>FILE *</computeroutput>. </para>
 </listitem>
             <listitem><para>int <link linkend="_hh_8c_1a2e4d7540abe0fa0784f95dd98b33266a">batch_process_DAT_files</link> ()</para>
+
+<para>Processes all the <computeroutput>.DAT</computeroutput> files found in <computeroutput>OP_INPUT_DIR</computeroutput>, one at a time. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -21,8 +27,10 @@
     <title>batch_process_DAT_files()</title>
 <indexterm><primary>batch_process_DAT_files</primary><secondary>hh.c</secondary></indexterm>
 <indexterm><primary>hh.c</primary><secondary>batch_process_DAT_files</secondary></indexterm>
-<para><computeroutput>int batch_process_DAT_files (void )</computeroutput></para>
+<para><computeroutput>int batch_process_DAT_files (void )</computeroutput></para><para>
+
 <para>Processes all the <computeroutput>.DAT</computeroutput> files found in <computeroutput>OP_INPUT_DIR</computeroutput>, one at a time. </para>
+</para>
 <para>
 Definition at line <link linkend="_hh_8c_source_1l00141">141</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
@@ -37,8 +45,10 @@ Definition at line <link linkend="_hh_8c_source_1l00023">23</link> of file <link
     <title>process_DAT_file()</title>
 <indexterm><primary>process_DAT_file</primary><secondary>hh.c</secondary></indexterm>
 <indexterm><primary>hh.c</primary><secondary>process_DAT_file</secondary></indexterm>
-<para><computeroutput>void process_DAT_file (FILE * fptr)</computeroutput></para>
+<para><computeroutput>void process_DAT_file (FILE * fptr)</computeroutput></para><para>
+
 <para>Processes a DAT file pointed to by the given <computeroutput>FILE *</computeroutput>. </para>
+</para>
 
 <para>This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the <computeroutput>OP_CURRENT_DISK_NAME</computeroutput> variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the <computeroutput>OP_OUTPUT_DIR</computeroutput>.</para>
 
@@ -84,8 +94,12 @@ Definition at line <link linkend="_hh_8c_source_1l00068">68</link> of file <link
     <title>setup_extractor()</title>
 <indexterm><primary>setup_extractor</primary><secondary>hh.c</secondary></indexterm>
 <indexterm><primary>hh.c</primary><secondary>setup_extractor</secondary></indexterm>
-<para><computeroutput>FILE * setup_extractor (char * filename)</computeroutput></para>
-<para>Creates a <computeroutput>FILE *</computeroutput> for the given <computeroutput>filename</computeroutput>, handling error messages as needed, while also checking the end-user&apos;s operating system and updating <computeroutput>OP_PATH_SEPARATOR</computeroutput>. The caller is responsible for closing the file pointer when they&apos;re finished with it.</para>
+<para><computeroutput>FILE * setup_extractor (char * filename)</computeroutput></para><para>
+
+<para>Creates a <computeroutput>FILE *</computeroutput> for the given <computeroutput>filename</computeroutput>, handling error messages as needed, while also checking the end-user&apos;s operating system and updating <computeroutput>OP_PATH_SEPARATOR</computeroutput>. </para>
+</para>
+
+<para>The caller is responsible for closing the file pointer when they&apos;re finished with it.</para>
 
 <para>
                 <formalpara>

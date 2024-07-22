@@ -41,15 +41,6 @@
         </itemizedlist>
 </simplesect>
 <simplesect>
-    <title>Typedefs    </title>
-        <itemizedlist>
-            <listitem><para>typedef struct volume_descriptor_data <link linkend="_volume__descriptor_8h_1a29bc2260185566affada900857a0ad26">volume_descriptor_data</link></para>
-</listitem>
-            <listitem><para>typedef struct volume_descriptor <link linkend="_volume__descriptor_8h_1a1007c0cbec03a369a1f09246acc3d550">volume_descriptor</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
-<simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_volume__descriptor_8h_1a927dff4d543f323e86784b784602c3f4">create_volume_descriptor</link> (<link linkend="_structvolume__descriptor">volume_descriptor</link> *vd, uint8_t type, uint8_t version)</para>
@@ -150,19 +141,6 @@ Definition at line <link linkend="_volume__descriptor_8h_source_1l00011">11</lin
 <para><computeroutput>#define VOLUME_SET_IDENTIFIER_LEN&#160;&#160;&#160;129</computeroutput></para><para>
 Definition at line <link linkend="_volume__descriptor_8h_source_1l00013">13</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
-</section>
-<section>
-<title>Typedef Documentation</title>
-<anchor xml:id="_volume__descriptor_8h_1a1007c0cbec03a369a1f09246acc3d550"/><section>
-    <title>volume_descriptor</title>
-<indexterm><primary>volume_descriptor</primary><secondary>volume_descriptor.h</secondary></indexterm>
-<indexterm><primary>volume_descriptor.h</primary><secondary>volume_descriptor</secondary></indexterm>
-<para><computeroutput>typedef struct volume_descriptor volume_descriptor</computeroutput></para></section>
-<anchor xml:id="_volume__descriptor_8h_1a29bc2260185566affada900857a0ad26"/><section>
-    <title>volume_descriptor_data</title>
-<indexterm><primary>volume_descriptor_data</primary><secondary>volume_descriptor.h</secondary></indexterm>
-<indexterm><primary>volume_descriptor.h</primary><secondary>volume_descriptor_data</secondary></indexterm>
-<para><computeroutput>typedef struct volume_descriptor_data volume_descriptor_data</computeroutput></para></section>
 </section>
 <section>
 <title>Function Documentation</title>

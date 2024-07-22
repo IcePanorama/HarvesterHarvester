@@ -1,8 +1,6 @@
-/* clang-format off */
-#include <stdio.h>
-
 #include "datetime.h"
-/* clang-format on */
+
+#include <stdio.h>
 
 void
 print_dec_datetime (dec_datetime dt)

@@ -12,15 +12,6 @@
         </itemizedlist>
 </simplesect>
 <simplesect>
-    <title>Typedefs    </title>
-        <itemizedlist>
-            <listitem><para>typedef struct directory_record <link linkend="_directory_8h_1a89963f6afcd6940c486d5138e16bbecc">directory_record</link></para>
-</listitem>
-            <listitem><para>typedef struct directory <link linkend="_directory_8h_1a5902957cefb03c7562ff4ff662b9086e">directory</link></para>
-</listitem>
-        </itemizedlist>
-</simplesect>
-<simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>int8_t <link linkend="_directory_8h_1a588d5ddc87f420409a34325d09ba125a">create_directory</link> (<link linkend="_structdirectory">directory</link> *d)</para>
@@ -37,19 +28,6 @@
 </listitem>
         </itemizedlist>
 </simplesect>
-<section>
-<title>Typedef Documentation</title>
-<anchor xml:id="_directory_8h_1a5902957cefb03c7562ff4ff662b9086e"/><section>
-    <title>directory</title>
-<indexterm><primary>directory</primary><secondary>directory.h</secondary></indexterm>
-<indexterm><primary>directory.h</primary><secondary>directory</secondary></indexterm>
-<para><computeroutput>typedef struct directory directory</computeroutput></para></section>
-<anchor xml:id="_directory_8h_1a89963f6afcd6940c486d5138e16bbecc"/><section>
-    <title>directory_record</title>
-<indexterm><primary>directory_record</primary><secondary>directory.h</secondary></indexterm>
-<indexterm><primary>directory.h</primary><secondary>directory_record</secondary></indexterm>
-<para><computeroutput>typedef struct directory_record directory_record</computeroutput></para></section>
-</section>
 <section>
 <title>Function Documentation</title>
 <anchor xml:id="_directory_8h_1a8eb2a5a06d3bbcbc2081c28d726e301b"/><section>

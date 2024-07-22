@@ -9,8 +9,6 @@ var datetime_8h =
     [ "MONTH_FIELD_LEN", "datetime_8h.html#acc006ed15ce1e12e4b219834d33ee662", null ],
     [ "SECOND_FIELD_LEN", "datetime_8h.html#abba1fa1a9450e11671e3f3793bef5861", null ],
     [ "YEAR_FIELD_LEN", "datetime_8h.html#ae1bf067b2ccb33abefdd15183cf9ab64", null ],
-    [ "dec_datetime", "datetime_8h.html#ad6dfc8fb964fc14a036f0c5847b66260", null ],
-    [ "dir_datetime", "datetime_8h.html#ae5207d9f86446113bd5a1c33deed4ac4", null ],
     [ "print_dec_datetime", "datetime_8h.html#a6e26118490d8999d5e73b1e3e7dd83ce", null ],
     [ "print_dir_datetime", "datetime_8h.html#a8eec3bb9a53b14abd5f53c04f9a06a9e", null ]
 ];

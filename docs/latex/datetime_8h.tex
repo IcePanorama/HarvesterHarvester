@@ -5,9 +5,9 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}}
-\item 
+\begin{DoxyCompactList}\small\item\em The date/time format used in the Primary Volume Descriptor. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The date/time format used by directory records. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,20 +25,13 @@ struct \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}}
 \item 
 \#define \mbox{\hyperlink{datetime_8h_a718309da4d9ed9b2292e9461e98a7914}{HUNDREDTHS\+\_\+\+OF\+\_\+\+A\+\_\+\+SECOND\+\_\+\+FIELD\+\_\+\+LEN}}~3
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Typedefs}
-\begin{DoxyCompactItemize}
-\item 
-typedef struct dec\+\_\+datetime \mbox{\hyperlink{datetime_8h_ad6dfc8fb964fc14a036f0c5847b66260}{dec\+\_\+datetime}}
-\item 
-typedef struct dir\+\_\+datetime \mbox{\hyperlink{datetime_8h_ae5207d9f86446113bd5a1c33deed4ac4}{dir\+\_\+datetime}}
-\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{datetime_8h_a6e26118490d8999d5e73b1e3e7dd83ce}{print\+\_\+dec\+\_\+datetime}} (\mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Prints the value of a {\ttfamily \doxylink{structdec__datetime}{dec\+\_\+datetime}} to the console in a human-\/readable form. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{datetime_8h_a8eec3bb9a53b14abd5f53c04f9a06a9e}{print\+\_\+dir\+\_\+datetime}} (\mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} dt)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prints the value of a {\ttfamily \doxylink{structdir__datetime}{dir\+\_\+datetime}} to the console in a human-\/readable form. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -114,21 +107,6 @@ Definition at line \mbox{\hyperlink{datetime_8h_source_l00006}{6}} of file \mbox
 
 
 
-\doxysubsection{Typedef Documentation}
-\Hypertarget{datetime_8h_ad6dfc8fb964fc14a036f0c5847b66260}\index{datetime.h@{datetime.h}!dec\_datetime@{dec\_datetime}}
-\index{dec\_datetime@{dec\_datetime}!datetime.h@{datetime.h}}
-\doxysubsubsection{\texorpdfstring{dec\_datetime}{dec\_datetime}}
-{\footnotesize\ttfamily \label{datetime_8h_ad6dfc8fb964fc14a036f0c5847b66260} 
-typedef struct dec\+\_\+datetime dec\+\_\+datetime}
-
-\Hypertarget{datetime_8h_ae5207d9f86446113bd5a1c33deed4ac4}\index{datetime.h@{datetime.h}!dir\_datetime@{dir\_datetime}}
-\index{dir\_datetime@{dir\_datetime}!datetime.h@{datetime.h}}
-\doxysubsubsection{\texorpdfstring{dir\_datetime}{dir\_datetime}}
-{\footnotesize\ttfamily \label{datetime_8h_ae5207d9f86446113bd5a1c33deed4ac4} 
-typedef struct dir\+\_\+datetime dir\+\_\+datetime}
-
-
-
 \doxysubsection{Function Documentation}
 \Hypertarget{datetime_8h_a6e26118490d8999d5e73b1e3e7dd83ce}\index{datetime.h@{datetime.h}!print\_dec\_datetime@{print\_dec\_datetime}}
 \index{print\_dec\_datetime@{print\_dec\_datetime}!datetime.h@{datetime.h}}
@@ -138,7 +116,14 @@ void print\+\_\+dec\+\_\+datetime (\begin{DoxyParamCaption}\item[{\mbox{\hyperli
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8c_source_l00008}{8}} of file \mbox{\hyperlink{datetime_8c_source}{datetime.\+c}}.
+Prints the value of a {\ttfamily \doxylink{structdec__datetime}{dec\+\_\+datetime}} to the console in a human-\/readable form. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{structdec__datetime}{dec\+\_\+datetime} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{datetime_8c_source_l00006}{6}} of file \mbox{\hyperlink{datetime_8c_source}{datetime.\+c}}.
 
 \Hypertarget{datetime_8h_a8eec3bb9a53b14abd5f53c04f9a06a9e}\index{datetime.h@{datetime.h}!print\_dir\_datetime@{print\_dir\_datetime}}
 \index{print\_dir\_datetime@{print\_dir\_datetime}!datetime.h@{datetime.h}}
@@ -148,5 +133,12 @@ void print\+\_\+dir\+\_\+datetime (\begin{DoxyParamCaption}\item[{\mbox{\hyperli
 
 
 
-Definition at line \mbox{\hyperlink{datetime_8c_source_l00016}{16}} of file \mbox{\hyperlink{datetime_8c_source}{datetime.\+c}}.
+Prints the value of a {\ttfamily \doxylink{structdir__datetime}{dir\+\_\+datetime}} to the console in a human-\/readable form. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{structdir__datetime}{dir\+\_\+datetime} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{datetime_8c_source_l00014}{14}} of file \mbox{\hyperlink{datetime_8c_source}{datetime.\+c}}.
 

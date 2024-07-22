@@ -2,8 +2,6 @@ var directory_8h =
 [
     [ "directory_record", "structdirectory__record.html", "structdirectory__record" ],
     [ "directory", "structdirectory.html", "structdirectory" ],
-    [ "directory", "directory_8h.html#a5902957cefb03c7562ff4ff662b9086e", null ],
-    [ "directory_record", "directory_8h.html#a89963f6afcd6940c486d5138e16bbecc", null ],
     [ "add_record_to_directory", "directory_8h.html#a8eb2a5a06d3bbcbc2081c28d726e301b", null ],
     [ "create_directory", "directory_8h.html#a588d5ddc87f420409a34325d09ba125a", null ],
     [ "destroy_directory", "directory_8h.html#a5bb3c915259dac9f8fb2c102cc72ccda", null ],

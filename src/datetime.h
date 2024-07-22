@@ -11,7 +11,13 @@
 #define SECOND_FIELD_LEN 3
 #define HUNDREDTHS_OF_A_SECOND_FIELD_LEN 3
 
-// See: https://wiki.osdev.org/ISO_9660#Date/time_format
+/**
+ * The date/time format used in the Primary Volume Descriptor. Uses ASCII
+ * digits to represent the main parts of the date/time.
+ *
+ * @see https://wiki.osdev.org/ISO_9660#Date/time_format
+ * @see volume_descriptor
+ */
 typedef struct dec_datetime
 {
   char year[5];
@@ -24,10 +30,16 @@ typedef struct dec_datetime
   uint8_t time_zone_offset;
 } dec_datetime;
 
-// See: https://wiki.osdev.org/ISO_9660#Directories
+/**
+ * The date/time format used by directory records. This format is presumably
+ * used to save disc space over a large number of entries.
+ *
+ * @see https://wiki.osdev.org/ISO_9660#Directories
+ * @see directory_record
+ */
 typedef struct dir_datetime
 {
-  uint8_t year; // number of years since 1900
+  uint8_t year; //!< Number of years since 1900.
   uint8_t month;
   uint8_t day;
   uint8_t hour;
@@ -36,7 +48,20 @@ typedef struct dir_datetime
   uint8_t time_zone_offset;
 } dir_datetime;
 
+/**
+ * Prints the value of a `dec_datetime` to the console in a human-readable
+ * form.
+ *
+ * @see dec_datetime
+ */
 void print_dec_datetime (dec_datetime dt);
+
+/**
+ * Prints the value of a `dir_datetime` to the console in a human-readable
+ * form.
+ *
+ * @see dir_datetime
+ */
 void print_dir_datetime (dir_datetime dt);
 
 #endif

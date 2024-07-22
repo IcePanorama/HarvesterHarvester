@@ -14,8 +14,6 @@ var volume__descriptor_8h =
     [ "SYSTEM_IDENTIFIER_LEN", "volume__descriptor_8h.html#a8d48399aa2b2f77c0f395a39c2a82ef8", null ],
     [ "VOLUME_IDENTIFIER_LEN", "volume__descriptor_8h.html#a2ee43c4111a809b1668f9a5e6441f923", null ],
     [ "VOLUME_SET_IDENTIFIER_LEN", "volume__descriptor_8h.html#a21844d31481be3e282c586beb1af42b5", null ],
-    [ "volume_descriptor", "volume__descriptor_8h.html#a1007c0cbec03a369a1f09246acc3d550", null ],
-    [ "volume_descriptor_data", "volume__descriptor_8h.html#a29bc2260185566affada900857a0ad26", null ],
     [ "create_volume_descriptor", "volume__descriptor_8h.html#a927dff4d543f323e86784b784602c3f4", null ],
     [ "print_volume_descriptor_data", "volume__descriptor_8h.html#ae25c2f5ac41962af3d8db01bdacbb65d", null ],
     [ "print_volume_descriptor_header", "volume__descriptor_8h.html#ac83303eab8ff516e07c13652ff4adece", null ],
