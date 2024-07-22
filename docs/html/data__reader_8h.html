@@ -112,10 +112,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a778ae3162a4e12d7d7dbe8672ca0ec81" id="r_a778ae3162a4e12d7d7dbe8672ca0ec81"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a778ae3162a4e12d7d7dbe8672ca0ec81">read_little_endian_data_uint32_t</a> (FILE *fptr)</td></tr>
 <tr class="separator:a778ae3162a4e12d7d7dbe8672ca0ec81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2384957f27e209d73a6377de962cbc15" id="r_a2384957f27e209d73a6377de962cbc15"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2384957f27e209d73a6377de962cbc15">read_both_endian_data_uint32</a> (FILE *fptr)</td></tr>
+<tr class="memdesc:a2384957f27e209d73a6377de962cbc15"><td class="mdescLeft">&#160;</td><td class="mdescRight">When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second.  <br /></td></tr>
 <tr class="separator:a2384957f27e209d73a6377de962cbc15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad773a6c38ce11dd0812deea517043051" id="r_ad773a6c38ce11dd0812deea517043051"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad773a6c38ce11dd0812deea517043051">read_little_endian_data_uint16_t</a> (FILE *fptr)</td></tr>
 <tr class="separator:ad773a6c38ce11dd0812deea517043051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3046006fce30b3601ef7399ccead3499" id="r_a3046006fce30b3601ef7399ccead3499"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3046006fce30b3601ef7399ccead3499">read_both_endian_data_uint16</a> (FILE *fptr)</td></tr>
+<tr class="memdesc:a3046006fce30b3601ef7399ccead3499"><td class="mdescLeft">&#160;</td><td class="mdescRight">When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second.  <br /></td></tr>
 <tr class="separator:a3046006fce30b3601ef7399ccead3499"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af766a6928a4e6e0797f712af34344fbe" id="r_af766a6928a4e6e0797f712af34344fbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af766a6928a4e6e0797f712af34344fbe">read_string</a> (FILE *fptr, char *output, uint8_t length)</td></tr>
 <tr class="separator:af766a6928a4e6e0797f712af34344fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -172,6 +174,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </p>
+<p>This is almost certainly unnecessary, but it makes me feel better :).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fptr</td><td>pointer to data to be read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint16_t containing the read data. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>read_both_endian_data_unint32() </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00028">28</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
@@ -190,6 +203,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </p>
+<p>This is almost certainly unnecessary, but it makes me feel better :).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fptr</td><td>pointer to data to be read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t containing the read data. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>read_both_endian_data_unint16() </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00012">12</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 

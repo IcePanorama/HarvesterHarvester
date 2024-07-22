@@ -5,9 +5,33 @@
 #include <stdio.h>
 
 uint32_t read_little_endian_data_uint32_t (FILE *fptr);
+
+/**
+ *  When data in a given file is presented first in little endian form and then
+ *  repeated in big endian form, this function will read both values, double
+ *  checking that the first matches the second. This is almost certainly
+ *  unnecessary, but it makes me feel better :).
+ *
+ *  @param  fptr  pointer to data to be read.
+ *  @return uint32_t containing the read data.
+ *  @see read_both_endian_data_unint16()
+ */
 uint32_t read_both_endian_data_uint32 (FILE *fptr);
+
 uint16_t read_little_endian_data_uint16_t (FILE *fptr);
+
+/**
+ *  When data in a given file is presented first in little endian form and then
+ *  repeated in big endian form, this function will read both values, double
+ *  checking that the first matches the second. This is almost certainly
+ *  unnecessary, but it makes me feel better :).
+ *
+ *  @param  fptr  pointer to data to be read.
+ *  @return uint16_t containing the read data.
+ *  @see read_both_endian_data_unint32()
+ */
 uint16_t read_both_endian_data_uint16 (FILE *fptr);
+
 void read_string (FILE *fptr, char *output, uint8_t length);
 void read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length);
 struct dec_datetime read_dec_datetime (FILE *fptr);

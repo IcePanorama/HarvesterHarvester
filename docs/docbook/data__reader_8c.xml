@@ -10,8 +10,12 @@
             <listitem><para>static uint16_t <link linkend="_data__reader_8c_1a6c29cc4570af24fdd43af32901c72f95">read_big_endian_data_uint16_t</link> (FILE *fptr)</para>
 </listitem>
             <listitem><para>uint32_t <link linkend="_data__reader_8c_1a2384957f27e209d73a6377de962cbc15">read_both_endian_data_uint32</link> (FILE *fptr)</para>
+
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
 </listitem>
             <listitem><para>uint16_t <link linkend="_data__reader_8c_1a3046006fce30b3601ef7399ccead3499">read_both_endian_data_uint16</link> (FILE *fptr)</para>
+
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
 </listitem>
             <listitem><para>uint32_t <link linkend="_data__reader_8c_1a778ae3162a4e12d7d7dbe8672ca0ec81">read_little_endian_data_uint32_t</link> (FILE *fptr)</para>
 </listitem>
@@ -102,6 +106,42 @@ Definition at line <link linkend="_data__reader_8c_source_1l00057">57</link> of 
 <indexterm><primary>read_both_endian_data_uint16</primary><secondary>data_reader.c</secondary></indexterm>
 <indexterm><primary>data_reader.c</primary><secondary>read_both_endian_data_uint16</secondary></indexterm>
 <para><computeroutput>uint16_t read_both_endian_data_uint16 (FILE * fptr)</computeroutput></para><para>
+
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
+</para>
+
+<para>This is almost certainly unnecessary, but it makes me feel better :).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fptr</entry><entry>
+<para>pointer to data to be read. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>uint16_t containing the read data. </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>read_both_endian_data_unint32() </para>
+</formalpara>
+</para>
+<para>
 Definition at line <link linkend="_data__reader_8c_source_1l00028">28</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a2384957f27e209d73a6377de962cbc15"/><section>
@@ -109,6 +149,42 @@ Definition at line <link linkend="_data__reader_8c_source_1l00028">28</link> of 
 <indexterm><primary>read_both_endian_data_uint32</primary><secondary>data_reader.c</secondary></indexterm>
 <indexterm><primary>data_reader.c</primary><secondary>read_both_endian_data_uint32</secondary></indexterm>
 <para><computeroutput>uint32_t read_both_endian_data_uint32 (FILE * fptr)</computeroutput></para><para>
+
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
+</para>
+
+<para>This is almost certainly unnecessary, but it makes me feel better :).</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fptr</entry><entry>
+<para>pointer to data to be read. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>uint32_t containing the read data. </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para>read_both_endian_data_unint16() </para>
+</formalpara>
+</para>
+<para>
 Definition at line <link linkend="_data__reader_8c_source_1l00012">12</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a1ce9a4bc57c45da7a72c9fa4effef5a7"/><section>

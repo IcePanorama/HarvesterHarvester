@@ -1976,8 +1976,18 @@ static uint32_t {\b read_big_endian_data_uint32_t} (FILE *fptr)\par
 static uint16_t {\b read_big_endian_data_uint16_t} (FILE *fptr)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint32_t {\b read_both_endian_data_uint32} (FILE *fptr)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint16_t {\b read_both_endian_data_uint16} (FILE *fptr)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint32_t {\b read_little_endian_data_uint32_t} (FILE *fptr)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -2096,6 +2106,26 @@ uint16_t read_both_endian_data_uint16 (FILE * fptr)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+This is almost certainly unnecessary, but it makes me feel better :).\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to data to be read. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+uint16_t containing the read data. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+read_both_endian_data_unint32() \par
+}}}{
 Definition at line {\b 28} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_both_endian_data_uint32\:data_reader.c}
@@ -2110,6 +2140,26 @@ uint32_t read_both_endian_data_uint32 (FILE * fptr)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+This is almost certainly unnecessary, but it makes me feel better :).\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to data to be read. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+uint32_t containing the read data. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+read_both_endian_data_unint16() \par
+}}}{
 Definition at line {\b 12} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_dec_datetime\:data_reader.c}
@@ -2461,10 +2511,20 @@ Functions\par
 uint32_t {\b read_little_endian_data_uint32_t} (FILE *fptr)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint32_t {\b read_both_endian_data_uint32} (FILE *fptr)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint16_t {\b read_little_endian_data_uint16_t} (FILE *fptr)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint16_t {\b read_both_endian_data_uint16} (FILE *fptr)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b read_string} (FILE *fptr, char *output, uint8_t length)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -2506,6 +2566,26 @@ uint16_t read_both_endian_data_uint16 (FILE * fptr)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+This is almost certainly unnecessary, but it makes me feel better :).\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to data to be read. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+uint16_t containing the read data. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+read_both_endian_data_unint32() \par
+}}}{
 Definition at line {\b 28} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_both_endian_data_uint32\:data_reader.h}
@@ -2520,6 +2600,26 @@ uint32_t read_both_endian_data_uint32 (FILE * fptr)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+This is almost certainly unnecessary, but it makes me feel better :).\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to data to be read. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+uint32_t containing the read data. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+read_both_endian_data_unint16() \par
+}}}{
 Definition at line {\b 12} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_dec_datetime\:data_reader.h}
@@ -2626,16 +2726,20 @@ Go to the documentation of this file.\par
 00005 {\cf21 #include <stdio.h>}\par
 00006 \par
 00007 uint32_t read_little_endian_data_uint32_t (FILE *fptr);\par
-00008 uint32_t read_both_endian_data_uint32 (FILE *fptr);\par
-00009 uint16_t read_little_endian_data_uint16_t (FILE *fptr);\par
-00010 uint16_t read_both_endian_data_uint16 (FILE *fptr);\par
-00011 {\cf18 void} read_string (FILE *fptr, {\cf18 char} *output, uint8_t length);\par
-00012 {\cf18 void} read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length);\par
-00013 {\cf17 struct }dec_datetime read_dec_datetime (FILE *fptr);\par
-00014 uint8_t read_single_uint8 (FILE *fptr);\par
-00015 {\cf17 struct }dir_datetime read_dir_datetime (FILE *fptr);\par
-00016 \par
-00017 {\cf21 #endif}\par
+00008 \par
+00019 uint32_t read_both_endian_data_uint32 (FILE *fptr);\par
+00020 \par
+00021 uint16_t read_little_endian_data_uint16_t (FILE *fptr);\par
+00022 \par
+00033 uint16_t read_both_endian_data_uint16 (FILE *fptr);\par
+00034 \par
+00035 {\cf18 void} read_string (FILE *fptr, {\cf18 char} *output, uint8_t length);\par
+00036 {\cf18 void} read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length);\par
+00037 {\cf17 struct }dec_datetime read_dec_datetime (FILE *fptr);\par
+00038 uint8_t read_single_uint8 (FILE *fptr);\par
+00039 {\cf17 struct }dir_datetime read_dir_datetime (FILE *fptr);\par
+00040 \par
+00041 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

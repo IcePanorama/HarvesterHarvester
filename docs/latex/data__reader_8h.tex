@@ -8,11 +8,11 @@
 uint32\+\_\+t \mbox{\hyperlink{data__reader_8h_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr)
 \item 
 uint32\+\_\+t \mbox{\hyperlink{data__reader_8h_a2384957f27e209d73a6377de962cbc15}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
+\begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. \end{DoxyCompactList}\item 
 uint16\+\_\+t \mbox{\hyperlink{data__reader_8h_ad773a6c38ce11dd0812deea517043051}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr)
 \item 
 uint16\+\_\+t \mbox{\hyperlink{data__reader_8h_a3046006fce30b3601ef7399ccead3499}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
+\begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{data__reader_8h_af766a6928a4e6e0797f712af34344fbe}{read\+\_\+string}} (FILE \texorpdfstring{$\ast$}{*}fptr, char \texorpdfstring{$\ast$}{*}output, uint8\+\_\+t length)
 \item 
 void \mbox{\hyperlink{data__reader_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98}{read\+\_\+array\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}arr, uint8\+\_\+t length)
@@ -44,6 +44,23 @@ uint16\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16 (\begin{DoxyParam
 
 
 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. 
+
+This is almost certainly unnecessary, but it makes me feel better \+:).
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & pointer to data to be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t containing the read data. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint32() 
+\end{DoxySeeAlso}
+
+
 Definition at line \mbox{\hyperlink{data__reader_8c_source_l00028}{28}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a2384957f27e209d73a6377de962cbc15}\index{data\_reader.h@{data\_reader.h}!read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}}
@@ -52,6 +69,23 @@ Definition at line \mbox{\hyperlink{data__reader_8c_source_l00028}{28}} of file 
 {\footnotesize\ttfamily \label{data__reader_8h_a2384957f27e209d73a6377de962cbc15} 
 uint32\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
 
+
+
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. 
+
+This is almost certainly unnecessary, but it makes me feel better \+:).
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & pointer to data to be read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t containing the read data. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint16() 
+\end{DoxySeeAlso}
 
 
 Definition at line \mbox{\hyperlink{data__reader_8c_source_l00012}{12}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
