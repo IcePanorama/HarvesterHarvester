@@ -28,6 +28,11 @@ void fopen\+\_\+error (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast
 Throws an fopen error. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em filename} & name of the file fopen was attempting to open. \\
+\hline
+\end{DoxyParams}
+
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00023}{23}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
@@ -42,6 +47,15 @@ void handle\+\_\+fread\+\_\+error (\begin{DoxyParamCaption}\item[{FILE \texorpdf
 Throws an fread error. 
 
 
+\begin{DoxyParams}{Parameters}
+{\em fptr} & file pointer that was in use. \\
+\hline
+{\em actual} & actual number of bytes read. \\
+\hline
+{\em expected\+\_\+bytes} & expected number of bytes to read. \\
+\hline
+\end{DoxyParams}
+
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00030}{30}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
@@ -55,6 +69,11 @@ void handle\+\_\+unknown\+\_\+command\+\_\+line\+\_\+argument\+\_\+error (\begin
 
 Throws an unknown command line argument error. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & the unrecognized argument passed by the user. \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00039}{39}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.

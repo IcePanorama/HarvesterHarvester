@@ -33,6 +33,28 @@
 
 <para>Throws an fopen error. </para>
 </para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>filename</entry><entry>
+<para>name of the file fopen was attempting to open. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00023">23</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -44,6 +66,38 @@ Definition at line <link linkend="_errors_8c_source_1l00023">23</link> of file <
 
 <para>Throws an fread error. </para>
 </para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fptr</entry><entry>
+<para>file pointer that was in use. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>actual</entry><entry>
+<para>actual number of bytes read. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>expected_bytes</entry><entry>
+<para>expected number of bytes to read. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00030">30</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -55,6 +109,28 @@ Definition at line <link linkend="_errors_8c_source_1l00030">30</link> of file <
 
 <para>Throws an unknown command line argument error. </para>
 </para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>arg</entry><entry>
+<para>the unrecognized argument passed by the user. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00039">39</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
