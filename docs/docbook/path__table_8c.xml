@@ -10,14 +10,24 @@
             <listitem><para>void <link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</link> (<link linkend="_structpath__table__entry">path_table_entry</link> *e)</para>
 </listitem>
             <listitem><para>int8_t <link linkend="_path__table_8c_1ac08be1296d016ba9a28db25b35ca9132">create_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
+
+<para>Initializes a given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>. </para>
 </listitem>
             <listitem><para>void <link linkend="_path__table_8c_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
+
+<para>Destroys the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, freeing any and all memory alloc&apos;d for <computeroutput>entries</computeroutput>. </para>
 </listitem>
             <listitem><para>void <link linkend="_path__table_8c_1a0bb44828b69a55bfc7b9bde95ad2276a">add_entry_to_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt, <link linkend="_structpath__table__entry">path_table_entry</link> *entry)</para>
+
+<para>Adds a given <computeroutput><link linkend="_structpath__table__entry">path_table_entry</link></computeroutput> to the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>&apos;s list of <computeroutput>entries</computeroutput>, resizing it as needed. </para>
 </listitem>
             <listitem><para>void <link linkend="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84">print_path_table</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>
+
+<para>Prints the given path table out to the stdout, formatting it into a human-readible form. </para>
 </listitem>
             <listitem><para>void <link linkend="_path__table_8c_1abc1fa6960cc549494e87d2884727e202">process_type_l_path_table</link> (FILE *fptr, <link linkend="_structpath__table">path_table</link> *pt)</para>
+
+<para>Processes the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput> as a Type-L <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, using the data pointed to by <computeroutput>fptr</computeroutput>. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -37,6 +47,37 @@
 <indexterm><primary>add_entry_to_path_table</primary><secondary>path_table.c</secondary></indexterm>
 <indexterm><primary>path_table.c</primary><secondary>add_entry_to_path_table</secondary></indexterm>
 <para><computeroutput>void add_entry_to_path_table (<link linkend="_structpath__table">path_table</link> * pt, <link linkend="_structpath__table__entry">path_table_entry</link> * entry)</computeroutput></para><para>
+
+<para>Adds a given <computeroutput><link linkend="_structpath__table__entry">path_table_entry</link></computeroutput> to the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>&apos;s list of <computeroutput>entries</computeroutput>, resizing it as needed. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pt</entry><entry>
+<para>path table to which the entry should be added. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>entry</entry><entry>
+<para>the entry to add to the given path table. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
 Definition at line <link linkend="_path__table_8c_source_1l00050">50</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1ac08be1296d016ba9a28db25b35ca9132"/><section>
@@ -44,6 +85,42 @@ Definition at line <link linkend="_path__table_8c_source_1l00050">50</link> of f
 <indexterm><primary>create_path_table</primary><secondary>path_table.c</secondary></indexterm>
 <indexterm><primary>path_table.c</primary><secondary>create_path_table</secondary></indexterm>
 <para><computeroutput>int8_t create_path_table (<link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+
+<para>Initializes a given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pt</entry><entry>
+<para><link linkend="_structpath__table">path_table</link> to be initialized. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>zero on success, non-zero on failure. </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para><link linkend="_structpath__table">path_table</link> </para>
+
+<para><link linkend="_path__table_8h_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table()</link> </para>
+</formalpara>
+</para>
+<para>
 Definition at line <link linkend="_path__table_8c_source_1l00013">13</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1afb0f3858425278e8f770eee3eaf010f9"/><section>
@@ -51,6 +128,38 @@ Definition at line <link linkend="_path__table_8c_source_1l00013">13</link> of f
 <indexterm><primary>destroy_path_table</primary><secondary>path_table.c</secondary></indexterm>
 <indexterm><primary>path_table.c</primary><secondary>destroy_path_table</secondary></indexterm>
 <para><computeroutput>void destroy_path_table (<link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+
+<para>Destroys the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, freeing any and all memory alloc&apos;d for <computeroutput>entries</computeroutput>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pt</entry><entry>
+<para>path table to be destroyed. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para><link linkend="_structpath__table">path_table</link> </para>
+
+<para><link linkend="_path__table_8h_1ac08be1296d016ba9a28db25b35ca9132">create_path_table()</link> </para>
+</formalpara>
+</para>
+<para>
 Definition at line <link linkend="_path__table_8c_source_1l00034">34</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84"/><section>
@@ -58,6 +167,32 @@ Definition at line <link linkend="_path__table_8c_source_1l00034">34</link> of f
 <indexterm><primary>print_path_table</primary><secondary>path_table.c</secondary></indexterm>
 <indexterm><primary>path_table.c</primary><secondary>print_path_table</secondary></indexterm>
 <para><computeroutput>void print_path_table (<link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+
+<para>Prints the given path table out to the stdout, formatting it into a human-readible form. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>pt</entry><entry>
+<para>path table to which the entry should be added. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
 Definition at line <link linkend="_path__table_8c_source_1l00086">86</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566"/><section>
@@ -72,7 +207,42 @@ Definition at line <link linkend="_path__table_8c_source_1l00096">96</link> of f
 <indexterm><primary>process_type_l_path_table</primary><secondary>path_table.c</secondary></indexterm>
 <indexterm><primary>path_table.c</primary><secondary>process_type_l_path_table</secondary></indexterm>
 <para><computeroutput>void process_type_l_path_table (FILE * fptr, <link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
-Definition at line <link linkend="_path__table_8c_source_1l00114">114</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+
+<para>Processes the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput> as a Type-L <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, using the data pointed to by <computeroutput>fptr</computeroutput>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>fptr</entry><entry>
+<para>data to be processed. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>pt</entry><entry>
+<para>path table to which the data should be processed into. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>See also</title>
+
+<para><link xlink:href="https://wiki.osdev.org/ISO_9660#The_Path_Table">https://wiki.osdev.org/ISO_9660#The_Path_Table</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_path__table_8c_source_1l00108">108</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1a3c2e19bcf67a11cf80eddd62ebcd98a1"/><section>
     <title>resize_path_table_entries()</title>

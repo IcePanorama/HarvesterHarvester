@@ -20,15 +20,19 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_path__table_8h_source_1l00017"/><link linkend="_structpath__table">00017</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">struct&#32;</emphasis><link linkend="_structpath__table">path_table</link>
 <anchor xml:id="_path__table_8h_source_1l00018"/>00018 {
 <anchor xml:id="_path__table_8h_source_1l00019"/><link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">00019</link> &#32;&#32;<link linkend="_structpath__table__entry">path_table_entry</link>&#32;*<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>;
-<anchor xml:id="_path__table_8h_source_1l00020"/><link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">00020</link> &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>;
-<anchor xml:id="_path__table_8h_source_1l00021"/><link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">00021</link> &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link>;
+<anchor xml:id="_path__table_8h_source_1l00020"/><link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">00020</link> &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+<anchor xml:id="_path__table_8h_source_1l00021"/><link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">00021</link> &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;<link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link>;&#32;
 <anchor xml:id="_path__table_8h_source_1l00022"/>00022 }&#32;<link linkend="_structpath__table">path_table</link>;
 <anchor xml:id="_path__table_8h_source_1l00023"/>00023 
-<anchor xml:id="_path__table_8h_source_1l00024"/>00024 int8_t&#32;<link linkend="_path__table_8h_1ac08be1296d016ba9a28db25b35ca9132">create_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt);
-<anchor xml:id="_path__table_8h_source_1l00025"/>00025 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt);
-<anchor xml:id="_path__table_8h_source_1l00026"/>00026 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1a0bb44828b69a55bfc7b9bde95ad2276a">add_entry_to_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt,&#32;<link linkend="_structpath__table__entry">path_table_entry</link>&#32;*entry);
-<anchor xml:id="_path__table_8h_source_1l00027"/>00027 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1a4d1b9400850a8ace93b4404599932a84">print_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt);
-<anchor xml:id="_path__table_8h_source_1l00028"/>00028 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1abc1fa6960cc549494e87d2884727e202">process_type_l_path_table</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt);
-<anchor xml:id="_path__table_8h_source_1l00029"/>00029 
-<anchor xml:id="_path__table_8h_source_1l00030"/>00030 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_path__table_8h_source_1l00032"/>00032 int8_t&#32;<link linkend="_path__table_8h_1ac08be1296d016ba9a28db25b35ca9132">create_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt);
+<anchor xml:id="_path__table_8h_source_1l00033"/>00033 
+<anchor xml:id="_path__table_8h_source_1l00041"/>00041 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt);
+<anchor xml:id="_path__table_8h_source_1l00042"/>00042 
+<anchor xml:id="_path__table_8h_source_1l00050"/>00050 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1a0bb44828b69a55bfc7b9bde95ad2276a">add_entry_to_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt,&#32;<link linkend="_structpath__table__entry">path_table_entry</link>&#32;*entry);
+<anchor xml:id="_path__table_8h_source_1l00051"/>00051 
+<anchor xml:id="_path__table_8h_source_1l00058"/>00058 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1a4d1b9400850a8ace93b4404599932a84">print_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt);
+<anchor xml:id="_path__table_8h_source_1l00059"/>00059 
+<anchor xml:id="_path__table_8h_source_1l00068"/>00068 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_path__table_8h_1abc1fa6960cc549494e87d2884727e202">process_type_l_path_table</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt);
+<anchor xml:id="_path__table_8h_source_1l00069"/>00069 
+<anchor xml:id="_path__table_8h_source_1l00070"/>00070 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

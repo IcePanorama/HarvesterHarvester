@@ -117,14 +117,19 @@ Functions</h2></td></tr>
 <tr class="memitem:a0089b0d4d8773a794efd9c1171a6b566" id="r_a0089b0d4d8773a794efd9c1171a6b566"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</a> (<a class="el" href="structpath__table__entry.html">path_table_entry</a> *e)</td></tr>
 <tr class="separator:a0089b0d4d8773a794efd9c1171a6b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac08be1296d016ba9a28db25b35ca9132" id="r_ac08be1296d016ba9a28db25b35ca9132"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac08be1296d016ba9a28db25b35ca9132">create_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="memdesc:ac08be1296d016ba9a28db25b35ca9132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a given <code><a class="el" href="structpath__table.html">path_table</a></code>.  <br /></td></tr>
 <tr class="separator:ac08be1296d016ba9a28db25b35ca9132"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0f3858425278e8f770eee3eaf010f9" id="r_afb0f3858425278e8f770eee3eaf010f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="memdesc:afb0f3858425278e8f770eee3eaf010f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the given <code><a class="el" href="structpath__table.html">path_table</a></code>, freeing any and all memory alloc'd for <code>entries</code>.  <br /></td></tr>
 <tr class="separator:afb0f3858425278e8f770eee3eaf010f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bb44828b69a55bfc7b9bde95ad2276a" id="r_a0bb44828b69a55bfc7b9bde95ad2276a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bb44828b69a55bfc7b9bde95ad2276a">add_entry_to_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt, <a class="el" href="structpath__table__entry.html">path_table_entry</a> *entry)</td></tr>
+<tr class="memdesc:a0bb44828b69a55bfc7b9bde95ad2276a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a given <code><a class="el" href="structpath__table__entry.html">path_table_entry</a></code> to the given <code><a class="el" href="structpath__table.html">path_table</a></code>'s list of <code>entries</code>, resizing it as needed.  <br /></td></tr>
 <tr class="separator:a0bb44828b69a55bfc7b9bde95ad2276a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d1b9400850a8ace93b4404599932a84" id="r_a4d1b9400850a8ace93b4404599932a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d1b9400850a8ace93b4404599932a84">print_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="memdesc:a4d1b9400850a8ace93b4404599932a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the given path table out to the stdout, formatting it into a human-readible form.  <br /></td></tr>
 <tr class="separator:a4d1b9400850a8ace93b4404599932a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc1fa6960cc549494e87d2884727e202" id="r_abc1fa6960cc549494e87d2884727e202"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc1fa6960cc549494e87d2884727e202">process_type_l_path_table</a> (FILE *fptr, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="memdesc:abc1fa6960cc549494e87d2884727e202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the given <code><a class="el" href="structpath__table.html">path_table</a></code> as a Type-L <code><a class="el" href="structpath__table.html">path_table</a></code>, using the data pointed to by <code>fptr</code>.  <br /></td></tr>
 <tr class="separator:abc1fa6960cc549494e87d2884727e202"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -154,6 +159,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adds a given <code><a class="el" href="structpath__table__entry.html">path_table_entry</a></code> to the given <code><a class="el" href="structpath__table.html">path_table</a></code>'s list of <code>entries</code>, resizing it as needed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt</td><td>path table to which the entry should be added. </td></tr>
+    <tr><td class="paramname">entry</td><td>the entry to add to the given path table. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00050">50</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
@@ -172,6 +186,18 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initializes a given <code><a class="el" href="structpath__table.html">path_table</a></code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt</td><td><a class="el" href="structpath__table.html">path_table</a> to be initialized. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structpath__table.html">path_table</a> </dd>
+<dd>
+<a class="el" href="path__table_8h.html#afb0f3858425278e8f770eee3eaf010f9" title="Destroys the given path_table, freeing any and all memory alloc&#39;d for entries.">destroy_path_table()</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00013">13</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
@@ -192,6 +218,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destroys the given <code><a class="el" href="structpath__table.html">path_table</a></code>, freeing any and all memory alloc'd for <code>entries</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt</td><td>path table to be destroyed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structpath__table.html">path_table</a> </dd>
+<dd>
+<a class="el" href="path__table_8h.html#ac08be1296d016ba9a28db25b35ca9132" title="Initializes a given path_table.">create_path_table()</a> </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00034">34</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
@@ -210,6 +247,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Prints the given path table out to the stdout, formatting it into a human-readible form. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt</td><td>path table to which the entry should be added. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00086">86</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
@@ -253,7 +298,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00114">114</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p>Processes the given <code><a class="el" href="structpath__table.html">path_table</a></code> as a Type-L <code><a class="el" href="structpath__table.html">path_table</a></code>, using the data pointed to by <code>fptr</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fptr</td><td>data to be processed. </td></tr>
+    <tr><td class="paramname">pt</td><td>path table to which the data should be processed into. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://wiki.osdev.org/ISO_9660#The_Path_Table">https://wiki.osdev.org/ISO_9660#The_Path_Table</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00108">108</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>

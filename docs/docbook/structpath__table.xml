@@ -11,8 +11,12 @@
             <listitem><para><link linkend="_structpath__table__entry">path_table_entry</link> * <link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link></para>
 </listitem>
             <listitem><para>size_t <link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link></para>
+
+<para>max size of <computeroutput>entries</computeroutput>. </para>
 </listitem>
             <listitem><para>size_t <link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link></para>
+
+<para>pointer to most recent item in <computeroutput>entries</computeroutput>. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -34,6 +38,10 @@ Definition at line <link linkend="_path__table_8h_source_1l00017">17</link> of f
 <indexterm><primary>current_entry</primary><secondary>path_table</secondary></indexterm>
 <indexterm><primary>path_table</primary><secondary>current_entry</secondary></indexterm>
 <para><computeroutput>size_t path_table::current_entry</computeroutput></para><para>
+
+<para>pointer to most recent item in <computeroutput>entries</computeroutput>. </para>
+</para>
+<para>
 Definition at line <link linkend="_path__table_8h_source_1l00021">21</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <anchor xml:id="_structpath__table_1a33d282004152acf2e3359dd2c40da884"/><section>
@@ -48,6 +56,10 @@ Definition at line <link linkend="_path__table_8h_source_1l00019">19</link> of f
 <indexterm><primary>size</primary><secondary>path_table</secondary></indexterm>
 <indexterm><primary>path_table</primary><secondary>size</secondary></indexterm>
 <para><computeroutput>size_t path_table::size</computeroutput></para><para>
+
+<para>max size of <computeroutput>entries</computeroutput>. </para>
+</para>
+<para>
 Definition at line <link linkend="_path__table_8h_source_1l00020">20</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <para>

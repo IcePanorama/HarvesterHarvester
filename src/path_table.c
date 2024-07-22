@@ -104,12 +104,6 @@ print_path_table_entry (path_table_entry *e)
   printf ("\tDirectory identifier: %s\n", e->directory_identifier);
 }
 
-/*
- *  process_type_l_path_table
- *
- *  TODO: write some better documentation.
- *  In the meantime, see: https://wiki.osdev.org/ISO_9660#The_Path_Table
- */
 void
 process_type_l_path_table (FILE *fptr, path_table *pt)
 {

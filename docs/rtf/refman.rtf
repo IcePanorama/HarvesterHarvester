@@ -1143,8 +1143,18 @@ Data Fields\par
 {\b path_table_entry} * {\b entries}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 size_t {\b size}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+max size of {\f2 entries} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 size_t {\b current_entry}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+pointer to most recent item in {\f2 entries} . }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1175,6 +1185,9 @@ size_t path_table::current_entry}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+pointer to most recent item in {\f2 entries} . }}\par
+{
 Definition at line {\b 21} of file {\b path_table.h}.}\par
 }
 {\xe \v entries\:path_table}
@@ -1202,6 +1215,9 @@ size_t path_table::size}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+max size of {\f2 entries} . }}\par
 {
 Definition at line {\b 20} of file {\b path_table.h}.}\par
 }
@@ -6068,14 +6084,39 @@ void {\b resize_path_table_entries} ({\b path_table} *pt)\par
 void {\b print_path_table_entry} ({\b path_table_entry} *e)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b create_path_table} ({\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a given {\f2 {\b path_table}} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b destroy_path_table} ({\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b add_entry_to_path_table} ({\b path_table} *pt, {\b path_table_entry} *entry)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a given {\f2 {\b path_table_entry}}  to the given {\f2 {\b path_table}} 's list of {\f2 entries} , resizing it as needed. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_path_table} ({\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints the given path table out to the stdout, formatting it into a human-readible form. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b process_type_l_path_table} (FILE *fptr, {\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }{
+}\par
+}\par}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Variables\par
@@ -6103,6 +6144,26 @@ void add_entry_to_path_table ({\b path_table} * pt, {\b path_table_entry} * entr
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a given {\f2 {\b path_table_entry}}  to the given {\f2 {\b path_table}} 's list of {\f2 entries} , resizing it as needed. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to which the entry should be added. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i entry} \cell }{the entry to add to the given path table. \cell }
+{\row }
+}
+}{
 Definition at line {\b 50} of file {\b path_table.c}.}\par
 }
 {\xe \v create_path_table\:path_table.c}
@@ -6117,6 +6178,27 @@ int8_t create_path_table ({\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a given {\f2 {\b path_table}} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{{\b path_table} to be initialized. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b path_table} \par
+{\b destroy_path_table()} \par
+}}}{
 Definition at line {\b 13} of file {\b path_table.c}.}\par
 }
 {\xe \v destroy_path_table\:path_table.c}
@@ -6131,6 +6213,24 @@ void destroy_path_table ({\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to be destroyed. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b path_table} \par
+{\b create_path_table()} \par
+}}}{
 Definition at line {\b 34} of file {\b path_table.c}.}\par
 }
 {\xe \v print_path_table\:path_table.c}
@@ -6145,6 +6245,20 @@ void print_path_table ({\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to which the entry should be added. \cell }
+{\row }
+}
+}{
 Definition at line {\b 86} of file {\b path_table.c}.}\par
 }
 {\xe \v print_path_table_entry\:path_table.c}
@@ -6173,7 +6287,30 @@ void process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 114} of file {\b path_table.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{data to be processed. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to which the data should be processed into. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\f2 https://wiki.osdev.org/ISO_9660#The_Path_Table} \par
+}}}{
+Definition at line {\b 108} of file {\b path_table.c}.}\par
 }
 {\xe \v resize_path_table_entries\:path_table.c}
 {\xe \v path_table.c\:resize_path_table_entries}
@@ -6340,62 +6477,56 @@ Go to the documentation of this file.\par
 00104   printf ({\cf22 "\\tDirectory identifier: %s\\n"}, e->directory_identifier);\par
 00105 \}\par
 00106 \par
-00107 {\cf20 /*}\par
-00108 {\cf20  *  process_type_l_path_table}\par
-00109 {\cf20  *}\par
-00110 {\cf20  *  TODO: write some better documentation.}\par
-00111 {\cf20  *  In the meantime, see: https://wiki.osdev.org/ISO_9660#The_Path_Table}\par
-00112 {\cf20  */}\par
-00113 {\cf18 void}\par
-00114 process_type_l_path_table (FILE *fptr, path_table *pt)\par
-00115 \{\par
-00116   uint8_t dir_identifier_length = read_single_uint8 (fptr);\par
-00117   {\cf19 do}\par
-00118     \{\par
-00119       path_table_entry curr_entry;\par
-00120       curr_entry.directory_identifier_length = dir_identifier_length;\par
-00121 \par
-00122       {\cf19 if} (curr_entry.directory_identifier_length != 1)\par
-00123         curr_entry.directory_identifier_length += 1;\par
-00124 \par
-00125       curr_entry.extended_attribute_record_length = read_single_uint8 (fptr);\par
-00126       curr_entry.location_of_extent = read_little_endian_data_uint32_t (fptr);\par
-00127       curr_entry.parent_directory_number\par
-00128           = read_little_endian_data_uint16_t (fptr);\par
-00129 \par
-00130       curr_entry.directory_identifier = ({\cf18 char} *)calloc (\par
-00131           curr_entry.directory_identifier_length, sizeof ({\cf18 char}));\par
-00132       {\cf19 if} (curr_entry.directory_identifier_length != 1)\par
-00133         \{\par
-00134           {\cf18 size_t} bytes_read\par
-00135               = fread (curr_entry.directory_identifier, sizeof ({\cf18 char}),\par
-00136                        curr_entry.directory_identifier_length - 1, fptr);\par
-00137           curr_entry\par
-00138               .directory_identifier[curr_entry.directory_identifier_length - 1]\par
-00139               = {\cf23 '\\0'};\par
-00140           {\cf19 if} (bytes_read\par
-00141               != {\cf17 sizeof} ({\cf18 char}) * (curr_entry.directory_identifier_length - 1))\par
-00142             \{\par
-00143               handle_fread_error (\par
-00144                   fptr, bytes_read,\par
-00145                   {\cf17 sizeof} ({\cf18 char})\par
-00146                       * (curr_entry.directory_identifier_length - 1));\par
-00147             \}\par
-00148         \}\par
-00149       {\cf19 else}\par
-00150         \{\par
-00151           fseek (fptr, 1, SEEK_CUR);\par
-00152         \}\par
-00153 \par
-00154       add_entry_to_path_table (pt, &curr_entry);\par
-00155 \par
-00156       dir_identifier_length = read_single_uint8 (fptr);\par
-00157 \par
-00158       {\cf19 if} (dir_identifier_length == 0) {\cf20 // handle padding field}\par
-00159         dir_identifier_length = read_single_uint8 (fptr);\par
-00160     \}\par
-00161   {\cf19 while} (dir_identifier_length != 0);\par
-00162 \}\par
+00107 {\cf18 void}\par
+00108 process_type_l_path_table (FILE *fptr, path_table *pt)\par
+00109 \{\par
+00110   uint8_t dir_identifier_length = read_single_uint8 (fptr);\par
+00111   {\cf19 do}\par
+00112     \{\par
+00113       path_table_entry curr_entry;\par
+00114       curr_entry.directory_identifier_length = dir_identifier_length;\par
+00115 \par
+00116       {\cf19 if} (curr_entry.directory_identifier_length != 1)\par
+00117         curr_entry.directory_identifier_length += 1;\par
+00118 \par
+00119       curr_entry.extended_attribute_record_length = read_single_uint8 (fptr);\par
+00120       curr_entry.location_of_extent = read_little_endian_data_uint32_t (fptr);\par
+00121       curr_entry.parent_directory_number\par
+00122           = read_little_endian_data_uint16_t (fptr);\par
+00123 \par
+00124       curr_entry.directory_identifier = ({\cf18 char} *)calloc (\par
+00125           curr_entry.directory_identifier_length, sizeof ({\cf18 char}));\par
+00126       {\cf19 if} (curr_entry.directory_identifier_length != 1)\par
+00127         \{\par
+00128           {\cf18 size_t} bytes_read\par
+00129               = fread (curr_entry.directory_identifier, sizeof ({\cf18 char}),\par
+00130                        curr_entry.directory_identifier_length - 1, fptr);\par
+00131           curr_entry\par
+00132               .directory_identifier[curr_entry.directory_identifier_length - 1]\par
+00133               = {\cf23 '\\0'};\par
+00134           {\cf19 if} (bytes_read\par
+00135               != {\cf17 sizeof} ({\cf18 char}) * (curr_entry.directory_identifier_length - 1))\par
+00136             \{\par
+00137               handle_fread_error (\par
+00138                   fptr, bytes_read,\par
+00139                   {\cf17 sizeof} ({\cf18 char})\par
+00140                       * (curr_entry.directory_identifier_length - 1));\par
+00141             \}\par
+00142         \}\par
+00143       {\cf19 else}\par
+00144         \{\par
+00145           fseek (fptr, 1, SEEK_CUR);\par
+00146         \}\par
+00147 \par
+00148       add_entry_to_path_table (pt, &curr_entry);\par
+00149 \par
+00150       dir_identifier_length = read_single_uint8 (fptr);\par
+00151 \par
+00152       {\cf19 if} (dir_identifier_length == 0) {\cf20 // handle padding field}\par
+00153         dir_identifier_length = read_single_uint8 (fptr);\par
+00154     \}\par
+00155   {\cf19 while} (dir_identifier_length != 0);\par
+00156 \}\par
 }
 \par \pard\plain 
 
@@ -6427,14 +6558,39 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b create_path_table} ({\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a given {\f2 {\b path_table}} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b destroy_path_table} ({\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b add_entry_to_path_table} ({\b path_table} *pt, {\b path_table_entry} *entry)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a given {\f2 {\b path_table_entry}}  to the given {\f2 {\b path_table}} 's list of {\f2 entries} , resizing it as needed. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_path_table} ({\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints the given path table out to the stdout, formatting it into a human-readible form. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b process_type_l_path_table} (FILE *fptr, {\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -6452,6 +6608,26 @@ void add_entry_to_path_table ({\b path_table} * pt, {\b path_table_entry} * entr
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Adds a given {\f2 {\b path_table_entry}}  to the given {\f2 {\b path_table}} 's list of {\f2 entries} , resizing it as needed. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to which the entry should be added. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i entry} \cell }{the entry to add to the given path table. \cell }
+{\row }
+}
+}{
 Definition at line {\b 50} of file {\b path_table.c}.}\par
 }
 {\xe \v create_path_table\:path_table.h}
@@ -6466,6 +6642,27 @@ int8_t create_path_table ({\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Initializes a given {\f2 {\b path_table}} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{{\b path_table} to be initialized. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b path_table} \par
+{\b destroy_path_table()} \par
+}}}{
 Definition at line {\b 13} of file {\b path_table.c}.}\par
 }
 {\xe \v destroy_path_table\:path_table.h}
@@ -6480,6 +6677,24 @@ void destroy_path_table ({\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to be destroyed. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b path_table} \par
+{\b create_path_table()} \par
+}}}{
 Definition at line {\b 34} of file {\b path_table.c}.}\par
 }
 {\xe \v print_path_table\:path_table.h}
@@ -6494,6 +6709,20 @@ void print_path_table ({\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to which the entry should be added. \cell }
+{\row }
+}
+}{
 Definition at line {\b 86} of file {\b path_table.c}.}\par
 }
 {\xe \v process_type_l_path_table\:path_table.h}
@@ -6508,7 +6737,30 @@ void process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 114} of file {\b path_table.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{data to be processed. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i pt} \cell }{path table to which the data should be processed into. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\f2 https://wiki.osdev.org/ISO_9660#The_Path_Table} \par
+}}}{
+Definition at line {\b 108} of file {\b path_table.c}.}\par
 }
 \par \pard\plain 
 
@@ -6541,17 +6793,21 @@ Go to the documentation of this file.\par
 00017 {\cf17 typedef} {\cf17 struct }path_table\par
 00018 \{\par
 00019   path_table_entry *entries;\par
-00020   {\cf18 size_t} size;\par
-00021   {\cf18 size_t} current_entry;\par
+00020   {\cf18 size_t} size;          \par
+00021   {\cf18 size_t} current_entry; \par
 00022 \} path_table;\par
 00023 \par
-00024 int8_t create_path_table (path_table *pt);\par
-00025 {\cf18 void} destroy_path_table (path_table *pt);\par
-00026 {\cf18 void} add_entry_to_path_table (path_table *pt, path_table_entry *entry);\par
-00027 {\cf18 void} print_path_table (path_table *pt);\par
-00028 {\cf18 void} process_type_l_path_table (FILE *fptr, path_table *pt);\par
-00029 \par
-00030 {\cf21 #endif}\par
+00032 int8_t create_path_table (path_table *pt);\par
+00033 \par
+00041 {\cf18 void} destroy_path_table (path_table *pt);\par
+00042 \par
+00050 {\cf18 void} add_entry_to_path_table (path_table *pt, path_table_entry *entry);\par
+00051 \par
+00058 {\cf18 void} print_path_table (path_table *pt);\par
+00059 \par
+00068 {\cf18 void} process_type_l_path_table (FILE *fptr, path_table *pt);\par
+00069 \par
+00070 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
