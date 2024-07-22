@@ -5,6 +5,10 @@
 <simplesect>
     <title>Files    </title>
         <itemizedlist>
+            <listitem><para>file <link linkend="_data__reader_8c">data_reader.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_data__reader_8h">data_reader.h</link></para>
+</listitem>
             <listitem><para>file <link linkend="_datetime_8c">datetime.c</link></para>
 </listitem>
             <listitem><para>file <link linkend="_datetime_8h">datetime.h</link></para>

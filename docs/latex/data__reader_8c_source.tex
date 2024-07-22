@@ -1,0 +1,197 @@
+\doxysection{data\+\_\+reader.\+c}
+\hypertarget{data__reader_8c_source}{}\label{data__reader_8c_source}\index{src/data\_reader.c@{src/data\_reader.c}}
+\mbox{\hyperlink{data__reader_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data__reader_8h}{data\_reader.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datetime_8h}{datetime.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{errors_8h}{errors.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{file__flags_8h}{file\_flags.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00008}00008\ \textcolor{keyword}{static}\ uint32\_t\ \mbox{\hyperlink{data__reader_8c_a2a49f11a175c9b7e98151f4f2206991f}{read\_big\_endian\_data\_uint32\_t}}\ (FILE\ *fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00009}00009\ \textcolor{keyword}{static}\ uint16\_t\ \mbox{\hyperlink{data__reader_8c_a6c29cc4570af24fdd43af32901c72f95}{read\_big\_endian\_data\_uint16\_t}}\ (FILE\ *fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00011}00011\ uint32\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00012}\mbox{\hyperlink{data__reader_8c_a2384957f27e209d73a6377de962cbc15}{00012}}\ \mbox{\hyperlink{data__reader_8c_a2384957f27e209d73a6377de962cbc15}{read\_both\_endian\_data\_uint32}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00014}00014\ \ \ uint32\_t\ value\ =\ \mbox{\hyperlink{data__reader_8c_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\_little\_endian\_data\_uint32\_t}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00015}00015\ \ \ uint32\_t\ expected\_value\ =\ \mbox{\hyperlink{data__reader_8c_a2a49f11a175c9b7e98151f4f2206991f}{read\_big\_endian\_data\_uint32\_t}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00017}00017\ \ \ \textcolor{keywordflow}{if}\ (value\ !=\ expected\_value)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00018}00018\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00019}00019\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}ERROR:\ Incorrect\ endian\ conversion\ (uint32\_t).\(\backslash\)n\(\backslash\)tExpected\ "{}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\%08X,\ got\ \%08X.\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ expected\_value,\ value);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00022}00022\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00024}00024\ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00027}00027\ uint16\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00028}\mbox{\hyperlink{data__reader_8c_a3046006fce30b3601ef7399ccead3499}{00028}}\ \mbox{\hyperlink{data__reader_8c_a3046006fce30b3601ef7399ccead3499}{read\_both\_endian\_data\_uint16}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00030}00030\ \ \ uint16\_t\ value\ =\ \mbox{\hyperlink{data__reader_8c_ad773a6c38ce11dd0812deea517043051}{read\_little\_endian\_data\_uint16\_t}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00031}00031\ \ \ uint16\_t\ expected\_value\ =\ \mbox{\hyperlink{data__reader_8c_a6c29cc4570af24fdd43af32901c72f95}{read\_big\_endian\_data\_uint16\_t}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00033}00033\ \ \ \textcolor{keywordflow}{if}\ (value\ !=\ expected\_value)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00034}00034\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00035}00035\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}ERROR:\ Incorrect\ endian\ conversion\ (uint16\_t).\(\backslash\)n\(\backslash\)tExpected\ "{}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\%04X,\ got\ \%04X.\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ expected\_value,\ value);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00040}00040\ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00043}00043\ uint32\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00044}\mbox{\hyperlink{data__reader_8c_a778ae3162a4e12d7d7dbe8672ca0ec81}{00044}}\ \mbox{\hyperlink{data__reader_8c_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\_little\_endian\_data\_uint32\_t}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00045}00045\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00046}00046\ \ \ uint8\_t\ bytes[4];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00047}00047\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (bytes,\ \textcolor{keyword}{sizeof}\ (uint8\_t),\ 4,\ fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00048}00048\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ 4)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00049}00049\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00050}00050\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \textcolor{keyword}{sizeof}\ (bytes));}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00051}00051\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00052}00052\ \ \ \textcolor{keywordflow}{return}\ ((uint32\_t)bytes[3]\ <<\ 24)\ |\ ((uint32\_t)bytes[2]\ <<\ 16)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ |\ ((uint32\_t)bytes[1]\ <<\ 8)\ |\ (uint32\_t)bytes[0];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00056}00056\ uint32\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00057}\mbox{\hyperlink{data__reader_8c_a2a49f11a175c9b7e98151f4f2206991f}{00057}}\ \mbox{\hyperlink{data__reader_8c_a2a49f11a175c9b7e98151f4f2206991f}{read\_big\_endian\_data\_uint32\_t}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00059}00059\ \ \ uint8\_t\ bytes[4];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00060}00060\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (bytes,\ \textcolor{keyword}{sizeof}\ (uint8\_t),\ 4,\ fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00061}00061\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ 4)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00062}00062\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00063}00063\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \textcolor{keyword}{sizeof}\ (bytes));}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00066}00066\ \ \ \textcolor{keywordflow}{return}\ ((uint32\_t)bytes[0]\ <<\ 24)\ |\ ((uint32\_t)bytes[1]\ <<\ 16)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ |\ ((uint32\_t)bytes[2]\ <<\ 8)\ |\ (uint32\_t)bytes[3];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00070}00070\ uint16\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00071}\mbox{\hyperlink{data__reader_8c_ad773a6c38ce11dd0812deea517043051}{00071}}\ \mbox{\hyperlink{data__reader_8c_ad773a6c38ce11dd0812deea517043051}{read\_little\_endian\_data\_uint16\_t}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00073}00073\ \ \ uint8\_t\ bytes[2];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00074}00074\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (bytes,\ \textcolor{keyword}{sizeof}\ (uint8\_t),\ 2,\ fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00075}00075\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ 2)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00076}00076\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00077}00077\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \textcolor{keyword}{sizeof}\ (bytes));}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00079}00079\ \ \ \textcolor{keywordflow}{return}\ ((uint16\_t)bytes[0]\ <<\ 8)\ |\ (uint16\_t)bytes[1];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00082}00082\ uint16\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00083}\mbox{\hyperlink{data__reader_8c_a6c29cc4570af24fdd43af32901c72f95}{00083}}\ \mbox{\hyperlink{data__reader_8c_a6c29cc4570af24fdd43af32901c72f95}{read\_big\_endian\_data\_uint16\_t}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00084}00084\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00085}00085\ \ \ uint8\_t\ bytes[2];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00086}00086\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (bytes,\ \textcolor{keyword}{sizeof}\ (uint8\_t),\ 2,\ fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00087}00087\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ 2)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00088}00088\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00089}00089\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \textcolor{keyword}{sizeof}\ (bytes));}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00091}00091\ \ \ \textcolor{keywordflow}{return}\ ((uint16\_t)bytes[1]\ <<\ 8)\ |\ (uint16\_t)bytes[0];}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00092}00092\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00094}00094\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00095}\mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{00095}}\ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (FILE\ *fptr,\ \textcolor{keywordtype}{char}\ *output,\ uint8\_t\ length)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00096}00096\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00097}00097\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (output,\ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char}),\ length\ -\/\ 1,\ fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00098}00098\ \ \ output[length\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00099}00099\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char})\ *\ length\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00100}00100\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00101}00101\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char})\ *\ length\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00105}00105\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00106}\mbox{\hyperlink{data__reader_8c_a9a2b371ec7adbc610cbda9eeb8ed2f98}{00106}}\ \mbox{\hyperlink{data__reader_8c_a9a2b371ec7adbc610cbda9eeb8ed2f98}{read\_array\_uint8}}\ (FILE\ *fptr,\ uint8\_t\ *arr,\ uint8\_t\ length)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00108}00108\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (arr,\ \textcolor{keyword}{sizeof}\ (uint8\_t),\ length,\ fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00109}00109\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ \textcolor{keyword}{sizeof}\ (uint8\_t)\ *\ length)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00110}00110\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00111}00111\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \textcolor{keyword}{sizeof}\ (uint8\_t)\ *\ length);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00112}00112\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00113}00113\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00115}00115\ \mbox{\hyperlink{structdec__datetime}{dec\_datetime}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00116}\mbox{\hyperlink{data__reader_8c_a1ce9a4bc57c45da7a72c9fa4effef5a7}{00116}}\ \mbox{\hyperlink{data__reader_8c_a1ce9a4bc57c45da7a72c9fa4effef5a7}{read\_dec\_datetime}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00117}00117\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00118}00118\ \ \ \mbox{\hyperlink{structdec__datetime}{dec\_datetime}}\ dt;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00119}00119\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ dt.\mbox{\hyperlink{structdec__datetime_aecdc0bb36e008959ec02964a90f26185}{year}},\ \mbox{\hyperlink{datetime_8h_ae1bf067b2ccb33abefdd15183cf9ab64}{YEAR\_FIELD\_LEN}});}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00120}00120\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ dt.\mbox{\hyperlink{structdec__datetime_a9a49918f821ccde4fc3aa3c88cd2963c}{month}},\ \mbox{\hyperlink{datetime_8h_acc006ed15ce1e12e4b219834d33ee662}{MONTH\_FIELD\_LEN}});}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00121}00121\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ dt.\mbox{\hyperlink{structdec__datetime_af3fc3798050252f3dd1bacea9f5cf93f}{day}},\ \mbox{\hyperlink{datetime_8h_a1ac2df2e34ef234de552a151d3b97bbb}{DAY\_FIELD\_LEN}});}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00122}00122\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ dt.\mbox{\hyperlink{structdec__datetime_a186dc4e54850249d53afc571181ea4cd}{hour}},\ \mbox{\hyperlink{datetime_8h_ad1a4da9ded2254332c4e1a94c2b187e9}{HOUR\_FIELD\_LEN}});}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00123}00123\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ dt.\mbox{\hyperlink{structdec__datetime_ae9f8578fefb8937e837cfad07e21ca3c}{minute}},\ \mbox{\hyperlink{datetime_8h_ac98f70a718b2a41a5da4b23dbfffb84a}{MINUTE\_FIELD\_LEN}});}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00124}00124\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ dt.\mbox{\hyperlink{structdec__datetime_ad456741338a4fbfa1ce792c9458bdf49}{second}},\ \mbox{\hyperlink{datetime_8h_abba1fa1a9450e11671e3f3793bef5861}{SECOND\_FIELD\_LEN}});}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00125}00125\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ dt.\mbox{\hyperlink{structdec__datetime_a5d3eb33cf9dd5476ec640c559d86483e}{hundredths\_of\_a\_second}},}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{datetime_8h_a718309da4d9ed9b2292e9461e98a7914}{HUNDREDTHS\_OF\_A\_SECOND\_FIELD\_LEN}});}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00127}00127\ \ \ dt.\mbox{\hyperlink{structdec__datetime_a50b663ed16c5a54dab5fdfd8ef48a3d6}{time\_zone\_offset}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00129}00129\ \ \ \textcolor{keywordflow}{return}\ dt;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00132}00132\ uint8\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00133}\mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{00133}}\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00134}00134\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00135}00135\ \ \ uint8\_t\ value;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00136}00136\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (\&value,\ \textcolor{keyword}{sizeof}\ (uint8\_t),\ 1,\ fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00137}00137\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ \textcolor{keyword}{sizeof}\ (uint8\_t))}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00138}00138\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00139}00139\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \textcolor{keyword}{sizeof}\ (uint8\_t));}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00140}00140\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00141}00141\ \ \ \textcolor{keywordflow}{return}\ value;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00142}00142\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00144}00144\ uint16\_t}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00145}\mbox{\hyperlink{data__reader_8c_a4965520bde2fd7164397a78f8026164a}{00145}}\ \mbox{\hyperlink{data__reader_8c_a4965520bde2fd7164397a78f8026164a}{change\_endianness\_uint16}}\ (uint16\_t\ value)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00146}00146\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00147}00147\ \ \ \textcolor{keywordflow}{return}\ (value\ <<\ 8)\ |\ (value\ >>\ 8);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00148}00148\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00150}00150\ \mbox{\hyperlink{structdir__datetime}{dir\_datetime}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00151}\mbox{\hyperlink{data__reader_8c_a5a98ed2c3f9d2d60f4ed387ca94f6413}{00151}}\ \mbox{\hyperlink{data__reader_8c_a5a98ed2c3f9d2d60f4ed387ca94f6413}{read\_dir\_datetime}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00152}00152\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00153}00153\ \ \ \mbox{\hyperlink{structdir__datetime}{dir\_datetime}}\ dt;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00154}00154\ \ \ dt.\mbox{\hyperlink{structdir__datetime_aea1e1dd3a1027d5fe236a4dab033ef95}{year}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00155}00155\ \ \ dt.\mbox{\hyperlink{structdir__datetime_a5481d120cb6827e5e732870f247fdd1f}{month}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00156}00156\ \ \ dt.\mbox{\hyperlink{structdir__datetime_af54522a1af8ab65ee2952b64cbbfcd72}{day}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00157}00157\ \ \ dt.\mbox{\hyperlink{structdir__datetime_a4c8fcd93cd358f7391eb1c76e0dc73c2}{hour}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00158}00158\ \ \ dt.\mbox{\hyperlink{structdir__datetime_aa4546643c94281e49bb4a4e877e85c36}{minute}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00159}00159\ \ \ dt.\mbox{\hyperlink{structdir__datetime_ab591f62d74ab9b0a116f69a3fc950162}{second}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00160}00160\ \ \ dt.\mbox{\hyperlink{structdir__datetime_afd2ade26637ba3a84189bcb678130834}{time\_zone\_offset}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00162}00162\ \ \ \textcolor{keywordflow}{return}\ dt;}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00163}00163\ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00165}00165\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00166}\mbox{\hyperlink{data__reader_8c_a5d12d6ba0683fa0c576d2ee3a6006656}{00166}}\ \mbox{\hyperlink{data__reader_8c_a5d12d6ba0683fa0c576d2ee3a6006656}{read\_file\_flags}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structfile__flags}{file\_flags}}\ *ff)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00167}00167\ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00168}00168\ \ \ uint8\_t\ \textcolor{keywordtype}{byte}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00170}00170\ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{byte}\ \&\ 0x1)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00171}00171\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00172}00172\ \ \ \ \ \ \ ff-\/>\mbox{\hyperlink{structfile__flags_a4139d9b02dc7f9d1649ed9d3466dd7af}{hidden}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00173}00173\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00174}00174\ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{byte}\ \&\ 0x2)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00175}00175\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00176}00176\ \ \ \ \ \ \ ff-\/>\mbox{\hyperlink{structfile__flags_a16bbb1c4299a88199b4bc23f29215049}{subdirectory}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00177}00177\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00178}00178\ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{byte}\ \&\ 0x4)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00179}00179\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00180}00180\ \ \ \ \ \ \ ff-\/>\mbox{\hyperlink{structfile__flags_a65c772bf6516b11d65fb49180812c109}{associated\_file}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00181}00181\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00182}00182\ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{byte}\ \&\ 0x8)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00183}00183\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00184}00184\ \ \ \ \ \ \ ff-\/>\mbox{\hyperlink{structfile__flags_a86793fb0cad3076a0f21d6c4bb1f1059}{extended\_attribute\_record\_contains\_owner\_and\_group\_permissions}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00186}00186\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00187}00187\ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keywordtype}{byte}\ \&\ 0x10)}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00188}00188\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00189}00189\ \ \ \ \ \ \ ff-\/>\mbox{\hyperlink{structfile__flags_aef4a9f3598c6b75c602d7c7a969669a3}{final\_directory\_record}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00190}00190\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{data__reader_8c_source_l00191}00191\ \}}
+
+\end{DoxyCode}

@@ -102,7 +102,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_hh_8c_source_1l00098"/>00098 
 <anchor xml:id="_hh_8c_source_1l00099"/>00099 &#32;&#32;<emphasis role="comment">//&#32;logical&#32;block&#32;size,&#32;in&#32;big&#32;endian&#32;form</emphasis>
 <anchor xml:id="_hh_8c_source_1l00100"/>00100 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;LOGICAL_BLOCK_SIZE_BE
-<anchor xml:id="_hh_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;=&#32;<link linkend="_utils_8c_1a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</link>&#32;(vd.<link linkend="_structvolume__descriptor_1aa4662741d6354f25862a6e1c1f2bc34a">data</link>.<link linkend="_structvolume__descriptor__data_1af21ca763088cfcfcbb5064619cacd96b">logical_block_size</link>);
+<anchor xml:id="_hh_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;=&#32;<link linkend="_data__reader_8c_1a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</link>&#32;(vd.<link linkend="_structvolume__descriptor_1aa4662741d6354f25862a6e1c1f2bc34a">data</link>.<link linkend="_structvolume__descriptor__data_1af21ca763088cfcfcbb5064619cacd96b">logical_block_size</link>);
 <anchor xml:id="_hh_8c_source_1l00102"/>00102 
 <anchor xml:id="_hh_8c_source_1l00103"/>00103 &#32;&#32;<emphasis role="comment">//&#32;move&#32;to&#32;beginning&#32;of&#32;type-l&#32;path&#32;table</emphasis>
 <anchor xml:id="_hh_8c_source_1l00104"/>00104 &#32;&#32;fseek&#32;(fptr,&#32;LOGICAL_BLOCK_SIZE_BE&#32;*&#32;vd.<link linkend="_structvolume__descriptor_1aa4662741d6354f25862a6e1c1f2bc34a">data</link>.<link linkend="_structvolume__descriptor__data_1ad9941118893e9ca2a44e11d2d3a54402">type_l_path_table_location</link>,

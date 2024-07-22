@@ -19,6 +19,10 @@
 <chapter>
     <title>File Documentation</title>
     <xi:include href="README_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="data__reader_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="data__reader_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="data__reader_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="data__reader_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="datetime_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="datetime_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="datetime_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

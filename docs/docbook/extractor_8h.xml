@@ -74,7 +74,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00106">106</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00107">107</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 <anchor xml:id="_extractor_8h_1a83bd0d1558bff60ba2a613868c6a138f"/><section>
     <title>extract_directory()</title>
@@ -121,7 +121,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00066">66</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00067">67</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 <anchor xml:id="_extractor_8h_1a553117edee61f114d5f6fd9d28d57313"/><section>
     <title>extract_file()</title>
@@ -168,7 +168,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00009">9</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00010">10</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 </section>
 </section>

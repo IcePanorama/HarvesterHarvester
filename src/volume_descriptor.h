@@ -5,7 +5,6 @@
 
 #include <stdint.h>
 #include <stdio.h>
-#include <string.h>
 
 #define SYSTEM_IDENTIFIER_LEN 33
 #define VOLUME_IDENTIFIER_LEN 33
@@ -20,7 +19,12 @@
 #define DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN 9
 #define DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN 11
 
-// See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
+/**
+ *  The data section of a primary volume descriptor.
+ *
+ *  @see  https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
+ *  @see  volume_descriptor_header
+ */
 typedef struct volume_descriptor_data
 {
   char system_identifier[SYSTEM_IDENTIFIER_LEN];
@@ -46,27 +50,73 @@ typedef struct volume_descriptor_data
   dec_datetime volume_modification_date_and_time;
   dec_datetime volume_expiration_date_and_time;
   dec_datetime volume_effective_date_and_time;
-  uint8_t file_structure_version; // always `0x01`
+  uint8_t file_structure_version; //!< Always `0x01`
   char DAT_file_creation_software_identifier
       [DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN];
   char DAT_file_creation_software_version_number
       [DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN];
 } volume_descriptor_data;
 
-// See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors
+/** @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors */
 typedef struct volume_descriptor
 {
   uint8_t type_code;
-  char identifier[6]; // always `CD001`
+  char identifier[6]; //!< Always `CD001`.
   uint8_t version;
   volume_descriptor_data data;
 } volume_descriptor;
 
+/**
+ *  Initializes a given `volume_descriptor` using the provided `type` and
+ *  `version` data.
+ *
+ *  @param  vd      the volume descriptor to be initialized.
+ *  @param  type    uin8_t denoting the `type_code` of the `volume_descriptor`.
+ *  @param  version uin8_t denoting the `version` of the `volume_descriptor`.
+ *  @see  volume_descriptor
+ *  @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors
+ */
 void create_volume_descriptor (volume_descriptor *vd, uint8_t type,
                                uint8_t version);
+/**
+ *  Prints the header section of a given `volume_descriptor` in a
+ *  human-readable form to stdout. The header includes every field except for
+ *  `data`, which can be printed using the `print_volume_descriptor_data()`
+ *  function.
+ *
+ *  @param  vd  the `volume_descriptor` to be printed.
+ *  @see  volume_descriptor
+ *  @see  print_volume_descriptor_data()
+ */
 void print_volume_descriptor_header (volume_descriptor *vd);
+
+/**
+ *  Prints the given `volume_descriptor_data` to the stdout in a human-readable
+ *  form.
+ *
+ *  @param  vdd the `volume_descriptor_data` to be printed.
+ *  @see  volume_descriptor_data
+ */
 void print_volume_descriptor_data (volume_descriptor_data *vdd);
+
+/**
+ *  Processes the header of a given `volume_descriptor` using data pointed to
+ *  by `fptr`.
+ *
+ *  @param  fptr  pointer to data to be processed.
+ *  @param  vd    `volume_descriptor` to which the data should be added.
+ *  @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors
+ */
 void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
+
+/**
+ *  Processes the given `volume_descriptor_data` using data pointed to by
+ *  `fptr`.
+ *
+ *  @param  fptr  pointer to data to be processed.
+ *  @param  vdd    `volume_descriptor_data` to which the data should be added.
+ *  @see  https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
+ */
 void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
 
 #endif

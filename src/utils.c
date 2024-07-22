@@ -7,11 +7,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-/*
- *  prepend_path_string
- *
- *  TODO: add documentation
- */
 void
 prepend_path_string (char *str, const char *prefix)
 {

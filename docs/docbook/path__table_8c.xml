@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_path__table_8c" xml:lang="en-US">
 <title>src/path_table.c File Reference</title>
 <indexterm><primary>src/path_table.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;path_table.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;path_table.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_path__table_8c_1a3c2e19bcf67a11cf80eddd62ebcd98a1">resize_path_table_entries</link> (<link linkend="_structpath__table">path_table</link> *pt)</para>

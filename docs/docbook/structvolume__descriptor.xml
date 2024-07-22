@@ -11,6 +11,8 @@
             <listitem><para>uint8_t <link linkend="_structvolume__descriptor_1a2aca920f790e33bcdbe52d06577aa77e">type_code</link></para>
 </listitem>
             <listitem><para>char <link linkend="_structvolume__descriptor_1a3fe7f93b350973ce3bee72827ec0c27e">identifier</link> [6]</para>
+
+<para>Always <computeroutput>CD001</computeroutput>. </para>
 </listitem>
             <listitem><para>uint8_t <link linkend="_structvolume__descriptor_1a42ab8e72b6579782600e39b58ee53f26">version</link></para>
 </listitem>
@@ -20,8 +22,14 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para><formalpara><title>See also</title>
+
+<para><link xlink:href="https://wiki.osdev.org/ISO_9660#Volume_Descriptors">https://wiki.osdev.org/ISO_9660#Volume_Descriptors</link> </para>
+</formalpara>
+</para>
 <para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00057">57</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00061">61</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -30,28 +38,32 @@ Definition at line <link linkend="_volume__descriptor_8h_source_1l00057">57</lin
 <indexterm><primary>data</primary><secondary>volume_descriptor</secondary></indexterm>
 <indexterm><primary>volume_descriptor</primary><secondary>data</secondary></indexterm>
 <para><computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link> volume_descriptor::data</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00062">62</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00066">66</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_structvolume__descriptor_1a3fe7f93b350973ce3bee72827ec0c27e"/><section>
     <title>identifier</title>
 <indexterm><primary>identifier</primary><secondary>volume_descriptor</secondary></indexterm>
 <indexterm><primary>volume_descriptor</primary><secondary>identifier</secondary></indexterm>
 <para><computeroutput>char volume_descriptor::identifier[6]</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00060">60</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+
+<para>Always <computeroutput>CD001</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00064">64</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_structvolume__descriptor_1a2aca920f790e33bcdbe52d06577aa77e"/><section>
     <title>type_code</title>
 <indexterm><primary>type_code</primary><secondary>volume_descriptor</secondary></indexterm>
 <indexterm><primary>volume_descriptor</primary><secondary>type_code</secondary></indexterm>
 <para><computeroutput>uint8_t volume_descriptor::type_code</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00059">59</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00063">63</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_structvolume__descriptor_1a42ab8e72b6579782600e39b58ee53f26"/><section>
     <title>version</title>
 <indexterm><primary>version</primary><secondary>volume_descriptor</secondary></indexterm>
 <indexterm><primary>volume_descriptor</primary><secondary>version</secondary></indexterm>
 <para><computeroutput>uint8_t volume_descriptor::version</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00061">61</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00065">65</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

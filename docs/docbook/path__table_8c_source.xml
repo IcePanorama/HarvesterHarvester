@@ -3,8 +3,8 @@
 <title>path_table.c</title>
 <indexterm><primary>src/path_table.c</primary></indexterm>
 Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_path__table_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_path__table_8h">path_table.h</link>&quot;</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_errors_8h">errors.h</link>&quot;</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_utils_8h">utils.h</link>&quot;</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_data__reader_8h">data_reader.h</link>&quot;</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_errors_8h">errors.h</link>&quot;</emphasis>
 <anchor xml:id="_path__table_8c_source_1l00004"/>00004 
 <anchor xml:id="_path__table_8c_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
 <anchor xml:id="_path__table_8c_source_1l00006"/>00006 
@@ -111,7 +111,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_path__table_8c_source_1l00107"/>00107 <emphasis role="keywordtype">void</emphasis>
 <anchor xml:id="_path__table_8c_source_1l00108"/><link linkend="_path__table_8c_1abc1fa6960cc549494e87d2884727e202">00108</link> <link linkend="_path__table_8c_1abc1fa6960cc549494e87d2884727e202">process_type_l_path_table</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt)
 <anchor xml:id="_path__table_8c_source_1l00109"/>00109 {
-<anchor xml:id="_path__table_8c_source_1l00110"/>00110 &#32;&#32;uint8_t&#32;dir_identifier_length&#32;=&#32;<link linkend="_utils_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
+<anchor xml:id="_path__table_8c_source_1l00110"/>00110 &#32;&#32;uint8_t&#32;dir_identifier_length&#32;=&#32;<link linkend="_data__reader_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
 <anchor xml:id="_path__table_8c_source_1l00111"/>00111 &#32;&#32;<emphasis role="keywordflow">do</emphasis>
 <anchor xml:id="_path__table_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;{
 <anchor xml:id="_path__table_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structpath__table__entry">path_table_entry</link>&#32;curr_entry;
@@ -120,10 +120,10 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_path__table_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(curr_entry.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;!=&#32;1)
 <anchor xml:id="_path__table_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;+=&#32;1;
 <anchor xml:id="_path__table_8c_source_1l00118"/>00118 
-<anchor xml:id="_path__table_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1a12e7dadd206e8c3c3b1c162c9691f523">extended_attribute_record_length</link>&#32;=&#32;<link linkend="_utils_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
-<anchor xml:id="_path__table_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca">location_of_extent</link>&#32;=&#32;<link linkend="_utils_8c_1a778ae3162a4e12d7d7dbe8672ca0ec81">read_little_endian_data_uint32_t</link>&#32;(fptr);
+<anchor xml:id="_path__table_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1a12e7dadd206e8c3c3b1c162c9691f523">extended_attribute_record_length</link>&#32;=&#32;<link linkend="_data__reader_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
+<anchor xml:id="_path__table_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca">location_of_extent</link>&#32;=&#32;<link linkend="_data__reader_8c_1a778ae3162a4e12d7d7dbe8672ca0ec81">read_little_endian_data_uint32_t</link>&#32;(fptr);
 <anchor xml:id="_path__table_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1a8867a81ce59add3e34b7a868af6e795d">parent_directory_number</link>
-<anchor xml:id="_path__table_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;<link linkend="_utils_8c_1ad773a6c38ce11dd0812deea517043051">read_little_endian_data_uint16_t</link>&#32;(fptr);
+<anchor xml:id="_path__table_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;<link linkend="_data__reader_8c_1ad773a6c38ce11dd0812deea517043051">read_little_endian_data_uint16_t</link>&#32;(fptr);
 <anchor xml:id="_path__table_8c_source_1l00123"/>00123 
 <anchor xml:id="_path__table_8c_source_1l00124"/>00124 &#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>&#32;=&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*)calloc&#32;(
 <anchor xml:id="_path__table_8c_source_1l00125"/>00125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr_entry.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>));
@@ -151,10 +151,10 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_path__table_8c_source_1l00147"/>00147 
 <anchor xml:id="_path__table_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_path__table_8c_1a0bb44828b69a55bfc7b9bde95ad2276a">add_entry_to_path_table</link>&#32;(pt,&#32;&amp;curr_entry);
 <anchor xml:id="_path__table_8c_source_1l00149"/>00149 
-<anchor xml:id="_path__table_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;dir_identifier_length&#32;=&#32;<link linkend="_utils_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
+<anchor xml:id="_path__table_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;dir_identifier_length&#32;=&#32;<link linkend="_data__reader_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
 <anchor xml:id="_path__table_8c_source_1l00151"/>00151 
 <anchor xml:id="_path__table_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(dir_identifier_length&#32;==&#32;0)&#32;<emphasis role="comment">//&#32;handle&#32;padding&#32;field</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dir_identifier_length&#32;=&#32;<link linkend="_utils_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
+<anchor xml:id="_path__table_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dir_identifier_length&#32;=&#32;<link linkend="_data__reader_8c_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(fptr);
 <anchor xml:id="_path__table_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_path__table_8c_source_1l00155"/>00155 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(dir_identifier_length&#32;!=&#32;0);
 <anchor xml:id="_path__table_8c_source_1l00156"/>00156 }

@@ -1,7 +1,6 @@
 #include "volume_descriptor.h"
 #include "data_reader.h"
 
-#include <stdio.h>
 #include <string.h>
 
 void
@@ -63,12 +62,6 @@ print_volume_descriptor_data (volume_descriptor_data *vdd)
           vdd->DAT_file_creation_software_version_number);
 }
 
-/*
- *  process_volume_descriptor_header
- *
- *  TODO: write some better documentation for this.
- *  In the meantime, see: https://wiki.osdev.org/ISO_9660#Volume_Descriptors
- */
 void
 process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
 {

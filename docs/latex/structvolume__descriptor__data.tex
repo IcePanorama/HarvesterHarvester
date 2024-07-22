@@ -2,6 +2,11 @@
 \hypertarget{structvolume__descriptor__data}{}\label{structvolume__descriptor__data}\index{volume\_descriptor\_data@{volume\_descriptor\_data}}
 
 
+The data section of a primary volume descriptor.  
+
+
+
+
 {\ttfamily \#include $<$volume\+\_\+descriptor.\+h$>$}
 
 \doxysubsubsection*{Data Fields}
@@ -54,7 +59,7 @@ char \mbox{\hyperlink{structvolume__descriptor__data_a1cdb695762c1f712e8bef804c1
 \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} \mbox{\hyperlink{structvolume__descriptor__data_ab761dec574bb30fe80be1be4c09fc7d7}{volume\+\_\+effective\+\_\+date\+\_\+and\+\_\+time}}
 \item 
 uint8\+\_\+t \mbox{\hyperlink{structvolume__descriptor__data_ab2ba725deb625163a21e8a99820e9060}{file\+\_\+structure\+\_\+version}}
-\item 
+\begin{DoxyCompactList}\small\item\em Always {\ttfamily 0x01} \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{structvolume__descriptor__data_ab8f436d7d3d513740fec783e7d81f3b9}{DAT\+\_\+file\+\_\+creation\+\_\+software\+\_\+identifier}} \mbox{[}\mbox{\hyperlink{volume__descriptor_8h_ae86e9446608da83762f62147c372c700}{DAT\+\_\+\+FILE\+\_\+\+CREATION\+\_\+\+SOFTWARE\+\_\+\+IDENTIFIER\+\_\+\+LEN}}\mbox{]}
 \item 
 char \mbox{\hyperlink{structvolume__descriptor__data_a54845bc356393560cb3a89bd0a08b9a6}{DAT\+\_\+file\+\_\+creation\+\_\+software\+\_\+version\+\_\+number}} \mbox{[}\mbox{\hyperlink{volume__descriptor_8h_ad1b2c8a9e3551bb5aa364f0633996efa}{DAT\+\_\+\+FILE\+\_\+\+CREATION\+\_\+\+SOFTWARE\+\_\+\+VERSION\+\_\+\+NUMBER\+\_\+\+LEN}}\mbox{]}
@@ -62,9 +67,16 @@ char \mbox{\hyperlink{structvolume__descriptor__data_a54845bc356393560cb3a89bd0a
 
 
 \doxysubsection{Detailed Description}
+The data section of a primary volume descriptor. 
+
+\begin{DoxySeeAlso}{See also}
+\href{https://wiki.osdev.org/ISO_9660\#The_Primary_Volume_Descriptor}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660\#\+The\+\_\+\+Primary\+\_\+\+Volume\+\_\+\+Descriptor}} 
+
+volume\+\_\+descriptor\+\_\+header 
+\end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00024}{24}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00028}{28}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 
 
@@ -77,7 +89,7 @@ char volume\+\_\+descriptor\+\_\+data\+::abstract\+\_\+file\+\_\+identifier\mbox
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00043}{43}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00047}{47}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_afb102f20e0aedc4ed02557f3e643b5fb}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!application\_identifier@{application\_identifier}}
 \index{application\_identifier@{application\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -87,7 +99,7 @@ char volume\+\_\+descriptor\+\_\+data\+::application\+\_\+identifier\mbox{[}\mbo
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00041}{41}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00045}{45}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a1cdb695762c1f712e8bef804c1ece6c2}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!bibliographic\_file\_identifier@{bibliographic\_file\_identifier}}
 \index{bibliographic\_file\_identifier@{bibliographic\_file\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -97,7 +109,7 @@ char volume\+\_\+descriptor\+\_\+data\+::bibliographic\+\_\+file\+\_\+identifier
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00044}{44}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00048}{48}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a4e9fdd5d2350af4e9cb0c99d3ebc040b}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!copyright\_file\_identifier@{copyright\_file\_identifier}}
 \index{copyright\_file\_identifier@{copyright\_file\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -107,7 +119,7 @@ char volume\+\_\+descriptor\+\_\+data\+::copyright\+\_\+file\+\_\+identifier\mbo
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00042}{42}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00046}{46}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ab8f436d7d3d513740fec783e7d81f3b9}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!DAT\_file\_creation\_software\_identifier@{DAT\_file\_creation\_software\_identifier}}
 \index{DAT\_file\_creation\_software\_identifier@{DAT\_file\_creation\_software\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -117,7 +129,7 @@ char volume\+\_\+descriptor\+\_\+data\+::\+DAT\+\_\+file\+\_\+creation\+\_\+soft
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00050}{50}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00054}{54}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a54845bc356393560cb3a89bd0a08b9a6}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!DAT\_file\_creation\_software\_version\_number@{DAT\_file\_creation\_software\_version\_number}}
 \index{DAT\_file\_creation\_software\_version\_number@{DAT\_file\_creation\_software\_version\_number}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -127,7 +139,7 @@ char volume\+\_\+descriptor\+\_\+data\+::\+DAT\+\_\+file\+\_\+creation\+\_\+soft
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00052}{52}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00056}{56}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ae01fbfb3d817018c5da2095be906d6fd}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!data\_preparer\_identifier@{data\_preparer\_identifier}}
 \index{data\_preparer\_identifier@{data\_preparer\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -137,7 +149,7 @@ char volume\+\_\+descriptor\+\_\+data\+::data\+\_\+preparer\+\_\+identifier\mbox
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00040}{40}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00044}{44}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ab2ba725deb625163a21e8a99820e9060}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!file\_structure\_version@{file\_structure\_version}}
 \index{file\_structure\_version@{file\_structure\_version}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -147,7 +159,11 @@ uint8\+\_\+t volume\+\_\+descriptor\+\_\+data\+::file\+\_\+structure\+\_\+versio
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00049}{49}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Always {\ttfamily 0x01} 
+
+
+
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00053}{53}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_af21ca763088cfcfcbb5064619cacd96b}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!logical\_block\_size@{logical\_block\_size}}
 \index{logical\_block\_size@{logical\_block\_size}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -157,7 +173,7 @@ uint16\+\_\+t volume\+\_\+descriptor\+\_\+data\+::logical\+\_\+block\+\_\+size}
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00031}{31}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00035}{35}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ab0ca79c2798395e96af016b78163d5b4}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!optional\_type\_l\_path\_table\_location@{optional\_type\_l\_path\_table\_location}}
 \index{optional\_type\_l\_path\_table\_location@{optional\_type\_l\_path\_table\_location}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -167,7 +183,7 @@ uint32\+\_\+t volume\+\_\+descriptor\+\_\+data\+::optional\+\_\+type\+\_\+l\+\_\
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00034}{34}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00038}{38}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a83cd9ed9c15cb09e0ba2d580c0a8131e}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!optional\_type\_m\_path\_table\_location@{optional\_type\_m\_path\_table\_location}}
 \index{optional\_type\_m\_path\_table\_location@{optional\_type\_m\_path\_table\_location}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -177,7 +193,7 @@ uint32\+\_\+t volume\+\_\+descriptor\+\_\+data\+::optional\+\_\+type\+\_\+m\+\_\
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00036}{36}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00040}{40}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a66accb73084de817dc58d3976c577bec}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!path\_table\_size@{path\_table\_size}}
 \index{path\_table\_size@{path\_table\_size}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -187,7 +203,7 @@ uint32\+\_\+t volume\+\_\+descriptor\+\_\+data\+::path\+\_\+table\+\_\+size}
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00032}{32}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00036}{36}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a3f02f300fe57f058957c9b9274c1eaeb}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!publisher\_identifier@{publisher\_identifier}}
 \index{publisher\_identifier@{publisher\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -197,7 +213,7 @@ char volume\+\_\+descriptor\+\_\+data\+::publisher\+\_\+identifier\mbox{[}\mbox{
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00039}{39}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00043}{43}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a232500ac96ac4e7f6deeb3be16602bbb}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!root\_directory\_entry@{root\_directory\_entry}}
 \index{root\_directory\_entry@{root\_directory\_entry}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -207,7 +223,7 @@ uint8\+\_\+t volume\+\_\+descriptor\+\_\+data\+::root\+\_\+directory\+\_\+entry\
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00037}{37}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00041}{41}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_acf71b21b2b8ba0e43ef037f18f46c101}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!system\_identifier@{system\_identifier}}
 \index{system\_identifier@{system\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -217,7 +233,7 @@ char volume\+\_\+descriptor\+\_\+data\+::system\+\_\+identifier\mbox{[}\mbox{\hy
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00026}{26}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00030}{30}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ad9941118893e9ca2a44e11d2d3a54402}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!type\_l\_path\_table\_location@{type\_l\_path\_table\_location}}
 \index{type\_l\_path\_table\_location@{type\_l\_path\_table\_location}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -227,7 +243,7 @@ uint32\+\_\+t volume\+\_\+descriptor\+\_\+data\+::type\+\_\+l\+\_\+path\+\_\+tab
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00033}{33}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00037}{37}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ad48973c42afe1984b0c0256b2d42f612}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!type\_m\_path\_table\_location@{type\_m\_path\_table\_location}}
 \index{type\_m\_path\_table\_location@{type\_m\_path\_table\_location}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -237,7 +253,7 @@ uint32\+\_\+t volume\+\_\+descriptor\+\_\+data\+::type\+\_\+m\+\_\+path\+\_\+tab
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00035}{35}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00039}{39}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ab1dd3312c42dd8918b72aa691ed23822}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_creation\_date\_and\_time@{volume\_creation\_date\_and\_time}}
 \index{volume\_creation\_date\_and\_time@{volume\_creation\_date\_and\_time}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -247,7 +263,7 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00035}{35}} of
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00045}{45}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00049}{49}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ab761dec574bb30fe80be1be4c09fc7d7}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_effective\_date\_and\_time@{volume\_effective\_date\_and\_time}}
 \index{volume\_effective\_date\_and\_time@{volume\_effective\_date\_and\_time}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -257,7 +273,7 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00045}{45}} of
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00048}{48}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00052}{52}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_af45e67730feb60ef57e6265ea969b804}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_expiration\_date\_and\_time@{volume\_expiration\_date\_and\_time}}
 \index{volume\_expiration\_date\_and\_time@{volume\_expiration\_date\_and\_time}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -267,7 +283,7 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00048}{48}} of
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00047}{47}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00051}{51}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_identifier@{volume\_identifier}}
 \index{volume\_identifier@{volume\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -277,7 +293,7 @@ char volume\+\_\+descriptor\+\_\+data\+::volume\+\_\+identifier\mbox{[}\mbox{\hy
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00027}{27}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00031}{31}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ae5f0ab30d5b8b6008cd986c659d9ea12}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_modification\_date\_and\_time@{volume\_modification\_date\_and\_time}}
 \index{volume\_modification\_date\_and\_time@{volume\_modification\_date\_and\_time}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -287,7 +303,7 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00027}{27}} of
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00046}{46}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00050}{50}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_adea21a0e215cfc39ed3bbd1e31b53d27}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_sequence\_number@{volume\_sequence\_number}}
 \index{volume\_sequence\_number@{volume\_sequence\_number}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -297,7 +313,7 @@ uint16\+\_\+t volume\+\_\+descriptor\+\_\+data\+::volume\+\_\+sequence\+\_\+numb
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00030}{30}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00034}{34}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ae6403ffa64495130a3a3590c1bcd414f}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_set\_identifier@{volume\_set\_identifier}}
 \index{volume\_set\_identifier@{volume\_set\_identifier}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -307,7 +323,7 @@ char volume\+\_\+descriptor\+\_\+data\+::volume\+\_\+set\+\_\+identifier\mbox{[}
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00038}{38}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00042}{42}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_a5e961b2bbb4f80a2de3c5fc2138ac393}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_set\_size@{volume\_set\_size}}
 \index{volume\_set\_size@{volume\_set\_size}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -317,7 +333,7 @@ uint16\+\_\+t volume\+\_\+descriptor\+\_\+data\+::volume\+\_\+set\+\_\+size}
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00029}{29}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00033}{33}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 \Hypertarget{structvolume__descriptor__data_ace920aa6dd8ced418a6fd1b7688deacf}\index{volume\_descriptor\_data@{volume\_descriptor\_data}!volume\_space\_size@{volume\_space\_size}}
 \index{volume\_space\_size@{volume\_space\_size}!volume\_descriptor\_data@{volume\_descriptor\_data}}
@@ -327,7 +343,7 @@ uint32\+\_\+t volume\+\_\+descriptor\+\_\+data\+::volume\+\_\+space\+\_\+size}
 
 
 
-Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00028}{28}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8h_source_l00032}{32}} of file \mbox{\hyperlink{volume__descriptor_8h_source}{volume\+\_\+descriptor.\+h}}.
 
 
 

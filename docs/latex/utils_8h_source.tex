@@ -11,23 +11,12 @@
 \DoxyCodeLine{\Hypertarget{utils_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
 \DoxyCodeLine{\Hypertarget{utils_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
 \DoxyCodeLine{\Hypertarget{utils_8h_source_l00009}00009\ }
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00010}00010\ \textcolor{comment}{//\ A\ lot\ of\ these\ probably\ shouldn't\ be\ in\ a\ utils.h\ file}}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00011}00011\ \textcolor{comment}{//\ Should\ probably\ make\ a\ data.h\ or\ dat.h\ or\ something\ like\ that}}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00012}00012\ uint32\_t\ \mbox{\hyperlink{utils_8h_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\_little\_endian\_data\_uint32\_t}}\ (FILE\ *fptr);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00013}00013\ uint32\_t\ \mbox{\hyperlink{utils_8h_a2384957f27e209d73a6377de962cbc15}{read\_both\_endian\_data\_uint32}}\ (FILE\ *fptr);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00014}00014\ uint16\_t\ \mbox{\hyperlink{utils_8h_ad773a6c38ce11dd0812deea517043051}{read\_little\_endian\_data\_uint16\_t}}\ (FILE\ *fptr);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00015}00015\ uint16\_t\ \mbox{\hyperlink{utils_8h_a3046006fce30b3601ef7399ccead3499}{read\_both\_endian\_data\_uint16}}\ (FILE\ *fptr);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00016}00016\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (FILE\ *fptr,\ \textcolor{keywordtype}{char}\ *output,\ uint8\_t\ length);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00017}00017\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98}{read\_array\_uint8}}\ (FILE\ *fptr,\ uint8\_t\ *arr,\ uint8\_t\ length);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00018}00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdec__datetime}{dec\_datetime}}\ \mbox{\hyperlink{utils_8h_ab7d2bb7290bca9cbd3045ad2231e2f36}{read\_dec\_datetime}}\ (FILE\ *fptr);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00019}00019\ uint8\_t\ \mbox{\hyperlink{utils_8h_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (FILE\ *fptr);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00020}00020\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdir__datetime}{dir\_datetime}}\ \mbox{\hyperlink{utils_8h_a892c1ea488d2c19d81290458818b8221}{read\_dir\_datetime}}\ (FILE\ *fptr);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00021}00021\ \textcolor{comment}{//\ these\ three\ are\ probably\ find\ though.}}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00022}00022\ uint16\_t\ \mbox{\hyperlink{utils_8h_a4965520bde2fd7164397a78f8026164a}{change\_endianness\_uint16}}\ (uint16\_t\ value);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00023}00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a5d12d6ba0683fa0c576d2ee3a6006656}{read\_file\_flags}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structfile__flags}{file\_flags}}\ *ff);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00024}00024\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_af6ebb1daf24f6259fa021c9a0e8e516c}{prepend\_path\_string}}\ (\textcolor{keywordtype}{char}\ *str,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00025}00025\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}{is\_string\_dat\_file}}\ (\textcolor{keywordtype}{char}\ *str);}
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{utils_8h_source_l00027}00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00016}00016\ uint16\_t\ \mbox{\hyperlink{utils_8h_a4965520bde2fd7164397a78f8026164a}{change\_endianness\_uint16}}\ (uint16\_t\ value);}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00026}00026\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_a5d12d6ba0683fa0c576d2ee3a6006656}{read\_file\_flags}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structfile__flags}{file\_flags}}\ *ff);}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00027}00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{utils_8h_af6ebb1daf24f6259fa021c9a0e8e516c}{prepend\_path\_string}}\ (\textcolor{keywordtype}{char}\ *str,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *prefix);}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00028}00028\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}{is\_string\_dat\_file}}\ (\textcolor{keywordtype}{char}\ *str);}
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{utils_8h_source_l00030}00030\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

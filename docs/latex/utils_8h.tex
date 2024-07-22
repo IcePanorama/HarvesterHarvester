@@ -7,28 +7,10 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-uint32\+\_\+t \mbox{\hyperlink{utils_8h_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
-uint32\+\_\+t \mbox{\hyperlink{utils_8h_a2384957f27e209d73a6377de962cbc15}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
-uint16\+\_\+t \mbox{\hyperlink{utils_8h_ad773a6c38ce11dd0812deea517043051}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
-uint16\+\_\+t \mbox{\hyperlink{utils_8h_a3046006fce30b3601ef7399ccead3499}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
-void \mbox{\hyperlink{utils_8h_af766a6928a4e6e0797f712af34344fbe}{read\+\_\+string}} (FILE \texorpdfstring{$\ast$}{*}fptr, char \texorpdfstring{$\ast$}{*}output, uint8\+\_\+t length)
-\item 
-void \mbox{\hyperlink{utils_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98}{read\+\_\+array\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}arr, uint8\+\_\+t length)
-\item 
-struct \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} \mbox{\hyperlink{utils_8h_ab7d2bb7290bca9cbd3045ad2231e2f36}{read\+\_\+dec\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
-uint8\+\_\+t \mbox{\hyperlink{utils_8h_a22c47ba484ea9cb25c69b484e2b6de34}{read\+\_\+single\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
-struct \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} \mbox{\hyperlink{utils_8h_a892c1ea488d2c19d81290458818b8221}{read\+\_\+dir\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\item 
 uint16\+\_\+t \mbox{\hyperlink{utils_8h_a4965520bde2fd7164397a78f8026164a}{change\+\_\+endianness\+\_\+uint16}} (uint16\+\_\+t value)
-\item 
+\begin{DoxyCompactList}\small\item\em Swaps a given {\ttfamily uint16\+\_\+t} from little endian to big endian or vice-\/versa. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{utils_8h_a5d12d6ba0683fa0c576d2ee3a6006656}{read\+\_\+file\+\_\+flags}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structfile__flags}{file\+\_\+flags}} \texorpdfstring{$\ast$}{*}ff)
-\item 
+\begin{DoxyCompactList}\small\item\em Reads file flag data in from a given source pointed to by {\ttfamily fptr} and uses that data to update the various flags in {\ttfamily ff} as needed. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{utils_8h_af6ebb1daf24f6259fa021c9a0e8e516c}{prepend\+\_\+path\+\_\+string}} (char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}prefix)
 \item 
 bool \mbox{\hyperlink{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}{is\+\_\+string\+\_\+dat\+\_\+file}} (char \texorpdfstring{$\ast$}{*}str)
@@ -44,7 +26,19 @@ uint16\+\_\+t change\+\_\+endianness\+\_\+uint16 (\begin{DoxyParamCaption}\item[
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00150}{150}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Swaps a given {\ttfamily uint16\+\_\+t} from little endian to big endian or vice-\/versa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & uint16\+\_\+t to be swapped. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value with its endianness swapped. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00145}{145}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}\index{utils.h@{utils.h}!is\_string\_dat\_file@{is\_string\_dat\_file}}
 \index{is\_string\_dat\_file@{is\_string\_dat\_file}!utils.h@{utils.h}}
@@ -54,7 +48,7 @@ bool is\+\_\+string\+\_\+dat\+\_\+file (\begin{DoxyParamCaption}\item[{char \tex
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00226}{226}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{utils_8c_source_l00033}{33}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_af6ebb1daf24f6259fa021c9a0e8e516c}\index{utils.h@{utils.h}!prepend\_path\_string@{prepend\_path\_string}}
 \index{prepend\_path\_string@{prepend\_path\_string}!utils.h@{utils.h}}
@@ -64,57 +58,7 @@ void prepend\+\_\+path\+\_\+string (\begin{DoxyParamCaption}\item[{char \texorpd
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00204}{204}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98}\index{utils.h@{utils.h}!read\_array\_uint8@{read\_array\_uint8}}
-\index{read\_array\_uint8@{read\_array\_uint8}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_array\_uint8()}{read\_array\_uint8()}}
-{\footnotesize\ttfamily \label{utils_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98} 
-void read\+\_\+array\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00111}{111}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_a3046006fce30b3601ef7399ccead3499}\index{utils.h@{utils.h}!read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}}
-\index{read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_both\_endian\_data\_uint16()}{read\_both\_endian\_data\_uint16()}}
-{\footnotesize\ttfamily \label{utils_8h_a3046006fce30b3601ef7399ccead3499} 
-uint16\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00033}{33}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_a2384957f27e209d73a6377de962cbc15}\index{utils.h@{utils.h}!read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}}
-\index{read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_both\_endian\_data\_uint32()}{read\_both\_endian\_data\_uint32()}}
-{\footnotesize\ttfamily \label{utils_8h_a2384957f27e209d73a6377de962cbc15} 
-uint32\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00017}{17}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_ab7d2bb7290bca9cbd3045ad2231e2f36}\index{utils.h@{utils.h}!read\_dec\_datetime@{read\_dec\_datetime}}
-\index{read\_dec\_datetime@{read\_dec\_datetime}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_dec\_datetime()}{read\_dec\_datetime()}}
-{\footnotesize\ttfamily \label{utils_8h_ab7d2bb7290bca9cbd3045ad2231e2f36} 
-struct \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} read\+\_\+dec\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00121}{121}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_a892c1ea488d2c19d81290458818b8221}\index{utils.h@{utils.h}!read\_dir\_datetime@{read\_dir\_datetime}}
-\index{read\_dir\_datetime@{read\_dir\_datetime}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_dir\_datetime()}{read\_dir\_datetime()}}
-{\footnotesize\ttfamily \label{utils_8h_a892c1ea488d2c19d81290458818b8221} 
-struct \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} read\+\_\+dir\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00156}{156}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{utils_8c_source_l00011}{11}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_a5d12d6ba0683fa0c576d2ee3a6006656}\index{utils.h@{utils.h}!read\_file\_flags@{read\_file\_flags}}
 \index{read\_file\_flags@{read\_file\_flags}!utils.h@{utils.h}}
@@ -124,45 +68,19 @@ void read\+\_\+file\+\_\+flags (\begin{DoxyParamCaption}\item[{FILE \texorpdfstr
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00171}{171}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_ad773a6c38ce11dd0812deea517043051}\index{utils.h@{utils.h}!read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}}
-\index{read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_little\_endian\_data\_uint16\_t()}{read\_little\_endian\_data\_uint16\_t()}}
-{\footnotesize\ttfamily \label{utils_8h_ad773a6c38ce11dd0812deea517043051} 
-uint16\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+Reads file flag data in from a given source pointed to by {\ttfamily fptr} and uses that data to update the various flags in {\ttfamily ff} as needed. 
 
 
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00076}{76}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_a778ae3162a4e12d7d7dbe8672ca0ec81}\index{utils.h@{utils.h}!read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}}
-\index{read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_little\_endian\_data\_uint32\_t()}{read\_little\_endian\_data\_uint32\_t()}}
-{\footnotesize\ttfamily \label{utils_8h_a778ae3162a4e12d7d7dbe8672ca0ec81} 
-uint32\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00049}{49}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_a22c47ba484ea9cb25c69b484e2b6de34}\index{utils.h@{utils.h}!read\_single\_uint8@{read\_single\_uint8}}
-\index{read\_single\_uint8@{read\_single\_uint8}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_single\_uint8()}{read\_single\_uint8()}}
-{\footnotesize\ttfamily \label{utils_8h_a22c47ba484ea9cb25c69b484e2b6de34} 
-uint8\+\_\+t read\+\_\+single\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+\begin{DoxyParams}{Parameters}
+{\em fptr} & Pointer to file with file flag data \\
+\hline
+{\em ff} & file flags to be updated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structfile__flags}{file\+\_\+flags} 
+\end{DoxySeeAlso}
 
 
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00138}{138}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
-
-\Hypertarget{utils_8h_af766a6928a4e6e0797f712af34344fbe}\index{utils.h@{utils.h}!read\_string@{read\_string}}
-\index{read\_string@{read\_string}!utils.h@{utils.h}}
-\doxysubsubsection{\texorpdfstring{read\_string()}{read\_string()}}
-{\footnotesize\ttfamily \label{utils_8h_af766a6928a4e6e0797f712af34344fbe} 
-void read\+\_\+string (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00100}{100}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00166}{166}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
