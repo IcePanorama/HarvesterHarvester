@@ -15,20 +15,20 @@ static void \mbox{\hyperlink{options_8c_a5413a17f20b0c5daf64765e6c104768d}{print
 static void \mbox{\hyperlink{options_8c_a6b175948738c4d93a820a0ada9e54669}{process\+\_\+flag}} (char \texorpdfstring{$\ast$}{*}f)
 \item 
 void \mbox{\hyperlink{options_8c_a83aed94bb59dba20fc0286181dc64738}{handle\+\_\+command\+\_\+line\+\_\+args}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Processes command-\/line arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{options_8c_abf19eab4ae4469b24b2b34284bb72f5a}{OP\+\_\+\+BATCH\+\_\+\+PROCESS}} = true
-\item 
+\begin{DoxyCompactList}\small\item\em If true, batch process all the files in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c8384eec4f447007}{OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME}} = NULL
 \item 
 bool \mbox{\hyperlink{options_8c_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_a9f2b83262a240b0baabccb91b801b096}{OP\+\_\+\+INPUT\+\_\+\+DIR}} = (char \texorpdfstring{$\ast$}{*})"{}dat-\/files"{}
-\item 
+\begin{DoxyCompactList}\small\item\em Where to look for files if batch processing. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{options_8c_a845934c83dddb0516baadb1abd079d8d}{OP\+\_\+\+PATH\+\_\+\+SEPARATOR}} = \textquotesingle{}/\textquotesingle{}
-\item 
+\begin{DoxyCompactList}\small\item\em Depends on the user\textquotesingle{}s operating system. \end{DoxyCompactList}\item 
 static const char \mbox{\hyperlink{options_8c_a59cde5c015f49e774b06103571d51dc9}{VERSION\+\_\+\+NUMBER\+\_\+\+STR}} \mbox{[}9\mbox{]} = "{}00.\+00.\+00"{}
 \end{DoxyCompactItemize}
 
@@ -42,7 +42,18 @@ void handle\+\_\+command\+\_\+line\+\_\+args (\begin{DoxyParamCaption}\item[{int
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Processes command-\/line arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & number of command-\/line arguments. \\
+\hline
+{\em argv} & array of all the command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00023}{23}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a5413a17f20b0c5daf64765e6c104768d}\index{options.c@{options.c}!print\_out\_list\_of\_command\_line\_arguments@{print\_out\_list\_of\_command\_line\_arguments}}
 \index{print\_out\_list\_of\_command\_line\_arguments@{print\_out\_list\_of\_command\_line\_arguments}!options.c@{options.c}}
@@ -52,7 +63,7 @@ void print\+\_\+out\+\_\+list\+\_\+of\+\_\+command\+\_\+line\+\_\+arguments (\be
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00070}{70}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00053}{53}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a6b175948738c4d93a820a0ada9e54669}\index{options.c@{options.c}!process\_flag@{process\_flag}}
 \index{process\_flag@{process\_flag}!options.c@{options.c}}
@@ -62,7 +73,7 @@ void process\+\_\+flag (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\as
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00090}{90}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00068}{68}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 
 
@@ -72,6 +83,10 @@ Definition at line \mbox{\hyperlink{options_8c_source_l00090}{90}} of file \mbox
 \doxysubsubsection{\texorpdfstring{OP\_BATCH\_PROCESS}{OP\_BATCH\_PROCESS}}
 {\footnotesize\ttfamily \label{options_8c_abf19eab4ae4469b24b2b34284bb72f5a} 
 bool OP\+\_\+\+BATCH\+\_\+\+PROCESS = true}
+
+
+
+If true, batch process all the files in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}. 
 
 
 
@@ -95,6 +110,15 @@ bool OP\+\_\+\+DEBUG\+\_\+\+MODE = false}
 
 
 
+Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. 
+
+Note that {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} is currently defined in \doxylink{extractor_8c}{extractor.\+c}.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{extractor_8c_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory} 
+\end{DoxySeeAlso}
+
+
 Definition at line \mbox{\hyperlink{options_8c_source_l00012}{12}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a9f2b83262a240b0baabccb91b801b096}\index{options.c@{options.c}!OP\_INPUT\_DIR@{OP\_INPUT\_DIR}}
@@ -105,6 +129,10 @@ char\texorpdfstring{$\ast$}{*} OP\+\_\+\+INPUT\+\_\+\+DIR = (char \texorpdfstrin
 
 
 
+Where to look for files if batch processing. 
+
+Default is {\ttfamily ./dat-\/files/}. 
+
 Definition at line \mbox{\hyperlink{options_8c_source_l00013}{13}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a845934c83dddb0516baadb1abd079d8d}\index{options.c@{options.c}!OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}}
@@ -114,6 +142,10 @@ Definition at line \mbox{\hyperlink{options_8c_source_l00013}{13}} of file \mbox
 char OP\+\_\+\+PATH\+\_\+\+SEPARATOR = \textquotesingle{}/\textquotesingle{}}
 
 
+
+Depends on the user\textquotesingle{}s operating system. 
+
+Having this be defined globally in this file for cross-\/platform compatibility reasons. 
 
 Definition at line \mbox{\hyperlink{options_8c_source_l00014}{14}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 

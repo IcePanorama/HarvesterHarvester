@@ -19,11 +19,6 @@ static const char VERSION_NUMBER_STR[9] = "00.00.00";
 static void print_out_list_of_command_line_arguments (void);
 static void process_flag (char *f);
 
-/*
- *  handle_command_line_args
- *
- *  TODO: add documentation
- */
 void
 handle_command_line_args (int argc, char **argv)
 {
@@ -43,13 +38,6 @@ handle_command_line_args (int argc, char **argv)
   if (i == argc)
     return;
 
-  /*
-  size_t len = strlen (file) + 1; // +1 for null terminator
-  const char *target = ".DAT";
-  const uint8_t target_len = 5;
-  if (len > target_len && strcmp (file + (len - target_len), target) == 0)
-    {
-  */
   if (is_string_dat_file (argv[argc - 1]))
     {
       // just processing the user-provided file @ the user-provided path
@@ -61,11 +49,6 @@ handle_command_line_args (int argc, char **argv)
     }
 }
 
-/*
- *  print_out_list_of_command_line_arguments
- *
- *  TODO: add documentation
- */
 void
 print_out_list_of_command_line_arguments (void)
 {
@@ -81,11 +64,6 @@ print_out_list_of_command_line_arguments (void)
   puts ("\t--version: prints out the version number.");
 }
 
-/*
- *  process_flags
- *
- *  TODO: add documentation
- */
 void
 process_flag (char *f)
 {

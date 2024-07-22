@@ -6,6 +6,8 @@
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>void <link linkend="_options_8h_1a83aed94bb59dba20fc0286181dc64738">handle_command_line_args</link> (int argc, char **argv)</para>
+
+<para>Processes command-line arguments. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -13,14 +15,22 @@
     <title>Variables    </title>
         <itemizedlist>
             <listitem><para>bool <link linkend="_options_8h_1abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</link></para>
+
+<para>If true, batch process all the files in <computeroutput>OP_INPUT_DIR</computeroutput>. </para>
 </listitem>
             <listitem><para>char * <link linkend="_options_8h_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link></para>
 </listitem>
             <listitem><para>bool <link linkend="_options_8h_1a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</link></para>
+
+<para>Skips files larger than <computeroutput>DEBUG_FILE_SIZE_LIMIT</computeroutput> if true. </para>
 </listitem>
             <listitem><para>char * <link linkend="_options_8h_1a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</link></para>
+
+<para>Where to look for files if batch processing. </para>
 </listitem>
             <listitem><para>char <link linkend="_options_8h_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link></para>
+
+<para>Depends on the user&apos;s operating system. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -31,7 +41,38 @@
 <indexterm><primary>handle_command_line_args</primary><secondary>options.h</secondary></indexterm>
 <indexterm><primary>options.h</primary><secondary>handle_command_line_args</secondary></indexterm>
 <para><computeroutput>void handle_command_line_args (int argc, char ** argv)</computeroutput></para><para>
-Definition at line <link linkend="_options_8c_source_1l00028">28</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+
+<para>Processes command-line arguments. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>argc</entry><entry>
+<para>number of command-line arguments. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>argv</entry><entry>
+<para>array of all the command-line arguments. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line <link linkend="_options_8c_source_1l00023">23</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 </section>
 <section>
@@ -41,6 +82,10 @@ Definition at line <link linkend="_options_8c_source_1l00028">28</link> of file 
 <indexterm><primary>OP_BATCH_PROCESS</primary><secondary>options.h</secondary></indexterm>
 <indexterm><primary>options.h</primary><secondary>OP_BATCH_PROCESS</secondary></indexterm>
 <para><computeroutput>bool OP_BATCH_PROCESS<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+
+<para>If true, batch process all the files in <computeroutput>OP_INPUT_DIR</computeroutput>. </para>
+</para>
+<para>
 Definition at line <link linkend="_options_8c_source_1l00010">10</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8h_1ab0a46ab2ce382e77c8384eec4f447007"/><section>
@@ -55,6 +100,18 @@ Definition at line <link linkend="_options_8c_source_1l00011">11</link> of file 
 <indexterm><primary>OP_DEBUG_MODE</primary><secondary>options.h</secondary></indexterm>
 <indexterm><primary>options.h</primary><secondary>OP_DEBUG_MODE</secondary></indexterm>
 <para><computeroutput>bool OP_DEBUG_MODE<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+
+<para>Skips files larger than <computeroutput>DEBUG_FILE_SIZE_LIMIT</computeroutput> if true. </para>
+</para>
+
+<para>Note that <computeroutput>DEBUG_FILE_SIZE_LIMIT</computeroutput> is currently defined in <link linkend="_extractor_8c">extractor.c</link>.</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_extractor_8c_1a83bd0d1558bff60ba2a613868c6a138f">extract_directory</link> </para>
+</formalpara>
+</para>
+<para>
 Definition at line <link linkend="_options_8c_source_1l00012">12</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8h_1a9f2b83262a240b0baabccb91b801b096"/><section>
@@ -62,6 +119,12 @@ Definition at line <link linkend="_options_8c_source_1l00012">12</link> of file 
 <indexterm><primary>OP_INPUT_DIR</primary><secondary>options.h</secondary></indexterm>
 <indexterm><primary>options.h</primary><secondary>OP_INPUT_DIR</secondary></indexterm>
 <para><computeroutput>char* OP_INPUT_DIR<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+
+<para>Where to look for files if batch processing. </para>
+</para>
+
+<para>Default is <computeroutput>./dat-files/</computeroutput>. </para>
+<para>
 Definition at line <link linkend="_options_8c_source_1l00013">13</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8h_1a845934c83dddb0516baadb1abd079d8d"/><section>
@@ -69,6 +132,12 @@ Definition at line <link linkend="_options_8c_source_1l00013">13</link> of file 
 <indexterm><primary>OP_PATH_SEPARATOR</primary><secondary>options.h</secondary></indexterm>
 <indexterm><primary>options.h</primary><secondary>OP_PATH_SEPARATOR</secondary></indexterm>
 <para><computeroutput>char OP_PATH_SEPARATOR<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+
+<para>Depends on the user&apos;s operating system. </para>
+</para>
+
+<para>Having this be defined globally in this file for cross-platform compatibility reasons. </para>
+<para>
 Definition at line <link linkend="_options_8c_source_1l00014">14</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 </section>

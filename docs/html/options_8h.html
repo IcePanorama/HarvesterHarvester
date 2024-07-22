@@ -110,19 +110,24 @@ $(function(){initNavTree('options_8h.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a83aed94bb59dba20fc0286181dc64738" id="r_a83aed94bb59dba20fc0286181dc64738"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83aed94bb59dba20fc0286181dc64738">handle_command_line_args</a> (int argc, char **argv)</td></tr>
+<tr class="memdesc:a83aed94bb59dba20fc0286181dc64738"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes command-line arguments.  <br /></td></tr>
 <tr class="separator:a83aed94bb59dba20fc0286181dc64738"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:abf19eab4ae4469b24b2b34284bb72f5a" id="r_abf19eab4ae4469b24b2b34284bb72f5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</a></td></tr>
+<tr class="memdesc:abf19eab4ae4469b24b2b34284bb72f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, batch process all the files in <code>OP_INPUT_DIR</code>.  <br /></td></tr>
 <tr class="separator:abf19eab4ae4469b24b2b34284bb72f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0a46ab2ce382e77c8384eec4f447007" id="r_ab0a46ab2ce382e77c8384eec4f447007"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</a></td></tr>
 <tr class="separator:ab0a46ab2ce382e77c8384eec4f447007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22750490a402211ccfd1c7dda808eb51" id="r_a22750490a402211ccfd1c7dda808eb51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a></td></tr>
+<tr class="memdesc:a22750490a402211ccfd1c7dda808eb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips files larger than <code>DEBUG_FILE_SIZE_LIMIT</code> if true.  <br /></td></tr>
 <tr class="separator:a22750490a402211ccfd1c7dda808eb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f2b83262a240b0baabccb91b801b096" id="r_a9f2b83262a240b0baabccb91b801b096"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</a></td></tr>
+<tr class="memdesc:a9f2b83262a240b0baabccb91b801b096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Where to look for files if batch processing.  <br /></td></tr>
 <tr class="separator:a9f2b83262a240b0baabccb91b801b096"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a845934c83dddb0516baadb1abd079d8d" id="r_a845934c83dddb0516baadb1abd079d8d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a></td></tr>
+<tr class="memdesc:a845934c83dddb0516baadb1abd079d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depends on the user's operating system.  <br /></td></tr>
 <tr class="separator:a845934c83dddb0516baadb1abd079d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -145,7 +150,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00028">28</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p>Processes command-line arguments. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>number of command-line arguments. </td></tr>
+    <tr><td class="paramname">argv</td><td>array of all the command-line arguments. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00023">23</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -169,6 +183,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>If true, batch process all the files in <code>OP_INPUT_DIR</code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00010">10</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
@@ -218,6 +234,10 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Skips files larger than <code>DEBUG_FILE_SIZE_LIMIT</code> if true. </p>
+<p>Note that <code>DEBUG_FILE_SIZE_LIMIT</code> is currently defined in <a class="el" href="extractor_8c.html">extractor.c</a>.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="extractor_8c.html#a83bd0d1558bff60ba2a613868c6a138f" title="Creates a directory and then extracts every file in said directory.">extract_directory</a> </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00012">12</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
@@ -242,6 +262,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Where to look for files if batch processing. </p>
+<p>Default is <code>./dat-files/</code>. </p>
+
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00013">13</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
@@ -265,6 +288,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Depends on the user's operating system. </p>
+<p>Having this be defined globally in this file for cross-platform compatibility reasons. </p>
 
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00014">14</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 

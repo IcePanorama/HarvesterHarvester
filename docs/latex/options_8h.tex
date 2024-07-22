@@ -5,20 +5,20 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{options_8h_a83aed94bb59dba20fc0286181dc64738}{handle\+\_\+command\+\_\+line\+\_\+args}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Processes command-\/line arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{options_8h_abf19eab4ae4469b24b2b34284bb72f5a}{OP\+\_\+\+BATCH\+\_\+\+PROCESS}}
-\item 
+\begin{DoxyCompactList}\small\item\em If true, batch process all the files in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_ab0a46ab2ce382e77c8384eec4f447007}{OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME}}
 \item 
 bool \mbox{\hyperlink{options_8h_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}}
-\item 
+\begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_a9f2b83262a240b0baabccb91b801b096}{OP\+\_\+\+INPUT\+\_\+\+DIR}}
-\item 
+\begin{DoxyCompactList}\small\item\em Where to look for files if batch processing. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{options_8h_a845934c83dddb0516baadb1abd079d8d}{OP\+\_\+\+PATH\+\_\+\+SEPARATOR}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Depends on the user\textquotesingle{}s operating system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -30,7 +30,18 @@ void handle\+\_\+command\+\_\+line\+\_\+args (\begin{DoxyParamCaption}\item[{int
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Processes command-\/line arguments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & number of command-\/line arguments. \\
+\hline
+{\em argv} & array of all the command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00023}{23}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 
 
@@ -40,6 +51,10 @@ Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox
 \doxysubsubsection{\texorpdfstring{OP\_BATCH\_PROCESS}{OP\_BATCH\_PROCESS}}
 {\footnotesize\ttfamily \label{options_8h_abf19eab4ae4469b24b2b34284bb72f5a} 
 bool OP\+\_\+\+BATCH\+\_\+\+PROCESS\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+If true, batch process all the files in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}. 
 
 
 
@@ -63,6 +78,15 @@ bool OP\+\_\+\+DEBUG\+\_\+\+MODE\hspace{0.3cm}{\ttfamily [extern]}}
 
 
 
+Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. 
+
+Note that {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} is currently defined in \doxylink{extractor_8c}{extractor.\+c}.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{extractor_8c_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory} 
+\end{DoxySeeAlso}
+
+
 Definition at line \mbox{\hyperlink{options_8c_source_l00012}{12}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a9f2b83262a240b0baabccb91b801b096}\index{options.h@{options.h}!OP\_INPUT\_DIR@{OP\_INPUT\_DIR}}
@@ -73,6 +97,10 @@ char\texorpdfstring{$\ast$}{*} OP\+\_\+\+INPUT\+\_\+\+DIR\hspace{0.3cm}{\ttfamil
 
 
 
+Where to look for files if batch processing. 
+
+Default is {\ttfamily ./dat-\/files/}. 
+
 Definition at line \mbox{\hyperlink{options_8c_source_l00013}{13}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a845934c83dddb0516baadb1abd079d8d}\index{options.h@{options.h}!OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}}
@@ -82,6 +110,10 @@ Definition at line \mbox{\hyperlink{options_8c_source_l00013}{13}} of file \mbox
 char OP\+\_\+\+PATH\+\_\+\+SEPARATOR\hspace{0.3cm}{\ttfamily [extern]}}
 
 
+
+Depends on the user\textquotesingle{}s operating system. 
+
+Having this be defined globally in this file for cross-\/platform compatibility reasons. 
 
 Definition at line \mbox{\hyperlink{options_8c_source_l00014}{14}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 

@@ -5186,6 +5186,11 @@ static void {\b print_out_list_of_command_line_arguments} (void)\par
 static void {\b process_flag} (char *f)\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_command_line_args} (int argc, char **argv)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes command-line arguments. }{
+}\par
+}\par}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Variables\par
@@ -5194,14 +5199,34 @@ Variables\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_BATCH_PROCESS} = true\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If true, batch process all the files in {\f2 OP_INPUT_DIR} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b OP_CURRENT_DISK_NAME} = NULL\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_DEBUG_MODE} = false\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Skips files larger than {\f2 DEBUG_FILE_SIZE_LIMIT}  if true. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b OP_INPUT_DIR} = (char *)"dat-files"\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Where to look for files if batch processing. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char {\b OP_PATH_SEPARATOR} = '/'\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Depends on the user's operating system. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 static const char {\b VERSION_NUMBER_STR} [9] = "00.00.00"\par
 }
@@ -5221,7 +5246,27 @@ void handle_command_line_args (int argc, char ** argv)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 28} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes command-line arguments. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i argc} \cell }{number of command-line arguments. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i argv} \cell }{array of all the command-line arguments. \cell }
+{\row }
+}
+}{
+Definition at line {\b 23} of file {\b options.c}.}\par
 }
 {\xe \v print_out_list_of_command_line_arguments\:options.c}
 {\xe \v options.c\:print_out_list_of_command_line_arguments}
@@ -5235,7 +5280,7 @@ void print_out_list_of_command_line_arguments (void ){\f2 [static]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 70} of file {\b options.c}.}\par
+Definition at line {\b 53} of file {\b options.c}.}\par
 }
 {\xe \v process_flag\:options.c}
 {\xe \v options.c\:process_flag}
@@ -5249,7 +5294,7 @@ void process_flag (char * f){\f2 [static]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 90} of file {\b options.c}.}\par
+Definition at line {\b 68} of file {\b options.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5266,6 +5311,9 @@ bool OP_BATCH_PROCESS = true}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If true, batch process all the files in {\f2 OP_INPUT_DIR} . }}\par
 {
 Definition at line {\b 10} of file {\b options.c}.}\par
 }
@@ -5295,6 +5343,14 @@ bool OP_DEBUG_MODE = false}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Skips files larger than {\f2 DEBUG_FILE_SIZE_LIMIT}  if true. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Note that {\f2 DEBUG_FILE_SIZE_LIMIT}  is currently defined in {\b extractor.c}.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b extract_directory} \par
+}}}{
 Definition at line {\b 12} of file {\b options.c}.}\par
 }
 {\xe \v OP_INPUT_DIR\:options.c}
@@ -5309,6 +5365,11 @@ char* OP_INPUT_DIR = (char *)"dat-files"}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Where to look for files if batch processing. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 ./dat-files/} . \par
+}{
 Definition at line {\b 13} of file {\b options.c}.}\par
 }
 {\xe \v OP_PATH_SEPARATOR\:options.c}
@@ -5323,6 +5384,11 @@ char OP_PATH_SEPARATOR = '/'}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Depends on the user's operating system. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Having this be defined globally in this file for cross-platform compatibility reasons. \par
+}{
 Definition at line {\b 14} of file {\b options.c}.}\par
 }
 {\xe \v VERSION_NUMBER_STR\:options.c}
@@ -5373,95 +5439,73 @@ Go to the documentation of this file.\par
 00019 {\cf17 static} {\cf18 void} print_out_list_of_command_line_arguments ({\cf18 void});\par
 00020 {\cf17 static} {\cf18 void} process_flag ({\cf18 char} *f);\par
 00021 \par
-00022 {\cf20 /*}\par
-00023 {\cf20  *  handle_command_line_args}\par
-00024 {\cf20  *}\par
-00025 {\cf20  *  TODO: add documentation}\par
-00026 {\cf20  */}\par
-00027 {\cf18 void}\par
-00028 handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv)\par
-00029 \{\par
-00030   {\cf18 int} i;\par
-00031   {\cf19 for} (i = 1; i < argc; i++)\par
-00032     \{\par
-00033       {\cf19 if} (argv[i][0] == {\cf23 '-'})\par
-00034         \{\par
-00035           process_flag (argv[i]);\par
-00036         \}\par
-00037       {\cf19 else}\par
-00038         \{\par
-00039           {\cf19 break};\par
-00040         \}\par
-00041     \}\par
-00042 \par
-00043   {\cf19 if} (i == argc)\par
-00044     {\cf19 return};\par
-00045 \par
-00046   {\cf20 /*}\par
-00047 {\cf20   size_t len = strlen (file) + 1; // +1 for null terminator}\par
-00048 {\cf20   const char *target = ".DAT";}\par
-00049 {\cf20   const uint8_t target_len = 5;}\par
-00050 {\cf20   if (len > target_len && strcmp (file + (len - target_len), target) == 0)}\par
-00051 {\cf20     \{}\par
-00052 {\cf20   */}\par
-00053   {\cf19 if} (is_string_dat_file (argv[argc - 1]))\par
-00054     \{\par
-00055       {\cf20 // just processing the user-provided file @ the user-provided path}\par
-00056       OP_BATCH_PROCESS = {\cf17 false};\par
-00057     \}\par
-00058   {\cf19 else}\par
-00059     \{\par
-00060       handle_unknown_command_line_argument_error (argv[argc - 1]);\par
-00061     \}\par
-00062 \}\par
-00063 \par
-00064 {\cf20 /*}\par
-00065 {\cf20  *  print_out_list_of_command_line_arguments}\par
-00066 {\cf20  *}\par
-00067 {\cf20  *  TODO: add documentation}\par
-00068 {\cf20  */}\par
-00069 {\cf18 void}\par
-00070 print_out_list_of_command_line_arguments ({\cf18 void})\par
-00071 \{\par
-00072   printf (\par
-00073       {\cf22 "HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\\n"},\par
-00074       VERSION_NUMBER_STR);\par
-00075   puts ({\cf22 "Usage: main \{options (optional)\} \{path/to/\}[DAT FILE].DAT"});\par
-00076   puts ({\cf22 "Command-line arguments:"});\par
-00077   puts ({\cf22 "\\t--debug: enables debug mode, skips extracting large files."});\par
-00078   puts ({\cf22 "\\t--help: displays list of command line arguments."});\par
-00079   puts ({\cf22 "\\t--single: outputs all files into a single directory "}\par
-00080         {\cf22 "(default=output/)."});\par
-00081   puts ({\cf22 "\\t--version: prints out the version number."});\par
-00082 \}\par
-00083 \par
-00084 {\cf20 /*}\par
-00085 {\cf20  *  process_flags}\par
-00086 {\cf20  *}\par
-00087 {\cf20  *  TODO: add documentation}\par
-00088 {\cf20  */}\par
-00089 {\cf18 void}\par
-00090 process_flag ({\cf18 char} *f)\par
-00091 \{\par
-00092   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
-00093     \{\par
-00094       OP_DEBUG_MODE = {\cf17 true};\par
-00095     \}\par
-00096   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
-00097     \{\par
-00098       print_out_list_of_command_line_arguments ();\par
-00099       exit (0);\par
-00100     \}\par
-00101   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
-00102     \{\par
-00103       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
-00104       exit (0);\par
-00105     \}\par
-00106   {\cf19 else}\par
-00107     \{\par
-00108       handle_unknown_command_line_argument_error (f);\par
-00109     \}\par
-00110 \}\par
+00022 {\cf18 void}\par
+00023 handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv)\par
+00024 \{\par
+00025   {\cf18 int} i;\par
+00026   {\cf19 for} (i = 1; i < argc; i++)\par
+00027     \{\par
+00028       {\cf19 if} (argv[i][0] == {\cf23 '-'})\par
+00029         \{\par
+00030           process_flag (argv[i]);\par
+00031         \}\par
+00032       {\cf19 else}\par
+00033         \{\par
+00034           {\cf19 break};\par
+00035         \}\par
+00036     \}\par
+00037 \par
+00038   {\cf19 if} (i == argc)\par
+00039     {\cf19 return};\par
+00040 \par
+00041   {\cf19 if} (is_string_dat_file (argv[argc - 1]))\par
+00042     \{\par
+00043       {\cf20 // just processing the user-provided file @ the user-provided path}\par
+00044       OP_BATCH_PROCESS = {\cf17 false};\par
+00045     \}\par
+00046   {\cf19 else}\par
+00047     \{\par
+00048       handle_unknown_command_line_argument_error (argv[argc - 1]);\par
+00049     \}\par
+00050 \}\par
+00051 \par
+00052 {\cf18 void}\par
+00053 print_out_list_of_command_line_arguments ({\cf18 void})\par
+00054 \{\par
+00055   printf (\par
+00056       {\cf22 "HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\\n"},\par
+00057       VERSION_NUMBER_STR);\par
+00058   puts ({\cf22 "Usage: main \{options (optional)\} \{path/to/\}[DAT FILE].DAT"});\par
+00059   puts ({\cf22 "Command-line arguments:"});\par
+00060   puts ({\cf22 "\\t--debug: enables debug mode, skips extracting large files."});\par
+00061   puts ({\cf22 "\\t--help: displays list of command line arguments."});\par
+00062   puts ({\cf22 "\\t--single: outputs all files into a single directory "}\par
+00063         {\cf22 "(default=output/)."});\par
+00064   puts ({\cf22 "\\t--version: prints out the version number."});\par
+00065 \}\par
+00066 \par
+00067 {\cf18 void}\par
+00068 process_flag ({\cf18 char} *f)\par
+00069 \{\par
+00070   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
+00071     \{\par
+00072       OP_DEBUG_MODE = {\cf17 true};\par
+00073     \}\par
+00074   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
+00075     \{\par
+00076       print_out_list_of_command_line_arguments ();\par
+00077       exit (0);\par
+00078     \}\par
+00079   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
+00080     \{\par
+00081       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
+00082       exit (0);\par
+00083     \}\par
+00084   {\cf19 else}\par
+00085     \{\par
+00086       handle_unknown_command_line_argument_error (f);\par
+00087     \}\par
+00088 \}\par
 }
 \par \pard\plain 
 
@@ -5483,6 +5527,11 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_command_line_args} (int argc, char **argv)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes command-line arguments. }{
+}\par
+}\par}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Variables\par
@@ -5491,14 +5540,34 @@ Variables\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_BATCH_PROCESS}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If true, batch process all the files in {\f2 OP_INPUT_DIR} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b OP_CURRENT_DISK_NAME}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_DEBUG_MODE}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Skips files larger than {\f2 DEBUG_FILE_SIZE_LIMIT}  if true. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b OP_INPUT_DIR}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Where to look for files if batch processing. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char {\b OP_PATH_SEPARATOR}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Depends on the user's operating system. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5516,7 +5585,27 @@ void handle_command_line_args (int argc, char ** argv)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 28} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes command-line arguments. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i argc} \cell }{number of command-line arguments. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i argv} \cell }{array of all the command-line arguments. \cell }
+{\row }
+}
+}{
+Definition at line {\b 23} of file {\b options.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5533,6 +5622,9 @@ bool OP_BATCH_PROCESS{\f2 [extern]}}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If true, batch process all the files in {\f2 OP_INPUT_DIR} . }}\par
 {
 Definition at line {\b 10} of file {\b options.c}.}\par
 }
@@ -5562,6 +5654,14 @@ bool OP_DEBUG_MODE{\f2 [extern]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Skips files larger than {\f2 DEBUG_FILE_SIZE_LIMIT}  if true. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Note that {\f2 DEBUG_FILE_SIZE_LIMIT}  is currently defined in {\b extractor.c}.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b extract_directory} \par
+}}}{
 Definition at line {\b 12} of file {\b options.c}.}\par
 }
 {\xe \v OP_INPUT_DIR\:options.h}
@@ -5576,6 +5676,11 @@ char* OP_INPUT_DIR{\f2 [extern]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Where to look for files if batch processing. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 ./dat-files/} . \par
+}{
 Definition at line {\b 13} of file {\b options.c}.}\par
 }
 {\xe \v OP_PATH_SEPARATOR\:options.h}
@@ -5590,6 +5695,11 @@ char OP_PATH_SEPARATOR{\f2 [extern]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Depends on the user's operating system. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Having this be defined globally in this file for cross-platform compatibility reasons. \par
+}{
 Definition at line {\b 14} of file {\b options.c}.}\par
 }
 \par \pard\plain 
@@ -5610,15 +5720,21 @@ Go to the documentation of this file.\par
 00003 \par
 00004 {\cf21 #include <stdbool.h>}\par
 00005 \par
-00006 {\cf17 extern} {\cf18 bool} OP_BATCH_PROCESS;\par
-00007 {\cf17 extern} {\cf18 char} *OP_CURRENT_DISK_NAME;\par
-00008 {\cf17 extern} {\cf18 bool} OP_DEBUG_MODE;\par
-00009 {\cf17 extern} {\cf18 char} *OP_INPUT_DIR;\par
-00010 {\cf17 extern} {\cf18 char} OP_PATH_SEPARATOR;\par
+00007 {\cf17 extern} {\cf18 bool} OP_BATCH_PROCESS;\par
+00008 \par
+00009 {\cf20 // Not really an "option", does this belong here?}\par
+00010 {\cf17 extern} {\cf18 char} *OP_CURRENT_DISK_NAME;\par
 00011 \par
-00012 {\cf18 void} handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv);\par
-00013 \par
-00014 {\cf21 #endif}\par
+00018 {\cf20 // FIXME: `DEBUG_FILE_SIZE_LIMIT` should probably be defined here.}\par
+00019 {\cf17 extern} {\cf18 bool} OP_DEBUG_MODE;\par
+00020 \par
+00022 {\cf17 extern} {\cf18 char} *OP_INPUT_DIR;\par
+00023 \par
+00028 {\cf17 extern} {\cf18 char} OP_PATH_SEPARATOR;\par
+00029 \par
+00036 {\cf18 void} handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv);\par
+00037 \par
+00038 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
