@@ -8,11 +8,11 @@
 \begin{DoxyCompactItemize}
 \item 
 int8\+\_\+t \mbox{\hyperlink{extractor_8h_a553117edee61f114d5f6fd9d28d57313}{extract\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, struct \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}dr, const char \texorpdfstring{$\ast$}{*}path)
-\item 
+\begin{DoxyCompactList}\small\item\em Extracts a file pointed to by {\ttfamily fptr} using its respective {\ttfamily \doxylink{structdirectory__record}{directory\+\_\+record}}, outputting it to the location pointed to by {\ttfamily path}. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{extractor_8h_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory}} (FILE \texorpdfstring{$\ast$}{*}fptr, const uint16\+\_\+t BLOCK\+\_\+\+SIZE, const char \texorpdfstring{$\ast$}{*}path)
-\item 
+\begin{DoxyCompactList}\small\item\em Creates a directory and then extracts every file in said directory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{extractor_8h_a2b4cc3468a10bf1b72cdd4a672d4d154}{create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t BLOCK\+\_\+\+SIZE, struct \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A wrapper for {\ttfamily extract\+\_\+directory} and, therefore also, {\ttfamily extract\+\_\+file} which handles the extraction of every file and subdirectory using a given path table. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -24,7 +24,30 @@ void create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path
 
 
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00121}{121}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+A wrapper for {\ttfamily extract\+\_\+directory} and, therefore also, {\ttfamily extract\+\_\+file} which handles the extraction of every file and subdirectory using a given path table. 
+
+Creates directories for every directory in a given path table and then extracts all of its files.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & pointer to the data \\
+\hline
+{\em BLOCK\+\_\+\+SIZE} & logical block size in big endian form, needed for fseek \\
+\hline
+{\em path} & a string of the path to output to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zero on success, non-\/zero on failure. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{extractor_8h_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory()} 
+
+\doxylink{extractor_8h_a553117edee61f114d5f6fd9d28d57313}{extract\+\_\+file()} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00106}{106}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 
 \Hypertarget{extractor_8h_a83bd0d1558bff60ba2a613868c6a138f}\index{extractor.h@{extractor.h}!extract\_directory@{extract\_directory}}
 \index{extract\_directory@{extract\_directory}!extractor.h@{extractor.h}}
@@ -34,7 +57,23 @@ int8\+\_\+t extract\+\_\+directory (\begin{DoxyParamCaption}\item[{FILE \texorpd
 
 
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00076}{76}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Creates a directory and then extracts every file in said directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & pointer to the data of the directory. \\
+\hline
+{\em BLOCK\+\_\+\+SIZE} & logical block size in big endian form, needed for fseek \\
+\hline
+{\em path} & a string of the path to output to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zero on success, non-\/zero on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00066}{66}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 
 \Hypertarget{extractor_8h_a553117edee61f114d5f6fd9d28d57313}\index{extractor.h@{extractor.h}!extract\_file@{extract\_file}}
 \index{extract\_file@{extract\_file}!extractor.h@{extractor.h}}
@@ -44,5 +83,21 @@ int8\+\_\+t extract\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstri
 
 
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00014}{14}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Extracts a file pointed to by {\ttfamily fptr} using its respective {\ttfamily \doxylink{structdirectory__record}{directory\+\_\+record}}, outputting it to the location pointed to by {\ttfamily path}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & pointer to data of the file. \\
+\hline
+{\em dr} & the directory record corresponding to that file. \\
+\hline
+{\em path} & a string of the file\textquotesingle{}s output path. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zero on success, non-\/zero on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00009}{9}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 

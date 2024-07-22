@@ -5,11 +5,6 @@
 
 #include <string.h>
 
-/*
- *  extract_file
- *
- *  TODO: add documentation
- */
 int8_t
 extract_file (FILE *fptr, directory_record *dr, const char *path)
 {
@@ -67,11 +62,6 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
   return 0;
 }
 
-/*
- *  extract_directory
- *
- *  TODO: add documentation
- */
 int8_t
 extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
 {
@@ -112,11 +102,6 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
   return 0;
 }
 
-/*
- *  create_directories_and_extract_data_from_path_file
- *
- *  TODO: add documentation
- */
 void
 create_directories_and_extract_data_from_path_file (FILE *fptr,
                                                     uint16_t BLOCK_SIZE,

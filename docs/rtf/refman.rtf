@@ -1205,6 +1205,11 @@ uint8_t {\b extended_attribute_record_length}\par
 uint32_t {\b location_of_extent}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint16_t {\b parent_directory_number}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+1-based index. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b directory_identifier}\par
 }
@@ -1287,6 +1292,9 @@ uint16_t path_table_entry::parent_directory_number}}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+1-based index. }}\par
 {
 Definition at line {\b 12} of file {\b path_table.h}.}\par
 }
@@ -3495,10 +3503,25 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b extract_file} (FILE *fptr, {\b directory_record} *dr, const char *path)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Extracts a file pointed to by {\f2 fptr}  using its respective {\f2 {\b directory_record}} , outputting it to the location pointed to by {\f2 path} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b extract_directory} (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates a directory and then extracts every file in said directory. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b create_directories_and_extract_data_from_path_file} (FILE *fptr, uint16_t BLOCK_SIZE, {\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A wrapper for {\f2 extract_directory}  and, therefore also, {\f2 extract_file}  which handles the extraction of every file and subdirectory using a given path table. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -3508,7 +3531,7 @@ Function Documentation\par
 {\xe \v extractor.c\:create_directories_and_extract_data_from_path_file}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-void create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t BLOCK_SIZE, {\b path_table} * pt)}}
+void create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t BLOCK_SIZE, struct {\b path_table} * pt)}}
 \par
 {\bkmkstart AAAAAAAACO}
 {\bkmkend AAAAAAAACO}
@@ -3516,7 +3539,40 @@ void create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t B
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 121} of file {\b extractor.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A wrapper for {\f2 extract_directory}  and, therefore also, {\f2 extract_file}  which handles the extraction of every file and subdirectory using a given path table. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates directories for every directory in a given path table and then extracts all of its files.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to the data \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i BLOCK_SIZE} \cell }{logical block size in big endian form, needed for fseek \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i path} \cell }{a string of the path to output to. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b extract_directory()} \par
+{\b extract_file()} \par
+}}}{
+Definition at line {\b 106} of file {\b extractor.c}.}\par
 }
 {\xe \v extract_directory\:extractor.c}
 {\xe \v extractor.c\:extract_directory}
@@ -3530,13 +3586,42 @@ int8_t extract_directory (FILE * fptr, const uint16_t BLOCK_SIZE, const char * p
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 76} of file {\b extractor.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates a directory and then extracts every file in said directory. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to the data of the directory. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i BLOCK_SIZE} \cell }{logical block size in big endian form, needed for fseek \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i path} \cell }{a string of the path to output to. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}}{
+Definition at line {\b 66} of file {\b extractor.c}.}\par
 }
 {\xe \v extract_file\:extractor.c}
 {\xe \v extractor.c\:extract_file}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-int8_t extract_file (FILE * fptr, {\b directory_record} * dr, const char * path)}}
+int8_t extract_file (FILE * fptr, struct {\b directory_record} * dr, const char * path)}}
 \par
 {\bkmkstart AAAAAAAACQ}
 {\bkmkend AAAAAAAACQ}
@@ -3544,7 +3629,36 @@ int8_t extract_file (FILE * fptr, {\b directory_record} * dr, const char * path)
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 14} of file {\b extractor.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Extracts a file pointed to by {\f2 fptr}  using its respective {\f2 {\b directory_record}} , outputting it to the location pointed to by {\f2 path} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to data of the file. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i dr} \cell }{the directory record corresponding to that file. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i path} \cell }{a string of the file's output path. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}}{
+Definition at line {\b 9} of file {\b extractor.c}.}\par
 }
 \par \pard\plain 
 
@@ -3566,164 +3680,149 @@ Go to the documentation of this file.\par
 00005 \par
 00006 {\cf21 #include <string.h>}\par
 00007 \par
-00008 {\cf20 /*}\par
-00009 {\cf20  *  extract_file}\par
-00010 {\cf20  *}\par
-00011 {\cf20  *  TODO: add documentation}\par
-00012 {\cf20  */}\par
-00013 int8_t\par
-00014 extract_file (FILE *fptr, directory_record *dr, {\cf17 const} {\cf18 char} *path)\par
-00015 \{\par
-00016   {\cf20 /*}\par
-00017 {\cf20    *  the `file_identifier` terminates with a `;` character followed by the}\par
-00018 {\cf20    *  file ID number in ASCII coded decimal (`1`).}\par
-00019 {\cf20    *  See: https://wiki.osdev.org/ISO_9660#Directories}\par
-00020 {\cf20    */}\par
-00021   {\cf18 char} *actual_filename = strtok (dr->file_identifier, ({\cf17 const} {\cf18 char} *){\cf22 ";"});\par
-00022   {\cf19 if} (actual_filename == NULL)\par
-00023     \{\par
-00024       {\cf20 /*}\par
-00025 {\cf20        *  Just use the default/existing filename.}\par
-00026 {\cf20        *  It'll be incorrect, but probably not worth stoping execution over.}\par
-00027 {\cf20        *  Users could just manually remove the `;1` part; the data itself}\par
-00028 {\cf20        * should be fine.}\par
-00029 {\cf20        */}\par
-00030       actual_filename = dr->file_identifier;\par
-00031     \}\par
+00008 int8_t\par
+00009 extract_file (FILE *fptr, directory_record *dr, {\cf17 const} {\cf18 char} *path)\par
+00010 \{\par
+00011   {\cf20 /*}\par
+00012 {\cf20    *  the `file_identifier` terminates with a `;` character followed by the}\par
+00013 {\cf20    *  file ID number in ASCII coded decimal (`1`).}\par
+00014 {\cf20    *  See: https://wiki.osdev.org/ISO_9660#Directories}\par
+00015 {\cf20    */}\par
+00016   {\cf18 char} *actual_filename = strtok (dr->file_identifier, ({\cf17 const} {\cf18 char} *){\cf22 ";"});\par
+00017   {\cf19 if} (actual_filename == NULL)\par
+00018     \{\par
+00019       {\cf20 /*}\par
+00020 {\cf20        *  Just use the default/existing filename.}\par
+00021 {\cf20        *  It'll be incorrect, but probably not worth stoping execution over.}\par
+00022 {\cf20        *  Users could just manually remove the `;1` part; the data itself}\par
+00023 {\cf20        * should be fine.}\par
+00024 {\cf20        */}\par
+00025       actual_filename = dr->file_identifier;\par
+00026     \}\par
+00027 \par
+00028   printf ({\cf22 "Extracting file: %s\\n"}, actual_filename);\par
+00029 \par
+00030   {\cf20 // +1 for the null terminator, +1 for `/` between dir and filename}\par
+00031   {\cf18 size_t} filename_length = strlen (path) + strlen (actual_filename) + 2;\par
 00032 \par
-00033   printf ({\cf22 "Extracting file: %s\\n"}, actual_filename);\par
-00034 \par
-00035   {\cf20 // +1 for the null terminator, +1 for `/` between dir and filename}\par
-00036   {\cf18 size_t} filename_length = strlen (path) + strlen (actual_filename) + 2;\par
-00037 \par
-00038   {\cf18 char} *output_filename = ({\cf18 char} *)calloc (filename_length, {\cf17 sizeof} ({\cf18 char}));\par
-00039   {\cf19 if} (output_filename == NULL)\par
-00040     \{\par
-00041       perror ({\cf22 "ERROR: unable to calloc `output_filename`."});\par
-00042       {\cf19 return} -1;\par
-00043     \}\par
-00044 \par
-00045   strcpy (output_filename, path);\par
-00046   strcat (output_filename, &OP_PATH_SEPARATOR);\par
-00047   strcat (output_filename, actual_filename);\par
-00048 \par
-00049   FILE *output_file = fopen (output_filename, {\cf22 "wb"});\par
-00050   {\cf19 if} (output_file == NULL)\par
-00051     \{\par
-00052       perror ({\cf22 "ERROR: unable to open output file."});\par
-00053       free (output_filename);\par
-00054       {\cf19 return} -1;\par
-00055     \}\par
-00056 \par
-00057   {\cf20 // `j` must be in hex, otherwise `data_length` can be treated as an int value}\par
-00058   {\cf19 for} (uint32_t j = 0x0; j < dr->data_length; j++)\par
-00059     \{\par
-00060       uint8_t {\cf18 byte} = read_single_uint8 (fptr);\par
-00061       fwrite (&{\cf18 byte}, {\cf17 sizeof} (uint8_t), 1, output_file);\par
-00062     \}\par
-00063 \par
-00064   fclose (output_file);\par
-00065   free (output_filename);\par
-00066 \par
-00067   {\cf19 return} 0;\par
-00068 \}\par
-00069 \par
-00070 {\cf20 /*}\par
-00071 {\cf20  *  extract_directory}\par
-00072 {\cf20  *}\par
-00073 {\cf20  *  TODO: add documentation}\par
-00074 {\cf20  */}\par
-00075 int8_t\par
-00076 extract_directory (FILE *fptr, {\cf17 const} uint16_t BLOCK_SIZE, {\cf17 const} {\cf18 char} *path)\par
-00077 \{\par
-00078   {\cf20 // 0xF00000 == 15 MiB}\par
-00079   {\cf17 const} uint32_t DEBUG_FILE_SIZE_LIMIT = 0xF00000;\par
+00033   {\cf18 char} *output_filename = ({\cf18 char} *)calloc (filename_length, {\cf17 sizeof} ({\cf18 char}));\par
+00034   {\cf19 if} (output_filename == NULL)\par
+00035     \{\par
+00036       perror ({\cf22 "ERROR: unable to calloc `output_filename`."});\par
+00037       {\cf19 return} -1;\par
+00038     \}\par
+00039 \par
+00040   strcpy (output_filename, path);\par
+00041   strcat (output_filename, &OP_PATH_SEPARATOR);\par
+00042   strcat (output_filename, actual_filename);\par
+00043 \par
+00044   FILE *output_file = fopen (output_filename, {\cf22 "wb"});\par
+00045   {\cf19 if} (output_file == NULL)\par
+00046     \{\par
+00047       perror ({\cf22 "ERROR: unable to open output file."});\par
+00048       free (output_filename);\par
+00049       {\cf19 return} -1;\par
+00050     \}\par
+00051 \par
+00052   {\cf20 // `j` must be in hex, otherwise `data_length` can be treated as an int value}\par
+00053   {\cf19 for} (uint32_t j = 0x0; j < dr->data_length; j++)\par
+00054     \{\par
+00055       uint8_t {\cf18 byte} = read_single_uint8 (fptr);\par
+00056       fwrite (&{\cf18 byte}, {\cf17 sizeof} (uint8_t), 1, output_file);\par
+00057     \}\par
+00058 \par
+00059   fclose (output_file);\par
+00060   free (output_filename);\par
+00061 \par
+00062   {\cf19 return} 0;\par
+00063 \}\par
+00064 \par
+00065 int8_t\par
+00066 extract_directory (FILE *fptr, {\cf17 const} uint16_t BLOCK_SIZE, {\cf17 const} {\cf18 char} *path)\par
+00067 \{\par
+00068   {\cf20 // 0xF00000 == 15 MiB}\par
+00069   {\cf17 const} uint32_t DEBUG_FILE_SIZE_LIMIT = 0xF00000;\par
+00070 \par
+00071   directory dir;\par
+00072   create_directory (&dir);\par
+00073   process_directory (fptr, &dir);\par
+00074 \par
+00075   printf ({\cf22 "Extracting directory: %s\\n"}, path);\par
+00076 \par
+00077   {\cf19 for} ({\cf18 size_t} i = 0x0; i < dir.current_record; i++)\par
+00078     \{\par
+00079       directory_record curr_file = dir.records[i];\par
 00080 \par
-00081   directory dir;\par
-00082   create_directory (&dir);\par
-00083   process_directory (fptr, &dir);\par
-00084 \par
-00085   printf ({\cf22 "Extracting directory: %s\\n"}, path);\par
-00086 \par
-00087   {\cf19 for} ({\cf18 size_t} i = 0x0; i < dir.current_record; i++)\par
-00088     \{\par
-00089       directory_record curr_file = dir.records[i];\par
-00090 \par
-00091       {\cf19 if} (curr_file.file_flags.subdirectory)\par
-00092         \{\par
-00093           {\cf19 continue};\par
-00094         \}\par
-00095       {\cf19 else} {\cf19 if} (OP_DEBUG_MODE && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)\par
-00096         \{\par
-00097           printf ({\cf22 "[DEBUG_MODE] Skipping file, %s.\\n"},\par
-00098                   curr_file.file_identifier);\par
-00099           {\cf19 continue};\par
-00100         \}\par
-00101 \par
-00102       fseek (fptr, curr_file.location_of_extent * BLOCK_SIZE, SEEK_SET);\par
-00103 \par
-00104       {\cf19 if} (extract_file (fptr, &curr_file, path) != 0)\par
-00105         \{\par
-00106           destroy_directory (&dir);\par
-00107           {\cf19 return} -1;\par
-00108         \}\par
-00109     \}\par
-00110 \par
-00111   destroy_directory (&dir);\par
-00112   {\cf19 return} 0;\par
-00113 \}\par
+00081       {\cf19 if} (curr_file.file_flags.subdirectory)\par
+00082         \{\par
+00083           {\cf19 continue};\par
+00084         \}\par
+00085       {\cf19 else} {\cf19 if} (OP_DEBUG_MODE && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)\par
+00086         \{\par
+00087           printf ({\cf22 "[DEBUG_MODE] Skipping file, %s.\\n"},\par
+00088                   curr_file.file_identifier);\par
+00089           {\cf19 continue};\par
+00090         \}\par
+00091 \par
+00092       fseek (fptr, curr_file.location_of_extent * BLOCK_SIZE, SEEK_SET);\par
+00093 \par
+00094       {\cf19 if} (extract_file (fptr, &curr_file, path) != 0)\par
+00095         \{\par
+00096           destroy_directory (&dir);\par
+00097           {\cf19 return} -1;\par
+00098         \}\par
+00099     \}\par
+00100 \par
+00101   destroy_directory (&dir);\par
+00102   {\cf19 return} 0;\par
+00103 \}\par
+00104 \par
+00105 {\cf18 void}\par
+00106 create_directories_and_extract_data_from_path_file (FILE *fptr,\par
+00107                                                     uint16_t BLOCK_SIZE,\par
+00108                                                     path_table *pt)\par
+00109 \{\par
+00110   {\cf19 for} ({\cf18 size_t} i = pt->current_entry - 1; i > 0; --i)\par
+00111     \{\par
+00112       path_table_entry curr_dir = pt->entries[i];\par
+00113       path_table_entry target_dir = curr_dir;\par
 00114 \par
-00115 {\cf20 /*}\par
-00116 {\cf20  *  create_directories_and_extract_data_from_path_file}\par
-00117 {\cf20  *}\par
-00118 {\cf20  *  TODO: add documentation}\par
-00119 {\cf20  */}\par
-00120 {\cf18 void}\par
-00121 create_directories_and_extract_data_from_path_file (FILE *fptr,\par
-00122                                                     uint16_t BLOCK_SIZE,\par
-00123                                                     path_table *pt)\par
-00124 \{\par
-00125   {\cf19 for} ({\cf18 size_t} i = pt->current_entry - 1; i > 0; --i)\par
-00126     \{\par
-00127       path_table_entry curr_dir = pt->entries[i];\par
-00128       path_table_entry target_dir = curr_dir;\par
+00115       {\cf20 // supports 10 levels of directories which is probably overkill.}\par
+00116       {\cf17 const} uint32_t PATH_MAX_LEN\par
+00117           = ((curr_dir.directory_identifier_length + 1) * 10)\par
+00118             + (strlen (OUTPUT_DIR) + 1) + (strlen (OP_CURRENT_DISK_NAME) + 1)\par
+00119             + 1;\par
+00120       {\cf18 char} *path = calloc (PATH_MAX_LEN, {\cf17 sizeof} ({\cf18 char}));\par
+00121       {\cf19 if} (path == NULL)\par
+00122         \{\par
+00123           perror ({\cf22 "ERROR: unable to calloc path string"});\par
+00124           destroy_path_table (pt);\par
+00125           exit (1);\par
+00126         \}\par
+00127 \par
+00128       strcat (path, curr_dir.directory_identifier);\par
 00129 \par
-00130       {\cf20 // supports 10 levels of directories which is probably overkill.}\par
-00131       {\cf17 const} uint32_t PATH_MAX_LEN\par
-00132           = ((curr_dir.directory_identifier_length + 1) * 10)\par
-00133             + (strlen (OUTPUT_DIR) + 1) + (strlen (OP_CURRENT_DISK_NAME) + 1)\par
-00134             + 1;\par
-00135       {\cf18 char} *path = calloc (PATH_MAX_LEN, {\cf17 sizeof} ({\cf18 char}));\par
-00136       {\cf19 if} (path == NULL)\par
-00137         \{\par
-00138           perror ({\cf22 "ERROR: unable to calloc path string"});\par
-00139           destroy_path_table (pt);\par
-00140           exit (1);\par
-00141         \}\par
-00142 \par
-00143       strcat (path, curr_dir.directory_identifier);\par
-00144 \par
-00145       {\cf19 do}\par
-00146         \{\par
-00147           uint16_t index\par
-00148               = change_endianness_uint16 (curr_dir.parent_directory_number);\par
-00149           {\cf20 // parent_directory_number is 1-based}\par
-00150           curr_dir = pt->entries[index - 1];\par
-00151 \par
-00152           prepend_path_string (path,\par
-00153                                ({\cf17 const} {\cf18 char} *)curr_dir.directory_identifier);\par
-00154         \}\par
-00155       {\cf19 while} (curr_dir.parent_directory_number > 0x0100);\par
-00156 \par
-00157       create_output_directory (path);\par
-00158 \par
-00159       fseek (fptr, BLOCK_SIZE * target_dir.location_of_extent, SEEK_SET);\par
-00160 \par
-00161       extract_directory (fptr, BLOCK_SIZE, path);\par
-00162 \par
-00163       free (path);\par
-00164     \}\par
-00165 \}\par
+00130       {\cf19 do}\par
+00131         \{\par
+00132           uint16_t index\par
+00133               = change_endianness_uint16 (curr_dir.parent_directory_number);\par
+00134           {\cf20 // parent_directory_number is 1-based}\par
+00135           curr_dir = pt->entries[index - 1];\par
+00136 \par
+00137           prepend_path_string (path,\par
+00138                                ({\cf17 const} {\cf18 char} *)curr_dir.directory_identifier);\par
+00139         \}\par
+00140       {\cf19 while} (curr_dir.parent_directory_number > 0x0100);\par
+00141 \par
+00142       create_output_directory (path);\par
+00143 \par
+00144       fseek (fptr, BLOCK_SIZE * target_dir.location_of_extent, SEEK_SET);\par
+00145 \par
+00146       extract_directory (fptr, BLOCK_SIZE, path);\par
+00147 \par
+00148       free (path);\par
+00149     \}\par
+00150 \}\par
 }
 \par \pard\plain 
 
@@ -3748,10 +3847,25 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b extract_file} (FILE *fptr, struct {\b directory_record} *dr, const char *path)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Extracts a file pointed to by {\f2 fptr}  using its respective {\f2 {\b directory_record}} , outputting it to the location pointed to by {\f2 path} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b extract_directory} (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates a directory and then extracts every file in said directory. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b create_directories_and_extract_data_from_path_file} (FILE *fptr, uint16_t BLOCK_SIZE, struct {\b path_table} *pt)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A wrapper for {\f2 extract_directory}  and, therefore also, {\f2 extract_file}  which handles the extraction of every file and subdirectory using a given path table. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -3769,7 +3883,40 @@ void create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t B
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 121} of file {\b extractor.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A wrapper for {\f2 extract_directory}  and, therefore also, {\f2 extract_file}  which handles the extraction of every file and subdirectory using a given path table. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates directories for every directory in a given path table and then extracts all of its files.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to the data \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i BLOCK_SIZE} \cell }{logical block size in big endian form, needed for fseek \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i path} \cell }{a string of the path to output to. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b extract_directory()} \par
+{\b extract_file()} \par
+}}}{
+Definition at line {\b 106} of file {\b extractor.c}.}\par
 }
 {\xe \v extract_directory\:extractor.h}
 {\xe \v extractor.h\:extract_directory}
@@ -3783,7 +3930,36 @@ int8_t extract_directory (FILE * fptr, const uint16_t BLOCK_SIZE, const char * p
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 76} of file {\b extractor.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates a directory and then extracts every file in said directory. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to the data of the directory. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i BLOCK_SIZE} \cell }{logical block size in big endian form, needed for fseek \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i path} \cell }{a string of the path to output to. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}}{
+Definition at line {\b 66} of file {\b extractor.c}.}\par
 }
 {\xe \v extract_file\:extractor.h}
 {\xe \v extractor.h\:extract_file}
@@ -3797,7 +3973,36 @@ int8_t extract_file (FILE * fptr, struct {\b directory_record} * dr, const char 
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 14} of file {\b extractor.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Extracts a file pointed to by {\f2 fptr}  using its respective {\f2 {\b directory_record}} , outputting it to the location pointed to by {\f2 path} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\par
+{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Parameters\par}
+\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i fptr} \cell }{pointer to data of the file. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i dr} \cell }{the directory record corresponding to that file. \cell }
+{\row }
+\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
+\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
+\pard \widctlpar\intbl\adjustright
+{{\i path} \cell }{a string of the file's output path. \cell }
+{\row }
+}
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}}{
+Definition at line {\b 9} of file {\b extractor.c}.}\par
 }
 \par \pard\plain 
 
@@ -3821,14 +4026,16 @@ Go to the documentation of this file.\par
 00007 {\cf21 #include <stdint.h>}\par
 00008 {\cf21 #include <stdio.h>}\par
 00009 \par
-00010 int8_t extract_file (FILE *fptr, {\cf17 struct} directory_record *dr,\par
-00011                      {\cf17 const} {\cf18 char} *path);\par
-00012 int8_t extract_directory (FILE *fptr, {\cf17 const} uint16_t BLOCK_SIZE,\par
-00013                           {\cf17 const} {\cf18 char} *path);\par
-00014 {\cf18 void} create_directories_and_extract_data_from_path_file (\par
-00015     FILE *fptr, uint16_t BLOCK_SIZE, {\cf17 struct} path_table *pt);\par
-00016 \par
-00017 {\cf21 #endif}\par
+00019 int8_t extract_file (FILE *fptr, {\cf17 struct} directory_record *dr,\par
+00020                      {\cf17 const} {\cf18 char} *path);\par
+00021 \par
+00030 int8_t extract_directory (FILE *fptr, {\cf17 const} uint16_t BLOCK_SIZE,\par
+00031                           {\cf17 const} {\cf18 char} *path);\par
+00032 \par
+00046 {\cf18 void} create_directories_and_extract_data_from_path_file (\par
+00047     FILE *fptr, uint16_t BLOCK_SIZE, {\cf17 struct} path_table *pt);\par
+00048 \par
+00049 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
@@ -6052,7 +6259,7 @@ Go to the documentation of this file.\par
 00009   uint8_t directory_identifier_length;\par
 00010   uint8_t extended_attribute_record_length;\par
 00011   uint32_t location_of_extent;\par
-00012   uint16_t parent_directory_number; {\cf20 // 1-based}\par
+00012   uint16_t parent_directory_number; \par
 00013   {\cf18 char} *directory_identifier;\par
 00014 \} path_table_entry;\par
 00015 \par

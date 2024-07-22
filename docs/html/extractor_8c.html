@@ -113,10 +113,13 @@ $(function(){initNavTree('extractor_8c.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6c570aa556812918f6d97359199ef25a" id="r_a6c570aa556812918f6d97359199ef25a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c570aa556812918f6d97359199ef25a">extract_file</a> (FILE *fptr, <a class="el" href="structdirectory__record.html">directory_record</a> *dr, const char *path)</td></tr>
+<tr class="memdesc:a6c570aa556812918f6d97359199ef25a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a file pointed to by <code>fptr</code> using its respective <code><a class="el" href="structdirectory__record.html" title="A directory record.">directory_record</a></code>, outputting it to the location pointed to by <code>path</code>.  <br /></td></tr>
 <tr class="separator:a6c570aa556812918f6d97359199ef25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83bd0d1558bff60ba2a613868c6a138f" id="r_a83bd0d1558bff60ba2a613868c6a138f"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83bd0d1558bff60ba2a613868c6a138f">extract_directory</a> (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)</td></tr>
+<tr class="memdesc:a83bd0d1558bff60ba2a613868c6a138f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a directory and then extracts every file in said directory.  <br /></td></tr>
 <tr class="separator:a83bd0d1558bff60ba2a613868c6a138f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9ebc1f302a1c1bc185bc8f1e45b1ffb" id="r_ac9ebc1f302a1c1bc185bc8f1e45b1ffb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9ebc1f302a1c1bc185bc8f1e45b1ffb">create_directories_and_extract_data_from_path_file</a> (FILE *fptr, uint16_t BLOCK_SIZE, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="memdesc:ac9ebc1f302a1c1bc185bc8f1e45b1ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for <code>extract_directory</code> and, therefore also, <code>extract_file</code> which handles the extraction of every file and subdirectory using a given path table.  <br /></td></tr>
 <tr class="separator:ac9ebc1f302a1c1bc185bc8f1e45b1ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -139,12 +142,27 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structpath__table.html">path_table</a> *</td>          <td class="paramname"><span class="paramname"><em>pt</em></span>&#160;)</td>
+          <td class="paramtype">struct <a class="el" href="structpath__table.html">path_table</a> *</td>          <td class="paramname"><span class="paramname"><em>pt</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00121">121</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p>A wrapper for <code>extract_directory</code> and, therefore also, <code>extract_file</code> which handles the extraction of every file and subdirectory using a given path table. </p>
+<p>Creates directories for every directory in a given path table and then extracts all of its files.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fptr</td><td>pointer to the data </td></tr>
+    <tr><td class="paramname">BLOCK_SIZE</td><td>logical block size in big endian form, needed for fseek </td></tr>
+    <tr><td class="paramname">path</td><td>a string of the path to output to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="extractor_8h.html#a83bd0d1558bff60ba2a613868c6a138f" title="Creates a directory and then extracts every file in said directory.">extract_directory()</a> </dd>
+<dd>
+<a class="el" href="extractor_8h.html#a553117edee61f114d5f6fd9d28d57313" title="Extracts a file pointed to by fptr using its respective directory_record, outputting it to the locati...">extract_file()</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00106">106</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>
@@ -172,7 +190,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00076">76</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p>Creates a directory and then extracts every file in said directory. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fptr</td><td>pointer to the data of the directory. </td></tr>
+    <tr><td class="paramname">BLOCK_SIZE</td><td>logical block size in big endian form, needed for fseek </td></tr>
+    <tr><td class="paramname">path</td><td>a string of the path to output to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00066">66</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>
@@ -190,7 +219,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structdirectory__record.html">directory_record</a> *</td>          <td class="paramname"><span class="paramname"><em>dr</em></span>, </td>
+          <td class="paramtype">struct <a class="el" href="structdirectory__record.html">directory_record</a> *</td>          <td class="paramname"><span class="paramname"><em>dr</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -200,7 +229,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00014">14</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p>Extracts a file pointed to by <code>fptr</code> using its respective <code><a class="el" href="structdirectory__record.html" title="A directory record.">directory_record</a></code>, outputting it to the location pointed to by <code>path</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fptr</td><td>pointer to data of the file. </td></tr>
+    <tr><td class="paramname">dr</td><td>the directory record corresponding to that file. </td></tr>
+    <tr><td class="paramname">path</td><td>a string of the file's output path. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00009">9</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>

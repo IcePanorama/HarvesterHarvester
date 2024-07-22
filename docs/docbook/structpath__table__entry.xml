@@ -15,6 +15,8 @@
             <listitem><para>uint32_t <link linkend="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca">location_of_extent</link></para>
 </listitem>
             <listitem><para>uint16_t <link linkend="_structpath__table__entry_1a8867a81ce59add3e34b7a868af6e795d">parent_directory_number</link></para>
+
+<para>1-based index. </para>
 </listitem>
             <listitem><para>char * <link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link></para>
 </listitem>
@@ -60,6 +62,10 @@ Definition at line <link linkend="_path__table_8h_source_1l00011">11</link> of f
 <indexterm><primary>parent_directory_number</primary><secondary>path_table_entry</secondary></indexterm>
 <indexterm><primary>path_table_entry</primary><secondary>parent_directory_number</secondary></indexterm>
 <para><computeroutput>uint16_t path_table_entry::parent_directory_number</computeroutput></para><para>
+
+<para>1-based index. </para>
+</para>
+<para>
 Definition at line <link linkend="_path__table_8h_source_1l00012">12</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <para>
