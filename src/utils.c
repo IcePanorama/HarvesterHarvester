@@ -1,4 +1,5 @@
 #include "utils.h"
+#include "data_reader.h"
 #include "options.h"
 
 #include <stdbool.h>
@@ -70,4 +71,12 @@ file_exists (const char *filename)
 #else
   return access (filename, F_OK) != -1;
 #endif
+}
+
+bool
+peek_char_is (FILE *fptr, uint8_t expected_ch)
+{
+  uint8_t byte = read_single_uint8 (fptr);
+  fseek (fptr, -1, SEEK_CUR);
+  return byte == expected_ch;
 }

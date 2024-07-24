@@ -29,14 +29,14 @@ main (int argc, char **argv)
   if (argc >= 2)
     handle_command_line_args (argc, argv);
 
-  if (OP_BATCH_PROCESS)
+  if (OP_BATCH_PROCESS && !OP_SKIP_DAT_PROCESSING)
     {
       if (batch_process_DAT_files () != 0)
         {
           exit (1);
         }
     }
-  else
+  else if (!OP_SKIP_DAT_PROCESSING)
     {
       fptr = setup_extractor (argv[argc - 1]);
       process_DAT_file (fptr);
@@ -244,25 +244,52 @@ batch_process_DAT_files ()
   return 0;
 }
 
+/*
+ *  We DO need a more flexible/non-hardcoded solution as we don't necessarily
+ *  know which DAT files the end user extracted in the first place.
+ */
 void
 process_new_dat_files (void)
 {
-  char *output_disk_path = calloc (
+  char *interior_dat_file_path = calloc (
       3 + strlen (OP_OUTPUT_DIR) + strlen ("DISK#") + strlen ("HARVEST2.DAT"),
       sizeof (char));
-  if (output_disk_path == NULL)
+  if (interior_dat_file_path == NULL)
     {
       perror ("ERROR: unable to calloc string for output disk path.");
+      exit (1);
+    }
+
+  // for subdir in OP_OUTPUT_DIR
+  strcpy (interior_dat_file_path, OP_OUTPUT_DIR);
+  strcat (interior_dat_file_path, &OP_PATH_SEPARATOR);
+  strcat (interior_dat_file_path, "DISK1"); // replace w/ subdir name
+  strcat (interior_dat_file_path, &OP_PATH_SEPARATOR);
+  // probably need to figure out a  good solution for storing these filenames
+  // for the files that we are expecting.
+  strcat (interior_dat_file_path, "INDEX.001");
+
+  FILE *fptr = setup_extractor (interior_dat_file_path);
+  if (fptr == NULL)
+    {
+      fprintf (stderr, "ERROR: unable to locate index file, %s.\n",
+               interior_dat_file_path);
+      free (interior_dat_file_path);
       exit (1);
     }
 
   index_file idx_file;
   if (create_index_file (&idx_file) != 0)
     {
-      free (output_disk_path);
+      fprintf (stderr, "ERROR: create_index_file failed.\n");
+      fclose (fptr);
+      free (interior_dat_file_path);
       exit (1);
     }
 
+  process_index_file (fptr, &idx_file);
+
   destroy_index_file (&idx_file);
-  free (output_disk_path);
+  fclose (fptr);
+  free (interior_dat_file_path);
 }

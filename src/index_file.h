@@ -32,5 +32,6 @@ typedef struct index_file
 
 int8_t create_index_file (index_file *i);
 int8_t destroy_index_file (index_file *i);
+void process_index_file (FILE *fptr, index_file *i);
 
 #endif

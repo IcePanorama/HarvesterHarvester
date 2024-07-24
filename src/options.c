@@ -8,6 +8,7 @@
 #include <string.h>
 
 bool OP_BATCH_PROCESS = true;
+bool OP_SKIP_DAT_PROCESSING = false;
 char *OP_CURRENT_DISK_NAME = NULL;
 bool OP_DEBUG_MODE = false;
 char *OP_INPUT_DIR = (char *)"dat-files";
@@ -76,6 +77,10 @@ process_flag (char *f)
     {
       print_out_list_of_command_line_arguments ();
       exit (0);
+    }
+  else if (strcmp (f, "-i") == 0)
+    {
+      OP_SKIP_DAT_PROCESSING = true;
     }
   else if (strcmp (f, "--version") == 0)
     {

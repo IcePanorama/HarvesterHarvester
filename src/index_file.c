@@ -1,4 +1,5 @@
 #include "index_file.h"
+#include "utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,4 +28,19 @@ destroy_index_file (index_file *i)
 {
   free (i->indicies);
   return 0;
+}
+
+void
+process_index_file (FILE *fptr, index_file *i)
+{
+  fseek (fptr, 0x5, SEEK_SET); // skip `XFLE#`
+  if (!peek_char_is (fptr, ':') || i->size == 0)
+    {
+      fprintf (
+          stderr,
+          "ERROR: Unexpected character in index file. Aborting processing.\n");
+      return;
+    }
+
+  // index_entry entry;
 }

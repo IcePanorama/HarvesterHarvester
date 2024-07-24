@@ -5,6 +5,7 @@
 
 /** If true, batch process all the files in `OP_INPUT_DIR`. */
 extern bool OP_BATCH_PROCESS;
+extern bool OP_SKIP_DAT_PROCESSING;
 
 // Not really an "option", does this belong here?
 extern char *OP_CURRENT_DISK_NAME;
