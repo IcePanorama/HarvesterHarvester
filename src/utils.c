@@ -6,6 +6,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
+#ifdef _WIN32
+#include <direct.h>
+#endif
 
 void
 prepend_path_string (char *str, const char *prefix)
@@ -38,4 +42,16 @@ is_string_dat_file (char *str)
   size_t len = strlen (str) + 1;
   return (len > EXTENSION_LEN
           && strcmp (str + (len - EXTENSION_LEN), EXPECTED_EXTENSION) == 0);
+}
+
+bool
+directory_exists (const char *dir)
+{
+#ifdef _WIN32
+  struct _stat st;
+  return (_stat (dir, &st) == 0 && (st.st_mode & _S_IFDIR));
+#else
+  struct stat st;
+  return (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));
+#endif
 }

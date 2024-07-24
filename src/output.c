@@ -6,12 +6,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
-
 #ifdef _WIN32
 #include <direct.h>
 #endif
-
-// const char *OP_OUTPUT_DIR = "output";
 
 void
 create_output_directory (char *path)
@@ -66,16 +63,4 @@ create_output_directory (char *path)
 
   free (dir);
   free (tmp);
-}
-
-bool
-directory_exists (const char *dir)
-{
-#ifdef _WIN32
-  struct _stat st;
-  return (_stat (dir, &st) == 0 && (st.st_mode & _S_IFDIR));
-#else
-  struct stat st;
-  return (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));
-#endif
 }

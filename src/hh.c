@@ -18,7 +18,7 @@
 #include <dirent.h>
 #endif
 
-// void process_new_dat_files (void);
+void process_new_dat_files (void);
 
 int
 main (int argc, char **argv)
@@ -50,7 +50,7 @@ main (int argc, char **argv)
    * [] extract files from those new *.DAT files into the directory they're
    *    already in.
    */
-  // process_new_dat_files ();
+  process_new_dat_files ();
 
   return 0;
 }
@@ -243,96 +243,17 @@ batch_process_DAT_files ()
   return 0;
 }
 
-/*
 void
 process_new_dat_files (void)
 {
-
-  const uint8_t OUTPUT_SUBDIR_LEN = strlen ("DISK#");
-  char *filename;
-
-#ifdef _WIN32
-  WIN32_FIND_DATAA file_data;
-  HANDLE hFind;
-  char search_path[MAX_PATH];
-  strcpy (search_path, OP_INPUT_DIR);
-  strcat (search_path, "\\*");
-
-  hFind = FindFirstFileA (search_path, &file_data);
-  if (hFind == INVALID_HANDLE_VALUE)
+  char *output_disk_path = calloc (
+      3 + strlen (OP_OUTPUT_DIR) + strlen ("DISK#") + strlen ("HARVEST2.DAT"),
+      sizeof (char));
+  if (output_disk_path == NULL)
     {
-      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
-               OP_INPUT_DIR);
+      perror ("ERROR: unable to calloc string for output disk path.");
+      exit (1);
     }
 
-  do
-    {
-      if (strcmp (file_data.cFileName, ".") == 0
-      || strcmp (file_data.cFileName, "..") == 0
-          || !is_string_dat_file (file_data.cFileName))
-        {
-          continue;
-        }
-
-      filename = calloc (strlen (OP_INPUT_DIR) + OUTPUT_SUBDIR_LEN + 2,
-                         sizeof (char));
-      if (filename == NULL)
-        {
-          perror ("ERROR: unable to calloc string for filename.");
-          exit (1);
-        }
-
-      strcpy (filename, OP_INPUT_DIR);
-      strcat (filename, &OP_PATH_SEPARATOR);
-      strcat (filename, file_data.cFileName);
-
-      FILE *fptr = setup_extractor (filename);
-      process_DAT_file (fptr);
-
-      fclose (fptr);
-      free (filename);
-    }
-  while (FindNextFileA (hFind, &file_data) != 0);
-
-  FindClose (hFind);
-#else
-  struct dirent *entry;
-  DIR *dir;
-  dir = opendir (OP_INPUT_DIR);
-  if (dir == NULL)
-    {
-      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
-               OP_INPUT_DIR);
-    }
-
-  while ((entry = readdir (dir)) != NULL)
-    {
-      if (strcmp (entry->d_name, ".") == 0 || strcmp (entry->d_name, "..") == 0
-          || !is_string_dat_file (entry->d_name))
-        {
-          continue;
-        }
-
-      filename = calloc (strlen (OP_INPUT_DIR) + OUTPUT_SUBDIR_LEN + 2,
-                         sizeof (char));
-      if (filename == NULL)
-        {
-          perror ("ERROR: unable to calloc string for filename.");
-          exit (1);
-        }
-
-      strcpy (filename, OP_INPUT_DIR);
-      strcat (filename, &OP_PATH_SEPARATOR);
-      strcat (filename, entry->d_name);
-
-      FILE *fptr = setup_extractor (filename);
-      process_DAT_file (fptr);
-
-      fclose (fptr);
-      free (filename);
-    }
-
-  closedir (dir);
-#endif
+  free (output_disk_path);
 }
-*/
