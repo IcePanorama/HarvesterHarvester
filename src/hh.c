@@ -1,6 +1,7 @@
 #include "hh.h"
 #include "errors.h"
 #include "extractor.h"
+#include "index_file.h"
 #include "options.h"
 #include "path_table.h"
 #include "utils.h"

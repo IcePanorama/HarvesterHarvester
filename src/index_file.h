@@ -11,7 +11,7 @@
 #define FULL_PATH_MAX_LEN 256
 #define FILENAME_MAX_LEN 32
 
-typedef struct index
+typedef struct index_entry
 {
   /*
     Probably gonna ignore the XFLE# part, making the following comment
@@ -21,11 +21,11 @@ typedef struct index
   char filename[FILENAME_MAX_LEN]; //!< Name of the actual file (w/ extension)
   uint32_t file_start;
   uint32_t file_offset;
-} index;
+} index_entry;
 
 typedef struct index_file
 {
-  index *indicies;
+  index_entry *indicies;
   size_t size;          //!< max size of `indicies`.
   size_t current_index; //!< pointer to last item in `indicies`.
 } index_file;
