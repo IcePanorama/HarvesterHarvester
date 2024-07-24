@@ -256,5 +256,13 @@ process_new_dat_files (void)
       exit (1);
     }
 
+  index_file idx_file;
+  if (create_index_file (&idx_file) != 0)
+    {
+      free (output_disk_path);
+      exit (1);
+    }
+
+  destroy_index_file (&idx_file);
   free (output_disk_path);
 }

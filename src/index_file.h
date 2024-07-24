@@ -30,4 +30,7 @@ typedef struct index_file
   size_t current_index; //!< pointer to last item in `indicies`.
 } index_file;
 
+int8_t create_index_file (index_file *i);
+int8_t destroy_index_file (index_file *i);
+
 #endif
