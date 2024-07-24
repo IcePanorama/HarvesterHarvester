@@ -2,4 +2,16 @@
 \hypertarget{index}{}\label{index}\index{HarvesterHarvester@{HarvesterHarvester}}
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
-A tool for harvesting data out of Harvester\textquotesingle{}s (Digi\+FX Interactive, 1996) DAT files. 
+A tool for harvesting data out of Harvester\textquotesingle{}s (Digi\+FX Interactive, 1996) DAT files.\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{To Do}{To Do}}\label{index_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Handle SIGINT/\+Windows equivalent gracefully
+\begin{DoxyItemize}
+\item Currently, if a user presses {\ttfamily CTRL+C} while the program is executing, this causes a memory leak.
+\begin{DoxyItemize}
+\item To see this in action, run {\ttfamily make test} and then press {\ttfamily CTRL+C}.
+\end{DoxyItemize}
+\item An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting
+\item Ideally, this solution should also be cross-\/platform, if at all possible. 
+\end{DoxyItemize}
+\end{DoxyItemize}

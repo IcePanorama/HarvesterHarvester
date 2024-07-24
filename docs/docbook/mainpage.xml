@@ -3,5 +3,25 @@
 <title>HarvesterHarvester</title>
 <indexterm><primary>HarvesterHarvester</primary></indexterm>
 
-<para><anchor xml:id="_index_1md_README"/>A tool for harvesting data out of Harvester&apos;s (DigiFX Interactive, 1996) DAT files. </para>
+<para><anchor xml:id="_index_1md_README"/>A tool for harvesting data out of Harvester&apos;s (DigiFX Interactive, 1996) DAT files.</para>
+<section xml:id="_index_1autotoc_md1">
+<title>To Do</title>
+<para><itemizedlist>
+<listitem>
+<para>Handle SIGINT/Windows equivalent gracefully<itemizedlist>
+<listitem>
+<para>Currently, if a user presses <computeroutput>CTRL+C</computeroutput> while the program is executing, this causes a memory leak.<itemizedlist>
+<listitem>
+<para>To see this in action, run <computeroutput>make test</computeroutput> and then press <computeroutput>CTRL+C</computeroutput>.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting</para>
+</listitem><listitem>
+<para>Ideally, this solution should also be cross-platform, if at all possible. </para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</section>
 </chapter>

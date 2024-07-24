@@ -11,6 +11,7 @@ bool OP_BATCH_PROCESS = true;
 char *OP_CURRENT_DISK_NAME = NULL;
 bool OP_DEBUG_MODE = false;
 char *OP_INPUT_DIR = (char *)"dat-files";
+char *OP_OUTPUT_DIR = (char *)"output";
 char OP_PATH_SEPARATOR = '/';
 
 // TODO: update me when finished

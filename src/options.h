@@ -17,9 +17,8 @@ extern char *OP_CURRENT_DISK_NAME;
  */
 // FIXME: `DEBUG_FILE_SIZE_LIMIT` should probably be defined here.
 extern bool OP_DEBUG_MODE;
-
-/** Where to look for files if batch processing. Default is `./dat-files/`. */
-extern char *OP_INPUT_DIR;
+extern char *OP_INPUT_DIR;  //!< Default is `./dat-files/`.
+extern char *OP_OUTPUT_DIR; //!< Default is `./output/`
 
 /**
  *  Depends on the user's operating system. Having this be defined globally in

@@ -74,13 +74,6 @@ process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
   create_volume_descriptor (vd, descriptor_type, descriptor_ver);
 }
 
-/*
- *  process_volume_descriptor_data
- *
- *  TODO: write some better documentation for this.
- *  In the meantime, see:
- *  https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
- */
 void
 process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 {

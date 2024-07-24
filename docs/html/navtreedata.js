@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "HarvesterHarvester", "index.html", [
+    [ "To Do", "index.html#autotoc_md1", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -48,7 +49,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"utils_8c.html#aee9f9bd7844e8e7d21d0965980b6e9ed"
+"utils_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

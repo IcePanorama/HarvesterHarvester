@@ -100,7 +100,20 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">HarvesterHarvester </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md_README"></a>A tool for harvesting data out of Harvester's (DigiFX Interactive, 1996) DAT files. </p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a>A tool for harvesting data out of Harvester's (DigiFX Interactive, 1996) DAT files.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+To Do</h1>
+<ul>
+<li>Handle SIGINT/Windows equivalent gracefully<ul>
+<li>Currently, if a user presses <code>CTRL+C</code> while the program is executing, this causes a memory leak.<ul>
+<li>To see this in action, run <code>make test</code> and then press <code>CTRL+C</code>.</li>
+</ul>
+</li>
+<li>An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting</li>
+<li>Ideally, this solution should also be cross-platform, if at all possible. </li>
+</ul>
+</li>
+</ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"/>
 </div><!-- contents -->

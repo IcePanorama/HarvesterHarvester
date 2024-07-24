@@ -2,7 +2,6 @@
 #include "errors.h"
 #include "extractor.h"
 #include "options.h"
-#include "output.h"
 #include "path_table.h"
 #include "utils.h"
 #include "volume_descriptor.h"
@@ -18,6 +17,8 @@
 #else
 #include <dirent.h>
 #endif
+
+// void process_new_dat_files (void);
 
 int
 main (int argc, char **argv)
@@ -40,6 +41,17 @@ main (int argc, char **argv)
       process_DAT_file (fptr);
       fclose (fptr);
     }
+
+  /*
+   * TODO: Next steps:
+   * [] navigate to each output dir ("DISK1", "DISK2", etc.)
+   *    [] Path is just `output/DISK#/`
+   * [] load the *.IDX file and use it to read the *.DAT files.
+   * [] extract files from those new *.DAT files into the directory they're
+   *    already in.
+   */
+  // process_new_dat_files ();
+
   return 0;
 }
 
@@ -120,7 +132,7 @@ process_DAT_file (FILE *fptr)
   fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[0].location_of_extent,
          SEEK_SET);
 
-  char *path = calloc (strlen (OUTPUT_DIR) + current_disk_name_length + 2,
+  char *path = calloc (strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2,
                        sizeof (char));
   if (path == NULL)
     {
@@ -128,7 +140,7 @@ process_DAT_file (FILE *fptr)
       return;
     }
 
-  strcpy (path, OUTPUT_DIR);
+  strcpy (path, OP_OUTPUT_DIR);
   strcat (path, "/");
   strcat (path, OP_CURRENT_DISK_NAME);
   extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, path);
@@ -230,3 +242,97 @@ batch_process_DAT_files ()
 #endif
   return 0;
 }
+
+/*
+void
+process_new_dat_files (void)
+{
+
+  const uint8_t OUTPUT_SUBDIR_LEN = strlen ("DISK#");
+  char *filename;
+
+#ifdef _WIN32
+  WIN32_FIND_DATAA file_data;
+  HANDLE hFind;
+  char search_path[MAX_PATH];
+  strcpy (search_path, OP_INPUT_DIR);
+  strcat (search_path, "\\*");
+
+  hFind = FindFirstFileA (search_path, &file_data);
+  if (hFind == INVALID_HANDLE_VALUE)
+    {
+      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
+               OP_INPUT_DIR);
+    }
+
+  do
+    {
+      if (strcmp (file_data.cFileName, ".") == 0
+      || strcmp (file_data.cFileName, "..") == 0
+          || !is_string_dat_file (file_data.cFileName))
+        {
+          continue;
+        }
+
+      filename = calloc (strlen (OP_INPUT_DIR) + OUTPUT_SUBDIR_LEN + 2,
+                         sizeof (char));
+      if (filename == NULL)
+        {
+          perror ("ERROR: unable to calloc string for filename.");
+          exit (1);
+        }
+
+      strcpy (filename, OP_INPUT_DIR);
+      strcat (filename, &OP_PATH_SEPARATOR);
+      strcat (filename, file_data.cFileName);
+
+      FILE *fptr = setup_extractor (filename);
+      process_DAT_file (fptr);
+
+      fclose (fptr);
+      free (filename);
+    }
+  while (FindNextFileA (hFind, &file_data) != 0);
+
+  FindClose (hFind);
+#else
+  struct dirent *entry;
+  DIR *dir;
+  dir = opendir (OP_INPUT_DIR);
+  if (dir == NULL)
+    {
+      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
+               OP_INPUT_DIR);
+    }
+
+  while ((entry = readdir (dir)) != NULL)
+    {
+      if (strcmp (entry->d_name, ".") == 0 || strcmp (entry->d_name, "..") == 0
+          || !is_string_dat_file (entry->d_name))
+        {
+          continue;
+        }
+
+      filename = calloc (strlen (OP_INPUT_DIR) + OUTPUT_SUBDIR_LEN + 2,
+                         sizeof (char));
+      if (filename == NULL)
+        {
+          perror ("ERROR: unable to calloc string for filename.");
+          exit (1);
+        }
+
+      strcpy (filename, OP_INPUT_DIR);
+      strcat (filename, &OP_PATH_SEPARATOR);
+      strcat (filename, entry->d_name);
+
+      FILE *fptr = setup_extractor (filename);
+      process_DAT_file (fptr);
+
+      fclose (fptr);
+      free (filename);
+    }
+
+  closedir (dir);
+#endif
+}
+*/

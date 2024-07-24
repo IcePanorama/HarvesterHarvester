@@ -11,7 +11,7 @@
 #include <direct.h>
 #endif
 
-const char *OUTPUT_DIR = "output";
+// const char *OP_OUTPUT_DIR = "output";
 
 void
 create_output_directory (char *path)
@@ -19,7 +19,7 @@ create_output_directory (char *path)
   if (OP_CURRENT_DISK_NAME != NULL)
     prepend_path_string (path, OP_CURRENT_DISK_NAME);
 
-  prepend_path_string (path, OUTPUT_DIR);
+  prepend_path_string (path, OP_OUTPUT_DIR);
 
   char *tmp = calloc (strlen (path) + 2, sizeof (char));
   if (tmp == NULL)

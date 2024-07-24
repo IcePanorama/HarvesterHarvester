@@ -4,7 +4,7 @@
 #include <stdbool.h>
 
 /** Default is `output/`. */
-extern const char *OUTPUT_DIR;
+// extern const char *OUTPUT_DIR;
 
 void create_output_directory (char *path);
 
