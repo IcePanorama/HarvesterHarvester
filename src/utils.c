@@ -77,6 +77,11 @@ bool
 peek_char_is (FILE *fptr, uint8_t expected_ch)
 {
   uint8_t byte = read_single_uint8 (fptr);
+  if (byte == expected_ch)
+    {
+      return true;
+    }
+
   fseek (fptr, -1, SEEK_CUR);
-  return byte == expected_ch;
+  return false;
 }

@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 /** Both of these are probably too large, but better to be safe than sorry. */
-#define FULL_PATH_MAX_LEN 256
+#define FULL_PATH_MAX_LEN 128
 #define FILENAME_MAX_LEN 32
 
 typedef struct index_entry
