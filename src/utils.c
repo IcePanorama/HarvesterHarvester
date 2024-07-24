@@ -7,8 +7,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+
 #ifdef _WIN32
 #include <direct.h>
+#include <windows.h>
+#else
+#include <unistd.h>
 #endif
 
 void
@@ -53,5 +57,17 @@ directory_exists (const char *dir)
 #else
   struct stat st;
   return (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));
+#endif
+}
+
+bool
+file_exists (const char *filename)
+{
+#ifdef _WIN32
+  DWORD attribs = GetFileAttributes (filename);
+  return attribs != INVALID_FILE_ATTRIBUTES
+         && !(attribs & FILE_ATTRIBUTE_DIRECTORY);
+#else
+  return access (filename, F_OK) != -1;
 #endif
 }

@@ -196,7 +196,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00085">85</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00078">78</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1ac90e9d56a0be0db4fa1e60d2a7a089ee"/><section>
     <title>process_volume_descriptor_header()</title>

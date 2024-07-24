@@ -16,7 +16,9 @@ char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_ab0a46ab2ce382e77c83
 bool \mbox{\hyperlink{options_8h_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}}
 \begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_a9f2b83262a240b0baabccb91b801b096}{OP\+\_\+\+INPUT\+\_\+\+DIR}}
-\begin{DoxyCompactList}\small\item\em Where to look for files if batch processing. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default is {\ttfamily ./dat-\/files/}. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_a517a97037702e04fc68e47a47e4af794}{OP\+\_\+\+OUTPUT\+\_\+\+DIR}}
+\begin{DoxyCompactList}\small\item\em Default is {\ttfamily ./output/} \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{options_8h_a845934c83dddb0516baadb1abd079d8d}{OP\+\_\+\+PATH\+\_\+\+SEPARATOR}}
 \begin{DoxyCompactList}\small\item\em Depends on the user\textquotesingle{}s operating system. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -41,7 +43,7 @@ Processes command-\/line arguments.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00023}{23}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00024}{24}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 
 
@@ -97,11 +99,25 @@ char\texorpdfstring{$\ast$}{*} OP\+\_\+\+INPUT\+\_\+\+DIR\hspace{0.3cm}{\ttfamil
 
 
 
-Where to look for files if batch processing. 
-
 Default is {\ttfamily ./dat-\/files/}. 
 
+
+
 Definition at line \mbox{\hyperlink{options_8c_source_l00013}{13}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8h_a517a97037702e04fc68e47a47e4af794}\index{options.h@{options.h}!OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}}
+\index{OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}!options.h@{options.h}}
+\doxysubsubsection{\texorpdfstring{OP\_OUTPUT\_DIR}{OP\_OUTPUT\_DIR}}
+{\footnotesize\ttfamily \label{options_8h_a517a97037702e04fc68e47a47e4af794} 
+char\texorpdfstring{$\ast$}{*} OP\+\_\+\+OUTPUT\+\_\+\+DIR\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Default is {\ttfamily ./output/} 
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00014}{14}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a845934c83dddb0516baadb1abd079d8d}\index{options.h@{options.h}!OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}}
 \index{OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}!options.h@{options.h}}
@@ -115,5 +131,5 @@ Depends on the user\textquotesingle{}s operating system.
 
 Having this be defined globally in this file for cross-\/platform compatibility reasons. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00014}{14}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00015}{15}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 

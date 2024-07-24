@@ -26,7 +26,9 @@ char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c83
 bool \mbox{\hyperlink{options_8c_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}} = false
 \begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_a9f2b83262a240b0baabccb91b801b096}{OP\+\_\+\+INPUT\+\_\+\+DIR}} = (char \texorpdfstring{$\ast$}{*})"{}dat-\/files"{}
-\begin{DoxyCompactList}\small\item\em Where to look for files if batch processing. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Default is {\ttfamily ./dat-\/files/}. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_a517a97037702e04fc68e47a47e4af794}{OP\+\_\+\+OUTPUT\+\_\+\+DIR}} = (char \texorpdfstring{$\ast$}{*})"{}output"{}
+\begin{DoxyCompactList}\small\item\em Default is {\ttfamily ./output/} \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{options_8c_a845934c83dddb0516baadb1abd079d8d}{OP\+\_\+\+PATH\+\_\+\+SEPARATOR}} = \textquotesingle{}/\textquotesingle{}
 \begin{DoxyCompactList}\small\item\em Depends on the user\textquotesingle{}s operating system. \end{DoxyCompactList}\item 
 static const char \mbox{\hyperlink{options_8c_a59cde5c015f49e774b06103571d51dc9}{VERSION\+\_\+\+NUMBER\+\_\+\+STR}} \mbox{[}9\mbox{]} = "{}00.\+00.\+00"{}
@@ -53,7 +55,7 @@ Processes command-\/line arguments.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00023}{23}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00024}{24}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a5413a17f20b0c5daf64765e6c104768d}\index{options.c@{options.c}!print\_out\_list\_of\_command\_line\_arguments@{print\_out\_list\_of\_command\_line\_arguments}}
 \index{print\_out\_list\_of\_command\_line\_arguments@{print\_out\_list\_of\_command\_line\_arguments}!options.c@{options.c}}
@@ -63,7 +65,7 @@ void print\+\_\+out\+\_\+list\+\_\+of\+\_\+command\+\_\+line\+\_\+arguments (\be
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00053}{53}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00054}{54}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a6b175948738c4d93a820a0ada9e54669}\index{options.c@{options.c}!process\_flag@{process\_flag}}
 \index{process\_flag@{process\_flag}!options.c@{options.c}}
@@ -73,7 +75,7 @@ void process\+\_\+flag (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\as
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00068}{68}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00069}{69}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 
 
@@ -129,11 +131,25 @@ char\texorpdfstring{$\ast$}{*} OP\+\_\+\+INPUT\+\_\+\+DIR = (char \texorpdfstrin
 
 
 
-Where to look for files if batch processing. 
-
 Default is {\ttfamily ./dat-\/files/}. 
 
+
+
 Definition at line \mbox{\hyperlink{options_8c_source_l00013}{13}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8c_a517a97037702e04fc68e47a47e4af794}\index{options.c@{options.c}!OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}}
+\index{OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{OP\_OUTPUT\_DIR}{OP\_OUTPUT\_DIR}}
+{\footnotesize\ttfamily \label{options_8c_a517a97037702e04fc68e47a47e4af794} 
+char\texorpdfstring{$\ast$}{*} OP\+\_\+\+OUTPUT\+\_\+\+DIR = (char \texorpdfstring{$\ast$}{*})"{}output"{}}
+
+
+
+Default is {\ttfamily ./output/} 
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00014}{14}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a845934c83dddb0516baadb1abd079d8d}\index{options.c@{options.c}!OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}}
 \index{OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}!options.c@{options.c}}
@@ -147,7 +163,7 @@ Depends on the user\textquotesingle{}s operating system.
 
 Having this be defined globally in this file for cross-\/platform compatibility reasons. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00014}{14}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00015}{15}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a59cde5c015f49e774b06103571d51dc9}\index{options.c@{options.c}!VERSION\_NUMBER\_STR@{VERSION\_NUMBER\_STR}}
 \index{VERSION\_NUMBER\_STR@{VERSION\_NUMBER\_STR}!options.c@{options.c}}
@@ -157,5 +173,5 @@ const char VERSION\+\_\+\+NUMBER\+\_\+\+STR\mbox{[}9\mbox{]} = "{}00.\+00.\+00"{
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00017}{17}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00018}{18}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 

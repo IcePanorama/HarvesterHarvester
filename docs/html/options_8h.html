@@ -124,8 +124,11 @@ Variables</h2></td></tr>
 <tr class="memdesc:a22750490a402211ccfd1c7dda808eb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips files larger than <code>DEBUG_FILE_SIZE_LIMIT</code> if true.  <br /></td></tr>
 <tr class="separator:a22750490a402211ccfd1c7dda808eb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f2b83262a240b0baabccb91b801b096" id="r_a9f2b83262a240b0baabccb91b801b096"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</a></td></tr>
-<tr class="memdesc:a9f2b83262a240b0baabccb91b801b096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Where to look for files if batch processing.  <br /></td></tr>
+<tr class="memdesc:a9f2b83262a240b0baabccb91b801b096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default is <code>./dat-files/</code>.  <br /></td></tr>
 <tr class="separator:a9f2b83262a240b0baabccb91b801b096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a517a97037702e04fc68e47a47e4af794" id="r_a517a97037702e04fc68e47a47e4af794"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</a></td></tr>
+<tr class="memdesc:a517a97037702e04fc68e47a47e4af794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default is <code>./output/</code>  <br /></td></tr>
+<tr class="separator:a517a97037702e04fc68e47a47e4af794"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a845934c83dddb0516baadb1abd079d8d" id="r_a845934c83dddb0516baadb1abd079d8d"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a></td></tr>
 <tr class="memdesc:a845934c83dddb0516baadb1abd079d8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Depends on the user's operating system.  <br /></td></tr>
 <tr class="separator:a845934c83dddb0516baadb1abd079d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,7 +162,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00023">23</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00024">24</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -262,10 +265,35 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Where to look for files if batch processing. </p>
 <p>Default is <code>./dat-files/</code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00013">13</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+
+</div>
+</div>
+<a id="a517a97037702e04fc68e47a47e4af794" name="a517a97037702e04fc68e47a47e4af794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a517a97037702e04fc68e47a47e4af794">&#9670;&#160;</a></span>OP_OUTPUT_DIR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* OP_OUTPUT_DIR</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default is <code>./output/</code> </p>
+
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00014">14</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -292,7 +320,7 @@ Variables</h2></td></tr>
 <p>Depends on the user's operating system. </p>
 <p>Having this be defined globally in this file for cross-platform compatibility reasons. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00014">14</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00015">15</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>

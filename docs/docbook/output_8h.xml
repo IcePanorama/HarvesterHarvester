@@ -7,17 +7,6 @@
         <itemizedlist>
             <listitem><para>void <link linkend="_output_8h_1a52dcd18726bcf8c409eafd1be526dbc7">create_output_directory</link> (char *path)</para>
 </listitem>
-            <listitem><para>bool <link linkend="_output_8h_1a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</link> (const char *dir)</para>
-</listitem>
-        </itemizedlist>
-</simplesect>
-<simplesect>
-    <title>Variables    </title>
-        <itemizedlist>
-            <listitem><para>const char * <link linkend="_output_8h_1ac4251b470f6db454e004da4566ad4be2">OUTPUT_DIR</link></para>
-
-<para>Default is <computeroutput>output/</computeroutput>. </para>
-</listitem>
         </itemizedlist>
 </simplesect>
 <section>
@@ -27,27 +16,6 @@
 <indexterm><primary>create_output_directory</primary><secondary>output.h</secondary></indexterm>
 <indexterm><primary>output.h</primary><secondary>create_output_directory</secondary></indexterm>
 <para><computeroutput>void create_output_directory (char * path)</computeroutput></para><para>
-Definition at line <link linkend="_output_8c_source_1l00017">17</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
-</section>
-<anchor xml:id="_output_8h_1a28cf3fb6f4d89ea760afeca3f07a377b"/><section>
-    <title>directory_exists()</title>
-<indexterm><primary>directory_exists</primary><secondary>output.h</secondary></indexterm>
-<indexterm><primary>output.h</primary><secondary>directory_exists</secondary></indexterm>
-<para><computeroutput>bool directory_exists (const char * dir)</computeroutput></para><para>
-Definition at line <link linkend="_output_8c_source_1l00072">72</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
-</section>
-</section>
-<section>
-<title>Variable Documentation</title>
-<anchor xml:id="_output_8h_1ac4251b470f6db454e004da4566ad4be2"/><section>
-    <title>OUTPUT_DIR</title>
-<indexterm><primary>OUTPUT_DIR</primary><secondary>output.h</secondary></indexterm>
-<indexterm><primary>output.h</primary><secondary>OUTPUT_DIR</secondary></indexterm>
-<para><computeroutput>const char* OUTPUT_DIR<computeroutput>[extern]</computeroutput></computeroutput></para><para>
-
-<para>Default is <computeroutput>output/</computeroutput>. </para>
-</para>
-<para>
 Definition at line <link linkend="_output_8c_source_1l00014">14</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>

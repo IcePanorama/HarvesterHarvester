@@ -25,7 +25,13 @@
 var NAVTREE =
 [
   [ "HarvesterHarvester", "index.html", [
-    [ "To Do", "index.html#autotoc_md1", null ],
+    [ "Installation", "index.html#autotoc_md1", [
+      [ "Easiest Way", "index.html#autotoc_md2", null ],
+      [ "Building from source (Linux/MacOS/Unix)", "index.html#autotoc_md3", null ]
+    ] ],
+    [ "Usage", "index.html#autotoc_md4", null ],
+    [ "To Do", "index.html#autotoc_md5", null ],
+    [ "A note on piracy", "index.html#autotoc_md6", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -49,7 +55,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"utils_8c.html"
+"structvolume__descriptor__data.html#ae6403ffa64495130a3a3590c1bcd414f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -27,5 +27,6 @@ void read_file_flags (FILE *fptr, file_flags *ff);
 void prepend_path_string (char *str, const char *prefix);
 bool is_string_dat_file (char *str);
 bool directory_exists (const char *dir);
+bool file_exists (const char *filename);
 
 #endif

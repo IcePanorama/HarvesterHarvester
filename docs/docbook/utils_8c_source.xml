@@ -10,37 +10,69 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_utils_8c_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
 <anchor xml:id="_utils_8c_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
 <anchor xml:id="_utils_8c_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;string.h&gt;</emphasis>
-<anchor xml:id="_utils_8c_source_1l00009"/>00009 
-<anchor xml:id="_utils_8c_source_1l00010"/>00010 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_utils_8c_source_1l00011"/><link linkend="_utils_8c_1af6ebb1daf24f6259fa021c9a0e8e516c">00011</link> <link linkend="_utils_8c_1af6ebb1daf24f6259fa021c9a0e8e516c">prepend_path_string</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*prefix)
-<anchor xml:id="_utils_8c_source_1l00012"/>00012 {
-<anchor xml:id="_utils_8c_source_1l00013"/>00013 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(prefix,&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*)<emphasis role="stringliteral">&quot;&quot;</emphasis>)&#32;==&#32;0
-<anchor xml:id="_utils_8c_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;||&#32;strcmp&#32;(prefix,&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*)<emphasis role="stringliteral">&quot;\1&quot;</emphasis>)&#32;==&#32;0)
-<anchor xml:id="_utils_8c_source_1l00015"/>00015 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_utils_8c_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
-<anchor xml:id="_utils_8c_source_1l00017"/>00017 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_utils_8c_source_1l00018"/>00018 
-<anchor xml:id="_utils_8c_source_1l00019"/>00019 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;*tmp&#32;=&#32;calloc&#32;(strlen&#32;(str)&#32;+&#32;strlen&#32;(prefix)&#32;+&#32;2,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>));
-<anchor xml:id="_utils_8c_source_1l00020"/>00020 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tmp&#32;==&#32;NULL)
-<anchor xml:id="_utils_8c_source_1l00021"/>00021 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_utils_8c_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;perror&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;unable&#32;to&#32;calloc&#32;tmp&#32;string&quot;</emphasis>);
-<anchor xml:id="_utils_8c_source_1l00023"/>00023 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(1);
-<anchor xml:id="_utils_8c_source_1l00024"/>00024 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_utils_8c_source_1l00025"/>00025 &#32;&#32;strcpy&#32;(tmp,&#32;str);
-<anchor xml:id="_utils_8c_source_1l00026"/>00026 &#32;&#32;strcpy&#32;(str,&#32;prefix);
-<anchor xml:id="_utils_8c_source_1l00027"/>00027 &#32;&#32;strcat&#32;(str,&#32;&amp;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
-<anchor xml:id="_utils_8c_source_1l00028"/>00028 &#32;&#32;strcat&#32;(str,&#32;tmp);
-<anchor xml:id="_utils_8c_source_1l00029"/>00029 &#32;&#32;free&#32;(tmp);
-<anchor xml:id="_utils_8c_source_1l00030"/>00030 }
-<anchor xml:id="_utils_8c_source_1l00031"/>00031 
-<anchor xml:id="_utils_8c_source_1l00032"/>00032 <emphasis role="keywordtype">bool</emphasis>
-<anchor xml:id="_utils_8c_source_1l00033"/><link linkend="_utils_8c_1aee9f9bd7844e8e7d21d0965980b6e9ed">00033</link> <link linkend="_utils_8c_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str)
-<anchor xml:id="_utils_8c_source_1l00034"/>00034 {
-<anchor xml:id="_utils_8c_source_1l00035"/>00035 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*EXPECTED_EXTENSION&#32;=&#32;<emphasis role="stringliteral">&quot;.DAT&quot;</emphasis>;
-<anchor xml:id="_utils_8c_source_1l00036"/>00036 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;EXTENSION_LEN&#32;=&#32;5;&#32;<emphasis role="comment">//&#32;+1&#32;for&#32;null&#32;terminator</emphasis>
-<anchor xml:id="_utils_8c_source_1l00037"/>00037 
-<anchor xml:id="_utils_8c_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;len&#32;=&#32;strlen&#32;(str)&#32;+&#32;1;
-<anchor xml:id="_utils_8c_source_1l00039"/>00039 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(len&#32;&gt;&#32;EXTENSION_LEN
-<anchor xml:id="_utils_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&amp;&amp;&#32;strcmp&#32;(str&#32;+&#32;(len&#32;-&#32;EXTENSION_LEN),&#32;EXPECTED_EXTENSION)&#32;==&#32;0);
-<anchor xml:id="_utils_8c_source_1l00041"/>00041 }
+<anchor xml:id="_utils_8c_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&lt;sys/stat.h&gt;</emphasis>
+<anchor xml:id="_utils_8c_source_1l00010"/>00010 
+<anchor xml:id="_utils_8c_source_1l00011"/>00011 <emphasis role="preprocessor">#ifdef&#32;_WIN32</emphasis>
+<anchor xml:id="_utils_8c_source_1l00012"/>00012 <emphasis role="preprocessor">#include&#32;&lt;direct.h&gt;</emphasis>
+<anchor xml:id="_utils_8c_source_1l00013"/>00013 <emphasis role="preprocessor">#include&#32;&lt;windows.h&gt;</emphasis>
+<anchor xml:id="_utils_8c_source_1l00014"/>00014 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_utils_8c_source_1l00015"/>00015 <emphasis role="preprocessor">#include&#32;&lt;unistd.h&gt;</emphasis>
+<anchor xml:id="_utils_8c_source_1l00016"/>00016 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_utils_8c_source_1l00017"/>00017 
+<anchor xml:id="_utils_8c_source_1l00018"/>00018 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_utils_8c_source_1l00019"/><link linkend="_utils_8c_1af6ebb1daf24f6259fa021c9a0e8e516c">00019</link> <link linkend="_utils_8c_1af6ebb1daf24f6259fa021c9a0e8e516c">prepend_path_string</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*prefix)
+<anchor xml:id="_utils_8c_source_1l00020"/>00020 {
+<anchor xml:id="_utils_8c_source_1l00021"/>00021 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(prefix,&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*)<emphasis role="stringliteral">&quot;&quot;</emphasis>)&#32;==&#32;0
+<anchor xml:id="_utils_8c_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;||&#32;strcmp&#32;(prefix,&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*)<emphasis role="stringliteral">&quot;\1&quot;</emphasis>)&#32;==&#32;0)
+<anchor xml:id="_utils_8c_source_1l00023"/>00023 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_utils_8c_source_1l00024"/>00024 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_utils_8c_source_1l00025"/>00025 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_utils_8c_source_1l00026"/>00026 
+<anchor xml:id="_utils_8c_source_1l00027"/>00027 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;*tmp&#32;=&#32;calloc&#32;(strlen&#32;(str)&#32;+&#32;strlen&#32;(prefix)&#32;+&#32;2,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>));
+<anchor xml:id="_utils_8c_source_1l00028"/>00028 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tmp&#32;==&#32;NULL)
+<anchor xml:id="_utils_8c_source_1l00029"/>00029 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_utils_8c_source_1l00030"/>00030 &#32;&#32;&#32;&#32;&#32;&#32;perror&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;unable&#32;to&#32;calloc&#32;tmp&#32;string&quot;</emphasis>);
+<anchor xml:id="_utils_8c_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(1);
+<anchor xml:id="_utils_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_utils_8c_source_1l00033"/>00033 &#32;&#32;strcpy&#32;(tmp,&#32;str);
+<anchor xml:id="_utils_8c_source_1l00034"/>00034 &#32;&#32;strcpy&#32;(str,&#32;prefix);
+<anchor xml:id="_utils_8c_source_1l00035"/>00035 &#32;&#32;strcat&#32;(str,&#32;&amp;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
+<anchor xml:id="_utils_8c_source_1l00036"/>00036 &#32;&#32;strcat&#32;(str,&#32;tmp);
+<anchor xml:id="_utils_8c_source_1l00037"/>00037 &#32;&#32;free&#32;(tmp);
+<anchor xml:id="_utils_8c_source_1l00038"/>00038 }
+<anchor xml:id="_utils_8c_source_1l00039"/>00039 
+<anchor xml:id="_utils_8c_source_1l00040"/>00040 <emphasis role="keywordtype">bool</emphasis>
+<anchor xml:id="_utils_8c_source_1l00041"/><link linkend="_utils_8c_1aee9f9bd7844e8e7d21d0965980b6e9ed">00041</link> <link linkend="_utils_8c_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str)
+<anchor xml:id="_utils_8c_source_1l00042"/>00042 {
+<anchor xml:id="_utils_8c_source_1l00043"/>00043 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*EXPECTED_EXTENSION&#32;=&#32;<emphasis role="stringliteral">&quot;.DAT&quot;</emphasis>;
+<anchor xml:id="_utils_8c_source_1l00044"/>00044 &#32;&#32;<emphasis role="keyword">const</emphasis>&#32;uint8_t&#32;EXTENSION_LEN&#32;=&#32;5;&#32;<emphasis role="comment">//&#32;+1&#32;for&#32;null&#32;terminator</emphasis>
+<anchor xml:id="_utils_8c_source_1l00045"/>00045 
+<anchor xml:id="_utils_8c_source_1l00046"/>00046 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;len&#32;=&#32;strlen&#32;(str)&#32;+&#32;1;
+<anchor xml:id="_utils_8c_source_1l00047"/>00047 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(len&#32;&gt;&#32;EXTENSION_LEN
+<anchor xml:id="_utils_8c_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&amp;&amp;&#32;strcmp&#32;(str&#32;+&#32;(len&#32;-&#32;EXTENSION_LEN),&#32;EXPECTED_EXTENSION)&#32;==&#32;0);
+<anchor xml:id="_utils_8c_source_1l00049"/>00049 }
+<anchor xml:id="_utils_8c_source_1l00050"/>00050 
+<anchor xml:id="_utils_8c_source_1l00051"/>00051 <emphasis role="keywordtype">bool</emphasis>
+<anchor xml:id="_utils_8c_source_1l00052"/><link linkend="_utils_8c_1a28cf3fb6f4d89ea760afeca3f07a377b">00052</link> <link linkend="_utils_8c_1a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*dir)
+<anchor xml:id="_utils_8c_source_1l00053"/>00053 {
+<anchor xml:id="_utils_8c_source_1l00054"/>00054 <emphasis role="preprocessor">#ifdef&#32;_WIN32</emphasis>
+<anchor xml:id="_utils_8c_source_1l00055"/>00055 &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>_stat&#32;st;
+<anchor xml:id="_utils_8c_source_1l00056"/>00056 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(_stat&#32;(dir,&#32;&amp;st)&#32;==&#32;0&#32;&amp;&amp;&#32;(st.st_mode&#32;&amp;&#32;_S_IFDIR));
+<anchor xml:id="_utils_8c_source_1l00057"/>00057 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_utils_8c_source_1l00058"/>00058 &#32;&#32;<emphasis role="keyword">struct&#32;</emphasis>stat&#32;st;
+<anchor xml:id="_utils_8c_source_1l00059"/>00059 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(stat&#32;(dir,&#32;&amp;st)&#32;==&#32;0&#32;&amp;&amp;&#32;S_ISDIR&#32;(st.st_mode));
+<anchor xml:id="_utils_8c_source_1l00060"/>00060 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_utils_8c_source_1l00061"/>00061 }
+<anchor xml:id="_utils_8c_source_1l00062"/>00062 
+<anchor xml:id="_utils_8c_source_1l00063"/>00063 <emphasis role="keywordtype">bool</emphasis>
+<anchor xml:id="_utils_8c_source_1l00064"/><link linkend="_utils_8c_1a0038df898c35b6a483fa874b3671735b">00064</link> <link linkend="_utils_8c_1a0038df898c35b6a483fa874b3671735b">file_exists</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*filename)
+<anchor xml:id="_utils_8c_source_1l00065"/>00065 {
+<anchor xml:id="_utils_8c_source_1l00066"/>00066 <emphasis role="preprocessor">#ifdef&#32;_WIN32</emphasis>
+<anchor xml:id="_utils_8c_source_1l00067"/>00067 &#32;&#32;DWORD&#32;attribs&#32;=&#32;GetFileAttributes&#32;(filename);
+<anchor xml:id="_utils_8c_source_1l00068"/>00068 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;attribs&#32;!=&#32;INVALID_FILE_ATTRIBUTES
+<anchor xml:id="_utils_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&amp;&amp;&#32;!(attribs&#32;&amp;&#32;FILE_ATTRIBUTE_DIRECTORY);
+<anchor xml:id="_utils_8c_source_1l00070"/>00070 <emphasis role="preprocessor">#else</emphasis>
+<anchor xml:id="_utils_8c_source_1l00071"/>00071 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;access&#32;(filename,&#32;F_OK)&#32;!=&#32;1;
+<anchor xml:id="_utils_8c_source_1l00072"/>00072 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_utils_8c_source_1l00073"/>00073 }
 </programlisting></section>

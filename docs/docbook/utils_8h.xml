@@ -17,6 +17,10 @@
 </listitem>
             <listitem><para>bool <link linkend="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link> (char *str)</para>
 </listitem>
+            <listitem><para>bool <link linkend="_utils_8h_1a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</link> (const char *dir)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_utils_8h_1a0038df898c35b6a483fa874b3671735b">file_exists</link> (const char *filename)</para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <section>
@@ -58,19 +62,33 @@ Parameters</title>
 <para>
 Definition at line <link linkend="_data__reader_8c_source_1l00145">145</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
+<anchor xml:id="_utils_8h_1a28cf3fb6f4d89ea760afeca3f07a377b"/><section>
+    <title>directory_exists()</title>
+<indexterm><primary>directory_exists</primary><secondary>utils.h</secondary></indexterm>
+<indexterm><primary>utils.h</primary><secondary>directory_exists</secondary></indexterm>
+<para><computeroutput>bool directory_exists (const char * dir)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00052">52</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
+<anchor xml:id="_utils_8h_1a0038df898c35b6a483fa874b3671735b"/><section>
+    <title>file_exists()</title>
+<indexterm><primary>file_exists</primary><secondary>utils.h</secondary></indexterm>
+<indexterm><primary>utils.h</primary><secondary>file_exists</secondary></indexterm>
+<para><computeroutput>bool file_exists (const char * filename)</computeroutput></para><para>
+Definition at line <link linkend="_utils_8c_source_1l00064">64</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+</section>
 <anchor xml:id="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed"/><section>
     <title>is_string_dat_file()</title>
 <indexterm><primary>is_string_dat_file</primary><secondary>utils.h</secondary></indexterm>
 <indexterm><primary>utils.h</primary><secondary>is_string_dat_file</secondary></indexterm>
 <para><computeroutput>bool is_string_dat_file (char * str)</computeroutput></para><para>
-Definition at line <link linkend="_utils_8c_source_1l00033">33</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00041">41</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1af6ebb1daf24f6259fa021c9a0e8e516c"/><section>
     <title>prepend_path_string()</title>
 <indexterm><primary>prepend_path_string</primary><secondary>utils.h</secondary></indexterm>
 <indexterm><primary>utils.h</primary><secondary>prepend_path_string</secondary></indexterm>
 <para><computeroutput>void prepend_path_string (char * str, const char * prefix)</computeroutput></para><para>
-Definition at line <link linkend="_utils_8c_source_1l00011">11</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00019">19</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a5d12d6ba0683fa0c576d2ee3a6006656"/><section>
     <title>read_file_flags()</title>

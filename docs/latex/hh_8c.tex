@@ -4,7 +4,6 @@
 {\ttfamily \#include "{}errors.\+h"{}}\newline
 {\ttfamily \#include "{}extractor.\+h"{}}\newline
 {\ttfamily \#include "{}options.\+h"{}}\newline
-{\ttfamily \#include "{}output.\+h"{}}\newline
 {\ttfamily \#include "{}path\+\_\+table.\+h"{}}\newline
 {\ttfamily \#include "{}utils.\+h"{}}\newline
 {\ttfamily \#include "{}volume\+\_\+descriptor.\+h"{}}\newline
@@ -16,6 +15,8 @@
 {\ttfamily \#include $<$dirent.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{hh_8c_a4f1d0276921eb7f3d0f1f13a08c82d5b}{process\+\_\+new\+\_\+dat\+\_\+files}} (void)
 \item 
 int \mbox{\hyperlink{hh_8c_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}argv)
 \item 
@@ -40,7 +41,7 @@ Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_
 
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00141}{141}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00153}{153}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
 \Hypertarget{hh_8c_a3c04138a5bfe5d72780bb7e82a18e627}\index{hh.c@{hh.c}!main@{main}}
 \index{main@{main}!hh.c@{hh.c}}
@@ -50,7 +51,7 @@ int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstr
 
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00023}{23}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00024}{24}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
 \Hypertarget{hh_8c_a67bb984eb1ee850d67fa02073a40e0fd}\index{hh.c@{hh.c}!process\_DAT\_file@{process\_DAT\_file}}
 \index{process\_DAT\_file@{process\_DAT\_file}!hh.c@{hh.c}}
@@ -84,7 +85,17 @@ This is accomplished by first processing the volume descriptor header (checking 
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00068}{68}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00080}{80}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+
+\Hypertarget{hh_8c_a4f1d0276921eb7f3d0f1f13a08c82d5b}\index{hh.c@{hh.c}!process\_new\_dat\_files@{process\_new\_dat\_files}}
+\index{process\_new\_dat\_files@{process\_new\_dat\_files}!hh.c@{hh.c}}
+\doxysubsubsection{\texorpdfstring{process\_new\_dat\_files()}{process\_new\_dat\_files()}}
+{\footnotesize\ttfamily \label{hh_8c_a4f1d0276921eb7f3d0f1f13a08c82d5b} 
+void process\+\_\+new\+\_\+dat\+\_\+files (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{hh_8c_source_l00247}{247}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
 \Hypertarget{hh_8c_ac8f0bce5a3bc19789bd443ded5f21cf3}\index{hh.c@{hh.c}!setup\_extractor@{setup\_extractor}}
 \index{setup\_extractor@{setup\_extractor}!hh.c@{hh.c}}
@@ -108,5 +119,5 @@ a pointer to the given file, if it exist.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00047}{47}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00059}{59}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 

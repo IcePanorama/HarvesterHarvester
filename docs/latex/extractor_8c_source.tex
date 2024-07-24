@@ -120,8 +120,8 @@
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00116}00116\ \ \ \ \ \ \ \textcolor{comment}{//\ supports\ 10\ levels\ of\ directories\ which\ is\ probably\ overkill.}}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00117}00117\ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ PATH\_MAX\_LEN}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ =\ ((curr\_dir.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ +\ 1)\ *\ 10)}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ +\ (strlen\ (\mbox{\hyperlink{output_8c_ac4251b470f6db454e004da4566ad4be2}{OUTPUT\_DIR}})\ +\ 1)\ +\ (strlen\ (\mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c8384eec4f447007}{OP\_CURRENT\_DISK\_NAME}})\ +\ 1)}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ +\ 1;}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ +\ (strlen\ (\mbox{\hyperlink{options_8c_a517a97037702e04fc68e47a47e4af794}{OP\_OUTPUT\_DIR}})\ +\ 1)}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ +\ (strlen\ (\mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c8384eec4f447007}{OP\_CURRENT\_DISK\_NAME}})\ +\ 1)\ +\ 1;}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00121}00121\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ *path\ =\ calloc\ (PATH\_MAX\_LEN,\ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char}));}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00122}00122\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (path\ ==\ NULL)}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \{}

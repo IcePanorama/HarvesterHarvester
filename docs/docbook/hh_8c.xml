@@ -2,9 +2,11 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_hh_8c" xml:lang="en-US">
 <title>src/hh.c File Reference</title>
 <indexterm><primary>src/hh.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;hh.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;extractor.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;output.h&quot;<?linebreak?>#include &quot;path_table.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &quot;volume_descriptor.h&quot;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;dirent.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;hh.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;extractor.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;path_table.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &quot;volume_descriptor.h&quot;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;dirent.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
+            <listitem><para>void <link linkend="_hh_8c_1a4f1d0276921eb7f3d0f1f13a08c82d5b">process_new_dat_files</link> (void)</para>
+</listitem>
             <listitem><para>int <link linkend="_hh_8c_1a3c04138a5bfe5d72780bb7e82a18e627">main</link> (int argc, char **argv)</para>
 </listitem>
             <listitem><para>FILE * <link linkend="_hh_8c_1ac8f0bce5a3bc19789bd443ded5f21cf3">setup_extractor</link> (char *filename)</para>
@@ -32,14 +34,14 @@
 <para>Processes all the <computeroutput>.DAT</computeroutput> files found in <computeroutput>OP_INPUT_DIR</computeroutput>, one at a time. </para>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00141">141</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00153">153</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8c_1a3c04138a5bfe5d72780bb7e82a18e627"/><section>
     <title>main()</title>
 <indexterm><primary>main</primary><secondary>hh.c</secondary></indexterm>
 <indexterm><primary>hh.c</primary><secondary>main</secondary></indexterm>
 <para><computeroutput>int main (int argc, char ** argv)</computeroutput></para><para>
-Definition at line <link linkend="_hh_8c_source_1l00023">23</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00024">24</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8c_1a67bb984eb1ee850d67fa02073a40e0fd"/><section>
     <title>process_DAT_file()</title>
@@ -88,7 +90,14 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00068">68</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00080">80</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+</section>
+<anchor xml:id="_hh_8c_1a4f1d0276921eb7f3d0f1f13a08c82d5b"/><section>
+    <title>process_new_dat_files()</title>
+<indexterm><primary>process_new_dat_files</primary><secondary>hh.c</secondary></indexterm>
+<indexterm><primary>hh.c</primary><secondary>process_new_dat_files</secondary></indexterm>
+<para><computeroutput>void process_new_dat_files (void )</computeroutput></para><para>
+Definition at line <link linkend="_hh_8c_source_1l00247">247</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8c_1ac8f0bce5a3bc19789bd443ded5f21cf3"/><section>
     <title>setup_extractor()</title>
@@ -127,7 +136,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00047">47</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00059">59</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 </section>
 </section>

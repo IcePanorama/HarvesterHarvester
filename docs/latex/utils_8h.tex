@@ -14,6 +14,10 @@ void \mbox{\hyperlink{utils_8h_a5d12d6ba0683fa0c576d2ee3a6006656}{read\+\_\+file
 void \mbox{\hyperlink{utils_8h_af6ebb1daf24f6259fa021c9a0e8e516c}{prepend\+\_\+path\+\_\+string}} (char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}prefix)
 \item 
 bool \mbox{\hyperlink{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}{is\+\_\+string\+\_\+dat\+\_\+file}} (char \texorpdfstring{$\ast$}{*}str)
+\item 
+bool \mbox{\hyperlink{utils_8h_a28cf3fb6f4d89ea760afeca3f07a377b}{directory\+\_\+exists}} (const char \texorpdfstring{$\ast$}{*}dir)
+\item 
+bool \mbox{\hyperlink{utils_8h_a0038df898c35b6a483fa874b3671735b}{file\+\_\+exists}} (const char \texorpdfstring{$\ast$}{*}filename)
 \end{DoxyCompactItemize}
 
 
@@ -40,6 +44,26 @@ value with its endianness swapped.
 
 Definition at line \mbox{\hyperlink{data__reader_8c_source_l00145}{145}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
+\Hypertarget{utils_8h_a28cf3fb6f4d89ea760afeca3f07a377b}\index{utils.h@{utils.h}!directory\_exists@{directory\_exists}}
+\index{directory\_exists@{directory\_exists}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{directory\_exists()}{directory\_exists()}}
+{\footnotesize\ttfamily \label{utils_8h_a28cf3fb6f4d89ea760afeca3f07a377b} 
+bool directory\+\_\+exists (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{dir}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00052}{52}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+\Hypertarget{utils_8h_a0038df898c35b6a483fa874b3671735b}\index{utils.h@{utils.h}!file\_exists@{file\_exists}}
+\index{file\_exists@{file\_exists}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{file\_exists()}{file\_exists()}}
+{\footnotesize\ttfamily \label{utils_8h_a0038df898c35b6a483fa874b3671735b} 
+bool file\+\_\+exists (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00064}{64}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
 \Hypertarget{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}\index{utils.h@{utils.h}!is\_string\_dat\_file@{is\_string\_dat\_file}}
 \index{is\_string\_dat\_file@{is\_string\_dat\_file}!utils.h@{utils.h}}
 \doxysubsubsection{\texorpdfstring{is\_string\_dat\_file()}{is\_string\_dat\_file()}}
@@ -48,7 +72,7 @@ bool is\+\_\+string\+\_\+dat\+\_\+file (\begin{DoxyParamCaption}\item[{char \tex
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00033}{33}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{utils_8c_source_l00041}{41}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_af6ebb1daf24f6259fa021c9a0e8e516c}\index{utils.h@{utils.h}!prepend\_path\_string@{prepend\_path\_string}}
 \index{prepend\_path\_string@{prepend\_path\_string}!utils.h@{utils.h}}
@@ -58,7 +82,7 @@ void prepend\+\_\+path\+\_\+string (\begin{DoxyParamCaption}\item[{char \texorpd
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00011}{11}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{utils_8c_source_l00019}{19}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_a5d12d6ba0683fa0c576d2ee3a6006656}\index{utils.h@{utils.h}!read\_file\_flags@{read\_file\_flags}}
 \index{read\_file\_flags@{read\_file\_flags}!utils.h@{utils.h}}

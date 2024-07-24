@@ -30,7 +30,11 @@
 </listitem>
             <listitem><para>char * <link linkend="_options_8c_1a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</link> = (char *)&quot;dat-files&quot;</para>
 
-<para>Where to look for files if batch processing. </para>
+<para>Default is <computeroutput>./dat-files/</computeroutput>. </para>
+</listitem>
+            <listitem><para>char * <link linkend="_options_8c_1a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</link> = (char *)&quot;output&quot;</para>
+
+<para>Default is <computeroutput>./output/</computeroutput> </para>
 </listitem>
             <listitem><para>char <link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link> = &apos;/&apos;</para>
 
@@ -78,21 +82,21 @@ Parameters</title>
                 </formalpara>
                 </para>
 <para>
-Definition at line <link linkend="_options_8c_source_1l00023">23</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00024">24</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8c_1a5413a17f20b0c5daf64765e6c104768d"/><section>
     <title>print_out_list_of_command_line_arguments()</title>
 <indexterm><primary>print_out_list_of_command_line_arguments</primary><secondary>options.c</secondary></indexterm>
 <indexterm><primary>options.c</primary><secondary>print_out_list_of_command_line_arguments</secondary></indexterm>
 <para><computeroutput>void print_out_list_of_command_line_arguments (void )<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_options_8c_source_1l00053">53</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00054">54</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8c_1a6b175948738c4d93a820a0ada9e54669"/><section>
     <title>process_flag()</title>
 <indexterm><primary>process_flag</primary><secondary>options.c</secondary></indexterm>
 <indexterm><primary>options.c</primary><secondary>process_flag</secondary></indexterm>
 <para><computeroutput>void process_flag (char * f)<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_options_8c_source_1l00068">68</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00069">69</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 </section>
 <section>
@@ -140,12 +144,21 @@ Definition at line <link linkend="_options_8c_source_1l00012">12</link> of file 
 <indexterm><primary>options.c</primary><secondary>OP_INPUT_DIR</secondary></indexterm>
 <para><computeroutput>char* OP_INPUT_DIR = (char *)&quot;dat-files&quot;</computeroutput></para><para>
 
-<para>Where to look for files if batch processing. </para>
-</para>
-
 <para>Default is <computeroutput>./dat-files/</computeroutput>. </para>
+</para>
 <para>
 Definition at line <link linkend="_options_8c_source_1l00013">13</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+</section>
+<anchor xml:id="_options_8c_1a517a97037702e04fc68e47a47e4af794"/><section>
+    <title>OP_OUTPUT_DIR</title>
+<indexterm><primary>OP_OUTPUT_DIR</primary><secondary>options.c</secondary></indexterm>
+<indexterm><primary>options.c</primary><secondary>OP_OUTPUT_DIR</secondary></indexterm>
+<para><computeroutput>char* OP_OUTPUT_DIR = (char *)&quot;output&quot;</computeroutput></para><para>
+
+<para>Default is <computeroutput>./output/</computeroutput> </para>
+</para>
+<para>
+Definition at line <link linkend="_options_8c_source_1l00014">14</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8c_1a845934c83dddb0516baadb1abd079d8d"/><section>
     <title>OP_PATH_SEPARATOR</title>
@@ -158,14 +171,14 @@ Definition at line <link linkend="_options_8c_source_1l00013">13</link> of file 
 
 <para>Having this be defined globally in this file for cross-platform compatibility reasons. </para>
 <para>
-Definition at line <link linkend="_options_8c_source_1l00014">14</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00015">15</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8c_1a59cde5c015f49e774b06103571d51dc9"/><section>
     <title>VERSION_NUMBER_STR</title>
 <indexterm><primary>VERSION_NUMBER_STR</primary><secondary>options.c</secondary></indexterm>
 <indexterm><primary>options.c</primary><secondary>VERSION_NUMBER_STR</secondary></indexterm>
 <para><computeroutput>const char VERSION_NUMBER_STR[9] = &quot;00.00.00&quot;<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_options_8c_source_1l00017">17</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00018">18</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 </section>
 </section>

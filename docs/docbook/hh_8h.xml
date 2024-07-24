@@ -30,7 +30,7 @@
 <para>Processes all the <computeroutput>.DAT</computeroutput> files found in <computeroutput>OP_INPUT_DIR</computeroutput>, one at a time. </para>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00141">141</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00153">153</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8h_1af12d681a411f7fd2c48b09fc35df739c"/><section>
     <title>process_DAT_file()</title>
@@ -79,7 +79,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00068">68</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00080">80</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8h_1adc1a83a755870c0899977818898d13cb"/><section>
     <title>setup_extractor()</title>
@@ -118,7 +118,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00047">47</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00059">59</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 </section>
 </section>
