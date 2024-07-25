@@ -1,6 +1,7 @@
 #ifndef _ERRORS_H_
 #define _ERRORS_H_
 
+#include <stdint.h>
 #include <stdio.h>
 
 /** Throws an improper usage error. */
@@ -20,7 +21,8 @@ void fopen_error (char *filename);
  *  @param  actual          actual number of bytes read.
  *  @param  expected_bytes  expected number of bytes to read.
  */
-void handle_fread_error (FILE *fptr, size_t actual, size_t expected_bytes);
+
+int8_t handle_fread_error (FILE *fptr, size_t actual, size_t expected_bytes);
 
 /**
  *  Throws an unknown command line argument error.

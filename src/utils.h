@@ -29,6 +29,7 @@ bool is_string_dat_file (char *str);
 bool directory_exists (const char *dir);
 bool file_exists (const char *filename);
 bool peek_char_is (FILE *fptr, uint8_t expected_ch);
+bool peek_eof (FILE *fptr);
 void prepend_string (char *str, const char *prefix);
 
 #endif

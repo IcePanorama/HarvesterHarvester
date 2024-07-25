@@ -9,7 +9,7 @@
 int8_t
 extract_file (FILE *fptr, directory_record *dr, const char *path)
 {
-  /*
+  /**
    *  the `file_identifier` terminates with a `;` character followed by the
    *  file ID number in ASCII coded decimal (`1`).
    *  See: https://wiki.osdev.org/ISO_9660#Directories
@@ -17,7 +17,7 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
   char *actual_filename = strtok (dr->file_identifier, (const char *)";");
   if (actual_filename == NULL)
     {
-      /*
+      /**
        *  Just use the default/existing filename.
        *  It'll be incorrect, but probably not worth stoping execution over.
        *  Users could just manually remove the `;1` part; the data itself

@@ -106,3 +106,13 @@ peek_char_is (FILE *fptr, uint8_t expected_ch)
   fseek (fptr, -1, SEEK_CUR);
   return false;
 }
+
+/** This is sort of a hacky solution. TODO: implement better err handling. */
+bool
+peek_eof (FILE *fptr)
+{
+  uint8_t value;
+  size_t bytes_read = fread (&value, sizeof (uint8_t), 1, fptr);
+  fseek (fptr, -1, SEEK_CUR);
+  return bytes_read == 0;
+}

@@ -288,8 +288,8 @@ process_new_dat_files (void)
     }
 
   process_index_file (fptr, &idx_file);
-
   destroy_index_file (&idx_file);
+
   fclose (fptr);
   free (interior_dat_file_path);
 }

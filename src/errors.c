@@ -26,13 +26,14 @@ fopen_error (char *filename)
   exit (1);
 }
 
-void
+int8_t
 handle_fread_error (FILE *fptr, size_t actual, size_t expected_bytes)
 {
   printf ("ERROR: Only read %zu byte(s), expected %zu.\n", actual,
           expected_bytes);
   fclose (fptr);
   exit (1);
+  return -1;
 }
 
 void
