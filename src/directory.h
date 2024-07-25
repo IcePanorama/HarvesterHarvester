@@ -92,6 +92,6 @@ void print_directory_record (directory_record *r);
  *  @see  directory
  *  @see  directory_record
  */
-void process_directory (FILE *fptr, directory *d);
+int8_t process_directory (FILE *fptr, directory *d);
 
 #endif

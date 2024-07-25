@@ -1,6 +1,8 @@
 #include "volume_descriptor.h"
 #include "data_reader.h"
+#include "errors.h"
 
+#include <stdint.h>
 #include <string.h>
 
 void
@@ -62,19 +64,25 @@ print_volume_descriptor_data (volume_descriptor_data *vdd)
           vdd->DAT_file_creation_software_version_number);
 }
 
-void
+int8_t
 process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)
 {
-  uint8_t descriptor_type = read_single_uint8 (fptr);
+  uint8_t descriptor_type;
+  if (read_single_uint8 (fptr, &descriptor_type) != 0)
+    return HH_FREAD_ERROR;
 
   fseek (fptr, 5, SEEK_CUR);
 
-  uint8_t descriptor_ver = read_single_uint8 (fptr);
+  uint8_t descriptor_ver;
+  if (read_single_uint8 (fptr, &descriptor_ver) != 0)
+    return HH_FREAD_ERROR;
 
   create_volume_descriptor (vd, descriptor_type, descriptor_ver);
+
+  return 0;
 }
 
-void
+int8_t
 process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 {
   fseek (fptr, 1, SEEK_CUR); // Unused byte
@@ -114,12 +122,17 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
   read_string (fptr, vdd->bibliographic_file_identifier,
                BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN);
 
-  vdd->volume_creation_date_and_time = read_dec_datetime (fptr);
-  vdd->volume_modification_date_and_time = read_dec_datetime (fptr);
-  vdd->volume_expiration_date_and_time = read_dec_datetime (fptr);
-  vdd->volume_effective_date_and_time = read_dec_datetime (fptr);
+  if ((read_dec_datetime (fptr, &vdd->volume_creation_date_and_time) != 0)
+      || (read_dec_datetime (fptr, &vdd->volume_modification_date_and_time)
+          != 0)
+      || (read_dec_datetime (fptr, &vdd->volume_expiration_date_and_time) != 0)
+      || (read_dec_datetime (fptr, &vdd->volume_effective_date_and_time) != 0))
+    {
+      return HH_FREAD_ERROR;
+    }
 
-  vdd->file_structure_version = read_single_uint8 (fptr);
+  if (read_single_uint8 (fptr, &vdd->file_structure_version) != 0)
+    return HH_FREAD_ERROR;
 
   fseek (fptr, 1, SEEK_CUR); // Unused byte
 
@@ -136,4 +149,6 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
   fseek (fptr, 0x1EC, SEEK_CUR); // Unknown data (492 bytes)
 
   fseek (fptr, 0x28D, SEEK_CUR); // Reserved by ISO
+
+  return 0;
 }

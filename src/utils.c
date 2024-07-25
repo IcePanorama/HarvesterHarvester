@@ -94,11 +94,16 @@ file_exists (const char *filename)
 #endif
 }
 
+/** On error, returns false. */
 bool
 peek_char_is (FILE *fptr, uint8_t expected_ch)
 {
-  uint8_t byte = read_single_uint8 (fptr);
-  if (byte == expected_ch)
+  uint8_t byte;
+  if (read_single_uint8 (fptr, &byte) != 0)
+    {
+      return false;
+    }
+  else if (byte == expected_ch)
     {
       return true;
     }

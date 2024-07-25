@@ -3,6 +3,7 @@
 #include "errors.h"
 #include "utils.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -111,24 +112,43 @@ print_directory (directory *d)
     }
 }
 
-void
+int8_t
 process_directory (FILE *fptr, directory *d)
 {
-  uint8_t single_byte = read_single_uint8 (fptr);
+  uint8_t single_byte;
+  if (read_single_uint8 (fptr, &single_byte) != 0)
+    return HH_FREAD_ERROR;
+
   do
     {
       directory_record dr;
       dr.record_length = single_byte;
-      dr.extended_attribute_record_length = read_single_uint8 (fptr);
+
+      if (read_single_uint8 (fptr, &dr.extended_attribute_record_length) != 0)
+        return HH_FREAD_ERROR;
+
       dr.location_of_extent = read_both_endian_data_uint32 (fptr);
       dr.data_length = read_both_endian_data_uint32 (fptr);
-      dr.recording_datetime = read_dir_datetime (fptr);
+
+      if (read_dir_datetime (fptr, &dr.recording_datetime) != 0)
+        return HH_FREAD_ERROR;
+
       dr.file_flags = create_file_flags ();
       read_file_flags (fptr, &dr.file_flags);
-      dr.file_unit_size = read_single_uint8 (fptr);
-      dr.interleave_gap_size = read_single_uint8 (fptr);
+
+      if (read_single_uint8 (fptr, &dr.file_unit_size) != 0
+          || read_single_uint8 (fptr, &dr.interleave_gap_size) != 0)
+        {
+          return HH_FREAD_ERROR;
+        }
+
       dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);
-      dr.file_identifier_length = read_single_uint8 (fptr) + 1;
+
+      if (read_single_uint8 (fptr, &dr.file_identifier_length) != 0)
+        {
+          return HH_FREAD_ERROR;
+        }
+      dr.file_identifier_length++;
 
       dr.file_identifier
           = (char *)calloc (dr.file_identifier_length, sizeof (char));
@@ -137,8 +157,9 @@ process_directory (FILE *fptr, directory *d)
       dr.file_identifier[dr.file_identifier_length - 1] = '\0';
       if (bytes_read != sizeof (char) * (dr.file_identifier_length - 1))
         {
-          handle_fread_error (fptr, bytes_read,
+          handle_fread_error (bytes_read,
                               sizeof (char) * (dr.file_identifier_length - 1));
+          return HH_FREAD_ERROR;
         }
 
       add_record_to_directory (d, &dr);
@@ -146,7 +167,10 @@ process_directory (FILE *fptr, directory *d)
       if (dr.file_identifier_length % 2 != 0) // handle padding field
         fseek (fptr, 1, SEEK_CUR);
 
-      single_byte = read_single_uint8 (fptr);
+      if (read_single_uint8 (fptr, &single_byte) != 0)
+        return HH_FREAD_ERROR;
     }
   while (single_byte != 0);
+
+  return 0;
 }

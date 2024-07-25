@@ -2,6 +2,7 @@
 #include "data_reader.h"
 #include "errors.h"
 
+#include <stdint.h>
 #include <stdlib.h>
 
 static const size_t PT_STARTING_NUM_ENTRIES = 10;
@@ -104,10 +105,13 @@ print_path_table_entry (path_table_entry *e)
   printf ("\tDirectory identifier: %s\n", e->directory_identifier);
 }
 
-void
+int8_t
 process_type_l_path_table (FILE *fptr, path_table *pt)
 {
-  uint8_t dir_identifier_length = read_single_uint8 (fptr);
+  uint8_t dir_identifier_length;
+  if (read_single_uint8 (fptr, &dir_identifier_length) != 0)
+    return HH_FREAD_ERROR;
+
   do
     {
       path_table_entry curr_entry;
@@ -116,13 +120,20 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
       if (curr_entry.directory_identifier_length != 1)
         curr_entry.directory_identifier_length += 1;
 
-      curr_entry.extended_attribute_record_length = read_single_uint8 (fptr);
+      if (read_single_uint8 (fptr,
+                             &curr_entry.extended_attribute_record_length)
+          != 0)
+        {
+          return HH_FREAD_ERROR;
+        }
+
       curr_entry.location_of_extent = read_little_endian_data_uint32_t (fptr);
       curr_entry.parent_directory_number
           = read_little_endian_data_uint16_t (fptr);
 
       curr_entry.directory_identifier = (char *)calloc (
           curr_entry.directory_identifier_length, sizeof (char));
+
       if (curr_entry.directory_identifier_length != 1)
         {
           size_t bytes_read
@@ -135,9 +146,10 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
               != sizeof (char) * (curr_entry.directory_identifier_length - 1))
             {
               handle_fread_error (
-                  fptr, bytes_read,
+                  bytes_read,
                   sizeof (char)
                       * (curr_entry.directory_identifier_length - 1));
+              return HH_FREAD_ERROR;
             }
         }
       else
@@ -147,10 +159,16 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
 
       add_entry_to_path_table (pt, &curr_entry);
 
-      dir_identifier_length = read_single_uint8 (fptr);
+      if (read_single_uint8 (fptr, &dir_identifier_length) != 0)
+        return HH_FREAD_ERROR;
 
       if (dir_identifier_length == 0) // handle padding field
-        dir_identifier_length = read_single_uint8 (fptr);
+        {
+          if (read_single_uint8 (fptr, &dir_identifier_length) != 0)
+            return HH_FREAD_ERROR;
+        }
     }
   while (dir_identifier_length != 0);
+
+  return 0;
 }

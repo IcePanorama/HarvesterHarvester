@@ -65,6 +65,6 @@ void print_path_table (path_table *pt);
  *  @param  pt    path table to which the data should be processed into.
  *  @see https://wiki.osdev.org/ISO_9660#The_Path_Table
  */
-void process_type_l_path_table (FILE *fptr, path_table *pt);
+int8_t process_type_l_path_table (FILE *fptr, path_table *pt);
 
 #endif

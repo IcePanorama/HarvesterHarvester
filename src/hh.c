@@ -41,7 +41,11 @@ main (int argc, char **argv)
       if (setup_extractor (&fptr, argv[argc - 1]) == HH_FOPEN_ERROR)
         exit (1);
 
-      process_DAT_file (fptr);
+      if (process_DAT_file (fptr) != 0)
+        {
+          exit (1);
+        }
+
       fclose (fptr);
     }
 
@@ -80,7 +84,7 @@ setup_extractor (FILE **fptr, char *filename)
   return 0;
 }
 
-void
+int8_t
 process_DAT_file (FILE *fptr)
 {
   /*
@@ -91,7 +95,10 @@ process_DAT_file (FILE *fptr)
   fseek (fptr, 0x8000, SEEK_SET);
 
   volume_descriptor vd;
-  process_volume_descriptor_header (fptr, &vd);
+  if (process_volume_descriptor_header (fptr, &vd) != 0)
+    {
+      return -1;
+    }
 
   // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
@@ -100,7 +107,6 @@ process_DAT_file (FILE *fptr)
       printf ("\tExpected %02x, got %02x.\n", 0x01, vd.type_code);
       puts ("Note: Extracting files from HARVEST2.DAT is currently "
             "unsupported.");
-      fclose (fptr);
       exit (1);
     }
 
@@ -123,7 +129,6 @@ process_DAT_file (FILE *fptr)
   path_table pt;
   if (create_path_table (&pt) != 0)
     {
-      fclose (fptr);
       exit (1);
     }
 
@@ -141,7 +146,7 @@ process_DAT_file (FILE *fptr)
   if (path == NULL)
     {
       destroy_path_table (&pt);
-      return;
+      return -1;
     }
 
   strcpy (path, OP_OUTPUT_DIR);
@@ -151,6 +156,7 @@ process_DAT_file (FILE *fptr)
 
   free (path);
   destroy_path_table (&pt);
+  return 0;
 }
 
 int
@@ -203,7 +209,13 @@ batch_process_DAT_files ()
           return -1;
         }
 
-      process_DAT_file (fptr);
+      if (process_DAT_file (fptr) != 0)
+        {
+          fclose (fptr);
+          free (filename);
+          FindClose (hFind);
+          return -1;
+        }
 
       fclose (fptr);
       free (filename);
@@ -250,7 +262,13 @@ batch_process_DAT_files ()
           return -1;
         }
 
-      process_DAT_file (fptr);
+      if (process_DAT_file (fptr) != 0)
+        {
+          fclose (fptr);
+          free (filename);
+          closedir (dir);
+          return -1;
+        }
 
       fclose (fptr);
       free (filename);

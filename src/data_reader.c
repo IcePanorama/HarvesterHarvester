@@ -1,9 +1,9 @@
 #include "data_reader.h"
-#include "datetime.h"
 #include "errors.h"
 #include "file_flags.h"
 
 #include <stdbool.h>
+#include <stdint.h>
 
 static uint32_t read_big_endian_data_uint32_t (FILE *fptr);
 static uint16_t read_big_endian_data_uint16_t (FILE *fptr);
@@ -47,8 +47,9 @@ read_little_endian_data_uint32_t (FILE *fptr)
   size_t bytes_read = fread (bytes, sizeof (uint8_t), 4, fptr);
   if (bytes_read != 4)
     {
-      handle_fread_error (fptr, bytes_read, sizeof (bytes));
+      handle_fread_error (bytes_read, sizeof (bytes));
     }
+
   return ((uint32_t)bytes[3] << 24) | ((uint32_t)bytes[2] << 16)
          | ((uint32_t)bytes[1] << 8) | (uint32_t)bytes[0];
 }
@@ -60,7 +61,7 @@ read_big_endian_data_uint32_t (FILE *fptr)
   size_t bytes_read = fread (bytes, sizeof (uint8_t), 4, fptr);
   if (bytes_read != 4)
     {
-      handle_fread_error (fptr, bytes_read, sizeof (bytes));
+      handle_fread_error (bytes_read, sizeof (bytes));
     }
 
   return ((uint32_t)bytes[0] << 24) | ((uint32_t)bytes[1] << 16)
@@ -74,7 +75,7 @@ read_little_endian_data_uint16_t (FILE *fptr)
   size_t bytes_read = fread (bytes, sizeof (uint8_t), 2, fptr);
   if (bytes_read != 2)
     {
-      handle_fread_error (fptr, bytes_read, sizeof (bytes));
+      handle_fread_error (bytes_read, sizeof (bytes));
     }
   return ((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1];
 }
@@ -86,7 +87,7 @@ read_big_endian_data_uint16_t (FILE *fptr)
   size_t bytes_read = fread (bytes, sizeof (uint8_t), 2, fptr);
   if (bytes_read != 2)
     {
-      handle_fread_error (fptr, bytes_read, sizeof (bytes));
+      handle_fread_error (bytes_read, sizeof (bytes));
     }
   return ((uint16_t)bytes[1] << 8) | (uint16_t)bytes[0];
 }
@@ -98,7 +99,7 @@ read_string (FILE *fptr, char *output, uint8_t length)
   output[length - 1] = '\0';
   if (bytes_read != sizeof (char) * length - 1)
     {
-      handle_fread_error (fptr, bytes_read, sizeof (char) * length - 1);
+      handle_fread_error (bytes_read, sizeof (char) * length - 1);
     }
 }
 
@@ -108,37 +109,39 @@ read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length)
   size_t bytes_read = fread (arr, sizeof (uint8_t), length, fptr);
   if (bytes_read != sizeof (uint8_t) * length)
     {
-      handle_fread_error (fptr, bytes_read, sizeof (uint8_t) * length);
+      handle_fread_error (bytes_read, sizeof (uint8_t) * length);
     }
 }
 
-dec_datetime
-read_dec_datetime (FILE *fptr)
+int8_t
+read_dec_datetime (FILE *fptr, dec_datetime *dt)
 {
-  dec_datetime dt;
-  read_string (fptr, dt.year, YEAR_FIELD_LEN);
-  read_string (fptr, dt.month, MONTH_FIELD_LEN);
-  read_string (fptr, dt.day, DAY_FIELD_LEN);
-  read_string (fptr, dt.hour, HOUR_FIELD_LEN);
-  read_string (fptr, dt.minute, MINUTE_FIELD_LEN);
-  read_string (fptr, dt.second, SECOND_FIELD_LEN);
-  read_string (fptr, dt.hundredths_of_a_second,
+  read_string (fptr, dt->year, YEAR_FIELD_LEN);
+  read_string (fptr, dt->month, MONTH_FIELD_LEN);
+  read_string (fptr, dt->day, DAY_FIELD_LEN);
+  read_string (fptr, dt->hour, HOUR_FIELD_LEN);
+  read_string (fptr, dt->minute, MINUTE_FIELD_LEN);
+  read_string (fptr, dt->second, SECOND_FIELD_LEN);
+  read_string (fptr, dt->hundredths_of_a_second,
                HUNDREDTHS_OF_A_SECOND_FIELD_LEN);
-  dt.time_zone_offset = read_single_uint8 (fptr);
 
-  return dt;
+  if (read_single_uint8 (fptr, &dt->time_zone_offset) != 0)
+    return HH_FREAD_ERROR;
+
+  return 0;
 }
 
-uint8_t
-read_single_uint8 (FILE *fptr)
+int8_t
+read_single_uint8 (FILE *fptr, uint8_t *value)
 {
-  uint8_t value;
-  size_t bytes_read = fread (&value, sizeof (uint8_t), 1, fptr);
+  size_t bytes_read = fread (value, sizeof (uint8_t), 1, fptr);
   if (bytes_read != sizeof (uint8_t))
     {
-      handle_fread_error (fptr, bytes_read, sizeof (uint8_t));
+      handle_fread_error (bytes_read, sizeof (uint8_t));
+      return HH_FREAD_ERROR;
     }
-  return value;
+
+  return 0;
 }
 
 uint16_t
@@ -147,25 +150,29 @@ change_endianness_uint16 (uint16_t value)
   return (value << 8) | (value >> 8);
 }
 
-dir_datetime
-read_dir_datetime (FILE *fptr)
+int8_t
+read_dir_datetime (FILE *fptr, dir_datetime *dt)
 {
-  dir_datetime dt;
-  dt.year = read_single_uint8 (fptr);
-  dt.month = read_single_uint8 (fptr);
-  dt.day = read_single_uint8 (fptr);
-  dt.hour = read_single_uint8 (fptr);
-  dt.minute = read_single_uint8 (fptr);
-  dt.second = read_single_uint8 (fptr);
-  dt.time_zone_offset = read_single_uint8 (fptr);
+  if ((read_single_uint8 (fptr, &dt->year) != 0)
+      || (read_single_uint8 (fptr, &dt->month) != 0)
+      || (read_single_uint8 (fptr, &dt->day) != 0)
+      || (read_single_uint8 (fptr, &dt->hour) != 0)
+      || (read_single_uint8 (fptr, &dt->minute) != 0)
+      || (read_single_uint8 (fptr, &dt->second) != 0)
+      || (read_single_uint8 (fptr, &dt->time_zone_offset) != 0))
+    {
+      return HH_FREAD_ERROR;
+    }
 
-  return dt;
+  return 0;
 }
 
-void
+int8_t
 read_file_flags (FILE *fptr, file_flags *ff)
 {
-  uint8_t byte = read_single_uint8 (fptr);
+  uint8_t byte;
+  if (read_single_uint8 (fptr, &byte) != 0)
+    return HH_FREAD_ERROR;
 
   if (byte & 0x1)
     {
@@ -188,4 +195,6 @@ read_file_flags (FILE *fptr, file_flags *ff)
     {
       ff->final_directory_record = true;
     }
+
+  return 0;
 }

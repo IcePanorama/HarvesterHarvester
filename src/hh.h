@@ -32,7 +32,7 @@ static int8_t setup_extractor (FILE **fptr, char *filename);
  *  @see  process_type_l_path_table()
  *  @see  extract_directory()
  */
-static void process_DAT_file (FILE *fptr);
+static int8_t process_DAT_file (FILE *fptr);
 
 /**
  *  Processes all the `.DAT` files found in `OP_INPUT_DIR`, one at a time.

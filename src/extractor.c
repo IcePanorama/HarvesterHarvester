@@ -1,9 +1,11 @@
 #include "extractor.h"
 #include "data_reader.h"
+#include "errors.h"
 #include "options.h"
 #include "output.h"
 #include "utils.h"
 
+#include <stdio.h>
 #include <string.h>
 
 int8_t
@@ -53,7 +55,14 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
   // `j` must be in hex, otherwise `data_length` can be treated as an int value
   for (uint32_t j = 0x0; j < dr->data_length; j++)
     {
-      uint8_t byte = read_single_uint8 (fptr);
+      uint8_t byte;
+      if (read_single_uint8 (fptr, &byte) != 0)
+        {
+          fclose (output_file);
+          free (output_filename);
+          return HH_FREAD_ERROR;
+        }
+
       fwrite (&byte, sizeof (uint8_t), 1, output_file);
     }
 

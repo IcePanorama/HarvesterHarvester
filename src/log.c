@@ -37,8 +37,10 @@ print_some_data_from_file (FILE *fptr)
   size_t bytes_read = fread (buffer, sizeof (buffer[0]), BYTES_TO_READ, fptr);
   if (bytes_read != BYTES_TO_READ)
     {
-      handle_fread_error (fptr, bytes_read, BYTES_TO_READ);
+      handle_fread_error (bytes_read, BYTES_TO_READ);
+      return;
     }
+
   print_hex_data (buffer, BYTES_TO_READ);
   fseek (fptr, -BYTES_TO_READ, SEEK_CUR);
 }

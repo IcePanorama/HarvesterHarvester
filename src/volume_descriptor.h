@@ -107,7 +107,7 @@ void print_volume_descriptor_data (volume_descriptor_data *vdd);
  *  @param  vd    `volume_descriptor` to which the data should be added.
  *  @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors
  */
-void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
+int8_t process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
 
 /**
  *  Processes the given `volume_descriptor_data` using data pointed to by
@@ -117,6 +117,7 @@ void process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
  *  @param  vdd    `volume_descriptor_data` to which the data should be added.
  *  @see  https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
  */
-void process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd);
+int8_t process_volume_descriptor_data (FILE *fptr,
+                                       volume_descriptor_data *vdd);
 
 #endif
