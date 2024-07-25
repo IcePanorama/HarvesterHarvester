@@ -23,7 +23,6 @@ void
 fopen_error (char *filename)
 {
   printf ("ERROR: Unable to open file, %s.\n", filename);
-  exit (1);
 }
 
 int8_t
@@ -47,6 +46,6 @@ handle_unknown_command_line_argument_error (char *arg)
 #endif
   printf ("ERROR: unknown command-line argument, %s.\n", arg);
   printf ("Run %s --help for a list of command-line arguments.\n",
-          !windows ? "./main" : "main.exe");
+          !windows ? "./HarvesterHarvester" : "HarvesterHarvester.exe");
   exit (1);
 }

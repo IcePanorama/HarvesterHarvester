@@ -19,12 +19,12 @@
 #include <dirent.h>
 #endif
 
-void process_new_dat_files (void);
+int8_t process_new_dat_files (void);
 
 int
 main (int argc, char **argv)
 {
-  FILE *fptr;
+  FILE *fptr = NULL;
 
   if (argc >= 2)
     handle_command_line_args (argc, argv);
@@ -38,7 +38,9 @@ main (int argc, char **argv)
     }
   else if (!OP_SKIP_DAT_PROCESSING)
     {
-      fptr = setup_extractor (argv[argc - 1]);
+      if (setup_extractor (&fptr, argv[argc - 1]) == HH_FOPEN_ERROR)
+        exit (1);
+
       process_DAT_file (fptr);
       fclose (fptr);
     }
@@ -51,21 +53,22 @@ main (int argc, char **argv)
    * [] extract files from those new *.DAT files into the directory they're
    *    already in.
    */
-  process_new_dat_files ();
+  if (process_new_dat_files () != 0)
+    {
+      exit (1);
+    }
 
   return 0;
 }
 
-FILE *
-setup_extractor (char *filename)
+int8_t
+setup_extractor (FILE **fptr, char *filename)
 {
-  FILE *fptr = fopen (filename, "rb");
-  if (fptr == NULL)
+  *fptr = fopen (filename, "rb");
+  if (*fptr == NULL)
     {
       fopen_error (filename);
-      // fopen_error has an `exit(1)` in it, but not including this next line
-      // produces a `use of NULL ‘fptr’ where non-null expected` Werror.
-      exit (1);
+      return HH_FOPEN_ERROR;
     }
 
 #ifdef _WIN32
@@ -74,7 +77,7 @@ setup_extractor (char *filename)
   OP_PATH_SEPARATOR = '/';
 #endif
 
-  return fptr;
+  return 0;
 }
 
 void
@@ -159,7 +162,7 @@ batch_process_DAT_files ()
 #ifdef _WIN32
   WIN32_FIND_DATAA file_data;
   HANDLE hFind;
-  char search_path[MAX_PATH];
+  char search_path[256];
   strcpy (search_path, OP_INPUT_DIR);
   strcat (search_path, "\\*");
 
@@ -192,7 +195,14 @@ batch_process_DAT_files ()
       strcat (filename, &OP_PATH_SEPARATOR);
       strcat (filename, file_data.cFileName);
 
-      FILE *fptr = setup_extractor (filename);
+      FILE *fptr = NULL;
+      if (setup_extractor (&fptr, filename) == HH_FOPEN_ERROR)
+        {
+          free (filename);
+          FindClose (hFind);
+          return -1;
+        }
+
       process_DAT_file (fptr);
 
       fclose (fptr);
@@ -232,7 +242,14 @@ batch_process_DAT_files ()
       strcat (filename, &OP_PATH_SEPARATOR);
       strcat (filename, entry->d_name);
 
-      FILE *fptr = setup_extractor (filename);
+      FILE *fptr = NULL;
+      if (setup_extractor (&fptr, filename) == HH_FOPEN_ERROR)
+        {
+          free (filename);
+          closedir (dir);
+          return -1;
+        }
+
       process_DAT_file (fptr);
 
       fclose (fptr);
@@ -248,7 +265,7 @@ batch_process_DAT_files ()
  *  We DO need a more flexible/non-hardcoded solution as we don't necessarily
  *  know which DAT files the end user extracted in the first place.
  */
-void
+int8_t
 process_new_dat_files (void)
 {
   char *interior_dat_file_path = calloc (
@@ -269,7 +286,13 @@ process_new_dat_files (void)
   // for the files that we are expecting.
   strcat (interior_dat_file_path, "INDEX.001");
 
-  FILE *fptr = setup_extractor (interior_dat_file_path);
+  FILE *fptr = NULL;
+  if (setup_extractor (&fptr, interior_dat_file_path) == HH_FOPEN_ERROR)
+    {
+      free (interior_dat_file_path);
+      return -1;
+    }
+
   if (fptr == NULL)
     {
       fprintf (stderr, "ERROR: unable to locate index file, %s.\n",
@@ -292,4 +315,6 @@ process_new_dat_files (void)
 
   fclose (fptr);
   free (interior_dat_file_path);
+
+  return 0;
 }

@@ -1,6 +1,7 @@
 #ifndef _HARVESTER_HARVESTER_H_
 #define _HARVESTER_HARVESTER_H_
 
+#include <stdint.h>
 #include <stdio.h>
 
 /**
@@ -12,7 +13,7 @@
  *  @param  filename `char *` of the path to a DAT file
  *  @return a pointer to the given file, if it exist.
  */
-static FILE *setup_extractor (char *filename);
+static int8_t setup_extractor (FILE **fptr, char *filename);
 
 /**
  *  Processes a DAT file pointed to by the given `FILE *`.
