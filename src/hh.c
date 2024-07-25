@@ -327,7 +327,14 @@ process_new_dat_files (void)
       exit (1);
     }
 
-  process_index_file (fptr, &idx_file);
+  if (process_index_file (fptr, &idx_file) != 0)
+    {
+      destroy_index_file (&idx_file);
+      fclose (fptr);
+      free (interior_dat_file_path);
+      return -1;
+    }
+
   destroy_index_file (&idx_file);
 
   fclose (fptr);
