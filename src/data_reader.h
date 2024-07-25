@@ -2,6 +2,7 @@
 #define _DATA_READER_H_
 
 #include "datetime.h"
+#include "file_flags.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -39,5 +40,15 @@ void read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length);
 int8_t read_dec_datetime (FILE *fptr, dec_datetime *dt);
 int8_t read_single_uint8 (FILE *fptr, uint8_t *value);
 int8_t read_dir_datetime (FILE *fptr, dir_datetime *dt);
+
+/**
+ *  Reads file flag data in from a given source pointed to by `fptr` and uses
+ *  that data to update the various flags in `ff` as needed.
+ *
+ *  @param  fptr  Pointer to file with file flag data
+ *  @param  ff    file flags to be updated.
+ *  @see  file_flags
+ */
+int8_t read_file_flags (FILE *fptr, file_flags *ff);
 
 #endif

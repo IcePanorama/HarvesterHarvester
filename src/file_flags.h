@@ -2,6 +2,7 @@
 #define _FILE_FLAGS_H_
 
 #include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 
 /**

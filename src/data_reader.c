@@ -144,12 +144,6 @@ read_single_uint8 (FILE *fptr, uint8_t *value)
   return 0;
 }
 
-uint16_t
-change_endianness_uint16 (uint16_t value)
-{
-  return (value << 8) | (value >> 8);
-}
-
 int8_t
 read_dir_datetime (FILE *fptr, dir_datetime *dt)
 {

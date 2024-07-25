@@ -43,7 +43,7 @@ int8_t extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE,
  *  @see extract_directory()
  *  @see extract_file()
  */
-void create_directories_and_extract_data_from_path_file (
+int8_t create_directories_and_extract_data_from_path_file (
     FILE *fptr, uint16_t BLOCK_SIZE, struct path_table *pt);
 
 #endif

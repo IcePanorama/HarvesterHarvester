@@ -5,6 +5,7 @@
 #include "output.h"
 #include "utils.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -112,7 +113,7 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
   return 0;
 }
 
-void
+int8_t
 create_directories_and_extract_data_from_path_file (FILE *fptr,
                                                     uint16_t BLOCK_SIZE,
                                                     path_table *pt)
@@ -131,8 +132,7 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       if (path == NULL)
         {
           perror ("ERROR: unable to calloc path string");
-          destroy_path_table (pt);
-          exit (1);
+          return -1;
         }
 
       strcat (path, curr_dir.directory_identifier);
@@ -141,11 +141,17 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
         {
           uint16_t index
               = change_endianness_uint16 (curr_dir.parent_directory_number);
+
           // parent_directory_number is 1-based
           curr_dir = pt->entries[index - 1];
 
-          prepend_path_string (path,
-                               (const char *)curr_dir.directory_identifier);
+          if (prepend_path_string (path,
+                                   (const char *)curr_dir.directory_identifier)
+              != 0)
+            {
+              free (path);
+              return -1;
+            }
         }
       while (curr_dir.parent_directory_number > 0x0100);
 
@@ -157,4 +163,6 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 
       free (path);
     }
+
+  return 0;
 }

@@ -2,7 +2,8 @@
 #define _OUTPUT_H_
 
 #include <stdbool.h>
+#include <stdint.h>
 
-void create_output_directory (char *path);
+int8_t create_output_directory (char *path);
 
 #endif

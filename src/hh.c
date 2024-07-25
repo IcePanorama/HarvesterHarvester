@@ -96,21 +96,18 @@ process_DAT_file (FILE *fptr)
 
   volume_descriptor vd;
   if (process_volume_descriptor_header (fptr, &vd) != 0)
-    {
-      return -1;
-    }
+    return -1;
 
   // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
     {
       puts ("Error: Unexpected volume descriptor type code.");
       printf ("\tExpected %02x, got %02x.\n", 0x01, vd.type_code);
-      puts ("Note: Extracting files from HARVEST2.DAT is currently "
-            "unsupported.");
-      exit (1);
+      return -1;
     }
 
-  process_volume_descriptor_data (fptr, &vd.data);
+  if (process_volume_descriptor_data (fptr, &vd.data) != 0)
+    return -1;
 
   size_t current_disk_name_length = strcspn (vd.data.volume_identifier, " ");
   OP_CURRENT_DISK_NAME = vd.data.volume_identifier;
@@ -128,11 +125,10 @@ process_DAT_file (FILE *fptr)
 
   path_table pt;
   if (create_path_table (&pt) != 0)
-    {
-      exit (1);
-    }
+    return -1;
 
-  process_type_l_path_table (fptr, &pt);
+  if (process_type_l_path_table (fptr, &pt) != 0)
+    return -1;
 
   create_directories_and_extract_data_from_path_file (
       fptr, LOGICAL_BLOCK_SIZE_BE, &pt);

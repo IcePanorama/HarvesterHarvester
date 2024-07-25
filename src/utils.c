@@ -16,26 +16,29 @@
 #include <unistd.h>
 #endif
 
-void
+int8_t
 prepend_path_string (char *str, const char *prefix)
 {
   if (strcmp (prefix, (const char *)"") == 0
       || strcmp (prefix, (const char *)"\1") == 0)
     {
-      return;
+      return 0;
     }
 
   char *tmp = calloc (strlen (str) + strlen (prefix) + 2, sizeof (char));
   if (tmp == NULL)
     {
       perror ("ERROR: unable to calloc tmp string");
-      exit (1);
+      return -1;
     }
+
   strcpy (tmp, str);
   strcpy (str, prefix);
   strcat (str, &OP_PATH_SEPARATOR);
   strcat (str, tmp);
   free (tmp);
+
+  return 0;
 }
 
 void
@@ -120,4 +123,10 @@ peek_eof (FILE *fptr)
   size_t bytes_read = fread (&value, sizeof (uint8_t), 1, fptr);
   fseek (fptr, -1, SEEK_CUR);
   return bytes_read == 0;
+}
+
+uint16_t
+change_endianness_uint16 (uint16_t value)
+{
+  return (value << 8) | (value >> 8);
 }

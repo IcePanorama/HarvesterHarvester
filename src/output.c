@@ -10,20 +10,25 @@
 #include <direct.h>
 #endif
 
-void
+int8_t
 create_output_directory (char *path)
 {
   if (OP_CURRENT_DISK_NAME != NULL)
-    prepend_path_string (path, OP_CURRENT_DISK_NAME);
+    {
+      if (prepend_path_string (path, OP_CURRENT_DISK_NAME) != 0)
+        return -1;
+    }
 
-  prepend_path_string (path, OP_OUTPUT_DIR);
+  if (prepend_path_string (path, OP_OUTPUT_DIR) != 0)
+    return -1;
 
   char *tmp = calloc (strlen (path) + 2, sizeof (char));
   if (tmp == NULL)
     {
       perror ("ERROR: unable to calloc tmp string");
-      exit (1);
+      return -1;
     }
+
   strcpy (tmp, path);
 
   char *token = strtok (tmp, &OP_PATH_SEPARATOR);
@@ -32,7 +37,8 @@ create_output_directory (char *path)
   if (dir == NULL)
     {
       perror ("ERROR: unable to calloc dir string");
-      exit (1);
+      free (tmp);
+      return -1;
     }
 
   while (token != NULL)
@@ -53,7 +59,7 @@ create_output_directory (char *path)
               printf ("ERROR: failed to create directory, %s\n", path);
               free (dir);
               free (tmp);
-              exit (1);
+              return -1;
             }
         }
 
@@ -63,4 +69,6 @@ create_output_directory (char *path)
 
   free (dir);
   free (tmp);
+
+  return 0;
 }
