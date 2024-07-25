@@ -42,6 +42,7 @@ HARVEST4.DAT
         + To see this in action, run `make test` and then press `CTRL+C`.
     + An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting
     + Ideally, this solution should also be cross-platform, if at all possible.
+    + Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.
 + Create a guide for building the project from source for Windows users. 
 
 ## A note on piracy
