@@ -34,7 +34,7 @@ typedef struct index_file
 int8_t create_index_file (index_file *i);
 int8_t destroy_index_file (index_file *i);
 
-void process_index_file (FILE *fptr, index_file *i);
+int8_t process_index_file (FILE *fptr, index_file *idxf);
 void print_index_entry (index_entry *idxe);
 int8_t add_entry_to_index_file (index_file *file, index_entry *entry);
 int8_t resize_indicies (index_file *idx);

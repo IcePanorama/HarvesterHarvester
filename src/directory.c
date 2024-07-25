@@ -124,14 +124,13 @@ process_directory (FILE *fptr, directory *d)
       directory_record dr;
       dr.record_length = single_byte;
 
-      if (read_single_uint8 (fptr, &dr.extended_attribute_record_length) != 0)
-        return HH_FREAD_ERROR;
-
-      dr.location_of_extent = read_both_endian_data_uint32 (fptr);
-      dr.data_length = read_both_endian_data_uint32 (fptr);
-
-      if (read_dir_datetime (fptr, &dr.recording_datetime) != 0)
-        return HH_FREAD_ERROR;
+      if ((read_single_uint8 (fptr, &dr.extended_attribute_record_length) != 0)
+          || (read_both_endian_data_uint32 (fptr, &dr.location_of_extent) != 0)
+          || (read_both_endian_data_uint32 (fptr, &dr.data_length) != 0)
+          || (read_dir_datetime (fptr, &dr.recording_datetime) != 0))
+        {
+          return HH_FREAD_ERROR;
+        }
 
       dr.file_flags = create_file_flags ();
       read_file_flags (fptr, &dr.file_flags);

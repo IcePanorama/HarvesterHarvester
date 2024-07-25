@@ -128,7 +128,10 @@ process_DAT_file (FILE *fptr)
     return -1;
 
   if (process_type_l_path_table (fptr, &pt) != 0)
-    return -1;
+    {
+      destroy_path_table (&pt);
+      return -1;
+    }
 
   create_directories_and_extract_data_from_path_file (
       fptr, LOGICAL_BLOCK_SIZE_BE, &pt);

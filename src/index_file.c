@@ -1,5 +1,6 @@
 #include "index_file.h"
 #include "data_reader.h"
+#include "errors.h"
 #include "options.h"
 #include "utils.h"
 
@@ -34,7 +35,7 @@ destroy_index_file (index_file *i)
   return 0;
 }
 
-void
+int8_t
 process_index_file (FILE *fptr, index_file *idxf)
 {
   while (!peek_eof (fptr))
@@ -48,7 +49,7 @@ process_index_file (FILE *fptr, index_file *idxf)
         {
           fprintf (stderr, "ERROR: Unexpected character in index file. "
                            "Aborting processing.\n");
-          return;
+          return -1;
         }
 
       read_string (fptr, entry.full_path, (uint8_t)FULL_PATH_MAX_LEN);
@@ -73,26 +74,35 @@ process_index_file (FILE *fptr, index_file *idxf)
        */
       fseek (fptr, entry.entry_start + (0x94 - 0x10), SEEK_SET);
 
-      entry.file_start = read_little_endian_data_uint32_t (fptr);
-      entry.file_offset = read_little_endian_data_uint32_t (fptr);
+      if ((read_little_endian_data_uint32_t (fptr, &entry.file_start) != 0)
+          || (read_little_endian_data_uint32_t (fptr, &entry.file_offset)
+              != 0))
+        {
+          return HH_FREAD_ERROR;
+        }
 
       fseek (fptr, 0x4, SEEK_CUR); // Skip zeros
 
       // Very unnecessary, but we might as well double check our data
-      uint32_t value = read_little_endian_data_uint32_t (fptr);
+      uint32_t value;
+      if (read_little_endian_data_uint32_t (fptr, &value) != 0)
+        return HH_FREAD_ERROR;
+
       if (entry.file_offset != value)
         {
           fprintf (stderr, "ERROR: Expected %08X, got %08X.\n",
                    entry.file_offset, value);
-          return;
+          return -1;
         }
 
       print_index_entry (&entry);
       if (add_entry_to_index_file (idxf, &entry) != 0)
         {
-          return;
+          return -1;
         }
     }
+
+  return 0;
 }
 
 void

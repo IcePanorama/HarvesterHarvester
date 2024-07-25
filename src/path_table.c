@@ -127,7 +127,13 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
           return HH_FREAD_ERROR;
         }
 
-      curr_entry.location_of_extent = read_little_endian_data_uint32_t (fptr);
+      if (read_little_endian_data_uint32_t (fptr,
+                                            &curr_entry.location_of_extent)
+          != 0)
+        {
+          return HH_FREAD_ERROR;
+        }
+
       curr_entry.parent_directory_number
           = read_little_endian_data_uint16_t (fptr);
 

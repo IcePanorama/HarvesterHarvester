@@ -92,21 +92,31 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 
   fseek (fptr, 8, SEEK_CUR); // Unused field
 
-  vdd->volume_space_size = read_both_endian_data_uint32 (fptr);
+  if (read_both_endian_data_uint32 (fptr, &vdd->volume_space_size) != 0)
+    return HH_FREAD_ERROR;
 
   fseek (fptr, 32, SEEK_CUR); // Unused field
 
   vdd->volume_set_size = read_both_endian_data_uint16 (fptr);
   vdd->volume_sequence_number = read_both_endian_data_uint16 (fptr);
   vdd->logical_block_size = read_both_endian_data_uint16 (fptr);
-  vdd->path_table_size = read_both_endian_data_uint32 (fptr);
 
-  vdd->type_l_path_table_location = read_little_endian_data_uint32_t (fptr);
-  vdd->optional_type_l_path_table_location
-      = read_little_endian_data_uint32_t (fptr);
-  vdd->type_m_path_table_location = read_little_endian_data_uint32_t (fptr);
-  vdd->optional_type_m_path_table_location
-      = read_little_endian_data_uint32_t (fptr);
+  if ((read_both_endian_data_uint32 (fptr, &vdd->path_table_size) != 0)
+      || (read_little_endian_data_uint32_t (fptr,
+                                            &vdd->type_l_path_table_location)
+          != 0)
+      || (read_little_endian_data_uint32_t (
+              fptr, &vdd->optional_type_l_path_table_location)
+          != 0)
+      || (read_little_endian_data_uint32_t (fptr,
+                                            &vdd->type_m_path_table_location)
+          != 0)
+      || (read_little_endian_data_uint32_t (
+              fptr, &vdd->optional_type_m_path_table_location)
+          != 0))
+    {
+      return HH_FREAD_ERROR;
+    }
 
   read_array_uint8 (fptr, vdd->root_directory_entry, ROOT_DIRECTORY_ENTRY_LEN);
 
