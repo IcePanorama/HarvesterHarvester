@@ -60,7 +60,7 @@ Definition at line <link linkend="_hh_8c_source_1l00036">36</link> of file <link
 <para>Processes a DAT file pointed to by the given <computeroutput>FILE *</computeroutput>. </para>
 </para>
 
-<para>This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the <computeroutput>OP_CURRENT_DISK_NAME</computeroutput> variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the <computeroutput>OP_OUTPUT_DIR</computeroutput>.</para>
+<para>This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the <computeroutput>CURRENT_DISK_NAME</computeroutput> variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the <computeroutput>OP_OUTPUT_DIR</computeroutput>.</para>
 
 <para>
                 <formalpara>

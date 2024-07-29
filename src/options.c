@@ -1,3 +1,16 @@
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "options.h"
 #include "errors.h"
 #include "utils.h"
@@ -6,19 +19,24 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* Option defaults */
 bool OP_BATCH_PROCESS = true;
 bool OP_SKIP_DAT_PROCESSING = false;
-char *OP_CURRENT_DISK_NAME = NULL;
 bool OP_DEBUG_MODE = false;
 char *OP_INPUT_DIR = (char *)"dat-files";
 char *OP_OUTPUT_DIR = (char *)"output";
 char OP_PATH_SEPARATOR = '/';
-uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000; //!< 0xF00000 == 15 MiB
+uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000; //!< 0xF00000 = 15 MiB
+
+/* Global defaults */
+char *CURRENT_DISK_NAME = NULL;
 
 // TODO: update me when finished
 static const char VERSION_NUMBER_STR[9] = "00.00.00";
 
+/** Prints a list of supported command-line arugments to stdout. */
 static void print_out_list_of_command_line_arguments (void);
+/** Processes options beginning with `-` character, called flags. */
 static void process_flag (char *f);
 
 void

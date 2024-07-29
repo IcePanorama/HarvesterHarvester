@@ -121,8 +121,8 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_hh_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
 <anchor xml:id="_hh_8c_source_1l00118"/>00118 
 <anchor xml:id="_hh_8c_source_1l00119"/>00119 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;current_disk_name_length&#32;=&#32;strcspn&#32;(vd.<link linkend="_structvolume__descriptor_1aa4662741d6354f25862a6e1c1f2bc34a">data</link>.<link linkend="_structvolume__descriptor__data_1a54d17b2adb72e2b61024203660f98df5">volume_identifier</link>,&#32;<emphasis role="stringliteral">&quot;&#32;&quot;</emphasis>);
-<anchor xml:id="_hh_8c_source_1l00120"/>00120 &#32;&#32;<link linkend="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link>&#32;=&#32;vd.<link linkend="_structvolume__descriptor_1aa4662741d6354f25862a6e1c1f2bc34a">data</link>.<link linkend="_structvolume__descriptor__data_1a54d17b2adb72e2b61024203660f98df5">volume_identifier</link>;
-<anchor xml:id="_hh_8c_source_1l00121"/>00121 &#32;&#32;<link linkend="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link>[current_disk_name_length]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_hh_8c_source_1l00120"/>00120 &#32;&#32;<link linkend="_options_8c_1ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</link>&#32;=&#32;vd.<link linkend="_structvolume__descriptor_1aa4662741d6354f25862a6e1c1f2bc34a">data</link>.<link linkend="_structvolume__descriptor__data_1a54d17b2adb72e2b61024203660f98df5">volume_identifier</link>;
+<anchor xml:id="_hh_8c_source_1l00121"/>00121 &#32;&#32;<link linkend="_options_8c_1ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</link>[current_disk_name_length]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
 <anchor xml:id="_hh_8c_source_1l00122"/>00122 
 <anchor xml:id="_hh_8c_source_1l00123"/>00123 &#32;&#32;<emphasis role="comment">//&#32;TODO:&#32;print&#32;the&#32;volume&#32;descriptor&#32;header/data&#32;to&#32;some&#32;file/log.</emphasis>
 <anchor xml:id="_hh_8c_source_1l00124"/>00124 
@@ -166,7 +166,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_hh_8c_source_1l00162"/>00162 
 <anchor xml:id="_hh_8c_source_1l00163"/>00163 &#32;&#32;strcpy&#32;(path,&#32;<link linkend="_options_8c_1a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</link>);
 <anchor xml:id="_hh_8c_source_1l00164"/>00164 &#32;&#32;strcat&#32;(path,&#32;<emphasis role="stringliteral">&quot;/&quot;</emphasis>);
-<anchor xml:id="_hh_8c_source_1l00165"/>00165 &#32;&#32;strcat&#32;(path,&#32;<link linkend="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link>);
+<anchor xml:id="_hh_8c_source_1l00165"/>00165 &#32;&#32;strcat&#32;(path,&#32;<link linkend="_options_8c_1ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</link>);
 <anchor xml:id="_hh_8c_source_1l00166"/>00166 
 <anchor xml:id="_hh_8c_source_1l00167"/>00167 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_extractor_8c_1a4727cdfccac62ddc325d2ed70eddf467">extract_directory</link>&#32;(fptr,&#32;block_size_be,&#32;path)&#32;!=&#32;0)
 <anchor xml:id="_hh_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;{

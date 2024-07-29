@@ -136,8 +136,8 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       // supports 10 levels of directories which is probably overkill.
       const uint32_t PATH_MAX_LEN
           = ((curr_dir.directory_identifier_length + 1) * 10)
-            + (strlen (OP_OUTPUT_DIR) + 1)
-            + (strlen (OP_CURRENT_DISK_NAME) + 1) + 1;
+            + (strlen (OP_OUTPUT_DIR) + 1) + (strlen (CURRENT_DISK_NAME) + 1)
+            + 1;
       char *path = calloc (PATH_MAX_LEN, sizeof (char));
       if (path == NULL)
         {

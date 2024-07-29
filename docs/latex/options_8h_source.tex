@@ -2,27 +2,44 @@
 \hypertarget{options_8h_source}{}\label{options_8h_source}\index{src/options.h@{src/options.h}}
 \mbox{\hyperlink{options_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_OPTIONS\_H\_}}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_OPTIONS\_H\_}}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00006}00006\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00008}00008\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{options_8h_abf19eab4ae4469b24b2b34284bb72f5a}{OP\_BATCH\_PROCESS}};}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00009}00009\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{options_8h_a1ee118406b5a5d8845db1bc412b34400}{OP\_SKIP\_DAT\_PROCESSING}};}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00010}00010\ \textcolor{keyword}{extern}\ uint32\_t\ \mbox{\hyperlink{options_8h_a57685525da7ee31266f852c10c29dffb}{OP\_DEBUG\_FILE\_SIZE\_LIMIT}};}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00012}00012\ \textcolor{comment}{//\ Not\ really\ an\ "{}option"{},\ does\ this\ belong\ here?}}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00013}00013\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{options_8h_ab0a46ab2ce382e77c8384eec4f447007}{OP\_CURRENT\_DISK\_NAME}};}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00021}00021\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{options_8h_a22750490a402211ccfd1c7dda808eb51}{OP\_DEBUG\_MODE}};}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00022}00022\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{options_8h_a9f2b83262a240b0baabccb91b801b096}{OP\_INPUT\_DIR}};\ \ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00023}00023\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{options_8h_a517a97037702e04fc68e47a47e4af794}{OP\_OUTPUT\_DIR}};\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00029}00029\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{options_8h_a845934c83dddb0516baadb1abd079d8d}{OP\_PATH\_SEPARATOR}};}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00030}00030\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00037}00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{options_8h_a83aed94bb59dba20fc0286181dc64738}{handle\_command\_line\_args}}\ (\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{options_8h_source_l00039}00039\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00007}00007\ \textcolor{comment}{//\ \ Copyright\ (C)\ 2024\ \ IcePanorama}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00008}00008\ \textcolor{comment}{//\ \ This\ file\ is\ a\ part\ of\ HarvesterHarvester.}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00009}00009\ \textcolor{comment}{//\ \ HarvesterHarvester\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00010}00010\ \textcolor{comment}{//\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00011}00011\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00012}00012\ \textcolor{comment}{//\ \ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00013}00013\ \textcolor{comment}{//\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00014}00014\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00015}00015\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU\ General\ Public\ License\ for}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00016}00016\ \textcolor{comment}{//\ \ more\ details.}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00017}00017\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00018}00018\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00019}00019\ \textcolor{comment}{//\ \ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00020}00020\ \textcolor{preprocessor}{\#ifndef\ \_HH\_OPTIONS\_H\_}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00021}00021\ \textcolor{preprocessor}{\#define\ \_HH\_OPTIONS\_H\_}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00027}00027\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{options_8h_abf19eab4ae4469b24b2b34284bb72f5a}{OP\_BATCH\_PROCESS}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00033}00033\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{options_8h_a1ee118406b5a5d8845db1bc412b34400}{OP\_SKIP\_DAT\_PROCESSING}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00036}00036\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{options_8h_a22750490a402211ccfd1c7dda808eb51}{OP\_DEBUG\_MODE}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00039}00039\ \textcolor{keyword}{extern}\ uint32\_t\ \mbox{\hyperlink{options_8h_a57685525da7ee31266f852c10c29dffb}{OP\_DEBUG\_FILE\_SIZE\_LIMIT}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00045}00045\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{options_8h_a9f2b83262a240b0baabccb91b801b096}{OP\_INPUT\_DIR}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00051}00051\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{options_8h_a517a97037702e04fc68e47a47e4af794}{OP\_OUTPUT\_DIR}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00057}00057\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{options_8h_a845934c83dddb0516baadb1abd079d8d}{OP\_PATH\_SEPARATOR}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00066}00066\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{options_8h_ab618e22311642682edcbbddd408ad110}{CURRENT\_DISK\_NAME}};}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00069}00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{options_8h_a83aed94bb59dba20fc0286181dc64738}{handle\_command\_line\_args}}\ (\textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv);}
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{options_8h_source_l00071}00071\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

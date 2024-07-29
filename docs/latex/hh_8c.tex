@@ -67,7 +67,7 @@ int8\+\_\+t process\+\_\+\+DAT\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \t
 
 Processes a DAT file pointed to by the given {\ttfamily FILE \texorpdfstring{$\ast$}{*}}. 
 
-This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the {\ttfamily OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME} variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the {\ttfamily OP\+\_\+\+OUTPUT\+\_\+\+DIR}.
+This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the {\ttfamily CURRENT\+\_\+\+DISK\+\_\+\+NAME} variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the {\ttfamily OP\+\_\+\+OUTPUT\+\_\+\+DIR}.
 
 
 \begin{DoxyParams}{Parameters}

@@ -198,7 +198,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Processes a DAT file pointed to by the given <code>FILE *</code>. </p>
-<p>This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the <code>OP_CURRENT_DISK_NAME</code> variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the <code>OP_OUTPUT_DIR</code>.</p>
+<p>This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the <code>CURRENT_DISK_NAME</code> variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the <code>OP_OUTPUT_DIR</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fptr</td><td>a file pointer to a DAT file. </td></tr>

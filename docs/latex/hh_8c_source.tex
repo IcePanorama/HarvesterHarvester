@@ -121,8 +121,8 @@
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00118}00118\ }
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00119}00119\ \ \ \textcolor{keywordtype}{size\_t}\ current\_disk\_name\_length\ =\ strcspn\ (vd.\mbox{\hyperlink{structvolume__descriptor_aa4662741d6354f25862a6e1c1f2bc34a}{data}}.\mbox{\hyperlink{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}{volume\_identifier}},\ \textcolor{stringliteral}{"{}\ "{}});}
-\DoxyCodeLine{\Hypertarget{hh_8c_source_l00120}00120\ \ \ \mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c8384eec4f447007}{OP\_CURRENT\_DISK\_NAME}}\ =\ vd.\mbox{\hyperlink{structvolume__descriptor_aa4662741d6354f25862a6e1c1f2bc34a}{data}}.\mbox{\hyperlink{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}{volume\_identifier}};}
-\DoxyCodeLine{\Hypertarget{hh_8c_source_l00121}00121\ \ \ \mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c8384eec4f447007}{OP\_CURRENT\_DISK\_NAME}}[current\_disk\_name\_length]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{hh_8c_source_l00120}00120\ \ \ \mbox{\hyperlink{options_8c_ab618e22311642682edcbbddd408ad110}{CURRENT\_DISK\_NAME}}\ =\ vd.\mbox{\hyperlink{structvolume__descriptor_aa4662741d6354f25862a6e1c1f2bc34a}{data}}.\mbox{\hyperlink{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}{volume\_identifier}};}
+\DoxyCodeLine{\Hypertarget{hh_8c_source_l00121}00121\ \ \ \mbox{\hyperlink{options_8c_ab618e22311642682edcbbddd408ad110}{CURRENT\_DISK\_NAME}}[current\_disk\_name\_length]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00122}00122\ }
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00123}00123\ \ \ \textcolor{comment}{//\ TODO:\ print\ the\ volume\ descriptor\ header/data\ to\ some\ file/log.}}
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00124}00124\ }
@@ -166,7 +166,7 @@
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00162}00162\ }
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00163}00163\ \ \ strcpy\ (path,\ \mbox{\hyperlink{options_8c_a517a97037702e04fc68e47a47e4af794}{OP\_OUTPUT\_DIR}});}
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00164}00164\ \ \ strcat\ (path,\ \textcolor{stringliteral}{"{}/"{}});}
-\DoxyCodeLine{\Hypertarget{hh_8c_source_l00165}00165\ \ \ strcat\ (path,\ \mbox{\hyperlink{options_8c_ab0a46ab2ce382e77c8384eec4f447007}{OP\_CURRENT\_DISK\_NAME}});}
+\DoxyCodeLine{\Hypertarget{hh_8c_source_l00165}00165\ \ \ strcat\ (path,\ \mbox{\hyperlink{options_8c_ab618e22311642682edcbbddd408ad110}{CURRENT\_DISK\_NAME}});}
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00166}00166\ }
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00167}00167\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{extractor_8c_a4727cdfccac62ddc325d2ed70eddf467}{extract\_directory}}\ (fptr,\ block\_size\_be,\ path)\ !=\ 0)}
 \DoxyCodeLine{\Hypertarget{hh_8c_source_l00168}00168\ \ \ \ \ \{}

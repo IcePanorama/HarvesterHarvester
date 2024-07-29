@@ -37,7 +37,7 @@ static int8_t setup_extractor (FILE **fptr, char *filename);
  *  <p>This is accomplished by first processing the volume descriptor header
  *  (checking that this is indeed a primary volume descriptor after it does so)
  *  and the volume descriptor data. Once complete, it updates the
- *  `OP_CURRENT_DISK_NAME` variable using the appropriate data. Finally, it
+ *  `CURRENT_DISK_NAME` variable using the appropriate data. Finally, it
  *  constructs a path table, a extracts every file from the given DAT file to
  *  the `OP_OUTPUT_DIR`.
  *

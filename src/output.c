@@ -14,9 +14,9 @@
 int8_t
 create_output_directory (char *path)
 {
-  if (OP_CURRENT_DISK_NAME != NULL)
+  if (CURRENT_DISK_NAME != NULL)
     {
-      if (prepend_path_string (path, OP_CURRENT_DISK_NAME) != 0)
+      if (prepend_path_string (path, CURRENT_DISK_NAME) != 0)
         return HH_MEM_ALLOC_ERROR;
     }
 

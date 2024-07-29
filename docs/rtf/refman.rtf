@@ -5148,8 +5148,8 @@ Go to the documentation of this file.\par
 00136       {\cf20 // supports 10 levels of directories which is probably overkill.}\par
 00137       {\cf17 const} uint32_t PATH_MAX_LEN\par
 00138           = ((curr_dir.directory_identifier_length + 1) * 10)\par
-00139             + (strlen (OP_OUTPUT_DIR) + 1)\par
-00140             + (strlen (OP_CURRENT_DISK_NAME) + 1) + 1;\par
+00139             + (strlen (OP_OUTPUT_DIR) + 1) + (strlen (CURRENT_DISK_NAME) + 1)\par
+00140             + 1;\par
 00141       {\cf18 char} *path = calloc (PATH_MAX_LEN, {\cf17 sizeof} ({\cf18 char}));\par
 00142       {\cf19 if} (path == NULL)\par
 00143         \{\par
@@ -5729,7 +5729,7 @@ int8_t process_DAT_file (FILE * fptr)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes a DAT file pointed to by the given {\f2 FILE *} . }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the {\f2 OP_CURRENT_DISK_NAME}  variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the {\f2 OP_OUTPUT_DIR} .\par
+This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the {\f2 CURRENT_DISK_NAME}  variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the {\f2 OP_OUTPUT_DIR} .\par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
 Parameters\par}
 \pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
@@ -5944,8 +5944,8 @@ Go to the documentation of this file.\par
 00117     {\cf19 return} -1;\par
 00118 \par
 00119   {\cf18 size_t} current_disk_name_length = strcspn (vd.data.volume_identifier, {\cf22 " "});\par
-00120   OP_CURRENT_DISK_NAME = vd.data.volume_identifier;\par
-00121   OP_CURRENT_DISK_NAME[current_disk_name_length] = {\cf23 '\\0'};\par
+00120   CURRENT_DISK_NAME = vd.data.volume_identifier;\par
+00121   CURRENT_DISK_NAME[current_disk_name_length] = {\cf23 '\\0'};\par
 00122 \par
 00123   {\cf20 // TODO: print the volume descriptor header/data to some file/log.}\par
 00124 \par
@@ -5989,7 +5989,7 @@ Go to the documentation of this file.\par
 00162 \par
 00163   strcpy (path, OP_OUTPUT_DIR);\par
 00164   strcat (path, {\cf22 "/"});\par
-00165   strcat (path, OP_CURRENT_DISK_NAME);\par
+00165   strcat (path, CURRENT_DISK_NAME);\par
 00166 \par
 00167   {\cf19 if} (extract_directory (fptr, block_size_be, path) != 0)\par
 00168     \{\par
@@ -6268,7 +6268,7 @@ static int8_t process_DAT_file (FILE * fptr){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes a DAT file pointed to by the given {\f2 FILE *} . }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the {\f2 OP_CURRENT_DISK_NAME}  variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the {\f2 OP_OUTPUT_DIR} .\par
+This is accomplished by first processing the volume descriptor header (checking that this is indeed a primary volume descriptor after it does so) and the volume descriptor data. Once complete, it updates the {\f2 CURRENT_DISK_NAME}  variable using the appropriate data. Finally, it constructs a path table, a extracts every file from the given DAT file to the {\f2 OP_OUTPUT_DIR} .\par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
 Parameters\par}
 \pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
@@ -7349,13 +7349,23 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 static void {\b print_out_list_of_command_line_arguments} (void)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a list of supported command-line arugments to stdout. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 static void {\b process_flag} (char *f)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes options beginning with {\f2 -}  character, called flags. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_command_line_args} (int argc, char **argv)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Processes command-line arguments. }{
+Processes command-line arguments, setting options as needed. }{
 }\par
 }\par}
 }
@@ -7368,13 +7378,16 @@ Variables\par
 bool {\b OP_BATCH_PROCESS} = true\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-If true, batch process all the files in {\f2 OP_INPUT_DIR} . }{
+{\b options.h} - container for all of hh's options. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_SKIP_DAT_PROCESSING} = false\par
-\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-char * {\b OP_CURRENT_DISK_NAME} = NULL\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If true, skip {\f2 .DAT}  file processing and go directly to processing {\f2 INDEX.00#}  files. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_DEBUG_MODE} = false\par
 {
@@ -7386,28 +7399,35 @@ Skips files larger than {\f2 OP_DEBUG_FILE_SIZE_LIMIT}  if true. }{
 char * {\b OP_INPUT_DIR} = (char *)"dat-files"\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./dat-files/} . }{
+Directory where hh will try to batch process files from if {\f2 OP_BATCH_PROCESS}  is true. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b OP_OUTPUT_DIR} = (char *)"output"\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./output/}  }{
+Directory where hh will try to output extracted files to. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char {\b OP_PATH_SEPARATOR} = '/'\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Depends on the user's operating system. }{
+Character used to separate directory/file names in a path string. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 uint32_t {\b OP_DEBUG_FILE_SIZE_LIMIT} = 0xF00000\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-0xF00000 == 15 MiB }{
+0xF00000 = 15 MiB }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+char * {\b CURRENT_DISK_NAME} = NULL\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Current disk name as denoted by the {\f2 volume_identifier}  in {\f2 {\b volume_descriptor_data}} . }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -7430,26 +7450,9 @@ void handle_command_line_args (int argc, char ** argv)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Processes command-line arguments. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i argc} \cell }{number of command-line arguments. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i argv} \cell }{array of all the command-line arguments. \cell }
-{\row }
-}
-}{
-Definition at line {\b 25} of file {\b options.c}.}\par
+Processes command-line arguments, setting options as needed. }}\par
+{
+Definition at line {\b 43} of file {\b options.c}.}\par
 }
 {\xe \v print_out_list_of_command_line_arguments\:options.c}
 {\xe \v options.c\:print_out_list_of_command_line_arguments}
@@ -7463,7 +7466,10 @@ void print_out_list_of_command_line_arguments (void ){\f2 [static]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 55} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a list of supported command-line arugments to stdout. }}\par
+{
+Definition at line {\b 73} of file {\b options.c}.}\par
 }
 {\xe \v process_flag\:options.c}
 {\xe \v options.c\:process_flag}
@@ -7477,17 +7483,20 @@ void process_flag (char * f){\f2 [static]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 70} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes options beginning with {\f2 -}  character, called flags. }}\par
+{
+Definition at line {\b 88} of file {\b options.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Variable Documentation\par
 \pard\plain 
-{\xe \v OP_BATCH_PROCESS\:options.c}
-{\xe \v options.c\:OP_BATCH_PROCESS}
+{\xe \v CURRENT_DISK_NAME\:options.c}
+{\xe \v options.c\:CURRENT_DISK_NAME}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-bool OP_BATCH_PROCESS = true}}
+char* CURRENT_DISK_NAME = NULL}}
 \par
 {\bkmkstart AAAAAAAAFZ}
 {\bkmkend AAAAAAAAFZ}
@@ -7496,15 +7505,20 @@ bool OP_BATCH_PROCESS = true}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-If true, batch process all the files in {\f2 OP_INPUT_DIR} . }}\par
-{
-Definition at line {\b 9} of file {\b options.c}.}\par
+Current disk name as denoted by the {\f2 volume_identifier}  in {\f2 {\b volume_descriptor_data}} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Not really an option, should be moved elsewhere. Stored here for the sake of convenience.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b volume_descriptor_data} \par
+}}}{
+Definition at line {\b 32} of file {\b options.c}.}\par
 }
-{\xe \v OP_CURRENT_DISK_NAME\:options.c}
-{\xe \v options.c\:OP_CURRENT_DISK_NAME}
+{\xe \v OP_BATCH_PROCESS\:options.c}
+{\xe \v options.c\:OP_BATCH_PROCESS}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-char* OP_CURRENT_DISK_NAME = NULL}}
+bool OP_BATCH_PROCESS = true}}
 \par
 {\bkmkstart AAAAAAAAGA}
 {\bkmkend AAAAAAAAGA}
@@ -7512,7 +7526,12 @@ char* OP_CURRENT_DISK_NAME = NULL}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 11} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b options.h} - container for all of hh's options. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Currently also home to some global variables until I figure out a better place for them to be stored. If true, batch process all the files in {\f2 OP_INPUT_DIR} . \par
+}{
+Definition at line {\b 23} of file {\b options.c}.}\par
 }
 {\xe \v OP_DEBUG_FILE_SIZE_LIMIT\:options.c}
 {\xe \v options.c\:OP_DEBUG_FILE_SIZE_LIMIT}
@@ -7527,9 +7546,11 @@ uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-0xF00000 == 15 MiB }}\par
-{
-Definition at line {\b 16} of file {\b options.c}.}\par
+0xF00000 = 15 MiB }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Minimum size of files to be skipped if {\f2 OP_DEBUG_MODE}  is true. \par
+}{
+Definition at line {\b 29} of file {\b options.c}.}\par
 }
 {\xe \v OP_DEBUG_MODE\:options.c}
 {\xe \v options.c\:OP_DEBUG_MODE}
@@ -7545,13 +7566,8 @@ bool OP_DEBUG_MODE = false}}
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Skips files larger than {\f2 OP_DEBUG_FILE_SIZE_LIMIT}  if true. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Note that {\f2 OP_DEBUG_FILE_SIZE_LIMIT}  is currently defined in {\b extractor.c}.\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b extract_directory} \par
-}}}{
-Definition at line {\b 12} of file {\b options.c}.}\par
+{
+Definition at line {\b 25} of file {\b options.c}.}\par
 }
 {\xe \v OP_INPUT_DIR\:options.c}
 {\xe \v options.c\:OP_INPUT_DIR}
@@ -7566,9 +7582,11 @@ char* OP_INPUT_DIR = (char *)"dat-files"}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./dat-files/} . }}\par
-{
-Definition at line {\b 13} of file {\b options.c}.}\par
+Directory where hh will try to batch process files from if {\f2 OP_BATCH_PROCESS}  is true. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 ./dat-files/} . \par
+}{
+Definition at line {\b 26} of file {\b options.c}.}\par
 }
 {\xe \v OP_OUTPUT_DIR\:options.c}
 {\xe \v options.c\:OP_OUTPUT_DIR}
@@ -7583,9 +7601,11 @@ char* OP_OUTPUT_DIR = (char *)"output"}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./output/}  }}\par
-{
-Definition at line {\b 14} of file {\b options.c}.}\par
+Directory where hh will try to output extracted files to. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 ./output/} . \par
+}{
+Definition at line {\b 27} of file {\b options.c}.}\par
 }
 {\xe \v OP_PATH_SEPARATOR\:options.c}
 {\xe \v options.c\:OP_PATH_SEPARATOR}
@@ -7600,11 +7620,11 @@ char OP_PATH_SEPARATOR = '/'}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Depends on the user's operating system. }}\par
+Character used to separate directory/file names in a path string. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Having this be defined globally in this file for cross-platform compatibility reasons. \par
+Depends on the user's operating system. {\f2 \\\\}  for Windows, {\f2 /}  for *nix. \par
 }{
-Definition at line {\b 15} of file {\b options.c}.}\par
+Definition at line {\b 28} of file {\b options.c}.}\par
 }
 {\xe \v OP_SKIP_DAT_PROCESSING\:options.c}
 {\xe \v options.c\:OP_SKIP_DAT_PROCESSING}
@@ -7618,7 +7638,10 @@ bool OP_SKIP_DAT_PROCESSING = false}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 10} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If true, skip {\f2 .DAT}  file processing and go directly to processing {\f2 INDEX.00#}  files. }}\par
+{
+Definition at line {\b 24} of file {\b options.c}.}\par
 }
 {\xe \v VERSION_NUMBER_STR\:options.c}
 {\xe \v options.c\:VERSION_NUMBER_STR}
@@ -7632,7 +7655,7 @@ const char VERSION_NUMBER_STR[9] = "00.00.00"{\f2 [static]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 19} of file {\b options.c}.}\par
+Definition at line {\b 35} of file {\b options.c}.}\par
 }
 \par \pard\plain 
 
@@ -7647,100 +7670,116 @@ options.c\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #include "options.h"}\par
-00002 {\cf21 #include "errors.h"}\par
-00003 {\cf21 #include "utils.h"}\par
-00004 \par
-00005 {\cf21 #include <stdio.h>}\par
-00006 {\cf21 #include <stdlib.h>}\par
-00007 {\cf21 #include <string.h>}\par
-00008 \par
-00009 {\cf18 bool} OP_BATCH_PROCESS = {\cf17 true};\par
-00010 {\cf18 bool} OP_SKIP_DAT_PROCESSING = {\cf17 false};\par
-00011 {\cf18 char} *OP_CURRENT_DISK_NAME = NULL;\par
-00012 {\cf18 bool} OP_DEBUG_MODE = {\cf17 false};\par
-00013 {\cf18 char} *OP_INPUT_DIR = ({\cf18 char} *){\cf22 "dat-files"};\par
-00014 {\cf18 char} *OP_OUTPUT_DIR = ({\cf18 char} *){\cf22 "output"};\par
-00015 {\cf18 char} OP_PATH_SEPARATOR = {\cf23 '/'};\par
-00016 uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000; \par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00014 {\cf21 #include "options.h"}\par
+00015 {\cf21 #include "errors.h"}\par
+00016 {\cf21 #include "utils.h"}\par
 00017 \par
-00018 {\cf20 // TODO: update me when finished}\par
-00019 {\cf17 static} {\cf17 const} {\cf18 char} VERSION_NUMBER_STR[9] = {\cf22 "00.00.00"};\par
-00020 \par
-00021 {\cf17 static} {\cf18 void} print_out_list_of_command_line_arguments ({\cf18 void});\par
-00022 {\cf17 static} {\cf18 void} process_flag ({\cf18 char} *f);\par
-00023 \par
-00024 {\cf18 void}\par
-00025 handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv)\par
-00026 \{\par
-00027   {\cf18 int} i;\par
-00028   {\cf19 for} (i = 1; i < argc; i++)\par
-00029     \{\par
-00030       {\cf19 if} (argv[i][0] == {\cf23 '-'})\par
-00031         \{\par
-00032           process_flag (argv[i]);\par
-00033         \}\par
-00034       {\cf19 else}\par
-00035         \{\par
-00036           {\cf19 break};\par
-00037         \}\par
-00038     \}\par
-00039 \par
-00040   {\cf19 if} (i == argc)\par
-00041     {\cf19 return};\par
-00042 \par
-00043   {\cf19 if} (is_string_dat_file (argv[argc - 1]))\par
-00044     \{\par
-00045       {\cf20 // just processing the user-provided file @ the user-provided path}\par
-00046       OP_BATCH_PROCESS = {\cf17 false};\par
-00047     \}\par
-00048   {\cf19 else}\par
-00049     \{\par
-00050       handle_unknown_command_line_argument_error (argv[argc - 1]);\par
-00051     \}\par
-00052 \}\par
-00053 \par
-00054 {\cf18 void}\par
-00055 print_out_list_of_command_line_arguments ({\cf18 void})\par
-00056 \{\par
-00057   printf (\par
-00058       {\cf22 "HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\\n"},\par
-00059       VERSION_NUMBER_STR);\par
-00060   puts ({\cf22 "Usage: main \{options (optional)\} \{path/to/\}[DAT FILE].DAT"});\par
-00061   puts ({\cf22 "Command-line arguments:"});\par
-00062   puts ({\cf22 "\\t--debug: enables debug mode, skips extracting large files."});\par
-00063   puts ({\cf22 "\\t--help: displays list of command line arguments."});\par
-00064   puts ({\cf22 "\\t--single: outputs all files into a single directory "}\par
-00065         {\cf22 "(default=output/)."});\par
-00066   puts ({\cf22 "\\t--version: prints out the version number."});\par
-00067 \}\par
-00068 \par
-00069 {\cf18 void}\par
-00070 process_flag ({\cf18 char} *f)\par
-00071 \{\par
-00072   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
-00073     \{\par
-00074       OP_DEBUG_MODE = {\cf17 true};\par
-00075     \}\par
-00076   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
-00077     \{\par
-00078       print_out_list_of_command_line_arguments ();\par
-00079       exit (0);\par
-00080     \}\par
-00081   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-i"}) == 0)\par
-00082     \{\par
-00083       OP_SKIP_DAT_PROCESSING = {\cf17 true};\par
-00084     \}\par
-00085   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
-00086     \{\par
-00087       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
-00088       exit (0);\par
-00089     \}\par
-00090   {\cf19 else}\par
+00018 {\cf21 #include <stdio.h>}\par
+00019 {\cf21 #include <stdlib.h>}\par
+00020 {\cf21 #include <string.h>}\par
+00021 \par
+00022 {\cf20 /* Option defaults */}\par
+00023 {\cf18 bool} OP_BATCH_PROCESS = {\cf17 true};\par
+00024 {\cf18 bool} OP_SKIP_DAT_PROCESSING = {\cf17 false};\par
+00025 {\cf18 bool} OP_DEBUG_MODE = {\cf17 false};\par
+00026 {\cf18 char} *OP_INPUT_DIR = ({\cf18 char} *){\cf22 "dat-files"};\par
+00027 {\cf18 char} *OP_OUTPUT_DIR = ({\cf18 char} *){\cf22 "output"};\par
+00028 {\cf18 char} OP_PATH_SEPARATOR = {\cf23 '/'};\par
+00029 uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000; \par
+00030 \par
+00031 {\cf20 /* Global defaults */}\par
+00032 {\cf18 char} *CURRENT_DISK_NAME = NULL;\par
+00033 \par
+00034 {\cf20 // TODO: update me when finished}\par
+00035 {\cf17 static} {\cf17 const} {\cf18 char} VERSION_NUMBER_STR[9] = {\cf22 "00.00.00"};\par
+00036 \par
+00038 {\cf17 static} {\cf18 void} print_out_list_of_command_line_arguments ({\cf18 void});\par
+00040 {\cf17 static} {\cf18 void} process_flag ({\cf18 char} *f);\par
+00041 \par
+00042 {\cf18 void}\par
+00043 handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv)\par
+00044 \{\par
+00045   {\cf18 int} i;\par
+00046   {\cf19 for} (i = 1; i < argc; i++)\par
+00047     \{\par
+00048       {\cf19 if} (argv[i][0] == {\cf23 '-'})\par
+00049         \{\par
+00050           process_flag (argv[i]);\par
+00051         \}\par
+00052       {\cf19 else}\par
+00053         \{\par
+00054           {\cf19 break};\par
+00055         \}\par
+00056     \}\par
+00057 \par
+00058   {\cf19 if} (i == argc)\par
+00059     {\cf19 return};\par
+00060 \par
+00061   {\cf19 if} (is_string_dat_file (argv[argc - 1]))\par
+00062     \{\par
+00063       {\cf20 // just processing the user-provided file @ the user-provided path}\par
+00064       OP_BATCH_PROCESS = {\cf17 false};\par
+00065     \}\par
+00066   {\cf19 else}\par
+00067     \{\par
+00068       handle_unknown_command_line_argument_error (argv[argc - 1]);\par
+00069     \}\par
+00070 \}\par
+00071 \par
+00072 {\cf18 void}\par
+00073 print_out_list_of_command_line_arguments ({\cf18 void})\par
+00074 \{\par
+00075   printf (\par
+00076       {\cf22 "HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\\n"},\par
+00077       VERSION_NUMBER_STR);\par
+00078   puts ({\cf22 "Usage: main \{options (optional)\} \{path/to/\}[DAT FILE].DAT"});\par
+00079   puts ({\cf22 "Command-line arguments:"});\par
+00080   puts ({\cf22 "\\t--debug: enables debug mode, skips extracting large files."});\par
+00081   puts ({\cf22 "\\t--help: displays list of command line arguments."});\par
+00082   puts ({\cf22 "\\t--single: outputs all files into a single directory "}\par
+00083         {\cf22 "(default=output/)."});\par
+00084   puts ({\cf22 "\\t--version: prints out the version number."});\par
+00085 \}\par
+00086 \par
+00087 {\cf18 void}\par
+00088 process_flag ({\cf18 char} *f)\par
+00089 \{\par
+00090   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
 00091     \{\par
-00092       handle_unknown_command_line_argument_error (f);\par
+00092       OP_DEBUG_MODE = {\cf17 true};\par
 00093     \}\par
-00094 \}\par
+00094   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
+00095     \{\par
+00096       print_out_list_of_command_line_arguments ();\par
+00097       exit (0);\par
+00098     \}\par
+00099   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-i"}) == 0)\par
+00100     \{\par
+00101       OP_SKIP_DAT_PROCESSING = {\cf17 true};\par
+00102     \}\par
+00103   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
+00104     \{\par
+00105       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
+00106       exit (0);\par
+00107     \}\par
+00108   {\cf19 else}\par
+00109     \{\par
+00110       handle_unknown_command_line_argument_error (f);\par
+00111     \}\par
+00112 \}\par
 }
 \par \pard\plain 
 
@@ -7765,7 +7804,7 @@ Functions\par
 void {\b handle_command_line_args} (int argc, char **argv)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Processes command-line arguments. }{
+Processes command-line arguments, setting options as needed. }{
 }\par
 }\par}
 }
@@ -7778,20 +7817,16 @@ Variables\par
 bool {\b OP_BATCH_PROCESS}\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-If true, batch process all the files in {\f2 OP_INPUT_DIR} . }{
+{\b options.h} - container for all of hh's options. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_SKIP_DAT_PROCESSING}\par
-\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-uint32_t {\b OP_DEBUG_FILE_SIZE_LIMIT}\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-0xF00000 == 15 MiB }{
+If true, skip {\f2 .DAT}  file processing and go directly to processing {\f2 INDEX.00#}  files. }{
 }\par
 }\par}
-\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-char * {\b OP_CURRENT_DISK_NAME}\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b OP_DEBUG_MODE}\par
 {
@@ -7800,24 +7835,38 @@ Skips files larger than {\f2 OP_DEBUG_FILE_SIZE_LIMIT}  if true. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+uint32_t {\b OP_DEBUG_FILE_SIZE_LIMIT}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Minimum size of files to be skipped if {\f2 OP_DEBUG_MODE}  is true. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b OP_INPUT_DIR}\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./dat-files/} . }{
+Directory where hh will try to batch process files from if {\f2 OP_BATCH_PROCESS}  is true. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char * {\b OP_OUTPUT_DIR}\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./output/}  }{
+Directory where hh will try to output extracted files to. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 char {\b OP_PATH_SEPARATOR}\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Depends on the user's operating system. }{
+Character used to separate directory/file names in a path string. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+char * {\b CURRENT_DISK_NAME}\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Current disk name as denoted by the {\f2 volume_identifier}  in {\f2 {\b volume_descriptor_data}} . }{
 }\par
 }\par}
 }
@@ -7838,36 +7887,19 @@ void handle_command_line_args (int argc, char ** argv)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Processes command-line arguments. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i argc} \cell }{number of command-line arguments. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i argv} \cell }{array of all the command-line arguments. \cell }
-{\row }
-}
-}{
-Definition at line {\b 25} of file {\b options.c}.}\par
+Processes command-line arguments, setting options as needed. }}\par
+{
+Definition at line {\b 43} of file {\b options.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Variable Documentation\par
 \pard\plain 
-{\xe \v OP_BATCH_PROCESS\:options.h}
-{\xe \v options.h\:OP_BATCH_PROCESS}
+{\xe \v CURRENT_DISK_NAME\:options.h}
+{\xe \v options.h\:CURRENT_DISK_NAME}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-bool OP_BATCH_PROCESS{\f2 [extern]}}}
+char* CURRENT_DISK_NAME{\f2 [extern]}}}
 \par
 {\bkmkstart AAAAAAAAGK}
 {\bkmkend AAAAAAAAGK}
@@ -7876,15 +7908,20 @@ bool OP_BATCH_PROCESS{\f2 [extern]}}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-If true, batch process all the files in {\f2 OP_INPUT_DIR} . }}\par
-{
-Definition at line {\b 9} of file {\b options.c}.}\par
+Current disk name as denoted by the {\f2 volume_identifier}  in {\f2 {\b volume_descriptor_data}} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Not really an option, should be moved elsewhere. Stored here for the sake of convenience.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+{\b volume_descriptor_data} \par
+}}}{
+Definition at line {\b 32} of file {\b options.c}.}\par
 }
-{\xe \v OP_CURRENT_DISK_NAME\:options.h}
-{\xe \v options.h\:OP_CURRENT_DISK_NAME}
+{\xe \v OP_BATCH_PROCESS\:options.h}
+{\xe \v options.h\:OP_BATCH_PROCESS}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-char* OP_CURRENT_DISK_NAME{\f2 [extern]}}}
+bool OP_BATCH_PROCESS{\f2 [extern]}}}
 \par
 {\bkmkstart AAAAAAAAGL}
 {\bkmkend AAAAAAAAGL}
@@ -7892,7 +7929,12 @@ char* OP_CURRENT_DISK_NAME{\f2 [extern]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 11} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b options.h} - container for all of hh's options. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Currently also home to some global variables until I figure out a better place for them to be stored. If true, batch process all the files in {\f2 OP_INPUT_DIR} . \par
+}{
+Definition at line {\b 23} of file {\b options.c}.}\par
 }
 {\xe \v OP_DEBUG_FILE_SIZE_LIMIT\:options.h}
 {\xe \v options.h\:OP_DEBUG_FILE_SIZE_LIMIT}
@@ -7907,9 +7949,11 @@ uint32_t OP_DEBUG_FILE_SIZE_LIMIT{\f2 [extern]}}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-0xF00000 == 15 MiB }}\par
-{
-Definition at line {\b 16} of file {\b options.c}.}\par
+Minimum size of files to be skipped if {\f2 OP_DEBUG_MODE}  is true. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Minimum size of files to be skipped if {\f2 OP_DEBUG_MODE}  is true. \par
+}{
+Definition at line {\b 29} of file {\b options.c}.}\par
 }
 {\xe \v OP_DEBUG_MODE\:options.h}
 {\xe \v options.h\:OP_DEBUG_MODE}
@@ -7925,13 +7969,8 @@ bool OP_DEBUG_MODE{\f2 [extern]}}}
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Skips files larger than {\f2 OP_DEBUG_FILE_SIZE_LIMIT}  if true. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Note that {\f2 OP_DEBUG_FILE_SIZE_LIMIT}  is currently defined in {\b extractor.c}.\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b extract_directory} \par
-}}}{
-Definition at line {\b 12} of file {\b options.c}.}\par
+{
+Definition at line {\b 25} of file {\b options.c}.}\par
 }
 {\xe \v OP_INPUT_DIR\:options.h}
 {\xe \v options.h\:OP_INPUT_DIR}
@@ -7946,9 +7985,11 @@ char* OP_INPUT_DIR{\f2 [extern]}}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./dat-files/} . }}\par
-{
-Definition at line {\b 13} of file {\b options.c}.}\par
+Directory where hh will try to batch process files from if {\f2 OP_BATCH_PROCESS}  is true. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 ./dat-files/} . \par
+}{
+Definition at line {\b 26} of file {\b options.c}.}\par
 }
 {\xe \v OP_OUTPUT_DIR\:options.h}
 {\xe \v options.h\:OP_OUTPUT_DIR}
@@ -7963,9 +8004,11 @@ char* OP_OUTPUT_DIR{\f2 [extern]}}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Default is {\f2 ./output/}  }}\par
-{
-Definition at line {\b 14} of file {\b options.c}.}\par
+Directory where hh will try to output extracted files to. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Default is {\f2 ./output/} . \par
+}{
+Definition at line {\b 27} of file {\b options.c}.}\par
 }
 {\xe \v OP_PATH_SEPARATOR\:options.h}
 {\xe \v options.h\:OP_PATH_SEPARATOR}
@@ -7980,11 +8023,11 @@ char OP_PATH_SEPARATOR{\f2 [extern]}}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Depends on the user's operating system. }}\par
+Character used to separate directory/file names in a path string. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Having this be defined globally in this file for cross-platform compatibility reasons. \par
+Depends on the user's operating system. {\f2 \\\\}  for Windows, {\f2 /}  for *nix. \par
 }{
-Definition at line {\b 15} of file {\b options.c}.}\par
+Definition at line {\b 28} of file {\b options.c}.}\par
 }
 {\xe \v OP_SKIP_DAT_PROCESSING\:options.h}
 {\xe \v options.h\:OP_SKIP_DAT_PROCESSING}
@@ -7998,7 +8041,10 @@ bool OP_SKIP_DAT_PROCESSING{\f2 [extern]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 10} of file {\b options.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+If true, skip {\f2 .DAT}  file processing and go directly to processing {\f2 INDEX.00#}  files. }}\par
+{
+Definition at line {\b 24} of file {\b options.c}.}\par
 }
 \par \pard\plain 
 
@@ -8013,28 +8059,45 @@ options.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #ifndef _OPTIONS_H_}\par
-00002 {\cf21 #define _OPTIONS_H_}\par
-00003 \par
-00004 {\cf21 #include <stdbool.h>}\par
-00005 {\cf21 #include <stdint.h>}\par
-00006 \par
-00008 {\cf17 extern} {\cf18 bool} OP_BATCH_PROCESS;\par
-00009 {\cf17 extern} {\cf18 bool} OP_SKIP_DAT_PROCESSING;\par
-00010 {\cf17 extern} uint32_t OP_DEBUG_FILE_SIZE_LIMIT;\par
-00011 \par
-00012 {\cf20 // Not really an "option", does this belong here?}\par
-00013 {\cf17 extern} {\cf18 char} *OP_CURRENT_DISK_NAME;\par
-00014 \par
-00021 {\cf17 extern} {\cf18 bool} OP_DEBUG_MODE;\par
-00022 {\cf17 extern} {\cf18 char} *OP_INPUT_DIR;  \par
-00023 {\cf17 extern} {\cf18 char} *OP_OUTPUT_DIR; \par
-00024 \par
-00029 {\cf17 extern} {\cf18 char} OP_PATH_SEPARATOR;\par
-00030 \par
-00037 {\cf18 void} handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv);\par
-00038 \par
-00039 {\cf21 #endif}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
+00007 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00008 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00009 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00010 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00011 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00012 {\cf20 //  option) any later version.}\par
+00013 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00014 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00015 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00016 {\cf20 //  more details.}\par
+00017 {\cf20 //}\par
+00018 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00019 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00020 {\cf21 #ifndef _HH_OPTIONS_H_}\par
+00021 {\cf21 #define _HH_OPTIONS_H_}\par
+00022 \par
+00023 {\cf21 #include <stdbool.h>}\par
+00024 {\cf21 #include <stdint.h>}\par
+00025 \par
+00027 {\cf17 extern} {\cf18 bool} OP_BATCH_PROCESS;\par
+00028 \par
+00033 {\cf17 extern} {\cf18 bool} OP_SKIP_DAT_PROCESSING;\par
+00034 \par
+00036 {\cf17 extern} {\cf18 bool} OP_DEBUG_MODE;\par
+00037 \par
+00039 {\cf17 extern} uint32_t OP_DEBUG_FILE_SIZE_LIMIT;\par
+00040 \par
+00045 {\cf17 extern} {\cf18 char} *OP_INPUT_DIR;\par
+00046 \par
+00051 {\cf17 extern} {\cf18 char} *OP_OUTPUT_DIR;\par
+00052 \par
+00057 {\cf17 extern} {\cf18 char} OP_PATH_SEPARATOR;\par
+00058 \par
+00066 {\cf17 extern} {\cf18 char} *CURRENT_DISK_NAME;\par
+00067 \par
+00069 {\cf18 void} handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv);\par
+00070 \par
+00071 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
@@ -8111,9 +8174,9 @@ Go to the documentation of this file.\par
 00014 int8_t\par
 00015 create_output_directory ({\cf18 char} *path)\par
 00016 \{\par
-00017   {\cf19 if} (OP_CURRENT_DISK_NAME != NULL)\par
+00017   {\cf19 if} (CURRENT_DISK_NAME != NULL)\par
 00018     \{\par
-00019       {\cf19 if} (prepend_path_string (path, OP_CURRENT_DISK_NAME) != 0)\par
+00019       {\cf19 if} (prepend_path_string (path, CURRENT_DISK_NAME) != 0)\par
 00020         {\cf19 return} HH_MEM_ALLOC_ERROR;\par
 00021     \}\par
 00022 \par

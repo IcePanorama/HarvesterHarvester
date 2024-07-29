@@ -18,9 +18,9 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_output_8c_source_1l00014"/>00014 int8_t
 <anchor xml:id="_output_8c_source_1l00015"/><link linkend="_output_8c_1acef952bf7d1077d8f68a1be1f084b2ee">00015</link> <link linkend="_output_8c_1acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*path)
 <anchor xml:id="_output_8c_source_1l00016"/>00016 {
-<anchor xml:id="_output_8c_source_1l00017"/>00017 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link>&#32;!=&#32;NULL)
+<anchor xml:id="_output_8c_source_1l00017"/>00017 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_options_8c_1ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</link>&#32;!=&#32;NULL)
 <anchor xml:id="_output_8c_source_1l00018"/>00018 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_output_8c_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</link>&#32;(path,&#32;<link linkend="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link>)&#32;!=&#32;0)
+<anchor xml:id="_output_8c_source_1l00019"/>00019 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</link>&#32;(path,&#32;<link linkend="_options_8c_1ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</link>)&#32;!=&#32;0)
 <anchor xml:id="_output_8c_source_1l00020"/>00020 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
 <anchor xml:id="_output_8c_source_1l00021"/>00021 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_output_8c_source_1l00022"/>00022 
