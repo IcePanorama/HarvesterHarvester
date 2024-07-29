@@ -87,8 +87,12 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 {
   fseek (fptr, 1, SEEK_CUR); // Unused byte
 
-  read_string (fptr, vdd->system_identifier, SYSTEM_IDENTIFIER_LEN);
-  read_string (fptr, vdd->volume_identifier, VOLUME_IDENTIFIER_LEN);
+  if ((read_string (fptr, vdd->system_identifier, SYSTEM_IDENTIFIER_LEN) != 0)
+      || (read_string (fptr, vdd->volume_identifier, VOLUME_IDENTIFIER_LEN)
+          != 0))
+    {
+      return HH_FREAD_ERROR;
+    }
 
   fseek (fptr, 8, SEEK_CUR); // Unused field
 
@@ -120,17 +124,18 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 
   read_array_uint8 (fptr, vdd->root_directory_entry, ROOT_DIRECTORY_ENTRY_LEN);
 
-  read_string (fptr, vdd->volume_set_identifier, VOLUME_SET_IDENTIFIER_LEN);
-  read_string (fptr, vdd->publisher_identifier, PUBLISHER_IDENTIFIER_LEN);
-  read_string (fptr, vdd->data_preparer_identifier,
-               DATA_PREPARER_IDENTIFIER_LEN);
-  read_string (fptr, vdd->application_identifier, APPLICATION_IDENTIFIER_LEN);
-  read_string (fptr, vdd->copyright_file_identifier,
-               COPYRIGHT_FILE_IDENTIFIER_LEN);
-  read_string (fptr, vdd->abstract_file_identifier,
-               ABSTRACT_FILE_IDENTIFIER_LEN);
-  read_string (fptr, vdd->bibliographic_file_identifier,
-               BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN);
+  /* clang-format off */
+  if ((read_string (fptr, vdd->volume_set_identifier, VOLUME_SET_IDENTIFIER_LEN) != 0)
+      || (read_string (fptr, vdd->publisher_identifier, PUBLISHER_IDENTIFIER_LEN) != 0)
+      || (read_string (fptr, vdd->data_preparer_identifier, DATA_PREPARER_IDENTIFIER_LEN) != 0)
+      || (read_string (fptr, vdd->application_identifier, APPLICATION_IDENTIFIER_LEN) != 0)
+      || (read_string (fptr, vdd->copyright_file_identifier, COPYRIGHT_FILE_IDENTIFIER_LEN) != 0)
+      || (read_string (fptr, vdd->abstract_file_identifier, ABSTRACT_FILE_IDENTIFIER_LEN) != 0)
+      || (read_string (fptr, vdd->bibliographic_file_identifier, BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN) != 0))
+  {
+    return HH_FREAD_ERROR;
+  }
+  /* clang-format on */
 
   if ((read_dec_datetime (fptr, &vdd->volume_creation_date_and_time) != 0)
       || (read_dec_datetime (fptr, &vdd->volume_modification_date_and_time)

@@ -36,7 +36,7 @@ int8_t read_little_endian_data_uint16_t (FILE *fptr, uint16_t *output);
  */
 uint16_t read_both_endian_data_uint16 (FILE *fptr);
 
-void read_string (FILE *fptr, char *output, uint8_t length);
+int8_t read_string (FILE *fptr, char *output, uint8_t length);
 void read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length);
 int8_t read_dec_datetime (FILE *fptr, dec_datetime *dt);
 int8_t read_single_uint8 (FILE *fptr, uint8_t *value);

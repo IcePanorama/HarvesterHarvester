@@ -322,7 +322,6 @@ process_new_dat_files (void)
   index_file idx_file;
   if (create_index_file (&idx_file) != 0)
     {
-      fprintf (stderr, "ERROR: create_index_file failed.\n");
       fclose (fptr);
       free (interior_dat_file_path);
       return -1;

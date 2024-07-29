@@ -53,7 +53,8 @@ process_index_file (FILE *fptr, index_file *idxf)
           return -1;
         }
 
-      read_string (fptr, entry.full_path, (uint8_t)FULL_PATH_MAX_LEN);
+      if (read_string (fptr, entry.full_path, (uint8_t)FULL_PATH_MAX_LEN) != 0)
+        return HH_FREAD_ERROR;
 
       uint8_t len = strlen (entry.full_path);
       char *last_word = entry.full_path;

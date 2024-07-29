@@ -104,7 +104,7 @@ read_big_endian_data_uint16_t (FILE *fptr)
   return ((uint16_t)bytes[1] << 8) | (uint16_t)bytes[0];
 }
 
-void
+int8_t
 read_string (FILE *fptr, char *output, uint8_t length)
 {
   size_t bytes_read = fread (output, sizeof (char), length - 1, fptr);
@@ -112,7 +112,10 @@ read_string (FILE *fptr, char *output, uint8_t length)
   if (bytes_read != sizeof (char) * length - 1)
     {
       handle_fread_error (bytes_read, sizeof (char) * length - 1);
+      return HH_FREAD_ERROR;
     }
+
+  return 0;
 }
 
 void
@@ -128,17 +131,19 @@ read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length)
 int8_t
 read_dec_datetime (FILE *fptr, dec_datetime *dt)
 {
-  read_string (fptr, dt->year, YEAR_FIELD_LEN);
-  read_string (fptr, dt->month, MONTH_FIELD_LEN);
-  read_string (fptr, dt->day, DAY_FIELD_LEN);
-  read_string (fptr, dt->hour, HOUR_FIELD_LEN);
-  read_string (fptr, dt->minute, MINUTE_FIELD_LEN);
-  read_string (fptr, dt->second, SECOND_FIELD_LEN);
-  read_string (fptr, dt->hundredths_of_a_second,
-               HUNDREDTHS_OF_A_SECOND_FIELD_LEN);
-
-  if (read_single_uint8 (fptr, &dt->time_zone_offset) != 0)
-    return HH_FREAD_ERROR;
+  if ((read_string (fptr, dt->year, YEAR_FIELD_LEN) != 0)
+      || (read_string (fptr, dt->month, MONTH_FIELD_LEN) != 0)
+      || (read_string (fptr, dt->day, DAY_FIELD_LEN) != 0)
+      || (read_string (fptr, dt->hour, HOUR_FIELD_LEN) != 0)
+      || (read_string (fptr, dt->minute, MINUTE_FIELD_LEN) != 0)
+      || (read_string (fptr, dt->second, SECOND_FIELD_LEN) != 0)
+      || (read_string (fptr, dt->hundredths_of_a_second,
+                       HUNDREDTHS_OF_A_SECOND_FIELD_LEN)
+          != 0)
+      || (read_single_uint8 (fptr, &dt->time_zone_offset) != 0))
+    {
+      return HH_FREAD_ERROR;
+    }
 
   return 0;
 }
