@@ -36,7 +36,7 @@ main (int argc, char **argv)
     }
   else if (!OP_SKIP_DAT_PROCESSING)
     {
-      if (setup_extractor (&fptr, argv[argc - 1]) == HH_FOPEN_ERROR)
+      if (setup_extractor (&fptr, argv[argc - 1]) != 0)
         exit (1);
 
       if (process_DAT_file (fptr) != 0)
@@ -294,13 +294,13 @@ batch_process_DAT_files ()
 int8_t
 process_new_dat_files (void)
 {
-  char *interior_dat_file_path = calloc (
-      3 + strlen (OP_OUTPUT_DIR) + strlen ("DISK#") + strlen ("HARVEST2.DAT"),
-      sizeof (char));
+  const uint32_t file_path_len = 3 + strlen (OP_OUTPUT_DIR) + strlen ("DISK#")
+                                 + strlen ("HARVEST2.DAT");
+  char *interior_dat_file_path = calloc (file_path_len, sizeof (char));
   if (interior_dat_file_path == NULL)
     {
-      perror ("ERROR: unable to calloc string for output disk path.");
-      exit (1);
+      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, file_path_len);
+      return HH_MEM_ALLOC_ERROR;
     }
 
   // for subdir in OP_OUTPUT_DIR
@@ -325,7 +325,7 @@ process_new_dat_files (void)
       fprintf (stderr, "ERROR: create_index_file failed.\n");
       fclose (fptr);
       free (interior_dat_file_path);
-      exit (1);
+      return -1;
     }
 
   if (process_index_file (fptr, &idx_file) != 0)
