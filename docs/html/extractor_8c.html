@@ -104,9 +104,12 @@ $(function(){initNavTree('extractor_8c.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="extractor_8h_source.html">extractor.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="output_8h_source.html">output.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div>
 <p><a href="extractor_8c_source.html">Go to the source code of this file.</a></p>
@@ -119,19 +122,19 @@ Functions</h2></td></tr>
 <tr class="memitem:a83bd0d1558bff60ba2a613868c6a138f" id="r_a83bd0d1558bff60ba2a613868c6a138f"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83bd0d1558bff60ba2a613868c6a138f">extract_directory</a> (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)</td></tr>
 <tr class="memdesc:a83bd0d1558bff60ba2a613868c6a138f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a directory and then extracts every file in said directory.  <br /></td></tr>
 <tr class="separator:a83bd0d1558bff60ba2a613868c6a138f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9ebc1f302a1c1bc185bc8f1e45b1ffb" id="r_ac9ebc1f302a1c1bc185bc8f1e45b1ffb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9ebc1f302a1c1bc185bc8f1e45b1ffb">create_directories_and_extract_data_from_path_file</a> (FILE *fptr, uint16_t BLOCK_SIZE, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
-<tr class="memdesc:ac9ebc1f302a1c1bc185bc8f1e45b1ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for <code>extract_directory</code> and, therefore also, <code>extract_file</code> which handles the extraction of every file and subdirectory using a given path table.  <br /></td></tr>
-<tr class="separator:ac9ebc1f302a1c1bc185bc8f1e45b1ffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d43cef2b603ff0e5c51b5f90383171" id="r_a23d43cef2b603ff0e5c51b5f90383171"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23d43cef2b603ff0e5c51b5f90383171">create_directories_and_extract_data_from_path_file</a> (FILE *fptr, uint16_t BLOCK_SIZE, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="memdesc:a23d43cef2b603ff0e5c51b5f90383171"><td class="mdescLeft">&#160;</td><td class="mdescRight">A wrapper for <code>extract_directory</code> and, therefore also, <code>extract_file</code> which handles the extraction of every file and subdirectory using a given path table.  <br /></td></tr>
+<tr class="separator:a23d43cef2b603ff0e5c51b5f90383171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac9ebc1f302a1c1bc185bc8f1e45b1ffb" name="ac9ebc1f302a1c1bc185bc8f1e45b1ffb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9ebc1f302a1c1bc185bc8f1e45b1ffb">&#9670;&#160;</a></span>create_directories_and_extract_data_from_path_file()</h2>
+<a id="a23d43cef2b603ff0e5c51b5f90383171" name="a23d43cef2b603ff0e5c51b5f90383171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d43cef2b603ff0e5c51b5f90383171">&#9670;&#160;</a></span>create_directories_and_extract_data_from_path_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void create_directories_and_extract_data_from_path_file </td>
+          <td class="memname">int8_t create_directories_and_extract_data_from_path_file </td>
           <td>(</td>
           <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span>, </td>
         </tr>
@@ -163,7 +166,7 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="extractor_8h.html#a553117edee61f114d5f6fd9d28d57313" title="Extracts a file pointed to by fptr using its respective directory_record, outputting it to the locati...">extract_file()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00107">107</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00114">114</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>
@@ -202,7 +205,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00067">67</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00076">76</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>
@@ -240,8 +243,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
+<p>the <code>file_identifier</code> terminates with a <code>;</code> character followed by the file ID number in ASCII coded decimal (<code>1</code>). See: <a href="https://wiki.osdev.org/ISO_9660#Directories">https://wiki.osdev.org/ISO_9660#Directories</a></p>
+<p>Just use the default/existing filename. It'll be incorrect, but probably not worth stoping execution over. Users could just manually remove the <code>;1</code> part; the data itself should be fine.</p>
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00010">10</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00013">13</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>

@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_extractor_8c" xml:lang="en-US">
 <title>src/extractor.c File Reference</title>
 <indexterm><primary>src/extractor.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;extractor.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;output.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;extractor.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;output.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>int8_t <link linkend="_extractor_8c_1a6c570aa556812918f6d97359199ef25a">extract_file</link> (FILE *fptr, <link linkend="_structdirectory__record">directory_record</link> *dr, const char *path)</para>
@@ -13,7 +13,7 @@
 
 <para>Creates a directory and then extracts every file in said directory. </para>
 </listitem>
-            <listitem><para>void <link linkend="_extractor_8c_1ac9ebc1f302a1c1bc185bc8f1e45b1ffb">create_directories_and_extract_data_from_path_file</link> (FILE *fptr, uint16_t BLOCK_SIZE, <link linkend="_structpath__table">path_table</link> *pt)</para>
+            <listitem><para>int8_t <link linkend="_extractor_8c_1a23d43cef2b603ff0e5c51b5f90383171">create_directories_and_extract_data_from_path_file</link> (FILE *fptr, uint16_t BLOCK_SIZE, <link linkend="_structpath__table">path_table</link> *pt)</para>
 
 <para>A wrapper for <computeroutput>extract_directory</computeroutput> and, therefore also, <computeroutput>extract_file</computeroutput> which handles the extraction of every file and subdirectory using a given path table. </para>
 </listitem>
@@ -21,11 +21,11 @@
 </simplesect>
 <section>
 <title>Function Documentation</title>
-<anchor xml:id="_extractor_8c_1ac9ebc1f302a1c1bc185bc8f1e45b1ffb"/><section>
+<anchor xml:id="_extractor_8c_1a23d43cef2b603ff0e5c51b5f90383171"/><section>
     <title>create_directories_and_extract_data_from_path_file()</title>
 <indexterm><primary>create_directories_and_extract_data_from_path_file</primary><secondary>extractor.c</secondary></indexterm>
 <indexterm><primary>extractor.c</primary><secondary>create_directories_and_extract_data_from_path_file</secondary></indexterm>
-<para><computeroutput>void create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t BLOCK_SIZE, struct <link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
+<para><computeroutput>int8_t create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t BLOCK_SIZE, struct <link linkend="_structpath__table">path_table</link> * pt)</computeroutput></para><para>
 
 <para>A wrapper for <computeroutput>extract_directory</computeroutput> and, therefore also, <computeroutput>extract_file</computeroutput> which handles the extraction of every file and subdirectory using a given path table. </para>
 </para>
@@ -74,7 +74,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00107">107</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00114">114</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 <anchor xml:id="_extractor_8c_1a83bd0d1558bff60ba2a613868c6a138f"/><section>
     <title>extract_directory()</title>
@@ -121,7 +121,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00067">67</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00076">76</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 <anchor xml:id="_extractor_8c_1a6c570aa556812918f6d97359199ef25a"/><section>
     <title>extract_file()</title>
@@ -167,8 +167,12 @@ Parameters</title>
 <para>zero on success, non-zero on failure. </para>
 </formalpara>
 </para>
+
+<para>the <computeroutput>file_identifier</computeroutput> terminates with a <computeroutput>;</computeroutput> character followed by the file ID number in ASCII coded decimal (<computeroutput>1</computeroutput>). See: <link xlink:href="https://wiki.osdev.org/ISO_9660#Directories">https://wiki.osdev.org/ISO_9660#Directories</link></para>
+
+<para>Just use the default/existing filename. It&apos;ll be incorrect, but probably not worth stoping execution over. Users could just manually remove the <computeroutput>;1</computeroutput> part; the data itself should be fine.</para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00010">10</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00013">13</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 </section>
 </section>

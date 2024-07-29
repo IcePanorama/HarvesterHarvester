@@ -103,6 +103,8 @@ $(function(){initNavTree('utils_8c.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
@@ -116,16 +118,55 @@ $(function(){initNavTree('utils_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af6ebb1daf24f6259fa021c9a0e8e516c" id="r_af6ebb1daf24f6259fa021c9a0e8e516c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6ebb1daf24f6259fa021c9a0e8e516c">prepend_path_string</a> (char *str, const char *prefix)</td></tr>
-<tr class="separator:af6ebb1daf24f6259fa021c9a0e8e516c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41ffa7a16724ed0473f420933cfb7b87" id="r_a41ffa7a16724ed0473f420933cfb7b87"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</a> (char *str, const char *prefix)</td></tr>
+<tr class="separator:a41ffa7a16724ed0473f420933cfb7b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f5f49b4dabd84b37e8f7b9464e57992" id="r_a7f5f49b4dabd84b37e8f7b9464e57992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f5f49b4dabd84b37e8f7b9464e57992">prepend_string</a> (char *str, const char *prefix)</td></tr>
+<tr class="separator:a7f5f49b4dabd84b37e8f7b9464e57992"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee9f9bd7844e8e7d21d0965980b6e9ed" id="r_aee9f9bd7844e8e7d21d0965980b6e9ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</a> (char *str)</td></tr>
 <tr class="separator:aee9f9bd7844e8e7d21d0965980b6e9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28cf3fb6f4d89ea760afeca3f07a377b" id="r_a28cf3fb6f4d89ea760afeca3f07a377b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</a> (const char *dir)</td></tr>
 <tr class="separator:a28cf3fb6f4d89ea760afeca3f07a377b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0038df898c35b6a483fa874b3671735b" id="r_a0038df898c35b6a483fa874b3671735b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0038df898c35b6a483fa874b3671735b">file_exists</a> (const char *filename)</td></tr>
 <tr class="separator:a0038df898c35b6a483fa874b3671735b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce51b557efd36a5220e51669c79cc86" id="r_a4ce51b557efd36a5220e51669c79cc86"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ce51b557efd36a5220e51669c79cc86">peek_char_is</a> (FILE *fptr, uint8_t expected_ch)</td></tr>
+<tr class="memdesc:a4ce51b557efd36a5220e51669c79cc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">On error, returns false.  <br /></td></tr>
+<tr class="separator:a4ce51b557efd36a5220e51669c79cc86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad89ab9462dec77ec0a6c4f32f731f7ff" id="r_ad89ab9462dec77ec0a6c4f32f731f7ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</a> (FILE *fptr)</td></tr>
+<tr class="memdesc:ad89ab9462dec77ec0a6c4f32f731f7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is sort of a hacky solution.  <br /></td></tr>
+<tr class="separator:ad89ab9462dec77ec0a6c4f32f731f7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4965520bde2fd7164397a78f8026164a" id="r_a4965520bde2fd7164397a78f8026164a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</a> (uint16_t value)</td></tr>
+<tr class="memdesc:a4965520bde2fd7164397a78f8026164a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps a given <code>uint16_t</code> from little endian to big endian or vice-versa.  <br /></td></tr>
+<tr class="separator:a4965520bde2fd7164397a78f8026164a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a4965520bde2fd7164397a78f8026164a" name="a4965520bde2fd7164397a78f8026164a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4965520bde2fd7164397a78f8026164a">&#9670;&#160;</a></span>change_endianness_uint16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t change_endianness_uint16 </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Swaps a given <code>uint16_t</code> from little endian to big endian or vice-versa. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>uint16_t to be swapped. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>value with its endianness swapped. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00130">130</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+
+</div>
+</div>
 <a id="a28cf3fb6f4d89ea760afeca3f07a377b" name="a28cf3fb6f4d89ea760afeca3f07a377b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a28cf3fb6f4d89ea760afeca3f07a377b">&#9670;&#160;</a></span>directory_exists()</h2>
 
@@ -141,7 +182,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00052">52</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00078">78</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -160,7 +201,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00064">64</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00090">90</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -179,18 +220,65 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00041">41</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00067">67</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
-<a id="af6ebb1daf24f6259fa021c9a0e8e516c" name="af6ebb1daf24f6259fa021c9a0e8e516c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6ebb1daf24f6259fa021c9a0e8e516c">&#9670;&#160;</a></span>prepend_path_string()</h2>
+<a id="a4ce51b557efd36a5220e51669c79cc86" name="a4ce51b557efd36a5220e51669c79cc86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce51b557efd36a5220e51669c79cc86">&#9670;&#160;</a></span>peek_char_is()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void prepend_path_string </td>
+          <td class="memname">bool peek_char_is </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>expected_ch</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>On error, returns false. </p>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00103">103</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+
+</div>
+</div>
+<a id="ad89ab9462dec77ec0a6c4f32f731f7ff" name="ad89ab9462dec77ec0a6c4f32f731f7ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad89ab9462dec77ec0a6c4f32f731f7ff">&#9670;&#160;</a></span>peek_eof()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool peek_eof </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This is sort of a hacky solution. </p>
+<p>TODO: implement better err handling. </p>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00121">121</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+
+</div>
+</div>
+<a id="a41ffa7a16724ed0473f420933cfb7b87" name="a41ffa7a16724ed0473f420933cfb7b87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41ffa7a16724ed0473f420933cfb7b87">&#9670;&#160;</a></span>prepend_path_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t prepend_path_string </td>
           <td>(</td>
           <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
         </tr>
@@ -202,7 +290,30 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00019">19</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00021">21</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+
+</div>
+</div>
+<a id="a7f5f49b4dabd84b37e8f7b9464e57992" name="a7f5f49b4dabd84b37e8f7b9464e57992"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f5f49b4dabd84b37e8f7b9464e57992">&#9670;&#160;</a></span>prepend_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void prepend_string </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00046">46</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>

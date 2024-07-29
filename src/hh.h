@@ -1,3 +1,19 @@
+/**
+ *  hh.h - the main interface to interact with HarvesterHarvester
+ */
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef _HARVESTER_HARVESTER_H_
 #define _HARVESTER_HARVESTER_H_
 
@@ -10,8 +26,9 @@
  *  `OP_PATH_SEPARATOR`. The caller is responsible for closing the file
  *  pointer when they're finished with it.
  *
- *  @param  filename `char *` of the path to a DAT file
- *  @return a pointer to the given file, if it exist.
+ *  @param  fptr  a file pointer to the file associated with the given filename
+ *  @param  filename  the path to a DAT file
+ *  @return zero on success, non-zero on failure.
  */
 static int8_t setup_extractor (FILE **fptr, char *filename);
 
@@ -31,12 +48,15 @@ static int8_t setup_extractor (FILE **fptr, char *filename);
  *  @see  create_path_table()
  *  @see  process_type_l_path_table()
  *  @see  extract_directory()
+ *  @return zero on success, non-zero on failure.
  */
 static int8_t process_DAT_file (FILE *fptr);
 
 /**
  *  Processes all the `.DAT` files found in `OP_INPUT_DIR`, one at a time.
+ *
+ *  @return zero on success, non-zero on failure.
  */
-static int batch_process_DAT_files (void);
+static int8_t batch_process_DAT_files (void);
 
 #endif

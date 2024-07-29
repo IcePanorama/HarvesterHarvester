@@ -33,10 +33,12 @@
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00037}00037\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (buffer,\ \textcolor{keyword}{sizeof}\ (buffer[0]),\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}},\ fptr);}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00038}00038\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}})}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00039}00039\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00040}00040\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (fptr,\ bytes\_read,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00041}00041\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00042}00042\ \ \ \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\_hex\_data}}\ (buffer,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00043}00043\ \ \ fseek\ (fptr,\ -\/\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}},\ SEEK\_CUR);}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00044}00044\ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00040}00040\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (bytes\_read,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00041}00041\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00044}00044\ \ \ \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\_hex\_data}}\ (buffer,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00045}00045\ \ \ fseek\ (fptr,\ -\/\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}},\ SEEK\_CUR);}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00046}00046\ \}}
 
 \end{DoxyCode}

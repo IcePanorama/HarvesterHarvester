@@ -106,31 +106,32 @@ $(function(){initNavTree('path__table_8c.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;<a class="el" href="path__table_8h_source.html">path_table.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 </div>
 <p><a href="path__table_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3c2e19bcf67a11cf80eddd62ebcd98a1" id="r_a3c2e19bcf67a11cf80eddd62ebcd98a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c2e19bcf67a11cf80eddd62ebcd98a1">resize_path_table_entries</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
-<tr class="separator:a3c2e19bcf67a11cf80eddd62ebcd98a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0089b0d4d8773a794efd9c1171a6b566" id="r_a0089b0d4d8773a794efd9c1171a6b566"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</a> (<a class="el" href="structpath__table__entry.html">path_table_entry</a> *e)</td></tr>
+<tr class="memitem:a9fd2417f1963df24a90b786e3c09a64a" id="r_a9fd2417f1963df24a90b786e3c09a64a"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fd2417f1963df24a90b786e3c09a64a">resize_path_table_entries</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="separator:a9fd2417f1963df24a90b786e3c09a64a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0089b0d4d8773a794efd9c1171a6b566" id="r_a0089b0d4d8773a794efd9c1171a6b566"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</a> (<a class="el" href="structpath__table__entry.html">path_table_entry</a> *e)</td></tr>
 <tr class="separator:a0089b0d4d8773a794efd9c1171a6b566"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492a544af54cae408fa7d4331e7083ae" id="r_a492a544af54cae408fa7d4331e7083ae"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a492a544af54cae408fa7d4331e7083ae">add_entry_to_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt, <a class="el" href="structpath__table__entry.html">path_table_entry</a> *entry)</td></tr>
+<tr class="memdesc:a492a544af54cae408fa7d4331e7083ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a given <code><a class="el" href="structpath__table__entry.html">path_table_entry</a></code> to the given <code><a class="el" href="structpath__table.html">path_table</a></code>'s list of <code>entries</code>, resizing it as needed.  <br /></td></tr>
+<tr class="separator:a492a544af54cae408fa7d4331e7083ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac08be1296d016ba9a28db25b35ca9132" id="r_ac08be1296d016ba9a28db25b35ca9132"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac08be1296d016ba9a28db25b35ca9132">create_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
 <tr class="memdesc:ac08be1296d016ba9a28db25b35ca9132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a given <code><a class="el" href="structpath__table.html">path_table</a></code>.  <br /></td></tr>
 <tr class="separator:ac08be1296d016ba9a28db25b35ca9132"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0f3858425278e8f770eee3eaf010f9" id="r_afb0f3858425278e8f770eee3eaf010f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
 <tr class="memdesc:afb0f3858425278e8f770eee3eaf010f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the given <code><a class="el" href="structpath__table.html">path_table</a></code>, freeing any and all memory alloc'd for <code>entries</code>.  <br /></td></tr>
 <tr class="separator:afb0f3858425278e8f770eee3eaf010f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bb44828b69a55bfc7b9bde95ad2276a" id="r_a0bb44828b69a55bfc7b9bde95ad2276a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0bb44828b69a55bfc7b9bde95ad2276a">add_entry_to_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt, <a class="el" href="structpath__table__entry.html">path_table_entry</a> *entry)</td></tr>
-<tr class="memdesc:a0bb44828b69a55bfc7b9bde95ad2276a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a given <code><a class="el" href="structpath__table__entry.html">path_table_entry</a></code> to the given <code><a class="el" href="structpath__table.html">path_table</a></code>'s list of <code>entries</code>, resizing it as needed.  <br /></td></tr>
-<tr class="separator:a0bb44828b69a55bfc7b9bde95ad2276a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d1b9400850a8ace93b4404599932a84" id="r_a4d1b9400850a8ace93b4404599932a84"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d1b9400850a8ace93b4404599932a84">print_path_table</a> (<a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
 <tr class="memdesc:a4d1b9400850a8ace93b4404599932a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints the given path table out to the stdout, formatting it into a human-readible form.  <br /></td></tr>
 <tr class="separator:a4d1b9400850a8ace93b4404599932a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1fa6960cc549494e87d2884727e202" id="r_abc1fa6960cc549494e87d2884727e202"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc1fa6960cc549494e87d2884727e202">process_type_l_path_table</a> (FILE *fptr, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
-<tr class="memdesc:abc1fa6960cc549494e87d2884727e202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the given <code><a class="el" href="structpath__table.html">path_table</a></code> as a Type-L <code><a class="el" href="structpath__table.html">path_table</a></code>, using the data pointed to by <code>fptr</code>.  <br /></td></tr>
-<tr class="separator:abc1fa6960cc549494e87d2884727e202"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74af82c548f791d3b0919eeebbf078d4" id="r_a74af82c548f791d3b0919eeebbf078d4"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74af82c548f791d3b0919eeebbf078d4">process_type_l_path_table</a> (FILE *fptr, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
+<tr class="memdesc:a74af82c548f791d3b0919eeebbf078d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the given <code><a class="el" href="structpath__table.html">path_table</a></code> as a Type-L <code><a class="el" href="structpath__table.html">path_table</a></code>, using the data pointed to by <code>fptr</code>.  <br /></td></tr>
+<tr class="separator:a74af82c548f791d3b0919eeebbf078d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -140,14 +141,17 @@ Variables</h2></td></tr>
 <tr class="separator:a6563a4197f62a248dd1f8760c2c4933d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a0bb44828b69a55bfc7b9bde95ad2276a" name="a0bb44828b69a55bfc7b9bde95ad2276a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bb44828b69a55bfc7b9bde95ad2276a">&#9670;&#160;</a></span>add_entry_to_path_table()</h2>
+<a id="a492a544af54cae408fa7d4331e7083ae" name="a492a544af54cae408fa7d4331e7083ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492a544af54cae408fa7d4331e7083ae">&#9670;&#160;</a></span>add_entry_to_path_table()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void add_entry_to_path_table </td>
+          <td class="memname">int8_t add_entry_to_path_table </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structpath__table.html">path_table</a> *</td>          <td class="paramname"><span class="paramname"><em>pt</em></span>, </td>
         </tr>
@@ -157,6 +161,11 @@ Variables</h2></td></tr>
           <td class="paramtype"><a class="el" href="structpath__table__entry.html">path_table_entry</a> *</td>          <td class="paramname"><span class="paramname"><em>entry</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Adds a given <code><a class="el" href="structpath__table__entry.html">path_table_entry</a></code> to the given <code><a class="el" href="structpath__table.html">path_table</a></code>'s list of <code>entries</code>, resizing it as needed. </p>
@@ -168,7 +177,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00050">50</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00063">63</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
@@ -199,7 +208,7 @@ Variables</h2></td></tr>
 <dd>
 <a class="el" href="path__table_8h.html#afb0f3858425278e8f770eee3eaf010f9" title="Destroys the given path_table, freeing any and all memory alloc&#39;d for entries.">destroy_path_table()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00013">13</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00026">26</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
@@ -229,7 +238,7 @@ Variables</h2></td></tr>
 <dd>
 <a class="el" href="path__table_8h.html#ac08be1296d016ba9a28db25b35ca9132" title="Initializes a given path_table.">create_path_table()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00034">34</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00047">47</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
@@ -256,7 +265,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00086">86</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00102">102</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
@@ -265,6 +274,9 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void print_path_table_entry </td>
@@ -273,20 +285,25 @@ Variables</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00096">96</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00112">112</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
-<a id="abc1fa6960cc549494e87d2884727e202" name="abc1fa6960cc549494e87d2884727e202"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1fa6960cc549494e87d2884727e202">&#9670;&#160;</a></span>process_type_l_path_table()</h2>
+<a id="a74af82c548f791d3b0919eeebbf078d4" name="a74af82c548f791d3b0919eeebbf078d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74af82c548f791d3b0919eeebbf078d4">&#9670;&#160;</a></span>process_type_l_path_table()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void process_type_l_path_table </td>
+          <td class="memname">int8_t process_type_l_path_table </td>
           <td>(</td>
           <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span>, </td>
         </tr>
@@ -308,26 +325,34 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://wiki.osdev.org/ISO_9660#The_Path_Table">https://wiki.osdev.org/ISO_9660#The_Path_Table</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00108">108</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00124">124</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
-<a id="a3c2e19bcf67a11cf80eddd62ebcd98a1" name="a3c2e19bcf67a11cf80eddd62ebcd98a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c2e19bcf67a11cf80eddd62ebcd98a1">&#9670;&#160;</a></span>resize_path_table_entries()</h2>
+<a id="a9fd2417f1963df24a90b786e3c09a64a" name="a9fd2417f1963df24a90b786e3c09a64a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fd2417f1963df24a90b786e3c09a64a">&#9670;&#160;</a></span>resize_path_table_entries()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void resize_path_table_entries </td>
+          <td class="memname">int8_t resize_path_table_entries </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structpath__table.html">path_table</a> *</td>          <td class="paramname"><span class="paramname"><em>pt</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00062">62</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00077">77</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
@@ -352,7 +377,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00008">8</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00009">9</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>
@@ -376,7 +401,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00007">7</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="path__table_8c_source.html#l00008">8</a> of file <a class="el" href="path__table_8c_source.html">path_table.c</a>.</p>
 
 </div>
 </div>

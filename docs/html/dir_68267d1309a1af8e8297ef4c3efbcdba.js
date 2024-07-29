@@ -14,6 +14,8 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "file_flags.h", "file__flags_8h.html", "file__flags_8h" ],
     [ "hh.c", "hh_8c.html", "hh_8c" ],
     [ "hh.h", "hh_8h.html", "hh_8h" ],
+    [ "index_file.c", "index__file_8c.html", "index__file_8c" ],
+    [ "index_file.h", "index__file_8h.html", "index__file_8h" ],
     [ "log.c", "log_8c.html", "log_8c" ],
     [ "log.h", "log_8h.html", "log_8h" ],
     [ "options.c", "options_8c.html", "options_8c" ],

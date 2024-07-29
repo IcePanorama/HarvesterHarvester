@@ -165,7 +165,7 @@ process_DAT_file (FILE *fptr)
   return 0;
 }
 
-int
+int8_t
 batch_process_DAT_files ()
 {
   const char *OPEN_INPUT_DIR_ERR_MSG_FMT

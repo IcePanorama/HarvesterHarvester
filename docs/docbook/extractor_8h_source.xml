@@ -17,7 +17,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_extractor_8h_source_1l00030"/>00030 int8_t&#32;<link linkend="_extractor_8h_1a83bd0d1558bff60ba2a613868c6a138f">extract_directory</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;BLOCK_SIZE,
 <anchor xml:id="_extractor_8h_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*path);
 <anchor xml:id="_extractor_8h_source_1l00032"/>00032 
-<anchor xml:id="_extractor_8h_source_1l00046"/>00046 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_extractor_8h_1a2b4cc3468a10bf1b72cdd4a672d4d154">create_directories_and_extract_data_from_path_file</link>&#32;(
+<anchor xml:id="_extractor_8h_source_1l00046"/>00046 int8_t&#32;<link linkend="_extractor_8h_1a5c4cc2dc625184fc62850976cd18443b">create_directories_and_extract_data_from_path_file</link>&#32;(
 <anchor xml:id="_extractor_8h_source_1l00047"/>00047 &#32;&#32;&#32;&#32;FILE&#32;*fptr,&#32;uint16_t&#32;BLOCK_SIZE,&#32;<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt);
 <anchor xml:id="_extractor_8h_source_1l00048"/>00048 
 <anchor xml:id="_extractor_8h_source_1l00049"/>00049 <emphasis role="preprocessor">#endif</emphasis>

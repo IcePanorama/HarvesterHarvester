@@ -1,37 +1,41 @@
 \doxysection{src/hh.h File Reference}
 \hypertarget{hh_8h}{}\label{hh_8h}\index{src/hh.h@{src/hh.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-static FILE \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hh_8h_adc1a83a755870c0899977818898d13cb}{setup\+\_\+extractor}} (char \texorpdfstring{$\ast$}{*}filename)
-\begin{DoxyCompactList}\small\item\em Creates a {\ttfamily FILE \texorpdfstring{$\ast$}{*}} for the given {\ttfamily filename}, handling error messages as needed, while also checking the end-\/user\textquotesingle{}s operating system and updating {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR}. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{hh_8h_af12d681a411f7fd2c48b09fc35df739c}{process\+\_\+\+DAT\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+static int8\+\_\+t \mbox{\hyperlink{hh_8h_afed626f0d81bd0489c48269affcff572}{setup\+\_\+extractor}} (FILE \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}fptr, char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em \doxylink{hh_8h}{hh.\+h} -\/ the main interface to interact with Harvester\+Harvester \end{DoxyCompactList}\item 
+static int8\+\_\+t \mbox{\hyperlink{hh_8h_a534dd93fd3f79749a0c7741f46a1aea6}{process\+\_\+\+DAT\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
 \begin{DoxyCompactList}\small\item\em Processes a DAT file pointed to by the given {\ttfamily FILE \texorpdfstring{$\ast$}{*}}. \end{DoxyCompactList}\item 
-static int \mbox{\hyperlink{hh_8h_ab5fe38006fca7f224a00f75973e3d079}{batch\+\_\+process\+\_\+\+DAT\+\_\+files}} (void)
+static int8\+\_\+t \mbox{\hyperlink{hh_8h_ae217f3d8cb5e691184f81e097a61ed15}{batch\+\_\+process\+\_\+\+DAT\+\_\+files}} (void)
 \begin{DoxyCompactList}\small\item\em Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}, one at a time. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{hh_8h_ab5fe38006fca7f224a00f75973e3d079}\index{hh.h@{hh.h}!batch\_process\_DAT\_files@{batch\_process\_DAT\_files}}
+\Hypertarget{hh_8h_ae217f3d8cb5e691184f81e097a61ed15}\index{hh.h@{hh.h}!batch\_process\_DAT\_files@{batch\_process\_DAT\_files}}
 \index{batch\_process\_DAT\_files@{batch\_process\_DAT\_files}!hh.h@{hh.h}}
 \doxysubsubsection{\texorpdfstring{batch\_process\_DAT\_files()}{batch\_process\_DAT\_files()}}
-{\footnotesize\ttfamily \label{hh_8h_ab5fe38006fca7f224a00f75973e3d079} 
-static int batch\+\_\+process\+\_\+\+DAT\+\_\+files (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{hh_8h_ae217f3d8cb5e691184f81e097a61ed15} 
+static int8\+\_\+t batch\+\_\+process\+\_\+\+DAT\+\_\+files (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
 Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}, one at a time. 
 
+\begin{DoxyReturn}{Returns}
+zero on success, non-\/zero on failure. 
+\end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00153}{153}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00169}{169}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
-\Hypertarget{hh_8h_af12d681a411f7fd2c48b09fc35df739c}\index{hh.h@{hh.h}!process\_DAT\_file@{process\_DAT\_file}}
+\Hypertarget{hh_8h_a534dd93fd3f79749a0c7741f46a1aea6}\index{hh.h@{hh.h}!process\_DAT\_file@{process\_DAT\_file}}
 \index{process\_DAT\_file@{process\_DAT\_file}!hh.h@{hh.h}}
 \doxysubsubsection{\texorpdfstring{process\_DAT\_file()}{process\_DAT\_file()}}
-{\footnotesize\ttfamily \label{hh_8h_af12d681a411f7fd2c48b09fc35df739c} 
-static void process\+\_\+\+DAT\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{hh_8h_a534dd93fd3f79749a0c7741f46a1aea6} 
+static int8\+\_\+t process\+\_\+\+DAT\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -47,41 +51,46 @@ This is accomplished by first processing the volume descriptor header (checking 
 \begin{DoxySeeAlso}{See also}
 \href{https://wiki.osdev.org/ISO_9660}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660}} 
 
-\doxylink{volume__descriptor_8c_ac90e9d56a0be0db4fa1e60d2a7a089ee}{process\+\_\+volume\+\_\+descriptor\+\_\+header()} 
+\doxylink{volume__descriptor_8c_ab0bb4ee4fd340fd1a57cf8e1112c66b5}{process\+\_\+volume\+\_\+descriptor\+\_\+header()} 
 
-\doxylink{volume__descriptor_8c_aebf907c2282343b4b0d2c0ffed6a182a}{process\+\_\+volume\+\_\+descriptor\+\_\+data()} 
+\doxylink{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4cfb83}{process\+\_\+volume\+\_\+descriptor\+\_\+data()} 
 
 \doxylink{path__table_8c_ac08be1296d016ba9a28db25b35ca9132}{create\+\_\+path\+\_\+table()} 
 
-\doxylink{path__table_8c_abc1fa6960cc549494e87d2884727e202}{process\+\_\+type\+\_\+l\+\_\+path\+\_\+table()} 
+\doxylink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{process\+\_\+type\+\_\+l\+\_\+path\+\_\+table()} 
 
 \doxylink{extractor_8c_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory()} 
 \end{DoxySeeAlso}
-
-
-Definition at line \mbox{\hyperlink{hh_8c_source_l00080}{80}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
-
-\Hypertarget{hh_8h_adc1a83a755870c0899977818898d13cb}\index{hh.h@{hh.h}!setup\_extractor@{setup\_extractor}}
-\index{setup\_extractor@{setup\_extractor}!hh.h@{hh.h}}
-\doxysubsubsection{\texorpdfstring{setup\_extractor()}{setup\_extractor()}}
-{\footnotesize\ttfamily \label{hh_8h_adc1a83a755870c0899977818898d13cb} 
-static FILE \texorpdfstring{$\ast$}{*} setup\+\_\+extractor (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-Creates a {\ttfamily FILE \texorpdfstring{$\ast$}{*}} for the given {\ttfamily filename}, handling error messages as needed, while also checking the end-\/user\textquotesingle{}s operating system and updating {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR}. 
-
-The caller is responsible for closing the file pointer when they\textquotesingle{}re finished with it.
-
-
-\begin{DoxyParams}{Parameters}
-{\em filename} & {\ttfamily char \texorpdfstring{$\ast$}{*}} of the path to a DAT file \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-a pointer to the given file, if it exist. 
+zero on success, non-\/zero on failure. 
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00059}{59}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00084}{84}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+
+\Hypertarget{hh_8h_afed626f0d81bd0489c48269affcff572}\index{hh.h@{hh.h}!setup\_extractor@{setup\_extractor}}
+\index{setup\_extractor@{setup\_extractor}!hh.h@{hh.h}}
+\doxysubsubsection{\texorpdfstring{setup\_extractor()}{setup\_extractor()}}
+{\footnotesize\ttfamily \label{hh_8h_afed626f0d81bd0489c48269affcff572} 
+static int8\+\_\+t setup\+\_\+extractor (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{filename}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxylink{hh_8h}{hh.\+h} -\/ the main interface to interact with Harvester\+Harvester 
+
+Creates a {\ttfamily FILE \texorpdfstring{$\ast$}{*}} for the given {\ttfamily filename}, handling error messages as needed, while also checking the end-\/user\textquotesingle{}s operating system and updating {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR}. The caller is responsible for closing the file pointer when they\textquotesingle{}re finished with it.
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & a file pointer to the file associated with the given filename \\
+\hline
+{\em filename} & the path to a DAT file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+zero on success, non-\/zero on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{hh_8c_source_l00065}{65}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 

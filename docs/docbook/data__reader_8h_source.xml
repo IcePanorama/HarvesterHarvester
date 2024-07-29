@@ -5,22 +5,27 @@
 Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_data__reader_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_DATA_READER_H_</emphasis>
 <anchor xml:id="_data__reader_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_DATA_READER_H_</emphasis>
 <anchor xml:id="_data__reader_8h_source_1l00003"/>00003 
-<anchor xml:id="_data__reader_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
-<anchor xml:id="_data__reader_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_datetime_8h">datetime.h</link>&quot;</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_file__flags_8h">file_flags.h</link>&quot;</emphasis>
 <anchor xml:id="_data__reader_8h_source_1l00006"/>00006 
-<anchor xml:id="_data__reader_8h_source_1l00007"/>00007 uint32_t&#32;<link linkend="_data__reader_8h_1a778ae3162a4e12d7d7dbe8672ca0ec81">read_little_endian_data_uint32_t</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_data__reader_8h_source_1l00008"/>00008 
-<anchor xml:id="_data__reader_8h_source_1l00019"/>00019 uint32_t&#32;<link linkend="_data__reader_8h_1a2384957f27e209d73a6377de962cbc15">read_both_endian_data_uint32</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_data__reader_8h_source_1l00020"/>00020 
-<anchor xml:id="_data__reader_8h_source_1l00021"/>00021 uint16_t&#32;<link linkend="_data__reader_8h_1ad773a6c38ce11dd0812deea517043051">read_little_endian_data_uint16_t</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_data__reader_8h_source_1l00022"/>00022 
-<anchor xml:id="_data__reader_8h_source_1l00033"/>00033 uint16_t&#32;<link linkend="_data__reader_8h_1a3046006fce30b3601ef7399ccead3499">read_both_endian_data_uint16</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_data__reader_8h_source_1l00034"/>00034 
-<anchor xml:id="_data__reader_8h_source_1l00035"/>00035 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_data__reader_8h_1af766a6928a4e6e0797f712af34344fbe">read_string</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*output,&#32;uint8_t&#32;length);
-<anchor xml:id="_data__reader_8h_source_1l00036"/>00036 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_data__reader_8h_1a9a2b371ec7adbc610cbda9eeb8ed2f98">read_array_uint8</link>&#32;(FILE&#32;*fptr,&#32;uint8_t&#32;*arr,&#32;uint8_t&#32;length);
-<anchor xml:id="_data__reader_8h_source_1l00037"/>00037 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdec__datetime">dec_datetime</link>&#32;<link linkend="_data__reader_8h_1ab7d2bb7290bca9cbd3045ad2231e2f36">read_dec_datetime</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_data__reader_8h_source_1l00038"/>00038 uint8_t&#32;<link linkend="_data__reader_8h_1a22c47ba484ea9cb25c69b484e2b6de34">read_single_uint8</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_data__reader_8h_source_1l00039"/>00039 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_structdir__datetime">dir_datetime</link>&#32;<link linkend="_data__reader_8h_1a892c1ea488d2c19d81290458818b8221">read_dir_datetime</link>&#32;(FILE&#32;*fptr);
-<anchor xml:id="_data__reader_8h_source_1l00040"/>00040 
-<anchor xml:id="_data__reader_8h_source_1l00041"/>00041 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00008"/>00008 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00009"/>00009 
+<anchor xml:id="_data__reader_8h_source_1l00010"/>00010 int8_t&#32;<link linkend="_data__reader_8h_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(FILE&#32;*fptr,&#32;uint32_t&#32;*output);
+<anchor xml:id="_data__reader_8h_source_1l00011"/>00011 
+<anchor xml:id="_data__reader_8h_source_1l00023"/>00023 int8_t&#32;<link linkend="_data__reader_8h_1a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</link>&#32;(FILE&#32;*fptr,&#32;uint32_t&#32;*output);
+<anchor xml:id="_data__reader_8h_source_1l00024"/>00024 
+<anchor xml:id="_data__reader_8h_source_1l00025"/>00025 int8_t&#32;<link linkend="_data__reader_8h_1a78ed65e60aaa0c5e49f37c65baf761a4">read_little_endian_data_uint16_t</link>&#32;(FILE&#32;*fptr,&#32;uint16_t&#32;*output);
+<anchor xml:id="_data__reader_8h_source_1l00026"/>00026 
+<anchor xml:id="_data__reader_8h_source_1l00038"/>00038 int8_t&#32;<link linkend="_data__reader_8h_1ac5eb33b86992b7eec9d57407d8bb5bb4">read_both_endian_data_uint16</link>&#32;(FILE&#32;*fptr,&#32;uint16_t&#32;*output);
+<anchor xml:id="_data__reader_8h_source_1l00039"/>00039 
+<anchor xml:id="_data__reader_8h_source_1l00040"/>00040 int8_t&#32;<link linkend="_data__reader_8h_1a095233f80d488c02ecbdd3aca2d38231">read_string</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*output,&#32;uint8_t&#32;length);
+<anchor xml:id="_data__reader_8h_source_1l00041"/>00041 int8_t&#32;<link linkend="_data__reader_8h_1ac8a5617b9328c9f95fb8ce6cf446bdf0">read_array_uint8</link>&#32;(FILE&#32;*fptr,&#32;uint8_t&#32;*arr,&#32;uint8_t&#32;length);
+<anchor xml:id="_data__reader_8h_source_1l00042"/>00042 int8_t&#32;<link linkend="_data__reader_8h_1a9fa8fe51a3363438da9a616c4363e837">read_dec_datetime</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structdec__datetime">dec_datetime</link>&#32;*dt);
+<anchor xml:id="_data__reader_8h_source_1l00043"/>00043 int8_t&#32;<link linkend="_data__reader_8h_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(FILE&#32;*fptr,&#32;uint8_t&#32;*value);
+<anchor xml:id="_data__reader_8h_source_1l00044"/>00044 int8_t&#32;<link linkend="_data__reader_8h_1a671723ae43b83cdf3db007816fc6b0a0">read_dir_datetime</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structdir__datetime">dir_datetime</link>&#32;*dt);
+<anchor xml:id="_data__reader_8h_source_1l00045"/>00045 
+<anchor xml:id="_data__reader_8h_source_1l00054"/>00054 int8_t&#32;<link linkend="_data__reader_8h_1a706cf4826080ce7bf4a1706fe10f379a">read_file_flags</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structfile__flags">file_flags</link>&#32;*ff);
+<anchor xml:id="_data__reader_8h_source_1l00055"/>00055 
+<anchor xml:id="_data__reader_8h_source_1l00056"/>00056 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

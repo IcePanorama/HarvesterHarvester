@@ -4,142 +4,182 @@
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{volume__descriptor_8h}{volume\_descriptor.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{data__reader_8h}{data\_reader.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string.h>}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00006}00006\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00007}\mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{00007}}\ \mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{create\_volume\_descriptor}}\ (\mbox{\hyperlink{structvolume__descriptor}{volume\_descriptor}}\ *vd,\ uint8\_t\ type\_code,}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00008}00008\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ version)}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00009}00009\ \{}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00010}00010\ \ \ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a2aca920f790e33bcdbe52d06577aa77e}{type\_code}}\ =\ type\_code;}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00011}00011\ \ \ strncpy\ (vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}},\ \textcolor{stringliteral}{"{}CD001"{}},\ sizeof\ (vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}}));}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00012}00012\ \ \ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}}[\textcolor{keyword}{sizeof}\ (vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00013}00013\ \ \ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a42ab8e72b6579782600e39b58ee53f26}{version}}\ =\ version;}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00014}00014\ \}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00016}00016\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00017}\mbox{\hyperlink{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece}{00017}}\ \mbox{\hyperlink{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece}{print\_volume\_descriptor\_header}}\ (\mbox{\hyperlink{structvolume__descriptor}{volume\_descriptor}}\ *vd)}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00018}00018\ \{}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00019}00019\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ descriptor\ type\ code:\ \%02x\(\backslash\)n"{}},\ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a2aca920f790e33bcdbe52d06577aa77e}{type\_code}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00020}00020\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ descriptor\ identifier:\ \%s\(\backslash\)n"{}},\ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00021}00021\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ descriptor\ version:\ \%02x\(\backslash\)n"{}},\ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a42ab8e72b6579782600e39b58ee53f26}{version}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00022}00022\ \}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00024}00024\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00025}\mbox{\hyperlink{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d}{00025}}\ \mbox{\hyperlink{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d}{print\_volume\_descriptor\_data}}\ (\mbox{\hyperlink{structvolume__descriptor__data}{volume\_descriptor\_data}}\ *vdd)}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00026}00026\ \{}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00027}00027\ \ \ printf\ (\textcolor{stringliteral}{"{}System\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_acf71b21b2b8ba0e43ef037f18f46c101}{system\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00028}00028\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}{volume\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00029}00029\ \ \ printf\ (\textcolor{stringliteral}{"{}Vol\ space\ size:\ \%08X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ace920aa6dd8ced418a6fd1b7688deacf}{volume\_space\_size}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00030}00030\ \ \ printf\ (\textcolor{stringliteral}{"{}Vol\ set\ size:\ \%04X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a5e961b2bbb4f80a2de3c5fc2138ac393}{volume\_set\_size}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00031}00031\ \ \ printf\ (\textcolor{stringliteral}{"{}Vol\ sequence\ size:\ \%04X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_adea21a0e215cfc39ed3bbd1e31b53d27}{volume\_sequence\_number}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00032}00032\ \ \ printf\ (\textcolor{stringliteral}{"{}Logical\ block\ size:\ \%04X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af21ca763088cfcfcbb5064619cacd96b}{logical\_block\_size}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00033}00033\ \ \ printf\ (\textcolor{stringliteral}{"{}Path\ table\ size:\ \%08X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a66accb73084de817dc58d3976c577bec}{path\_table\_size}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00034}00034\ \ \ printf\ (\textcolor{stringliteral}{"{}Type-\/L\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad9941118893e9ca2a44e11d2d3a54402}{type\_l\_path\_table\_location}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00036}00036\ \ \ printf\ (\textcolor{stringliteral}{"{}Optional\ Type-\/L\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab0ca79c2798395e96af016b78163d5b4}{optional\_type\_l\_path\_table\_location}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00038}00038\ \ \ printf\ (\textcolor{stringliteral}{"{}Type-\/M\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad48973c42afe1984b0c0256b2d42f612}{type\_m\_path\_table\_location}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00040}00040\ \ \ printf\ (\textcolor{stringliteral}{"{}Optional\ Type-\/M\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a83cd9ed9c15cb09e0ba2d580c0a8131e}{optional\_type\_m\_path\_table\_location}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00042}00042\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ set\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae6403ffa64495130a3a3590c1bcd414f}{volume\_set\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00043}00043\ \ \ printf\ (\textcolor{stringliteral}{"{}Publisher\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3f02f300fe57f058957c9b9274c1eaeb}{publisher\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00044}00044\ \ \ printf\ (\textcolor{stringliteral}{"{}Data\ preparer\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae01fbfb3d817018c5da2095be906d6fd}{data\_preparer\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00045}00045\ \ \ printf\ (\textcolor{stringliteral}{"{}Application\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_afb102f20e0aedc4ed02557f3e643b5fb}{application\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00046}00046\ \ \ printf\ (\textcolor{stringliteral}{"{}Copyright\ file\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a4e9fdd5d2350af4e9cb0c99d3ebc040b}{copyright\_file\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00047}00047\ \ \ printf\ (\textcolor{stringliteral}{"{}Abstract\ file\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3635f902ec4dae79751af180c2034055}{abstract\_file\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00048}00048\ \ \ printf\ (\textcolor{stringliteral}{"{}Bibliographic\ file\ identifier:\ \%s\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a1cdb695762c1f712e8bef804c1ece6c2}{bibliographic\_file\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00050}00050\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ creation\ date\ and\ time:\ "{}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00051}00051\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab1dd3312c42dd8918b72aa691ed23822}{volume\_creation\_date\_and\_time}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00052}00052\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ modification\ date\ and\ time:\ "{}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00053}00053\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae5f0ab30d5b8b6008cd986c659d9ea12}{volume\_modification\_date\_and\_time}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00054}00054\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ expiration\ date\ and\ time:\ "{}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00055}00055\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af45e67730feb60ef57e6265ea969b804}{volume\_expiration\_date\_and\_time}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00056}00056\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ effective\ date\ and\ time:\ "{}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00057}00057\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab761dec574bb30fe80be1be4c09fc7d7}{volume\_effective\_date\_and\_time}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00058}00058\ \ \ printf\ (\textcolor{stringliteral}{"{}File\ structure\ version:\ \%02X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab2ba725deb625163a21e8a99820e9060}{file\_structure\_version}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00059}00059\ \ \ printf\ (\textcolor{stringliteral}{"{}DAT\ file\ creation\ software\ identifier:\ \%s\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab8f436d7d3d513740fec783e7d81f3b9}{DAT\_file\_creation\_software\_identifier}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00061}00061\ \ \ printf\ (\textcolor{stringliteral}{"{}DAT\ file\ creation\ software\ version\ number:\ \%s\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54845bc356393560cb3a89bd0a08b9a6}{DAT\_file\_creation\_software\_version\_number}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00063}00063\ \}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00064}00064\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00065}00065\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00066}\mbox{\hyperlink{volume__descriptor_8c_ac90e9d56a0be0db4fa1e60d2a7a089ee}{00066}}\ \mbox{\hyperlink{volume__descriptor_8c_ac90e9d56a0be0db4fa1e60d2a7a089ee}{process\_volume\_descriptor\_header}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structvolume__descriptor}{volume\_descriptor}}\ *vd)}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00067}00067\ \{}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00068}00068\ \ \ uint8\_t\ descriptor\_type\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00069}00069\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00070}00070\ \ \ fseek\ (fptr,\ 5,\ SEEK\_CUR);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00071}00071\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00072}00072\ \ \ uint8\_t\ descriptor\_ver\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{errors_8h}{errors.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00008}00008\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00009}\mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{00009}}\ \mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{create\_volume\_descriptor}}\ (\mbox{\hyperlink{structvolume__descriptor}{volume\_descriptor}}\ *vd,\ uint8\_t\ type\_code,}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint8\_t\ version)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00012}00012\ \ \ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a2aca920f790e33bcdbe52d06577aa77e}{type\_code}}\ =\ type\_code;}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00013}00013\ \ \ strncpy\ (vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}},\ \textcolor{stringliteral}{"{}CD001"{}},\ sizeof\ (vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}}));}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00014}00014\ \ \ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}}[\textcolor{keyword}{sizeof}\ (vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}})\ -\/\ 1]\ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00015}00015\ \ \ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a42ab8e72b6579782600e39b58ee53f26}{version}}\ =\ version;}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00018}00018\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00019}\mbox{\hyperlink{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece}{00019}}\ \mbox{\hyperlink{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece}{print\_volume\_descriptor\_header}}\ (\mbox{\hyperlink{structvolume__descriptor}{volume\_descriptor}}\ *vd)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00021}00021\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ descriptor\ type\ code:\ \%02x\(\backslash\)n"{}},\ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a2aca920f790e33bcdbe52d06577aa77e}{type\_code}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00022}00022\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ descriptor\ identifier:\ \%s\(\backslash\)n"{}},\ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a3fe7f93b350973ce3bee72827ec0c27e}{identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00023}00023\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ descriptor\ version:\ \%02x\(\backslash\)n"{}},\ vd-\/>\mbox{\hyperlink{structvolume__descriptor_a42ab8e72b6579782600e39b58ee53f26}{version}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00026}00026\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00027}\mbox{\hyperlink{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d}{00027}}\ \mbox{\hyperlink{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d}{print\_volume\_descriptor\_data}}\ (\mbox{\hyperlink{structvolume__descriptor__data}{volume\_descriptor\_data}}\ *vdd)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00029}00029\ \ \ printf\ (\textcolor{stringliteral}{"{}System\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_acf71b21b2b8ba0e43ef037f18f46c101}{system\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00030}00030\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}{volume\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00031}00031\ \ \ printf\ (\textcolor{stringliteral}{"{}Vol\ space\ size:\ \%08X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ace920aa6dd8ced418a6fd1b7688deacf}{volume\_space\_size}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00032}00032\ \ \ printf\ (\textcolor{stringliteral}{"{}Vol\ set\ size:\ \%04X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a5e961b2bbb4f80a2de3c5fc2138ac393}{volume\_set\_size}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00033}00033\ \ \ printf\ (\textcolor{stringliteral}{"{}Vol\ sequence\ size:\ \%04X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_adea21a0e215cfc39ed3bbd1e31b53d27}{volume\_sequence\_number}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00034}00034\ \ \ printf\ (\textcolor{stringliteral}{"{}Logical\ block\ size:\ \%04X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af21ca763088cfcfcbb5064619cacd96b}{logical\_block\_size}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00035}00035\ \ \ printf\ (\textcolor{stringliteral}{"{}Path\ table\ size:\ \%08X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a66accb73084de817dc58d3976c577bec}{path\_table\_size}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00036}00036\ \ \ printf\ (\textcolor{stringliteral}{"{}Type-\/L\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad9941118893e9ca2a44e11d2d3a54402}{type\_l\_path\_table\_location}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00038}00038\ \ \ printf\ (\textcolor{stringliteral}{"{}Optional\ Type-\/L\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab0ca79c2798395e96af016b78163d5b4}{optional\_type\_l\_path\_table\_location}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00040}00040\ \ \ printf\ (\textcolor{stringliteral}{"{}Type-\/M\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad48973c42afe1984b0c0256b2d42f612}{type\_m\_path\_table\_location}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00042}00042\ \ \ printf\ (\textcolor{stringliteral}{"{}Optional\ Type-\/M\ path\ table\ location:\ \%08X\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a83cd9ed9c15cb09e0ba2d580c0a8131e}{optional\_type\_m\_path\_table\_location}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00044}00044\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ set\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae6403ffa64495130a3a3590c1bcd414f}{volume\_set\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00045}00045\ \ \ printf\ (\textcolor{stringliteral}{"{}Publisher\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3f02f300fe57f058957c9b9274c1eaeb}{publisher\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00046}00046\ \ \ printf\ (\textcolor{stringliteral}{"{}Data\ preparer\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae01fbfb3d817018c5da2095be906d6fd}{data\_preparer\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00047}00047\ \ \ printf\ (\textcolor{stringliteral}{"{}Application\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_afb102f20e0aedc4ed02557f3e643b5fb}{application\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00048}00048\ \ \ printf\ (\textcolor{stringliteral}{"{}Copyright\ file\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a4e9fdd5d2350af4e9cb0c99d3ebc040b}{copyright\_file\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00049}00049\ \ \ printf\ (\textcolor{stringliteral}{"{}Abstract\ file\ identifier:\ \%s\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3635f902ec4dae79751af180c2034055}{abstract\_file\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00050}00050\ \ \ printf\ (\textcolor{stringliteral}{"{}Bibliographic\ file\ identifier:\ \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a1cdb695762c1f712e8bef804c1ece6c2}{bibliographic\_file\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00052}00052\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ creation\ date\ and\ time:\ "{}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00053}00053\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab1dd3312c42dd8918b72aa691ed23822}{volume\_creation\_date\_and\_time}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00054}00054\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ modification\ date\ and\ time:\ "{}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00055}00055\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae5f0ab30d5b8b6008cd986c659d9ea12}{volume\_modification\_date\_and\_time}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00056}00056\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ expiration\ date\ and\ time:\ "{}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00057}00057\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af45e67730feb60ef57e6265ea969b804}{volume\_expiration\_date\_and\_time}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00058}00058\ \ \ printf\ (\textcolor{stringliteral}{"{}Volume\ effective\ date\ and\ time:\ "{}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00059}00059\ \ \ \mbox{\hyperlink{datetime_8c_a6e26118490d8999d5e73b1e3e7dd83ce}{print\_dec\_datetime}}\ (vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab761dec574bb30fe80be1be4c09fc7d7}{volume\_effective\_date\_and\_time}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00060}00060\ \ \ printf\ (\textcolor{stringliteral}{"{}File\ structure\ version:\ \%02X\(\backslash\)n"{}},\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab2ba725deb625163a21e8a99820e9060}{file\_structure\_version}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00061}00061\ \ \ printf\ (\textcolor{stringliteral}{"{}DAT\ file\ creation\ software\ identifier:\ \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab8f436d7d3d513740fec783e7d81f3b9}{DAT\_file\_creation\_software\_identifier}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00063}00063\ \ \ printf\ (\textcolor{stringliteral}{"{}DAT\ file\ creation\ software\ version\ number:\ \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54845bc356393560cb3a89bd0a08b9a6}{DAT\_file\_creation\_software\_version\_number}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00067}00067\ int8\_t}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00068}\mbox{\hyperlink{volume__descriptor_8c_ab0bb4ee4fd340fd1a57cf8e1112c66b5}{00068}}\ \mbox{\hyperlink{volume__descriptor_8c_ab0bb4ee4fd340fd1a57cf8e1112c66b5}{process\_volume\_descriptor\_header}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structvolume__descriptor}{volume\_descriptor}}\ *vd)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00070}00070\ \ \ uint8\_t\ descriptor\_type;}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00071}00071\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&descriptor\_type)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
 \DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00073}00073\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00074}00074\ \ \ \mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{create\_volume\_descriptor}}\ (vd,\ descriptor\_type,\ descriptor\_ver);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00075}00075\ \}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00076}00076\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00077}00077\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00078}\mbox{\hyperlink{volume__descriptor_8c_aebf907c2282343b4b0d2c0ffed6a182a}{00078}}\ \mbox{\hyperlink{volume__descriptor_8c_aebf907c2282343b4b0d2c0ffed6a182a}{process\_volume\_descriptor\_data}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structvolume__descriptor__data}{volume\_descriptor\_data}}\ *vdd)}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00079}00079\ \{}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00080}00080\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00074}00074\ \ \ fseek\ (fptr,\ 5,\ SEEK\_CUR);}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00076}00076\ \ \ uint8\_t\ descriptor\_ver;}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00077}00077\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&descriptor\_ver)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00080}00080\ \ \ \mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{create\_volume\_descriptor}}\ (vd,\ descriptor\_type,\ descriptor\_ver);}
 \DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00082}00082\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_acf71b21b2b8ba0e43ef037f18f46c101}{system\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a8d48399aa2b2f77c0f395a39c2a82ef8}{SYSTEM\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00083}00083\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}{volume\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a2ee43c4111a809b1668f9a5e6441f923}{VOLUME\_IDENTIFIER\_LEN}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00082}00082\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00083}00083\ \}}
 \DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00084}00084\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00085}00085\ \ \ fseek\ (fptr,\ 8,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ field}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00086}00086\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00087}00087\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ace920aa6dd8ced418a6fd1b7688deacf}{volume\_space\_size}}\ =\ \mbox{\hyperlink{data__reader_8c_a2384957f27e209d73a6377de962cbc15}{read\_both\_endian\_data\_uint32}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00089}00089\ \ \ fseek\ (fptr,\ 32,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ field}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00090}00090\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00091}00091\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a5e961b2bbb4f80a2de3c5fc2138ac393}{volume\_set\_size}}\ =\ \mbox{\hyperlink{data__reader_8c_a3046006fce30b3601ef7399ccead3499}{read\_both\_endian\_data\_uint16}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00092}00092\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_adea21a0e215cfc39ed3bbd1e31b53d27}{volume\_sequence\_number}}\ =\ \mbox{\hyperlink{data__reader_8c_a3046006fce30b3601ef7399ccead3499}{read\_both\_endian\_data\_uint16}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00093}00093\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af21ca763088cfcfcbb5064619cacd96b}{logical\_block\_size}}\ =\ \mbox{\hyperlink{data__reader_8c_a3046006fce30b3601ef7399ccead3499}{read\_both\_endian\_data\_uint16}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00094}00094\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a66accb73084de817dc58d3976c577bec}{path\_table\_size}}\ =\ \mbox{\hyperlink{data__reader_8c_a2384957f27e209d73a6377de962cbc15}{read\_both\_endian\_data\_uint32}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00095}00095\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00096}00096\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad9941118893e9ca2a44e11d2d3a54402}{type\_l\_path\_table\_location}}\ =\ \mbox{\hyperlink{data__reader_8c_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\_little\_endian\_data\_uint32\_t}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00097}00097\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab0ca79c2798395e96af016b78163d5b4}{optional\_type\_l\_path\_table\_location}}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00098}00098\ \ \ \ \ \ \ =\ \mbox{\hyperlink{data__reader_8c_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\_little\_endian\_data\_uint32\_t}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00099}00099\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad48973c42afe1984b0c0256b2d42f612}{type\_m\_path\_table\_location}}\ =\ \mbox{\hyperlink{data__reader_8c_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\_little\_endian\_data\_uint32\_t}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00100}00100\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a83cd9ed9c15cb09e0ba2d580c0a8131e}{optional\_type\_m\_path\_table\_location}}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00101}00101\ \ \ \ \ \ \ =\ \mbox{\hyperlink{data__reader_8c_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\_little\_endian\_data\_uint32\_t}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00102}00102\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00103}00103\ \ \ \mbox{\hyperlink{data__reader_8c_a9a2b371ec7adbc610cbda9eeb8ed2f98}{read\_array\_uint8}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a232500ac96ac4e7f6deeb3be16602bbb}{root\_directory\_entry}},\ \mbox{\hyperlink{volume__descriptor_8h_a7a3cbe9af9a2561147611b5b58383b9a}{ROOT\_DIRECTORY\_ENTRY\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00104}00104\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00105}00105\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae6403ffa64495130a3a3590c1bcd414f}{volume\_set\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a21844d31481be3e282c586beb1af42b5}{VOLUME\_SET\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00106}00106\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3f02f300fe57f058957c9b9274c1eaeb}{publisher\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_af84a95162e814cc57a4bb0eb3a94aed2}{PUBLISHER\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00107}00107\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae01fbfb3d817018c5da2095be906d6fd}{data\_preparer\_identifier}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_a4611162362c6479337c5092cba68e630}{DATA\_PREPARER\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00109}00109\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_afb102f20e0aedc4ed02557f3e643b5fb}{application\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_ac6cb4e8045e278793e9662627423aa09}{APPLICATION\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00110}00110\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a4e9fdd5d2350af4e9cb0c99d3ebc040b}{copyright\_file\_identifier}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_a6e1898726ea2bf0bc932ad3c3d8fd8d6}{COPYRIGHT\_FILE\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00112}00112\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3635f902ec4dae79751af180c2034055}{abstract\_file\_identifier}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_ab6ba919808a912338d8e0abeb022b78c}{ABSTRACT\_FILE\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00114}00114\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a1cdb695762c1f712e8bef804c1ece6c2}{bibliographic\_file\_identifier}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_afcc3b336c283fd14202e7ed2003035df}{BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00116}00116\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00117}00117\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab1dd3312c42dd8918b72aa691ed23822}{volume\_creation\_date\_and\_time}}\ =\ \mbox{\hyperlink{data__reader_8c_a1ce9a4bc57c45da7a72c9fa4effef5a7}{read\_dec\_datetime}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00118}00118\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae5f0ab30d5b8b6008cd986c659d9ea12}{volume\_modification\_date\_and\_time}}\ =\ \mbox{\hyperlink{data__reader_8c_a1ce9a4bc57c45da7a72c9fa4effef5a7}{read\_dec\_datetime}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00119}00119\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af45e67730feb60ef57e6265ea969b804}{volume\_expiration\_date\_and\_time}}\ =\ \mbox{\hyperlink{data__reader_8c_a1ce9a4bc57c45da7a72c9fa4effef5a7}{read\_dec\_datetime}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00120}00120\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab761dec574bb30fe80be1be4c09fc7d7}{volume\_effective\_date\_and\_time}}\ =\ \mbox{\hyperlink{data__reader_8c_a1ce9a4bc57c45da7a72c9fa4effef5a7}{read\_dec\_datetime}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00121}00121\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00122}00122\ \ \ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab2ba725deb625163a21e8a99820e9060}{file\_structure\_version}}\ =\ \mbox{\hyperlink{data__reader_8c_a22c47ba484ea9cb25c69b484e2b6de34}{read\_single\_uint8}}\ (fptr);}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00123}00123\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00124}00124\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00125}00125\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00126}00126\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab8f436d7d3d513740fec783e7d81f3b9}{DAT\_file\_creation\_software\_identifier}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_ae86e9446608da83762f62147c372c700}{DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00128}00128\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00129}00129\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00130}00130\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00131}00131\ \ \ \mbox{\hyperlink{data__reader_8c_af766a6928a4e6e0797f712af34344fbe}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54845bc356393560cb3a89bd0a08b9a6}{DAT\_file\_creation\_software\_version\_number}},}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_ad1b2c8a9e3551bb5aa364f0633996efa}{DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN}});}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00133}00133\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00134}00134\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00135}00135\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00136}00136\ \ \ fseek\ (fptr,\ 0x1EC,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unknown\ data\ (492\ bytes)}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00137}00137\ }
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00138}00138\ \ \ fseek\ (fptr,\ 0x28D,\ SEEK\_CUR);\ \textcolor{comment}{//\ Reserved\ by\ ISO}}
-\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00139}00139\ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00085}00085\ int8\_t}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00086}\mbox{\hyperlink{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4cfb83}{00086}}\ \mbox{\hyperlink{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4cfb83}{process\_volume\_descriptor\_data}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structvolume__descriptor__data}{volume\_descriptor\_data}}\ *vdd)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00087}00087\ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00088}00088\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00090}00090\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_acf71b21b2b8ba0e43ef037f18f46c101}{system\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a8d48399aa2b2f77c0f395a39c2a82ef8}{SYSTEM\_IDENTIFIER\_LEN}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00091}00091\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54d17b2adb72e2b61024203660f98df5}{volume\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a2ee43c4111a809b1668f9a5e6441f923}{VOLUME\_IDENTIFIER\_LEN}})}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ !=\ 0))}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00093}00093\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00094}00094\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00097}00097\ \ \ fseek\ (fptr,\ 8,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ field}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00099}00099\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a640713d2880309d518aebed5ebff89e0}{read\_both\_endian\_data\_uint32}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ace920aa6dd8ced418a6fd1b7688deacf}{volume\_space\_size}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00102}00102\ \ \ fseek\ (fptr,\ 32,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ field}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00104}00104\ \ \ \textcolor{comment}{/*\ clang-\/format\ off\ */}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00105}00105\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{data__reader_8c_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\_both\_endian\_data\_uint16}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a5e961b2bbb4f80a2de3c5fc2138ac393}{volume\_set\_size}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00106}00106\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\_both\_endian\_data\_uint16}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_adea21a0e215cfc39ed3bbd1e31b53d27}{volume\_sequence\_number}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00107}00107\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\_both\_endian\_data\_uint16}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af21ca763088cfcfcbb5064619cacd96b}{logical\_block\_size}})\ !=\ 0))}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00108}00108\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00110}00110\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00111}00111\ \ \ \textcolor{comment}{/*\ clang-\/format\ on\ */}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00113}00113\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{data__reader_8c_a640713d2880309d518aebed5ebff89e0}{read\_both\_endian\_data\_uint32}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a66accb73084de817dc58d3976c577bec}{path\_table\_size}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00114}00114\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (fptr,}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad9941118893e9ca2a44e11d2d3a54402}{type\_l\_path\_table\_location}})}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00117}00117\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab0ca79c2798395e96af016b78163d5b4}{optional\_type\_l\_path\_table\_location}})}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00120}00120\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (fptr,}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ad48973c42afe1984b0c0256b2d42f612}{type\_m\_path\_table\_location}})}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00123}00123\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a83cd9ed9c15cb09e0ba2d580c0a8131e}{optional\_type\_m\_path\_table\_location}})}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ !=\ 0))}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00126}00126\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00127}00127\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00128}00128\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00130}00130\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_ac8a5617b9328c9f95fb8ce6cf446bdf0}{read\_array\_uint8}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a232500ac96ac4e7f6deeb3be16602bbb}{root\_directory\_entry}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_a7a3cbe9af9a2561147611b5b58383b9a}{ROOT\_DIRECTORY\_ENTRY\_LEN}})}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00132}00132\ \ \ \ \ \ \ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00133}00133\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00134}00134\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00135}00135\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00137}00137\ \ \ \textcolor{comment}{/*\ clang-\/format\ off\ */}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00138}00138\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae6403ffa64495130a3a3590c1bcd414f}{volume\_set\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a21844d31481be3e282c586beb1af42b5}{VOLUME\_SET\_IDENTIFIER\_LEN}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00139}00139\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3f02f300fe57f058957c9b9274c1eaeb}{publisher\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_af84a95162e814cc57a4bb0eb3a94aed2}{PUBLISHER\_IDENTIFIER\_LEN}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00140}00140\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae01fbfb3d817018c5da2095be906d6fd}{data\_preparer\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a4611162362c6479337c5092cba68e630}{DATA\_PREPARER\_IDENTIFIER\_LEN}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00141}00141\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_afb102f20e0aedc4ed02557f3e643b5fb}{application\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_ac6cb4e8045e278793e9662627423aa09}{APPLICATION\_IDENTIFIER\_LEN}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00142}00142\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a4e9fdd5d2350af4e9cb0c99d3ebc040b}{copyright\_file\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_a6e1898726ea2bf0bc932ad3c3d8fd8d6}{COPYRIGHT\_FILE\_IDENTIFIER\_LEN}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00143}00143\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a3635f902ec4dae79751af180c2034055}{abstract\_file\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_ab6ba919808a912338d8e0abeb022b78c}{ABSTRACT\_FILE\_IDENTIFIER\_LEN}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00144}00144\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a1cdb695762c1f712e8bef804c1ece6c2}{bibliographic\_file\_identifier}},\ \mbox{\hyperlink{volume__descriptor_8h_afcc3b336c283fd14202e7ed2003035df}{BIBLIOGRAPHIC\_FILE\_IDENTIFIER\_LEN}})\ !=\ 0))}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00145}00145\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00147}00147\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00148}00148\ \ \ \textcolor{comment}{/*\ clang-\/format\ on\ */}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00150}00150\ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{data__reader_8c_a9fa8fe51a3363438da9a616c4363e837}{read\_dec\_datetime}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab1dd3312c42dd8918b72aa691ed23822}{volume\_creation\_date\_and\_time}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00151}00151\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a9fa8fe51a3363438da9a616c4363e837}{read\_dec\_datetime}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ae5f0ab30d5b8b6008cd986c659d9ea12}{volume\_modification\_date\_and\_time}})}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00153}00153\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a9fa8fe51a3363438da9a616c4363e837}{read\_dec\_datetime}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_af45e67730feb60ef57e6265ea969b804}{volume\_expiration\_date\_and\_time}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00154}00154\ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a9fa8fe51a3363438da9a616c4363e837}{read\_dec\_datetime}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab761dec574bb30fe80be1be4c09fc7d7}{volume\_effective\_date\_and\_time}})\ !=\ 0))}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00155}00155\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00156}00156\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00157}00157\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00159}00159\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab2ba725deb625163a21e8a99820e9060}{file\_structure\_version}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00162}00162\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00164}00164\ \ \ \mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_ab8f436d7d3d513740fec783e7d81f3b9}{DAT\_file\_creation\_software\_identifier}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_ae86e9446608da83762f62147c372c700}{DAT\_FILE\_CREATION\_SOFTWARE\_IDENTIFIER\_LEN}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00167}00167\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00169}00169\ \ \ \mbox{\hyperlink{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (fptr,\ vdd-\/>\mbox{\hyperlink{structvolume__descriptor__data_a54845bc356393560cb3a89bd0a08b9a6}{DAT\_file\_creation\_software\_version\_number}},}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{volume__descriptor_8h_ad1b2c8a9e3551bb5aa364f0633996efa}{DAT\_FILE\_CREATION\_SOFTWARE\_VERSION\_NUMBER\_LEN}});}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00171}00171\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00172}00172\ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unused\ byte}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00174}00174\ \ \ fseek\ (fptr,\ 0x1EC,\ SEEK\_CUR);\ \textcolor{comment}{//\ Unknown\ data\ (492\ bytes)}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00176}00176\ \ \ fseek\ (fptr,\ 0x28D,\ SEEK\_CUR);\ \textcolor{comment}{//\ Reserved\ by\ ISO}}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00178}00178\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{volume__descriptor_8c_source_l00179}00179\ \}}
 
 \end{DoxyCode}

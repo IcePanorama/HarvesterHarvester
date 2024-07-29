@@ -44,7 +44,7 @@
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_file__flags_8h_source_1l00013">13</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+Definition at line <link linkend="_file__flags_8h_source_1l00014">14</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -57,14 +57,14 @@ Definition at line <link linkend="_file__flags_8h_source_1l00013">13</link> of f
 <para>No clue what this means. </para>
 </para>
 <para>
-Definition at line <link linkend="_file__flags_8h_source_1l00017">17</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+Definition at line <link linkend="_file__flags_8h_source_1l00018">18</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
 </section>
 <anchor xml:id="_structfile__flags_1a86793fb0cad3076a0f21d6c4bb1f1059"/><section>
     <title>extended_attribute_record_contains_owner_and_group_permissions</title>
 <indexterm><primary>extended_attribute_record_contains_owner_and_group_permissions</primary><secondary>file_flags</secondary></indexterm>
 <indexterm><primary>file_flags</primary><secondary>extended_attribute_record_contains_owner_and_group_permissions</secondary></indexterm>
 <para><computeroutput>bool file_flags::extended_attribute_record_contains_owner_and_group_permissions</computeroutput></para><para>
-Definition at line <link linkend="_file__flags_8h_source_1l00018">18</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+Definition at line <link linkend="_file__flags_8h_source_1l00019">19</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
 </section>
 <anchor xml:id="_structfile__flags_1aef4a9f3598c6b75c602d7c7a969669a3"/><section>
     <title>final_directory_record</title>
@@ -75,21 +75,21 @@ Definition at line <link linkend="_file__flags_8h_source_1l00018">18</link> of f
 <para>If false, this directory record is not the file&apos;s final resting place; the file spans over multiple extents. </para>
 </para>
 <para>
-Definition at line <link linkend="_file__flags_8h_source_1l00023">23</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+Definition at line <link linkend="_file__flags_8h_source_1l00024">24</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
 </section>
 <anchor xml:id="_structfile__flags_1a4139d9b02dc7f9d1649ed9d3466dd7af"/><section>
     <title>hidden</title>
 <indexterm><primary>hidden</primary><secondary>file_flags</secondary></indexterm>
 <indexterm><primary>file_flags</primary><secondary>hidden</secondary></indexterm>
 <para><computeroutput>bool file_flags::hidden</computeroutput></para><para>
-Definition at line <link linkend="_file__flags_8h_source_1l00015">15</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+Definition at line <link linkend="_file__flags_8h_source_1l00016">16</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
 </section>
 <anchor xml:id="_structfile__flags_1a16bbb1c4299a88199b4bc23f29215049"/><section>
     <title>subdirectory</title>
 <indexterm><primary>subdirectory</primary><secondary>file_flags</secondary></indexterm>
 <indexterm><primary>file_flags</primary><secondary>subdirectory</secondary></indexterm>
 <para><computeroutput>bool file_flags::subdirectory</computeroutput></para><para>
-Definition at line <link linkend="_file__flags_8h_source_1l00016">16</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
+Definition at line <link linkend="_file__flags_8h_source_1l00017">17</link> of file <link linkend="_file__flags_8h_source">file_flags.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

@@ -11,6 +11,8 @@
     <xi:include href="structdirectory.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structdirectory__record.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structfile__flags.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structindex__entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="structindex__file.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structpath__table.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structpath__table__entry.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="structvolume__descriptor.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
@@ -47,6 +49,10 @@
     <xi:include href="hh_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="hh_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="hh_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="index__file_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="index__file_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="index__file_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="index__file_8h_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="log_8c.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="log_8c_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="log_8h.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>

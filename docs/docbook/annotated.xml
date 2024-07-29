@@ -11,6 +11,6 @@ Here are the data structures with brief descriptions:<link linkend="_structdec__
 <para>A directory record </para>
 <link linkend="_structfile__flags">file_flags</link>
 <para>The file flags for a directory record </para>
-<link linkend="_structpath__table">path_table</link><link linkend="_structpath__table__entry">path_table_entry</link><link linkend="_structvolume__descriptor">volume_descriptor</link><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>
+<link linkend="_structindex__entry">index_entry</link><link linkend="_structindex__file">index_file</link><link linkend="_structpath__table">path_table</link><link linkend="_structpath__table__entry">path_table_entry</link><link linkend="_structvolume__descriptor">volume_descriptor</link><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>
 <para>The data section of a primary volume descriptor </para>
 </section>

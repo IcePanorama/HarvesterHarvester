@@ -18,7 +18,7 @@ create_index_file (index_file *i)
   i->indicies = malloc (IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
   if (i->indicies == NULL)
     {
-      fprintf (stderr, "ERROR: unable to malloc array of %ld indicies.",
+      fprintf (stderr, "ERROR: unable to malloc array of %zu indicies.",
                IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
       return -1;
     }

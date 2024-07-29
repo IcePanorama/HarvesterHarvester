@@ -69,9 +69,10 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_volume__descriptor_8h_source_1l00092"/>00092 
 <anchor xml:id="_volume__descriptor_8h_source_1l00100"/>00100 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data</link>&#32;(<link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>&#32;*vdd);
 <anchor xml:id="_volume__descriptor_8h_source_1l00101"/>00101 
-<anchor xml:id="_volume__descriptor_8h_source_1l00110"/>00110 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_volume__descriptor_8h_1ac90e9d56a0be0db4fa1e60d2a7a089ee">process_volume_descriptor_header</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structvolume__descriptor">volume_descriptor</link>&#32;*vd);
+<anchor xml:id="_volume__descriptor_8h_source_1l00110"/>00110 int8_t&#32;<link linkend="_volume__descriptor_8h_1ab0bb4ee4fd340fd1a57cf8e1112c66b5">process_volume_descriptor_header</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structvolume__descriptor">volume_descriptor</link>&#32;*vd);
 <anchor xml:id="_volume__descriptor_8h_source_1l00111"/>00111 
-<anchor xml:id="_volume__descriptor_8h_source_1l00120"/>00120 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_volume__descriptor_8h_1aebf907c2282343b4b0d2c0ffed6a182a">process_volume_descriptor_data</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>&#32;*vdd);
-<anchor xml:id="_volume__descriptor_8h_source_1l00121"/>00121 
-<anchor xml:id="_volume__descriptor_8h_source_1l00122"/>00122 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_volume__descriptor_8h_source_1l00120"/>00120 int8_t&#32;<link linkend="_volume__descriptor_8h_1a00d2e72d3698261c77ed5e118c4cfb83">process_volume_descriptor_data</link>&#32;(FILE&#32;*fptr,
+<anchor xml:id="_volume__descriptor_8h_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>&#32;*vdd);
+<anchor xml:id="_volume__descriptor_8h_source_1l00122"/>00122 
+<anchor xml:id="_volume__descriptor_8h_source_1l00123"/>00123 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

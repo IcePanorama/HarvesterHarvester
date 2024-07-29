@@ -5,16 +5,29 @@
 \DoxyCodeLine{\Hypertarget{errors_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_ERRORS\_H\_}}
 \DoxyCodeLine{\Hypertarget{errors_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_ERRORS\_H\_}}
 \DoxyCodeLine{\Hypertarget{errors_8h_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00007}00007\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{errors_8h_a1fa621098d550bb126a641aba0638f7f}{improper\_usage\_error}}\ (\textcolor{keywordtype}{void});}
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00008}00008\ }
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00014}00014\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{errors_8h_a9b9a6494b96286134308f2da3e179af9}{fopen\_error}}\ (\textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00007}\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{00007}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00009}\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a}{00009}}\ \ \ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a}{HH\_FOPEN\_ERROR}}\ =\ -\/1,}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00010}\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{00010}}\ \ \ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}}\ =\ -\/2,}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00011}\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3}{00011}}\ \ \ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3}{HH\_PT\_RESIZE\_ERROR}}\ =\ -\/3,}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00012}\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{00012}}\ \ \ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}}\ =\ -\/4,}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00013}00013\ \ \ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa}{HH\_CREATE\_OUTPUT\_DIR\_ERROR}}\ =\ -\/5}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00014}\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa}{00014}}\ \}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}};}
 \DoxyCodeLine{\Hypertarget{errors_8h_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00023}00023\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{errors_8h_a43d16be8297bee4a817aec3d78833cc9}{handle\_fread\_error}}\ (FILE\ *fptr,\ \textcolor{keywordtype}{size\_t}\ actual,\ \textcolor{keywordtype}{size\_t}\ expected\_bytes);}
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00030}00030\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{errors_8h_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\_unknown\_command\_line\_argument\_error}}\ (\textcolor{keywordtype}{char}\ *arg);}
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{errors_8h_source_l00032}00032\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00016}00016\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{errors_8h_ab2272d0da4232afba19f95bf02944157}{CALLOC\_FAILED\_ERR\_MSG\_FMT}};}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00017}00017\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{errors_8h_a03ff53905312bd88e728b1863cf1b1c9}{FOPEN\_FAILED\_ERR\_MSG\_FMT}};}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00020}00020\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{errors_8h_a1fa621098d550bb126a641aba0638f7f}{improper\_usage\_error}}\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00027}00027\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{errors_8h_a9b9a6494b96286134308f2da3e179af9}{fopen\_error}}\ (\textcolor{keywordtype}{char}\ *filename);}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00036}00036\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}\ \mbox{\hyperlink{errors_8h_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (\textcolor{keywordtype}{size\_t}\ actual,\ \textcolor{keywordtype}{size\_t}\ expected\_bytes);}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00046}00046\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{errors_8h_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\_unknown\_command\_line\_argument\_error}}\ (\textcolor{keywordtype}{char}\ *arg);}
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{errors_8h_source_l00048}00048\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

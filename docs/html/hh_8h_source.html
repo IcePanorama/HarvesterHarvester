@@ -100,21 +100,36 @@ $(function(){initNavTree('hh_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">hh.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="hh_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef _HARVESTER_HARVESTER_H_</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define _HARVESTER_HARVESTER_H_</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">static</span> FILE *<a class="code hl_function" href="hh_8h.html#adc1a83a755870c0899977818898d13cb">setup_extractor</a> (<span class="keywordtype">char</span> *filename);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="hh_8h.html#af12d681a411f7fd2c48b09fc35df739c">process_DAT_file</a> (FILE *fptr);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="hh_8h.html#ab5fe38006fca7f224a00f75973e3d079">batch_process_DAT_files</a> (<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="ahh_8h_html_ab5fe38006fca7f224a00f75973e3d079"><div class="ttname"><a href="hh_8h.html#ab5fe38006fca7f224a00f75973e3d079">batch_process_DAT_files</a></div><div class="ttdeci">static int batch_process_DAT_files(void)</div><div class="ttdoc">Processes all the .DAT files found in OP_INPUT_DIR, one at a time.</div><div class="ttdef"><b>Definition</b> <a href="hh_8c_source.html#l00153">hh.c:153</a></div></div>
-<div class="ttc" id="ahh_8h_html_adc1a83a755870c0899977818898d13cb"><div class="ttname"><a href="hh_8h.html#adc1a83a755870c0899977818898d13cb">setup_extractor</a></div><div class="ttdeci">static FILE * setup_extractor(char *filename)</div><div class="ttdoc">Creates a FILE * for the given filename, handling error messages as needed, while also checking the e...</div><div class="ttdef"><b>Definition</b> <a href="hh_8c_source.html#l00059">hh.c:59</a></div></div>
-<div class="ttc" id="ahh_8h_html_af12d681a411f7fd2c48b09fc35df739c"><div class="ttname"><a href="hh_8h.html#af12d681a411f7fd2c48b09fc35df739c">process_DAT_file</a></div><div class="ttdeci">static void process_DAT_file(FILE *fptr)</div><div class="ttdoc">Processes a DAT file pointed to by the given FILE *.</div><div class="ttdef"><b>Definition</b> <a href="hh_8c_source.html#l00080">hh.c:80</a></div></div>
+<a href="hh_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">//  Copyright (C) 2024  IcePanorama</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  This file is a part of HarvesterHarvester.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//  HarvesterHarvester is free software: you can redistribute it and/or modify</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//  it under the terms of the GNU General Public License as published by the</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">//  Free Software Foundation, either version 3 of the License, or (at your</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//  option) any later version.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//  This program is distributed in the hope that it will be useful, but WITHOUT</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//  more details.</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">//</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">//  You should have received a copy of the GNU General Public License along</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">//  with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef _HARVESTER_HARVESTER_H_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define _HARVESTER_HARVESTER_H_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">static</span> int8_t <a class="code hl_function" href="hh_8h.html#afed626f0d81bd0489c48269affcff572">setup_extractor</a> (FILE **fptr, <span class="keywordtype">char</span> *filename);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">static</span> int8_t <a class="code hl_function" href="hh_8h.html#a534dd93fd3f79749a0c7741f46a1aea6">process_DAT_file</a> (FILE *fptr);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keyword">static</span> int8_t <a class="code hl_function" href="hh_8h.html#ae217f3d8cb5e691184f81e097a61ed15">batch_process_DAT_files</a> (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="ahh_8h_html_a534dd93fd3f79749a0c7741f46a1aea6"><div class="ttname"><a href="hh_8h.html#a534dd93fd3f79749a0c7741f46a1aea6">process_DAT_file</a></div><div class="ttdeci">static int8_t process_DAT_file(FILE *fptr)</div><div class="ttdoc">Processes a DAT file pointed to by the given FILE *.</div><div class="ttdef"><b>Definition</b> <a href="hh_8c_source.html#l00084">hh.c:84</a></div></div>
+<div class="ttc" id="ahh_8h_html_ae217f3d8cb5e691184f81e097a61ed15"><div class="ttname"><a href="hh_8h.html#ae217f3d8cb5e691184f81e097a61ed15">batch_process_DAT_files</a></div><div class="ttdeci">static int8_t batch_process_DAT_files(void)</div><div class="ttdoc">Processes all the .DAT files found in OP_INPUT_DIR, one at a time.</div><div class="ttdef"><b>Definition</b> <a href="hh_8c_source.html#l00169">hh.c:169</a></div></div>
+<div class="ttc" id="ahh_8h_html_afed626f0d81bd0489c48269affcff572"><div class="ttname"><a href="hh_8h.html#afed626f0d81bd0489c48269affcff572">setup_extractor</a></div><div class="ttdeci">static int8_t setup_extractor(FILE **fptr, char *filename)</div><div class="ttdoc">hh.h - the main interface to interact with HarvesterHarvester</div><div class="ttdef"><b>Definition</b> <a href="hh_8c_source.html#l00065">hh.c:65</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

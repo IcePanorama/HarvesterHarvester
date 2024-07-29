@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_file__flags_8h" xml:lang="en-US">
 <title>src/file_flags.h File Reference</title>
 <indexterm><primary>src/file_flags.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Data Structures    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_structfile__flags">file_flags</link></para>

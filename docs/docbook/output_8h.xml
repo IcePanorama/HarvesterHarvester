@@ -2,21 +2,21 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_output_8h" xml:lang="en-US">
 <title>src/output.h File Reference</title>
 <indexterm><primary>src/output.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>void <link linkend="_output_8h_1a52dcd18726bcf8c409eafd1be526dbc7">create_output_directory</link> (char *path)</para>
+            <listitem><para>int8_t <link linkend="_output_8h_1acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</link> (char *path)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Function Documentation</title>
-<anchor xml:id="_output_8h_1a52dcd18726bcf8c409eafd1be526dbc7"/><section>
+<anchor xml:id="_output_8h_1acef952bf7d1077d8f68a1be1f084b2ee"/><section>
     <title>create_output_directory()</title>
 <indexterm><primary>create_output_directory</primary><secondary>output.h</secondary></indexterm>
 <indexterm><primary>output.h</primary><secondary>create_output_directory</secondary></indexterm>
-<para><computeroutput>void create_output_directory (char * path)</computeroutput></para><para>
-Definition at line <link linkend="_output_8c_source_1l00014">14</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+<para><computeroutput>int8_t create_output_directory (char * path)</computeroutput></para><para>
+Definition at line <link linkend="_output_8c_source_1l00015">15</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>
 </section>

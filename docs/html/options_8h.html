@@ -104,6 +104,7 @@ $(function(){initNavTree('options_8h.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 </div>
 <p><a href="options_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -118,10 +119,15 @@ Variables</h2></td></tr>
 <tr class="memitem:abf19eab4ae4469b24b2b34284bb72f5a" id="r_abf19eab4ae4469b24b2b34284bb72f5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</a></td></tr>
 <tr class="memdesc:abf19eab4ae4469b24b2b34284bb72f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, batch process all the files in <code>OP_INPUT_DIR</code>.  <br /></td></tr>
 <tr class="separator:abf19eab4ae4469b24b2b34284bb72f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ee118406b5a5d8845db1bc412b34400" id="r_a1ee118406b5a5d8845db1bc412b34400"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</a></td></tr>
+<tr class="separator:a1ee118406b5a5d8845db1bc412b34400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57685525da7ee31266f852c10c29dffb" id="r_a57685525da7ee31266f852c10c29dffb"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57685525da7ee31266f852c10c29dffb">OP_DEBUG_FILE_SIZE_LIMIT</a></td></tr>
+<tr class="memdesc:a57685525da7ee31266f852c10c29dffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">0xF00000 == 15 MiB  <br /></td></tr>
+<tr class="separator:a57685525da7ee31266f852c10c29dffb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0a46ab2ce382e77c8384eec4f447007" id="r_ab0a46ab2ce382e77c8384eec4f447007"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</a></td></tr>
 <tr class="separator:ab0a46ab2ce382e77c8384eec4f447007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22750490a402211ccfd1c7dda808eb51" id="r_a22750490a402211ccfd1c7dda808eb51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a></td></tr>
-<tr class="memdesc:a22750490a402211ccfd1c7dda808eb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips files larger than <code>DEBUG_FILE_SIZE_LIMIT</code> if true.  <br /></td></tr>
+<tr class="memdesc:a22750490a402211ccfd1c7dda808eb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips files larger than <code>OP_DEBUG_FILE_SIZE_LIMIT</code> if true.  <br /></td></tr>
 <tr class="separator:a22750490a402211ccfd1c7dda808eb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f2b83262a240b0baabccb91b801b096" id="r_a9f2b83262a240b0baabccb91b801b096"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</a></td></tr>
 <tr class="memdesc:a9f2b83262a240b0baabccb91b801b096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default is <code>./dat-files/</code>.  <br /></td></tr>
@@ -162,7 +168,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00024">24</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00025">25</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -189,7 +195,7 @@ Variables</h2></td></tr>
 
 <p>If true, batch process all the files in <code>OP_INPUT_DIR</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00010">10</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00009">9</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -217,6 +223,32 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a57685525da7ee31266f852c10c29dffb" name="a57685525da7ee31266f852c10c29dffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57685525da7ee31266f852c10c29dffb">&#9670;&#160;</a></span>OP_DEBUG_FILE_SIZE_LIMIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t OP_DEBUG_FILE_SIZE_LIMIT</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>0xF00000 == 15 MiB </p>
+
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00016">16</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+
+</div>
+</div>
 <a id="a22750490a402211ccfd1c7dda808eb51" name="a22750490a402211ccfd1c7dda808eb51"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22750490a402211ccfd1c7dda808eb51">&#9670;&#160;</a></span>OP_DEBUG_MODE</h2>
 
@@ -237,8 +269,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Skips files larger than <code>DEBUG_FILE_SIZE_LIMIT</code> if true. </p>
-<p>Note that <code>DEBUG_FILE_SIZE_LIMIT</code> is currently defined in <a class="el" href="extractor_8c.html">extractor.c</a>.</p>
+<p>Skips files larger than <code>OP_DEBUG_FILE_SIZE_LIMIT</code> if true. </p>
+<p>Note that <code>OP_DEBUG_FILE_SIZE_LIMIT</code> is currently defined in <a class="el" href="extractor_8c.html">extractor.c</a>.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="extractor_8c.html#a83bd0d1558bff60ba2a613868c6a138f" title="Creates a directory and then extracts every file in said directory.">extract_directory</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00012">12</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
@@ -321,6 +353,30 @@ Variables</h2></td></tr>
 <p>Having this be defined globally in this file for cross-platform compatibility reasons. </p>
 
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00015">15</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+
+</div>
+</div>
+<a id="a1ee118406b5a5d8845db1bc412b34400" name="a1ee118406b5a5d8845db1bc412b34400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ee118406b5a5d8845db1bc412b34400">&#9670;&#160;</a></span>OP_SKIP_DAT_PROCESSING</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool OP_SKIP_DAT_PROCESSING</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00010">10</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>

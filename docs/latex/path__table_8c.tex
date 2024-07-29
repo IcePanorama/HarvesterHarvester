@@ -3,23 +3,24 @@
 {\ttfamily \#include "{}path\+\_\+table.\+h"{}}\newline
 {\ttfamily \#include "{}data\+\_\+reader.\+h"{}}\newline
 {\ttfamily \#include "{}errors.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{path__table_8c_a3c2e19bcf67a11cf80eddd62ebcd98a1}{resize\+\_\+path\+\_\+table\+\_\+entries}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
+static int8\+\_\+t \mbox{\hyperlink{path__table_8c_a9fd2417f1963df24a90b786e3c09a64a}{resize\+\_\+path\+\_\+table\+\_\+entries}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
 \item 
-void \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\+\_\+path\+\_\+table\+\_\+entry}} (\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}e)
+static void \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\+\_\+path\+\_\+table\+\_\+entry}} (\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}e)
 \item 
+static int8\+\_\+t \mbox{\hyperlink{path__table_8c_a492a544af54cae408fa7d4331e7083ae}{add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt, \mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}entry)
+\begin{DoxyCompactList}\small\item\em Adds a given {\ttfamily \doxylink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} to the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}\textquotesingle{}s list of {\ttfamily entries}, resizing it as needed. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{path__table_8c_ac08be1296d016ba9a28db25b35ca9132}{create\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
 \begin{DoxyCompactList}\small\item\em Initializes a given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{path__table_8c_afb0f3858425278e8f770eee3eaf010f9}{destroy\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
 \begin{DoxyCompactList}\small\item\em Destroys the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}, freeing any and all memory alloc\textquotesingle{}d for {\ttfamily entries}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{path__table_8c_a0bb44828b69a55bfc7b9bde95ad2276a}{add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt, \mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}entry)
-\begin{DoxyCompactList}\small\item\em Adds a given {\ttfamily \doxylink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} to the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}\textquotesingle{}s list of {\ttfamily entries}, resizing it as needed. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{path__table_8c_a4d1b9400850a8ace93b4404599932a84}{print\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
 \begin{DoxyCompactList}\small\item\em Prints the given path table out to the stdout, formatting it into a human-\/readible form. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{path__table_8c_abc1fa6960cc549494e87d2884727e202}{process\+\_\+type\+\_\+l\+\_\+path\+\_\+table}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
+int8\+\_\+t \mbox{\hyperlink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{process\+\_\+type\+\_\+l\+\_\+path\+\_\+table}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
 \begin{DoxyCompactList}\small\item\em Processes the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}} as a Type-\/L {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}, using the data pointed to by {\ttfamily fptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -31,11 +32,11 @@ static const size\+\_\+t \mbox{\hyperlink{path__table_8c_a6563a4197f62a248dd1f87
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{path__table_8c_a0bb44828b69a55bfc7b9bde95ad2276a}\index{path\_table.c@{path\_table.c}!add\_entry\_to\_path\_table@{add\_entry\_to\_path\_table}}
+\Hypertarget{path__table_8c_a492a544af54cae408fa7d4331e7083ae}\index{path\_table.c@{path\_table.c}!add\_entry\_to\_path\_table@{add\_entry\_to\_path\_table}}
 \index{add\_entry\_to\_path\_table@{add\_entry\_to\_path\_table}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{add\_entry\_to\_path\_table()}{add\_entry\_to\_path\_table()}}
-{\footnotesize\ttfamily \label{path__table_8c_a0bb44828b69a55bfc7b9bde95ad2276a} 
-void add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{, }\item[{\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{entry}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{path__table_8c_a492a544af54cae408fa7d4331e7083ae} 
+int8\+\_\+t add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{, }\item[{\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{entry}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -50,7 +51,7 @@ Adds a given {\ttfamily \doxylink{structpath__table__entry}{path\+\_\+table\+\_\
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00050}{50}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00063}{63}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
 \Hypertarget{path__table_8c_ac08be1296d016ba9a28db25b35ca9132}\index{path\_table.c@{path\_table.c}!create\_path\_table@{create\_path\_table}}
 \index{create\_path\_table@{create\_path\_table}!path\_table.c@{path\_table.c}}
@@ -77,7 +78,7 @@ zero on success, non-\/zero on failure.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00013}{13}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00026}{26}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
 \Hypertarget{path__table_8c_afb0f3858425278e8f770eee3eaf010f9}\index{path\_table.c@{path\_table.c}!destroy\_path\_table@{destroy\_path\_table}}
 \index{destroy\_path\_table@{destroy\_path\_table}!path\_table.c@{path\_table.c}}
@@ -101,7 +102,7 @@ Destroys the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}, fr
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00034}{34}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00047}{47}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
 \Hypertarget{path__table_8c_a4d1b9400850a8ace93b4404599932a84}\index{path\_table.c@{path\_table.c}!print\_path\_table@{print\_path\_table}}
 \index{print\_path\_table@{print\_path\_table}!path\_table.c@{path\_table.c}}
@@ -120,23 +121,23 @@ Prints the given path table out to the stdout, formatting it into a human-\/read
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00086}{86}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00102}{102}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
 \Hypertarget{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}\index{path\_table.c@{path\_table.c}!print\_path\_table\_entry@{print\_path\_table\_entry}}
 \index{print\_path\_table\_entry@{print\_path\_table\_entry}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{print\_path\_table\_entry()}{print\_path\_table\_entry()}}
 {\footnotesize\ttfamily \label{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566} 
-void print\+\_\+path\+\_\+table\+\_\+entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})}
+void print\+\_\+path\+\_\+table\+\_\+entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00096}{96}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00112}{112}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
-\Hypertarget{path__table_8c_abc1fa6960cc549494e87d2884727e202}\index{path\_table.c@{path\_table.c}!process\_type\_l\_path\_table@{process\_type\_l\_path\_table}}
+\Hypertarget{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}\index{path\_table.c@{path\_table.c}!process\_type\_l\_path\_table@{process\_type\_l\_path\_table}}
 \index{process\_type\_l\_path\_table@{process\_type\_l\_path\_table}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{process\_type\_l\_path\_table()}{process\_type\_l\_path\_table()}}
-{\footnotesize\ttfamily \label{path__table_8c_abc1fa6960cc549494e87d2884727e202} 
-void process\+\_\+type\+\_\+l\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{path__table_8c_a74af82c548f791d3b0919eeebbf078d4} 
+int8\+\_\+t process\+\_\+type\+\_\+l\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
 
 
 
@@ -154,17 +155,17 @@ Processes the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}} as
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00108}{108}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00124}{124}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
-\Hypertarget{path__table_8c_a3c2e19bcf67a11cf80eddd62ebcd98a1}\index{path\_table.c@{path\_table.c}!resize\_path\_table\_entries@{resize\_path\_table\_entries}}
+\Hypertarget{path__table_8c_a9fd2417f1963df24a90b786e3c09a64a}\index{path\_table.c@{path\_table.c}!resize\_path\_table\_entries@{resize\_path\_table\_entries}}
 \index{resize\_path\_table\_entries@{resize\_path\_table\_entries}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{resize\_path\_table\_entries()}{resize\_path\_table\_entries()}}
-{\footnotesize\ttfamily \label{path__table_8c_a3c2e19bcf67a11cf80eddd62ebcd98a1} 
-void resize\+\_\+path\+\_\+table\+\_\+entries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{path__table_8c_a9fd2417f1963df24a90b786e3c09a64a} 
+int8\+\_\+t resize\+\_\+path\+\_\+table\+\_\+entries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00062}{62}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00077}{77}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
 
 
@@ -177,7 +178,7 @@ const size\+\_\+t PT\+\_\+\+GROWTH\+\_\+\+RATE = 2\hspace{0.3cm}{\ttfamily [stat
 
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00008}{8}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00009}{9}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
 \Hypertarget{path__table_8c_aebeb334ad82449fb3d66fa49570ff70d}\index{path\_table.c@{path\_table.c}!PT\_STARTING\_NUM\_ENTRIES@{PT\_STARTING\_NUM\_ENTRIES}}
 \index{PT\_STARTING\_NUM\_ENTRIES@{PT\_STARTING\_NUM\_ENTRIES}!path\_table.c@{path\_table.c}}
@@ -187,5 +188,5 @@ const size\+\_\+t PT\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+ENTRIES = 10\hspace{0.3cm
 
 
 
-Definition at line \mbox{\hyperlink{path__table_8c_source_l00007}{7}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
+Definition at line \mbox{\hyperlink{path__table_8c_source_l00008}{8}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 

@@ -1,46 +1,50 @@
 \doxysection{src/data\+\_\+reader.h File Reference}
 \hypertarget{data__reader_8h}{}\label{data__reader_8h}\index{src/data\_reader.h@{src/data\_reader.h}}
+{\ttfamily \#include "{}datetime.\+h"{}}\newline
+{\ttfamily \#include "{}file\+\_\+flags.\+h"{}}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-uint32\+\_\+t \mbox{\hyperlink{data__reader_8h_a778ae3162a4e12d7d7dbe8672ca0ec81}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}output)
 \item 
-uint32\+\_\+t \mbox{\hyperlink{data__reader_8h_a2384957f27e209d73a6377de962cbc15}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a640713d2880309d518aebed5ebff89e0}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}output)
 \begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. \end{DoxyCompactList}\item 
-uint16\+\_\+t \mbox{\hyperlink{data__reader_8h_ad773a6c38ce11dd0812deea517043051}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t \texorpdfstring{$\ast$}{*}output)
 \item 
-uint16\+\_\+t \mbox{\hyperlink{data__reader_8h_a3046006fce30b3601ef7399ccead3499}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t \texorpdfstring{$\ast$}{*}output)
 \begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{data__reader_8h_af766a6928a4e6e0797f712af34344fbe}{read\+\_\+string}} (FILE \texorpdfstring{$\ast$}{*}fptr, char \texorpdfstring{$\ast$}{*}output, uint8\+\_\+t length)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231}{read\+\_\+string}} (FILE \texorpdfstring{$\ast$}{*}fptr, char \texorpdfstring{$\ast$}{*}output, uint8\+\_\+t length)
 \item 
-void \mbox{\hyperlink{data__reader_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98}{read\+\_\+array\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}arr, uint8\+\_\+t length)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_ac8a5617b9328c9f95fb8ce6cf446bdf0}{read\+\_\+array\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}arr, uint8\+\_\+t length)
 \item 
-struct \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} \mbox{\hyperlink{data__reader_8h_ab7d2bb7290bca9cbd3045ad2231e2f36}{read\+\_\+dec\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837}{read\+\_\+dec\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} \texorpdfstring{$\ast$}{*}dt)
 \item 
-uint8\+\_\+t \mbox{\hyperlink{data__reader_8h_a22c47ba484ea9cb25c69b484e2b6de34}{read\+\_\+single\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a3987a7d12b6ef51327e5d1ae63d087cc}{read\+\_\+single\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}value)
 \item 
-struct \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} \mbox{\hyperlink{data__reader_8h_a892c1ea488d2c19d81290458818b8221}{read\+\_\+dir\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\end{DoxyCompactItemize}
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a671723ae43b83cdf3db007816fc6b0a0}{read\+\_\+dir\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} \texorpdfstring{$\ast$}{*}dt)
+\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a706cf4826080ce7bf4a1706fe10f379a}{read\+\_\+file\+\_\+flags}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structfile__flags}{file\+\_\+flags}} \texorpdfstring{$\ast$}{*}ff)
+\begin{DoxyCompactList}\small\item\em Reads file flag data in from a given source pointed to by {\ttfamily fptr} and uses that data to update the various flags in {\ttfamily ff} as needed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{data__reader_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98}\index{data\_reader.h@{data\_reader.h}!read\_array\_uint8@{read\_array\_uint8}}
+\Hypertarget{data__reader_8h_ac8a5617b9328c9f95fb8ce6cf446bdf0}\index{data\_reader.h@{data\_reader.h}!read\_array\_uint8@{read\_array\_uint8}}
 \index{read\_array\_uint8@{read\_array\_uint8}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_array\_uint8()}{read\_array\_uint8()}}
-{\footnotesize\ttfamily \label{data__reader_8h_a9a2b371ec7adbc610cbda9eeb8ed2f98} 
-void read\+\_\+array\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_ac8a5617b9328c9f95fb8ce6cf446bdf0} 
+int8\+\_\+t read\+\_\+array\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{arr}{, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00106}{106}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00132}{132}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_a3046006fce30b3601ef7399ccead3499}\index{data\_reader.h@{data\_reader.h}!read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}}
+\Hypertarget{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4}\index{data\_reader.h@{data\_reader.h}!read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}}
 \index{read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_both\_endian\_data\_uint16()}{read\_both\_endian\_data\_uint16()}}
-{\footnotesize\ttfamily \label{data__reader_8h_a3046006fce30b3601ef7399ccead3499} 
-uint16\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4} 
+int8\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
 
 
 
@@ -48,7 +52,7 @@ When data in a given file is presented first in little endian form and then repe
 
 This is almost certainly unnecessary, but it makes me feel better \+:).
 
-
+FIXME\+: incorrect, need to rewrite 
 \begin{DoxyParams}{Parameters}
 {\em fptr} & pointer to data to be read. \\
 \hline
@@ -61,13 +65,13 @@ read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint32()
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00028}{28}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00033}{33}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_a2384957f27e209d73a6377de962cbc15}\index{data\_reader.h@{data\_reader.h}!read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}}
+\Hypertarget{data__reader_8h_a640713d2880309d518aebed5ebff89e0}\index{data\_reader.h@{data\_reader.h}!read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}}
 \index{read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_both\_endian\_data\_uint32()}{read\_both\_endian\_data\_uint32()}}
-{\footnotesize\ttfamily \label{data__reader_8h_a2384957f27e209d73a6377de962cbc15} 
-uint32\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_a640713d2880309d518aebed5ebff89e0} 
+int8\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
 
 
 
@@ -75,7 +79,7 @@ When data in a given file is presented first in little endian form and then repe
 
 This is almost certainly unnecessary, but it makes me feel better \+:).
 
-
+FIXME\+: incorrect, need to rewrite 
 \begin{DoxyParams}{Parameters}
 {\em fptr} & pointer to data to be read. \\
 \hline
@@ -90,63 +94,87 @@ read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint16()
 
 Definition at line \mbox{\hyperlink{data__reader_8c_source_l00012}{12}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_ab7d2bb7290bca9cbd3045ad2231e2f36}\index{data\_reader.h@{data\_reader.h}!read\_dec\_datetime@{read\_dec\_datetime}}
+\Hypertarget{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837}\index{data\_reader.h@{data\_reader.h}!read\_dec\_datetime@{read\_dec\_datetime}}
 \index{read\_dec\_datetime@{read\_dec\_datetime}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_dec\_datetime()}{read\_dec\_datetime()}}
-{\footnotesize\ttfamily \label{data__reader_8h_ab7d2bb7290bca9cbd3045ad2231e2f36} 
-struct \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} read\+\_\+dec\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837} 
+int8\+\_\+t read\+\_\+dec\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} \texorpdfstring{$\ast$}{*}}]{dt}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00116}{116}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00145}{145}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_a892c1ea488d2c19d81290458818b8221}\index{data\_reader.h@{data\_reader.h}!read\_dir\_datetime@{read\_dir\_datetime}}
+\Hypertarget{data__reader_8h_a671723ae43b83cdf3db007816fc6b0a0}\index{data\_reader.h@{data\_reader.h}!read\_dir\_datetime@{read\_dir\_datetime}}
 \index{read\_dir\_datetime@{read\_dir\_datetime}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_dir\_datetime()}{read\_dir\_datetime()}}
-{\footnotesize\ttfamily \label{data__reader_8h_a892c1ea488d2c19d81290458818b8221} 
-struct \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} read\+\_\+dir\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_a671723ae43b83cdf3db007816fc6b0a0} 
+int8\+\_\+t read\+\_\+dir\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} \texorpdfstring{$\ast$}{*}}]{dt}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00151}{151}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00178}{178}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_ad773a6c38ce11dd0812deea517043051}\index{data\_reader.h@{data\_reader.h}!read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}}
+\Hypertarget{data__reader_8h_a706cf4826080ce7bf4a1706fe10f379a}\index{data\_reader.h@{data\_reader.h}!read\_file\_flags@{read\_file\_flags}}
+\index{read\_file\_flags@{read\_file\_flags}!data\_reader.h@{data\_reader.h}}
+\doxysubsubsection{\texorpdfstring{read\_file\_flags()}{read\_file\_flags()}}
+{\footnotesize\ttfamily \label{data__reader_8h_a706cf4826080ce7bf4a1706fe10f379a} 
+int8\+\_\+t read\+\_\+file\+\_\+flags (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structfile__flags}{file\+\_\+flags}} \texorpdfstring{$\ast$}{*}}]{ff}{}\end{DoxyParamCaption})}
+
+
+
+Reads file flag data in from a given source pointed to by {\ttfamily fptr} and uses that data to update the various flags in {\ttfamily ff} as needed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fptr} & Pointer to file with file flag data \\
+\hline
+{\em ff} & file flags to be updated. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxylink{structfile__flags}{file\+\_\+flags} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00195}{195}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+
+\Hypertarget{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4}\index{data\_reader.h@{data\_reader.h}!read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}}
 \index{read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_little\_endian\_data\_uint16\_t()}{read\_little\_endian\_data\_uint16\_t()}}
-{\footnotesize\ttfamily \label{data__reader_8h_ad773a6c38ce11dd0812deea517043051} 
-uint16\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4} 
+int8\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00071}{71}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00088}{88}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_a778ae3162a4e12d7d7dbe8672ca0ec81}\index{data\_reader.h@{data\_reader.h}!read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}}
+\Hypertarget{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b}\index{data\_reader.h@{data\_reader.h}!read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}}
 \index{read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_little\_endian\_data\_uint32\_t()}{read\_little\_endian\_data\_uint32\_t()}}
-{\footnotesize\ttfamily \label{data__reader_8h_a778ae3162a4e12d7d7dbe8672ca0ec81} 
-uint32\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b} 
+int8\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{output}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00044}{44}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00054}{54}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_a22c47ba484ea9cb25c69b484e2b6de34}\index{data\_reader.h@{data\_reader.h}!read\_single\_uint8@{read\_single\_uint8}}
+\Hypertarget{data__reader_8h_a3987a7d12b6ef51327e5d1ae63d087cc}\index{data\_reader.h@{data\_reader.h}!read\_single\_uint8@{read\_single\_uint8}}
 \index{read\_single\_uint8@{read\_single\_uint8}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_single\_uint8()}{read\_single\_uint8()}}
-{\footnotesize\ttfamily \label{data__reader_8h_a22c47ba484ea9cb25c69b484e2b6de34} 
-uint8\+\_\+t read\+\_\+single\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_a3987a7d12b6ef51327e5d1ae63d087cc} 
+int8\+\_\+t read\+\_\+single\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{value}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00133}{133}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00165}{165}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
-\Hypertarget{data__reader_8h_af766a6928a4e6e0797f712af34344fbe}\index{data\_reader.h@{data\_reader.h}!read\_string@{read\_string}}
+\Hypertarget{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231}\index{data\_reader.h@{data\_reader.h}!read\_string@{read\_string}}
 \index{read\_string@{read\_string}!data\_reader.h@{data\_reader.h}}
 \doxysubsubsection{\texorpdfstring{read\_string()}{read\_string()}}
-{\footnotesize\ttfamily \label{data__reader_8h_af766a6928a4e6e0797f712af34344fbe} 
-void read\+\_\+string (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231} 
+int8\+\_\+t read\+\_\+string (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{output}{, }\item[{uint8\+\_\+t}]{length}{}\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00095}{95}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00118}{118}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 

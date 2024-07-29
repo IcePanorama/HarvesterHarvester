@@ -2,9 +2,12 @@
 \hypertarget{extractor_8c}{}\label{extractor_8c}\index{src/extractor.c@{src/extractor.c}}
 {\ttfamily \#include "{}extractor.\+h"{}}\newline
 {\ttfamily \#include "{}data\+\_\+reader.\+h"{}}\newline
+{\ttfamily \#include "{}errors.\+h"{}}\newline
 {\ttfamily \#include "{}options.\+h"{}}\newline
 {\ttfamily \#include "{}output.\+h"{}}\newline
 {\ttfamily \#include "{}utils.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -13,16 +16,16 @@ int8\+\_\+t \mbox{\hyperlink{extractor_8c_a6c570aa556812918f6d97359199ef25a}{ext
 \begin{DoxyCompactList}\small\item\em Extracts a file pointed to by {\ttfamily fptr} using its respective {\ttfamily \doxylink{structdirectory__record}{directory\+\_\+record}}, outputting it to the location pointed to by {\ttfamily path}. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{extractor_8c_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory}} (FILE \texorpdfstring{$\ast$}{*}fptr, const uint16\+\_\+t BLOCK\+\_\+\+SIZE, const char \texorpdfstring{$\ast$}{*}path)
 \begin{DoxyCompactList}\small\item\em Creates a directory and then extracts every file in said directory. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{extractor_8c_ac9ebc1f302a1c1bc185bc8f1e45b1ffb}{create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t BLOCK\+\_\+\+SIZE, \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
+int8\+\_\+t \mbox{\hyperlink{extractor_8c_a23d43cef2b603ff0e5c51b5f90383171}{create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t BLOCK\+\_\+\+SIZE, \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
 \begin{DoxyCompactList}\small\item\em A wrapper for {\ttfamily extract\+\_\+directory} and, therefore also, {\ttfamily extract\+\_\+file} which handles the extraction of every file and subdirectory using a given path table. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{extractor_8c_ac9ebc1f302a1c1bc185bc8f1e45b1ffb}\index{extractor.c@{extractor.c}!create\_directories\_and\_extract\_data\_from\_path\_file@{create\_directories\_and\_extract\_data\_from\_path\_file}}
+\Hypertarget{extractor_8c_a23d43cef2b603ff0e5c51b5f90383171}\index{extractor.c@{extractor.c}!create\_directories\_and\_extract\_data\_from\_path\_file@{create\_directories\_and\_extract\_data\_from\_path\_file}}
 \index{create\_directories\_and\_extract\_data\_from\_path\_file@{create\_directories\_and\_extract\_data\_from\_path\_file}!extractor.c@{extractor.c}}
 \doxysubsubsection{\texorpdfstring{create\_directories\_and\_extract\_data\_from\_path\_file()}{create\_directories\_and\_extract\_data\_from\_path\_file()}}
-{\footnotesize\ttfamily \label{extractor_8c_ac9ebc1f302a1c1bc185bc8f1e45b1ffb} 
-void create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint16\+\_\+t}]{BLOCK\+\_\+\+SIZE}{, }\item[{struct \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{extractor_8c_a23d43cef2b603ff0e5c51b5f90383171} 
+int8\+\_\+t create\+\_\+directories\+\_\+and\+\_\+extract\+\_\+data\+\_\+from\+\_\+path\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{uint16\+\_\+t}]{BLOCK\+\_\+\+SIZE}{, }\item[{struct \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
 
 
 
@@ -49,7 +52,7 @@ zero on success, non-\/zero on failure.
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00107}{107}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00114}{114}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 
 \Hypertarget{extractor_8c_a83bd0d1558bff60ba2a613868c6a138f}\index{extractor.c@{extractor.c}!extract\_directory@{extract\_directory}}
 \index{extract\_directory@{extract\_directory}!extractor.c@{extractor.c}}
@@ -75,7 +78,7 @@ zero on success, non-\/zero on failure.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00067}{67}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00076}{76}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 
 \Hypertarget{extractor_8c_a6c570aa556812918f6d97359199ef25a}\index{extractor.c@{extractor.c}!extract\_file@{extract\_file}}
 \index{extract\_file@{extract\_file}!extractor.c@{extractor.c}}
@@ -99,7 +102,9 @@ Extracts a file pointed to by {\ttfamily fptr} using its respective {\ttfamily \
 \begin{DoxyReturn}{Returns}
 zero on success, non-\/zero on failure. 
 \end{DoxyReturn}
+the {\ttfamily file\+\_\+identifier} terminates with a {\ttfamily ;} character followed by the file ID number in ASCII coded decimal ({\ttfamily 1}). See\+: \href{https://wiki.osdev.org/ISO_9660\#Directories}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660\#\+Directories}}
 
+Just use the default/existing filename. It\textquotesingle{}ll be incorrect, but probably not worth stoping execution over. Users could just manually remove the {\ttfamily ;1} part; the data itself should be fine.
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00010}{10}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00013}{13}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 

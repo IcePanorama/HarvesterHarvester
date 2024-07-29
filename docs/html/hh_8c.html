@@ -105,6 +105,7 @@ $(function(){initNavTree('hh_8c.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;<a class="el" href="hh_8h_source.html">hh.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="extractor_8h_source.html">extractor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="index__file_8h_source.html">index_file.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="path__table_8h_source.html">path_table.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
@@ -120,29 +121,29 @@ $(function(){initNavTree('hh_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4f1d0276921eb7f3d0f1f13a08c82d5b" id="r_a4f1d0276921eb7f3d0f1f13a08c82d5b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f1d0276921eb7f3d0f1f13a08c82d5b">process_new_dat_files</a> (void)</td></tr>
-<tr class="separator:a4f1d0276921eb7f3d0f1f13a08c82d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a6c37e687ce290f325ced344dce575f" id="r_a2a6c37e687ce290f325ced344dce575f"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a6c37e687ce290f325ced344dce575f">process_new_dat_files</a> (void)</td></tr>
+<tr class="separator:a2a6c37e687ce290f325ced344dce575f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627" id="r_a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8f0bce5a3bc19789bd443ded5f21cf3" id="r_ac8f0bce5a3bc19789bd443ded5f21cf3"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8f0bce5a3bc19789bd443ded5f21cf3">setup_extractor</a> (char *filename)</td></tr>
-<tr class="memdesc:ac8f0bce5a3bc19789bd443ded5f21cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <code>FILE *</code> for the given <code>filename</code>, handling error messages as needed, while also checking the end-user's operating system and updating <code>OP_PATH_SEPARATOR</code>.  <br /></td></tr>
-<tr class="separator:ac8f0bce5a3bc19789bd443ded5f21cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67bb984eb1ee850d67fa02073a40e0fd" id="r_a67bb984eb1ee850d67fa02073a40e0fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67bb984eb1ee850d67fa02073a40e0fd">process_DAT_file</a> (FILE *fptr)</td></tr>
-<tr class="memdesc:a67bb984eb1ee850d67fa02073a40e0fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a DAT file pointed to by the given <code>FILE *</code>.  <br /></td></tr>
-<tr class="separator:a67bb984eb1ee850d67fa02073a40e0fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e4d7540abe0fa0784f95dd98b33266a" id="r_a2e4d7540abe0fa0784f95dd98b33266a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e4d7540abe0fa0784f95dd98b33266a">batch_process_DAT_files</a> ()</td></tr>
-<tr class="memdesc:a2e4d7540abe0fa0784f95dd98b33266a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all the <code>.DAT</code> files found in <code>OP_INPUT_DIR</code>, one at a time.  <br /></td></tr>
-<tr class="separator:a2e4d7540abe0fa0784f95dd98b33266a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee43b2058351de4cc24d923d0bb0ed3c" id="r_aee43b2058351de4cc24d923d0bb0ed3c"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee43b2058351de4cc24d923d0bb0ed3c">setup_extractor</a> (FILE **fptr, char *filename)</td></tr>
+<tr class="memdesc:aee43b2058351de4cc24d923d0bb0ed3c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="hh_8h.html">hh.h</a> - the main interface to interact with HarvesterHarvester  <br /></td></tr>
+<tr class="separator:aee43b2058351de4cc24d923d0bb0ed3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54194fd7d716f87e61c40c2c99e7e79e" id="r_a54194fd7d716f87e61c40c2c99e7e79e"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54194fd7d716f87e61c40c2c99e7e79e">process_DAT_file</a> (FILE *fptr)</td></tr>
+<tr class="memdesc:a54194fd7d716f87e61c40c2c99e7e79e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes a DAT file pointed to by the given <code>FILE *</code>.  <br /></td></tr>
+<tr class="separator:a54194fd7d716f87e61c40c2c99e7e79e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94a58b09efa37ee0fca9cb994a29b16d" id="r_a94a58b09efa37ee0fca9cb994a29b16d"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94a58b09efa37ee0fca9cb994a29b16d">batch_process_DAT_files</a> ()</td></tr>
+<tr class="memdesc:a94a58b09efa37ee0fca9cb994a29b16d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all the <code>.DAT</code> files found in <code>OP_INPUT_DIR</code>, one at a time.  <br /></td></tr>
+<tr class="separator:a94a58b09efa37ee0fca9cb994a29b16d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a2e4d7540abe0fa0784f95dd98b33266a" name="a2e4d7540abe0fa0784f95dd98b33266a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e4d7540abe0fa0784f95dd98b33266a">&#9670;&#160;</a></span>batch_process_DAT_files()</h2>
+<a id="a94a58b09efa37ee0fca9cb994a29b16d" name="a94a58b09efa37ee0fca9cb994a29b16d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94a58b09efa37ee0fca9cb994a29b16d">&#9670;&#160;</a></span>batch_process_DAT_files()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int batch_process_DAT_files </td>
+          <td class="memname">int8_t batch_process_DAT_files </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -151,8 +152,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Processes all the <code>.DAT</code> files found in <code>OP_INPUT_DIR</code>, one at a time. </p>
+<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00153">153</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00169">169</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>
@@ -175,18 +177,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00024">24</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00025">25</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>
-<a id="a67bb984eb1ee850d67fa02073a40e0fd" name="a67bb984eb1ee850d67fa02073a40e0fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67bb984eb1ee850d67fa02073a40e0fd">&#9670;&#160;</a></span>process_DAT_file()</h2>
+<a id="a54194fd7d716f87e61c40c2c99e7e79e" name="a54194fd7d716f87e61c40c2c99e7e79e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54194fd7d716f87e61c40c2c99e7e79e">&#9670;&#160;</a></span>process_DAT_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void process_DAT_file </td>
+          <td class="memname">int8_t process_DAT_file </td>
           <td>(</td>
           <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span></td><td>)</td>
           <td></td>
@@ -204,28 +206,29 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://wiki.osdev.org/ISO_9660">https://wiki.osdev.org/ISO_9660</a> </dd>
 <dd>
-<a class="el" href="volume__descriptor_8c.html#ac90e9d56a0be0db4fa1e60d2a7a089ee" title="Processes the header of a given volume_descriptor using data pointed to by fptr.">process_volume_descriptor_header()</a> </dd>
+<a class="el" href="volume__descriptor_8c.html#ab0bb4ee4fd340fd1a57cf8e1112c66b5" title="Processes the header of a given volume_descriptor using data pointed to by fptr.">process_volume_descriptor_header()</a> </dd>
 <dd>
-<a class="el" href="volume__descriptor_8c.html#aebf907c2282343b4b0d2c0ffed6a182a" title="Processes the given volume_descriptor_data using data pointed to by fptr.">process_volume_descriptor_data()</a> </dd>
+<a class="el" href="volume__descriptor_8c.html#a00d2e72d3698261c77ed5e118c4cfb83" title="Processes the given volume_descriptor_data using data pointed to by fptr.">process_volume_descriptor_data()</a> </dd>
 <dd>
 <a class="el" href="path__table_8c.html#ac08be1296d016ba9a28db25b35ca9132" title="Initializes a given path_table.">create_path_table()</a> </dd>
 <dd>
-<a class="el" href="path__table_8c.html#abc1fa6960cc549494e87d2884727e202" title="Processes the given path_table as a Type-L path_table, using the data pointed to by fptr.">process_type_l_path_table()</a> </dd>
+<a class="el" href="path__table_8c.html#a74af82c548f791d3b0919eeebbf078d4" title="Processes the given path_table as a Type-L path_table, using the data pointed to by fptr.">process_type_l_path_table()</a> </dd>
 <dd>
 <a class="el" href="extractor_8c.html#a83bd0d1558bff60ba2a613868c6a138f" title="Creates a directory and then extracts every file in said directory.">extract_directory()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00080">80</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00084">84</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>
-<a id="a4f1d0276921eb7f3d0f1f13a08c82d5b" name="a4f1d0276921eb7f3d0f1f13a08c82d5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f1d0276921eb7f3d0f1f13a08c82d5b">&#9670;&#160;</a></span>process_new_dat_files()</h2>
+<a id="a2a6c37e687ce290f325ced344dce575f" name="a2a6c37e687ce290f325ced344dce575f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a6c37e687ce290f325ced344dce575f">&#9670;&#160;</a></span>process_new_dat_files()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void process_new_dat_files </td>
+          <td class="memname">int8_t process_new_dat_files </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -233,36 +236,41 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00247">247</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00295">295</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>
-<a id="ac8f0bce5a3bc19789bd443ded5f21cf3" name="ac8f0bce5a3bc19789bd443ded5f21cf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8f0bce5a3bc19789bd443ded5f21cf3">&#9670;&#160;</a></span>setup_extractor()</h2>
+<a id="aee43b2058351de4cc24d923d0bb0ed3c" name="aee43b2058351de4cc24d923d0bb0ed3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee43b2058351de4cc24d923d0bb0ed3c">&#9670;&#160;</a></span>setup_extractor()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">FILE * setup_extractor </td>
+          <td class="memname">int8_t setup_extractor </td>
           <td>(</td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span></td><td>)</td>
+          <td class="paramtype">FILE **</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>filename</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a <code>FILE *</code> for the given <code>filename</code>, handling error messages as needed, while also checking the end-user's operating system and updating <code>OP_PATH_SEPARATOR</code>. </p>
-<p>The caller is responsible for closing the file pointer when they're finished with it.</p>
+<p><a class="el" href="hh_8h.html">hh.h</a> - the main interface to interact with HarvesterHarvester </p>
+<p>Creates a <code>FILE *</code> for the given <code>filename</code>, handling error messages as needed, while also checking the end-user's operating system and updating <code>OP_PATH_SEPARATOR</code>. The caller is responsible for closing the file pointer when they're finished with it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td><code>char *</code> of the path to a DAT file </td></tr>
+    <tr><td class="paramname">fptr</td><td>a file pointer to the file associated with the given filename </td></tr>
+    <tr><td class="paramname">filename</td><td>the path to a DAT file </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>a pointer to the given file, if it exist. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00059">59</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00065">65</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>

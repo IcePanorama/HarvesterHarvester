@@ -2,21 +2,21 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_output_8c" xml:lang="en-US">
 <title>src/output.c File Reference</title>
 <indexterm><primary>src/output.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;output.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;sys/stat.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;output.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;sys/stat.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>void <link linkend="_output_8c_1a52dcd18726bcf8c409eafd1be526dbc7">create_output_directory</link> (char *path)</para>
+            <listitem><para>int8_t <link linkend="_output_8c_1acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</link> (char *path)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Function Documentation</title>
-<anchor xml:id="_output_8c_1a52dcd18726bcf8c409eafd1be526dbc7"/><section>
+<anchor xml:id="_output_8c_1acef952bf7d1077d8f68a1be1f084b2ee"/><section>
     <title>create_output_directory()</title>
 <indexterm><primary>create_output_directory</primary><secondary>output.c</secondary></indexterm>
 <indexterm><primary>output.c</primary><secondary>create_output_directory</secondary></indexterm>
-<para><computeroutput>void create_output_directory (char * path)</computeroutput></para><para>
-Definition at line <link linkend="_output_8c_source_1l00014">14</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+<para><computeroutput>int8_t create_output_directory (char * path)</computeroutput></para><para>
+Definition at line <link linkend="_output_8c_source_1l00015">15</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>
 </section>

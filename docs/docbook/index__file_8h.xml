@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index__file_8h" xml:lang="en-US">
+<title>src/index_file.h File Reference</title>
+<indexterm><primary>src/index_file.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structindex__entry">index_entry</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structindex__file">index_file</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</link>&#160;&#160;&#160;128</para>
+
+<para><link linkend="_index__file_8h">index_file.h</link> - typedef for processing Harvester&apos;s <computeroutput>INDEX.00#</computeroutput> files. </para>
+</listitem>
+            <listitem><para>#define <link linkend="_index__file_8h_1a733cac5291dfeb37c70016d83efed505">FILENAME_MAX_LEN</link>&#160;&#160;&#160;32</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int8_t <link linkend="_index__file_8h_1a8d0c5734d83636faa168e5869954b500">create_index_file</link> (<link linkend="_structindex__file">index_file</link> *i)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_index__file_8h_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link> (<link linkend="_structindex__file">index_file</link> *i)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_index__file_8h_1a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</link> (FILE *fptr, <link linkend="_structindex__file">index_file</link> *idxf)</para>
+</listitem>
+            <listitem><para>void <link linkend="_index__file_8h_1a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</link> (<link linkend="_structindex__entry">index_entry</link> *idxe)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_index__file_8h_1a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</link> (<link linkend="_structindex__file">index_file</link> *file, <link linkend="_structindex__entry">index_entry</link> *entry)</para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_index__file_8h_1ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</link> (<link linkend="_structindex__file">index_file</link> *idx)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_index__file_8h_1a733cac5291dfeb37c70016d83efed505"/><section>
+    <title>FILENAME_MAX_LEN</title>
+<indexterm><primary>FILENAME_MAX_LEN</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>FILENAME_MAX_LEN</secondary></indexterm>
+<para><computeroutput>#define FILENAME_MAX_LEN&#160;&#160;&#160;32</computeroutput></para><para>
+Definition at line <link linkend="_index__file_8h_source_1l00012">12</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+</section>
+<anchor xml:id="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf"/><section>
+    <title>FULL_PATH_MAX_LEN</title>
+<indexterm><primary>FULL_PATH_MAX_LEN</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>FULL_PATH_MAX_LEN</secondary></indexterm>
+<para><computeroutput>#define FULL_PATH_MAX_LEN&#160;&#160;&#160;128</computeroutput></para><para>
+
+<para><link linkend="_index__file_8h">index_file.h</link> - typedef for processing Harvester&apos;s <computeroutput>INDEX.00#</computeroutput> files. </para>
+</para>
+
+<para>Both of these are probably too large, but better to be safe than sorry. </para>
+<para>
+Definition at line <link linkend="_index__file_8h_source_1l00011">11</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_index__file_8h_1a746462bc35bd98ad993e5da86bd6b2a7"/><section>
+    <title>add_entry_to_index_file()</title>
+<indexterm><primary>add_entry_to_index_file</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>add_entry_to_index_file</secondary></indexterm>
+<para><computeroutput>int8_t add_entry_to_index_file (<link linkend="_structindex__file">index_file</link> * file, <link linkend="_structindex__entry">index_entry</link> * entry)</computeroutput></para><para>
+Definition at line <link linkend="_index__file_8c_source_1l00122">122</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+</section>
+<anchor xml:id="_index__file_8h_1a8d0c5734d83636faa168e5869954b500"/><section>
+    <title>create_index_file()</title>
+<indexterm><primary>create_index_file</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>create_index_file</secondary></indexterm>
+<para><computeroutput>int8_t create_index_file (<link linkend="_structindex__file">index_file</link> * i)</computeroutput></para><para>
+Definition at line <link linkend="_index__file_8c_source_1l00016">16</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+</section>
+<anchor xml:id="_index__file_8h_1a642840a928d9784ac4cf34228672fbbc"/><section>
+    <title>destroy_index_file()</title>
+<indexterm><primary>destroy_index_file</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>destroy_index_file</secondary></indexterm>
+<para><computeroutput>int8_t destroy_index_file (<link linkend="_structindex__file">index_file</link> * i)</computeroutput></para><para>
+Definition at line <link linkend="_index__file_8c_source_1l00033">33</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+</section>
+<anchor xml:id="_index__file_8h_1a803c3e3f6d663ff2050f3c2e60e13431"/><section>
+    <title>print_index_entry()</title>
+<indexterm><primary>print_index_entry</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>print_index_entry</secondary></indexterm>
+<para><computeroutput>void print_index_entry (<link linkend="_structindex__entry">index_entry</link> * idxe)</computeroutput></para><para>
+Definition at line <link linkend="_index__file_8c_source_1l00112">112</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+</section>
+<anchor xml:id="_index__file_8h_1a8d9a7c6f483fa764254a2013aa7258b1"/><section>
+    <title>process_index_file()</title>
+<indexterm><primary>process_index_file</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>process_index_file</secondary></indexterm>
+<para><computeroutput>int8_t process_index_file (FILE * fptr, <link linkend="_structindex__file">index_file</link> * idxf)</computeroutput></para>
+<para>Every entry is 0x94 bytes apart, the part we&apos;re most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.</para>
+<para>
+Definition at line <link linkend="_index__file_8c_source_1l00040">40</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+</section>
+<anchor xml:id="_index__file_8h_1ac4e7fdb31a69d93e8723a7f7ff725261"/><section>
+    <title>resize_indicies()</title>
+<indexterm><primary>resize_indicies</primary><secondary>index_file.h</secondary></indexterm>
+<indexterm><primary>index_file.h</primary><secondary>resize_indicies</secondary></indexterm>
+<para><computeroutput>int8_t resize_indicies (<link linkend="_structindex__file">index_file</link> * idx)</computeroutput></para><para>
+Definition at line <link linkend="_index__file_8c_source_1l00138">138</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+</section>
+</section>
+</section>

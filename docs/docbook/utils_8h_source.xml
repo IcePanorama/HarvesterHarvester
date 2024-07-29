@@ -13,11 +13,13 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_utils_8h_source_1l00009"/>00009 
 <anchor xml:id="_utils_8h_source_1l00016"/>00016 uint16_t&#32;<link linkend="_utils_8h_1a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</link>&#32;(uint16_t&#32;value);
 <anchor xml:id="_utils_8h_source_1l00017"/>00017 
-<anchor xml:id="_utils_8h_source_1l00026"/>00026 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1a5d12d6ba0683fa0c576d2ee3a6006656">read_file_flags</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structfile__flags">file_flags</link>&#32;*ff);
-<anchor xml:id="_utils_8h_source_1l00027"/>00027 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1af6ebb1daf24f6259fa021c9a0e8e516c">prepend_path_string</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*prefix);
-<anchor xml:id="_utils_8h_source_1l00028"/>00028 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str);
-<anchor xml:id="_utils_8h_source_1l00029"/>00029 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*dir);
-<anchor xml:id="_utils_8h_source_1l00030"/>00030 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1a0038df898c35b6a483fa874b3671735b">file_exists</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*filename);
-<anchor xml:id="_utils_8h_source_1l00031"/>00031 
-<anchor xml:id="_utils_8h_source_1l00032"/>00032 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_utils_8h_source_1l00018"/>00018 int8_t&#32;<link linkend="_utils_8h_1a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*prefix);
+<anchor xml:id="_utils_8h_source_1l00019"/>00019 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str);
+<anchor xml:id="_utils_8h_source_1l00020"/>00020 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*dir);
+<anchor xml:id="_utils_8h_source_1l00021"/>00021 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1a0038df898c35b6a483fa874b3671735b">file_exists</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*filename);
+<anchor xml:id="_utils_8h_source_1l00022"/>00022 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1a4ce51b557efd36a5220e51669c79cc86">peek_char_is</link>&#32;(FILE&#32;*fptr,&#32;uint8_t&#32;expected_ch);
+<anchor xml:id="_utils_8h_source_1l00023"/>00023 <emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_utils_8h_1ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</link>&#32;(FILE&#32;*fptr);
+<anchor xml:id="_utils_8h_source_1l00024"/>00024 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_utils_8h_1a7f5f49b4dabd84b37e8f7b9464e57992">prepend_string</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*str,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*prefix);
+<anchor xml:id="_utils_8h_source_1l00025"/>00025 
+<anchor xml:id="_utils_8h_source_1l00026"/>00026 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

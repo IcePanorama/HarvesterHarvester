@@ -1,6 +1,7 @@
 \doxysection{src/options.h File Reference}
 \hypertarget{options_8h}{}\label{options_8h}\index{src/options.h@{src/options.h}}
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -11,10 +12,14 @@ void \mbox{\hyperlink{options_8h_a83aed94bb59dba20fc0286181dc64738}{handle\+\_\+
 \item 
 bool \mbox{\hyperlink{options_8h_abf19eab4ae4469b24b2b34284bb72f5a}{OP\+\_\+\+BATCH\+\_\+\+PROCESS}}
 \begin{DoxyCompactList}\small\item\em If true, batch process all the files in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{options_8h_a1ee118406b5a5d8845db1bc412b34400}{OP\+\_\+\+SKIP\+\_\+\+DAT\+\_\+\+PROCESSING}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{options_8h_a57685525da7ee31266f852c10c29dffb}{OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT}}
+\begin{DoxyCompactList}\small\item\em 0x\+F00000 == 15 MiB \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_ab0a46ab2ce382e77c8384eec4f447007}{OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME}}
 \item 
 bool \mbox{\hyperlink{options_8h_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}}
-\begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_a9f2b83262a240b0baabccb91b801b096}{OP\+\_\+\+INPUT\+\_\+\+DIR}}
 \begin{DoxyCompactList}\small\item\em Default is {\ttfamily ./dat-\/files/}. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8h_a517a97037702e04fc68e47a47e4af794}{OP\+\_\+\+OUTPUT\+\_\+\+DIR}}
@@ -43,7 +48,7 @@ Processes command-\/line arguments.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00024}{24}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00025}{25}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 
 
@@ -60,7 +65,7 @@ If true, batch process all the files in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}.
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00010}{10}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00009}{9}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_ab0a46ab2ce382e77c8384eec4f447007}\index{options.h@{options.h}!OP\_CURRENT\_DISK\_NAME@{OP\_CURRENT\_DISK\_NAME}}
 \index{OP\_CURRENT\_DISK\_NAME@{OP\_CURRENT\_DISK\_NAME}!options.h@{options.h}}
@@ -72,6 +77,20 @@ char\texorpdfstring{$\ast$}{*} OP\+\_\+\+CURRENT\+\_\+\+DISK\+\_\+\+NAME\hspace{
 
 Definition at line \mbox{\hyperlink{options_8c_source_l00011}{11}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
+\Hypertarget{options_8h_a57685525da7ee31266f852c10c29dffb}\index{options.h@{options.h}!OP\_DEBUG\_FILE\_SIZE\_LIMIT@{OP\_DEBUG\_FILE\_SIZE\_LIMIT}}
+\index{OP\_DEBUG\_FILE\_SIZE\_LIMIT@{OP\_DEBUG\_FILE\_SIZE\_LIMIT}!options.h@{options.h}}
+\doxysubsubsection{\texorpdfstring{OP\_DEBUG\_FILE\_SIZE\_LIMIT}{OP\_DEBUG\_FILE\_SIZE\_LIMIT}}
+{\footnotesize\ttfamily \label{options_8h_a57685525da7ee31266f852c10c29dffb} 
+uint32\+\_\+t OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+0x\+F00000 == 15 MiB 
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00016}{16}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
 \Hypertarget{options_8h_a22750490a402211ccfd1c7dda808eb51}\index{options.h@{options.h}!OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}}
 \index{OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}!options.h@{options.h}}
 \doxysubsubsection{\texorpdfstring{OP\_DEBUG\_MODE}{OP\_DEBUG\_MODE}}
@@ -80,9 +99,9 @@ bool OP\+\_\+\+DEBUG\+\_\+\+MODE\hspace{0.3cm}{\ttfamily [extern]}}
 
 
 
-Skips files larger than {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. 
+Skips files larger than {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. 
 
-Note that {\ttfamily DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} is currently defined in \doxylink{extractor_8c}{extractor.\+c}.
+Note that {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} is currently defined in \doxylink{extractor_8c}{extractor.\+c}.
 
 \begin{DoxySeeAlso}{See also}
 \doxylink{extractor_8c_a83bd0d1558bff60ba2a613868c6a138f}{extract\+\_\+directory} 
@@ -132,4 +151,14 @@ Depends on the user\textquotesingle{}s operating system.
 Having this be defined globally in this file for cross-\/platform compatibility reasons. 
 
 Definition at line \mbox{\hyperlink{options_8c_source_l00015}{15}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8h_a1ee118406b5a5d8845db1bc412b34400}\index{options.h@{options.h}!OP\_SKIP\_DAT\_PROCESSING@{OP\_SKIP\_DAT\_PROCESSING}}
+\index{OP\_SKIP\_DAT\_PROCESSING@{OP\_SKIP\_DAT\_PROCESSING}!options.h@{options.h}}
+\doxysubsubsection{\texorpdfstring{OP\_SKIP\_DAT\_PROCESSING}{OP\_SKIP\_DAT\_PROCESSING}}
+{\footnotesize\ttfamily \label{options_8h_a1ee118406b5a5d8845db1bc412b34400} 
+bool OP\+\_\+\+SKIP\+\_\+\+DAT\+\_\+\+PROCESSING\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00010}{10}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 

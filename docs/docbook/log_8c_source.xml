@@ -33,9 +33,11 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_log_8c_source_1l00037"/>00037 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;bytes_read&#32;=&#32;fread&#32;(buffer,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(buffer[0]),&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>,&#32;fptr);
 <anchor xml:id="_log_8c_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(bytes_read&#32;!=&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>)
 <anchor xml:id="_log_8c_source_1l00039"/>00039 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_log_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a43d16be8297bee4a817aec3d78833cc9">handle_fread_error</link>&#32;(fptr,&#32;bytes_read,&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>);
-<anchor xml:id="_log_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_log_8c_source_1l00042"/>00042 &#32;&#32;<link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link>&#32;(buffer,&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>);
-<anchor xml:id="_log_8c_source_1l00043"/>00043 &#32;&#32;fseek&#32;(fptr,&#32;-<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>,&#32;SEEK_CUR);
-<anchor xml:id="_log_8c_source_1l00044"/>00044 }
+<anchor xml:id="_log_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(bytes_read,&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>);
+<anchor xml:id="_log_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>;
+<anchor xml:id="_log_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_log_8c_source_1l00043"/>00043 
+<anchor xml:id="_log_8c_source_1l00044"/>00044 &#32;&#32;<link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link>&#32;(buffer,&#32;<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>);
+<anchor xml:id="_log_8c_source_1l00045"/>00045 &#32;&#32;fseek&#32;(fptr,&#32;-<link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>,&#32;SEEK_CUR);
+<anchor xml:id="_log_8c_source_1l00046"/>00046 }
 </programlisting></section>

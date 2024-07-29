@@ -33,6 +33,10 @@
 </listitem>
             <listitem><para>file <link linkend="_hh_8h">hh.h</link></para>
 </listitem>
+            <listitem><para>file <link linkend="_index__file_8c">index_file.c</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_index__file_8h">index_file.h</link></para>
+</listitem>
             <listitem><para>file <link linkend="_log_8c">log.c</link></para>
 </listitem>
             <listitem><para>file <link linkend="_log_8h">log.h</link></para>

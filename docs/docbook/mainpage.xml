@@ -45,6 +45,8 @@ HARVEST4.DAT
 <para>An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting</para>
 </listitem><listitem>
 <para>Ideally, this solution should also be cross-platform, if at all possible.</para>
+</listitem><listitem>
+<para>Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.</para>
 </listitem></itemizedlist>
 </para>
 </listitem><listitem>
