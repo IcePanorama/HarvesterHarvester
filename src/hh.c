@@ -336,9 +336,7 @@ process_new_dat_files (void)
     }
 
   destroy_index_file (&idx_file);
-
   fclose (fptr);
   free (interior_dat_file_path);
-
   return 0;
 }
