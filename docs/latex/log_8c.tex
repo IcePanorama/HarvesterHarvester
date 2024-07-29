@@ -2,7 +2,6 @@
 \hypertarget{log_8c}{}\label{log_8c}\index{src/log.c@{src/log.c}}
 {\ttfamily \#include "{}log.\+h"{}}\newline
 {\ttfamily \#include "{}errors.\+h"{}}\newline
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -12,9 +11,9 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\+\_\+hex\+\_\+data}} (unsigned char \texorpdfstring{$\ast$}{*}buffer, const uint8\+\_\+t BUFFER\+\_\+\+LEN)
-\begin{DoxyCompactList}\small\item\em Outputs hex data from a given {\ttfamily buffer} to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Outputs hex data from a given {\ttfamily buffer} to stdout. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{print\+\_\+some\+\_\+data\+\_\+from\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\begin{DoxyCompactList}\small\item\em Prints out the next {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} many bytes to the stdout, formatted properly in order to be easy to read. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em As this function can safely fail without affecting normal operations, this doesn\textquotesingle{}t return any errors, despite possibly having a fread error during normal usage. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -26,7 +25,7 @@ void \mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{print\+\_\+some\
 
 
 
-Definition at line \mbox{\hyperlink{log_8c_source_l00032}{32}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
+Definition at line \mbox{\hyperlink{log_8c_source_l00043}{43}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 
 
 
@@ -39,18 +38,13 @@ void print\+\_\+hex\+\_\+data (\begin{DoxyParamCaption}\item[{unsigned char \tex
 
 
 
-Outputs hex data from a given {\ttfamily buffer} to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. 
+Outputs hex data from a given {\ttfamily buffer} to stdout. 
 
+Formats said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.
 
-\begin{DoxyParams}{Parameters}
-{\em buffer} & a buffer containing hex data. \\
-\hline
-{\em BUFFER\+\_\+\+LEN} & the size of the data buffer. \\
-\hline
-\end{DoxyParams}
+TODO\+: These values are currently hardcoded in, but they likely should be moved to \doxylink{options_8h}{options.\+h} in the future. 
 
-
-Definition at line \mbox{\hyperlink{log_8c_source_l00015}{15}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
+Definition at line \mbox{\hyperlink{log_8c_source_l00026}{26}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 
 \Hypertarget{log_8c_af9859f7b27d46f040c836ecfdc1ac304}\index{log.c@{log.c}!print\_some\_data\_from\_file@{print\_some\_data\_from\_file}}
 \index{print\_some\_data\_from\_file@{print\_some\_data\_from\_file}!log.c@{log.c}}
@@ -60,16 +54,9 @@ void print\+\_\+some\+\_\+data\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\ite
 
 
 
-Prints out the next {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} many bytes to the stdout, formatted properly in order to be easy to read. 
+As this function can safely fail without affecting normal operations, this doesn\textquotesingle{}t return any errors, despite possibly having a fread error during normal usage. 
 
-Useful for debugging. Note that {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} is defined in \doxylink{log_8c}{log.\+c}.
+\doxylink{log_8h}{log.\+h} -\/ wrapper for stdout functions. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em fptr} & pointer to where user currently is in a file \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{log_8c_source_l00034}{34}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
+Definition at line \mbox{\hyperlink{log_8c_source_l00050}{50}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 

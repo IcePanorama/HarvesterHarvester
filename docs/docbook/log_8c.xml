@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_log_8c" xml:lang="en-US">
 <title>src/log.c File Reference</title>
 <indexterm><primary>src/log.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;log.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;log.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?></programlisting><simplesect>
     <title>Macros    </title>
         <itemizedlist>
             <listitem><para>#define <link linkend="_log_8c_1a41e9ced92689f94ffc427d5e2e658382">BYTES_TO_READ</link>&#160;&#160;&#160;32</para>
@@ -14,11 +14,11 @@
         <itemizedlist>
             <listitem><para>void <link linkend="_log_8c_1aaaf9265dd175725985b56eeac3db2f30">print_hex_data</link> (unsigned char *buffer, const uint8_t BUFFER_LEN)</para>
 
-<para>Outputs hex data from a given <computeroutput>buffer</computeroutput> to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. </para>
+<para>Outputs hex data from a given <computeroutput>buffer</computeroutput> to stdout. </para>
 </listitem>
             <listitem><para>void <link linkend="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link> (FILE *fptr)</para>
 
-<para>Prints out the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted properly in order to be easy to read. </para>
+<para>As this function can safely fail without affecting normal operations, this doesn&apos;t return any errors, despite possibly having a fread error during normal usage. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -29,7 +29,7 @@
 <indexterm><primary>BYTES_TO_READ</primary><secondary>log.c</secondary></indexterm>
 <indexterm><primary>log.c</primary><secondary>BYTES_TO_READ</secondary></indexterm>
 <para><computeroutput>#define BYTES_TO_READ&#160;&#160;&#160;32</computeroutput></para><para>
-Definition at line <link linkend="_log_8c_source_1l00032">32</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+Definition at line <link linkend="_log_8c_source_1l00043">43</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 </section>
 <section>
@@ -40,37 +40,14 @@ Definition at line <link linkend="_log_8c_source_1l00032">32</link> of file <lin
 <indexterm><primary>log.c</primary><secondary>print_hex_data</secondary></indexterm>
 <para><computeroutput>void print_hex_data (unsigned char * buffer, const uint8_t BUFFER_LEN)</computeroutput></para><para>
 
-<para>Outputs hex data from a given <computeroutput>buffer</computeroutput> to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. </para>
+<para>Outputs hex data from a given <computeroutput>buffer</computeroutput> to stdout. </para>
 </para>
 
+<para>Formats said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.</para>
+
+<para>TODO: These values are currently hardcoded in, but they likely should be moved to <link linkend="_options_8h">options.h</link> in the future. </para>
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>buffer</entry><entry>
-<para>a buffer containing hex data. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>BUFFER_LEN</entry><entry>
-<para>the size of the data buffer. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
-<para>
-Definition at line <link linkend="_log_8c_source_1l00015">15</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+Definition at line <link linkend="_log_8c_source_1l00026">26</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 <anchor xml:id="_log_8c_1af9859f7b27d46f040c836ecfdc1ac304"/><section>
     <title>print_some_data_from_file()</title>
@@ -78,34 +55,12 @@ Definition at line <link linkend="_log_8c_source_1l00015">15</link> of file <lin
 <indexterm><primary>log.c</primary><secondary>print_some_data_from_file</secondary></indexterm>
 <para><computeroutput>void print_some_data_from_file (FILE * fptr)</computeroutput></para><para>
 
-<para>Prints out the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted properly in order to be easy to read. </para>
+<para>As this function can safely fail without affecting normal operations, this doesn&apos;t return any errors, despite possibly having a fread error during normal usage. </para>
 </para>
 
-<para>Useful for debugging. Note that <computeroutput>BYTES_TO_READ</computeroutput> is defined in <link linkend="_log_8c">log.c</link>.</para>
-
+<para><link linkend="_log_8h">log.h</link> - wrapper for stdout functions. </para>
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to where user currently is in a file </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
-<para>
-Definition at line <link linkend="_log_8c_source_1l00034">34</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+Definition at line <link linkend="_log_8c_source_1l00050">50</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 </section>
 </section>

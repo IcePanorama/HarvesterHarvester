@@ -7083,7 +7083,6 @@ src/log.c File Reference\par \pard\plain
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "log.h"}\par
 {\f2 #include "errors.h"}\par
-{\f2 #include <stdio.h>}\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Macros\par
@@ -7102,14 +7101,14 @@ Functions\par
 void {\b print_hex_data} (unsigned char *buffer, const uint8_t BUFFER_LEN)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Outputs hex data from a given {\f2 buffer}  to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. }{
+Outputs hex data from a given {\f2 buffer}  to stdout. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b print_some_data_from_file} (FILE *fptr)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }{
+As this function can safely fail without affecting normal operations, this doesn't return any errors, despite possibly having a fread error during normal usage. }{
 }\par
 }\par}
 }
@@ -7129,7 +7128,7 @@ Macro Definition Documentation\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 32} of file {\b log.c}.}\par
+Definition at line {\b 43} of file {\b log.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -7148,26 +7147,12 @@ void print_hex_data (unsigned char * buffer, const uint8_t BUFFER_LEN)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Outputs hex data from a given {\f2 buffer}  to stdout, formatting said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes. }}\par
+Outputs hex data from a given {\f2 buffer}  to stdout. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i buffer} \cell }{a buffer containing hex data. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i BUFFER_LEN} \cell }{the size of the data buffer. \cell }
-{\row }
-}
+Formats said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.\par
+TODO: These values are currently hardcoded in, but they likely should be moved to {\b options.h} in the future. \par
 }{
-Definition at line {\b 15} of file {\b log.c}.}\par
+Definition at line {\b 26} of file {\b log.c}.}\par
 }
 {\xe \v print_some_data_from_file\:log.c}
 {\xe \v log.c\:print_some_data_from_file}
@@ -7182,20 +7167,11 @@ void print_some_data_from_file (FILE * fptr)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }}\par
+As this function can safely fail without affecting normal operations, this doesn't return any errors, despite possibly having a fread error during normal usage. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Useful for debugging. Note that {\f2 BYTES_TO_READ}  is defined in {\b log.c}.\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i fptr} \cell }{pointer to where user currently is in a file \cell }
-{\row }
-}
+{\b log.h} - wrapper for stdout functions. \par
 }{
-Definition at line {\b 34} of file {\b log.c}.}\par
+Definition at line {\b 50} of file {\b log.c}.}\par
 }
 \par \pard\plain 
 
@@ -7210,44 +7186,55 @@ log.c\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #include "log.h"}\par
-00002 {\cf21 #include "errors.h"}\par
-00003 \par
-00004 {\cf21 #include <stdio.h>}\par
-00005 \par
-00014 {\cf18 void}\par
-00015 print_hex_data ({\cf18 unsigned} {\cf18 char} *buffer, {\cf17 const} uint8_t BUFFER_LEN)\par
-00016 \{\par
-00017   {\cf19 for} (uint8_t i = 0; i < BUFFER_LEN; i++)\par
-00018     \{\par
-00019       printf ({\cf22 " %02x"}, buffer[i]);\par
-00020       {\cf19 if} ((i != 0) && (i % 4 == 3))\par
-00021         \{\par
-00022           printf ({\cf22 "\\t"});\par
-00023         \}\par
-00024       {\cf19 if} ((i != 0) && (i % 16 == 15))\par
-00025         \{\par
-00026           puts ({\cf22 ""});\par
-00027         \}\par
-00028     \}\par
-00029   puts ({\cf22 ""});\par
-00030 \}\par
-00031 \par
-00032 {\cf21 #define BYTES_TO_READ 32}\par
-00033 {\cf18 void}\par
-00034 print_some_data_from_file (FILE *fptr)\par
-00035 \{\par
-00036   {\cf18 unsigned} {\cf18 char} buffer[BYTES_TO_READ];\par
-00037   {\cf18 size_t} bytes_read = fread (buffer, {\cf17 sizeof} (buffer[0]), BYTES_TO_READ, fptr);\par
-00038   {\cf19 if} (bytes_read != BYTES_TO_READ)\par
-00039     \{\par
-00040       handle_fread_error (bytes_read, BYTES_TO_READ);\par
-00041       {\cf19 return};\par
-00042     \}\par
-00043 \par
-00044   print_hex_data (buffer, BYTES_TO_READ);\par
-00045   fseek (fptr, -BYTES_TO_READ, SEEK_CUR);\par
-00046 \}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00014 {\cf21 #include "log.h"}\par
+00015 {\cf21 #include "errors.h"}\par
+00016 \par
+00025 {\cf18 void}\par
+00026 print_hex_data ({\cf18 unsigned} {\cf18 char} *buffer, {\cf17 const} uint8_t BUFFER_LEN)\par
+00027 \{\par
+00028   {\cf19 for} (uint8_t i = 0; i < BUFFER_LEN; i++)\par
+00029     \{\par
+00030       printf ({\cf22 " %02x"}, buffer[i]);\par
+00031       {\cf19 if} ((i != 0) && (i % 4 == 3))\par
+00032         \{\par
+00033           printf ({\cf22 "\\t"});\par
+00034         \}\par
+00035       {\cf19 if} ((i != 0) && (i % 16 == 15))\par
+00036         \{\par
+00037           puts ({\cf22 ""});\par
+00038         \}\par
+00039     \}\par
+00040   puts ({\cf22 ""});\par
+00041 \}\par
+00042 \par
+00043 {\cf21 #define BYTES_TO_READ 32}\par
+00049 {\cf18 void}\par
+00050 print_some_data_from_file (FILE *fptr)\par
+00051 \{\par
+00052   {\cf18 unsigned} {\cf18 char} buffer[BYTES_TO_READ];\par
+00053   {\cf18 size_t} bytes_read = fread (buffer, {\cf17 sizeof} (buffer[0]), BYTES_TO_READ, fptr);\par
+00054   {\cf19 if} (bytes_read != BYTES_TO_READ)\par
+00055     \{\par
+00056       handle_fread_error (bytes_read, BYTES_TO_READ);\par
+00057       {\cf19 return};\par
+00058     \}\par
+00059 \par
+00060   print_hex_data (buffer, BYTES_TO_READ);\par
+00061   fseek (fptr, -BYTES_TO_READ, SEEK_CUR);\par
+00062 \}\par
 }
 \par \pard\plain 
 
@@ -7272,7 +7259,7 @@ Functions\par
 void {\b print_some_data_from_file} (FILE *fptr)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }{
+{\b log.h} - wrapper for stdout functions. }{
 }\par
 }\par}
 }
@@ -7293,20 +7280,12 @@ void print_some_data_from_file (FILE * fptr)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Prints out the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted properly in order to be easy to read. }}\par
+{\b log.h} - wrapper for stdout functions. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Useful for debugging. Note that {\f2 BYTES_TO_READ}  is defined in {\b log.c}.\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i fptr} \cell }{pointer to where user currently is in a file \cell }
-{\row }
-}
+As evidenced by the single function below, this file is rather underutilized at the moment. In the future this should host functions related to printing data out to log files, hence the name. Prints the next {\f2 BYTES_TO_READ}  many bytes to the stdout, formatted in order to be easy to read. Useful for debugging. Note that {\f2 BYTES_TO_READ}  is defined in {\f2 {\b log.c}} .\par
+{\b log.h} - wrapper for stdout functions. \par
 }{
-Definition at line {\b 34} of file {\b log.c}.}\par
+Definition at line {\b 50} of file {\b log.c}.}\par
 }
 \par \pard\plain 
 
@@ -7321,15 +7300,29 @@ log.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #ifndef _LOG_H_}\par
-00002 {\cf21 #define _LOG_H_}\par
-00003 \par
-00004 {\cf21 #include <stdint.h>}\par
-00005 {\cf21 #include <stdio.h>}\par
-00006 \par
-00014 {\cf18 void} print_some_data_from_file (FILE *fptr);\par
-00015 \par
-00016 {\cf21 #endif}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
+00008 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00009 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00010 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00011 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00012 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00013 {\cf20 //  option) any later version.}\par
+00014 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00015 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00016 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00017 {\cf20 //  more details.}\par
+00018 {\cf20 //}\par
+00019 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00020 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00021 {\cf21 #ifndef _HH_LOG_H_}\par
+00022 {\cf21 #define _HH_LOG_H_}\par
+00023 \par
+00024 {\cf21 #include <stdint.h>}\par
+00025 {\cf21 #include <stdio.h>}\par
+00026 \par
+00032 {\cf18 void} print_some_data_from_file (FILE *fptr);\par
+00033 \par
+00034 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

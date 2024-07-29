@@ -1,15 +1,26 @@
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "log.h"
 #include "errors.h"
 
-#include <stdio.h>
-
 /**
- *  Outputs hex data from a given `buffer` to stdout, formatting said data to
+ *  Outputs hex data from a given `buffer` to stdout. Formats said data to
  *  add spaces between bytes, tabs after after every four bytes, and a new line
  *  after every 16 bytes.
  *
- *  @param  buffer      a buffer containing hex data.
- *  @param  BUFFER_LEN  the size of the data buffer.
+ *  TODO: These values are currently hardcoded in, but they likely should be
+ *  moved to options.h in the future.
  */
 void
 print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
@@ -30,6 +41,11 @@ print_hex_data (unsigned char *buffer, const uint8_t BUFFER_LEN)
 }
 
 #define BYTES_TO_READ 32
+/**
+ *  As this function can safely fail without affecting normal operations, this
+ *  doesn't return any errors, despite possibly having a fread error during
+ *  normal usage.
+ */
 void
 print_some_data_from_file (FILE *fptr)
 {

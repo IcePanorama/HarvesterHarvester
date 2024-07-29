@@ -110,7 +110,7 @@ $(function(){initNavTree('log_8h.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af9859f7b27d46f040c836ecfdc1ac304" id="r_af9859f7b27d46f040c836ecfdc1ac304"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a> (FILE *fptr)</td></tr>
-<tr class="memdesc:af9859f7b27d46f040c836ecfdc1ac304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints out the next <code>BYTES_TO_READ</code> many bytes to the stdout, formatted properly in order to be easy to read.  <br /></td></tr>
+<tr class="memdesc:af9859f7b27d46f040c836ecfdc1ac304"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="log_8h.html">log.h</a> - wrapper for stdout functions.  <br /></td></tr>
 <tr class="separator:af9859f7b27d46f040c836ecfdc1ac304"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -129,16 +129,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prints out the next <code>BYTES_TO_READ</code> many bytes to the stdout, formatted properly in order to be easy to read. </p>
-<p>Useful for debugging. Note that <code>BYTES_TO_READ</code> is defined in <a class="el" href="log_8c.html">log.c</a>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fptr</td><td>pointer to where user currently is in a file </td></tr>
-  </table>
-  </dd>
-</dl>
+<p><a class="el" href="log_8h.html">log.h</a> - wrapper for stdout functions. </p>
+<p>As evidenced by the single function below, this file is rather underutilized at the moment. In the future this should host functions related to printing data out to log files, hence the name. Prints the next <code>BYTES_TO_READ</code> many bytes to the stdout, formatted in order to be easy to read. Useful for debugging. Note that <code>BYTES_TO_READ</code> is defined in <code><a class="el" href="log_8c.html">log.c</a></code>.</p>
+<p><a class="el" href="log_8h.html">log.h</a> - wrapper for stdout functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00034">34</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00050">50</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
 </div>
 </div>

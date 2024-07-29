@@ -2,43 +2,54 @@
 \hypertarget{log_8c_source}{}\label{log_8c_source}\index{src/log.c@{src/log.c}}
 \mbox{\hyperlink{log_8c}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{errors_8h}{errors.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00005}00005\ }
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00014}00014\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00015}\mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{00015}}\ \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\_hex\_data}}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keyword}{const}\ uint8\_t\ BUFFER\_LEN)}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00016}00016\ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00017}00017\ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ BUFFER\_LEN;\ i++)}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00018}00018\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00019}00019\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}\ \%02x"{}},\ buffer[i]);}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00020}00020\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((i\ !=\ 0)\ \&\&\ (i\ \%\ 4\ ==\ 3))}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}});}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00024}00024\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((i\ !=\ 0)\ \&\&\ (i\ \%\ 16\ ==\ 15))}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ puts\ (\textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00027}00027\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00028}00028\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00029}00029\ \ \ puts\ (\textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00030}00030\ \}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00032}\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{00032}}\ \textcolor{preprocessor}{\#define\ BYTES\_TO\_READ\ 32}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00033}00033\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00034}\mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{00034}}\ \mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{print\_some\_data\_from\_file}}\ (FILE\ *fptr)}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00035}00035\ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00036}00036\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ buffer[\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}}];}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00037}00037\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (buffer,\ \textcolor{keyword}{sizeof}\ (buffer[0]),\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}},\ fptr);}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00038}00038\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}})}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00039}00039\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00040}00040\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (bytes\_read,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00041}00041\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00042}00042\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00043}00043\ }
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00044}00044\ \ \ \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\_hex\_data}}\ (buffer,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00045}00045\ \ \ fseek\ (fptr,\ -\/\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}},\ SEEK\_CUR);}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00001}00001\ \textcolor{comment}{//\ \ Copyright\ (C)\ 2024\ \ IcePanorama}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00002}00002\ \textcolor{comment}{//\ \ This\ file\ is\ a\ part\ of\ HarvesterHarvester.}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00003}00003\ \textcolor{comment}{//\ \ HarvesterHarvester\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00004}00004\ \textcolor{comment}{//\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00005}00005\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00006}00006\ \textcolor{comment}{//\ \ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00007}00007\ \textcolor{comment}{//\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00008}00008\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00009}00009\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU\ General\ Public\ License\ for}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00010}00010\ \textcolor{comment}{//\ \ more\ details.}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00011}00011\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00012}00012\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00013}00013\ \textcolor{comment}{//\ \ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{errors_8h}{errors.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00025}00025\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00026}\mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{00026}}\ \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\_hex\_data}}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ *buffer,\ \textcolor{keyword}{const}\ uint8\_t\ BUFFER\_LEN)}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00028}00028\ \ \ \textcolor{keywordflow}{for}\ (uint8\_t\ i\ =\ 0;\ i\ <\ BUFFER\_LEN;\ i++)}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00030}00030\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}\ \%02x"{}},\ buffer[i]);}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00031}00031\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((i\ !=\ 0)\ \&\&\ (i\ \%\ 4\ ==\ 3))}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)t"{}});}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00035}00035\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((i\ !=\ 0)\ \&\&\ (i\ \%\ 16\ ==\ 15))}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ puts\ (\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00040}00040\ \ \ puts\ (\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00041}00041\ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00043}\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{00043}}\ \textcolor{preprocessor}{\#define\ BYTES\_TO\_READ\ 32}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00049}00049\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00050}\mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{00050}}\ \mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{print\_some\_data\_from\_file}}\ (FILE\ *fptr)}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00052}00052\ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ buffer[\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}}];}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00053}00053\ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read\ =\ fread\ (buffer,\ \textcolor{keyword}{sizeof}\ (buffer[0]),\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}},\ fptr);}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00054}00054\ \ \ \textcolor{keywordflow}{if}\ (bytes\_read\ !=\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}})}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00055}00055\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00056}00056\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (bytes\_read,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00057}00057\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00060}00060\ \ \ \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\_hex\_data}}\ (buffer,\ \mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}});}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00061}00061\ \ \ fseek\ (fptr,\ -\/\mbox{\hyperlink{log_8c_a41e9ced92689f94ffc427d5e2e658382}{BYTES\_TO\_READ}},\ SEEK\_CUR);}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00062}00062\ \}}
 
 \end{DoxyCode}
