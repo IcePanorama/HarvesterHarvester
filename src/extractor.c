@@ -1,3 +1,16 @@
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "extractor.h"
 #include "data_reader.h"
 #include "errors.h"
@@ -24,7 +37,7 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
        *  Just use the default/existing filename.
        *  It'll be incorrect, but probably not worth stoping execution over.
        *  Users could just manually remove the `;1` part; the data itself
-       * should be fine.
+       *  should be fine.
        */
       actual_filename = dr->file_identifier;
     }
@@ -73,7 +86,7 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
 }
 
 int8_t
-extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
+extract_directory (FILE *fptr, const uint16_t block_size, const char *path)
 {
   directory dir;
   create_directory (&dir);
@@ -97,7 +110,7 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
           continue;
         }
 
-      fseek (fptr, curr_file.location_of_extent * BLOCK_SIZE, SEEK_SET);
+      fseek (fptr, curr_file.location_of_extent * block_size, SEEK_SET);
 
       if (extract_file (fptr, &curr_file, path) != 0)
         {
@@ -112,7 +125,7 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
 
 int8_t
 create_directories_and_extract_data_from_path_file (FILE *fptr,
-                                                    uint16_t BLOCK_SIZE,
+                                                    uint16_t block_size,
                                                     path_table *pt)
 {
   for (size_t i = pt->current_entry - 1; i > 0; --i)
@@ -155,9 +168,9 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       if (create_output_directory (path) != 0)
         return -1;
 
-      fseek (fptr, BLOCK_SIZE * target_dir.location_of_extent, SEEK_SET);
+      fseek (fptr, block_size * target_dir.location_of_extent, SEEK_SET);
 
-      if (extract_directory (fptr, BLOCK_SIZE, path) != 0)
+      if (extract_directory (fptr, block_size, path) != 0)
         return -1;
 
       free (path);

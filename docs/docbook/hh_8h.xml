@@ -85,7 +85,7 @@ Parameters</title>
 
 <para><link linkend="_path__table_8c_1a74af82c548f791d3b0919eeebbf078d4">process_type_l_path_table()</link> </para>
 
-<para><link linkend="_extractor_8c_1a83bd0d1558bff60ba2a613868c6a138f">extract_directory()</link> </para>
+<para><link linkend="_extractor_8c_1a4727cdfccac62ddc325d2ed70eddf467">extract_directory()</link> </para>
 </formalpara>
 <formalpara><title>Returns</title>
 

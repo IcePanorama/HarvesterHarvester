@@ -143,7 +143,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_hh_8c_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
 <anchor xml:id="_hh_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_hh_8c_source_1l00141"/>00141 
-<anchor xml:id="_hh_8c_source_1l00142"/>00142 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_extractor_8c_1a23d43cef2b603ff0e5c51b5f90383171">create_directories_and_extract_data_from_path_file</link>&#32;(fptr,&#32;block_size_be,
+<anchor xml:id="_hh_8c_source_1l00142"/>00142 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_extractor_8c_1ad53840f52d541af8bc89a7e6c86e29eb">create_directories_and_extract_data_from_path_file</link>&#32;(fptr,&#32;block_size_be,
 <anchor xml:id="_hh_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&amp;pt)
 <anchor xml:id="_hh_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;!=&#32;0)
 <anchor xml:id="_hh_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;{
@@ -168,7 +168,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_hh_8c_source_1l00164"/>00164 &#32;&#32;strcat&#32;(path,&#32;<emphasis role="stringliteral">&quot;/&quot;</emphasis>);
 <anchor xml:id="_hh_8c_source_1l00165"/>00165 &#32;&#32;strcat&#32;(path,&#32;<link linkend="_options_8c_1ab0a46ab2ce382e77c8384eec4f447007">OP_CURRENT_DISK_NAME</link>);
 <anchor xml:id="_hh_8c_source_1l00166"/>00166 
-<anchor xml:id="_hh_8c_source_1l00167"/>00167 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_extractor_8c_1a83bd0d1558bff60ba2a613868c6a138f">extract_directory</link>&#32;(fptr,&#32;block_size_be,&#32;path)&#32;!=&#32;0)
+<anchor xml:id="_hh_8c_source_1l00167"/>00167 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_extractor_8c_1a4727cdfccac62ddc325d2ed70eddf467">extract_directory</link>&#32;(fptr,&#32;block_size_be,&#32;path)&#32;!=&#32;0)
 <anchor xml:id="_hh_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;{
 <anchor xml:id="_hh_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;free&#32;(path);
 <anchor xml:id="_hh_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_path__table_8c_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</link>&#32;(&amp;pt);
