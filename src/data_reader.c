@@ -31,7 +31,8 @@ read_both_endian_data_uint32 (FILE *fptr, uint32_t *output)
 uint16_t
 read_both_endian_data_uint16 (FILE *fptr)
 {
-  uint16_t value = read_little_endian_data_uint16_t (fptr);
+  uint16_t value;
+  read_little_endian_data_uint16_t (fptr, &value);
   uint16_t expected_value = read_big_endian_data_uint16_t (fptr);
 
   if (value != expected_value)
@@ -76,16 +77,19 @@ read_big_endian_data_uint32_t (FILE *fptr)
          | ((uint32_t)bytes[2] << 8) | (uint32_t)bytes[3];
 }
 
-uint16_t
-read_little_endian_data_uint16_t (FILE *fptr)
+int8_t
+read_little_endian_data_uint16_t (FILE *fptr, uint16_t *output)
 {
   uint8_t bytes[2];
   size_t bytes_read = fread (bytes, sizeof (uint8_t), 2, fptr);
   if (bytes_read != 2)
     {
       handle_fread_error (bytes_read, sizeof (bytes));
+      return HH_FREAD_ERROR;
     }
-  return ((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1];
+
+  *output = ((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1];
+  return 0;
 }
 
 uint16_t

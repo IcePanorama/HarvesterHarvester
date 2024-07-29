@@ -304,18 +304,10 @@ process_new_dat_files (void)
   strcat (interior_dat_file_path, "INDEX.001");
 
   FILE *fptr = NULL;
-  if (setup_extractor (&fptr, interior_dat_file_path) == HH_FOPEN_ERROR)
+  if (setup_extractor (&fptr, interior_dat_file_path) != 0)
     {
       free (interior_dat_file_path);
-      return -1;
-    }
-
-  if (fptr == NULL)
-    {
-      fprintf (stderr, "ERROR: unable to locate index file, %s.\n",
-               interior_dat_file_path);
-      free (interior_dat_file_path);
-      exit (1);
+      return HH_FOPEN_ERROR;
     }
 
   index_file idx_file;

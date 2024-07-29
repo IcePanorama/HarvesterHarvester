@@ -114,43 +114,37 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
 
   do
     {
-      path_table_entry curr_entry;
-      curr_entry.directory_identifier_length = dir_identifier_length;
+      path_table_entry curr;
+      curr.directory_identifier_length = dir_identifier_length;
 
-      if (curr_entry.directory_identifier_length != 1)
-        curr_entry.directory_identifier_length += 1;
+      if (curr.directory_identifier_length != 1)
+        curr.directory_identifier_length += 1;
 
-      if ((read_single_uint8 (fptr,
-                              &curr_entry.extended_attribute_record_length)
-           != 0)
-          || (read_little_endian_data_uint32_t (fptr,
-                                                &curr_entry.location_of_extent)
-              != 0))
+      /* clang-format off */
+      if ((read_single_uint8 (fptr, &curr.extended_attribute_record_length) != 0)
+          || (read_little_endian_data_uint32_t (fptr, &curr.location_of_extent) != 0)
+          || (read_little_endian_data_uint16_t (fptr, &curr.parent_directory_number)) != 0)
         {
           return HH_FREAD_ERROR;
         }
+      /* clang-format on */
 
-      curr_entry.parent_directory_number
-          = read_little_endian_data_uint16_t (fptr);
+      curr.directory_identifier
+          = (char *)calloc (curr.directory_identifier_length, sizeof (char));
 
-      curr_entry.directory_identifier = (char *)calloc (
-          curr_entry.directory_identifier_length, sizeof (char));
-
-      if (curr_entry.directory_identifier_length != 1)
+      if (curr.directory_identifier_length != 1)
         {
           size_t bytes_read
-              = fread (curr_entry.directory_identifier, sizeof (char),
-                       curr_entry.directory_identifier_length - 1, fptr);
-          curr_entry
-              .directory_identifier[curr_entry.directory_identifier_length - 1]
+              = fread (curr.directory_identifier, sizeof (char),
+                       curr.directory_identifier_length - 1, fptr);
+          curr.directory_identifier[curr.directory_identifier_length - 1]
               = '\0';
           if (bytes_read
-              != sizeof (char) * (curr_entry.directory_identifier_length - 1))
+              != sizeof (char) * (curr.directory_identifier_length - 1))
             {
               handle_fread_error (
                   bytes_read,
-                  sizeof (char)
-                      * (curr_entry.directory_identifier_length - 1));
+                  sizeof (char) * (curr.directory_identifier_length - 1));
               return HH_FREAD_ERROR;
             }
         }
@@ -159,7 +153,7 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
           fseek (fptr, 1, SEEK_CUR);
         }
 
-      add_entry_to_path_table (pt, &curr_entry);
+      add_entry_to_path_table (pt, &curr);
 
       if (read_single_uint8 (fptr, &dir_identifier_length) != 0)
         return HH_FREAD_ERROR;

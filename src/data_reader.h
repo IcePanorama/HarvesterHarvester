@@ -15,14 +15,14 @@ int8_t read_little_endian_data_uint32_t (FILE *fptr, uint32_t *output);
  *  checking that the first matches the second. This is almost certainly
  *  unnecessary, but it makes me feel better :).
  *
+ *  FIXME: incorrect, need to rewrite
  *  @param  fptr  pointer to data to be read.
  *  @return uint32_t containing the read data.
  *  @see read_both_endian_data_unint16()
- *  FIXME: incorrect, need to rewrite
  */
 int8_t read_both_endian_data_uint32 (FILE *fptr, uint32_t *output);
 
-uint16_t read_little_endian_data_uint16_t (FILE *fptr);
+int8_t read_little_endian_data_uint16_t (FILE *fptr, uint16_t *output);
 
 /**
  *  When data in a given file is presented first in little endian form and then
