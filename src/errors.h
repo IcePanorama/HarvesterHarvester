@@ -14,6 +14,7 @@ typedef enum HH_ERRORS
 } HH_ERRORS;
 
 extern const char *CALLOC_FAILED_ERR_MSG_FMT;
+extern const char *FOPEN_FAILED_ERR_MSG_FMT;
 
 /** Throws an improper usage error. */
 void improper_usage_error (void);

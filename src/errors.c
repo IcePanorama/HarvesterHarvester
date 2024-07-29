@@ -5,6 +5,8 @@
 
 const char *CALLOC_FAILED_ERR_MSG_FMT
     = "ERROR: unable to calloc string of size %ld.\n";
+const char *FOPEN_FAILED_ERR_MSG_FMT
+    = "ERROR: unable to open output file, %s\n.";
 
 void
 improper_usage_error (void)

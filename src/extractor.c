@@ -37,8 +37,8 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
   char *output_filename = (char *)calloc (filename_length, sizeof (char));
   if (output_filename == NULL)
     {
-      perror ("ERROR: unable to calloc `output_filename`.");
-      return -1;
+      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, filename_length);
+      return HH_MEM_ALLOC_ERROR;
     }
 
   strcpy (output_filename, path);
@@ -48,9 +48,9 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
   FILE *output_file = fopen (output_filename, "wb");
   if (output_file == NULL)
     {
-      perror ("ERROR: unable to open output file.");
+      fprintf (stderr, FOPEN_FAILED_ERR_MSG_FMT, output_filename);
       free (output_filename);
-      return -1;
+      return HH_FOPEN_ERROR;
     }
 
   // `j` must be in hex, otherwise `data_length` can be treated as an int value
@@ -69,7 +69,6 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
 
   fclose (output_file);
   free (output_filename);
-
   return 0;
 }
 
@@ -158,7 +157,8 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 
       fseek (fptr, BLOCK_SIZE * target_dir.location_of_extent, SEEK_SET);
 
-      extract_directory (fptr, BLOCK_SIZE, path);
+      if (extract_directory (fptr, BLOCK_SIZE, path) != 0)
+        return -1;
 
       free (path);
     }

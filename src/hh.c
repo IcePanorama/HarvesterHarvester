@@ -116,12 +116,11 @@ process_DAT_file (FILE *fptr)
   // TODO: print the volume descriptor header/data to some file/log.
 
   // logical block size, in big endian form
-  const uint16_t LOGICAL_BLOCK_SIZE_BE
+  const uint16_t block_size_be
       = change_endianness_uint16 (vd.data.logical_block_size);
 
   // move to beginning of type-l path table
-  fseek (fptr, LOGICAL_BLOCK_SIZE_BE * vd.data.type_l_path_table_location,
-         SEEK_SET);
+  fseek (fptr, block_size_be * vd.data.type_l_path_table_location, SEEK_SET);
 
   path_table pt;
   if (create_path_table (&pt) != 0)
@@ -133,17 +132,23 @@ process_DAT_file (FILE *fptr)
       return -1;
     }
 
-  create_directories_and_extract_data_from_path_file (
-      fptr, LOGICAL_BLOCK_SIZE_BE, &pt);
+  if (create_directories_and_extract_data_from_path_file (fptr, block_size_be,
+                                                          &pt)
+      != 0)
+    {
+      destroy_path_table (&pt);
+      return -1;
+    }
 
   // handle root directory
-  fseek (fptr, LOGICAL_BLOCK_SIZE_BE * pt.entries[0].location_of_extent,
-         SEEK_SET);
+  fseek (fptr, block_size_be * pt.entries[0].location_of_extent, SEEK_SET);
 
   char *path = calloc (strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2,
                        sizeof (char));
   if (path == NULL)
     {
+      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,
+               strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2);
       destroy_path_table (&pt);
       return -1;
     }
@@ -151,7 +156,13 @@ process_DAT_file (FILE *fptr)
   strcpy (path, OP_OUTPUT_DIR);
   strcat (path, "/");
   strcat (path, OP_CURRENT_DISK_NAME);
-  extract_directory (fptr, LOGICAL_BLOCK_SIZE_BE, path);
+
+  if (extract_directory (fptr, block_size_be, path) != 0)
+    {
+      free (path);
+      destroy_path_table (&pt);
+      return -1;
+    }
 
   free (path);
   destroy_path_table (&pt);
