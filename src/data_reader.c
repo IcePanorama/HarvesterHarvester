@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-static uint32_t read_big_endian_data_uint32_t (FILE *fptr);
+static int8_t read_big_endian_data_uint32_t (FILE *fptr, uint32_t *output);
 static int8_t read_big_endian_data_uint16_t (FILE *fptr, uint16_t *output);
 
 int8_t
@@ -15,7 +15,8 @@ read_both_endian_data_uint32 (FILE *fptr, uint32_t *output)
   if (read_little_endian_data_uint32_t (fptr, &value) != 0)
     return HH_FREAD_ERROR;
 
-  uint32_t expected_value = read_big_endian_data_uint32_t (fptr);
+  uint32_t expected_value;
+  read_big_endian_data_uint32_t (fptr, &expected_value);
 
   if (value != expected_value)
     {
@@ -67,18 +68,20 @@ read_little_endian_data_uint32_t (FILE *fptr, uint32_t *output)
   return 0;
 }
 
-uint32_t
-read_big_endian_data_uint32_t (FILE *fptr)
+int8_t
+read_big_endian_data_uint32_t (FILE *fptr, uint32_t *output)
 {
   uint8_t bytes[4];
   size_t bytes_read = fread (bytes, sizeof (uint8_t), 4, fptr);
   if (bytes_read != 4)
     {
       handle_fread_error (bytes_read, sizeof (bytes));
+      return HH_FREAD_ERROR;
     }
 
-  return ((uint32_t)bytes[0] << 24) | ((uint32_t)bytes[1] << 16)
-         | ((uint32_t)bytes[2] << 8) | (uint32_t)bytes[3];
+  *output = ((uint32_t)bytes[0] << 24) | ((uint32_t)bytes[1] << 16)
+            | ((uint32_t)bytes[2] << 8) | (uint32_t)bytes[3];
+  return 0;
 }
 
 int8_t
