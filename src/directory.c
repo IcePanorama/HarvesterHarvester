@@ -1,16 +1,32 @@
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "directory.h"
 #include "data_reader.h"
 #include "errors.h"
-#include "utils.h"
 
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-static void resize_directory_records (directory *d);
-
 static const size_t DIR_STARTING_NUM_RECORDS = 10;
 static const size_t DIR_RECORDS_GROWTH_RATE = 2;
+
+/**
+ *  Expands the size of a given directory's `records` attribute by a factor of
+ *  `DIR_RECORDS_GROWTH_RATE`.
+ */
+static int8_t resize_directory_records (directory *d);
 
 int8_t
 create_directory (directory *d)
@@ -19,7 +35,7 @@ create_directory (directory *d)
   if (d->records == NULL)
     {
       perror ("ERROR: Failed to allocate memory for directory.");
-      return -1;
+      return HH_MEM_ALLOC_ERROR;
     }
 
   d->size = DIR_STARTING_NUM_RECORDS;
@@ -49,16 +65,18 @@ destroy_directory (directory *d)
   d->records = NULL;
 }
 
-void
+int8_t
 add_record_to_directory (directory *d, directory_record *r)
 {
   if (d->current_record >= d->size)
     {
-      resize_directory_records (d);
+      if (resize_directory_records (d) != 0)
+        return -1;
     }
 
   d->records[d->current_record] = *r;
   d->current_record++;
+  return 0;
 }
 
 void
@@ -78,7 +96,7 @@ print_directory_record (directory_record *r)
   printf ("File identifier: %s\n", r->file_identifier);
 }
 
-void
+int8_t
 resize_directory_records (directory *d)
 {
   size_t new_size = d->size * DIR_RECORDS_GROWTH_RATE;
@@ -88,7 +106,7 @@ resize_directory_records (directory *d)
     {
       perror ("ERROR: failed to reallocate memory for the directory records.");
       destroy_directory (d);
-      exit (1);
+      return -1;
     }
 
   d->records = new_records;
@@ -98,6 +116,7 @@ resize_directory_records (directory *d)
     }
 
   d->size = new_size;
+  return 0;
 }
 
 void
@@ -162,7 +181,10 @@ process_directory (FILE *fptr, directory *d)
           return HH_FREAD_ERROR;
         }
 
-      add_record_to_directory (d, &dr);
+      if (add_record_to_directory (d, &dr) != 0)
+        {
+          return HH_MEM_ALLOC_ERROR;
+        }
 
       if (dr.file_identifier_length % 2 != 0) // handle padding field
         fseek (fptr, 1, SEEK_CUR);

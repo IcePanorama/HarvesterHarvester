@@ -1,5 +1,22 @@
-#ifndef _DIRECTORY_H_
-#define _DIRECTORY_H_
+/**
+ *  directory - the `directory` and `directory_record` datatypes and their
+ *  associated functions.
+ */
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
+#ifndef _HH_DIRECTORY_H_
+#define _HH_DIRECTORY_H_
 
 #include "datetime.h"
 #include "file_flags.h"
@@ -8,7 +25,9 @@
 #include <stdlib.h>
 
 /**
- *  A directory record.
+ *  A directory record. It's perhaps easier to think of this as a `file`. It is
+ *  worth noting, however, that we don't differentiate betewen files and
+ *  subdirectories.
  *
  *  @see https://wiki.osdev.org/ISO_9660#Directories
  */
@@ -20,9 +39,10 @@ typedef struct directory_record
   uint32_t data_length;
   dir_datetime recording_datetime;
   file_flags file_flags;
-  uint8_t file_unit_size; //!< Only used by files recorded in interleaved mode
-  uint8_t
-      interleave_gap_size; //!< Only used by files recorded in interleaved mode
+  /** Only used by files recorded in interleaved mode */
+  uint8_t file_unit_size;
+  /** Only used by files recorded in interleaved mode */
+  uint8_t interleave_gap_size;
   uint16_t volume_sequence_number;
   uint8_t file_identifier_length;
   char *file_identifier;
@@ -41,44 +61,30 @@ typedef struct directory
 } directory;
 
 /**
- *  Initializes a directory with `DIR_STARTING_NUM_RECORDS` records.
- *
- *  @param  d a pointer to a directory
- *  @return zero on success, non-zero on failure.
- *
- *  @see destory_directory()
+ *  Initializes a directory. By default, a directory has
+ *  `DIR_STARTING_NUM_RECORDS` records.
  */
 int8_t create_directory (directory *d);
 
 /**
  *  Destroys all the directory records within a given directory before then
  *  destroying the directory itself.
- *
- *  @see create_directory()
  */
 void destroy_directory (directory *d);
 
 /**
  *  Adds a directory record to the given directory, adjusting the size
  *  of said directory's array of records as needed.
- *
- *  @param  d the directory to which the given record should be added.
- *  @param  r the record to add to the aforementioned directory.
  */
-void add_record_to_directory (directory *d, directory_record *r);
+int8_t add_record_to_directory (directory *d, directory_record *r);
 
 /**
  *  Prints a given directory to stdout in a human-readable form.
- *
- *  @param  d the directory to be printed.
- *  @see print_directory_record()
  */
 void print_directory (directory *d);
 
 /**
  *  Prints a given directory record to the stdout in a human-readable form.
- *
- *  @param  r the directory record to be printed.
  */
 void print_directory_record (directory_record *r);
 
@@ -86,11 +92,6 @@ void print_directory_record (directory_record *r);
  *  Creates directory records for every sub-directory and file in a given
  *  directory, filling out each data field of said record using the data found
  *  in the file pointed to by `fptr`.
- *
- *  @param  fptr  pointer to the file containing directory data.
- *  @param  d     the directory to which the directory records should be added.
- *  @see  directory
- *  @see  directory_record
  */
 int8_t process_directory (FILE *fptr, directory *d);
 
