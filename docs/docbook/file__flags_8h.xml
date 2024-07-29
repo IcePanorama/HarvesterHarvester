@@ -2,12 +2,12 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_file__flags_8h" xml:lang="en-US">
 <title>src/file_flags.h File Reference</title>
 <indexterm><primary>src/file_flags.h</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Data Structures    </title>
         <itemizedlist>
             <listitem><para>struct <link linkend="_structfile__flags">file_flags</link></para>
 
-<para>The file flags for a directory record. </para>
+<para><link linkend="_file__flags_8h">file_flags.h</link> - <link linkend="_structfile__flags">file_flags</link> data type and its associated functions. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -16,7 +16,7 @@
         <itemizedlist>
             <listitem><para><link linkend="_structfile__flags">file_flags</link> <link linkend="_file__flags_8h_1aacfa73039d80ff8aafa6b5cc1d8c54b5">create_file_flags</link> (void)</para>
 
-<para>Creates an instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput>, initializing all values to their defaults. </para>
+<para>Creates an instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput>, initializing all values to false. </para>
 </listitem>
             <listitem><para>void <link linkend="_file__flags_8h_1acac0358f9c6ab59a1d9913afb02f4f21">print_file_flags</link> (<link linkend="_structfile__flags">file_flags</link> *ff)</para>
 
@@ -32,20 +32,10 @@
 <indexterm><primary>file_flags.h</primary><secondary>create_file_flags</secondary></indexterm>
 <para><computeroutput><link linkend="_structfile__flags">file_flags</link> create_file_flags (void )</computeroutput></para><para>
 
-<para>Creates an instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput>, initializing all values to their defaults. </para>
-</para>
-
-<para><formalpara><title>Returns</title>
-
-<para>initialized <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput> instance. </para>
-</formalpara>
-<formalpara><title>See also</title>
-
-<para><link linkend="_structfile__flags">file_flags</link> </para>
-</formalpara>
+<para>Creates an instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput>, initializing all values to false. </para>
 </para>
 <para>
-Definition at line <link linkend="_file__flags_8c_source_1l00006">6</link> of file <link linkend="_file__flags_8c_source">file_flags.c</link>.</para>
+Definition at line <link linkend="_file__flags_8c_source_1l00019">19</link> of file <link linkend="_file__flags_8c_source">file_flags.c</link>.</para>
 </section>
 <anchor xml:id="_file__flags_8h_1acac0358f9c6ab59a1d9913afb02f4f21"/><section>
     <title>print_file_flags()</title>
@@ -55,34 +45,8 @@ Definition at line <link linkend="_file__flags_8c_source_1l00006">6</link> of fi
 
 <para>Outputs a given instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput> to stdout in a human-readable form. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>ff</entry><entry>
-<para>the instance of <computeroutput><link linkend="_structfile__flags">file_flags</link></computeroutput> to be printed. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structfile__flags">file_flags</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_file__flags_8c_source_1l00018">18</link> of file <link linkend="_file__flags_8c_source">file_flags.c</link>.</para>
+Definition at line <link linkend="_file__flags_8c_source_1l00031">31</link> of file <link linkend="_file__flags_8c_source">file_flags.c</link>.</para>
 </section>
 </section>
 </section>

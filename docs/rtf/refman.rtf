@@ -298,7 +298,7 @@ A collection of directory records which together make a single directory })} \ta
 Directory - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJX \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b file_flags} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The file flags for a directory record })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKJ \\*MERGEFORMAT}{\fldrslt pagenum}}
+File_flags.h - {\b file_flags} data type and its associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKJ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b index_entry} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKP \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
@@ -779,7 +779,7 @@ A collection of directory records which together make a single directory. \par
 See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b directory_record} \par
 }}}{
-Definition at line {\b 59} of file {\b directory.h}.}\par
+Definition at line {\b 60} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -800,7 +800,7 @@ size_t directory::current_record}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 last record in {\f2 records} . }}\par
 {
-Definition at line {\b 63} of file {\b directory.h}.}\par
+Definition at line {\b 64} of file {\b directory.h}.}\par
 }
 {\xe \v records\:directory}
 {\xe \v directory\:records}
@@ -814,7 +814,7 @@ Definition at line {\b 63} of file {\b directory.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 61} of file {\b directory.h}.}\par
+Definition at line {\b 62} of file {\b directory.h}.}\par
 }
 {\xe \v size\:directory}
 {\xe \v directory\:size}
@@ -831,7 +831,7 @@ size_t directory::size}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 the max capacity of {\f2 records} . }}\par
 {
-Definition at line {\b 62} of file {\b directory.h}.}\par
+Definition at line {\b 63} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -906,7 +906,7 @@ All functions, except those with a return value of void, return zero on success 
 See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\f2 https://wiki.osdev.org/ISO_9660#Directories} \par
 }}}{
-Definition at line {\b 37} of file {\b directory.h}.}\par
+Definition at line {\b 38} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -924,7 +924,7 @@ uint32_t directory_record::data_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 42} of file {\b directory.h}.}\par
+Definition at line {\b 43} of file {\b directory.h}.}\par
 }
 {\xe \v extended_attribute_record_length\:directory_record}
 {\xe \v directory_record\:extended_attribute_record_length}
@@ -938,7 +938,7 @@ uint8_t directory_record::extended_attribute_record_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 40} of file {\b directory.h}.}\par
+Definition at line {\b 41} of file {\b directory.h}.}\par
 }
 {\xe \v file_flags\:directory_record}
 {\xe \v directory_record\:file_flags}
@@ -952,7 +952,7 @@ Definition at line {\b 40} of file {\b directory.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 44} of file {\b directory.h}.}\par
+Definition at line {\b 45} of file {\b directory.h}.}\par
 }
 {\xe \v file_identifier\:directory_record}
 {\xe \v directory_record\:file_identifier}
@@ -966,7 +966,7 @@ char* directory_record::file_identifier}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 51} of file {\b directory.h}.}\par
+Definition at line {\b 52} of file {\b directory.h}.}\par
 }
 {\xe \v file_identifier_length\:directory_record}
 {\xe \v directory_record\:file_identifier_length}
@@ -980,7 +980,7 @@ uint8_t directory_record::file_identifier_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 50} of file {\b directory.h}.}\par
+Definition at line {\b 51} of file {\b directory.h}.}\par
 }
 {\xe \v file_unit_size\:directory_record}
 {\xe \v directory_record\:file_unit_size}
@@ -997,7 +997,7 @@ uint8_t directory_record::file_unit_size}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Only used by files recorded in interleaved mode. }}\par
 {
-Definition at line {\b 46} of file {\b directory.h}.}\par
+Definition at line {\b 47} of file {\b directory.h}.}\par
 }
 {\xe \v interleave_gap_size\:directory_record}
 {\xe \v directory_record\:interleave_gap_size}
@@ -1014,7 +1014,7 @@ uint8_t directory_record::interleave_gap_size}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Only used by files recorded in interleaved mode. }}\par
 {
-Definition at line {\b 48} of file {\b directory.h}.}\par
+Definition at line {\b 49} of file {\b directory.h}.}\par
 }
 {\xe \v location_of_extent\:directory_record}
 {\xe \v directory_record\:location_of_extent}
@@ -1028,7 +1028,7 @@ uint32_t directory_record::location_of_extent}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 41} of file {\b directory.h}.}\par
+Definition at line {\b 42} of file {\b directory.h}.}\par
 }
 {\xe \v record_length\:directory_record}
 {\xe \v directory_record\:record_length}
@@ -1042,7 +1042,7 @@ uint8_t directory_record::record_length}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 39} of file {\b directory.h}.}\par
+Definition at line {\b 40} of file {\b directory.h}.}\par
 }
 {\xe \v recording_datetime\:directory_record}
 {\xe \v directory_record\:recording_datetime}
@@ -1056,7 +1056,7 @@ Definition at line {\b 39} of file {\b directory.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 43} of file {\b directory.h}.}\par
+Definition at line {\b 44} of file {\b directory.h}.}\par
 }
 {\xe \v volume_sequence_number\:directory_record}
 {\xe \v directory_record\:volume_sequence_number}
@@ -1070,7 +1070,7 @@ uint16_t directory_record::volume_sequence_number}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 49} of file {\b directory.h}.}\par
+Definition at line {\b 50} of file {\b directory.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -1089,7 +1089,7 @@ file_flags Struct Reference\par \pard\plain
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The file flags for a directory record. }}\par
+{\b file_flags.h} - {\b file_flags} data type and its associated functions. }}\par
 {
 {\f2 #include <file_flags.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1124,17 +1124,17 @@ Detailed Description\par
 \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The file flags for a directory record. \par
+{\b file_flags.h} - {\b file_flags} data type and its associated functions. \par
 }
 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-\par
+The file flags for a directory record.\par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
 See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\f2 https://wiki.osdev.org/ISO_9660#Directories} \par
 {\b directory_record} \par
 }}}{
-Definition at line {\b 14} of file {\b file_flags.h}.}\par
+Definition at line {\b 27} of file {\b file_flags.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1155,7 +1155,7 @@ bool file_flags::associated_file}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 No clue what this means. }}\par
 {
-Definition at line {\b 18} of file {\b file_flags.h}.}\par
+Definition at line {\b 31} of file {\b file_flags.h}.}\par
 }
 {\xe \v extended_attribute_record_contains_owner_and_group_permissions\:file_flags}
 {\xe \v file_flags\:extended_attribute_record_contains_owner_and_group_permissions}
@@ -1169,7 +1169,7 @@ bool file_flags::extended_attribute_record_contains_owner_and_group_permissions}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 19} of file {\b file_flags.h}.}\par
+Definition at line {\b 32} of file {\b file_flags.h}.}\par
 }
 {\xe \v final_directory_record\:file_flags}
 {\xe \v file_flags\:final_directory_record}
@@ -1186,7 +1186,7 @@ bool file_flags::final_directory_record}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 If false, this directory record is not the file's final resting place; the file spans over multiple extents. }}\par
 {
-Definition at line {\b 24} of file {\b file_flags.h}.}\par
+Definition at line {\b 37} of file {\b file_flags.h}.}\par
 }
 {\xe \v hidden\:file_flags}
 {\xe \v file_flags\:hidden}
@@ -1200,7 +1200,7 @@ bool file_flags::hidden}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 16} of file {\b file_flags.h}.}\par
+Definition at line {\b 29} of file {\b file_flags.h}.}\par
 }
 {\xe \v subdirectory\:file_flags}
 {\xe \v file_flags\:subdirectory}
@@ -1214,7 +1214,7 @@ bool file_flags::subdirectory}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 17} of file {\b file_flags.h}.}\par
+Definition at line {\b 30} of file {\b file_flags.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -4087,6 +4087,7 @@ src/directory.h File Reference\par \pard\plain
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "datetime.h"}\par
 {\f2 #include "file_flags.h"}\par
 {\f2 #include <stdint.h>}\par
+{\f2 #include <stdio.h>}\par
 {\f2 #include <stdlib.h>}\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -4293,43 +4294,44 @@ Go to the documentation of this file.\par
 00025 {\cf21 #include "file_flags.h"}\par
 00026 \par
 00027 {\cf21 #include <stdint.h>}\par
-00028 {\cf21 #include <stdlib.h>}\par
-00029 \par
-00037 {\cf17 typedef} {\cf17 struct }directory_record\par
-00038 \{\par
-00039   uint8_t record_length;\par
-00040   uint8_t extended_attribute_record_length;\par
-00041   uint32_t location_of_extent;\par
-00042   uint32_t data_length;\par
-00043   dir_datetime recording_datetime;\par
-00044   file_flags file_flags;\par
-00046   uint8_t file_unit_size;\par
-00048   uint8_t interleave_gap_size;\par
-00049   uint16_t volume_sequence_number;\par
-00050   uint8_t file_identifier_length;\par
-00051   {\cf18 char} *file_identifier;\par
-00052 \} directory_record;\par
-00053 \par
-00059 {\cf17 typedef} {\cf17 struct }directory\par
-00060 \{\par
-00061   directory_record *records;\par
-00062   {\cf18 size_t} size;           \par
-00063   {\cf18 size_t} current_record; \par
-00064 \} directory;\par
-00065 \par
-00070 int8_t create_directory (directory *d);\par
-00071 \par
-00076 {\cf18 void} destroy_directory (directory *d);\par
-00077 \par
-00082 int8_t add_record_to_directory (directory *d, directory_record *r);\par
-00083 \par
-00087 {\cf18 void} print_directory (directory *d);\par
-00088 \par
-00092 {\cf18 void} print_directory_record (directory_record *r);\par
-00093 \par
-00099 int8_t process_directory (FILE *fptr, directory *d);\par
-00100 \par
-00101 {\cf21 #endif}\par
+00028 {\cf21 #include <stdio.h>}\par
+00029 {\cf21 #include <stdlib.h>}\par
+00030 \par
+00038 {\cf17 typedef} {\cf17 struct }directory_record\par
+00039 \{\par
+00040   uint8_t record_length;\par
+00041   uint8_t extended_attribute_record_length;\par
+00042   uint32_t location_of_extent;\par
+00043   uint32_t data_length;\par
+00044   dir_datetime recording_datetime;\par
+00045   file_flags file_flags;\par
+00047   uint8_t file_unit_size;\par
+00049   uint8_t interleave_gap_size;\par
+00050   uint16_t volume_sequence_number;\par
+00051   uint8_t file_identifier_length;\par
+00052   {\cf18 char} *file_identifier;\par
+00053 \} directory_record;\par
+00054 \par
+00060 {\cf17 typedef} {\cf17 struct }directory\par
+00061 \{\par
+00062   directory_record *records;\par
+00063   {\cf18 size_t} size;           \par
+00064   {\cf18 size_t} current_record; \par
+00065 \} directory;\par
+00066 \par
+00071 int8_t create_directory (directory *d);\par
+00072 \par
+00077 {\cf18 void} destroy_directory (directory *d);\par
+00078 \par
+00083 int8_t add_record_to_directory (directory *d, directory_record *r);\par
+00084 \par
+00088 {\cf18 void} print_directory (directory *d);\par
+00089 \par
+00093 {\cf18 void} print_directory_record (directory_record *r);\par
+00094 \par
+00100 int8_t process_directory (FILE *fptr, directory *d);\par
+00101 \par
+00102 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
@@ -5381,7 +5383,7 @@ Functions\par
 {\b file_flags} {\b create_file_flags} (void)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }{
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to false. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -5409,17 +5411,9 @@ Function Documentation\par
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-initialized {\f2 {\b file_flags}}  instance. \par
-}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b file_flags} \par
-}}}{
-Definition at line {\b 6} of file {\b file_flags.c}.}\par
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to false. }}\par
+{
+Definition at line {\b 19} of file {\b file_flags.c}.}\par
 }
 {\xe \v print_file_flags\:file_flags.c}
 {\xe \v file_flags.c\:print_file_flags}
@@ -5435,22 +5429,8 @@ void print_file_flags ({\b file_flags} * ff)}}
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Outputs a given instance of {\f2 {\b file_flags}}  to stdout in a human-readable form. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i ff} \cell }{the instance of {\f2 {\b file_flags}}  to be printed. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b file_flags} \par
-}}}{
-Definition at line {\b 18} of file {\b file_flags.c}.}\par
+{
+Definition at line {\b 31} of file {\b file_flags.c}.}\par
 }
 \par \pard\plain 
 
@@ -5465,33 +5445,46 @@ file_flags.c\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #include "file_flags.h"}\par
-00002 \par
-00003 {\cf21 #include <stdio.h>}\par
-00004 \par
-00005 file_flags\par
-00006 create_file_flags ({\cf18 void})\par
-00007 \{\par
-00008   file_flags ff;\par
-00009   ff.hidden = {\cf17 false};\par
-00010   ff.subdirectory = {\cf17 false};\par
-00011   ff.associated_file = {\cf17 false};\par
-00012   ff.extended_attribute_record_contains_owner_and_group_permissions = {\cf17 false};\par
-00013   ff.final_directory_record = {\cf17 false};\par
-00014   {\cf19 return} ff;\par
-00015 \}\par
-00016 \par
-00017 {\cf18 void}\par
-00018 print_file_flags (file_flags *ff)\par
-00019 \{\par
-00020   printf ({\cf22 "\\tHidden: %d\\n"}, ff->hidden);\par
-00021   printf ({\cf22 "\\tSubdirectory: %d\\n"}, ff->subdirectory);\par
-00022   printf ({\cf22 "\\tAssociated file: %d\\n"}, ff->associated_file);\par
-00023   printf (\par
-00024       {\cf22 "\\tExtended attrib. record contains owner and group permissions: %d\\n"},\par
-00025       ff->extended_attribute_record_contains_owner_and_group_permissions);\par
-00026   printf ({\cf22 "\\tFinal directory record: %d\\n"}, ff->final_directory_record);\par
-00027 \}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00014 {\cf21 #include "file_flags.h"}\par
+00015 \par
+00016 {\cf21 #include <stdio.h>}\par
+00017 \par
+00018 file_flags\par
+00019 create_file_flags ({\cf18 void})\par
+00020 \{\par
+00021   file_flags ff;\par
+00022   ff.hidden = {\cf17 false};\par
+00023   ff.subdirectory = {\cf17 false};\par
+00024   ff.associated_file = {\cf17 false};\par
+00025   ff.extended_attribute_record_contains_owner_and_group_permissions = {\cf17 false};\par
+00026   ff.final_directory_record = {\cf17 false};\par
+00027   {\cf19 return} ff;\par
+00028 \}\par
+00029 \par
+00030 {\cf18 void}\par
+00031 print_file_flags (file_flags *ff)\par
+00032 \{\par
+00033   printf ({\cf22 "\\tHidden: %d\\n"}, ff->hidden);\par
+00034   printf ({\cf22 "\\tSubdirectory: %d\\n"}, ff->subdirectory);\par
+00035   printf ({\cf22 "\\tAssociated file: %d\\n"}, ff->associated_file);\par
+00036   printf (\par
+00037       {\cf22 "\\tExtended attrib. record contains owner and group permissions: %d\\n"},\par
+00038       ff->extended_attribute_record_contains_owner_and_group_permissions);\par
+00039   printf ({\cf22 "\\tFinal directory record: %d\\n"}, ff->final_directory_record);\par
+00040 \}\par
 }
 \par \pard\plain 
 
@@ -5506,7 +5499,6 @@ src/file_flags.h File Reference\par \pard\plain
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdbool.h>}\par
 {\f2 #include <stdint.h>}\par
-{\f2 #include <stdio.h>}\par
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Data Structures\par
@@ -5516,7 +5508,7 @@ Data Structures\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 struct {\b file_flags}{
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The file flags for a directory record. }}\par}
+{\b file_flags.h} - {\b file_flags} data type and its associated functions. }}\par}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Functions\par
@@ -5527,7 +5519,7 @@ Functions\par
 {\b file_flags} {\b create_file_flags} (void)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }{
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to false. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -5555,17 +5547,9 @@ Function Documentation\par
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Creates an instance of {\f2 {\b file_flags}} , initializing all values to their defaults. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-initialized {\f2 {\b file_flags}}  instance. \par
-}}{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b file_flags} \par
-}}}{
-Definition at line {\b 6} of file {\b file_flags.c}.}\par
+Creates an instance of {\f2 {\b file_flags}} , initializing all values to false. }}\par
+{
+Definition at line {\b 19} of file {\b file_flags.c}.}\par
 }
 {\xe \v print_file_flags\:file_flags.h}
 {\xe \v file_flags.h\:print_file_flags}
@@ -5581,22 +5565,8 @@ void print_file_flags ({\b file_flags} * ff)}}
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Outputs a given instance of {\f2 {\b file_flags}}  to stdout in a human-readable form. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i ff} \cell }{the instance of {\f2 {\b file_flags}}  to be printed. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b file_flags} \par
-}}}{
-Definition at line {\b 18} of file {\b file_flags.c}.}\par
+{
+Definition at line {\b 31} of file {\b file_flags.c}.}\par
 }
 \par \pard\plain 
 
@@ -5611,27 +5581,40 @@ file_flags.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #ifndef _FILE_FLAGS_H_}\par
-00002 {\cf21 #define _FILE_FLAGS_H_}\par
-00003 \par
-00004 {\cf21 #include <stdbool.h>}\par
-00005 {\cf21 #include <stdint.h>}\par
-00006 {\cf21 #include <stdio.h>}\par
-00007 \par
-00014 {\cf17 typedef} {\cf17 struct }file_flags\par
-00015 \{\par
-00016   {\cf18 bool} hidden;\par
-00017   {\cf18 bool} subdirectory;\par
-00018   {\cf18 bool} associated_file; \par
-00019   {\cf18 bool} extended_attribute_record_contains_owner_and_group_permissions;\par
-00024   {\cf18 bool} final_directory_record;\par
-00025 \} file_flags;\par
-00026 \par
-00034 file_flags create_file_flags ({\cf18 void});\par
-00035 \par
-00043 {\cf18 void} print_file_flags (file_flags *ff);\par
-00044 \par
-00045 {\cf21 #endif}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
+00002 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00003 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00004 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00005 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00006 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00007 {\cf20 //  option) any later version.}\par
+00008 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00009 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00010 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00011 {\cf20 //  more details.}\par
+00012 {\cf20 //}\par
+00013 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00014 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00015 {\cf21 #ifndef _FILE_FLAGS_H_}\par
+00016 {\cf21 #define _FILE_FLAGS_H_}\par
+00017 \par
+00018 {\cf21 #include <stdbool.h>}\par
+00019 {\cf21 #include <stdint.h>}\par
+00020 \par
+00027 {\cf17 typedef} {\cf17 struct }file_flags\par
+00028 \{\par
+00029   {\cf18 bool} hidden;\par
+00030   {\cf18 bool} subdirectory;\par
+00031   {\cf18 bool} associated_file; \par
+00032   {\cf18 bool} extended_attribute_record_contains_owner_and_group_permissions;\par
+00037   {\cf18 bool} final_directory_record;\par
+00038 \} file_flags;\par
+00039 \par
+00041 file_flags create_file_flags ({\cf18 void});\par
+00042 \par
+00047 {\cf18 void} print_file_flags (file_flags *ff);\par
+00048 \par
+00049 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

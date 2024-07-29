@@ -105,23 +105,22 @@ $(function(){initNavTree('file__flags_8h.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
 </div>
 <p><a href="file__flags_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfile__flags.html">file_flags</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The file flags for a directory record.  <a href="structfile__flags.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="file__flags_8h.html">file_flags.h</a> - <a class="el" href="structfile__flags.html" title="file_flags.h - file_flags data type and its associated functions.">file_flags</a> data type and its associated functions.  <a href="structfile__flags.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aacfa73039d80ff8aafa6b5cc1d8c54b5" id="r_aacfa73039d80ff8aafa6b5cc1d8c54b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structfile__flags.html">file_flags</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacfa73039d80ff8aafa6b5cc1d8c54b5">create_file_flags</a> (void)</td></tr>
-<tr class="memdesc:aacfa73039d80ff8aafa6b5cc1d8c54b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of <code><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a></code>, initializing all values to their defaults.  <br /></td></tr>
+<tr class="memdesc:aacfa73039d80ff8aafa6b5cc1d8c54b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an instance of <code><a class="el" href="structfile__flags.html" title="file_flags.h - file_flags data type and its associated functions.">file_flags</a></code>, initializing all values to false.  <br /></td></tr>
 <tr class="separator:aacfa73039d80ff8aafa6b5cc1d8c54b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acac0358f9c6ab59a1d9913afb02f4f21" id="r_acac0358f9c6ab59a1d9913afb02f4f21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acac0358f9c6ab59a1d9913afb02f4f21">print_file_flags</a> (<a class="el" href="structfile__flags.html">file_flags</a> *ff)</td></tr>
-<tr class="memdesc:acac0358f9c6ab59a1d9913afb02f4f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs a given instance of <code><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a></code> to stdout in a human-readable form.  <br /></td></tr>
+<tr class="memdesc:acac0358f9c6ab59a1d9913afb02f4f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs a given instance of <code><a class="el" href="structfile__flags.html" title="file_flags.h - file_flags data type and its associated functions.">file_flags</a></code> to stdout in a human-readable form.  <br /></td></tr>
 <tr class="separator:acac0358f9c6ab59a1d9913afb02f4f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -140,11 +139,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates an instance of <code><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a></code>, initializing all values to their defaults. </p>
-<dl class="section return"><dt>Returns</dt><dd>initialized <code><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a></code> instance. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a> </dd></dl>
+<p>Creates an instance of <code><a class="el" href="structfile__flags.html" title="file_flags.h - file_flags data type and its associated functions.">file_flags</a></code>, initializing all values to false. </p>
 
-<p class="definition">Definition at line <a class="el" href="file__flags_8c_source.html#l00006">6</a> of file <a class="el" href="file__flags_8c_source.html">file_flags.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file__flags_8c_source.html#l00019">19</a> of file <a class="el" href="file__flags_8c_source.html">file_flags.c</a>.</p>
 
 </div>
 </div>
@@ -163,16 +160,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Outputs a given instance of <code><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a></code> to stdout in a human-readable form. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ff</td><td>the instance of <code><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a></code> to be printed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a> </dd></dl>
+<p>Outputs a given instance of <code><a class="el" href="structfile__flags.html" title="file_flags.h - file_flags data type and its associated functions.">file_flags</a></code> to stdout in a human-readable form. </p>
 
-<p class="definition">Definition at line <a class="el" href="file__flags_8c_source.html#l00018">18</a> of file <a class="el" href="file__flags_8c_source.html">file_flags.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="file__flags_8c_source.html#l00031">31</a> of file <a class="el" href="file__flags_8c_source.html">file_flags.c</a>.</p>
 
 </div>
 </div>
