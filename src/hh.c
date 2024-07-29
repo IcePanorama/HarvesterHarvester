@@ -19,8 +19,6 @@
 #include <dirent.h>
 #endif
 
-int8_t process_new_dat_files (void);
-
 int
 main (int argc, char **argv)
 {

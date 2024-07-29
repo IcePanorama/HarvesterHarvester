@@ -118,6 +118,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae217f3d8cb5e691184f81e097a61ed15" id="r_ae217f3d8cb5e691184f81e097a61ed15"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae217f3d8cb5e691184f81e097a61ed15">batch_process_DAT_files</a> (void)</td></tr>
 <tr class="memdesc:ae217f3d8cb5e691184f81e097a61ed15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes all the <code>.DAT</code> files found in <code>OP_INPUT_DIR</code>, one at a time.  <br /></td></tr>
 <tr class="separator:ae217f3d8cb5e691184f81e097a61ed15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd10454cabed1f22790da5116fe92c5" id="r_a0fd10454cabed1f22790da5116fe92c5"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fd10454cabed1f22790da5116fe92c5">process_new_dat_files</a> (void)</td></tr>
+<tr class="memdesc:a0fd10454cabed1f22790da5116fe92c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process all the new <code>.DAT</code> files created by <code>process_DAT_file</code>.  <br /></td></tr>
+<tr class="separator:a0fd10454cabed1f22790da5116fe92c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ae217f3d8cb5e691184f81e097a61ed15" name="ae217f3d8cb5e691184f81e097a61ed15"></a>
@@ -146,7 +149,7 @@ Functions</h2></td></tr>
 <p>Processes all the <code>.DAT</code> files found in <code>OP_INPUT_DIR</code>, one at a time. </p>
 <dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00169">169</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00167">167</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>
@@ -194,7 +197,38 @@ Functions</h2></td></tr>
 <a class="el" href="extractor_8c.html#a83bd0d1558bff60ba2a613868c6a138f" title="Creates a directory and then extracts every file in said directory.">extract_directory()</a> </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00084">84</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00082">82</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+
+</div>
+</div>
+<a id="a0fd10454cabed1f22790da5116fe92c5" name="a0fd10454cabed1f22790da5116fe92c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd10454cabed1f22790da5116fe92c5">&#9670;&#160;</a></span>process_new_dat_files()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int8_t process_new_dat_files </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Process all the new <code>.DAT</code> files created by <code>process_DAT_file</code>. </p>
+<p>These <code>.DAT</code> files are not ISO 9660 file systems, rather they're some proprietary format. These files can be processed by reading the associated <code>INDEX.00#</code> file, which contains all the filenames, paths, and location of data for files stored in these new <code>.DAT</code> files. For those curious, this is why adding <code>HARVEST2.DAT</code> is unnecessary and therefore not mentioned in the README.</p>
+<dl class="section return"><dt>Returns</dt><dd>int8_t zero on success, non-zero on failure. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00293">293</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>
@@ -236,7 +270,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00065">65</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="hh_8c_source.html#l00063">63</a> of file <a class="el" href="hh_8c_source.html">hh.c</a>.</p>
 
 </div>
 </div>

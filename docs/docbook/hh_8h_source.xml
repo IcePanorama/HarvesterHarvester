@@ -28,5 +28,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_hh_8h_source_1l00054"/>00054 
 <anchor xml:id="_hh_8h_source_1l00060"/>00060 <emphasis role="keyword">static</emphasis>&#32;int8_t&#32;<link linkend="_hh_8h_1ae217f3d8cb5e691184f81e097a61ed15">batch_process_DAT_files</link>&#32;(<emphasis role="keywordtype">void</emphasis>);
 <anchor xml:id="_hh_8h_source_1l00061"/>00061 
-<anchor xml:id="_hh_8h_source_1l00062"/>00062 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_hh_8h_source_1l00073"/>00073 <emphasis role="keyword">static</emphasis>&#32;int8_t&#32;<link linkend="_hh_8h_1a0fd10454cabed1f22790da5116fe92c5">process_new_dat_files</link>&#32;(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_hh_8h_source_1l00074"/>00074 
+<anchor xml:id="_hh_8h_source_1l00075"/>00075 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

@@ -10,7 +10,9 @@ static int8\+\_\+t \mbox{\hyperlink{hh_8h_afed626f0d81bd0489c48269affcff572}{set
 static int8\+\_\+t \mbox{\hyperlink{hh_8h_a534dd93fd3f79749a0c7741f46a1aea6}{process\+\_\+\+DAT\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
 \begin{DoxyCompactList}\small\item\em Processes a DAT file pointed to by the given {\ttfamily FILE \texorpdfstring{$\ast$}{*}}. \end{DoxyCompactList}\item 
 static int8\+\_\+t \mbox{\hyperlink{hh_8h_ae217f3d8cb5e691184f81e097a61ed15}{batch\+\_\+process\+\_\+\+DAT\+\_\+files}} (void)
-\begin{DoxyCompactList}\small\item\em Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}, one at a time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Processes all the {\ttfamily .DAT} files found in {\ttfamily OP\+\_\+\+INPUT\+\_\+\+DIR}, one at a time. \end{DoxyCompactList}\item 
+static int8\+\_\+t \mbox{\hyperlink{hh_8h_a0fd10454cabed1f22790da5116fe92c5}{process\+\_\+new\+\_\+dat\+\_\+files}} (void)
+\begin{DoxyCompactList}\small\item\em Process all the new {\ttfamily .DAT} files created by {\ttfamily process\+\_\+\+DAT\+\_\+file}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -29,7 +31,7 @@ zero on success, non-\/zero on failure.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00169}{169}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00167}{167}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
 \Hypertarget{hh_8h_a534dd93fd3f79749a0c7741f46a1aea6}\index{hh.h@{hh.h}!process\_DAT\_file@{process\_DAT\_file}}
 \index{process\_DAT\_file@{process\_DAT\_file}!hh.h@{hh.h}}
@@ -66,7 +68,26 @@ zero on success, non-\/zero on failure.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00084}{84}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00082}{82}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+
+\Hypertarget{hh_8h_a0fd10454cabed1f22790da5116fe92c5}\index{hh.h@{hh.h}!process\_new\_dat\_files@{process\_new\_dat\_files}}
+\index{process\_new\_dat\_files@{process\_new\_dat\_files}!hh.h@{hh.h}}
+\doxysubsubsection{\texorpdfstring{process\_new\_dat\_files()}{process\_new\_dat\_files()}}
+{\footnotesize\ttfamily \label{hh_8h_a0fd10454cabed1f22790da5116fe92c5} 
+static int8\+\_\+t process\+\_\+new\+\_\+dat\+\_\+files (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Process all the new {\ttfamily .DAT} files created by {\ttfamily process\+\_\+\+DAT\+\_\+file}. 
+
+These {\ttfamily .DAT} files are not ISO 9660 file systems, rather they\textquotesingle{}re some proprietary format. These files can be processed by reading the associated {\ttfamily INDEX.\+00\#} file, which contains all the filenames, paths, and location of data for files stored in these new {\ttfamily .DAT} files. For those curious, this is why adding {\ttfamily HARVEST2.\+DAT} is unnecessary and therefore not mentioned in the README.
+
+\begin{DoxyReturn}{Returns}
+int8\+\_\+t zero on success, non-\/zero on failure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{hh_8c_source_l00293}{293}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
 \Hypertarget{hh_8h_afed626f0d81bd0489c48269affcff572}\index{hh.h@{hh.h}!setup\_extractor@{setup\_extractor}}
 \index{setup\_extractor@{setup\_extractor}!hh.h@{hh.h}}
@@ -92,5 +113,5 @@ zero on success, non-\/zero on failure.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{hh_8c_source_l00065}{65}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
+Definition at line \mbox{\hyperlink{hh_8c_source_l00063}{63}} of file \mbox{\hyperlink{hh_8c_source}{hh.\+c}}.
 
