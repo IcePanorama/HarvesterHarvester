@@ -2,20 +2,32 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index__file_8c" xml:lang="en-US">
 <title>src/index_file.c File Reference</title>
 <indexterm><primary>src/index_file.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;index_file.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;index_file.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
+            <listitem><para>static int8_t <link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</link> (<link linkend="_structindex__file">index_file</link> *idx)</para>
+
+<para>Grows a given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>&apos;s <computeroutput>entries</computeroutput> attribute by <computeroutput>IDX_RECORDS_GROWTH_RATE</computeroutput>. </para>
+</listitem>
             <listitem><para>int8_t <link linkend="_index__file_8c_1a8d0c5734d83636faa168e5869954b500">create_index_file</link> (<link linkend="_structindex__file">index_file</link> *i)</para>
+
+<para>Initializes an <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link> (<link linkend="_structindex__file">index_file</link> *i)</para>
+
+<para>Destroys a given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_index__file_8c_1a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</link> (FILE *fptr, <link linkend="_structindex__file">index_file</link> *idxf)</para>
+
+<para>Reads data from a given file, creating <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput>s for every entry in said file. </para>
 </listitem>
             <listitem><para>void <link linkend="_index__file_8c_1a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</link> (<link linkend="_structindex__entry">index_entry</link> *idxe)</para>
+
+<para>Prints all the attributes of a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> in a human-readable form. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_index__file_8c_1a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</link> (<link linkend="_structindex__file">index_file</link> *file, <link linkend="_structindex__entry">index_entry</link> *entry)</para>
-</listitem>
-            <listitem><para>int8_t <link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</link> (<link linkend="_structindex__file">index_file</link> *idx)</para>
+
+<para>Adds a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> to a <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -35,44 +47,68 @@
 <indexterm><primary>add_entry_to_index_file</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>add_entry_to_index_file</secondary></indexterm>
 <para><computeroutput>int8_t add_entry_to_index_file (<link linkend="_structindex__file">index_file</link> * file, <link linkend="_structindex__entry">index_entry</link> * entry)</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8c_source_1l00122">122</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+
+<para>Adds a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> to a <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_index__file_8c_source_1l00139">139</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1a8d0c5734d83636faa168e5869954b500"/><section>
     <title>create_index_file()</title>
 <indexterm><primary>create_index_file</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>create_index_file</secondary></indexterm>
 <para><computeroutput>int8_t create_index_file (<link linkend="_structindex__file">index_file</link> * i)</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8c_source_1l00016">16</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+
+<para>Initializes an <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_index__file_8c_source_1l00033">33</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc"/><section>
     <title>destroy_index_file()</title>
 <indexterm><primary>destroy_index_file</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>destroy_index_file</secondary></indexterm>
 <para><computeroutput>int8_t destroy_index_file (<link linkend="_structindex__file">index_file</link> * i)</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8c_source_1l00033">33</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+
+<para>Destroys a given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_index__file_8c_source_1l00050">50</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1a803c3e3f6d663ff2050f3c2e60e13431"/><section>
     <title>print_index_entry()</title>
 <indexterm><primary>print_index_entry</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>print_index_entry</secondary></indexterm>
 <para><computeroutput>void print_index_entry (<link linkend="_structindex__entry">index_entry</link> * idxe)</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8c_source_1l00112">112</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+
+<para>Prints all the attributes of a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> in a human-readable form. </para>
+</para>
+<para>
+Definition at line <link linkend="_index__file_8c_source_1l00129">129</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1a8d9a7c6f483fa764254a2013aa7258b1"/><section>
     <title>process_index_file()</title>
 <indexterm><primary>process_index_file</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>process_index_file</secondary></indexterm>
-<para><computeroutput>int8_t process_index_file (FILE * fptr, <link linkend="_structindex__file">index_file</link> * idxf)</computeroutput></para>
+<para><computeroutput>int8_t process_index_file (FILE * fptr, <link linkend="_structindex__file">index_file</link> * idxf)</computeroutput></para><para>
+
+<para>Reads data from a given file, creating <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput>s for every entry in said file. </para>
+</para>
+
 <para>Every entry is 0x94 bytes apart, the part we&apos;re most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.</para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00040">40</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00057">57</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261"/><section>
     <title>resize_indicies()</title>
 <indexterm><primary>resize_indicies</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>resize_indicies</secondary></indexterm>
-<para><computeroutput>int8_t resize_indicies (<link linkend="_structindex__file">index_file</link> * idx)</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8c_source_1l00138">138</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+<para><computeroutput>int8_t resize_indicies (<link linkend="_structindex__file">index_file</link> * idx)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Grows a given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>&apos;s <computeroutput>entries</computeroutput> attribute by <computeroutput>IDX_RECORDS_GROWTH_RATE</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_index__file_8c_source_1l00155">155</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 </section>
 <section>
@@ -82,14 +118,14 @@ Definition at line <link linkend="_index__file_8c_source_1l00138">138</link> of 
 <indexterm><primary>IDX_RECORDS_GROWTH_RATE</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>IDX_RECORDS_GROWTH_RATE</secondary></indexterm>
 <para><computeroutput>const size_t IDX_RECORDS_GROWTH_RATE = 2<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_index__file_8c_source_1l00013">13</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00024">24</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1aa1eca15092ee97d412940e6e9a48de60"/><section>
     <title>IDX_STARTING_NUM_INDICIES</title>
 <indexterm><primary>IDX_STARTING_NUM_INDICIES</primary><secondary>index_file.c</secondary></indexterm>
 <indexterm><primary>index_file.c</primary><secondary>IDX_STARTING_NUM_INDICIES</secondary></indexterm>
 <para><computeroutput>const size_t IDX_STARTING_NUM_INDICIES = 10<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_index__file_8c_source_1l00012">12</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00023">23</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 </section>
 </section>

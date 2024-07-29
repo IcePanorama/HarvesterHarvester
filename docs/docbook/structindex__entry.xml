@@ -3,6 +3,11 @@
 <title>index_entry Struct Reference</title>
 <indexterm><primary>index_entry</primary></indexterm>
 <para>
+
+<para>An entry of the associated <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+ 
+</para>
+<para>
 <computeroutput>#include &lt;index_file.h&gt;</computeroutput>
 </para>
 <simplesect>
@@ -11,12 +16,8 @@
             <listitem><para>uint32_t <link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link></para>
 </listitem>
             <listitem><para>char <link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link> [<link linkend="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</link>]</para>
-
-<para>File path beginning w/ <computeroutput>XFLE#:\</computeroutput> </para>
 </listitem>
             <listitem><para>char <link linkend="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe">filename</link> [<link linkend="_index__file_8h_1a733cac5291dfeb37c70016d83efed505">FILENAME_MAX_LEN</link>]</para>
-
-<para>Name of the actual file (w/ extension) </para>
 </listitem>
             <listitem><para>uint32_t <link linkend="_structindex__entry_1a7d1d2fc7b9bf408116024e87bf90cb99">file_start</link></para>
 </listitem>
@@ -26,8 +27,10 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>An entry of the associated <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 <para>
-Definition at line <link linkend="_index__file_8h_source_1l00014">14</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00043">43</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -36,43 +39,35 @@ Definition at line <link linkend="_index__file_8h_source_1l00014">14</link> of f
 <indexterm><primary>entry_start</primary><secondary>index_entry</secondary></indexterm>
 <indexterm><primary>index_entry</primary><secondary>entry_start</secondary></indexterm>
 <para><computeroutput>uint32_t index_entry::entry_start</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8h_source_1l00016">16</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00045">45</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <anchor xml:id="_structindex__entry_1a36bfa1354c342164eae40175e2a8e44b"/><section>
     <title>file_offset</title>
 <indexterm><primary>file_offset</primary><secondary>index_entry</secondary></indexterm>
 <indexterm><primary>index_entry</primary><secondary>file_offset</secondary></indexterm>
 <para><computeroutput>uint32_t index_entry::file_offset</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8h_source_1l00024">24</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00049">49</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <anchor xml:id="_structindex__entry_1a7d1d2fc7b9bf408116024e87bf90cb99"/><section>
     <title>file_start</title>
 <indexterm><primary>file_start</primary><secondary>index_entry</secondary></indexterm>
 <indexterm><primary>index_entry</primary><secondary>file_start</secondary></indexterm>
 <para><computeroutput>uint32_t index_entry::file_start</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8h_source_1l00023">23</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00048">48</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <anchor xml:id="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe"/><section>
     <title>filename</title>
 <indexterm><primary>filename</primary><secondary>index_entry</secondary></indexterm>
 <indexterm><primary>index_entry</primary><secondary>filename</secondary></indexterm>
 <para><computeroutput>char index_entry::filename[<link linkend="_index__file_8h_1a733cac5291dfeb37c70016d83efed505">FILENAME_MAX_LEN</link>]</computeroutput></para><para>
-
-<para>Name of the actual file (w/ extension) </para>
-</para>
-<para>
-Definition at line <link linkend="_index__file_8h_source_1l00022">22</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00047">47</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <anchor xml:id="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab"/><section>
     <title>full_path</title>
 <indexterm><primary>full_path</primary><secondary>index_entry</secondary></indexterm>
 <indexterm><primary>index_entry</primary><secondary>full_path</secondary></indexterm>
 <para><computeroutput>char index_entry::full_path[<link linkend="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</link>]</computeroutput></para><para>
-
-<para>File path beginning w/ <computeroutput>XFLE#:\</computeroutput> </para>
-</para>
-<para>
-Definition at line <link linkend="_index__file_8h_source_1l00021">21</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00046">46</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

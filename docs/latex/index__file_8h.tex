@@ -6,31 +6,29 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structindex__entry}{index\+\_\+entry}}
-\item 
+\begin{DoxyCompactList}\small\item\em An entry of the associated {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structindex__file}{index\+\_\+file}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Contains all the indicies within an {\ttfamily INDEX.\+00\#} file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{index__file_8h_a1f72d7c1f8f994a1873de2f0405f66bf}{FULL\+\_\+\+PATH\+\_\+\+MAX\+\_\+\+LEN}}~128
-\begin{DoxyCompactList}\small\item\em \doxylink{index__file_8h}{index\+\_\+file.\+h} -\/ typedef for processing Harvester\textquotesingle{}s {\ttfamily INDEX.\+00\#} files. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \doxylink{index__file_8h}{index\+\_\+file.\+h} -\/ \doxylink{structindex__file}{index\+\_\+file} datatype and its associated functions. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{index__file_8h_a733cac5291dfeb37c70016d83efed505}{FILENAME\+\_\+\+MAX\+\_\+\+LEN}}~32
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int8\+\_\+t \mbox{\hyperlink{index__file_8h_a8d0c5734d83636faa168e5869954b500}{create\+\_\+index\+\_\+file}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}i)
-\item 
+\begin{DoxyCompactList}\small\item\em Initializes an {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{index__file_8h_a642840a928d9784ac4cf34228672fbbc}{destroy\+\_\+index\+\_\+file}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}i)
-\item 
+\begin{DoxyCompactList}\small\item\em Destroys a given {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{index__file_8h_a8d9a7c6f483fa764254a2013aa7258b1}{process\+\_\+index\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}idxf)
-\item 
+\begin{DoxyCompactList}\small\item\em Reads data from a given file, creating {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}}s for every entry in said file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{index__file_8h_a803c3e3f6d663ff2050f3c2e60e13431}{print\+\_\+index\+\_\+entry}} (\mbox{\hyperlink{structindex__entry}{index\+\_\+entry}} \texorpdfstring{$\ast$}{*}idxe)
-\item 
+\begin{DoxyCompactList}\small\item\em Prints all the attributes of a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} in a human-\/readable form. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{index__file_8h_a746462bc35bd98ad993e5da86bd6b2a7}{add\+\_\+entry\+\_\+to\+\_\+index\+\_\+file}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}file, \mbox{\hyperlink{structindex__entry}{index\+\_\+entry}} \texorpdfstring{$\ast$}{*}entry)
-\item 
-int8\+\_\+t \mbox{\hyperlink{index__file_8h_ac4e7fdb31a69d93e8723a7f7ff725261}{resize\+\_\+indicies}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}idx)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Adds a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} to a {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -42,7 +40,7 @@ int8\+\_\+t \mbox{\hyperlink{index__file_8h_ac4e7fdb31a69d93e8723a7f7ff725261}{r
 
 
 
-Definition at line \mbox{\hyperlink{index__file_8h_source_l00012}{12}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
+Definition at line \mbox{\hyperlink{index__file_8h_source_l00040}{40}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
 
 \Hypertarget{index__file_8h_a1f72d7c1f8f994a1873de2f0405f66bf}\index{index\_file.h@{index\_file.h}!FULL\_PATH\_MAX\_LEN@{FULL\_PATH\_MAX\_LEN}}
 \index{FULL\_PATH\_MAX\_LEN@{FULL\_PATH\_MAX\_LEN}!index\_file.h@{index\_file.h}}
@@ -52,11 +50,19 @@ Definition at line \mbox{\hyperlink{index__file_8h_source_l00012}{12}} of file \
 
 
 
-\doxylink{index__file_8h}{index\+\_\+file.\+h} -\/ typedef for processing Harvester\textquotesingle{}s {\ttfamily INDEX.\+00\#} files. 
+\doxylink{index__file_8h}{index\+\_\+file.\+h} -\/ \doxylink{structindex__file}{index\+\_\+file} datatype and its associated functions. 
 
-Both of these are probably too large, but better to be safe than sorry. 
+Used for processing Harvester\textquotesingle{}s {\ttfamily INDEX.\+00\#} files. 
 
-Definition at line \mbox{\hyperlink{index__file_8h_source_l00011}{11}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
+Both the \doxylink{structindex__file}{index\+\_\+file} datatype and the functions contained herein are based on my own observations from studying the {\ttfamily INDEX.\+00\#} files and their associated {\ttfamily .DAT} files in a hexeditor. 
+
+Through these observations alone, I believe we have enough data to successfully extract files, however, it\textquotesingle{}s worth noting that there is a fair bit of data that we\textquotesingle{}re ignoring here. 
+
+Between the {\ttfamily filename} and {\ttfamily file\+\_\+start}, there\textquotesingle{}s occasionally some data, but I can\textquotesingle{}t for the life of me seem to figure out what it\textquotesingle{}s used for. It could be random garbage generated by whatever program created these {\ttfamily .DAT}/{\ttfamily INDEX.\+00\#} files, or they could be file flags, or perhaps even some sort of primative checksum; I\textquotesingle{}m not sure. 
+
+If you have any idea what this data might be used for, feel free to make whatever changes are needed! Both of these are probably too large, but better to be safe than sorry. 
+
+Definition at line \mbox{\hyperlink{index__file_8h_source_l00039}{39}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
 
 
 
@@ -69,7 +75,11 @@ int8\+\_\+t add\+\_\+entry\+\_\+to\+\_\+index\+\_\+file (\begin{DoxyParamCaption
 
 
 
-Definition at line \mbox{\hyperlink{index__file_8c_source_l00122}{122}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
+Adds a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} to a {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
+
+
+
+Definition at line \mbox{\hyperlink{index__file_8c_source_l00139}{139}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
 
 \Hypertarget{index__file_8h_a8d0c5734d83636faa168e5869954b500}\index{index\_file.h@{index\_file.h}!create\_index\_file@{create\_index\_file}}
 \index{create\_index\_file@{create\_index\_file}!index\_file.h@{index\_file.h}}
@@ -79,7 +89,11 @@ int8\+\_\+t create\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\h
 
 
 
-Definition at line \mbox{\hyperlink{index__file_8c_source_l00016}{16}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
+Initializes an {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
+
+
+
+Definition at line \mbox{\hyperlink{index__file_8c_source_l00033}{33}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
 
 \Hypertarget{index__file_8h_a642840a928d9784ac4cf34228672fbbc}\index{index\_file.h@{index\_file.h}!destroy\_index\_file@{destroy\_index\_file}}
 \index{destroy\_index\_file@{destroy\_index\_file}!index\_file.h@{index\_file.h}}
@@ -89,7 +103,11 @@ int8\+\_\+t destroy\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\
 
 
 
-Definition at line \mbox{\hyperlink{index__file_8c_source_l00033}{33}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
+Destroys a given {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
+
+
+
+Definition at line \mbox{\hyperlink{index__file_8c_source_l00050}{50}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
 
 \Hypertarget{index__file_8h_a803c3e3f6d663ff2050f3c2e60e13431}\index{index\_file.h@{index\_file.h}!print\_index\_entry@{print\_index\_entry}}
 \index{print\_index\_entry@{print\_index\_entry}!index\_file.h@{index\_file.h}}
@@ -99,7 +117,11 @@ void print\+\_\+index\+\_\+entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlin
 
 
 
-Definition at line \mbox{\hyperlink{index__file_8c_source_l00112}{112}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
+Prints all the attributes of a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} in a human-\/readable form. 
+
+
+
+Definition at line \mbox{\hyperlink{index__file_8c_source_l00129}{129}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
 
 \Hypertarget{index__file_8h_a8d9a7c6f483fa764254a2013aa7258b1}\index{index\_file.h@{index\_file.h}!process\_index\_file@{process\_index\_file}}
 \index{process\_index\_file@{process\_index\_file}!index\_file.h@{index\_file.h}}
@@ -107,17 +129,11 @@ Definition at line \mbox{\hyperlink{index__file_8c_source_l00112}{112}} of file 
 {\footnotesize\ttfamily \label{index__file_8h_a8d9a7c6f483fa764254a2013aa7258b1} 
 int8\+\_\+t process\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}}]{idxf}{}\end{DoxyParamCaption})}
 
+
+
+Reads data from a given file, creating {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}}s for every entry in said file. 
+
 Every entry is 0x94 bytes apart, the part we\textquotesingle{}re most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.
 
-Definition at line \mbox{\hyperlink{index__file_8c_source_l00040}{40}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
-
-\Hypertarget{index__file_8h_ac4e7fdb31a69d93e8723a7f7ff725261}\index{index\_file.h@{index\_file.h}!resize\_indicies@{resize\_indicies}}
-\index{resize\_indicies@{resize\_indicies}!index\_file.h@{index\_file.h}}
-\doxysubsubsection{\texorpdfstring{resize\_indicies()}{resize\_indicies()}}
-{\footnotesize\ttfamily \label{index__file_8h_ac4e7fdb31a69d93e8723a7f7ff725261} 
-int8\+\_\+t resize\+\_\+indicies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}}]{idx}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{index__file_8c_source_l00138}{138}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
+Definition at line \mbox{\hyperlink{index__file_8c_source_l00057}{57}} of file \mbox{\hyperlink{index__file_8c_source}{index\+\_\+file.\+c}}.
 

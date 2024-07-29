@@ -3,6 +3,11 @@
 <title>index_file Struct Reference</title>
 <indexterm><primary>index_file</primary></indexterm>
 <para>
+
+<para>Contains all the indicies within an <computeroutput>INDEX.00#</computeroutput> file. </para>
+ 
+</para>
+<para>
 <computeroutput>#include &lt;index_file.h&gt;</computeroutput>
 </para>
 <simplesect>
@@ -22,8 +27,10 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para>Contains all the indicies within an <computeroutput>INDEX.00#</computeroutput> file. </para>
 <para>
-Definition at line <link linkend="_index__file_8h_source_1l00027">27</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00053">53</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -36,14 +43,14 @@ Definition at line <link linkend="_index__file_8h_source_1l00027">27</link> of f
 <para>pointer to last item in <computeroutput>indicies</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8h_source_1l00031">31</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00057">57</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <anchor xml:id="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0"/><section>
     <title>indicies</title>
 <indexterm><primary>indicies</primary><secondary>index_file</secondary></indexterm>
 <indexterm><primary>index_file</primary><secondary>indicies</secondary></indexterm>
 <para><computeroutput><link linkend="_structindex__entry">index_entry</link>* index_file::indicies</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8h_source_1l00029">29</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00055">55</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <anchor xml:id="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828"/><section>
     <title>size</title>
@@ -54,7 +61,7 @@ Definition at line <link linkend="_index__file_8h_source_1l00029">29</link> of f
 <para>max size of <computeroutput>indicies</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8h_source_1l00030">30</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+Definition at line <link linkend="_index__file_8h_source_1l00056">56</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

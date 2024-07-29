@@ -1,16 +1,33 @@
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "index_file.h"
 #include "data_reader.h"
 #include "errors.h"
 #include "options.h"
 #include "utils.h"
 
-#include <stdint.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 static const size_t IDX_STARTING_NUM_INDICIES = 10;
 static const size_t IDX_RECORDS_GROWTH_RATE = 2;
+
+/**
+ *  Grows a given `index_file`'s `entries` attribute by
+ *  `IDX_RECORDS_GROWTH_RATE`.
+ */
+static int8_t resize_indicies (index_file *idx);
 
 int8_t
 create_index_file (index_file *i)
