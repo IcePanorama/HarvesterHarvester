@@ -122,7 +122,12 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
       return HH_FREAD_ERROR;
     }
 
-  read_array_uint8 (fptr, vdd->root_directory_entry, ROOT_DIRECTORY_ENTRY_LEN);
+  if (read_array_uint8 (fptr, vdd->root_directory_entry,
+                        ROOT_DIRECTORY_ENTRY_LEN)
+      != 0)
+    {
+      return HH_FREAD_ERROR;
+    }
 
   /* clang-format off */
   if ((read_string (fptr, vdd->volume_set_identifier, VOLUME_SET_IDENTIFIER_LEN) != 0)

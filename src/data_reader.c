@@ -118,14 +118,17 @@ read_string (FILE *fptr, char *output, uint8_t length)
   return 0;
 }
 
-void
+int8_t
 read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length)
 {
   size_t bytes_read = fread (arr, sizeof (uint8_t), length, fptr);
   if (bytes_read != sizeof (uint8_t) * length)
     {
       handle_fread_error (bytes_read, sizeof (uint8_t) * length);
+      return HH_FREAD_ERROR;
     }
+
+  return 0;
 }
 
 int8_t
