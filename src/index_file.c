@@ -70,18 +70,19 @@ process_index_file (FILE *fptr, index_file *idxf)
 
       /**
        *  Every entry is 0x94 bytes apart, the part we're most concerned about
-       * is the last 16 bytes. Currently treating unknown data in between as
-       * junk. If you have any idea what this data might be used for, please
-       * feel free to make changes.
+       *  is the last 16 bytes. Currently treating unknown data in between as
+       *  junk. If you have any idea what this data might be used for, please
+       *  feel free to make changes.
        */
       fseek (fptr, entry.entry_start + (0x94 - 0x10), SEEK_SET);
 
+      /* clang-format off */
       if ((read_little_endian_data_uint32_t (fptr, &entry.file_start) != 0)
-          || (read_little_endian_data_uint32_t (fptr, &entry.file_offset)
-              != 0))
+          || (read_little_endian_data_uint32_t (fptr, &entry.file_offset) != 0))
         {
           return HH_FREAD_ERROR;
         }
+      /* clang-format on */
 
       fseek (fptr, 0x4, SEEK_CUR); // Skip zeros
 
