@@ -120,16 +120,12 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
       if (curr_entry.directory_identifier_length != 1)
         curr_entry.directory_identifier_length += 1;
 
-      if (read_single_uint8 (fptr,
-                             &curr_entry.extended_attribute_record_length)
-          != 0)
-        {
-          return HH_FREAD_ERROR;
-        }
-
-      if (read_little_endian_data_uint32_t (fptr,
-                                            &curr_entry.location_of_extent)
-          != 0)
+      if ((read_single_uint8 (fptr,
+                              &curr_entry.extended_attribute_record_length)
+           != 0)
+          || (read_little_endian_data_uint32_t (fptr,
+                                                &curr_entry.location_of_extent)
+              != 0))
         {
           return HH_FREAD_ERROR;
         }
