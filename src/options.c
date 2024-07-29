@@ -2,7 +2,6 @@
 #include "errors.h"
 #include "utils.h"
 
-#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,6 +13,7 @@ bool OP_DEBUG_MODE = false;
 char *OP_INPUT_DIR = (char *)"dat-files";
 char *OP_OUTPUT_DIR = (char *)"output";
 char OP_PATH_SEPARATOR = '/';
+uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000; //!< 0xF00000 == 15 MiB
 
 // TODO: update me when finished
 static const char VERSION_NUMBER_STR[9] = "00.00.00";

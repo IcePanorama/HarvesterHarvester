@@ -76,9 +76,6 @@ extract_file (FILE *fptr, directory_record *dr, const char *path)
 int8_t
 extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
 {
-  // 0xF00000 == 15 MiB
-  const uint32_t DEBUG_FILE_SIZE_LIMIT = 0xF00000;
-
   directory dir;
   create_directory (&dir);
   process_directory (fptr, &dir);
@@ -93,7 +90,8 @@ extract_directory (FILE *fptr, const uint16_t BLOCK_SIZE, const char *path)
         {
           continue;
         }
-      else if (OP_DEBUG_MODE && curr_file.data_length > DEBUG_FILE_SIZE_LIMIT)
+      else if (OP_DEBUG_MODE
+               && curr_file.data_length > OP_DEBUG_FILE_SIZE_LIMIT)
         {
           printf ("[DEBUG_MODE] Skipping file, %s.\n",
                   curr_file.file_identifier);
