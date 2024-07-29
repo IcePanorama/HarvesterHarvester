@@ -32,9 +32,7 @@ main (int argc, char **argv)
   if (OP_BATCH_PROCESS && !OP_SKIP_DAT_PROCESSING)
     {
       if (batch_process_DAT_files () != 0)
-        {
-          exit (1);
-        }
+        exit (1);
     }
   else if (!OP_SKIP_DAT_PROCESSING)
     {
@@ -42,9 +40,7 @@ main (int argc, char **argv)
         exit (1);
 
       if (process_DAT_file (fptr) != 0)
-        {
-          exit (1);
-        }
+        exit (1);
 
       fclose (fptr);
     }
@@ -172,6 +168,8 @@ process_DAT_file (FILE *fptr)
 int
 batch_process_DAT_files ()
 {
+  const char *OPEN_INPUT_DIR_ERR_MSG_FMT
+      = "ERROR: Error opening input directory, %s.\n";
   const uint8_t DAT_FILENAME_LEN = strlen ("HARVESTX.DAT");
   char *filename;
 
@@ -185,8 +183,7 @@ batch_process_DAT_files ()
   hFind = FindFirstFileA (search_path, &file_data);
   if (hFind == INVALID_HANDLE_VALUE)
     {
-      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
-               OP_INPUT_DIR);
+      fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);
       return -1;
     }
 
@@ -203,8 +200,9 @@ batch_process_DAT_files ()
                          sizeof (char));
       if (filename == NULL)
         {
-          perror ("ERROR: unable to calloc string for filename.");
-          exit (1);
+          fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,
+                   strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);
+          return HH_MEM_ALLOC_ERROR;
         }
 
       strcpy (filename, OP_INPUT_DIR);
@@ -212,11 +210,11 @@ batch_process_DAT_files ()
       strcat (filename, file_data.cFileName);
 
       FILE *fptr = NULL;
-      if (setup_extractor (&fptr, filename) == HH_FOPEN_ERROR)
+      if (setup_extractor (&fptr, filename) != 0)
         {
           free (filename);
           FindClose (hFind);
-          return -1;
+          return HH_FOPEN_ERROR;
         }
 
       if (process_DAT_file (fptr) != 0)
@@ -239,8 +237,7 @@ batch_process_DAT_files ()
   dir = opendir (OP_INPUT_DIR);
   if (dir == NULL)
     {
-      fprintf (stderr, "ERROR: Error opening input directory, %s.\n",
-               OP_INPUT_DIR);
+      fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);
       return -1;
     }
 
@@ -256,8 +253,9 @@ batch_process_DAT_files ()
                          sizeof (char));
       if (filename == NULL)
         {
-          perror ("ERROR: unable to calloc string for filename.");
-          exit (1);
+          fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,
+                   strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);
+          return HH_MEM_ALLOC_ERROR;
         }
 
       strcpy (filename, OP_INPUT_DIR);
@@ -265,11 +263,11 @@ batch_process_DAT_files ()
       strcat (filename, entry->d_name);
 
       FILE *fptr = NULL;
-      if (setup_extractor (&fptr, filename) == HH_FOPEN_ERROR)
+      if (setup_extractor (&fptr, filename) != 0)
         {
           free (filename);
           closedir (dir);
-          return -1;
+          return HH_FOPEN_ERROR;
         }
 
       if (process_DAT_file (fptr) != 0)
