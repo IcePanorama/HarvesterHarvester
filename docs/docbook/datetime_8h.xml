@@ -7,7 +7,7 @@
         <itemizedlist>
             <listitem><para>struct <link linkend="_structdec__datetime">dec_datetime</link></para>
 
-<para>The date/time format used in the Primary Volume Descriptor. </para>
+<para>The date/time format used by Primary Volume Descriptors. </para>
 </listitem>
             <listitem><para>struct <link linkend="_structdir__datetime">dir_datetime</link></para>
 
@@ -19,6 +19,8 @@
     <title>Macros    </title>
         <itemizedlist>
             <listitem><para>#define <link linkend="_datetime_8h_1ae1bf067b2ccb33abefdd15183cf9ab64">YEAR_FIELD_LEN</link>&#160;&#160;&#160;5</para>
+
+<para><link linkend="_datetime_8h">datetime.h</link> - contains the <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> and <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> data types and their associated functions. </para>
 </listitem>
             <listitem><para>#define <link linkend="_datetime_8h_1acc006ed15ce1e12e4b219834d33ee662">MONTH_FIELD_LEN</link>&#160;&#160;&#160;3</para>
 </listitem>
@@ -39,11 +41,11 @@
         <itemizedlist>
             <listitem><para>void <link linkend="_datetime_8h_1a6e26118490d8999d5e73b1e3e7dd83ce">print_dec_datetime</link> (<link linkend="_structdec__datetime">dec_datetime</link> dt)</para>
 
-<para>Prints the value of a <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> to the console in a human-readable form. </para>
+<para>Prints the attributes of a <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> to the console in a human-readable form. </para>
 </listitem>
             <listitem><para>void <link linkend="_datetime_8h_1a8eec3bb9a53b14abd5f53c04f9a06a9e">print_dir_datetime</link> (<link linkend="_structdir__datetime">dir_datetime</link> dt)</para>
 
-<para>Prints the value of a <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> to the console in a human-readable form. </para>
+<para>Prints the attributes of a <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> to the console in a human-readable form. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -54,49 +56,53 @@
 <indexterm><primary>DAY_FIELD_LEN</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>DAY_FIELD_LEN</secondary></indexterm>
 <para><computeroutput>#define DAY_FIELD_LEN&#160;&#160;&#160;3</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00008">8</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00025">25</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <anchor xml:id="_datetime_8h_1ad1a4da9ded2254332c4e1a94c2b187e9"/><section>
     <title>HOUR_FIELD_LEN</title>
 <indexterm><primary>HOUR_FIELD_LEN</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>HOUR_FIELD_LEN</secondary></indexterm>
 <para><computeroutput>#define HOUR_FIELD_LEN&#160;&#160;&#160;3</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00009">9</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00026">26</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <anchor xml:id="_datetime_8h_1a718309da4d9ed9b2292e9461e98a7914"/><section>
     <title>HUNDREDTHS_OF_A_SECOND_FIELD_LEN</title>
 <indexterm><primary>HUNDREDTHS_OF_A_SECOND_FIELD_LEN</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>HUNDREDTHS_OF_A_SECOND_FIELD_LEN</secondary></indexterm>
 <para><computeroutput>#define HUNDREDTHS_OF_A_SECOND_FIELD_LEN&#160;&#160;&#160;3</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00012">12</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00029">29</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <anchor xml:id="_datetime_8h_1ac98f70a718b2a41a5da4b23dbfffb84a"/><section>
     <title>MINUTE_FIELD_LEN</title>
 <indexterm><primary>MINUTE_FIELD_LEN</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>MINUTE_FIELD_LEN</secondary></indexterm>
 <para><computeroutput>#define MINUTE_FIELD_LEN&#160;&#160;&#160;3</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00010">10</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00027">27</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <anchor xml:id="_datetime_8h_1acc006ed15ce1e12e4b219834d33ee662"/><section>
     <title>MONTH_FIELD_LEN</title>
 <indexterm><primary>MONTH_FIELD_LEN</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>MONTH_FIELD_LEN</secondary></indexterm>
 <para><computeroutput>#define MONTH_FIELD_LEN&#160;&#160;&#160;3</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00007">7</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00024">24</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <anchor xml:id="_datetime_8h_1abba1fa1a9450e11671e3f3793bef5861"/><section>
     <title>SECOND_FIELD_LEN</title>
 <indexterm><primary>SECOND_FIELD_LEN</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>SECOND_FIELD_LEN</secondary></indexterm>
 <para><computeroutput>#define SECOND_FIELD_LEN&#160;&#160;&#160;3</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00011">11</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00028">28</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <anchor xml:id="_datetime_8h_1ae1bf067b2ccb33abefdd15183cf9ab64"/><section>
     <title>YEAR_FIELD_LEN</title>
 <indexterm><primary>YEAR_FIELD_LEN</primary><secondary>datetime.h</secondary></indexterm>
 <indexterm><primary>datetime.h</primary><secondary>YEAR_FIELD_LEN</secondary></indexterm>
 <para><computeroutput>#define YEAR_FIELD_LEN&#160;&#160;&#160;5</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00006">6</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+
+<para><link linkend="_datetime_8h">datetime.h</link> - contains the <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> and <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> data types and their associated functions. </para>
+</para>
+<para>
+Definition at line <link linkend="_datetime_8h_source_1l00023">23</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 </section>
 <section>
@@ -107,7 +113,7 @@ Definition at line <link linkend="_datetime_8h_source_1l00006">6</link> of file 
 <indexterm><primary>datetime.h</primary><secondary>print_dec_datetime</secondary></indexterm>
 <para><computeroutput>void print_dec_datetime (<link linkend="_structdec__datetime">dec_datetime</link> dt)</computeroutput></para><para>
 
-<para>Prints the value of a <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> to the console in a human-readable form. </para>
+<para>Prints the attributes of a <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> to the console in a human-readable form. </para>
 </para>
 
 <para><formalpara><title>See also</title>
@@ -124,7 +130,7 @@ Definition at line <link linkend="_datetime_8c_source_1l00006">6</link> of file 
 <indexterm><primary>datetime.h</primary><secondary>print_dir_datetime</secondary></indexterm>
 <para><computeroutput>void print_dir_datetime (<link linkend="_structdir__datetime">dir_datetime</link> dt)</computeroutput></para><para>
 
-<para>Prints the value of a <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> to the console in a human-readable form. </para>
+<para>Prints the attributes of a <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> to the console in a human-readable form. </para>
 </para>
 
 <para><formalpara><title>See also</title>

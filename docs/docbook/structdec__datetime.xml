@@ -4,7 +4,7 @@
 <indexterm><primary>dec_datetime</primary></indexterm>
 <para>
 
-<para>The date/time format used in the Primary Volume Descriptor. </para>
+<para>The date/time format used by Primary Volume Descriptors. </para>
  
 </para>
 <para>
@@ -13,19 +13,19 @@
 <simplesect>
     <title>Data Fields    </title>
         <itemizedlist>
-            <listitem><para>char <link linkend="_structdec__datetime_1aecdc0bb36e008959ec02964a90f26185">year</link> [5]</para>
+            <listitem><para>char <link linkend="_structdec__datetime_1ab7a9ad2368962262d125e83001b987b3">year</link> [<link linkend="_datetime_8h_1ae1bf067b2ccb33abefdd15183cf9ab64">YEAR_FIELD_LEN</link>]</para>
 </listitem>
-            <listitem><para>char <link linkend="_structdec__datetime_1a9a49918f821ccde4fc3aa3c88cd2963c">month</link> [3]</para>
+            <listitem><para>char <link linkend="_structdec__datetime_1a0e29c413746f7c7c2ed40979cef40212">month</link> [<link linkend="_datetime_8h_1acc006ed15ce1e12e4b219834d33ee662">MONTH_FIELD_LEN</link>]</para>
 </listitem>
-            <listitem><para>char <link linkend="_structdec__datetime_1af3fc3798050252f3dd1bacea9f5cf93f">day</link> [3]</para>
+            <listitem><para>char <link linkend="_structdec__datetime_1a5e443017d6a0739863a37889f73ab0e2">day</link> [<link linkend="_datetime_8h_1ad1a4da9ded2254332c4e1a94c2b187e9">HOUR_FIELD_LEN</link>]</para>
 </listitem>
-            <listitem><para>char <link linkend="_structdec__datetime_1a186dc4e54850249d53afc571181ea4cd">hour</link> [3]</para>
+            <listitem><para>char <link linkend="_structdec__datetime_1a43e7d8294699fb0d801f44a6880114ac">hour</link> [<link linkend="_datetime_8h_1ad1a4da9ded2254332c4e1a94c2b187e9">HOUR_FIELD_LEN</link>]</para>
 </listitem>
-            <listitem><para>char <link linkend="_structdec__datetime_1ae9f8578fefb8937e837cfad07e21ca3c">minute</link> [3]</para>
+            <listitem><para>char <link linkend="_structdec__datetime_1a065abdd6ccd6531336a1319b4927cbb9">minute</link> [<link linkend="_datetime_8h_1ac98f70a718b2a41a5da4b23dbfffb84a">MINUTE_FIELD_LEN</link>]</para>
 </listitem>
-            <listitem><para>char <link linkend="_structdec__datetime_1ad456741338a4fbfa1ce792c9458bdf49">second</link> [3]</para>
+            <listitem><para>char <link linkend="_structdec__datetime_1a6c2df5b9a9d8fce09cbbbdc5f06f509d">second</link> [<link linkend="_datetime_8h_1abba1fa1a9450e11671e3f3793bef5861">SECOND_FIELD_LEN</link>]</para>
 </listitem>
-            <listitem><para>char <link linkend="_structdec__datetime_1a5d3eb33cf9dd5476ec640c559d86483e">hundredths_of_a_second</link> [3]</para>
+            <listitem><para>char <link linkend="_structdec__datetime_1a153b026a6b60dc5ebe54f09a483c38c8">hundredths_of_a_second</link> [<link linkend="_datetime_8h_1a718309da4d9ed9b2292e9461e98a7914">HUNDREDTHS_OF_A_SECOND_FIELD_LEN</link>]</para>
 </listitem>
             <listitem><para>uint8_t <link linkend="_structdec__datetime_1a50b663ed16c5a54dab5fdfd8ef48a3d6">time_zone_offset</link></para>
 </listitem>
@@ -34,7 +34,7 @@
 <section>
 <title>Detailed Description</title>
 
-<para>The date/time format used in the Primary Volume Descriptor. </para>
+<para>The date/time format used by Primary Volume Descriptors. </para>
 
 
 
@@ -48,65 +48,65 @@
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_datetime_8h_source_1l00021">21</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00038">38</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
-<anchor xml:id="_structdec__datetime_1af3fc3798050252f3dd1bacea9f5cf93f"/><section>
+<anchor xml:id="_structdec__datetime_1a5e443017d6a0739863a37889f73ab0e2"/><section>
     <title>day</title>
 <indexterm><primary>day</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>day</secondary></indexterm>
-<para><computeroutput>char dec_datetime::day[3]</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00025">25</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+<para><computeroutput>char dec_datetime::day[<link linkend="_datetime_8h_1ad1a4da9ded2254332c4e1a94c2b187e9">HOUR_FIELD_LEN</link>]</computeroutput></para><para>
+Definition at line <link linkend="_datetime_8h_source_1l00042">42</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
-<anchor xml:id="_structdec__datetime_1a186dc4e54850249d53afc571181ea4cd"/><section>
+<anchor xml:id="_structdec__datetime_1a43e7d8294699fb0d801f44a6880114ac"/><section>
     <title>hour</title>
 <indexterm><primary>hour</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>hour</secondary></indexterm>
-<para><computeroutput>char dec_datetime::hour[3]</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00026">26</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+<para><computeroutput>char dec_datetime::hour[<link linkend="_datetime_8h_1ad1a4da9ded2254332c4e1a94c2b187e9">HOUR_FIELD_LEN</link>]</computeroutput></para><para>
+Definition at line <link linkend="_datetime_8h_source_1l00043">43</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
-<anchor xml:id="_structdec__datetime_1a5d3eb33cf9dd5476ec640c559d86483e"/><section>
+<anchor xml:id="_structdec__datetime_1a153b026a6b60dc5ebe54f09a483c38c8"/><section>
     <title>hundredths_of_a_second</title>
 <indexterm><primary>hundredths_of_a_second</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>hundredths_of_a_second</secondary></indexterm>
-<para><computeroutput>char dec_datetime::hundredths_of_a_second[3]</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00029">29</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+<para><computeroutput>char dec_datetime::hundredths_of_a_second[<link linkend="_datetime_8h_1a718309da4d9ed9b2292e9461e98a7914">HUNDREDTHS_OF_A_SECOND_FIELD_LEN</link>]</computeroutput></para><para>
+Definition at line <link linkend="_datetime_8h_source_1l00046">46</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
-<anchor xml:id="_structdec__datetime_1ae9f8578fefb8937e837cfad07e21ca3c"/><section>
+<anchor xml:id="_structdec__datetime_1a065abdd6ccd6531336a1319b4927cbb9"/><section>
     <title>minute</title>
 <indexterm><primary>minute</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>minute</secondary></indexterm>
-<para><computeroutput>char dec_datetime::minute[3]</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00027">27</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+<para><computeroutput>char dec_datetime::minute[<link linkend="_datetime_8h_1ac98f70a718b2a41a5da4b23dbfffb84a">MINUTE_FIELD_LEN</link>]</computeroutput></para><para>
+Definition at line <link linkend="_datetime_8h_source_1l00044">44</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
-<anchor xml:id="_structdec__datetime_1a9a49918f821ccde4fc3aa3c88cd2963c"/><section>
+<anchor xml:id="_structdec__datetime_1a0e29c413746f7c7c2ed40979cef40212"/><section>
     <title>month</title>
 <indexterm><primary>month</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>month</secondary></indexterm>
-<para><computeroutput>char dec_datetime::month[3]</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00024">24</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+<para><computeroutput>char dec_datetime::month[<link linkend="_datetime_8h_1acc006ed15ce1e12e4b219834d33ee662">MONTH_FIELD_LEN</link>]</computeroutput></para><para>
+Definition at line <link linkend="_datetime_8h_source_1l00041">41</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
-<anchor xml:id="_structdec__datetime_1ad456741338a4fbfa1ce792c9458bdf49"/><section>
+<anchor xml:id="_structdec__datetime_1a6c2df5b9a9d8fce09cbbbdc5f06f509d"/><section>
     <title>second</title>
 <indexterm><primary>second</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>second</secondary></indexterm>
-<para><computeroutput>char dec_datetime::second[3]</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00028">28</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+<para><computeroutput>char dec_datetime::second[<link linkend="_datetime_8h_1abba1fa1a9450e11671e3f3793bef5861">SECOND_FIELD_LEN</link>]</computeroutput></para><para>
+Definition at line <link linkend="_datetime_8h_source_1l00045">45</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <anchor xml:id="_structdec__datetime_1a50b663ed16c5a54dab5fdfd8ef48a3d6"/><section>
     <title>time_zone_offset</title>
 <indexterm><primary>time_zone_offset</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>time_zone_offset</secondary></indexterm>
 <para><computeroutput>uint8_t dec_datetime::time_zone_offset</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00030">30</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+Definition at line <link linkend="_datetime_8h_source_1l00047">47</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
-<anchor xml:id="_structdec__datetime_1aecdc0bb36e008959ec02964a90f26185"/><section>
+<anchor xml:id="_structdec__datetime_1ab7a9ad2368962262d125e83001b987b3"/><section>
     <title>year</title>
 <indexterm><primary>year</primary><secondary>dec_datetime</secondary></indexterm>
 <indexterm><primary>dec_datetime</primary><secondary>year</secondary></indexterm>
-<para><computeroutput>char dec_datetime::year[5]</computeroutput></para><para>
-Definition at line <link linkend="_datetime_8h_source_1l00023">23</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
+<para><computeroutput>char dec_datetime::year[<link linkend="_datetime_8h_1ae1bf067b2ccb33abefdd15183cf9ab64">YEAR_FIELD_LEN</link>]</computeroutput></para><para>
+Definition at line <link linkend="_datetime_8h_source_1l00040">40</link> of file <link linkend="_datetime_8h_source">datetime.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

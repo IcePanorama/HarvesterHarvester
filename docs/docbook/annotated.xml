@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
 <title>Data Structures</title>
 Here are the data structures with brief descriptions:<link linkend="_structdec__datetime">dec_datetime</link>
-<para>The date/time format used in the Primary Volume Descriptor </para>
+<para>The date/time format used by Primary Volume Descriptors </para>
 <link linkend="_structdir__datetime">dir_datetime</link>
 <para>The date/time format used by directory records </para>
 <link linkend="_structdirectory">directory</link>
