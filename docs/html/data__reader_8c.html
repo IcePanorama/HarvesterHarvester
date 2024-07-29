@@ -112,32 +112,41 @@ $(function(){initNavTree('data__reader_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9fe70ffc0216052a2ffededd4abded89" id="r_a9fe70ffc0216052a2ffededd4abded89"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fe70ffc0216052a2ffededd4abded89">read_big_endian_data_uint32_t</a> (FILE *fptr, uint32_t *output)</td></tr>
-<tr class="separator:a9fe70ffc0216052a2ffededd4abded89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade23ba29f3b5a5c0c9b6dddb1b307df0" id="r_ade23ba29f3b5a5c0c9b6dddb1b307df0"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade23ba29f3b5a5c0c9b6dddb1b307df0">read_big_endian_data_uint16_t</a> (FILE *fptr, uint16_t *output)</td></tr>
+<tr class="memdesc:ade23ba29f3b5a5c0c9b6dddb1b307df0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a uint16_t stored in big endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>.  <br /></td></tr>
 <tr class="separator:ade23ba29f3b5a5c0c9b6dddb1b307df0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe70ffc0216052a2ffededd4abded89" id="r_a9fe70ffc0216052a2ffededd4abded89"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fe70ffc0216052a2ffededd4abded89">read_big_endian_data_uint32_t</a> (FILE *fptr, uint32_t *output)</td></tr>
+<tr class="memdesc:a9fe70ffc0216052a2ffededd4abded89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a uint32_t stored in big endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>.  <br /></td></tr>
+<tr class="separator:a9fe70ffc0216052a2ffededd4abded89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a640713d2880309d518aebed5ebff89e0" id="r_a640713d2880309d518aebed5ebff89e0"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</a> (FILE *fptr, uint32_t *output)</td></tr>
-<tr class="memdesc:a640713d2880309d518aebed5ebff89e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second.  <br /></td></tr>
+<tr class="memdesc:a640713d2880309d518aebed5ebff89e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and and storing the result into <code>output</code>.  <br /></td></tr>
 <tr class="separator:a640713d2880309d518aebed5ebff89e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5eb33b86992b7eec9d57407d8bb5bb4" id="r_ac5eb33b86992b7eec9d57407d8bb5bb4"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5eb33b86992b7eec9d57407d8bb5bb4">read_both_endian_data_uint16</a> (FILE *fptr, uint16_t *output)</td></tr>
-<tr class="memdesc:ac5eb33b86992b7eec9d57407d8bb5bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second.  <br /></td></tr>
+<tr class="memdesc:ac5eb33b86992b7eec9d57407d8bb5bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and storing the result into <code>output</code>.  <br /></td></tr>
 <tr class="separator:ac5eb33b86992b7eec9d57407d8bb5bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35b8ba7297a3da1c6b2f847ca471299b" id="r_a35b8ba7297a3da1c6b2f847ca471299b"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a> (FILE *fptr, uint32_t *output)</td></tr>
+<tr class="memdesc:a35b8ba7297a3da1c6b2f847ca471299b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a uint32_t stored in little endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>.  <br /></td></tr>
 <tr class="separator:a35b8ba7297a3da1c6b2f847ca471299b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78ed65e60aaa0c5e49f37c65baf761a4" id="r_a78ed65e60aaa0c5e49f37c65baf761a4"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78ed65e60aaa0c5e49f37c65baf761a4">read_little_endian_data_uint16_t</a> (FILE *fptr, uint16_t *output)</td></tr>
+<tr class="memdesc:a78ed65e60aaa0c5e49f37c65baf761a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a uint16_t stored in little endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>.  <br /></td></tr>
 <tr class="separator:a78ed65e60aaa0c5e49f37c65baf761a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a095233f80d488c02ecbdd3aca2d38231" id="r_a095233f80d488c02ecbdd3aca2d38231"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a095233f80d488c02ecbdd3aca2d38231">read_string</a> (FILE *fptr, char *output, uint8_t length)</td></tr>
+<tr class="memdesc:a095233f80d488c02ecbdd3aca2d38231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a string of a given length from a given file, storing the result in <code>output</code>.  <br /></td></tr>
 <tr class="separator:a095233f80d488c02ecbdd3aca2d38231"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8a5617b9328c9f95fb8ce6cf446bdf0" id="r_ac8a5617b9328c9f95fb8ce6cf446bdf0"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8a5617b9328c9f95fb8ce6cf446bdf0">read_array_uint8</a> (FILE *fptr, uint8_t *arr, uint8_t length)</td></tr>
+<tr class="memdesc:ac8a5617b9328c9f95fb8ce6cf446bdf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an array of uint8_t's, of a given length, from a given file, storing the result in <code>output</code>.  <br /></td></tr>
 <tr class="separator:ac8a5617b9328c9f95fb8ce6cf446bdf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9fa8fe51a3363438da9a616c4363e837" id="r_a9fa8fe51a3363438da9a616c4363e837"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fa8fe51a3363438da9a616c4363e837">read_dec_datetime</a> (FILE *fptr, <a class="el" href="structdec__datetime.html">dec_datetime</a> *dt)</td></tr>
+<tr class="memdesc:a9fa8fe51a3363438da9a616c4363e837"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads in <code><a class="el" href="structdec__datetime.html" title="The date/time format used in the Primary Volume Descriptor.">dec_datetime</a></code> data from a given file, storing the output in <code>dt</code>.  <br /></td></tr>
 <tr class="separator:a9fa8fe51a3363438da9a616c4363e837"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3987a7d12b6ef51327e5d1ae63d087cc" id="r_a3987a7d12b6ef51327e5d1ae63d087cc"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</a> (FILE *fptr, uint8_t *value)</td></tr>
+<tr class="memdesc:a3987a7d12b6ef51327e5d1ae63d087cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">data_header.h - container for various data access functions.  <br /></td></tr>
 <tr class="separator:a3987a7d12b6ef51327e5d1ae63d087cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a671723ae43b83cdf3db007816fc6b0a0" id="r_a671723ae43b83cdf3db007816fc6b0a0"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a671723ae43b83cdf3db007816fc6b0a0">read_dir_datetime</a> (FILE *fptr, <a class="el" href="structdir__datetime.html">dir_datetime</a> *dt)</td></tr>
+<tr class="memdesc:a671723ae43b83cdf3db007816fc6b0a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads in <code><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a></code> data from a given file, storing the output in <code>dt</code>.  <br /></td></tr>
 <tr class="separator:a671723ae43b83cdf3db007816fc6b0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a706cf4826080ce7bf4a1706fe10f379a" id="r_a706cf4826080ce7bf4a1706fe10f379a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a706cf4826080ce7bf4a1706fe10f379a">read_file_flags</a> (FILE *fptr, <a class="el" href="structfile__flags.html">file_flags</a> *ff)</td></tr>
-<tr class="memdesc:a706cf4826080ce7bf4a1706fe10f379a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads file flag data in from a given source pointed to by <code>fptr</code> and uses that data to update the various flags in <code>ff</code> as needed.  <br /></td></tr>
+<tr class="memdesc:a706cf4826080ce7bf4a1706fe10f379a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads in <code>file_flag</code> data from a given file, storing the output in <code>ff</code>.  <br /></td></tr>
 <tr class="separator:a706cf4826080ce7bf4a1706fe10f379a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -165,7 +174,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00132">132</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads an array of uint8_t's, of a given length, from a given file, storing the result in <code>output</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00154">154</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -196,7 +207,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00103">103</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads a uint16_t stored in big endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00125">125</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -227,7 +240,9 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00072">72</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads a uint32_t stored in big endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00094">94</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -250,18 +265,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </p>
+<p>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and storing the result into <code>output</code>. </p>
 <p>This is almost certainly unnecessary, but it makes me feel better :).</p>
-<p>FIXME: incorrect, need to rewrite </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fptr</td><td>pointer to data to be read. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint16_t containing the read data. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>read_both_endian_data_unint32() </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00033">33</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00055">55</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -284,18 +292,11 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </p>
+<p>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and and storing the result into <code>output</code>. </p>
 <p>This is almost certainly unnecessary, but it makes me feel better :).</p>
-<p>FIXME: incorrect, need to rewrite </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fptr</td><td>pointer to data to be read. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t containing the read data. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd>read_both_endian_data_unint16() </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00012">12</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00034">34</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -318,7 +319,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00145">145</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads in <code><a class="el" href="structdec__datetime.html" title="The date/time format used in the Primary Volume Descriptor.">dec_datetime</a></code> data from a given file, storing the output in <code>dt</code>. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdec__datetime.html" title="The date/time format used in the Primary Volume Descriptor.">dec_datetime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00167">167</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -341,7 +345,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00178">178</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads in <code><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a></code> data from a given file, storing the output in <code>dt</code>. </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a> </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00200">200</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -364,17 +371,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads file flag data in from a given source pointed to by <code>fptr</code> and uses that data to update the various flags in <code>ff</code> as needed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fptr</td><td>Pointer to file with file flag data </td></tr>
-    <tr><td class="paramname">ff</td><td>file flags to be updated. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Reads in <code>file_flag</code> data from a given file, storing the output in <code>ff</code>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structfile__flags.html" title="The file flags for a directory record.">file_flags</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00195">195</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00217">217</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -397,7 +397,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00088">88</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads a uint16_t stored in little endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00110">110</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -420,7 +422,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00054">54</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads a uint32_t stored in little endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00076">76</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -443,7 +447,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00165">165</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>data_header.h - container for various data access functions. </p>
+<p>All of these functions return zero on success, non-zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8_t from a given file, storing the output in <code>value</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00187">187</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -471,7 +478,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00118">118</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p>Reads a string of a given length from a given file, storing the result in <code>output</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00140">140</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>

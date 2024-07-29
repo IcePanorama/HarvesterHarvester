@@ -2,31 +2,49 @@
 \hypertarget{data__reader_8h_source}{}\label{data__reader_8h_source}\index{src/data\_reader.h@{src/data\_reader.h}}
 \mbox{\hyperlink{data__reader_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_DATA\_READER\_H\_}}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_DATA\_READER\_H\_}}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00003}00003\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datetime_8h}{datetime.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{file__flags_8h}{file\_flags.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00006}00006\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00009}00009\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00010}00010\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (FILE\ *fptr,\ uint32\_t\ *output);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00011}00011\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00023}00023\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a640713d2880309d518aebed5ebff89e0}{read\_both\_endian\_data\_uint32}}\ (FILE\ *fptr,\ uint32\_t\ *output);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00025}00025\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4}{read\_little\_endian\_data\_uint16\_t}}\ (FILE\ *fptr,\ uint16\_t\ *output);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00008}00008\ \textcolor{comment}{//\ \ Copyright\ (C)\ 2024\ \ IcePanorama}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00009}00009\ \textcolor{comment}{//\ \ This\ file\ is\ a\ part\ of\ HarvesterHarvester.}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00010}00010\ \textcolor{comment}{//\ \ HarvesterHarvester\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00011}00011\ \textcolor{comment}{//\ \ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ as\ published\ by\ the}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00012}00012\ \textcolor{comment}{//\ \ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or\ (at\ your}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00013}00013\ \textcolor{comment}{//\ \ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00014}00014\ \textcolor{comment}{//\ \ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,\ but\ WITHOUT}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00015}00015\ \textcolor{comment}{//\ \ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of\ MERCHANTABILITY\ or}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00016}00016\ \textcolor{comment}{//\ \ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU\ General\ Public\ License\ for}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00017}00017\ \textcolor{comment}{//\ \ more\ details.}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00018}00018\ \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00019}00019\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00020}00020\ \textcolor{comment}{//\ \ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00021}00021\ \textcolor{preprocessor}{\#ifndef\ \_DATA\_READER\_H\_}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00022}00022\ \textcolor{preprocessor}{\#define\ \_DATA\_READER\_H\_}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{datetime_8h}{datetime.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{file__flags_8h}{file\_flags.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00026}00026\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00038}00038\ int8\_t\ \mbox{\hyperlink{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\_both\_endian\_data\_uint16}}\ (FILE\ *fptr,\ uint16\_t\ *output);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00040}00040\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (FILE\ *fptr,\ \textcolor{keywordtype}{char}\ *output,\ uint8\_t\ length);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00041}00041\ int8\_t\ \mbox{\hyperlink{data__reader_8h_ac8a5617b9328c9f95fb8ce6cf446bdf0}{read\_array\_uint8}}\ (FILE\ *fptr,\ uint8\_t\ *arr,\ uint8\_t\ length);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00042}00042\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837}{read\_dec\_datetime}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structdec__datetime}{dec\_datetime}}\ *dt);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00043}00043\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (FILE\ *fptr,\ uint8\_t\ *value);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00044}00044\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a671723ae43b83cdf3db007816fc6b0a0}{read\_dir\_datetime}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structdir__datetime}{dir\_datetime}}\ *dt);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00054}00054\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a706cf4826080ce7bf4a1706fe10f379a}{read\_file\_flags}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structfile__flags}{file\_flags}}\ *ff);}
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00056}00056\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00033}00033\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (FILE\ *fptr,\ uint8\_t\ *value);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00039}00039\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4}{read\_little\_endian\_data\_uint16\_t}}\ (FILE\ *fptr,\ uint16\_t\ *output);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00045}00045\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (FILE\ *fptr,\ uint32\_t\ *output);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00056}00056\ int8\_t\ \mbox{\hyperlink{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\_both\_endian\_data\_uint16}}\ (FILE\ *fptr,\ uint16\_t\ *output);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00067}00067\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a640713d2880309d518aebed5ebff89e0}{read\_both\_endian\_data\_uint32}}\ (FILE\ *fptr,\ uint32\_t\ *output);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00073}00073\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231}{read\_string}}\ (FILE\ *fptr,\ \textcolor{keywordtype}{char}\ *output,\ uint8\_t\ length);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00079}00079\ int8\_t\ \mbox{\hyperlink{data__reader_8h_ac8a5617b9328c9f95fb8ce6cf446bdf0}{read\_array\_uint8}}\ (FILE\ *fptr,\ uint8\_t\ *arr,\ uint8\_t\ length);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00086}00086\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837}{read\_dec\_datetime}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structdec__datetime}{dec\_datetime}}\ *dt);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00093}00093\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a671723ae43b83cdf3db007816fc6b0a0}{read\_dir\_datetime}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structdir__datetime}{dir\_datetime}}\ *dt);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00100}00100\ int8\_t\ \mbox{\hyperlink{data__reader_8h_a706cf4826080ce7bf4a1706fe10f379a}{read\_file\_flags}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structfile__flags}{file\_flags}}\ *ff);}
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{data__reader_8h_source_l00102}00102\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

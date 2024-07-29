@@ -5,31 +5,45 @@
 <programlisting linenumbering="unnumbered">#include &quot;datetime.h&quot;<?linebreak?>#include &quot;file_flags.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>int8_t <link linkend="_data__reader_8h_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link> (FILE *fptr, uint32_t *output)</para>
-</listitem>
-            <listitem><para>int8_t <link linkend="_data__reader_8h_1a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</link> (FILE *fptr, uint32_t *output)</para>
+            <listitem><para>int8_t <link linkend="_data__reader_8h_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link> (FILE *fptr, uint8_t *value)</para>
 
-<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
+<para>data_header.h - container for various data access functions. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_data__reader_8h_1a78ed65e60aaa0c5e49f37c65baf761a4">read_little_endian_data_uint16_t</link> (FILE *fptr, uint16_t *output)</para>
+
+<para>Reads a uint16_t stored in little endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_data__reader_8h_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link> (FILE *fptr, uint32_t *output)</para>
+
+<para>Reads a uint32_t stored in little endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_data__reader_8h_1ac5eb33b86992b7eec9d57407d8bb5bb4">read_both_endian_data_uint16</link> (FILE *fptr, uint16_t *output)</para>
 
-<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and storing the result into <computeroutput>output</computeroutput>. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_data__reader_8h_1a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</link> (FILE *fptr, uint32_t *output)</para>
+
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and and storing the result into <computeroutput>output</computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_data__reader_8h_1a095233f80d488c02ecbdd3aca2d38231">read_string</link> (FILE *fptr, char *output, uint8_t length)</para>
+
+<para>Reads a string of a given length from a given file, storing the result in <computeroutput>output</computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_data__reader_8h_1ac8a5617b9328c9f95fb8ce6cf446bdf0">read_array_uint8</link> (FILE *fptr, uint8_t *arr, uint8_t length)</para>
+
+<para>Reads an array of uint8_t&apos;s, of a given length, from a given file, storing the result in <computeroutput>output</computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_data__reader_8h_1a9fa8fe51a3363438da9a616c4363e837">read_dec_datetime</link> (FILE *fptr, <link linkend="_structdec__datetime">dec_datetime</link> *dt)</para>
-</listitem>
-            <listitem><para>int8_t <link linkend="_data__reader_8h_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link> (FILE *fptr, uint8_t *value)</para>
+
+<para>Reads in <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> data from a given file, storing the output in <computeroutput>dt</computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_data__reader_8h_1a671723ae43b83cdf3db007816fc6b0a0">read_dir_datetime</link> (FILE *fptr, <link linkend="_structdir__datetime">dir_datetime</link> *dt)</para>
+
+<para>Reads in <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> data from a given file, storing the output in <computeroutput>dt</computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_data__reader_8h_1a706cf4826080ce7bf4a1706fe10f379a">read_file_flags</link> (FILE *fptr, <link linkend="_structfile__flags">file_flags</link> *ff)</para>
 
-<para>Reads file flag data in from a given source pointed to by <computeroutput>fptr</computeroutput> and uses that data to update the various flags in <computeroutput>ff</computeroutput> as needed. </para>
+<para>Reads in <computeroutput>file_flag</computeroutput> data from a given file, storing the output in <computeroutput>ff</computeroutput>. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -40,7 +54,11 @@
 <indexterm><primary>read_array_uint8</primary><secondary>data_reader.h</secondary></indexterm>
 <indexterm><primary>data_reader.h</primary><secondary>read_array_uint8</secondary></indexterm>
 <para><computeroutput>int8_t read_array_uint8 (FILE * fptr, uint8_t * arr, uint8_t length)</computeroutput></para><para>
-Definition at line <link linkend="_data__reader_8c_source_1l00132">132</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+
+<para>Reads an array of uint8_t&apos;s, of a given length, from a given file, storing the result in <computeroutput>output</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_data__reader_8c_source_1l00154">154</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1ac5eb33b86992b7eec9d57407d8bb5bb4"/><section>
     <title>read_both_endian_data_uint16()</title>
@@ -48,42 +66,18 @@ Definition at line <link linkend="_data__reader_8c_source_1l00132">132</link> of
 <indexterm><primary>data_reader.h</primary><secondary>read_both_endian_data_uint16</secondary></indexterm>
 <para><computeroutput>int8_t read_both_endian_data_uint16 (FILE * fptr, uint16_t * output)</computeroutput></para><para>
 
-<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and storing the result into <computeroutput>output</computeroutput>. </para>
 </para>
 
 <para>This is almost certainly unnecessary, but it makes me feel better :).</para>
 
-<para>FIXME: incorrect, need to rewrite 
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to data to be read. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>Returns</title>
-
-<para>uint16_t containing the read data. </para>
-</formalpara>
-<formalpara><title>See also</title>
+<para><formalpara><title>See also</title>
 
 <para>read_both_endian_data_unint32() </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00033">33</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00055">55</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a640713d2880309d518aebed5ebff89e0"/><section>
     <title>read_both_endian_data_uint32()</title>
@@ -91,56 +85,52 @@ Definition at line <link linkend="_data__reader_8c_source_1l00033">33</link> of 
 <indexterm><primary>data_reader.h</primary><secondary>read_both_endian_data_uint32</secondary></indexterm>
 <para><computeroutput>int8_t read_both_endian_data_uint32 (FILE * fptr, uint32_t * output)</computeroutput></para><para>
 
-<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. </para>
+<para>When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and and storing the result into <computeroutput>output</computeroutput>. </para>
 </para>
 
 <para>This is almost certainly unnecessary, but it makes me feel better :).</para>
 
-<para>FIXME: incorrect, need to rewrite 
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to data to be read. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>Returns</title>
-
-<para>uint32_t containing the read data. </para>
-</formalpara>
-<formalpara><title>See also</title>
+<para><formalpara><title>See also</title>
 
 <para>read_both_endian_data_unint16() </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00012">12</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00034">34</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a9fa8fe51a3363438da9a616c4363e837"/><section>
     <title>read_dec_datetime()</title>
 <indexterm><primary>read_dec_datetime</primary><secondary>data_reader.h</secondary></indexterm>
 <indexterm><primary>data_reader.h</primary><secondary>read_dec_datetime</secondary></indexterm>
 <para><computeroutput>int8_t read_dec_datetime (FILE * fptr, <link linkend="_structdec__datetime">dec_datetime</link> * dt)</computeroutput></para><para>
-Definition at line <link linkend="_data__reader_8c_source_1l00145">145</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+
+<para>Reads in <computeroutput><link linkend="_structdec__datetime">dec_datetime</link></computeroutput> data from a given file, storing the output in <computeroutput>dt</computeroutput>. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_structdec__datetime">dec_datetime</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_data__reader_8c_source_1l00167">167</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a671723ae43b83cdf3db007816fc6b0a0"/><section>
     <title>read_dir_datetime()</title>
 <indexterm><primary>read_dir_datetime</primary><secondary>data_reader.h</secondary></indexterm>
 <indexterm><primary>data_reader.h</primary><secondary>read_dir_datetime</secondary></indexterm>
 <para><computeroutput>int8_t read_dir_datetime (FILE * fptr, <link linkend="_structdir__datetime">dir_datetime</link> * dt)</computeroutput></para><para>
-Definition at line <link linkend="_data__reader_8c_source_1l00178">178</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+
+<para>Reads in <computeroutput><link linkend="_structdir__datetime">dir_datetime</link></computeroutput> data from a given file, storing the output in <computeroutput>dt</computeroutput>. </para>
+</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_structdir__datetime">dir_datetime</link> </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_data__reader_8c_source_1l00200">200</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a706cf4826080ce7bf4a1706fe10f379a"/><section>
     <title>read_file_flags()</title>
@@ -148,69 +138,62 @@ Definition at line <link linkend="_data__reader_8c_source_1l00178">178</link> of
 <indexterm><primary>data_reader.h</primary><secondary>read_file_flags</secondary></indexterm>
 <para><computeroutput>int8_t read_file_flags (FILE * fptr, <link linkend="_structfile__flags">file_flags</link> * ff)</computeroutput></para><para>
 
-<para>Reads file flag data in from a given source pointed to by <computeroutput>fptr</computeroutput> and uses that data to update the various flags in <computeroutput>ff</computeroutput> as needed. </para>
+<para>Reads in <computeroutput>file_flag</computeroutput> data from a given file, storing the output in <computeroutput>ff</computeroutput>. </para>
 </para>
 
-<para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>Pointer to file with file flag data </para>
-</entry>
-                            </row>
-                            <row>
-<entry>ff</entry><entry>
-<para>file flags to be updated. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
+<para><formalpara><title>See also</title>
 
 <para><link linkend="_structfile__flags">file_flags</link> </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00195">195</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00217">217</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a78ed65e60aaa0c5e49f37c65baf761a4"/><section>
     <title>read_little_endian_data_uint16_t()</title>
 <indexterm><primary>read_little_endian_data_uint16_t</primary><secondary>data_reader.h</secondary></indexterm>
 <indexterm><primary>data_reader.h</primary><secondary>read_little_endian_data_uint16_t</secondary></indexterm>
 <para><computeroutput>int8_t read_little_endian_data_uint16_t (FILE * fptr, uint16_t * output)</computeroutput></para><para>
-Definition at line <link linkend="_data__reader_8c_source_1l00088">88</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+
+<para>Reads a uint16_t stored in little endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_data__reader_8c_source_1l00110">110</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a35b8ba7297a3da1c6b2f847ca471299b"/><section>
     <title>read_little_endian_data_uint32_t()</title>
 <indexterm><primary>read_little_endian_data_uint32_t</primary><secondary>data_reader.h</secondary></indexterm>
 <indexterm><primary>data_reader.h</primary><secondary>read_little_endian_data_uint32_t</secondary></indexterm>
 <para><computeroutput>int8_t read_little_endian_data_uint32_t (FILE * fptr, uint32_t * output)</computeroutput></para><para>
-Definition at line <link linkend="_data__reader_8c_source_1l00054">54</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+
+<para>Reads a uint32_t stored in little endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_data__reader_8c_source_1l00076">76</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a3987a7d12b6ef51327e5d1ae63d087cc"/><section>
     <title>read_single_uint8()</title>
 <indexterm><primary>read_single_uint8</primary><secondary>data_reader.h</secondary></indexterm>
 <indexterm><primary>data_reader.h</primary><secondary>read_single_uint8</secondary></indexterm>
 <para><computeroutput>int8_t read_single_uint8 (FILE * fptr, uint8_t * value)</computeroutput></para><para>
-Definition at line <link linkend="_data__reader_8c_source_1l00165">165</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+
+<para>data_header.h - container for various data access functions. </para>
+</para>
+
+<para>All of these functions return zero on success, non-zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8_t from a given file, storing the output in <computeroutput>value</computeroutput>. </para>
+<para>
+Definition at line <link linkend="_data__reader_8c_source_1l00187">187</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8h_1a095233f80d488c02ecbdd3aca2d38231"/><section>
     <title>read_string()</title>
 <indexterm><primary>read_string</primary><secondary>data_reader.h</secondary></indexterm>
 <indexterm><primary>data_reader.h</primary><secondary>read_string</secondary></indexterm>
 <para><computeroutput>int8_t read_string (FILE * fptr, char * output, uint8_t length)</computeroutput></para><para>
-Definition at line <link linkend="_data__reader_8c_source_1l00118">118</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+
+<para>Reads a string of a given length from a given file, storing the result in <computeroutput>output</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_data__reader_8c_source_1l00140">140</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 </section>
 </section>

@@ -7,26 +7,26 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}output)
-\item 
-int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a640713d2880309d518aebed5ebff89e0}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}output)
-\begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t \texorpdfstring{$\ast$}{*}output)
-\item 
-int8\+\_\+t \mbox{\hyperlink{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t \texorpdfstring{$\ast$}{*}output)
-\begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231}{read\+\_\+string}} (FILE \texorpdfstring{$\ast$}{*}fptr, char \texorpdfstring{$\ast$}{*}output, uint8\+\_\+t length)
-\item 
-int8\+\_\+t \mbox{\hyperlink{data__reader_8h_ac8a5617b9328c9f95fb8ce6cf446bdf0}{read\+\_\+array\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}arr, uint8\+\_\+t length)
-\item 
-int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837}{read\+\_\+dec\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} \texorpdfstring{$\ast$}{*}dt)
-\item 
 int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a3987a7d12b6ef51327e5d1ae63d087cc}{read\+\_\+single\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}value)
-\item 
+\begin{DoxyCompactList}\small\item\em data\+\_\+header.\+h -\/ container for various data access functions. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t \texorpdfstring{$\ast$}{*}output)
+\begin{DoxyCompactList}\small\item\em Reads a uint16\+\_\+t stored in little endian format from the file pointed to by {\ttfamily fptr} and stores the result in {\ttfamily output}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b}{read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}output)
+\begin{DoxyCompactList}\small\item\em Reads a uint32\+\_\+t stored in little endian format from the file pointed to by {\ttfamily fptr} and stores the result in {\ttfamily output}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint16\+\_\+t \texorpdfstring{$\ast$}{*}output)
+\begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and storing the result into {\ttfamily output}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a640713d2880309d518aebed5ebff89e0}{read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint32\+\_\+t \texorpdfstring{$\ast$}{*}output)
+\begin{DoxyCompactList}\small\item\em When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and and storing the result into {\ttfamily output}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231}{read\+\_\+string}} (FILE \texorpdfstring{$\ast$}{*}fptr, char \texorpdfstring{$\ast$}{*}output, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Reads a string of a given length from a given file, storing the result in {\ttfamily output}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_ac8a5617b9328c9f95fb8ce6cf446bdf0}{read\+\_\+array\+\_\+uint8}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t \texorpdfstring{$\ast$}{*}arr, uint8\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Reads an array of uint8\+\_\+t\textquotesingle{}s, of a given length, from a given file, storing the result in {\ttfamily output}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837}{read\+\_\+dec\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structdec__datetime}{dec\+\_\+datetime}} \texorpdfstring{$\ast$}{*}dt)
+\begin{DoxyCompactList}\small\item\em Reads in {\ttfamily \doxylink{structdec__datetime}{dec\+\_\+datetime}} data from a given file, storing the output in {\ttfamily dt}. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a671723ae43b83cdf3db007816fc6b0a0}{read\+\_\+dir\+\_\+datetime}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structdir__datetime}{dir\+\_\+datetime}} \texorpdfstring{$\ast$}{*}dt)
-\item 
+\begin{DoxyCompactList}\small\item\em Reads in {\ttfamily \doxylink{structdir__datetime}{dir\+\_\+datetime}} data from a given file, storing the output in {\ttfamily dt}. \end{DoxyCompactList}\item 
 int8\+\_\+t \mbox{\hyperlink{data__reader_8h_a706cf4826080ce7bf4a1706fe10f379a}{read\+\_\+file\+\_\+flags}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structfile__flags}{file\+\_\+flags}} \texorpdfstring{$\ast$}{*}ff)
-\begin{DoxyCompactList}\small\item\em Reads file flag data in from a given source pointed to by {\ttfamily fptr} and uses that data to update the various flags in {\ttfamily ff} as needed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Reads in {\ttfamily file\+\_\+flag} data from a given file, storing the output in {\ttfamily ff}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -38,7 +38,11 @@ int8\+\_\+t read\+\_\+array\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \tex
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00132}{132}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Reads an array of uint8\+\_\+t\textquotesingle{}s, of a given length, from a given file, storing the result in {\ttfamily output}. 
+
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00154}{154}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_ac5eb33b86992b7eec9d57407d8bb5bb4}\index{data\_reader.h@{data\_reader.h}!read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}}
 \index{read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}!data\_reader.h@{data\_reader.h}}
@@ -48,24 +52,16 @@ int8\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint16 (\begin{DoxyParamCa
 
 
 
-When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and storing the result into {\ttfamily output}. 
 
 This is almost certainly unnecessary, but it makes me feel better \+:).
 
-FIXME\+: incorrect, need to rewrite 
-\begin{DoxyParams}{Parameters}
-{\em fptr} & pointer to data to be read. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint16\+\_\+t containing the read data. 
-\end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint32() 
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00033}{33}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00055}{55}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a640713d2880309d518aebed5ebff89e0}\index{data\_reader.h@{data\_reader.h}!read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}}
 \index{read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}!data\_reader.h@{data\_reader.h}}
@@ -75,24 +71,16 @@ int8\+\_\+t read\+\_\+both\+\_\+endian\+\_\+data\+\_\+uint32 (\begin{DoxyParamCa
 
 
 
-When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second. 
+When data in a given file is presented first in little endian form and then repeated in big endian form, this function will read both values, double checking that the first matches the second, and and storing the result into {\ttfamily output}. 
 
 This is almost certainly unnecessary, but it makes me feel better \+:).
 
-FIXME\+: incorrect, need to rewrite 
-\begin{DoxyParams}{Parameters}
-{\em fptr} & pointer to data to be read. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-uint32\+\_\+t containing the read data. 
-\end{DoxyReturn}
 \begin{DoxySeeAlso}{See also}
 read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint16() 
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00012}{12}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00034}{34}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a9fa8fe51a3363438da9a616c4363e837}\index{data\_reader.h@{data\_reader.h}!read\_dec\_datetime@{read\_dec\_datetime}}
 \index{read\_dec\_datetime@{read\_dec\_datetime}!data\_reader.h@{data\_reader.h}}
@@ -102,7 +90,14 @@ int8\+\_\+t read\+\_\+dec\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \te
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00145}{145}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Reads in {\ttfamily \doxylink{structdec__datetime}{dec\+\_\+datetime}} data from a given file, storing the output in {\ttfamily dt}. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{structdec__datetime}{dec\+\_\+datetime} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00167}{167}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a671723ae43b83cdf3db007816fc6b0a0}\index{data\_reader.h@{data\_reader.h}!read\_dir\_datetime@{read\_dir\_datetime}}
 \index{read\_dir\_datetime@{read\_dir\_datetime}!data\_reader.h@{data\_reader.h}}
@@ -112,7 +107,14 @@ int8\+\_\+t read\+\_\+dir\+\_\+datetime (\begin{DoxyParamCaption}\item[{FILE \te
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00178}{178}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Reads in {\ttfamily \doxylink{structdir__datetime}{dir\+\_\+datetime}} data from a given file, storing the output in {\ttfamily dt}. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{structdir__datetime}{dir\+\_\+datetime} 
+\end{DoxySeeAlso}
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00200}{200}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a706cf4826080ce7bf4a1706fe10f379a}\index{data\_reader.h@{data\_reader.h}!read\_file\_flags@{read\_file\_flags}}
 \index{read\_file\_flags@{read\_file\_flags}!data\_reader.h@{data\_reader.h}}
@@ -122,21 +124,14 @@ int8\+\_\+t read\+\_\+file\+\_\+flags (\begin{DoxyParamCaption}\item[{FILE \texo
 
 
 
-Reads file flag data in from a given source pointed to by {\ttfamily fptr} and uses that data to update the various flags in {\ttfamily ff} as needed. 
+Reads in {\ttfamily file\+\_\+flag} data from a given file, storing the output in {\ttfamily ff}. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em fptr} & Pointer to file with file flag data \\
-\hline
-{\em ff} & file flags to be updated. \\
-\hline
-\end{DoxyParams}
 \begin{DoxySeeAlso}{See also}
 \doxylink{structfile__flags}{file\+\_\+flags} 
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00195}{195}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00217}{217}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a78ed65e60aaa0c5e49f37c65baf761a4}\index{data\_reader.h@{data\_reader.h}!read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}}
 \index{read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}!data\_reader.h@{data\_reader.h}}
@@ -146,7 +141,11 @@ int8\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint16\+\_\+t (\begin{Do
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00088}{88}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Reads a uint16\+\_\+t stored in little endian format from the file pointed to by {\ttfamily fptr} and stores the result in {\ttfamily output}. 
+
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00110}{110}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a35b8ba7297a3da1c6b2f847ca471299b}\index{data\_reader.h@{data\_reader.h}!read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}}
 \index{read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}!data\_reader.h@{data\_reader.h}}
@@ -156,7 +155,11 @@ int8\+\_\+t read\+\_\+little\+\_\+endian\+\_\+data\+\_\+uint32\+\_\+t (\begin{Do
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00054}{54}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Reads a uint32\+\_\+t stored in little endian format from the file pointed to by {\ttfamily fptr} and stores the result in {\ttfamily output}. 
+
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00076}{76}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a3987a7d12b6ef51327e5d1ae63d087cc}\index{data\_reader.h@{data\_reader.h}!read\_single\_uint8@{read\_single\_uint8}}
 \index{read\_single\_uint8@{read\_single\_uint8}!data\_reader.h@{data\_reader.h}}
@@ -166,7 +169,11 @@ int8\+\_\+t read\+\_\+single\+\_\+uint8 (\begin{DoxyParamCaption}\item[{FILE \te
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00165}{165}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+data\+\_\+header.\+h -\/ container for various data access functions. 
+
+All of these functions return zero on success, non-\/zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8\+\_\+t from a given file, storing the output in {\ttfamily value}. 
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00187}{187}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8h_a095233f80d488c02ecbdd3aca2d38231}\index{data\_reader.h@{data\_reader.h}!read\_string@{read\_string}}
 \index{read\_string@{read\_string}!data\_reader.h@{data\_reader.h}}
@@ -176,5 +183,9 @@ int8\+\_\+t read\+\_\+string (\begin{DoxyParamCaption}\item[{FILE \texorpdfstrin
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00118}{118}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Reads a string of a given length from a given file, storing the result in {\ttfamily output}. 
+
+
+
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00140}{140}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
