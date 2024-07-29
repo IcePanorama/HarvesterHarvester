@@ -131,8 +131,8 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       char *path = calloc (PATH_MAX_LEN, sizeof (char));
       if (path == NULL)
         {
-          perror ("ERROR: unable to calloc path string");
-          return -1;
+          fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, PATH_MAX_LEN);
+          return HH_MEM_ALLOC_ERROR;
         }
 
       strcat (path, curr_dir.directory_identifier);
@@ -155,7 +155,8 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
         }
       while (curr_dir.parent_directory_number > 0x0100);
 
-      create_output_directory (path);
+      if (create_output_directory (path) != 0)
+        return -1;
 
       fseek (fptr, BLOCK_SIZE * target_dir.location_of_extent, SEEK_SET);
 

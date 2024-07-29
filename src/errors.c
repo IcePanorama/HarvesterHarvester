@@ -3,6 +3,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+const char *CALLOC_FAILED_ERR_MSG_FMT
+    = "ERROR: unable to calloc string of size %ld.\n";
+
 void
 improper_usage_error (void)
 {

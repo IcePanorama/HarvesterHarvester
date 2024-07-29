@@ -20,7 +20,7 @@ static void print_path_table_entry (path_table_entry *e);
  */
 static int8_t add_entry_to_path_table (path_table *pt,
                                        path_table_entry *entry);
-/*********************/
+/******************************/
 
 int8_t
 create_path_table (path_table *pt)

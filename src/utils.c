@@ -1,5 +1,6 @@
 #include "utils.h"
 #include "data_reader.h"
+#include "errors.h"
 #include "options.h"
 
 #include <stdbool.h>
@@ -29,7 +30,7 @@ prepend_path_string (char *str, const char *prefix)
   if (tmp == NULL)
     {
       perror ("ERROR: unable to calloc tmp string");
-      return -1;
+      return HH_MEM_ALLOC_ERROR;
     }
 
   strcpy (tmp, str);

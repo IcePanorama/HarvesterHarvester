@@ -9,7 +9,11 @@ typedef enum HH_ERRORS
   HH_FOPEN_ERROR = -1,
   HH_FREAD_ERROR = -2,
   HH_PT_RESIZE_ERROR = -3,
+  HH_MEM_ALLOC_ERROR = -4,
+  HH_CREATE_OUTPUT_DIR_ERROR = -5
 } HH_ERRORS;
+
+extern const char *CALLOC_FAILED_ERR_MSG_FMT;
 
 /** Throws an improper usage error. */
 void improper_usage_error (void);
