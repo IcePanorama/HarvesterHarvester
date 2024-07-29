@@ -6,7 +6,7 @@
 #include <stdint.h>
 
 static uint32_t read_big_endian_data_uint32_t (FILE *fptr);
-static uint16_t read_big_endian_data_uint16_t (FILE *fptr);
+static int8_t read_big_endian_data_uint16_t (FILE *fptr, uint16_t *output);
 
 int8_t
 read_both_endian_data_uint32 (FILE *fptr, uint32_t *output)
@@ -28,21 +28,25 @@ read_both_endian_data_uint32 (FILE *fptr, uint32_t *output)
   return 0;
 }
 
-uint16_t
-read_both_endian_data_uint16 (FILE *fptr)
+int8_t
+read_both_endian_data_uint16 (FILE *fptr, uint16_t *output)
 {
-  uint16_t value;
-  read_little_endian_data_uint16_t (fptr, &value);
-  uint16_t expected_value = read_big_endian_data_uint16_t (fptr);
+  if (read_little_endian_data_uint16_t (fptr, output) != 0)
+    return HH_FREAD_ERROR;
 
-  if (value != expected_value)
+  uint16_t expected_value;
+  if (read_big_endian_data_uint16_t (fptr, &expected_value) != 0)
+    return HH_FREAD_ERROR;
+
+  if (*output != expected_value)
     {
       printf ("ERROR: Incorrect endian conversion (uint16_t).\n\tExpected "
               "%04X, got %04X.\n",
-              expected_value, value);
+              expected_value, *output);
+      return -1;
     }
 
-  return value;
+  return 0;
 }
 
 int8_t
@@ -92,16 +96,19 @@ read_little_endian_data_uint16_t (FILE *fptr, uint16_t *output)
   return 0;
 }
 
-uint16_t
-read_big_endian_data_uint16_t (FILE *fptr)
+int8_t
+read_big_endian_data_uint16_t (FILE *fptr, uint16_t *output)
 {
   uint8_t bytes[2];
   size_t bytes_read = fread (bytes, sizeof (uint8_t), 2, fptr);
   if (bytes_read != 2)
     {
       handle_fread_error (bytes_read, sizeof (bytes));
+      return HH_FREAD_ERROR;
     }
-  return ((uint16_t)bytes[1] << 8) | (uint16_t)bytes[0];
+
+  *output = ((uint16_t)bytes[1] << 8) | (uint16_t)bytes[0];
+  return 0;
 }
 
 int8_t

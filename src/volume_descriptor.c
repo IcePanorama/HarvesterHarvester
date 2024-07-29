@@ -101,9 +101,14 @@ process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)
 
   fseek (fptr, 32, SEEK_CUR); // Unused field
 
-  vdd->volume_set_size = read_both_endian_data_uint16 (fptr);
-  vdd->volume_sequence_number = read_both_endian_data_uint16 (fptr);
-  vdd->logical_block_size = read_both_endian_data_uint16 (fptr);
+  /* clang-format off */
+  if ((read_both_endian_data_uint16 (fptr, &vdd->volume_set_size) != 0)
+      || (read_both_endian_data_uint16 (fptr, &vdd->volume_sequence_number) != 0)
+      || (read_both_endian_data_uint16 (fptr, &vdd->logical_block_size) != 0))
+  {
+    return HH_FREAD_ERROR;
+  }
+  /* clang-format on */
 
   if ((read_both_endian_data_uint32 (fptr, &vdd->path_table_size) != 0)
       || (read_little_endian_data_uint32_t (fptr,

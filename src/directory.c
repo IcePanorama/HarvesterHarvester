@@ -141,7 +141,8 @@ process_directory (FILE *fptr, directory *d)
           return HH_FREAD_ERROR;
         }
 
-      dr.volume_sequence_number = read_both_endian_data_uint16 (fptr);
+      if (read_both_endian_data_uint16 (fptr, &dr.volume_sequence_number) != 0)
+        return HH_FREAD_ERROR;
 
       if (read_single_uint8 (fptr, &dr.file_identifier_length) != 0)
         {

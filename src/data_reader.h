@@ -30,11 +30,12 @@ int8_t read_little_endian_data_uint16_t (FILE *fptr, uint16_t *output);
  *  checking that the first matches the second. This is almost certainly
  *  unnecessary, but it makes me feel better :).
  *
+ * FIXME: incorrect, need to rewrite
  *  @param  fptr  pointer to data to be read.
  *  @return uint16_t containing the read data.
  *  @see read_both_endian_data_unint32()
  */
-uint16_t read_both_endian_data_uint16 (FILE *fptr);
+int8_t read_both_endian_data_uint16 (FILE *fptr, uint16_t *output);
 
 int8_t read_string (FILE *fptr, char *output, uint8_t length);
 int8_t read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length);
