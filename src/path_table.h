@@ -47,7 +47,7 @@ void destroy_path_table (path_table *pt);
  *  @param  pt    path table to which the entry should be added.
  *  @param  entry the entry to add to the given path table.
  */
-void add_entry_to_path_table (path_table *pt, path_table_entry *entry);
+int8_t add_entry_to_path_table (path_table *pt, path_table_entry *entry);
 
 /**
  *  Prints the given path table out to the stdout, formatting it into a

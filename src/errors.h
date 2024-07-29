@@ -8,6 +8,7 @@ typedef enum HH_ERRORS
 {
   HH_FOPEN_ERROR = -1,
   HH_FREAD_ERROR = -2,
+  HH_PT_RESIZE_ERROR = -3,
 } HH_ERRORS;
 
 /** Throws an improper usage error. */

@@ -7,7 +7,7 @@
 
 static const size_t PT_STARTING_NUM_ENTRIES = 10;
 static const size_t PT_GROWTH_RATE = 2; // doubles in size every time it grows.
-void resize_path_table_entries (path_table *pt);
+static int8_t resize_path_table_entries (path_table *pt);
 void print_path_table_entry (path_table_entry *e);
 
 int8_t
@@ -47,19 +47,21 @@ destroy_path_table (path_table *pt)
   pt->entries = NULL;
 }
 
-void
+int8_t
 add_entry_to_path_table (path_table *pt, path_table_entry *entry)
 {
   if (pt->current_entry >= pt->size)
     {
-      resize_path_table_entries (pt);
+      if (resize_path_table_entries (pt) != 0)
+        return HH_PT_RESIZE_ERROR;
     }
 
   pt->entries[pt->current_entry] = *entry;
   pt->current_entry++;
+  return 0;
 }
 
-void
+int8_t
 resize_path_table_entries (path_table *pt)
 {
   size_t new_size = (size_t)(pt->size * PT_GROWTH_RATE);
@@ -71,7 +73,7 @@ resize_path_table_entries (path_table *pt)
               "entries.");
 
       destroy_path_table (pt);
-      exit (1);
+      return -1;
     }
 
   pt->entries = new_entries;
@@ -81,6 +83,7 @@ resize_path_table_entries (path_table *pt)
     }
 
   pt->size = new_size;
+  return 0;
 }
 
 void
@@ -153,7 +156,8 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
           fseek (fptr, 1, SEEK_CUR);
         }
 
-      add_entry_to_path_table (pt, &curr);
+      if (add_entry_to_path_table (pt, &curr) != 0)
+        return HH_PT_RESIZE_ERROR;
 
       if (read_single_uint8 (fptr, &dir_identifier_length) != 0)
         return HH_FREAD_ERROR;
