@@ -120,6 +120,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="#a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</a> = -5
 <br />
  }</td></tr>
+<tr class="memdesc:a7c84f993e326519edca8fd9efdec746e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="errors_8h.html">errors.h</a> - a wrapper for all of hh's potential errors.  <a href="#a7c84f993e326519edca8fd9efdec746e">More...</a><br /></td></tr>
 <tr class="separator:a7c84f993e326519edca8fd9efdec746e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -140,8 +141,10 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ab2272d0da4232afba19f95bf02944157" id="r_ab2272d0da4232afba19f95bf02944157"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a></td></tr>
+<tr class="memdesc:ab2272d0da4232afba19f95bf02944157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format string for failed calloc error message.  <br /></td></tr>
 <tr class="separator:ab2272d0da4232afba19f95bf02944157"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a03ff53905312bd88e728b1863cf1b1c9" id="r_a03ff53905312bd88e728b1863cf1b1c9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</a></td></tr>
+<tr class="memdesc:a03ff53905312bd88e728b1863cf1b1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format string for failed fopen error message.  <br /></td></tr>
 <tr class="separator:a03ff53905312bd88e728b1863cf1b1c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -156,15 +159,19 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="errors_8h.html">errors.h</a> - a wrapper for all of hh's potential errors. </p>
+<p>An enum containing all the possible errors hh could throw. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a" name="a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a"></a>HH_FOPEN_ERROR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df" name="a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df"></a>HH_FREAD_ERROR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3" name="a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3"></a>HH_PT_RESIZE_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3" name="a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3"></a>HH_PT_RESIZE_ERROR&#160;</td><td class="fielddoc"><p>Path table resize error. </p>
+</td></tr>
 <tr><td class="fieldname"><a id="a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d" name="a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d"></a>HH_MEM_ALLOC_ERROR&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa" name="a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa"></a>HH_CREATE_OUTPUT_DIR_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="errors_8h_source.html#l00007">7</a> of file <a class="el" href="errors_8h_source.html">errors.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="errors_8h_source.html#l00022">22</a> of file <a class="el" href="errors_8h_source.html">errors.h</a>.</p>
 
 </div>
 </div>
@@ -185,12 +192,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Throws an fopen error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">filename</td><td>name of the file fopen was attempting to open. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 <p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00028">28</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
@@ -216,14 +217,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Throws an fread error. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fptr</td><td>file pointer that was in use. </td></tr>
-    <tr><td class="paramname">actual</td><td>actual number of bytes read. </td></tr>
-    <tr><td class="paramname">expected_bytes</td><td>expected number of bytes to read. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 <p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00034">34</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
@@ -245,13 +238,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Throws an unknown command line argument error. </p>
-<p>This is the only error throwing function which is allowed to directly call exit(1) as such an error can only be produced at the start of execution, prior to any memory allocation.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arg</td><td>the unrecognized argument passed by the user. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 <p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00042">42</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
@@ -299,6 +285,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Format string for failed calloc error message. </p>
+
 <p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00006">6</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
 </div>
@@ -322,6 +310,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Format string for failed fopen error message. </p>
 
 <p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00008">8</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 

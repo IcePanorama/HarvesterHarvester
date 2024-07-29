@@ -18,9 +18,9 @@ void \mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\+\_\+u
 \begin{DoxyCompactItemize}
 \item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8c_ab2272d0da4232afba19f95bf02944157}{CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}} = "{}ERROR\+: unable to calloc string of size \%zu.\textbackslash{}n"{}
-\item 
+\begin{DoxyCompactList}\small\item\em Format string for failed calloc error message. \end{DoxyCompactList}\item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8c_a03ff53905312bd88e728b1863cf1b1c9}{FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}} = "{}ERROR\+: unable to open output file, \%s\textbackslash{}n."{}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Format string for failed fopen error message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -34,11 +34,6 @@ void fopen\+\_\+error (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast
 
 Throws an fopen error. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em filename} & name of the file fopen was attempting to open. \\
-\hline
-\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00028}{28}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
@@ -54,15 +49,6 @@ Definition at line \mbox{\hyperlink{errors_8c_source_l00028}{28}} of file \mbox{
 Throws an fread error. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em fptr} & file pointer that was in use. \\
-\hline
-{\em actual} & actual number of bytes read. \\
-\hline
-{\em expected\+\_\+bytes} & expected number of bytes to read. \\
-\hline
-\end{DoxyParams}
-
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00034}{34}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
@@ -76,13 +62,6 @@ void handle\+\_\+unknown\+\_\+command\+\_\+line\+\_\+argument\+\_\+error (\begin
 
 Throws an unknown command line argument error. 
 
-This is the only error throwing function which is allowed to directly call exit(1) as such an error can only be produced at the start of execution, prior to any memory allocation.
-
-
-\begin{DoxyParams}{Parameters}
-{\em arg} & the unrecognized argument passed by the user. \\
-\hline
-\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00042}{42}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
@@ -112,6 +91,10 @@ const char\texorpdfstring{$\ast$}{*} CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\
 
 
 
+Format string for failed calloc error message. 
+
+
+
 Definition at line \mbox{\hyperlink{errors_8c_source_l00006}{6}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
 \Hypertarget{errors_8c_a03ff53905312bd88e728b1863cf1b1c9}\index{errors.c@{errors.c}!FOPEN\_FAILED\_ERR\_MSG\_FMT@{FOPEN\_FAILED\_ERR\_MSG\_FMT}}
@@ -119,6 +102,10 @@ Definition at line \mbox{\hyperlink{errors_8c_source_l00006}{6}} of file \mbox{\
 \doxysubsubsection{\texorpdfstring{FOPEN\_FAILED\_ERR\_MSG\_FMT}{FOPEN\_FAILED\_ERR\_MSG\_FMT}}
 {\footnotesize\ttfamily \label{errors_8c_a03ff53905312bd88e728b1863cf1b1c9} 
 const char\texorpdfstring{$\ast$}{*} FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT = "{}ERROR\+: unable to open output file, \%s\textbackslash{}n."{}}
+
+
+
+Format string for failed fopen error message. 
 
 
 

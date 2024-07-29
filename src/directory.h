@@ -1,6 +1,9 @@
 /**
  *  directory - the `directory` and `directory_record` datatypes and their
  *  associated functions.
+ *
+ *  All functions, except those with a return value of void, return zero on
+ *  success and non-zero on failure.
  */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.

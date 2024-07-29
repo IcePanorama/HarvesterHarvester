@@ -8,7 +8,7 @@ Here are the data structures with brief descriptions:<link linkend="_structdec__
 <link linkend="_structdirectory">directory</link>
 <para>A collection of directory records which together make a single directory </para>
 <link linkend="_structdirectory__record">directory_record</link>
-<para>A directory record </para>
+<para>Directory - the <computeroutput>directory</computeroutput> and <computeroutput><link linkend="_structdirectory__record">directory_record</link></computeroutput> datatypes and their associated functions </para>
 <link linkend="_structfile__flags">file_flags</link>
 <para>The file flags for a directory record </para>
 <link linkend="_structindex__entry">index_entry</link><link linkend="_structindex__file">index_file</link><link linkend="_structpath__table">path_table</link><link linkend="_structpath__table__entry">path_table_entry</link><link linkend="_structvolume__descriptor">volume_descriptor</link><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>

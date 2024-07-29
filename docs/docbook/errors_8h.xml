@@ -11,6 +11,8 @@
 , <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link> = -4
 , <?linebreak?><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link> = -5
  }</para>
+
+<para><link linkend="_errors_8h">errors.h</link> - a wrapper for all of hh&apos;s potential errors. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -39,8 +41,12 @@
     <title>Variables    </title>
         <itemizedlist>
             <listitem><para>const char * <link linkend="_errors_8h_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link></para>
+
+<para>Format string for failed calloc error message. </para>
 </listitem>
             <listitem><para>const char * <link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link></para>
+
+<para>Format string for failed fopen error message. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -50,7 +56,13 @@
     <title>HH_ERRORS</title>
 <indexterm><primary>HH_ERRORS</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>HH_ERRORS</secondary></indexterm>
-<para><computeroutput>enum <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link></computeroutput></para><informaltable frame="all">
+<para><computeroutput>enum <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link></computeroutput></para><para>
+
+<para><link linkend="_errors_8h">errors.h</link> - a wrapper for all of hh&apos;s potential errors. </para>
+</para>
+
+<para>An enum containing all the possible errors hh could throw. </para>
+<informaltable frame="all">
 <title>Enumerator</title>
     <tgroup cols="2" align="left" colsep="1" rowsep="1">
       <colspec colname='c1'/>
@@ -62,7 +74,9 @@
 <indexterm><primary>errors.h</primary><secondary>HH_FREAD_ERROR</secondary></indexterm>
 <anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df"/>HH_FREAD_ERROR</entry><entry></entry></row><row><entry><indexterm><primary>HH_PT_RESIZE_ERROR</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>HH_PT_RESIZE_ERROR</secondary></indexterm>
-<anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3"/>HH_PT_RESIZE_ERROR</entry><entry></entry></row><row><entry><indexterm><primary>HH_MEM_ALLOC_ERROR</primary><secondary>errors.h</secondary></indexterm>
+<anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3"/>HH_PT_RESIZE_ERROR</entry><entry>
+<para>Path table resize error. </para>
+</entry></row><row><entry><indexterm><primary>HH_MEM_ALLOC_ERROR</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>HH_MEM_ALLOC_ERROR</secondary></indexterm>
 <anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d"/>HH_MEM_ALLOC_ERROR</entry><entry></entry></row><row><entry><indexterm><primary>HH_CREATE_OUTPUT_DIR_ERROR</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>HH_CREATE_OUTPUT_DIR_ERROR</secondary></indexterm>
@@ -70,7 +84,7 @@
     </tgroup>
 </informaltable>
 <para>
-Definition at line <link linkend="_errors_8h_source_1l00007">7</link> of file <link linkend="_errors_8h_source">errors.h</link>.</para>
+Definition at line <link linkend="_errors_8h_source_1l00022">22</link> of file <link linkend="_errors_8h_source">errors.h</link>.</para>
 </section>
 </section>
 <section>
@@ -83,28 +97,6 @@ Definition at line <link linkend="_errors_8h_source_1l00007">7</link> of file <l
 
 <para>Throws an fopen error. </para>
 </para>
-
-<para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>filename</entry><entry>
-<para>name of the file fopen was attempting to open. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00028">28</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -116,38 +108,6 @@ Definition at line <link linkend="_errors_8c_source_1l00028">28</link> of file <
 
 <para>Throws an fread error. </para>
 </para>
-
-<para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>file pointer that was in use. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>actual</entry><entry>
-<para>actual number of bytes read. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>expected_bytes</entry><entry>
-<para>expected number of bytes to read. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00034">34</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -159,30 +119,6 @@ Definition at line <link linkend="_errors_8c_source_1l00034">34</link> of file <
 
 <para>Throws an unknown command line argument error. </para>
 </para>
-
-<para>This is the only error throwing function which is allowed to directly call exit(1) as such an error can only be produced at the start of execution, prior to any memory allocation.</para>
-
-<para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>arg</entry><entry>
-<para>the unrecognized argument passed by the user. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00042">42</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -205,6 +141,10 @@ Definition at line <link linkend="_errors_8c_source_1l00012">12</link> of file <
 <indexterm><primary>CALLOC_FAILED_ERR_MSG_FMT</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>CALLOC_FAILED_ERR_MSG_FMT</secondary></indexterm>
 <para><computeroutput>const char* CALLOC_FAILED_ERR_MSG_FMT<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+
+<para>Format string for failed calloc error message. </para>
+</para>
+<para>
 Definition at line <link linkend="_errors_8c_source_1l00006">6</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9"/><section>
@@ -212,6 +152,10 @@ Definition at line <link linkend="_errors_8c_source_1l00006">6</link> of file <l
 <indexterm><primary>FOPEN_FAILED_ERR_MSG_FMT</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>FOPEN_FAILED_ERR_MSG_FMT</secondary></indexterm>
 <para><computeroutput>const char* FOPEN_FAILED_ERR_MSG_FMT<computeroutput>[extern]</computeroutput></computeroutput></para><para>
+
+<para>Format string for failed fopen error message. </para>
+</para>
+<para>
 Definition at line <link linkend="_errors_8c_source_1l00008">8</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 </section>

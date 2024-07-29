@@ -2,7 +2,7 @@
 \hypertarget{structdirectory__record}{}\label{structdirectory__record}\index{directory\_record@{directory\_record}}
 
 
-A directory record.  
+directory -\/ the {\ttfamily directory} and {\ttfamily \doxylink{structdirectory__record}{directory\+\_\+record}} datatypes and their associated functions.  
 
 
 
@@ -37,14 +37,16 @@ char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structdirectory__record_ab415bc
 
 
 \doxysubsection{Detailed Description}
-A directory record. 
+directory -\/ the {\ttfamily directory} and {\ttfamily \doxylink{structdirectory__record}{directory\+\_\+record}} datatypes and their associated functions. 
+
+All functions, except those with a return value of void, return zero on success and non-\/zero on failure. A directory record. It\textquotesingle{}s perhaps easier to think of this as a {\ttfamily file}. It is worth noting, however, that we don\textquotesingle{}t differentiate betewen files and subdirectories.
 
 \begin{DoxySeeAlso}{See also}
 \href{https://wiki.osdev.org/ISO_9660\#Directories}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660\#\+Directories}} 
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00015}{15}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00037}{37}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 
 
@@ -57,7 +59,7 @@ uint32\+\_\+t directory\+\_\+record\+::data\+\_\+length}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00020}{20}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00042}{42}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_a6e6e77cb9de1ffe1253350f7f4a7b66a}\index{directory\_record@{directory\_record}!extended\_attribute\_record\_length@{extended\_attribute\_record\_length}}
 \index{extended\_attribute\_record\_length@{extended\_attribute\_record\_length}!directory\_record@{directory\_record}}
@@ -67,7 +69,7 @@ uint8\+\_\+t directory\+\_\+record\+::extended\+\_\+attribute\+\_\+record\+\_\+l
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00018}{18}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00040}{40}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_a25a79fcf15457ebc2f2f3fcf17028fe4}\index{directory\_record@{directory\_record}!file\_flags@{file\_flags}}
 \index{file\_flags@{file\_flags}!directory\_record@{directory\_record}}
@@ -77,7 +79,7 @@ Definition at line \mbox{\hyperlink{directory_8h_source_l00018}{18}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00022}{22}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00044}{44}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_ab415bc8d2753e0b33d43d9a57777df93}\index{directory\_record@{directory\_record}!file\_identifier@{file\_identifier}}
 \index{file\_identifier@{file\_identifier}!directory\_record@{directory\_record}}
@@ -87,7 +89,7 @@ char\texorpdfstring{$\ast$}{*} directory\+\_\+record\+::file\+\_\+identifier}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00028}{28}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00051}{51}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_a1ae4192560632db86400cacaccfa8446}\index{directory\_record@{directory\_record}!file\_identifier\_length@{file\_identifier\_length}}
 \index{file\_identifier\_length@{file\_identifier\_length}!directory\_record@{directory\_record}}
@@ -97,7 +99,7 @@ uint8\+\_\+t directory\+\_\+record\+::file\+\_\+identifier\+\_\+length}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00027}{27}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00050}{50}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_a57f5f98e6202bd369a4ce259dab5dd98}\index{directory\_record@{directory\_record}!file\_unit\_size@{file\_unit\_size}}
 \index{file\_unit\_size@{file\_unit\_size}!directory\_record@{directory\_record}}
@@ -111,7 +113,7 @@ Only used by files recorded in interleaved mode.
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00023}{23}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00046}{46}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_aa4308bfec1f0d16a68155bf9b63113d4}\index{directory\_record@{directory\_record}!interleave\_gap\_size@{interleave\_gap\_size}}
 \index{interleave\_gap\_size@{interleave\_gap\_size}!directory\_record@{directory\_record}}
@@ -125,7 +127,7 @@ Only used by files recorded in interleaved mode.
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00025}{25}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00048}{48}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_a20f2e0fd671b1791e6f2935aa44f9f63}\index{directory\_record@{directory\_record}!location\_of\_extent@{location\_of\_extent}}
 \index{location\_of\_extent@{location\_of\_extent}!directory\_record@{directory\_record}}
@@ -135,7 +137,7 @@ uint32\+\_\+t directory\+\_\+record\+::location\+\_\+of\+\_\+extent}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00019}{19}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00041}{41}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_ae46cf5b35328ad518d86aaaa6fb32ac8}\index{directory\_record@{directory\_record}!record\_length@{record\_length}}
 \index{record\_length@{record\_length}!directory\_record@{directory\_record}}
@@ -145,7 +147,7 @@ uint8\+\_\+t directory\+\_\+record\+::record\+\_\+length}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00017}{17}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00039}{39}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_ac1654a106d931729a0f2af11e4c85a97}\index{directory\_record@{directory\_record}!recording\_datetime@{recording\_datetime}}
 \index{recording\_datetime@{recording\_datetime}!directory\_record@{directory\_record}}
@@ -155,7 +157,7 @@ Definition at line \mbox{\hyperlink{directory_8h_source_l00017}{17}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00021}{21}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00043}{43}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 \Hypertarget{structdirectory__record_a521be5065bacca09dd4f0d0317852a2c}\index{directory\_record@{directory\_record}!volume\_sequence\_number@{volume\_sequence\_number}}
 \index{volume\_sequence\_number@{volume\_sequence\_number}!directory\_record@{directory\_record}}
@@ -165,7 +167,7 @@ uint16\+\_\+t directory\+\_\+record\+::volume\+\_\+sequence\+\_\+number}
 
 
 
-Definition at line \mbox{\hyperlink{directory_8h_source_l00026}{26}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
+Definition at line \mbox{\hyperlink{directory_8h_source_l00049}{49}} of file \mbox{\hyperlink{directory_8h_source}{directory.\+h}}.
 
 
 

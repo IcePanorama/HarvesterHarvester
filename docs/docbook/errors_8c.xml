@@ -27,8 +27,12 @@
     <title>Variables    </title>
         <itemizedlist>
             <listitem><para>const char * <link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link> = &quot;ERROR: unable to calloc string of size %zu.\n&quot;</para>
+
+<para>Format string for failed calloc error message. </para>
 </listitem>
             <listitem><para>const char * <link linkend="_errors_8c_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link> = &quot;ERROR: unable to open output file, %s\n.&quot;</para>
+
+<para>Format string for failed fopen error message. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -42,28 +46,6 @@
 
 <para>Throws an fopen error. </para>
 </para>
-
-<para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>filename</entry><entry>
-<para>name of the file fopen was attempting to open. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00028">28</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -75,38 +57,6 @@ Definition at line <link linkend="_errors_8c_source_1l00028">28</link> of file <
 
 <para>Throws an fread error. </para>
 </para>
-
-<para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>file pointer that was in use. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>actual</entry><entry>
-<para>actual number of bytes read. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>expected_bytes</entry><entry>
-<para>expected number of bytes to read. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00034">34</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -118,30 +68,6 @@ Definition at line <link linkend="_errors_8c_source_1l00034">34</link> of file <
 
 <para>Throws an unknown command line argument error. </para>
 </para>
-
-<para>This is the only error throwing function which is allowed to directly call exit(1) as such an error can only be produced at the start of execution, prior to any memory allocation.</para>
-
-<para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>arg</entry><entry>
-<para>the unrecognized argument passed by the user. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00042">42</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
@@ -164,6 +90,10 @@ Definition at line <link linkend="_errors_8c_source_1l00012">12</link> of file <
 <indexterm><primary>CALLOC_FAILED_ERR_MSG_FMT</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>CALLOC_FAILED_ERR_MSG_FMT</secondary></indexterm>
 <para><computeroutput>const char* CALLOC_FAILED_ERR_MSG_FMT = &quot;ERROR: unable to calloc string of size %zu.\n&quot;</computeroutput></para><para>
+
+<para>Format string for failed calloc error message. </para>
+</para>
+<para>
 Definition at line <link linkend="_errors_8c_source_1l00006">6</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8c_1a03ff53905312bd88e728b1863cf1b1c9"/><section>
@@ -171,6 +101,10 @@ Definition at line <link linkend="_errors_8c_source_1l00006">6</link> of file <l
 <indexterm><primary>FOPEN_FAILED_ERR_MSG_FMT</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>FOPEN_FAILED_ERR_MSG_FMT</secondary></indexterm>
 <para><computeroutput>const char* FOPEN_FAILED_ERR_MSG_FMT = &quot;ERROR: unable to open output file, %s\n.&quot;</computeroutput></para><para>
+
+<para>Format string for failed fopen error message. </para>
+</para>
+<para>
 Definition at line <link linkend="_errors_8c_source_1l00008">8</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 </section>

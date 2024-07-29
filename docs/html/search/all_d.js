@@ -16,7 +16,7 @@ var searchData=
   ['record_5flength_13',['record_length',['../structdirectory__record.html#ae46cf5b35328ad518d86aaaa6fb32ac8',1,'directory_record']]],
   ['recording_5fdatetime_14',['recording_datetime',['../structdirectory__record.html#ac1654a106d931729a0f2af11e4c85a97',1,'directory_record']]],
   ['records_15',['records',['../structdirectory.html#afb5ace37536c9d07d73e362194dbef2b',1,'directory']]],
-  ['resize_5fdirectory_5frecords_16',['resize_directory_records',['../directory_8c.html#ae5167ce653e51a830c3b52138d61e94a',1,'directory.c']]],
+  ['resize_5fdirectory_5frecords_16',['resize_directory_records',['../directory_8c.html#a615bd20f8485a1abb2890e7912c8ecad',1,'directory.c']]],
   ['resize_5findicies_17',['resize_indicies',['../index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261',1,'resize_indicies(index_file *idx):&#160;index_file.c'],['../index__file_8h.html#ac4e7fdb31a69d93e8723a7f7ff725261',1,'resize_indicies(index_file *idx):&#160;index_file.c']]],
   ['resize_5fpath_5ftable_5fentries_18',['resize_path_table_entries',['../path__table_8c.html#a9fd2417f1963df24a90b786e3c09a64a',1,'path_table.c']]],
   ['root_5fdirectory_5fentry_19',['root_directory_entry',['../structvolume__descriptor__data.html#a232500ac96ac4e7f6deeb3be16602bbb',1,'volume_descriptor_data']]],

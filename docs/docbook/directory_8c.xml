@@ -2,20 +2,22 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_directory_8c" xml:lang="en-US">
 <title>src/directory.c File Reference</title>
 <indexterm><primary>src/directory.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;directory.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;directory.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>static void <link linkend="_directory_8c_1ae5167ce653e51a830c3b52138d61e94a">resize_directory_records</link> (<link linkend="_structdirectory">directory</link> *d)</para>
+            <listitem><para>static int8_t <link linkend="_directory_8c_1a615bd20f8485a1abb2890e7912c8ecad">resize_directory_records</link> (<link linkend="_structdirectory">directory</link> *d)</para>
+
+<para>Expands the size of a given directory&apos;s <computeroutput>records</computeroutput> attribute by a factor of <computeroutput>DIR_RECORDS_GROWTH_RATE</computeroutput>. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_directory_8c_1a588d5ddc87f420409a34325d09ba125a">create_directory</link> (<link linkend="_structdirectory">directory</link> *d)</para>
 
-<para>Initializes a directory with <computeroutput>DIR_STARTING_NUM_RECORDS</computeroutput> records. </para>
+<para>Initializes a directory. </para>
 </listitem>
             <listitem><para>void <link linkend="_directory_8c_1a5bb3c915259dac9f8fb2c102cc72ccda">destroy_directory</link> (<link linkend="_structdirectory">directory</link> *d)</para>
 
 <para>Destroys all the directory records within a given directory before then destroying the directory itself. </para>
 </listitem>
-            <listitem><para>void <link linkend="_directory_8c_1a8eb2a5a06d3bbcbc2081c28d726e301b">add_record_to_directory</link> (<link linkend="_structdirectory">directory</link> *d, <link linkend="_structdirectory__record">directory_record</link> *r)</para>
+            <listitem><para>int8_t <link linkend="_directory_8c_1a979ab5c3dbd4bc0f116661d40ecbd26c">add_record_to_directory</link> (<link linkend="_structdirectory">directory</link> *d, <link linkend="_structdirectory__record">directory_record</link> *r)</para>
 
 <para>Adds a directory record to the given directory, adjusting the size of said directory&apos;s array of records as needed. </para>
 </listitem>
@@ -44,43 +46,16 @@
 </simplesect>
 <section>
 <title>Function Documentation</title>
-<anchor xml:id="_directory_8c_1a8eb2a5a06d3bbcbc2081c28d726e301b"/><section>
+<anchor xml:id="_directory_8c_1a979ab5c3dbd4bc0f116661d40ecbd26c"/><section>
     <title>add_record_to_directory()</title>
 <indexterm><primary>add_record_to_directory</primary><secondary>directory.c</secondary></indexterm>
 <indexterm><primary>directory.c</primary><secondary>add_record_to_directory</secondary></indexterm>
-<para><computeroutput>void add_record_to_directory (<link linkend="_structdirectory">directory</link> * d, <link linkend="_structdirectory__record">directory_record</link> * r)</computeroutput></para><para>
+<para><computeroutput>int8_t add_record_to_directory (<link linkend="_structdirectory">directory</link> * d, <link linkend="_structdirectory__record">directory_record</link> * r)</computeroutput></para><para>
 
 <para>Adds a directory record to the given directory, adjusting the size of said directory&apos;s array of records as needed. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>d</entry><entry>
-<para>the directory to which the given record should be added. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>r</entry><entry>
-<para>the record to add to the aforementioned directory. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
-<para>
-Definition at line <link linkend="_directory_8c_source_1l00053">53</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00069">69</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1a588d5ddc87f420409a34325d09ba125a"/><section>
     <title>create_directory()</title>
@@ -88,40 +63,12 @@ Definition at line <link linkend="_directory_8c_source_1l00053">53</link> of fil
 <indexterm><primary>directory.c</primary><secondary>create_directory</secondary></indexterm>
 <para><computeroutput>int8_t create_directory (<link linkend="_structdirectory">directory</link> * d)</computeroutput></para><para>
 
-<para>Initializes a directory with <computeroutput>DIR_STARTING_NUM_RECORDS</computeroutput> records. </para>
+<para>Initializes a directory. </para>
 </para>
 
+<para>By default, a directory has <computeroutput>DIR_STARTING_NUM_RECORDS</computeroutput> records. </para>
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>d</entry><entry>
-<para>a pointer to a directory </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>Returns</title>
-
-<para>zero on success, non-zero on failure.</para>
-</formalpara>
-<formalpara><title>See also</title>
-
-<para>destory_directory() </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_directory_8c_source_1l00016">16</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00032">32</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1a5bb3c915259dac9f8fb2c102cc72ccda"/><section>
     <title>destroy_directory()</title>
@@ -131,14 +78,8 @@ Definition at line <link linkend="_directory_8c_source_1l00016">16</link> of fil
 
 <para>Destroys all the directory records within a given directory before then destroying the directory itself. </para>
 </para>
-
-<para><formalpara><title>See also</title>
-
-<para><link linkend="_directory_8h_1a588d5ddc87f420409a34325d09ba125a">create_directory()</link> </para>
-</formalpara>
-</para>
 <para>
-Definition at line <link linkend="_directory_8c_source_1l00037">37</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00053">53</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1a62a8754d4c77904a749f780b57be2152"/><section>
     <title>print_directory()</title>
@@ -148,34 +89,8 @@ Definition at line <link linkend="_directory_8c_source_1l00037">37</link> of fil
 
 <para>Prints a given directory to stdout in a human-readable form. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>d</entry><entry>
-<para>the directory to be printed. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_directory_8h_1aefcaed1602ed0c137cf53d3c297411b5">print_directory_record()</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_directory_8c_source_1l00104">104</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00123">123</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1aefcaed1602ed0c137cf53d3c297411b5"/><section>
     <title>print_directory_record()</title>
@@ -185,30 +100,8 @@ Definition at line <link linkend="_directory_8c_source_1l00104">104</link> of fi
 
 <para>Prints a given directory record to the stdout in a human-readable form. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>r</entry><entry>
-<para>the directory record to be printed. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                </para>
-<para>
-Definition at line <link linkend="_directory_8c_source_1l00065">65</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00083">83</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1abca5089e2010346de9a8913639c27bcd"/><section>
     <title>process_directory()</title>
@@ -218,48 +111,19 @@ Definition at line <link linkend="_directory_8c_source_1l00065">65</link> of fil
 
 <para>Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to the file containing directory data. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>d</entry><entry>
-<para>the directory to which the directory records should be added. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structdirectory">directory</link> </para>
-
-<para><link linkend="_structdirectory__record">directory_record</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_directory_8c_source_1l00116">116</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00135">135</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
-<anchor xml:id="_directory_8c_1ae5167ce653e51a830c3b52138d61e94a"/><section>
+<anchor xml:id="_directory_8c_1a615bd20f8485a1abb2890e7912c8ecad"/><section>
     <title>resize_directory_records()</title>
 <indexterm><primary>resize_directory_records</primary><secondary>directory.c</secondary></indexterm>
 <indexterm><primary>directory.c</primary><secondary>resize_directory_records</secondary></indexterm>
-<para><computeroutput>void resize_directory_records (<link linkend="_structdirectory">directory</link> * d)<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_directory_8c_source_1l00082">82</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+<para><computeroutput>int8_t resize_directory_records (<link linkend="_structdirectory">directory</link> * d)<computeroutput>[static]</computeroutput></computeroutput></para><para>
+
+<para>Expands the size of a given directory&apos;s <computeroutput>records</computeroutput> attribute by a factor of <computeroutput>DIR_RECORDS_GROWTH_RATE</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_directory_8c_source_1l00100">100</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 </section>
 <section>
@@ -269,14 +133,14 @@ Definition at line <link linkend="_directory_8c_source_1l00082">82</link> of fil
 <indexterm><primary>DIR_RECORDS_GROWTH_RATE</primary><secondary>directory.c</secondary></indexterm>
 <indexterm><primary>directory.c</primary><secondary>DIR_RECORDS_GROWTH_RATE</secondary></indexterm>
 <para><computeroutput>const size_t DIR_RECORDS_GROWTH_RATE = 2<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_directory_8c_source_1l00013">13</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00023">23</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1a6274f2bbe40695d0239392c544d25b8c"/><section>
     <title>DIR_STARTING_NUM_RECORDS</title>
 <indexterm><primary>DIR_STARTING_NUM_RECORDS</primary><secondary>directory.c</secondary></indexterm>
 <indexterm><primary>directory.c</primary><secondary>DIR_STARTING_NUM_RECORDS</secondary></indexterm>
 <para><computeroutput>const size_t DIR_STARTING_NUM_RECORDS = 10<computeroutput>[static]</computeroutput></computeroutput></para><para>
-Definition at line <link linkend="_directory_8c_source_1l00012">12</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00022">22</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 </section>
 </section>

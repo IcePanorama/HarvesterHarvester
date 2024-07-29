@@ -13,7 +13,7 @@ enum \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\+\_\+\+ERR
 , \newline
 \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa}{HH\+\_\+\+CREATE\+\_\+\+OUTPUT\+\_\+\+DIR\+\_\+\+ERROR}} = -\/5
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \doxylink{errors_8h}{errors.\+h} -\/ a wrapper for all of hh\textquotesingle{}s potential errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,9 +29,9 @@ void \mbox{\hyperlink{errors_8h_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\+\_\+u
 \begin{DoxyCompactItemize}
 \item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8h_ab2272d0da4232afba19f95bf02944157}{CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}}
-\item 
+\begin{DoxyCompactList}\small\item\em Format string for failed calloc error message. \end{DoxyCompactList}\item 
 const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8h_a03ff53905312bd88e728b1863cf1b1c9}{FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Format string for failed fopen error message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Enumeration Type Documentation}
@@ -41,7 +41,11 @@ const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8h_a03ff53905312bd
 {\footnotesize\ttfamily \label{errors_8h_a7c84f993e326519edca8fd9efdec746e} 
 enum \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\+\_\+\+ERRORS}}}
 
-\begin{DoxyEnumFields}{Enumerator}
+
+
+\doxylink{errors_8h}{errors.\+h} -\/ a wrapper for all of hh\textquotesingle{}s potential errors. 
+
+An enum containing all the possible errors hh could throw. \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{HH\_FOPEN\_ERROR@{HH\_FOPEN\_ERROR}!errors.h@{errors.h}}\index{errors.h@{errors.h}!HH\_FOPEN\_ERROR@{HH\_FOPEN\_ERROR}}}\Hypertarget{errors_8h_a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a}\label{errors_8h_a7c84f993e326519edca8fd9efdec746e} 
 HH\+\_\+\+FOPEN\+\_\+\+ERROR&\\
 \hline
@@ -51,7 +55,7 @@ HH\+\_\+\+FREAD\+\_\+\+ERROR&\\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{HH\_PT\_RESIZE\_ERROR@{HH\_PT\_RESIZE\_ERROR}!errors.h@{errors.h}}\index{errors.h@{errors.h}!HH\_PT\_RESIZE\_ERROR@{HH\_PT\_RESIZE\_ERROR}}}\Hypertarget{errors_8h_a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3}\label{errors_8h_a7c84f993e326519edca8fd9efdec746e} 
-HH\+\_\+\+PT\+\_\+\+RESIZE\+\_\+\+ERROR&\\
+HH\+\_\+\+PT\+\_\+\+RESIZE\+\_\+\+ERROR&Path table resize error. \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{HH\_MEM\_ALLOC\_ERROR@{HH\_MEM\_ALLOC\_ERROR}!errors.h@{errors.h}}\index{errors.h@{errors.h}!HH\_MEM\_ALLOC\_ERROR@{HH\_MEM\_ALLOC\_ERROR}}}\Hypertarget{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}\label{errors_8h_a7c84f993e326519edca8fd9efdec746e} 
@@ -65,7 +69,7 @@ HH\+\_\+\+CREATE\+\_\+\+OUTPUT\+\_\+\+DIR\+\_\+\+ERROR&\\
 \end{DoxyEnumFields}
 
 
-Definition at line \mbox{\hyperlink{errors_8h_source_l00007}{7}} of file \mbox{\hyperlink{errors_8h_source}{errors.\+h}}.
+Definition at line \mbox{\hyperlink{errors_8h_source_l00022}{22}} of file \mbox{\hyperlink{errors_8h_source}{errors.\+h}}.
 
 
 
@@ -81,11 +85,6 @@ void fopen\+\_\+error (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast
 Throws an fopen error. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em filename} & name of the file fopen was attempting to open. \\
-\hline
-\end{DoxyParams}
-
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00028}{28}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
@@ -100,15 +99,6 @@ Definition at line \mbox{\hyperlink{errors_8c_source_l00028}{28}} of file \mbox{
 Throws an fread error. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em fptr} & file pointer that was in use. \\
-\hline
-{\em actual} & actual number of bytes read. \\
-\hline
-{\em expected\+\_\+bytes} & expected number of bytes to read. \\
-\hline
-\end{DoxyParams}
-
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00034}{34}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
@@ -122,13 +112,6 @@ void handle\+\_\+unknown\+\_\+command\+\_\+line\+\_\+argument\+\_\+error (\begin
 
 Throws an unknown command line argument error. 
 
-This is the only error throwing function which is allowed to directly call exit(1) as such an error can only be produced at the start of execution, prior to any memory allocation.
-
-
-\begin{DoxyParams}{Parameters}
-{\em arg} & the unrecognized argument passed by the user. \\
-\hline
-\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{errors_8c_source_l00042}{42}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
@@ -158,6 +141,10 @@ const char\texorpdfstring{$\ast$}{*} CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\
 
 
 
+Format string for failed calloc error message. 
+
+
+
 Definition at line \mbox{\hyperlink{errors_8c_source_l00006}{6}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
 \Hypertarget{errors_8h_a03ff53905312bd88e728b1863cf1b1c9}\index{errors.h@{errors.h}!FOPEN\_FAILED\_ERR\_MSG\_FMT@{FOPEN\_FAILED\_ERR\_MSG\_FMT}}
@@ -165,6 +152,10 @@ Definition at line \mbox{\hyperlink{errors_8c_source_l00006}{6}} of file \mbox{\
 \doxysubsubsection{\texorpdfstring{FOPEN\_FAILED\_ERR\_MSG\_FMT}{FOPEN\_FAILED\_ERR\_MSG\_FMT}}
 {\footnotesize\ttfamily \label{errors_8h_a03ff53905312bd88e728b1863cf1b1c9} 
 const char\texorpdfstring{$\ast$}{*} FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Format string for failed fopen error message. 
 
 
 

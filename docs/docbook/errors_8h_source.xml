@@ -2,31 +2,46 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_errors_8h_source" xml:lang="en-US">
 <title>errors.h</title>
 <indexterm><primary>src/errors.h</primary></indexterm>
-Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_errors_8h_source_1l00001"/>00001 <emphasis role="preprocessor">#ifndef&#32;_ERRORS_H_</emphasis>
-<anchor xml:id="_errors_8h_source_1l00002"/>00002 <emphasis role="preprocessor">#define&#32;_ERRORS_H_</emphasis>
-<anchor xml:id="_errors_8h_source_1l00003"/>00003 
-<anchor xml:id="_errors_8h_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
-<anchor xml:id="_errors_8h_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
-<anchor xml:id="_errors_8h_source_1l00006"/>00006 
-<anchor xml:id="_errors_8h_source_1l00007"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">00007</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
-<anchor xml:id="_errors_8h_source_1l00008"/>00008 {
-<anchor xml:id="_errors_8h_source_1l00009"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">00009</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link>&#32;=&#32;-1,
-<anchor xml:id="_errors_8h_source_1l00010"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">00010</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>&#32;=&#32;-2,
-<anchor xml:id="_errors_8h_source_1l00011"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">00011</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link>&#32;=&#32;-3,
-<anchor xml:id="_errors_8h_source_1l00012"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">00012</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>&#32;=&#32;-4,
-<anchor xml:id="_errors_8h_source_1l00013"/>00013 &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>&#32;=&#32;-5
-<anchor xml:id="_errors_8h_source_1l00014"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">00014</link> }&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>;
-<anchor xml:id="_errors_8h_source_1l00015"/>00015 
-<anchor xml:id="_errors_8h_source_1l00016"/>00016 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>;
-<anchor xml:id="_errors_8h_source_1l00017"/>00017 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>;
-<anchor xml:id="_errors_8h_source_1l00018"/>00018 
-<anchor xml:id="_errors_8h_source_1l00020"/>00020 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a1fa621098d550bb126a641aba0638f7f">improper_usage_error</link>&#32;(<emphasis role="keywordtype">void</emphasis>);
-<anchor xml:id="_errors_8h_source_1l00021"/>00021 
-<anchor xml:id="_errors_8h_source_1l00027"/>00027 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
-<anchor xml:id="_errors_8h_source_1l00028"/>00028 
-<anchor xml:id="_errors_8h_source_1l00036"/>00036 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes);
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_errors_8h_source_1l00001"/>00001 
+<anchor xml:id="_errors_8h_source_1l00002"/>00002 <emphasis role="comment">//&#32;&#32;Copyright&#32;(C)&#32;2024&#32;&#32;IcePanorama</emphasis>
+<anchor xml:id="_errors_8h_source_1l00003"/>00003 <emphasis role="comment">//&#32;&#32;This&#32;file&#32;is&#32;a&#32;part&#32;of&#32;HarvesterHarvester.</emphasis>
+<anchor xml:id="_errors_8h_source_1l00004"/>00004 <emphasis role="comment">//&#32;&#32;HarvesterHarvester&#32;is&#32;free&#32;software:&#32;you&#32;can&#32;redistribute&#32;it&#32;and/or&#32;modify</emphasis>
+<anchor xml:id="_errors_8h_source_1l00005"/>00005 <emphasis role="comment">//&#32;&#32;it&#32;under&#32;the&#32;terms&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;as&#32;published&#32;by&#32;the</emphasis>
+<anchor xml:id="_errors_8h_source_1l00006"/>00006 <emphasis role="comment">//&#32;&#32;Free&#32;Software&#32;Foundation,&#32;either&#32;version&#32;3&#32;of&#32;the&#32;License,&#32;or&#32;(at&#32;your</emphasis>
+<anchor xml:id="_errors_8h_source_1l00007"/>00007 <emphasis role="comment">//&#32;&#32;option)&#32;any&#32;later&#32;version.</emphasis>
+<anchor xml:id="_errors_8h_source_1l00008"/>00008 <emphasis role="comment">//&#32;&#32;This&#32;program&#32;is&#32;distributed&#32;in&#32;the&#32;hope&#32;that&#32;it&#32;will&#32;be&#32;useful,&#32;but&#32;WITHOUT</emphasis>
+<anchor xml:id="_errors_8h_source_1l00009"/>00009 <emphasis role="comment">//&#32;&#32;ANY&#32;WARRANTY;&#32;without&#32;even&#32;the&#32;implied&#32;warranty&#32;of&#32;MERCHANTABILITY&#32;or</emphasis>
+<anchor xml:id="_errors_8h_source_1l00010"/>00010 <emphasis role="comment">//&#32;&#32;FITNESS&#32;FOR&#32;A&#32;PARTICULAR&#32;PURPOSE.&#32;&#32;See&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;for</emphasis>
+<anchor xml:id="_errors_8h_source_1l00011"/>00011 <emphasis role="comment">//&#32;&#32;more&#32;details.</emphasis>
+<anchor xml:id="_errors_8h_source_1l00012"/>00012 <emphasis role="comment">//</emphasis>
+<anchor xml:id="_errors_8h_source_1l00013"/>00013 <emphasis role="comment">//&#32;&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;along</emphasis>
+<anchor xml:id="_errors_8h_source_1l00014"/>00014 <emphasis role="comment">//&#32;&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
+<anchor xml:id="_errors_8h_source_1l00015"/>00015 <emphasis role="preprocessor">#ifndef&#32;_HH_ERRORS_H_</emphasis>
+<anchor xml:id="_errors_8h_source_1l00016"/>00016 <emphasis role="preprocessor">#define&#32;_HH_ERRORS_H_</emphasis>
+<anchor xml:id="_errors_8h_source_1l00017"/>00017 
+<anchor xml:id="_errors_8h_source_1l00018"/>00018 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_errors_8h_source_1l00019"/>00019 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_errors_8h_source_1l00020"/>00020 
+<anchor xml:id="_errors_8h_source_1l00022"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">00022</link> <emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">enum</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
+<anchor xml:id="_errors_8h_source_1l00023"/>00023 {
+<anchor xml:id="_errors_8h_source_1l00024"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">00024</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link>&#32;=&#32;-1,
+<anchor xml:id="_errors_8h_source_1l00025"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">00025</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>&#32;=&#32;-2,
+<anchor xml:id="_errors_8h_source_1l00027"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">00027</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link>&#32;=&#32;-3,
+<anchor xml:id="_errors_8h_source_1l00028"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">00028</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>&#32;=&#32;-4,
+<anchor xml:id="_errors_8h_source_1l00029"/>00029 &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>&#32;=&#32;-5
+<anchor xml:id="_errors_8h_source_1l00030"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">00030</link> }&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>;
+<anchor xml:id="_errors_8h_source_1l00031"/>00031 
+<anchor xml:id="_errors_8h_source_1l00033"/>00033 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>;
+<anchor xml:id="_errors_8h_source_1l00034"/>00034 
+<anchor xml:id="_errors_8h_source_1l00036"/>00036 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>;
 <anchor xml:id="_errors_8h_source_1l00037"/>00037 
-<anchor xml:id="_errors_8h_source_1l00046"/>00046 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
-<anchor xml:id="_errors_8h_source_1l00047"/>00047 
-<anchor xml:id="_errors_8h_source_1l00048"/>00048 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_errors_8h_source_1l00039"/>00039 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a1fa621098d550bb126a641aba0638f7f">improper_usage_error</link>&#32;(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_errors_8h_source_1l00040"/>00040 
+<anchor xml:id="_errors_8h_source_1l00042"/>00042 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
+<anchor xml:id="_errors_8h_source_1l00043"/>00043 
+<anchor xml:id="_errors_8h_source_1l00045"/>00045 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes);
+<anchor xml:id="_errors_8h_source_1l00046"/>00046 
+<anchor xml:id="_errors_8h_source_1l00048"/>00048 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
+<anchor xml:id="_errors_8h_source_1l00049"/>00049 
+<anchor xml:id="_errors_8h_source_1l00050"/>00050 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

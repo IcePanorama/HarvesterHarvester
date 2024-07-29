@@ -8,17 +8,17 @@
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}}
-\begin{DoxyCompactList}\small\item\em A directory record. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em directory -\/ the {\ttfamily directory} and {\ttfamily \doxylink{structdirectory__record}{directory\+\_\+record}} datatypes and their associated functions. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structdirectory}{directory}}
 \begin{DoxyCompactList}\small\item\em A collection of directory records which together make a single directory. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 int8\+\_\+t \mbox{\hyperlink{directory_8h_a588d5ddc87f420409a34325d09ba125a}{create\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
-\begin{DoxyCompactList}\small\item\em Initializes a directory with {\ttfamily DIR\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+RECORDS} records. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initializes a directory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{directory_8h_a5bb3c915259dac9f8fb2c102cc72ccda}{destroy\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
 \begin{DoxyCompactList}\small\item\em Destroys all the directory records within a given directory before then destroying the directory itself. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{directory_8h_a8eb2a5a06d3bbcbc2081c28d726e301b}{add\+\_\+record\+\_\+to\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d, \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}r)
+int8\+\_\+t \mbox{\hyperlink{directory_8h_a979ab5c3dbd4bc0f116661d40ecbd26c}{add\+\_\+record\+\_\+to\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d, \mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}r)
 \begin{DoxyCompactList}\small\item\em Adds a directory record to the given directory, adjusting the size of said directory\textquotesingle{}s array of records as needed. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{directory_8h_a62a8754d4c77904a749f780b57be2152}{print\+\_\+directory}} (\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}d)
 \begin{DoxyCompactList}\small\item\em Prints a given directory to stdout in a human-\/readable form. \end{DoxyCompactList}\item 
@@ -29,26 +29,19 @@ int8\+\_\+t \mbox{\hyperlink{directory_8h_abca5089e2010346de9a8913639c27bcd}{pro
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{directory_8h_a8eb2a5a06d3bbcbc2081c28d726e301b}\index{directory.h@{directory.h}!add\_record\_to\_directory@{add\_record\_to\_directory}}
+\Hypertarget{directory_8h_a979ab5c3dbd4bc0f116661d40ecbd26c}\index{directory.h@{directory.h}!add\_record\_to\_directory@{add\_record\_to\_directory}}
 \index{add\_record\_to\_directory@{add\_record\_to\_directory}!directory.h@{directory.h}}
 \doxysubsubsection{\texorpdfstring{add\_record\_to\_directory()}{add\_record\_to\_directory()}}
-{\footnotesize\ttfamily \label{directory_8h_a8eb2a5a06d3bbcbc2081c28d726e301b} 
-void add\+\_\+record\+\_\+to\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{, }\item[{\mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{directory_8h_a979ab5c3dbd4bc0f116661d40ecbd26c} 
+int8\+\_\+t add\+\_\+record\+\_\+to\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structdirectory}{directory}} \texorpdfstring{$\ast$}{*}}]{d}{, }\item[{\mbox{\hyperlink{structdirectory__record}{directory\+\_\+record}} \texorpdfstring{$\ast$}{*}}]{r}{}\end{DoxyParamCaption})}
 
 
 
 Adds a directory record to the given directory, adjusting the size of said directory\textquotesingle{}s array of records as needed. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em d} & the directory to which the given record should be added. \\
-\hline
-{\em r} & the record to add to the aforementioned directory. \\
-\hline
-\end{DoxyParams}
 
-
-Definition at line \mbox{\hyperlink{directory_8c_source_l00053}{53}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+Definition at line \mbox{\hyperlink{directory_8c_source_l00069}{69}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
 
 \Hypertarget{directory_8h_a588d5ddc87f420409a34325d09ba125a}\index{directory.h@{directory.h}!create\_directory@{create\_directory}}
 \index{create\_directory@{create\_directory}!directory.h@{directory.h}}
@@ -58,22 +51,11 @@ int8\+\_\+t create\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperli
 
 
 
-Initializes a directory with {\ttfamily DIR\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+RECORDS} records. 
+Initializes a directory. 
 
+By default, a directory has {\ttfamily DIR\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+RECORDS} records. 
 
-\begin{DoxyParams}{Parameters}
-{\em d} & a pointer to a directory \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-zero on success, non-\/zero on failure.
-\end{DoxyReturn}
-\begin{DoxySeeAlso}{See also}
-destory\+\_\+directory() 
-\end{DoxySeeAlso}
-
-
-Definition at line \mbox{\hyperlink{directory_8c_source_l00016}{16}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+Definition at line \mbox{\hyperlink{directory_8c_source_l00032}{32}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
 
 \Hypertarget{directory_8h_a5bb3c915259dac9f8fb2c102cc72ccda}\index{directory.h@{directory.h}!destroy\_directory@{destroy\_directory}}
 \index{destroy\_directory@{destroy\_directory}!directory.h@{directory.h}}
@@ -85,12 +67,9 @@ void destroy\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{str
 
 Destroys all the directory records within a given directory before then destroying the directory itself. 
 
-\begin{DoxySeeAlso}{See also}
-\doxylink{directory_8h_a588d5ddc87f420409a34325d09ba125a}{create\+\_\+directory()} 
-\end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{directory_8c_source_l00037}{37}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+Definition at line \mbox{\hyperlink{directory_8c_source_l00053}{53}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
 
 \Hypertarget{directory_8h_a62a8754d4c77904a749f780b57be2152}\index{directory.h@{directory.h}!print\_directory@{print\_directory}}
 \index{print\_directory@{print\_directory}!directory.h@{directory.h}}
@@ -103,16 +82,8 @@ void print\+\_\+directory (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struc
 Prints a given directory to stdout in a human-\/readable form. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em d} & the directory to be printed. \\
-\hline
-\end{DoxyParams}
-\begin{DoxySeeAlso}{See also}
-\doxylink{directory_8h_aefcaed1602ed0c137cf53d3c297411b5}{print\+\_\+directory\+\_\+record()} 
-\end{DoxySeeAlso}
 
-
-Definition at line \mbox{\hyperlink{directory_8c_source_l00104}{104}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+Definition at line \mbox{\hyperlink{directory_8c_source_l00123}{123}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
 
 \Hypertarget{directory_8h_aefcaed1602ed0c137cf53d3c297411b5}\index{directory.h@{directory.h}!print\_directory\_record@{print\_directory\_record}}
 \index{print\_directory\_record@{print\_directory\_record}!directory.h@{directory.h}}
@@ -125,13 +96,8 @@ void print\+\_\+directory\+\_\+record (\begin{DoxyParamCaption}\item[{\mbox{\hyp
 Prints a given directory record to the stdout in a human-\/readable form. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em r} & the directory record to be printed. \\
-\hline
-\end{DoxyParams}
 
-
-Definition at line \mbox{\hyperlink{directory_8c_source_l00065}{65}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+Definition at line \mbox{\hyperlink{directory_8c_source_l00083}{83}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
 
 \Hypertarget{directory_8h_abca5089e2010346de9a8913639c27bcd}\index{directory.h@{directory.h}!process\_directory@{process\_directory}}
 \index{process\_directory@{process\_directory}!directory.h@{directory.h}}
@@ -144,18 +110,6 @@ int8\+\_\+t process\+\_\+directory (\begin{DoxyParamCaption}\item[{FILE \texorpd
 Creates directory records for every sub-\/directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\ttfamily fptr}. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em fptr} & pointer to the file containing directory data. \\
-\hline
-{\em d} & the directory to which the directory records should be added. \\
-\hline
-\end{DoxyParams}
-\begin{DoxySeeAlso}{See also}
-\doxylink{structdirectory}{directory} 
 
-\doxylink{structdirectory__record}{directory\+\_\+record} 
-\end{DoxySeeAlso}
-
-
-Definition at line \mbox{\hyperlink{directory_8c_source_l00116}{116}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
+Definition at line \mbox{\hyperlink{directory_8c_source_l00135}{135}} of file \mbox{\hyperlink{directory_8c_source}{directory.\+c}}.
 

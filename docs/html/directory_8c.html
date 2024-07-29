@@ -106,7 +106,6 @@ $(function(){initNavTree('directory_8c.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;<a class="el" href="directory_8h_source.html">directory.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -115,17 +114,18 @@ $(function(){initNavTree('directory_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae5167ce653e51a830c3b52138d61e94a" id="r_ae5167ce653e51a830c3b52138d61e94a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5167ce653e51a830c3b52138d61e94a">resize_directory_records</a> (<a class="el" href="structdirectory.html">directory</a> *d)</td></tr>
-<tr class="separator:ae5167ce653e51a830c3b52138d61e94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a615bd20f8485a1abb2890e7912c8ecad" id="r_a615bd20f8485a1abb2890e7912c8ecad"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a615bd20f8485a1abb2890e7912c8ecad">resize_directory_records</a> (<a class="el" href="structdirectory.html">directory</a> *d)</td></tr>
+<tr class="memdesc:a615bd20f8485a1abb2890e7912c8ecad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands the size of a given directory's <code>records</code> attribute by a factor of <code>DIR_RECORDS_GROWTH_RATE</code>.  <br /></td></tr>
+<tr class="separator:a615bd20f8485a1abb2890e7912c8ecad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a588d5ddc87f420409a34325d09ba125a" id="r_a588d5ddc87f420409a34325d09ba125a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a588d5ddc87f420409a34325d09ba125a">create_directory</a> (<a class="el" href="structdirectory.html">directory</a> *d)</td></tr>
-<tr class="memdesc:a588d5ddc87f420409a34325d09ba125a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a directory with <code>DIR_STARTING_NUM_RECORDS</code> records.  <br /></td></tr>
+<tr class="memdesc:a588d5ddc87f420409a34325d09ba125a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a directory.  <br /></td></tr>
 <tr class="separator:a588d5ddc87f420409a34325d09ba125a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bb3c915259dac9f8fb2c102cc72ccda" id="r_a5bb3c915259dac9f8fb2c102cc72ccda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bb3c915259dac9f8fb2c102cc72ccda">destroy_directory</a> (<a class="el" href="structdirectory.html">directory</a> *d)</td></tr>
 <tr class="memdesc:a5bb3c915259dac9f8fb2c102cc72ccda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys all the directory records within a given directory before then destroying the directory itself.  <br /></td></tr>
 <tr class="separator:a5bb3c915259dac9f8fb2c102cc72ccda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eb2a5a06d3bbcbc2081c28d726e301b" id="r_a8eb2a5a06d3bbcbc2081c28d726e301b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8eb2a5a06d3bbcbc2081c28d726e301b">add_record_to_directory</a> (<a class="el" href="structdirectory.html">directory</a> *d, <a class="el" href="structdirectory__record.html">directory_record</a> *r)</td></tr>
-<tr class="memdesc:a8eb2a5a06d3bbcbc2081c28d726e301b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed.  <br /></td></tr>
-<tr class="separator:a8eb2a5a06d3bbcbc2081c28d726e301b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a979ab5c3dbd4bc0f116661d40ecbd26c" id="r_a979ab5c3dbd4bc0f116661d40ecbd26c"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a979ab5c3dbd4bc0f116661d40ecbd26c">add_record_to_directory</a> (<a class="el" href="structdirectory.html">directory</a> *d, <a class="el" href="structdirectory__record.html">directory_record</a> *r)</td></tr>
+<tr class="memdesc:a979ab5c3dbd4bc0f116661d40ecbd26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed.  <br /></td></tr>
+<tr class="separator:a979ab5c3dbd4bc0f116661d40ecbd26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefcaed1602ed0c137cf53d3c297411b5" id="r_aefcaed1602ed0c137cf53d3c297411b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefcaed1602ed0c137cf53d3c297411b5">print_directory_record</a> (<a class="el" href="structdirectory__record.html">directory_record</a> *r)</td></tr>
 <tr class="memdesc:aefcaed1602ed0c137cf53d3c297411b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a given directory record to the stdout in a human-readable form.  <br /></td></tr>
 <tr class="separator:aefcaed1602ed0c137cf53d3c297411b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,14 +144,14 @@ Variables</h2></td></tr>
 <tr class="separator:acf10cc9d69188bcb5abfd372b01091df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a8eb2a5a06d3bbcbc2081c28d726e301b" name="a8eb2a5a06d3bbcbc2081c28d726e301b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eb2a5a06d3bbcbc2081c28d726e301b">&#9670;&#160;</a></span>add_record_to_directory()</h2>
+<a id="a979ab5c3dbd4bc0f116661d40ecbd26c" name="a979ab5c3dbd4bc0f116661d40ecbd26c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a979ab5c3dbd4bc0f116661d40ecbd26c">&#9670;&#160;</a></span>add_record_to_directory()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void add_record_to_directory </td>
+          <td class="memname">int8_t add_record_to_directory </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdirectory.html">directory</a> *</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
         </tr>
@@ -164,15 +164,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>the directory to which the given record should be added. </td></tr>
-    <tr><td class="paramname">r</td><td>the record to add to the aforementioned directory. </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00053">53</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00069">69</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
@@ -191,17 +184,10 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a directory with <code>DIR_STARTING_NUM_RECORDS</code> records. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>a pointer to a directory </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>zero on success, non-zero on failure.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>destory_directory() </dd></dl>
+<p>Initializes a directory. </p>
+<p>By default, a directory has <code>DIR_STARTING_NUM_RECORDS</code> records. </p>
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00016">16</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00032">32</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
@@ -221,9 +207,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destroys all the directory records within a given directory before then destroying the directory itself. </p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="directory_8h.html#a588d5ddc87f420409a34325d09ba125a" title="Initializes a directory with DIR_STARTING_NUM_RECORDS records.">create_directory()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00037">37</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00053">53</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
@@ -243,15 +228,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prints a given directory to stdout in a human-readable form. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">d</td><td>the directory to be printed. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="directory_8h.html#aefcaed1602ed0c137cf53d3c297411b5" title="Prints a given directory record to the stdout in a human-readable form.">print_directory_record()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00104">104</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00123">123</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
@@ -271,14 +249,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prints a given directory record to the stdout in a human-readable form. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r</td><td>the directory record to be printed. </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00065">65</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00083">83</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
@@ -302,23 +274,13 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by <code>fptr</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fptr</td><td>pointer to the file containing directory data. </td></tr>
-    <tr><td class="paramname">d</td><td>the directory to which the directory records should be added. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="structdirectory.html" title="A collection of directory records which together make a single directory.">directory</a> </dd>
-<dd>
-<a class="el" href="structdirectory__record.html" title="A directory record.">directory_record</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00116">116</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00135">135</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
-<a id="ae5167ce653e51a830c3b52138d61e94a" name="ae5167ce653e51a830c3b52138d61e94a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5167ce653e51a830c3b52138d61e94a">&#9670;&#160;</a></span>resize_directory_records()</h2>
+<a id="a615bd20f8485a1abb2890e7912c8ecad" name="a615bd20f8485a1abb2890e7912c8ecad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a615bd20f8485a1abb2890e7912c8ecad">&#9670;&#160;</a></span>resize_directory_records()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +289,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void resize_directory_records </td>
+          <td class="memname">int8_t resize_directory_records </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structdirectory.html">directory</a> *</td>          <td class="paramname"><span class="paramname"><em>d</em></span></td><td>)</td>
           <td></td>
@@ -340,7 +302,9 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00082">82</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p>Expands the size of a given directory's <code>records</code> attribute by a factor of <code>DIR_RECORDS_GROWTH_RATE</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00100">100</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
@@ -365,7 +329,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00013">13</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00023">23</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>
@@ -389,7 +353,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00012">12</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="directory_8c_source.html#l00022">22</a> of file <a class="el" href="directory_8c_source.html">directory.c</a>.</p>
 
 </div>
 </div>

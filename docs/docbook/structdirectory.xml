@@ -38,7 +38,7 @@
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_directory_8h_source_1l00036">36</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+Definition at line <link linkend="_directory_8h_source_1l00059">59</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -51,14 +51,14 @@ Definition at line <link linkend="_directory_8h_source_1l00036">36</link> of fil
 <para>last record in <computeroutput>records</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_directory_8h_source_1l00040">40</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+Definition at line <link linkend="_directory_8h_source_1l00063">63</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
 </section>
 <anchor xml:id="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b"/><section>
     <title>records</title>
 <indexterm><primary>records</primary><secondary>directory</secondary></indexterm>
 <indexterm><primary>directory</primary><secondary>records</secondary></indexterm>
 <para><computeroutput><link linkend="_structdirectory__record">directory_record</link>* directory::records</computeroutput></para><para>
-Definition at line <link linkend="_directory_8h_source_1l00038">38</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+Definition at line <link linkend="_directory_8h_source_1l00061">61</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
 </section>
 <anchor xml:id="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721"/><section>
     <title>size</title>
@@ -69,7 +69,7 @@ Definition at line <link linkend="_directory_8h_source_1l00038">38</link> of fil
 <para>the max capacity of <computeroutput>records</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_directory_8h_source_1l00039">39</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
+Definition at line <link linkend="_directory_8h_source_1l00062">62</link> of file <link linkend="_directory_8h_source">directory.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>
