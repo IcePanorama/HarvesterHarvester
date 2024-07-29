@@ -7,8 +7,20 @@
 
 static const size_t PT_STARTING_NUM_ENTRIES = 10;
 static const size_t PT_GROWTH_RATE = 2; // doubles in size every time it grows.
+
+/* Static Function Prototypes */
 static int8_t resize_path_table_entries (path_table *pt);
-void print_path_table_entry (path_table_entry *e);
+static void print_path_table_entry (path_table_entry *e);
+/**
+ *  Adds a given `path_table_entry` to the given `path_table`'s list of
+ *  `entries`, resizing it as needed.
+ *
+ *  @param  pt    path table to which the entry should be added.
+ *  @param  entry the entry to add to the given path table.
+ */
+static int8_t add_entry_to_path_table (path_table *pt,
+                                       path_table_entry *entry);
+/*********************/
 
 int8_t
 create_path_table (path_table *pt)

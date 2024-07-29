@@ -41,15 +41,6 @@ int8_t create_path_table (path_table *pt);
 void destroy_path_table (path_table *pt);
 
 /**
- *  Adds a given `path_table_entry` to the given `path_table`'s list of
- *  `entries`, resizing it as needed.
- *
- *  @param  pt    path table to which the entry should be added.
- *  @param  entry the entry to add to the given path table.
- */
-int8_t add_entry_to_path_table (path_table *pt, path_table_entry *entry);
-
-/**
  *  Prints the given path table out to the stdout, formatting it into a
  *  human-readible form.
  *
