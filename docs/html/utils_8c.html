@@ -106,9 +106,6 @@ $(function(){initNavTree('utils_8c.html',''); initResizable(true); });
 <code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;stdint.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;sys/stat.h&gt;</code><br />
@@ -119,14 +116,19 @@ $(function(){initNavTree('utils_8c.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a41ffa7a16724ed0473f420933cfb7b87" id="r_a41ffa7a16724ed0473f420933cfb7b87"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</a> (char *str, const char *prefix)</td></tr>
+<tr class="memdesc:a41ffa7a16724ed0473f420933cfb7b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends a given <code>prefix</code> onto a given string, adding an <code>OP_PATH_SEPARATOR</code> between the two of them.  <br /></td></tr>
 <tr class="separator:a41ffa7a16724ed0473f420933cfb7b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f5f49b4dabd84b37e8f7b9464e57992" id="r_a7f5f49b4dabd84b37e8f7b9464e57992"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f5f49b4dabd84b37e8f7b9464e57992">prepend_string</a> (char *str, const char *prefix)</td></tr>
+<tr class="memdesc:a7f5f49b4dabd84b37e8f7b9464e57992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepends a given <code>prefix</code> onto a given string.  <br /></td></tr>
 <tr class="separator:a7f5f49b4dabd84b37e8f7b9464e57992"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee9f9bd7844e8e7d21d0965980b6e9ed" id="r_aee9f9bd7844e8e7d21d0965980b6e9ed"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</a> (char *str)</td></tr>
+<tr class="memdesc:aee9f9bd7844e8e7d21d0965980b6e9ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the given string ends in <code>.DAT</code>.  <br /></td></tr>
 <tr class="separator:aee9f9bd7844e8e7d21d0965980b6e9ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28cf3fb6f4d89ea760afeca3f07a377b" id="r_a28cf3fb6f4d89ea760afeca3f07a377b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</a> (const char *dir)</td></tr>
+<tr class="memdesc:a28cf3fb6f4d89ea760afeca3f07a377b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the given directory exists.  <br /></td></tr>
 <tr class="separator:a28cf3fb6f4d89ea760afeca3f07a377b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0038df898c35b6a483fa874b3671735b" id="r_a0038df898c35b6a483fa874b3671735b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0038df898c35b6a483fa874b3671735b">file_exists</a> (const char *filename)</td></tr>
+<tr class="memdesc:a0038df898c35b6a483fa874b3671735b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the given file exists.  <br /></td></tr>
 <tr class="separator:a0038df898c35b6a483fa874b3671735b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ce51b557efd36a5220e51669c79cc86" id="r_a4ce51b557efd36a5220e51669c79cc86"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ce51b557efd36a5220e51669c79cc86">peek_char_is</a> (FILE *fptr, uint8_t expected_ch)</td></tr>
 <tr class="memdesc:a4ce51b557efd36a5220e51669c79cc86"><td class="mdescLeft">&#160;</td><td class="mdescRight">On error, returns false.  <br /></td></tr>
@@ -135,7 +137,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad89ab9462dec77ec0a6c4f32f731f7ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is sort of a hacky solution.  <br /></td></tr>
 <tr class="separator:ad89ab9462dec77ec0a6c4f32f731f7ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4965520bde2fd7164397a78f8026164a" id="r_a4965520bde2fd7164397a78f8026164a"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</a> (uint16_t value)</td></tr>
-<tr class="memdesc:a4965520bde2fd7164397a78f8026164a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps a given <code>uint16_t</code> from little endian to big endian or vice-versa.  <br /></td></tr>
+<tr class="memdesc:a4965520bde2fd7164397a78f8026164a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="utils_8h.html">utils.h</a> - a collection of utility functions.  <br /></td></tr>
 <tr class="separator:a4965520bde2fd7164397a78f8026164a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -154,16 +156,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Swaps a given <code>uint16_t</code> from little endian to big endian or vice-versa. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>uint16_t to be swapped. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>value with its endianness swapped. </dd></dl>
+<p><a class="el" href="utils_8h.html">utils.h</a> - a collection of utility functions. </p>
+<p>Swaps a <code>uint16_t</code> from little endian to big endian or vice-versa. </p>
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00130">130</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00140">140</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -182,7 +178,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00078">78</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p>Returns true if the given directory exists. </p>
+<p><code>dir</code> is a string containing the path to said directory. </p>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00088">88</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -201,7 +200,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00090">90</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p>Returns true if the given file exists. </p>
+<p><code>filename</code> is a string containing the path to said file. </p>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00100">100</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -220,7 +222,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00067">67</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p>Returns true if the given string ends in <code>.DAT</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00077">77</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -244,8 +248,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>On error, returns false. </p>
+<p>Returns true if the next character in the file matches <code>expected_ch</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00103">103</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00113">113</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -265,9 +270,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This is sort of a hacky solution. </p>
+<p>Returns true if the next character in the file is an EOF marker.</p>
 <p>TODO: implement better err handling. </p>
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00121">121</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00131">131</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -290,7 +296,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00021">21</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p>Prepends a given <code>prefix</code> onto a given string, adding an <code>OP_PATH_SEPARATOR</code> between the two of them. </p>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00031">31</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>
@@ -313,7 +321,9 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00046">46</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
+<p>Prepends a given <code>prefix</code> onto a given string. </p>
+
+<p class="definition">Definition at line <a class="el" href="utils_8c_source.html#l00056">56</a> of file <a class="el" href="utils_8c_source.html">utils.c</a>.</p>
 
 </div>
 </div>

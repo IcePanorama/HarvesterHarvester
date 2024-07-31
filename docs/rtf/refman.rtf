@@ -8072,20 +8072,19 @@ options.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00007 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00008 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00009 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00010 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00011 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00012 {\cf20 //  option) any later version.}\par
-00013 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00014 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00015 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00016 {\cf20 //  more details.}\par
-00017 {\cf20 //}\par
-00018 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00019 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00020 {\cf21 #ifndef _HH_OPTIONS_H_}\par
 00021 {\cf21 #define _HH_OPTIONS_H_}\par
 00022 \par
@@ -9005,9 +9004,6 @@ src/utils.c File Reference\par \pard\plain
 {\f2 #include "data_reader.h"}\par
 {\f2 #include "errors.h"}\par
 {\f2 #include "options.h"}\par
-{\f2 #include <stdbool.h>}\par
-{\f2 #include <stdint.h>}\par
-{\f2 #include <stdio.h>}\par
 {\f2 #include <stdlib.h>}\par
 {\f2 #include <string.h>}\par
 {\f2 #include <sys/stat.h>}\par
@@ -9020,14 +9016,39 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b prepend_path_string} (char *str, const char *prefix)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string, adding an {\f2 OP_PATH_SEPARATOR}  between the two of them. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b prepend_string} (char *str, const char *prefix)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b is_string_dat_file} (char *str)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given string ends in {\f2 .DAT} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b directory_exists} (const char *dir)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given directory exists. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b file_exists} (const char *filename)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given file exists. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b peek_char_is} (FILE *fptr, uint8_t expected_ch)\par
 {
@@ -9046,7 +9067,7 @@ This is sort of a hacky solution. }{
 uint16_t {\b change_endianness_uint16} (uint16_t value)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Swaps a given {\f2 uint16_t}  from little endian to big endian or vice-versa. }{
+{\b utils.h} - a collection of utility functions. }{
 }\par
 }\par}
 }
@@ -9067,23 +9088,11 @@ uint16_t change_endianness_uint16 (uint16_t value)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Swaps a given {\f2 uint16_t}  from little endian to big endian or vice-versa. }}\par
+{\b utils.h} - a collection of utility functions. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i value} \cell }{uint16_t to be swapped. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-value with its endianness swapped. \par
-}}}{
-Definition at line {\b 130} of file {\b utils.c}.}\par
+Swaps a {\f2 uint16_t}  from little endian to big endian or vice-versa. \par
+}{
+Definition at line {\b 140} of file {\b utils.c}.}\par
 }
 {\xe \v directory_exists\:utils.c}
 {\xe \v utils.c\:directory_exists}
@@ -9097,7 +9106,12 @@ bool directory_exists (const char * dir)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 78} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given directory exists. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\f2 dir}  is a string containing the path to said directory. \par
+}{
+Definition at line {\b 88} of file {\b utils.c}.}\par
 }
 {\xe \v file_exists\:utils.c}
 {\xe \v utils.c\:file_exists}
@@ -9111,7 +9125,12 @@ bool file_exists (const char * filename)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 90} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given file exists. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\f2 filename}  is a string containing the path to said file. \par
+}{
+Definition at line {\b 100} of file {\b utils.c}.}\par
 }
 {\xe \v is_string_dat_file\:utils.c}
 {\xe \v utils.c\:is_string_dat_file}
@@ -9125,7 +9144,10 @@ bool is_string_dat_file (char * str)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 67} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given string ends in {\f2 .DAT} . }}\par
+{
+Definition at line {\b 77} of file {\b utils.c}.}\par
 }
 {\xe \v peek_char_is\:utils.c}
 {\xe \v utils.c\:peek_char_is}
@@ -9141,8 +9163,10 @@ bool peek_char_is (FILE * fptr, uint8_t expected_ch)}}
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 On error, returns false. }}\par
-{
-Definition at line {\b 103} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the next character in the file matches {\f2 expected_ch} . \par
+}{
+Definition at line {\b 113} of file {\b utils.c}.}\par
 }
 {\xe \v peek_eof\:utils.c}
 {\xe \v utils.c\:peek_eof}
@@ -9159,9 +9183,10 @@ bool peek_eof (FILE * fptr)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 This is sort of a hacky solution. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the next character in the file is an EOF marker.\par
 TODO: implement better err handling. \par
 }{
-Definition at line {\b 121} of file {\b utils.c}.}\par
+Definition at line {\b 131} of file {\b utils.c}.}\par
 }
 {\xe \v prepend_path_string\:utils.c}
 {\xe \v utils.c\:prepend_path_string}
@@ -9175,7 +9200,10 @@ int8_t prepend_path_string (char * str, const char * prefix)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 21} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string, adding an {\f2 OP_PATH_SEPARATOR}  between the two of them. }}\par
+{
+Definition at line {\b 31} of file {\b utils.c}.}\par
 }
 {\xe \v prepend_string\:utils.c}
 {\xe \v utils.c\:prepend_string}
@@ -9189,7 +9217,10 @@ void prepend_string (char * str, const char * prefix)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 46} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string. }}\par
+{
+Definition at line {\b 56} of file {\b utils.c}.}\par
 }
 \par \pard\plain 
 
@@ -9204,137 +9235,147 @@ utils.c\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #include "utils.h"}\par
-00002 {\cf21 #include "data_reader.h"}\par
-00003 {\cf21 #include "errors.h"}\par
-00004 {\cf21 #include "options.h"}\par
-00005 \par
-00006 {\cf21 #include <stdbool.h>}\par
-00007 {\cf21 #include <stdint.h>}\par
-00008 {\cf21 #include <stdio.h>}\par
-00009 {\cf21 #include <stdlib.h>}\par
-00010 {\cf21 #include <string.h>}\par
-00011 {\cf21 #include <sys/stat.h>}\par
-00012 \par
-00013 {\cf21 #ifdef _WIN32}\par
-00014 {\cf21 #include <direct.h>}\par
-00015 {\cf21 #include <windows.h>}\par
-00016 {\cf21 #else}\par
-00017 {\cf21 #include <unistd.h>}\par
-00018 {\cf21 #endif}\par
-00019 \par
-00020 int8_t\par
-00021 prepend_path_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix)\par
-00022 \{\par
-00023   {\cf19 if} (strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 ""}) == 0\par
-00024       || strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 "\\1"}) == 0)\par
-00025     \{\par
-00026       {\cf19 return} 0;\par
-00027     \}\par
-00028 \par
-00029   {\cf18 char} *tmp = calloc (strlen (str) + strlen (prefix) + 2, {\cf17 sizeof} ({\cf18 char}));\par
-00030   {\cf19 if} (tmp == NULL)\par
-00031     \{\par
-00032       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
-00033       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00034     \}\par
-00035 \par
-00036   strcpy (tmp, str);\par
-00037   strcpy (str, prefix);\par
-00038   strcat (str, &OP_PATH_SEPARATOR);\par
-00039   strcat (str, tmp);\par
-00040   free (tmp);\par
-00041 \par
-00042   {\cf19 return} 0;\par
-00043 \}\par
-00044 \par
-00045 {\cf18 void}\par
-00046 prepend_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix)\par
-00047 \{\par
-00048   {\cf19 if} (strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 ""}) == 0\par
-00049       || strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 "\\1"}) == 0)\par
-00050     \{\par
-00051       {\cf19 return};\par
-00052     \}\par
-00053 \par
-00054   {\cf18 char} *tmp = calloc (strlen (str) + strlen (prefix) + 2, {\cf17 sizeof} ({\cf18 char}));\par
-00055   {\cf19 if} (tmp == NULL)\par
-00056     \{\par
-00057       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
-00058       exit (1);\par
-00059     \}\par
-00060   strcpy (tmp, str);\par
-00061   strcpy (str, prefix);\par
-00062   strcat (str, tmp);\par
-00063   free (tmp);\par
-00064 \}\par
-00065 \par
-00066 {\cf18 bool}\par
-00067 is_string_dat_file ({\cf18 char} *str)\par
-00068 \{\par
-00069   {\cf17 const} {\cf18 char} *EXPECTED_EXTENSION = {\cf22 ".DAT"};\par
-00070   {\cf17 const} uint8_t EXTENSION_LEN = 5; {\cf20 // +1 for null terminator}\par
-00071 \par
-00072   {\cf18 size_t} len = strlen (str) + 1;\par
-00073   {\cf19 return} (len > EXTENSION_LEN\par
-00074           && strcmp (str + (len - EXTENSION_LEN), EXPECTED_EXTENSION) == 0);\par
-00075 \}\par
-00076 \par
-00077 {\cf18 bool}\par
-00078 directory_exists ({\cf17 const} {\cf18 char} *dir)\par
-00079 \{\par
-00080 {\cf21 #ifdef _WIN32}\par
-00081   {\cf17 struct }_stat st;\par
-00082   {\cf19 return} (_stat (dir, &st) == 0 && (st.st_mode & _S_IFDIR));\par
-00083 {\cf21 #else}\par
-00084   {\cf17 struct }stat st;\par
-00085   {\cf19 return} (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));\par
-00086 {\cf21 #endif}\par
-00087 \}\par
-00088 \par
-00089 {\cf18 bool}\par
-00090 file_exists ({\cf17 const} {\cf18 char} *filename)\par
-00091 \{\par
-00092 {\cf21 #ifdef _WIN32}\par
-00093   DWORD attribs = GetFileAttributes (filename);\par
-00094   {\cf19 return} attribs != INVALID_FILE_ATTRIBUTES\par
-00095          && !(attribs & FILE_ATTRIBUTE_DIRECTORY);\par
-00096 {\cf21 #else}\par
-00097   {\cf19 return} access (filename, F_OK) != -1;\par
-00098 {\cf21 #endif}\par
-00099 \}\par
-00100 \par
-00102 {\cf18 bool}\par
-00103 peek_char_is (FILE *fptr, uint8_t expected_ch)\par
-00104 \{\par
-00105   uint8_t byte;\par
-00106   {\cf19 if} (read_single_uint8 (fptr, &{\cf18 byte}) != 0)\par
-00107     \{\par
-00108       {\cf19 return} {\cf17 false};\par
-00109     \}\par
-00110   {\cf19 else} {\cf19 if} ({\cf18 byte} == expected_ch)\par
-00111     \{\par
-00112       {\cf19 return} {\cf17 true};\par
-00113     \}\par
-00114 \par
-00115   fseek (fptr, -1, SEEK_CUR);\par
-00116   {\cf19 return} {\cf17 false};\par
-00117 \}\par
-00118 \par
-00120 {\cf18 bool}\par
-00121 peek_eof (FILE *fptr)\par
-00122 \{\par
-00123   uint8_t value;\par
-00124   {\cf18 size_t} bytes_read = fread (&value, {\cf17 sizeof} (uint8_t), 1, fptr);\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00014 {\cf21 #include "utils.h"}\par
+00015 {\cf21 #include "data_reader.h"}\par
+00016 {\cf21 #include "errors.h"}\par
+00017 {\cf21 #include "options.h"}\par
+00018 \par
+00019 {\cf21 #include <stdlib.h>}\par
+00020 {\cf21 #include <string.h>}\par
+00021 {\cf21 #include <sys/stat.h>}\par
+00022 \par
+00023 {\cf21 #ifdef _WIN32}\par
+00024 {\cf21 #include <direct.h>}\par
+00025 {\cf21 #include <windows.h>}\par
+00026 {\cf21 #else}\par
+00027 {\cf21 #include <unistd.h>}\par
+00028 {\cf21 #endif}\par
+00029 \par
+00030 int8_t\par
+00031 prepend_path_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix)\par
+00032 \{\par
+00033   {\cf19 if} (strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 ""}) == 0\par
+00034       || strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 "\\1"}) == 0)\par
+00035     \{\par
+00036       {\cf19 return} 0;\par
+00037     \}\par
+00038 \par
+00039   {\cf18 char} *tmp = calloc (strlen (str) + strlen (prefix) + 2, {\cf17 sizeof} ({\cf18 char}));\par
+00040   {\cf19 if} (tmp == NULL)\par
+00041     \{\par
+00042       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
+00043       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00044     \}\par
+00045 \par
+00046   strcpy (tmp, str);\par
+00047   strcpy (str, prefix);\par
+00048   strcat (str, &OP_PATH_SEPARATOR);\par
+00049   strcat (str, tmp);\par
+00050   free (tmp);\par
+00051 \par
+00052   {\cf19 return} 0;\par
+00053 \}\par
+00054 \par
+00055 {\cf18 void}\par
+00056 prepend_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix)\par
+00057 \{\par
+00058   {\cf19 if} (strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 ""}) == 0\par
+00059       || strcmp (prefix, ({\cf17 const} {\cf18 char} *){\cf22 "\\1"}) == 0)\par
+00060     \{\par
+00061       {\cf19 return};\par
+00062     \}\par
+00063 \par
+00064   {\cf18 char} *tmp = calloc (strlen (str) + strlen (prefix) + 2, {\cf17 sizeof} ({\cf18 char}));\par
+00065   {\cf19 if} (tmp == NULL)\par
+00066     \{\par
+00067       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
+00068       exit (1);\par
+00069     \}\par
+00070   strcpy (tmp, str);\par
+00071   strcpy (str, prefix);\par
+00072   strcat (str, tmp);\par
+00073   free (tmp);\par
+00074 \}\par
+00075 \par
+00076 {\cf18 bool}\par
+00077 is_string_dat_file ({\cf18 char} *str)\par
+00078 \{\par
+00079   {\cf17 const} {\cf18 char} *EXPECTED_EXTENSION = {\cf22 ".DAT"};\par
+00080   {\cf17 const} uint8_t EXTENSION_LEN = 5; {\cf20 // +1 for null terminator}\par
+00081 \par
+00082   {\cf18 size_t} len = strlen (str) + 1;\par
+00083   {\cf19 return} (len > EXTENSION_LEN\par
+00084           && strcmp (str + (len - EXTENSION_LEN), EXPECTED_EXTENSION) == 0);\par
+00085 \}\par
+00086 \par
+00087 {\cf18 bool}\par
+00088 directory_exists ({\cf17 const} {\cf18 char} *dir)\par
+00089 \{\par
+00090 {\cf21 #ifdef _WIN32}\par
+00091   {\cf17 struct }_stat st;\par
+00092   {\cf19 return} (_stat (dir, &st) == 0 && (st.st_mode & _S_IFDIR));\par
+00093 {\cf21 #else}\par
+00094   {\cf17 struct }stat st;\par
+00095   {\cf19 return} (stat (dir, &st) == 0 && S_ISDIR (st.st_mode));\par
+00096 {\cf21 #endif}\par
+00097 \}\par
+00098 \par
+00099 {\cf18 bool}\par
+00100 file_exists ({\cf17 const} {\cf18 char} *filename)\par
+00101 \{\par
+00102 {\cf21 #ifdef _WIN32}\par
+00103   DWORD attribs = GetFileAttributes (filename);\par
+00104   {\cf19 return} attribs != INVALID_FILE_ATTRIBUTES\par
+00105          && !(attribs & FILE_ATTRIBUTE_DIRECTORY);\par
+00106 {\cf21 #else}\par
+00107   {\cf19 return} access (filename, F_OK) != -1;\par
+00108 {\cf21 #endif}\par
+00109 \}\par
+00110 \par
+00112 {\cf18 bool}\par
+00113 peek_char_is (FILE *fptr, uint8_t expected_ch)\par
+00114 \{\par
+00115   uint8_t byte;\par
+00116   {\cf19 if} (read_single_uint8 (fptr, &{\cf18 byte}) != 0)\par
+00117     \{\par
+00118       {\cf19 return} {\cf17 false};\par
+00119     \}\par
+00120   {\cf19 else} {\cf19 if} ({\cf18 byte} == expected_ch)\par
+00121     \{\par
+00122       {\cf19 return} {\cf17 true};\par
+00123     \}\par
+00124 \par
 00125   fseek (fptr, -1, SEEK_CUR);\par
-00126   {\cf19 return} bytes_read == 0;\par
+00126   {\cf19 return} {\cf17 false};\par
 00127 \}\par
 00128 \par
-00129 uint16_t\par
-00130 change_endianness_uint16 (uint16_t value)\par
-00131 \{\par
-00132   {\cf19 return} (value << 8) | (value >> 8);\par
-00133 \}\par
+00130 {\cf18 bool}\par
+00131 peek_eof (FILE *fptr)\par
+00132 \{\par
+00133   uint8_t value;\par
+00134   {\cf18 size_t} bytes_read = fread (&value, {\cf17 sizeof} (uint8_t), 1, fptr);\par
+00135   fseek (fptr, -1, SEEK_CUR);\par
+00136   {\cf19 return} bytes_read == 0;\par
+00137 \}\par
+00138 \par
+00139 uint16_t\par
+00140 change_endianness_uint16 (uint16_t value)\par
+00141 \{\par
+00142   {\cf19 return} (value << 8) | (value >> 8);\par
+00143 \}\par
 }
 \par \pard\plain 
 
@@ -9361,33 +9402,58 @@ Functions\par
 uint16_t {\b change_endianness_uint16} (uint16_t value)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Swaps a given {\f2 uint16_t}  from little endian to big endian or vice-versa. }{
+{\b utils.h} - a collection of utility functions. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+void {\b prepend_string} (char *str, const char *prefix)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b prepend_path_string} (char *str, const char *prefix)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string, adding an {\f2 OP_PATH_SEPARATOR}  between the two of them. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b is_string_dat_file} (char *str)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given string ends in {\f2 .DAT} . }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b directory_exists} (const char *dir)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given directory exists. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b file_exists} (const char *filename)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given file exists. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b peek_char_is} (FILE *fptr, uint8_t expected_ch)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-On error, returns false. }{
+Returns true if the next character in the file matches {\f2 expected_ch} . }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 bool {\b peek_eof} (FILE *fptr)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-This is sort of a hacky solution. }{
+Returns true if the next character in the file is an EOF marker. }{
 }\par
 }\par}
-\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-void {\b prepend_string} (char *str, const char *prefix)\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -9406,23 +9472,11 @@ uint16_t change_endianness_uint16 (uint16_t value)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Swaps a given {\f2 uint16_t}  from little endian to big endian or vice-versa. }}\par
+{\b utils.h} - a collection of utility functions. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i value} \cell }{uint16_t to be swapped. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-value with its endianness swapped. \par
-}}}{
-Definition at line {\b 130} of file {\b utils.c}.}\par
+Swaps a {\f2 uint16_t}  from little endian to big endian or vice-versa. \par
+}{
+Definition at line {\b 140} of file {\b utils.c}.}\par
 }
 {\xe \v directory_exists\:utils.h}
 {\xe \v utils.h\:directory_exists}
@@ -9436,7 +9490,12 @@ bool directory_exists (const char * dir)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 78} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given directory exists. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\f2 dir}  is a string containing the path to said directory. \par
+}{
+Definition at line {\b 88} of file {\b utils.c}.}\par
 }
 {\xe \v file_exists\:utils.h}
 {\xe \v utils.h\:file_exists}
@@ -9450,7 +9509,12 @@ bool file_exists (const char * filename)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 90} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given file exists. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\f2 filename}  is a string containing the path to said file. \par
+}{
+Definition at line {\b 100} of file {\b utils.c}.}\par
 }
 {\xe \v is_string_dat_file\:utils.h}
 {\xe \v utils.h\:is_string_dat_file}
@@ -9464,7 +9528,10 @@ bool is_string_dat_file (char * str)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 67} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the given string ends in {\f2 .DAT} . }}\par
+{
+Definition at line {\b 77} of file {\b utils.c}.}\par
 }
 {\xe \v peek_char_is\:utils.h}
 {\xe \v utils.h\:peek_char_is}
@@ -9479,9 +9546,11 @@ bool peek_char_is (FILE * fptr, uint8_t expected_ch)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-On error, returns false. }}\par
-{
-Definition at line {\b 103} of file {\b utils.c}.}\par
+Returns true if the next character in the file matches {\f2 expected_ch} . }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the next character in the file matches {\f2 expected_ch} . \par
+}{
+Definition at line {\b 113} of file {\b utils.c}.}\par
 }
 {\xe \v peek_eof\:utils.h}
 {\xe \v utils.h\:peek_eof}
@@ -9496,11 +9565,12 @@ bool peek_eof (FILE * fptr)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-This is sort of a hacky solution. }}\par
+Returns true if the next character in the file is an EOF marker. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Returns true if the next character in the file is an EOF marker.\par
 TODO: implement better err handling. \par
 }{
-Definition at line {\b 121} of file {\b utils.c}.}\par
+Definition at line {\b 131} of file {\b utils.c}.}\par
 }
 {\xe \v prepend_path_string\:utils.h}
 {\xe \v utils.h\:prepend_path_string}
@@ -9514,7 +9584,10 @@ int8_t prepend_path_string (char * str, const char * prefix)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 21} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string, adding an {\f2 OP_PATH_SEPARATOR}  between the two of them. }}\par
+{
+Definition at line {\b 31} of file {\b utils.c}.}\par
 }
 {\xe \v prepend_string\:utils.h}
 {\xe \v utils.h\:prepend_string}
@@ -9528,7 +9601,10 @@ void prepend_string (char * str, const char * prefix)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 46} of file {\b utils.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prepends a given {\f2 prefix}  onto a given string. }}\par
+{
+Definition at line {\b 56} of file {\b utils.c}.}\par
 }
 \par \pard\plain 
 
@@ -9543,26 +9619,45 @@ utils.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #ifndef _UTILS_H_}\par
-00002 {\cf21 #define _UTILS_H_}\par
-00003 \par
-00004 {\cf21 #include "file_flags.h"}\par
-00005 \par
-00006 {\cf21 #include <stdbool.h>}\par
-00007 {\cf21 #include <stdint.h>}\par
-00008 {\cf21 #include <stdio.h>}\par
-00009 \par
-00016 uint16_t change_endianness_uint16 (uint16_t value);\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00015 {\cf21 #ifndef _HH_UTILS_H_}\par
+00016 {\cf21 #define _HH_UTILS_H_}\par
 00017 \par
-00018 int8_t prepend_path_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix);\par
-00019 {\cf18 bool} is_string_dat_file ({\cf18 char} *str);\par
-00020 {\cf18 bool} directory_exists ({\cf17 const} {\cf18 char} *dir);\par
-00021 {\cf18 bool} file_exists ({\cf17 const} {\cf18 char} *filename);\par
-00022 {\cf18 bool} peek_char_is (FILE *fptr, uint8_t expected_ch);\par
-00023 {\cf18 bool} peek_eof (FILE *fptr);\par
-00024 {\cf18 void} prepend_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix);\par
-00025 \par
-00026 {\cf21 #endif}\par
+00018 {\cf21 #include "file_flags.h"}\par
+00019 \par
+00020 {\cf21 #include <stdbool.h>}\par
+00021 {\cf21 #include <stdint.h>}\par
+00022 {\cf21 #include <stdio.h>}\par
+00023 \par
+00025 uint16_t change_endianness_uint16 (uint16_t value);\par
+00026 \par
+00028 {\cf18 void} prepend_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix);\par
+00029 \par
+00034 int8_t prepend_path_string ({\cf18 char} *str, {\cf17 const} {\cf18 char} *prefix);\par
+00035 \par
+00037 {\cf18 bool} is_string_dat_file ({\cf18 char} *str);\par
+00038 \par
+00043 {\cf18 bool} directory_exists ({\cf17 const} {\cf18 char} *dir);\par
+00044 \par
+00049 {\cf18 bool} file_exists ({\cf17 const} {\cf18 char} *filename);\par
+00050 \par
+00052 {\cf18 bool} peek_char_is (FILE *fptr, uint8_t expected_ch);\par
+00053 \par
+00055 {\cf18 bool} peek_eof (FILE *fptr);\par
+00056 \par
+00057 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

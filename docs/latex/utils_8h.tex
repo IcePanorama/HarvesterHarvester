@@ -8,21 +8,21 @@
 \begin{DoxyCompactItemize}
 \item 
 uint16\+\_\+t \mbox{\hyperlink{utils_8h_a4965520bde2fd7164397a78f8026164a}{change\+\_\+endianness\+\_\+uint16}} (uint16\+\_\+t value)
-\begin{DoxyCompactList}\small\item\em Swaps a given {\ttfamily uint16\+\_\+t} from little endian to big endian or vice-\/versa. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{utils_8h_a41ffa7a16724ed0473f420933cfb7b87}{prepend\+\_\+path\+\_\+string}} (char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}prefix)
-\item 
-bool \mbox{\hyperlink{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}{is\+\_\+string\+\_\+dat\+\_\+file}} (char \texorpdfstring{$\ast$}{*}str)
-\item 
-bool \mbox{\hyperlink{utils_8h_a28cf3fb6f4d89ea760afeca3f07a377b}{directory\+\_\+exists}} (const char \texorpdfstring{$\ast$}{*}dir)
-\item 
-bool \mbox{\hyperlink{utils_8h_a0038df898c35b6a483fa874b3671735b}{file\+\_\+exists}} (const char \texorpdfstring{$\ast$}{*}filename)
-\item 
-bool \mbox{\hyperlink{utils_8h_a4ce51b557efd36a5220e51669c79cc86}{peek\+\_\+char\+\_\+is}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t expected\+\_\+ch)
-\begin{DoxyCompactList}\small\item\em On error, returns false. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{utils_8h_ad89ab9462dec77ec0a6c4f32f731f7ff}{peek\+\_\+eof}} (FILE \texorpdfstring{$\ast$}{*}fptr)
-\begin{DoxyCompactList}\small\item\em This is sort of a hacky solution. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \doxylink{utils_8h}{utils.\+h} -\/ a collection of utility functions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{utils_8h_a7f5f49b4dabd84b37e8f7b9464e57992}{prepend\+\_\+string}} (char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}prefix)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Prepends a given {\ttfamily prefix} onto a given string. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{utils_8h_a41ffa7a16724ed0473f420933cfb7b87}{prepend\+\_\+path\+\_\+string}} (char \texorpdfstring{$\ast$}{*}str, const char \texorpdfstring{$\ast$}{*}prefix)
+\begin{DoxyCompactList}\small\item\em Prepends a given {\ttfamily prefix} onto a given string, adding an {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR} between the two of them. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}{is\+\_\+string\+\_\+dat\+\_\+file}} (char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Returns true if the given string ends in {\ttfamily .DAT}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a28cf3fb6f4d89ea760afeca3f07a377b}{directory\+\_\+exists}} (const char \texorpdfstring{$\ast$}{*}dir)
+\begin{DoxyCompactList}\small\item\em Returns true if the given directory exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a0038df898c35b6a483fa874b3671735b}{file\+\_\+exists}} (const char \texorpdfstring{$\ast$}{*}filename)
+\begin{DoxyCompactList}\small\item\em Returns true if the given file exists. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_a4ce51b557efd36a5220e51669c79cc86}{peek\+\_\+char\+\_\+is}} (FILE \texorpdfstring{$\ast$}{*}fptr, uint8\+\_\+t expected\+\_\+ch)
+\begin{DoxyCompactList}\small\item\em Returns true if the next character in the file matches {\ttfamily expected\+\_\+ch}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utils_8h_ad89ab9462dec77ec0a6c4f32f731f7ff}{peek\+\_\+eof}} (FILE \texorpdfstring{$\ast$}{*}fptr)
+\begin{DoxyCompactList}\small\item\em Returns true if the next character in the file is an EOF marker. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -34,19 +34,11 @@ uint16\+\_\+t change\+\_\+endianness\+\_\+uint16 (\begin{DoxyParamCaption}\item[
 
 
 
-Swaps a given {\ttfamily uint16\+\_\+t} from little endian to big endian or vice-\/versa. 
+\doxylink{utils_8h}{utils.\+h} -\/ a collection of utility functions. 
 
+Swaps a {\ttfamily uint16\+\_\+t} from little endian to big endian or vice-\/versa. 
 
-\begin{DoxyParams}{Parameters}
-{\em value} & uint16\+\_\+t to be swapped. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-value with its endianness swapped. 
-\end{DoxyReturn}
-
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00130}{130}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{utils_8c_source_l00140}{140}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_a28cf3fb6f4d89ea760afeca3f07a377b}\index{utils.h@{utils.h}!directory\_exists@{directory\_exists}}
 \index{directory\_exists@{directory\_exists}!utils.h@{utils.h}}
@@ -56,7 +48,11 @@ bool directory\+\_\+exists (\begin{DoxyParamCaption}\item[{const char \texorpdfs
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00078}{78}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Returns true if the given directory exists. 
+
+{\ttfamily dir} is a string containing the path to said directory. 
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00088}{88}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_a0038df898c35b6a483fa874b3671735b}\index{utils.h@{utils.h}!file\_exists@{file\_exists}}
 \index{file\_exists@{file\_exists}!utils.h@{utils.h}}
@@ -66,7 +62,11 @@ bool file\+\_\+exists (\begin{DoxyParamCaption}\item[{const char \texorpdfstring
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00090}{90}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Returns true if the given file exists. 
+
+{\ttfamily filename} is a string containing the path to said file. 
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00100}{100}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_aee9f9bd7844e8e7d21d0965980b6e9ed}\index{utils.h@{utils.h}!is\_string\_dat\_file@{is\_string\_dat\_file}}
 \index{is\_string\_dat\_file@{is\_string\_dat\_file}!utils.h@{utils.h}}
@@ -76,7 +76,11 @@ bool is\+\_\+string\+\_\+dat\+\_\+file (\begin{DoxyParamCaption}\item[{char \tex
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00067}{67}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Returns true if the given string ends in {\ttfamily .DAT}. 
+
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00077}{77}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_a4ce51b557efd36a5220e51669c79cc86}\index{utils.h@{utils.h}!peek\_char\_is@{peek\_char\_is}}
 \index{peek\_char\_is@{peek\_char\_is}!utils.h@{utils.h}}
@@ -86,11 +90,11 @@ bool peek\+\_\+char\+\_\+is (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring
 
 
 
-On error, returns false. 
+Returns true if the next character in the file matches {\ttfamily expected\+\_\+ch}. 
 
+Returns true if the next character in the file matches {\ttfamily expected\+\_\+ch}. 
 
-
-Definition at line \mbox{\hyperlink{utils_8c_source_l00103}{103}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{utils_8c_source_l00113}{113}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_ad89ab9462dec77ec0a6c4f32f731f7ff}\index{utils.h@{utils.h}!peek\_eof@{peek\_eof}}
 \index{peek\_eof@{peek\_eof}!utils.h@{utils.h}}
@@ -100,11 +104,13 @@ bool peek\+\_\+eof (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{
 
 
 
-This is sort of a hacky solution. 
+Returns true if the next character in the file is an EOF marker. 
+
+Returns true if the next character in the file is an EOF marker.
 
 TODO\+: implement better err handling. 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00121}{121}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Definition at line \mbox{\hyperlink{utils_8c_source_l00131}{131}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_a41ffa7a16724ed0473f420933cfb7b87}\index{utils.h@{utils.h}!prepend\_path\_string@{prepend\_path\_string}}
 \index{prepend\_path\_string@{prepend\_path\_string}!utils.h@{utils.h}}
@@ -114,7 +120,11 @@ int8\+\_\+t prepend\+\_\+path\+\_\+string (\begin{DoxyParamCaption}\item[{char \
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00021}{21}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Prepends a given {\ttfamily prefix} onto a given string, adding an {\ttfamily OP\+\_\+\+PATH\+\_\+\+SEPARATOR} between the two of them. 
+
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00031}{31}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 
 \Hypertarget{utils_8h_a7f5f49b4dabd84b37e8f7b9464e57992}\index{utils.h@{utils.h}!prepend\_string@{prepend\_string}}
 \index{prepend\_string@{prepend\_string}!utils.h@{utils.h}}
@@ -124,5 +134,9 @@ void prepend\+\_\+string (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\
 
 
 
-Definition at line \mbox{\hyperlink{utils_8c_source_l00046}{46}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+Prepends a given {\ttfamily prefix} onto a given string. 
+
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00056}{56}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
 

@@ -1,9 +1,3 @@
-/**
- *  options.h - container for all of hh's options.
- *
- *  Currently also home to some global variables until I figure out a better
- *  place for them to be stored.
- */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.
 //  HarvesterHarvester is free software: you can redistribute it and/or modify
@@ -17,6 +11,12 @@
 //
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
+/**
+ *  options.h - container for all of hh's options.
+ *
+ *  Currently also home to some global variables until I figure out a better
+ *  place for them to be stored.
+ */
 #ifndef _HH_OPTIONS_H_
 #define _HH_OPTIONS_H_
 

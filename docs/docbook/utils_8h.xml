@@ -7,25 +7,35 @@
         <itemizedlist>
             <listitem><para>uint16_t <link linkend="_utils_8h_1a4965520bde2fd7164397a78f8026164a">change_endianness_uint16</link> (uint16_t value)</para>
 
-<para>Swaps a given <computeroutput>uint16_t</computeroutput> from little endian to big endian or vice-versa. </para>
+<para><link linkend="_utils_8h">utils.h</link> - a collection of utility functions. </para>
+</listitem>
+            <listitem><para>void <link linkend="_utils_8h_1a7f5f49b4dabd84b37e8f7b9464e57992">prepend_string</link> (char *str, const char *prefix)</para>
+
+<para>Prepends a given <computeroutput>prefix</computeroutput> onto a given string. </para>
 </listitem>
             <listitem><para>int8_t <link linkend="_utils_8h_1a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</link> (char *str, const char *prefix)</para>
+
+<para>Prepends a given <computeroutput>prefix</computeroutput> onto a given string, adding an <computeroutput>OP_PATH_SEPARATOR</computeroutput> between the two of them. </para>
 </listitem>
             <listitem><para>bool <link linkend="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</link> (char *str)</para>
+
+<para>Returns true if the given string ends in <computeroutput>.DAT</computeroutput>. </para>
 </listitem>
             <listitem><para>bool <link linkend="_utils_8h_1a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</link> (const char *dir)</para>
+
+<para>Returns true if the given directory exists. </para>
 </listitem>
             <listitem><para>bool <link linkend="_utils_8h_1a0038df898c35b6a483fa874b3671735b">file_exists</link> (const char *filename)</para>
+
+<para>Returns true if the given file exists. </para>
 </listitem>
             <listitem><para>bool <link linkend="_utils_8h_1a4ce51b557efd36a5220e51669c79cc86">peek_char_is</link> (FILE *fptr, uint8_t expected_ch)</para>
 
-<para>On error, returns false. </para>
+<para>Returns true if the next character in the file matches <computeroutput>expected_ch</computeroutput>. </para>
 </listitem>
             <listitem><para>bool <link linkend="_utils_8h_1ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</link> (FILE *fptr)</para>
 
-<para>This is sort of a hacky solution. </para>
-</listitem>
-            <listitem><para>void <link linkend="_utils_8h_1a7f5f49b4dabd84b37e8f7b9464e57992">prepend_string</link> (char *str, const char *prefix)</para>
+<para>Returns true if the next character in the file is an EOF marker. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -37,57 +47,49 @@
 <indexterm><primary>utils.h</primary><secondary>change_endianness_uint16</secondary></indexterm>
 <para><computeroutput>uint16_t change_endianness_uint16 (uint16_t value)</computeroutput></para><para>
 
-<para>Swaps a given <computeroutput>uint16_t</computeroutput> from little endian to big endian or vice-versa. </para>
+<para><link linkend="_utils_8h">utils.h</link> - a collection of utility functions. </para>
 </para>
 
+<para>Swaps a <computeroutput>uint16_t</computeroutput> from little endian to big endian or vice-versa. </para>
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>value</entry><entry>
-<para>uint16_t to be swapped. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>Returns</title>
-
-<para>value with its endianness swapped. </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_utils_8c_source_1l00130">130</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00140">140</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a28cf3fb6f4d89ea760afeca3f07a377b"/><section>
     <title>directory_exists()</title>
 <indexterm><primary>directory_exists</primary><secondary>utils.h</secondary></indexterm>
 <indexterm><primary>utils.h</primary><secondary>directory_exists</secondary></indexterm>
 <para><computeroutput>bool directory_exists (const char * dir)</computeroutput></para><para>
-Definition at line <link linkend="_utils_8c_source_1l00078">78</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+
+<para>Returns true if the given directory exists. </para>
+</para>
+
+<para><computeroutput>dir</computeroutput> is a string containing the path to said directory. </para>
+<para>
+Definition at line <link linkend="_utils_8c_source_1l00088">88</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a0038df898c35b6a483fa874b3671735b"/><section>
     <title>file_exists()</title>
 <indexterm><primary>file_exists</primary><secondary>utils.h</secondary></indexterm>
 <indexterm><primary>utils.h</primary><secondary>file_exists</secondary></indexterm>
 <para><computeroutput>bool file_exists (const char * filename)</computeroutput></para><para>
-Definition at line <link linkend="_utils_8c_source_1l00090">90</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+
+<para>Returns true if the given file exists. </para>
+</para>
+
+<para><computeroutput>filename</computeroutput> is a string containing the path to said file. </para>
+<para>
+Definition at line <link linkend="_utils_8c_source_1l00100">100</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed"/><section>
     <title>is_string_dat_file()</title>
 <indexterm><primary>is_string_dat_file</primary><secondary>utils.h</secondary></indexterm>
 <indexterm><primary>utils.h</primary><secondary>is_string_dat_file</secondary></indexterm>
 <para><computeroutput>bool is_string_dat_file (char * str)</computeroutput></para><para>
-Definition at line <link linkend="_utils_8c_source_1l00067">67</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+
+<para>Returns true if the given string ends in <computeroutput>.DAT</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_utils_8c_source_1l00077">77</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a4ce51b557efd36a5220e51669c79cc86"/><section>
     <title>peek_char_is()</title>
@@ -95,10 +97,12 @@ Definition at line <link linkend="_utils_8c_source_1l00067">67</link> of file <l
 <indexterm><primary>utils.h</primary><secondary>peek_char_is</secondary></indexterm>
 <para><computeroutput>bool peek_char_is (FILE * fptr, uint8_t expected_ch)</computeroutput></para><para>
 
-<para>On error, returns false. </para>
+<para>Returns true if the next character in the file matches <computeroutput>expected_ch</computeroutput>. </para>
 </para>
+
+<para>Returns true if the next character in the file matches <computeroutput>expected_ch</computeroutput>. </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00103">103</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00113">113</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1ad89ab9462dec77ec0a6c4f32f731f7ff"/><section>
     <title>peek_eof()</title>
@@ -106,26 +110,36 @@ Definition at line <link linkend="_utils_8c_source_1l00103">103</link> of file <
 <indexterm><primary>utils.h</primary><secondary>peek_eof</secondary></indexterm>
 <para><computeroutput>bool peek_eof (FILE * fptr)</computeroutput></para><para>
 
-<para>This is sort of a hacky solution. </para>
+<para>Returns true if the next character in the file is an EOF marker. </para>
 </para>
+
+<para>Returns true if the next character in the file is an EOF marker.</para>
 
 <para>TODO: implement better err handling. </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00121">121</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00131">131</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a41ffa7a16724ed0473f420933cfb7b87"/><section>
     <title>prepend_path_string()</title>
 <indexterm><primary>prepend_path_string</primary><secondary>utils.h</secondary></indexterm>
 <indexterm><primary>utils.h</primary><secondary>prepend_path_string</secondary></indexterm>
 <para><computeroutput>int8_t prepend_path_string (char * str, const char * prefix)</computeroutput></para><para>
-Definition at line <link linkend="_utils_8c_source_1l00021">21</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+
+<para>Prepends a given <computeroutput>prefix</computeroutput> onto a given string, adding an <computeroutput>OP_PATH_SEPARATOR</computeroutput> between the two of them. </para>
+</para>
+<para>
+Definition at line <link linkend="_utils_8c_source_1l00031">31</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a7f5f49b4dabd84b37e8f7b9464e57992"/><section>
     <title>prepend_string()</title>
 <indexterm><primary>prepend_string</primary><secondary>utils.h</secondary></indexterm>
 <indexterm><primary>utils.h</primary><secondary>prepend_string</secondary></indexterm>
 <para><computeroutput>void prepend_string (char * str, const char * prefix)</computeroutput></para><para>
-Definition at line <link linkend="_utils_8c_source_1l00046">46</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+
+<para>Prepends a given <computeroutput>prefix</computeroutput> onto a given string. </para>
+</para>
+<para>
+Definition at line <link linkend="_utils_8c_source_1l00056">56</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 </section>
 </section>
