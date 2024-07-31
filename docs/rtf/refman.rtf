@@ -8126,6 +8126,11 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b create_output_directory} (char *path)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b output.h} - container for functions related to the output directory. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -8143,7 +8148,15 @@ int8_t create_output_directory (char * path)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 15} of file {\b output.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b output.h} - container for functions related to the output directory. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates an output directory at the given path if it doesn't already exist.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}}{
+Definition at line {\b 28} of file {\b output.c}.}\par
 }
 \par \pard\plain 
 
@@ -8158,79 +8171,95 @@ output.c\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #include "output.h"}\par
-00002 {\cf21 #include "errors.h"}\par
-00003 {\cf21 #include "options.h"}\par
-00004 {\cf21 #include "utils.h"}\par
-00005 \par
-00006 {\cf21 #include <stdio.h>}\par
-00007 {\cf21 #include <stdlib.h>}\par
-00008 {\cf21 #include <string.h>}\par
-00009 {\cf21 #include <sys/stat.h>}\par
-00010 {\cf21 #ifdef _WIN32}\par
-00011 {\cf21 #include <direct.h>}\par
-00012 {\cf21 #endif}\par
-00013 \par
-00014 int8_t\par
-00015 create_output_directory ({\cf18 char} *path)\par
-00016 \{\par
-00017   {\cf19 if} (CURRENT_DISK_NAME != NULL)\par
-00018     \{\par
-00019       {\cf19 if} (prepend_path_string (path, CURRENT_DISK_NAME) != 0)\par
-00020         {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00021     \}\par
-00022 \par
-00023   {\cf19 if} (prepend_path_string (path, OP_OUTPUT_DIR) != 0)\par
-00024     {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00025 \par
-00026   {\cf18 char} *tmp = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
-00027   {\cf19 if} (tmp == NULL)\par
-00028     \{\par
-00029       fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);\par
-00030       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00031     \}\par
-00032 \par
-00033   strcpy (tmp, path);\par
-00034   {\cf18 char} *token = strtok (tmp, &OP_PATH_SEPARATOR);\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00014 {\cf21 #include "output.h"}\par
+00015 {\cf21 #include "errors.h"}\par
+00016 {\cf21 #include "options.h"}\par
+00017 {\cf21 #include "utils.h"}\par
+00018 \par
+00019 {\cf21 #include <stdio.h>}\par
+00020 {\cf21 #include <stdlib.h>}\par
+00021 {\cf21 #include <string.h>}\par
+00022 {\cf21 #include <sys/stat.h>}\par
+00023 {\cf21 #ifdef _WIN32}\par
+00024 {\cf21 #include <direct.h>}\par
+00025 {\cf21 #endif}\par
+00026 \par
+00027 int8_t\par
+00028 create_output_directory ({\cf18 char} *path)\par
+00029 \{\par
+00030   {\cf19 if} (CURRENT_DISK_NAME != NULL)\par
+00031     \{\par
+00032       {\cf19 if} (prepend_path_string (path, CURRENT_DISK_NAME) != 0)\par
+00033         {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00034     \}\par
 00035 \par
-00036   {\cf18 char} *dir = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
-00037   {\cf19 if} (dir == NULL)\par
-00038     \{\par
-00039       fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);\par
-00040       free (tmp);\par
-00041       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00042     \}\par
-00043 \par
-00044   {\cf19 while} (token != NULL)\par
-00045     \{\par
-00046       strcat (dir, token);\par
-00047 \par
-00048       {\cf19 if} (!directory_exists (dir))\par
-00049         \{\par
-00050           {\cf20 // TODO: test on Windows}\par
-00051           {\cf18 int} status;\par
-00052 {\cf21 #ifdef _WIN32}\par
-00053           status = _mkdir (dir);\par
-00054 {\cf21 #else}\par
-00055           status = mkdir (dir, 0700);\par
-00056 {\cf21 #endif}\par
-00057           {\cf19 if} (status != 0)\par
-00058             \{\par
-00059               printf ({\cf22 "ERROR: failed to create directory, %s\\n"}, path);\par
-00060               free (dir);\par
-00061               free (tmp);\par
-00062               {\cf19 return} HH_CREATE_OUTPUT_DIR_ERROR;\par
-00063             \}\par
-00064         \}\par
-00065 \par
-00066       strcat (dir, &OP_PATH_SEPARATOR);\par
-00067       token = strtok (NULL, &OP_PATH_SEPARATOR);\par
-00068     \}\par
-00069 \par
-00070   free (dir);\par
-00071   free (tmp);\par
-00072   {\cf19 return} 0;\par
-00073 \}\par
+00036   {\cf19 if} (prepend_path_string (path, OP_OUTPUT_DIR) != 0)\par
+00037     {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00038 \par
+00039   {\cf18 char} *tmp = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
+00040   {\cf19 if} (tmp == NULL)\par
+00041     \{\par
+00042       fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);\par
+00043       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00044     \}\par
+00045 \par
+00046   strcpy (tmp, path);\par
+00047   {\cf18 char} *token = strtok (tmp, &OP_PATH_SEPARATOR);\par
+00048 \par
+00049   {\cf18 char} *dir = calloc (strlen (path) + 2, {\cf17 sizeof} ({\cf18 char}));\par
+00050   {\cf19 if} (dir == NULL)\par
+00051     \{\par
+00052       fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);\par
+00053       free (tmp);\par
+00054       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00055     \}\par
+00056 \par
+00057   {\cf19 while} (token != NULL)\par
+00058     \{\par
+00059       strcat (dir, token);\par
+00060 \par
+00061       {\cf19 if} (!directory_exists (dir))\par
+00062         \{\par
+00063           {\cf20 // TODO: test on Windows}\par
+00064           {\cf18 int} status;\par
+00065 {\cf21 #ifdef _WIN32}\par
+00066           status = _mkdir (dir);\par
+00067 {\cf21 #else}\par
+00068           status = mkdir (dir, 0700);\par
+00069 {\cf21 #endif}\par
+00070           {\cf19 if} (status != 0)\par
+00071             \{\par
+00072               fprintf (stderr,\par
+00073                        {\cf22 "ERROR: failed to create the following output "}\par
+00074                        {\cf22 "directory, %s\\n."},\par
+00075                        path);\par
+00076               free (dir);\par
+00077               free (tmp);\par
+00078               {\cf19 return} HH_CREATE_OUTPUT_DIR_ERROR;\par
+00079             \}\par
+00080         \}\par
+00081 \par
+00082       strcat (dir, &OP_PATH_SEPARATOR);\par
+00083       token = strtok (NULL, &OP_PATH_SEPARATOR);\par
+00084     \}\par
+00085 \par
+00086   free (dir);\par
+00087   free (tmp);\par
+00088   {\cf19 return} 0;\par
+00089 \}\par
 }
 \par \pard\plain 
 
@@ -8253,6 +8282,11 @@ Functions\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 int8_t {\b create_output_directory} (char *path)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b output.h} - container for functions related to the output directory. }{
+}\par
+}\par}
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -8270,7 +8304,15 @@ int8_t create_output_directory (char * path)}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 15} of file {\b output.c}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b output.h} - container for functions related to the output directory. }}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Creates an output directory at the given path if it doesn't already exist.\par
+{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
+Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
+zero on success, non-zero on failure. \par
+}}}{
+Definition at line {\b 28} of file {\b output.c}.}\par
 }
 \par \pard\plain 
 
@@ -8285,15 +8327,28 @@ output.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #ifndef _OUTPUT_H_}\par
-00002 {\cf21 #define _OUTPUT_H_}\par
-00003 \par
-00004 {\cf21 #include <stdbool.h>}\par
-00005 {\cf21 #include <stdint.h>}\par
-00006 \par
-00007 int8_t create_output_directory ({\cf18 char} *path);\par
-00008 \par
-00009 {\cf21 #endif}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00015 {\cf21 #ifndef _HH_OUTPUT_H_}\par
+00016 {\cf21 #define _HH_OUTPUT_H_}\par
+00017 \par
+00018 {\cf21 #include <stdbool.h>}\par
+00019 {\cf21 #include <stdint.h>}\par
+00020 \par
+00026 int8_t create_output_directory ({\cf18 char} *path);\par
+00027 \par
+00028 {\cf21 #endif}\par
 }
 \par \pard\plain 
 

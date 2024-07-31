@@ -6,6 +6,8 @@
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>int8_t <link linkend="_output_8h_1acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</link> (char *path)</para>
+
+<para><link linkend="_output_8h">output.h</link> - container for functions related to the output directory. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -16,7 +18,19 @@
 <indexterm><primary>create_output_directory</primary><secondary>output.h</secondary></indexterm>
 <indexterm><primary>output.h</primary><secondary>create_output_directory</secondary></indexterm>
 <para><computeroutput>int8_t create_output_directory (char * path)</computeroutput></para><para>
-Definition at line <link linkend="_output_8c_source_1l00015">15</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+
+<para><link linkend="_output_8h">output.h</link> - container for functions related to the output directory. </para>
+</para>
+
+<para>Creates an output directory at the given path if it doesn&apos;t already exist.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>zero on success, non-zero on failure. </para>
+</formalpara>
+</para>
+<para>
+Definition at line <link linkend="_output_8c_source_1l00028">28</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>
 </section>
