@@ -15,6 +15,10 @@ Here are the data structures with brief descriptions:<link linkend="_structdec__
 <para>An entry of the associated <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput> </para>
 <link linkend="_structindex__file">index_file</link>
 <para>Contains all the indicies within an <computeroutput>INDEX.00#</computeroutput> file </para>
-<link linkend="_structpath__table">path_table</link><link linkend="_structpath__table__entry">path_table_entry</link><link linkend="_structvolume__descriptor">volume_descriptor</link><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>
+<link linkend="_structpath__table">path_table</link>
+<para>A collection of path_table_entries </para>
+<link linkend="_structpath__table__entry">path_table_entry</link>
+<para>Path_table.h - the <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput> and <computeroutput><link linkend="_structpath__table__entry">path_table_entry</link></computeroutput> data types and their related functions </para>
+<link linkend="_structvolume__descriptor">volume_descriptor</link><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link>
 <para>The data section of a primary volume descriptor </para>
 </section>

@@ -3,6 +3,11 @@
 <title>path_table_entry Struct Reference</title>
 <indexterm><primary>path_table_entry</primary></indexterm>
 <para>
+
+<para><link linkend="_path__table_8h">path_table.h</link> - the <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput> and <computeroutput><link linkend="_structpath__table__entry">path_table_entry</link></computeroutput> data types and their related functions. </para>
+ 
+</para>
+<para>
 <computeroutput>#include &lt;path_table.h&gt;</computeroutput>
 </para>
 <simplesect>
@@ -24,8 +29,20 @@
 </simplesect>
 <section>
 <title>Detailed Description</title>
+
+<para><link linkend="_path__table_8h">path_table.h</link> - the <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput> and <computeroutput><link linkend="_structpath__table__entry">path_table_entry</link></computeroutput> data types and their related functions. </para>
+
+
+
+<para>All functions, except those which are void, return zero on success and non-zero on failure. An entry of some path table.</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link xlink:href="https://wiki.osdev.org/ISO_9660#The_Path_Table">https://wiki.osdev.org/ISO_9660#The_Path_Table</link> </para>
+</formalpara>
+</para>
 <para>
-Definition at line <link linkend="_path__table_8h_source_1l00007">7</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00032">32</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -34,28 +51,28 @@ Definition at line <link linkend="_path__table_8h_source_1l00007">7</link> of fi
 <indexterm><primary>directory_identifier</primary><secondary>path_table_entry</secondary></indexterm>
 <indexterm><primary>path_table_entry</primary><secondary>directory_identifier</secondary></indexterm>
 <para><computeroutput>char* path_table_entry::directory_identifier</computeroutput></para><para>
-Definition at line <link linkend="_path__table_8h_source_1l00013">13</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00038">38</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <anchor xml:id="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd"/><section>
     <title>directory_identifier_length</title>
 <indexterm><primary>directory_identifier_length</primary><secondary>path_table_entry</secondary></indexterm>
 <indexterm><primary>path_table_entry</primary><secondary>directory_identifier_length</secondary></indexterm>
 <para><computeroutput>uint8_t path_table_entry::directory_identifier_length</computeroutput></para><para>
-Definition at line <link linkend="_path__table_8h_source_1l00009">9</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00034">34</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <anchor xml:id="_structpath__table__entry_1a12e7dadd206e8c3c3b1c162c9691f523"/><section>
     <title>extended_attribute_record_length</title>
 <indexterm><primary>extended_attribute_record_length</primary><secondary>path_table_entry</secondary></indexterm>
 <indexterm><primary>path_table_entry</primary><secondary>extended_attribute_record_length</secondary></indexterm>
 <para><computeroutput>uint8_t path_table_entry::extended_attribute_record_length</computeroutput></para><para>
-Definition at line <link linkend="_path__table_8h_source_1l00010">10</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00035">35</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <anchor xml:id="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca"/><section>
     <title>location_of_extent</title>
 <indexterm><primary>location_of_extent</primary><secondary>path_table_entry</secondary></indexterm>
 <indexterm><primary>path_table_entry</primary><secondary>location_of_extent</secondary></indexterm>
 <para><computeroutput>uint32_t path_table_entry::location_of_extent</computeroutput></para><para>
-Definition at line <link linkend="_path__table_8h_source_1l00011">11</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00036">36</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <anchor xml:id="_structpath__table__entry_1a8867a81ce59add3e34b7a868af6e795d"/><section>
     <title>parent_directory_number</title>
@@ -66,7 +83,7 @@ Definition at line <link linkend="_path__table_8h_source_1l00011">11</link> of f
 <para>indexed from 1 </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8h_source_1l00012">12</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00037">37</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

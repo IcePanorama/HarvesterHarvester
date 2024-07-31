@@ -3,24 +3,27 @@
 #include "errors.h"
 
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 static const size_t PT_STARTING_NUM_ENTRIES = 10;
-static const size_t PT_GROWTH_RATE = 2; // doubles in size every time it grows.
+static const size_t PT_GROWTH_RATE = 2;
 
-/* Static Function Prototypes */
-static int8_t resize_path_table_entries (path_table *pt);
-static void print_path_table_entry (path_table_entry *e);
 /**
- *  Adds a given `path_table_entry` to the given `path_table`'s list of
- *  `entries`, resizing it as needed.
- *
- *  @param  pt    path table to which the entry should be added.
- *  @param  entry the entry to add to the given path table.
+ *  Resizes a given `path_tables` list of entries by a factor of
+ *  `PT_GROWTH_RATE`.
+ */
+static int8_t resize_path_table_entries (path_table *pt);
+
+/** Prints a path_table_entry to the stdout in a human-readable form. */
+static void print_path_table_entry (path_table_entry *e);
+
+/**
+ *  Adds a `path_table_entry` to the given `path_table`'s list of `entries`,
+ *  resizing it as needed.
  */
 static int8_t add_entry_to_path_table (path_table *pt,
                                        path_table_entry *entry);
-/******************************/
 
 int8_t
 create_path_table (path_table *pt)
@@ -81,11 +84,10 @@ resize_path_table_entries (path_table *pt)
       pt->entries, sizeof (path_table_entry) * new_size);
   if (new_entries == NULL)
     {
-      perror ("ERROR: failed to reallocate memory for the path table "
-              "entries.");
-
+      fprintf (stderr, "ERROR: Ralloc failed for `entries` of size %zu.\n",
+               new_size);
       destroy_path_table (pt);
-      return -1;
+      return HH_MEM_ALLOC_ERROR;
     }
 
   pt->entries = new_entries;

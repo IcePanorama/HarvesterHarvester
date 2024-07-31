@@ -1,10 +1,3 @@
-/**
- *  data_header.h - container for various data access functions.
- *
- *  All of these functions return zero on success, non-zero on failure. The
- *  caller is responsible for freeing any memory which may or may not have been
- *  allocated during the use of these functions.
- */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.
 //  HarvesterHarvester is free software: you can redistribute it and/or modify
@@ -18,6 +11,13 @@
 //
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
+/**
+ *  data_header.h - container for various data access functions.
+ *
+ *  All of these functions return zero on success, non-zero on failure. The
+ *  caller is responsible for freeing any memory which may or may not have been
+ *  allocated during the use of these functions.
+ */
 #ifndef _DATA_READER_H_
 #define _DATA_READER_H_
 

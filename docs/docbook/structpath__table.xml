@@ -3,6 +3,11 @@
 <title>path_table Struct Reference</title>
 <indexterm><primary>path_table</primary></indexterm>
 <para>
+
+<para>A collection of path_table_entries. </para>
+ 
+</para>
+<para>
 <computeroutput>#include &lt;path_table.h&gt;</computeroutput>
 </para>
 <simplesect>
@@ -23,13 +28,9 @@
 <section>
 <title>Detailed Description</title>
 
-<para><formalpara><title>See also</title>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#The_Path_Table">https://wiki.osdev.org/ISO_9660#The_Path_Table</link> </para>
-</formalpara>
-</para>
+<para>A collection of path_table_entries. </para>
 <para>
-Definition at line <link linkend="_path__table_8h_source_1l00017">17</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00042">42</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <section>
 <title>Field Documentation</title>
@@ -42,14 +43,14 @@ Definition at line <link linkend="_path__table_8h_source_1l00017">17</link> of f
 <para>pointer to most recent item in <computeroutput>entries</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8h_source_1l00021">21</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00046">46</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <anchor xml:id="_structpath__table_1a33d282004152acf2e3359dd2c40da884"/><section>
     <title>entries</title>
 <indexterm><primary>entries</primary><secondary>path_table</secondary></indexterm>
 <indexterm><primary>path_table</primary><secondary>entries</secondary></indexterm>
 <para><computeroutput><link linkend="_structpath__table__entry">path_table_entry</link>* path_table::entries</computeroutput></para><para>
-Definition at line <link linkend="_path__table_8h_source_1l00019">19</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00044">44</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <anchor xml:id="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b"/><section>
     <title>size</title>
@@ -60,7 +61,7 @@ Definition at line <link linkend="_path__table_8h_source_1l00019">19</link> of f
 <para>max size of <computeroutput>entries</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8h_source_1l00020">20</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
+Definition at line <link linkend="_path__table_8h_source_1l00045">45</link> of file <link linkend="_path__table_8h_source">path_table.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>
