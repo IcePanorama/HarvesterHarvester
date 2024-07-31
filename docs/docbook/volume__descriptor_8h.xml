@@ -10,6 +10,8 @@
 <para>The data section of a primary volume descriptor. </para>
 </listitem>
             <listitem><para>struct <link linkend="_structvolume__descriptor">volume_descriptor</link></para>
+
+<para>A volume descriptor. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -17,6 +19,8 @@
     <title>Macros    </title>
         <itemizedlist>
             <listitem><para>#define <link linkend="_volume__descriptor_8h_1a8d48399aa2b2f77c0f395a39c2a82ef8">SYSTEM_IDENTIFIER_LEN</link>&#160;&#160;&#160;33</para>
+
+<para><link linkend="_volume__descriptor_8h">volume_descriptor.h</link> - the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> and <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> data types and their related functions. </para>
 </listitem>
             <listitem><para>#define <link linkend="_volume__descriptor_8h_1a2ee43c4111a809b1668f9a5e6441f923">VOLUME_IDENTIFIER_LEN</link>&#160;&#160;&#160;33</para>
 </listitem>
@@ -74,84 +78,88 @@
 <indexterm><primary>ABSTRACT_FILE_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>ABSTRACT_FILE_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define ABSTRACT_FILE_IDENTIFIER_LEN&#160;&#160;&#160;38</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00017">17</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00034">34</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1ac6cb4e8045e278793e9662627423aa09"/><section>
     <title>APPLICATION_IDENTIFIER_LEN</title>
 <indexterm><primary>APPLICATION_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>APPLICATION_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define APPLICATION_IDENTIFIER_LEN&#160;&#160;&#160;129</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00015">15</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00032">32</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1afcc3b336c283fd14202e7ed2003035df"/><section>
     <title>BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN</title>
 <indexterm><primary>BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN&#160;&#160;&#160;38</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00018">18</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00035">35</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1a6e1898726ea2bf0bc932ad3c3d8fd8d6"/><section>
     <title>COPYRIGHT_FILE_IDENTIFIER_LEN</title>
 <indexterm><primary>COPYRIGHT_FILE_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>COPYRIGHT_FILE_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define COPYRIGHT_FILE_IDENTIFIER_LEN&#160;&#160;&#160;38</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00016">16</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00033">33</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1ae86e9446608da83762f62147c372c700"/><section>
     <title>DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN</title>
 <indexterm><primary>DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN&#160;&#160;&#160;9</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00019">19</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00036">36</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1ad1b2c8a9e3551bb5aa364f0633996efa"/><section>
     <title>DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN</title>
 <indexterm><primary>DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN</secondary></indexterm>
 <para><computeroutput>#define DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN&#160;&#160;&#160;11</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00020">20</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00037">37</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1a4611162362c6479337c5092cba68e630"/><section>
     <title>DATA_PREPARER_IDENTIFIER_LEN</title>
 <indexterm><primary>DATA_PREPARER_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>DATA_PREPARER_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define DATA_PREPARER_IDENTIFIER_LEN&#160;&#160;&#160;129</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00014">14</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00031">31</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1af84a95162e814cc57a4bb0eb3a94aed2"/><section>
     <title>PUBLISHER_IDENTIFIER_LEN</title>
 <indexterm><primary>PUBLISHER_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>PUBLISHER_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define PUBLISHER_IDENTIFIER_LEN&#160;&#160;&#160;129</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00013">13</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00030">30</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1a7a3cbe9af9a2561147611b5b58383b9a"/><section>
     <title>ROOT_DIRECTORY_ENTRY_LEN</title>
 <indexterm><primary>ROOT_DIRECTORY_ENTRY_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>ROOT_DIRECTORY_ENTRY_LEN</secondary></indexterm>
 <para><computeroutput>#define ROOT_DIRECTORY_ENTRY_LEN&#160;&#160;&#160;34</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00011">11</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00028">28</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1a8d48399aa2b2f77c0f395a39c2a82ef8"/><section>
     <title>SYSTEM_IDENTIFIER_LEN</title>
 <indexterm><primary>SYSTEM_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>SYSTEM_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define SYSTEM_IDENTIFIER_LEN&#160;&#160;&#160;33</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00009">9</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+
+<para><link linkend="_volume__descriptor_8h">volume_descriptor.h</link> - the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> and <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> data types and their related functions. </para>
+</para>
+<para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00026">26</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1a2ee43c4111a809b1668f9a5e6441f923"/><section>
     <title>VOLUME_IDENTIFIER_LEN</title>
 <indexterm><primary>VOLUME_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>VOLUME_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define VOLUME_IDENTIFIER_LEN&#160;&#160;&#160;33</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00010">10</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00027">27</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1a21844d31481be3e282c586beb1af42b5"/><section>
     <title>VOLUME_SET_IDENTIFIER_LEN</title>
 <indexterm><primary>VOLUME_SET_IDENTIFIER_LEN</primary><secondary>volume_descriptor.h</secondary></indexterm>
 <indexterm><primary>volume_descriptor.h</primary><secondary>VOLUME_SET_IDENTIFIER_LEN</secondary></indexterm>
 <para><computeroutput>#define VOLUME_SET_IDENTIFIER_LEN&#160;&#160;&#160;129</computeroutput></para><para>
-Definition at line <link linkend="_volume__descriptor_8h_source_1l00012">12</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8h_source_1l00029">29</link> of file <link linkend="_volume__descriptor_8h_source">volume_descriptor.h</link>.</para>
 </section>
 </section>
 <section>
@@ -164,46 +172,8 @@ Definition at line <link linkend="_volume__descriptor_8h_source_1l00012">12</lin
 
 <para>Initializes a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using the provided <computeroutput>type</computeroutput> and <computeroutput>version</computeroutput> data. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>vd</entry><entry>
-<para>the volume descriptor to be initialized. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>type</entry><entry>
-<para>uin8_t denoting the <computeroutput>type_code</computeroutput> of the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput>. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>version</entry><entry>
-<para>uin8_t denoting the <computeroutput>version</computeroutput> of the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput>. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structvolume__descriptor">volume_descriptor</link> </para>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#Volume_Descriptors">https://wiki.osdev.org/ISO_9660#Volume_Descriptors</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00009">9</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00022">22</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d"/><section>
     <title>print_volume_descriptor_data()</title>
@@ -213,34 +183,8 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00009">9</link
 
 <para>Prints the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to the stdout in a human-readable form. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>vdd</entry><entry>
-<para>the <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to be printed. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00027">27</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00040">40</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1ac83303eab8ff516e07c13652ff4adece"/><section>
     <title>print_volume_descriptor_header()</title>
@@ -251,37 +195,9 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00027">27</lin
 <para>Prints the header section of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> in a human-readable form to stdout. </para>
 </para>
 
-<para>The header includes every field except for <computeroutput>data</computeroutput>, which can be printed using the <computeroutput><link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data()</link></computeroutput> function.</para>
-
+<para>The header includes every field except for <computeroutput>data</computeroutput>, which can be printed using the <computeroutput><link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data()</link></computeroutput> function. </para>
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>vd</entry><entry>
-<para>the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> to be printed. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structvolume__descriptor">volume_descriptor</link> </para>
-
-<para><link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data()</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00019">19</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00032">32</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1a00d2e72d3698261c77ed5e118c4cfb83"/><section>
     <title>process_volume_descriptor_data()</title>
@@ -291,39 +207,8 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00019">19</lin
 
 <para>Processes the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to data to be processed. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>vdd</entry><entry>
-<para><computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to which the data should be added. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor">https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00086">86</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00099">99</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8h_1ab0bb4ee4fd340fd1a57cf8e1112c66b5"/><section>
     <title>process_volume_descriptor_header()</title>
@@ -333,39 +218,8 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00086">86</lin
 
 <para>Processes the header of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to data to be processed. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>vd</entry><entry>
-<para><computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> to which the data should be added. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#Volume_Descriptors">https://wiki.osdev.org/ISO_9660#Volume_Descriptors</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00068">68</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00081">81</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 </section>
 </section>

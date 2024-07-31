@@ -33,50 +33,12 @@
     <title>create_volume_descriptor()</title>
 <indexterm><primary>create_volume_descriptor</primary><secondary>volume_descriptor.c</secondary></indexterm>
 <indexterm><primary>volume_descriptor.c</primary><secondary>create_volume_descriptor</secondary></indexterm>
-<para><computeroutput>void create_volume_descriptor (<link linkend="_structvolume__descriptor">volume_descriptor</link> * vd, uint8_t type, uint8_t version)</computeroutput></para><para>
+<para><computeroutput>void create_volume_descriptor (<link linkend="_structvolume__descriptor">volume_descriptor</link> * vd, uint8_t type_code, uint8_t version)</computeroutput></para><para>
 
 <para>Initializes a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using the provided <computeroutput>type</computeroutput> and <computeroutput>version</computeroutput> data. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>vd</entry><entry>
-<para>the volume descriptor to be initialized. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>type</entry><entry>
-<para>uin8_t denoting the <computeroutput>type_code</computeroutput> of the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput>. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>version</entry><entry>
-<para>uin8_t denoting the <computeroutput>version</computeroutput> of the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput>. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structvolume__descriptor">volume_descriptor</link> </para>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#Volume_Descriptors">https://wiki.osdev.org/ISO_9660#Volume_Descriptors</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00009">9</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00022">22</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1ae25c2f5ac41962af3d8db01bdacbb65d"/><section>
     <title>print_volume_descriptor_data()</title>
@@ -86,34 +48,8 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00009">9</link
 
 <para>Prints the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to the stdout in a human-readable form. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>vdd</entry><entry>
-<para>the <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to be printed. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00027">27</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00040">40</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1ac83303eab8ff516e07c13652ff4adece"/><section>
     <title>print_volume_descriptor_header()</title>
@@ -124,37 +60,9 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00027">27</lin
 <para>Prints the header section of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> in a human-readable form to stdout. </para>
 </para>
 
-<para>The header includes every field except for <computeroutput>data</computeroutput>, which can be printed using the <computeroutput><link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data()</link></computeroutput> function.</para>
-
+<para>The header includes every field except for <computeroutput>data</computeroutput>, which can be printed using the <computeroutput><link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data()</link></computeroutput> function. </para>
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>vd</entry><entry>
-<para>the <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> to be printed. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link linkend="_structvolume__descriptor">volume_descriptor</link> </para>
-
-<para><link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data()</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00019">19</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00032">32</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1a00d2e72d3698261c77ed5e118c4cfb83"/><section>
     <title>process_volume_descriptor_data()</title>
@@ -164,39 +72,8 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00019">19</lin
 
 <para>Processes the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to data to be processed. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>vdd</entry><entry>
-<para><computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to which the data should be added. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor">https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00086">86</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00099">99</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1ab0bb4ee4fd340fd1a57cf8e1112c66b5"/><section>
     <title>process_volume_descriptor_header()</title>
@@ -206,39 +83,8 @@ Definition at line <link linkend="_volume__descriptor_8c_source_1l00086">86</lin
 
 <para>Processes the header of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
-
 <para>
-                <formalpara>
-                    <title>
-Parameters</title>
-                    <para>
-                    <table frame="all">
-                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
-                        <colspec colwidth="1*"/>
-                        <colspec colwidth="4*"/>
-                        <tbody>
-                            <row>
-<entry>fptr</entry><entry>
-<para>pointer to data to be processed. </para>
-</entry>
-                            </row>
-                            <row>
-<entry>vd</entry><entry>
-<para><computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> to which the data should be added. </para>
-</entry>
-                            </row>
-                        </tbody>
-                        </tgroup>
-                    </table>
-                    </para>
-                </formalpara>
-                <formalpara><title>See also</title>
-
-<para><link xlink:href="https://wiki.osdev.org/ISO_9660#Volume_Descriptors">https://wiki.osdev.org/ISO_9660#Volume_Descriptors</link> </para>
-</formalpara>
-</para>
-<para>
-Definition at line <link linkend="_volume__descriptor_8c_source_1l00068">68</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
+Definition at line <link linkend="_volume__descriptor_8c_source_1l00081">81</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 </section>
 </section>

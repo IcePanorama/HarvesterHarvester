@@ -1,5 +1,22 @@
-#ifndef _VOLUME_DESCRIPTOR_H_
-#define _VOLUME_DESCRIPTOR_H_
+//  Copyright (C) 2024  IcePanorama
+//  This file is a part of HarvesterHarvester.
+//  HarvesterHarvester is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by the
+//  Free Software Foundation, either version 3 of the License, or (at your
+//  option) any later version.
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
+//
+//  You should have received a copy of the GNU General Public License along
+//  with this program.  If not, see <https://www.gnu.org/licenses/>.
+/**
+ *  volume_descriptor.h - the `volume_descriptor` and `volume_descriptor_data`
+ *  data types and their related functions.
+ */
+#ifndef _HH_VOLUME_DESCRIPTOR_H_
+#define _HH_VOLUME_DESCRIPTOR_H_
 
 #include "datetime.h"
 
@@ -23,7 +40,6 @@
  *  The data section of a primary volume descriptor.
  *
  *  @see  https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
- *  @see  volume_descriptor_header
  */
 typedef struct volume_descriptor_data
 {
@@ -57,7 +73,11 @@ typedef struct volume_descriptor_data
       [DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN];
 } volume_descriptor_data;
 
-/** @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors */
+/**
+ *  A volume descriptor.
+ *
+ *  @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors
+ */
 typedef struct volume_descriptor
 {
   uint8_t type_code;
@@ -69,12 +89,6 @@ typedef struct volume_descriptor
 /**
  *  Initializes a given `volume_descriptor` using the provided `type` and
  *  `version` data.
- *
- *  @param  vd      the volume descriptor to be initialized.
- *  @param  type    uin8_t denoting the `type_code` of the `volume_descriptor`.
- *  @param  version uin8_t denoting the `version` of the `volume_descriptor`.
- *  @see  volume_descriptor
- *  @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors
  */
 void create_volume_descriptor (volume_descriptor *vd, uint8_t type,
                                uint8_t version);
@@ -83,39 +97,24 @@ void create_volume_descriptor (volume_descriptor *vd, uint8_t type,
  *  human-readable form to stdout. The header includes every field except for
  *  `data`, which can be printed using the `print_volume_descriptor_data()`
  *  function.
- *
- *  @param  vd  the `volume_descriptor` to be printed.
- *  @see  volume_descriptor
- *  @see  print_volume_descriptor_data()
  */
 void print_volume_descriptor_header (volume_descriptor *vd);
 
 /**
  *  Prints the given `volume_descriptor_data` to the stdout in a human-readable
  *  form.
- *
- *  @param  vdd the `volume_descriptor_data` to be printed.
- *  @see  volume_descriptor_data
  */
 void print_volume_descriptor_data (volume_descriptor_data *vdd);
 
 /**
  *  Processes the header of a given `volume_descriptor` using data pointed to
  *  by `fptr`.
- *
- *  @param  fptr  pointer to data to be processed.
- *  @param  vd    `volume_descriptor` to which the data should be added.
- *  @see  https://wiki.osdev.org/ISO_9660#Volume_Descriptors
  */
 int8_t process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);
 
 /**
  *  Processes the given `volume_descriptor_data` using data pointed to by
  *  `fptr`.
- *
- *  @param  fptr  pointer to data to be processed.
- *  @param  vdd    `volume_descriptor_data` to which the data should be added.
- *  @see  https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor
  */
 int8_t process_volume_descriptor_data (FILE *fptr,
                                        volume_descriptor_data *vdd);

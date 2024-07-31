@@ -25,29 +25,15 @@ int8\+\_\+t \mbox{\hyperlink{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4c
 \index{create\_volume\_descriptor@{create\_volume\_descriptor}!volume\_descriptor.c@{volume\_descriptor.c}}
 \doxysubsubsection{\texorpdfstring{create\_volume\_descriptor()}{create\_volume\_descriptor()}}
 {\footnotesize\ttfamily \label{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952} 
-void create\+\_\+volume\+\_\+descriptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{, }\item[{uint8\+\_\+t}]{type}{, }\item[{uint8\+\_\+t}]{version}{}\end{DoxyParamCaption})}
+void create\+\_\+volume\+\_\+descriptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{, }\item[{uint8\+\_\+t}]{type\+\_\+code}{, }\item[{uint8\+\_\+t}]{version}{}\end{DoxyParamCaption})}
 
 
 
 Initializes a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} using the provided {\ttfamily type} and {\ttfamily version} data. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em vd} & the volume descriptor to be initialized. \\
-\hline
-{\em type} & uin8\+\_\+t denoting the {\ttfamily type\+\_\+code} of the {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}}. \\
-\hline
-{\em version} & uin8\+\_\+t denoting the {\ttfamily version} of the {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}}. \\
-\hline
-\end{DoxyParams}
-\begin{DoxySeeAlso}{See also}
-\doxylink{structvolume__descriptor}{volume\+\_\+descriptor} 
 
-\href{https://wiki.osdev.org/ISO_9660\#Volume_Descriptors}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660\#\+Volume\+\_\+\+Descriptors}} 
-\end{DoxySeeAlso}
-
-
-Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00009}{9}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00022}{22}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
 
 \Hypertarget{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d}\index{volume\_descriptor.c@{volume\_descriptor.c}!print\_volume\_descriptor\_data@{print\_volume\_descriptor\_data}}
 \index{print\_volume\_descriptor\_data@{print\_volume\_descriptor\_data}!volume\_descriptor.c@{volume\_descriptor.c}}
@@ -60,16 +46,8 @@ void print\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCaption}\item[
 Prints the given {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} to the stdout in a human-\/readable form. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em vdd} & the {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} to be printed. \\
-\hline
-\end{DoxyParams}
-\begin{DoxySeeAlso}{See also}
-\doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data} 
-\end{DoxySeeAlso}
 
-
-Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00027}{27}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00040}{40}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
 
 \Hypertarget{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece}\index{volume\_descriptor.c@{volume\_descriptor.c}!print\_volume\_descriptor\_header@{print\_volume\_descriptor\_header}}
 \index{print\_volume\_descriptor\_header@{print\_volume\_descriptor\_header}!volume\_descriptor.c@{volume\_descriptor.c}}
@@ -81,21 +59,9 @@ void print\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCaption}\ite
 
 Prints the header section of a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} in a human-\/readable form to stdout. 
 
-The header includes every field except for {\ttfamily data}, which can be printed using the {\ttfamily \doxylink{volume__descriptor_8h_ae25c2f5ac41962af3d8db01bdacbb65d}{print\+\_\+volume\+\_\+descriptor\+\_\+data()}} function.
+The header includes every field except for {\ttfamily data}, which can be printed using the {\ttfamily \doxylink{volume__descriptor_8h_ae25c2f5ac41962af3d8db01bdacbb65d}{print\+\_\+volume\+\_\+descriptor\+\_\+data()}} function. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em vd} & the {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} to be printed. \\
-\hline
-\end{DoxyParams}
-\begin{DoxySeeAlso}{See also}
-\doxylink{structvolume__descriptor}{volume\+\_\+descriptor} 
-
-\doxylink{volume__descriptor_8h_ae25c2f5ac41962af3d8db01bdacbb65d}{print\+\_\+volume\+\_\+descriptor\+\_\+data()} 
-\end{DoxySeeAlso}
-
-
-Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00019}{19}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00032}{32}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
 
 \Hypertarget{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4cfb83}\index{volume\_descriptor.c@{volume\_descriptor.c}!process\_volume\_descriptor\_data@{process\_volume\_descriptor\_data}}
 \index{process\_volume\_descriptor\_data@{process\_volume\_descriptor\_data}!volume\_descriptor.c@{volume\_descriptor.c}}
@@ -108,18 +74,8 @@ int8\+\_\+t process\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCapti
 Processes the given {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} using data pointed to by {\ttfamily fptr}. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em fptr} & pointer to data to be processed. \\
-\hline
-{\em vdd} & {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} to which the data should be added. \\
-\hline
-\end{DoxyParams}
-\begin{DoxySeeAlso}{See also}
-\href{https://wiki.osdev.org/ISO_9660\#The_Primary_Volume_Descriptor}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660\#\+The\+\_\+\+Primary\+\_\+\+Volume\+\_\+\+Descriptor}} 
-\end{DoxySeeAlso}
 
-
-Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00086}{86}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00099}{99}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
 
 \Hypertarget{volume__descriptor_8c_ab0bb4ee4fd340fd1a57cf8e1112c66b5}\index{volume\_descriptor.c@{volume\_descriptor.c}!process\_volume\_descriptor\_header@{process\_volume\_descriptor\_header}}
 \index{process\_volume\_descriptor\_header@{process\_volume\_descriptor\_header}!volume\_descriptor.c@{volume\_descriptor.c}}
@@ -132,16 +88,6 @@ int8\+\_\+t process\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCap
 Processes the header of a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} using data pointed to by {\ttfamily fptr}. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em fptr} & pointer to data to be processed. \\
-\hline
-{\em vd} & {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} to which the data should be added. \\
-\hline
-\end{DoxyParams}
-\begin{DoxySeeAlso}{See also}
-\href{https://wiki.osdev.org/ISO_9660\#Volume_Descriptors}{\texttt{ https\+://wiki.\+osdev.\+org/\+ISO\+\_\+9660\#\+Volume\+\_\+\+Descriptors}} 
-\end{DoxySeeAlso}
 
-
-Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00068}{68}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
+Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00081}{81}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
 

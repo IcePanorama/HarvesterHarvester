@@ -1,7 +1,3 @@
-/**
- *  datetime.h - contains the `dec_datetime` and `dir_datetime` data types and
- *  their associated functions.
- */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.
 //  HarvesterHarvester is free software: you can redistribute it and/or modify
@@ -15,6 +11,10 @@
 //
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
+/**
+ *  datetime.h - contains the `dec_datetime` and `dir_datetime` data types and
+ *  their associated functions.
+ */
 #ifndef _HH_DATETIME_H_
 #define _HH_DATETIME_H_
 

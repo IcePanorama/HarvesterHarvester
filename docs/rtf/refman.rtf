@@ -312,7 +312,8 @@ A collection of path_table_entries })} \tab {\field\fldedit {\*\fldinst PAGEREF 
 {\b {\b path_table_entry} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Path_table.h - the {\f2 {\b path_table}}  and {\f2 {\b path_table_entry}}  data types and their related functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b {\b volume_descriptor} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALI \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b {\b volume_descriptor} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A volume descriptor })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALI \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b volume_descriptor_data} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 The data section of a primary volume descriptor })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALN \\*MERGEFORMAT}{\fldrslt pagenum}}
@@ -1699,6 +1700,9 @@ volume_descriptor Struct Reference\par \pard\plain
 {\bkmkend AAAAAAAALI}
 \par
 {
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A volume descriptor. }}\par
+{
 {\f2 #include <volume_descriptor.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Data Fields\par
@@ -1725,12 +1729,16 @@ Detailed Description\par
 \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A volume descriptor. \par
+}
+
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
 See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\f2 https://wiki.osdev.org/ISO_9660#Volume_Descriptors} \par
 }}}{
-Definition at line {\b 61} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 81} of file {\b volume_descriptor.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1748,7 +1756,7 @@ Field Documentation\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 66} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 86} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v identifier\:volume_descriptor}
 {\xe \v volume_descriptor\:identifier}
@@ -1765,7 +1773,7 @@ char volume_descriptor::identifier[6]}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Always {\f2 CD001} . }}\par
 {
-Definition at line {\b 64} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 84} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v type_code\:volume_descriptor}
 {\xe \v volume_descriptor\:type_code}
@@ -1779,7 +1787,7 @@ uint8_t volume_descriptor::type_code}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 63} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 83} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v version\:volume_descriptor}
 {\xe \v volume_descriptor\:version}
@@ -1793,7 +1801,7 @@ uint8_t volume_descriptor::version}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 65} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 85} of file {\b volume_descriptor.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -1892,9 +1900,8 @@ The data section of a primary volume descriptor. \par
 {{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
 See also\par}\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\f2 https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor} \par
-volume_descriptor_header \par
 }}}{
-Definition at line {\b 28} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 44} of file {\b volume_descriptor.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -1912,7 +1919,7 @@ char volume_descriptor_data::abstract_file_identifier[{\b ABSTRACT_FILE_IDENTIFI
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 47} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 63} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v application_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:application_identifier}
@@ -1926,7 +1933,7 @@ char volume_descriptor_data::application_identifier[{\b APPLICATION_IDENTIFIER_L
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 45} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 61} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v bibliographic_file_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:bibliographic_file_identifier}
@@ -1940,7 +1947,7 @@ char volume_descriptor_data::bibliographic_file_identifier[{\b BIBLIOGRAPHIC_FIL
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 48} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 64} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v copyright_file_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:copyright_file_identifier}
@@ -1954,7 +1961,7 @@ char volume_descriptor_data::copyright_file_identifier[{\b COPYRIGHT_FILE_IDENTI
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 46} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 62} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v DAT_file_creation_software_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:DAT_file_creation_software_identifier}
@@ -1968,7 +1975,7 @@ char volume_descriptor_data::DAT_file_creation_software_identifier[{\b DAT_FILE_
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 54} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 70} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v DAT_file_creation_software_version_number\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:DAT_file_creation_software_version_number}
@@ -1982,7 +1989,7 @@ char volume_descriptor_data::DAT_file_creation_software_version_number[{\b DAT_F
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 56} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 72} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v data_preparer_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:data_preparer_identifier}
@@ -1996,7 +2003,7 @@ char volume_descriptor_data::data_preparer_identifier[{\b DATA_PREPARER_IDENTIFI
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 44} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 60} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v file_structure_version\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:file_structure_version}
@@ -2013,7 +2020,7 @@ uint8_t volume_descriptor_data::file_structure_version}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Always {\f2 0x01}  }}\par
 {
-Definition at line {\b 53} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 69} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v logical_block_size\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:logical_block_size}
@@ -2027,7 +2034,7 @@ uint16_t volume_descriptor_data::logical_block_size}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 35} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 51} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v optional_type_l_path_table_location\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:optional_type_l_path_table_location}
@@ -2041,7 +2048,7 @@ uint32_t volume_descriptor_data::optional_type_l_path_table_location}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 38} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 54} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v optional_type_m_path_table_location\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:optional_type_m_path_table_location}
@@ -2055,7 +2062,7 @@ uint32_t volume_descriptor_data::optional_type_m_path_table_location}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 40} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 56} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v path_table_size\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:path_table_size}
@@ -2069,7 +2076,7 @@ uint32_t volume_descriptor_data::path_table_size}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 36} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 52} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v publisher_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:publisher_identifier}
@@ -2083,7 +2090,7 @@ char volume_descriptor_data::publisher_identifier[{\b PUBLISHER_IDENTIFIER_LEN}]
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 43} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 59} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v root_directory_entry\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:root_directory_entry}
@@ -2097,7 +2104,7 @@ uint8_t volume_descriptor_data::root_directory_entry[{\b ROOT_DIRECTORY_ENTRY_LE
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 41} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 57} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v system_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:system_identifier}
@@ -2111,7 +2118,7 @@ char volume_descriptor_data::system_identifier[{\b SYSTEM_IDENTIFIER_LEN}]}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 30} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 46} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v type_l_path_table_location\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:type_l_path_table_location}
@@ -2125,7 +2132,7 @@ uint32_t volume_descriptor_data::type_l_path_table_location}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 37} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 53} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v type_m_path_table_location\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:type_m_path_table_location}
@@ -2139,7 +2146,7 @@ uint32_t volume_descriptor_data::type_m_path_table_location}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 39} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 55} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_creation_date_and_time\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_creation_date_and_time}
@@ -2153,7 +2160,7 @@ Definition at line {\b 39} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 49} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 65} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_effective_date_and_time\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_effective_date_and_time}
@@ -2167,7 +2174,7 @@ Definition at line {\b 49} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 52} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 68} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_expiration_date_and_time\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_expiration_date_and_time}
@@ -2181,7 +2188,7 @@ Definition at line {\b 52} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 51} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 67} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_identifier}
@@ -2195,7 +2202,7 @@ char volume_descriptor_data::volume_identifier[{\b VOLUME_IDENTIFIER_LEN}]}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 31} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 47} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_modification_date_and_time\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_modification_date_and_time}
@@ -2209,7 +2216,7 @@ Definition at line {\b 31} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 50} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 66} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_sequence_number\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_sequence_number}
@@ -2223,7 +2230,7 @@ uint16_t volume_descriptor_data::volume_sequence_number}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 34} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 50} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_set_identifier\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_set_identifier}
@@ -2237,7 +2244,7 @@ char volume_descriptor_data::volume_set_identifier[{\b VOLUME_SET_IDENTIFIER_LEN
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 42} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 58} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_set_size\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_set_size}
@@ -2251,7 +2258,7 @@ uint16_t volume_descriptor_data::volume_set_size}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 33} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 49} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v volume_space_size\:volume_descriptor_data}
 {\xe \v volume_descriptor_data\:volume_space_size}
@@ -2265,7 +2272,7 @@ uint32_t volume_descriptor_data::volume_space_size}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 32} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 48} of file {\b volume_descriptor.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 The documentation for this struct was generated from the following file:{\par
@@ -3578,20 +3585,19 @@ datetime.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00005 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00006 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00007 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00008 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00009 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00010 {\cf20 //  option) any later version.}\par
-00011 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00012 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00013 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00014 {\cf20 //  more details.}\par
-00015 {\cf20 //}\par
-00016 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00017 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00018 {\cf21 #ifndef _HH_DATETIME_H_}\par
 00019 {\cf21 #define _HH_DATETIME_H_}\par
 00020 \par
@@ -9725,7 +9731,7 @@ Function Documentation\par
 {\xe \v volume_descriptor.c\:create_volume_descriptor}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-void create_volume_descriptor ({\b volume_descriptor} * vd, uint8_t type, uint8_t version)}}
+void create_volume_descriptor ({\b volume_descriptor} * vd, uint8_t type_code, uint8_t version)}}
 \par
 {\bkmkstart AAAAAAAAIE}
 {\bkmkend AAAAAAAAIE}
@@ -9735,35 +9741,8 @@ void create_volume_descriptor ({\b volume_descriptor} * vd, uint8_t type, uint8_
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Initializes a given {\f2 {\b volume_descriptor}}  using the provided {\f2 type}  and {\f2 version}  data. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vd} \cell }{the volume descriptor to be initialized. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i type} \cell }{uin8_t denoting the {\f2 type_code}  of the {\f2 {\b volume_descriptor}} . \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i version} \cell }{uin8_t denoting the {\f2 version}  of the {\f2 {\b volume_descriptor}} . \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b volume_descriptor} \par
-{\f2 https://wiki.osdev.org/ISO_9660#Volume_Descriptors} \par
-}}}{
-Definition at line {\b 9} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 22} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v print_volume_descriptor_data\:volume_descriptor.c}
 {\xe \v volume_descriptor.c\:print_volume_descriptor_data}
@@ -9779,22 +9758,8 @@ void print_volume_descriptor_data ({\b volume_descriptor_data} * vdd)}}
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints the given {\f2 {\b volume_descriptor_data}}  to the stdout in a human-readable form. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vdd} \cell }{the {\f2 {\b volume_descriptor_data}}  to be printed. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b volume_descriptor_data} \par
-}}}{
-Definition at line {\b 27} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 40} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v print_volume_descriptor_header\:volume_descriptor.c}
 {\xe \v volume_descriptor.c\:print_volume_descriptor_header}
@@ -9811,22 +9776,9 @@ void print_volume_descriptor_header ({\b volume_descriptor} * vd)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints the header section of a given {\f2 {\b volume_descriptor}}  in a human-readable form to stdout. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The header includes every field except for {\f2 data} , which can be printed using the {\f2 {\b print_volume_descriptor_data()}}  function.\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vd} \cell }{the {\f2 {\b volume_descriptor}}  to be printed. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b volume_descriptor} \par
-{\b print_volume_descriptor_data()} \par
-}}}{
-Definition at line {\b 19} of file {\b volume_descriptor.c}.}\par
+The header includes every field except for {\f2 data} , which can be printed using the {\f2 {\b print_volume_descriptor_data()}}  function. \par
+}{
+Definition at line {\b 32} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v process_volume_descriptor_data\:volume_descriptor.c}
 {\xe \v volume_descriptor.c\:process_volume_descriptor_data}
@@ -9842,28 +9794,8 @@ int8_t process_volume_descriptor_data (FILE * fptr, {\b volume_descriptor_data} 
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes the given {\f2 {\b volume_descriptor_data}}  using data pointed to by {\f2 fptr} . }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i fptr} \cell }{pointer to data to be processed. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vdd} \cell }{{\f2 {\b volume_descriptor_data}}  to which the data should be added. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\f2 https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor} \par
-}}}{
-Definition at line {\b 86} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 99} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v process_volume_descriptor_header\:volume_descriptor.c}
 {\xe \v volume_descriptor.c\:process_volume_descriptor_header}
@@ -9879,28 +9811,8 @@ int8_t process_volume_descriptor_header (FILE * fptr, {\b volume_descriptor} * v
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes the header of a given {\f2 {\b volume_descriptor}}  using data pointed to by {\f2 fptr} . }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i fptr} \cell }{pointer to data to be processed. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vd} \cell }{{\f2 {\b volume_descriptor}}  to which the data should be added. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\f2 https://wiki.osdev.org/ISO_9660#Volume_Descriptors} \par
-}}}{
-Definition at line {\b 68} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 81} of file {\b volume_descriptor.c}.}\par
 }
 \par \pard\plain 
 
@@ -9915,185 +9827,198 @@ volume_descriptor.c\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #include "volume_descriptor.h"}\par
-00002 {\cf21 #include "data_reader.h"}\par
-00003 {\cf21 #include "errors.h"}\par
-00004 \par
-00005 {\cf21 #include <stdint.h>}\par
-00006 {\cf21 #include <string.h>}\par
-00007 \par
-00008 {\cf18 void}\par
-00009 create_volume_descriptor (volume_descriptor *vd, uint8_t type_code,\par
-00010                           uint8_t version)\par
-00011 \{\par
-00012   vd->type_code = type_code;\par
-00013   strncpy (vd->identifier, {\cf22 "CD001"}, sizeof (vd->identifier));\par
-00014   vd->identifier[{\cf17 sizeof} (vd->identifier) - 1] = {\cf23 '\\0'};\par
-00015   vd->version = version;\par
-00016 \}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00014 {\cf21 #include "volume_descriptor.h"}\par
+00015 {\cf21 #include "data_reader.h"}\par
+00016 {\cf21 #include "errors.h"}\par
 00017 \par
-00018 {\cf18 void}\par
-00019 print_volume_descriptor_header (volume_descriptor *vd)\par
-00020 \{\par
-00021   printf ({\cf22 "Volume descriptor type code: %02x\\n"}, vd->type_code);\par
-00022   printf ({\cf22 "Volume descriptor identifier: %s\\n"}, vd->identifier);\par
-00023   printf ({\cf22 "Volume descriptor version: %02x\\n"}, vd->version);\par
-00024 \}\par
-00025 \par
-00026 {\cf18 void}\par
-00027 print_volume_descriptor_data (volume_descriptor_data *vdd)\par
-00028 \{\par
-00029   printf ({\cf22 "System identifier: %s\\n"}, vdd->system_identifier);\par
-00030   printf ({\cf22 "Volume identifier: %s\\n"}, vdd->volume_identifier);\par
-00031   printf ({\cf22 "Vol space size: %08X\\n"}, vdd->volume_space_size);\par
-00032   printf ({\cf22 "Vol set size: %04X\\n"}, vdd->volume_set_size);\par
-00033   printf ({\cf22 "Vol sequence size: %04X\\n"}, vdd->volume_sequence_number);\par
-00034   printf ({\cf22 "Logical block size: %04X\\n"}, vdd->logical_block_size);\par
-00035   printf ({\cf22 "Path table size: %08X\\n"}, vdd->path_table_size);\par
-00036   printf ({\cf22 "Type-L path table location: %08X\\n"},\par
-00037           vdd->type_l_path_table_location);\par
-00038   printf ({\cf22 "Optional Type-L path table location: %08X\\n"},\par
-00039           vdd->optional_type_l_path_table_location);\par
-00040   printf ({\cf22 "Type-M path table location: %08X\\n"},\par
-00041           vdd->type_m_path_table_location);\par
-00042   printf ({\cf22 "Optional Type-M path table location: %08X\\n"},\par
-00043           vdd->optional_type_m_path_table_location);\par
-00044   printf ({\cf22 "Volume set identifier: %s\\n"}, vdd->volume_set_identifier);\par
-00045   printf ({\cf22 "Publisher identifier: %s\\n"}, vdd->publisher_identifier);\par
-00046   printf ({\cf22 "Data preparer identifier: %s\\n"}, vdd->data_preparer_identifier);\par
-00047   printf ({\cf22 "Application identifier: %s\\n"}, vdd->application_identifier);\par
-00048   printf ({\cf22 "Copyright file identifier: %s\\n"}, vdd->copyright_file_identifier);\par
-00049   printf ({\cf22 "Abstract file identifier: %s\\n"}, vdd->abstract_file_identifier);\par
-00050   printf ({\cf22 "Bibliographic file identifier: %s\\n"},\par
-00051           vdd->bibliographic_file_identifier);\par
-00052   printf ({\cf22 "Volume creation date and time: "});\par
-00053   print_dec_datetime (vdd->volume_creation_date_and_time);\par
-00054   printf ({\cf22 "Volume modification date and time: "});\par
-00055   print_dec_datetime (vdd->volume_modification_date_and_time);\par
-00056   printf ({\cf22 "Volume expiration date and time: "});\par
-00057   print_dec_datetime (vdd->volume_expiration_date_and_time);\par
-00058   printf ({\cf22 "Volume effective date and time: "});\par
-00059   print_dec_datetime (vdd->volume_effective_date_and_time);\par
-00060   printf ({\cf22 "File structure version: %02X\\n"}, vdd->file_structure_version);\par
-00061   printf ({\cf22 "DAT file creation software identifier: %s\\n"},\par
-00062           vdd->DAT_file_creation_software_identifier);\par
-00063   printf ({\cf22 "DAT file creation software version number: %s\\n"},\par
-00064           vdd->DAT_file_creation_software_version_number);\par
-00065 \}\par
-00066 \par
-00067 int8_t\par
-00068 process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)\par
-00069 \{\par
-00070   uint8_t descriptor_type;\par
-00071   {\cf19 if} (read_single_uint8 (fptr, &descriptor_type) != 0)\par
-00072     {\cf19 return} HH_FREAD_ERROR;\par
-00073 \par
-00074   fseek (fptr, 5, SEEK_CUR);\par
-00075 \par
-00076   uint8_t descriptor_ver;\par
-00077   {\cf19 if} (read_single_uint8 (fptr, &descriptor_ver) != 0)\par
-00078     {\cf19 return} HH_FREAD_ERROR;\par
+00018 {\cf21 #include <stdint.h>}\par
+00019 {\cf21 #include <string.h>}\par
+00020 \par
+00021 {\cf18 void}\par
+00022 create_volume_descriptor (volume_descriptor *vd, uint8_t type_code,\par
+00023                           uint8_t version)\par
+00024 \{\par
+00025   vd->type_code = type_code;\par
+00026   strncpy (vd->identifier, {\cf22 "CD001"}, sizeof (vd->identifier));\par
+00027   vd->identifier[{\cf17 sizeof} (vd->identifier) - 1] = {\cf23 '\\0'};\par
+00028   vd->version = version;\par
+00029 \}\par
+00030 \par
+00031 {\cf18 void}\par
+00032 print_volume_descriptor_header (volume_descriptor *vd)\par
+00033 \{\par
+00034   printf ({\cf22 "Volume descriptor type code: %02x\\n"}, vd->type_code);\par
+00035   printf ({\cf22 "Volume descriptor identifier: %s\\n"}, vd->identifier);\par
+00036   printf ({\cf22 "Volume descriptor version: %02x\\n"}, vd->version);\par
+00037 \}\par
+00038 \par
+00039 {\cf18 void}\par
+00040 print_volume_descriptor_data (volume_descriptor_data *vdd)\par
+00041 \{\par
+00042   printf ({\cf22 "System identifier: %s\\n"}, vdd->system_identifier);\par
+00043   printf ({\cf22 "Volume identifier: %s\\n"}, vdd->volume_identifier);\par
+00044   printf ({\cf22 "Vol space size: %08X\\n"}, vdd->volume_space_size);\par
+00045   printf ({\cf22 "Vol set size: %04X\\n"}, vdd->volume_set_size);\par
+00046   printf ({\cf22 "Vol sequence size: %04X\\n"}, vdd->volume_sequence_number);\par
+00047   printf ({\cf22 "Logical block size: %04X\\n"}, vdd->logical_block_size);\par
+00048   printf ({\cf22 "Path table size: %08X\\n"}, vdd->path_table_size);\par
+00049   printf ({\cf22 "Type-L path table location: %08X\\n"},\par
+00050           vdd->type_l_path_table_location);\par
+00051   printf ({\cf22 "Optional Type-L path table location: %08X\\n"},\par
+00052           vdd->optional_type_l_path_table_location);\par
+00053   printf ({\cf22 "Type-M path table location: %08X\\n"},\par
+00054           vdd->type_m_path_table_location);\par
+00055   printf ({\cf22 "Optional Type-M path table location: %08X\\n"},\par
+00056           vdd->optional_type_m_path_table_location);\par
+00057   printf ({\cf22 "Volume set identifier: %s\\n"}, vdd->volume_set_identifier);\par
+00058   printf ({\cf22 "Publisher identifier: %s\\n"}, vdd->publisher_identifier);\par
+00059   printf ({\cf22 "Data preparer identifier: %s\\n"}, vdd->data_preparer_identifier);\par
+00060   printf ({\cf22 "Application identifier: %s\\n"}, vdd->application_identifier);\par
+00061   printf ({\cf22 "Copyright file identifier: %s\\n"}, vdd->copyright_file_identifier);\par
+00062   printf ({\cf22 "Abstract file identifier: %s\\n"}, vdd->abstract_file_identifier);\par
+00063   printf ({\cf22 "Bibliographic file identifier: %s\\n"},\par
+00064           vdd->bibliographic_file_identifier);\par
+00065   printf ({\cf22 "Volume creation date and time: "});\par
+00066   print_dec_datetime (vdd->volume_creation_date_and_time);\par
+00067   printf ({\cf22 "Volume modification date and time: "});\par
+00068   print_dec_datetime (vdd->volume_modification_date_and_time);\par
+00069   printf ({\cf22 "Volume expiration date and time: "});\par
+00070   print_dec_datetime (vdd->volume_expiration_date_and_time);\par
+00071   printf ({\cf22 "Volume effective date and time: "});\par
+00072   print_dec_datetime (vdd->volume_effective_date_and_time);\par
+00073   printf ({\cf22 "File structure version: %02X\\n"}, vdd->file_structure_version);\par
+00074   printf ({\cf22 "DAT file creation software identifier: %s\\n"},\par
+00075           vdd->DAT_file_creation_software_identifier);\par
+00076   printf ({\cf22 "DAT file creation software version number: %s\\n"},\par
+00077           vdd->DAT_file_creation_software_version_number);\par
+00078 \}\par
 00079 \par
-00080   create_volume_descriptor (vd, descriptor_type, descriptor_ver);\par
-00081 \par
-00082   {\cf19 return} 0;\par
-00083 \}\par
-00084 \par
-00085 int8_t\par
-00086 process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)\par
-00087 \{\par
-00088   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
-00089 \par
-00090   {\cf19 if} ((read_string (fptr, vdd->system_identifier, SYSTEM_IDENTIFIER_LEN) != 0)\par
-00091       || (read_string (fptr, vdd->volume_identifier, VOLUME_IDENTIFIER_LEN)\par
-00092           != 0))\par
-00093     \{\par
-00094       {\cf19 return} HH_FREAD_ERROR;\par
-00095     \}\par
-00096 \par
-00097   fseek (fptr, 8, SEEK_CUR); {\cf20 // Unused field}\par
-00098 \par
-00099   {\cf19 if} (read_both_endian_data_uint32 (fptr, &vdd->volume_space_size) != 0)\par
-00100     {\cf19 return} HH_FREAD_ERROR;\par
-00101 \par
-00102   fseek (fptr, 32, SEEK_CUR); {\cf20 // Unused field}\par
-00103 \par
-00104   {\cf20 /* clang-format off */}\par
-00105   {\cf19 if} ((read_both_endian_data_uint16 (fptr, &vdd->volume_set_size) != 0)\par
-00106       || (read_both_endian_data_uint16 (fptr, &vdd->volume_sequence_number) != 0)\par
-00107       || (read_both_endian_data_uint16 (fptr, &vdd->logical_block_size) != 0))\par
-00108   \{\par
-00109     {\cf19 return} HH_FREAD_ERROR;\par
-00110   \}\par
-00111   {\cf20 /* clang-format on */}\par
-00112 \par
-00113   {\cf19 if} ((read_both_endian_data_uint32 (fptr, &vdd->path_table_size) != 0)\par
-00114       || (read_little_endian_data_uint32_t (fptr,\par
-00115                                             &vdd->type_l_path_table_location)\par
-00116           != 0)\par
-00117       || (read_little_endian_data_uint32_t (\par
-00118               fptr, &vdd->optional_type_l_path_table_location)\par
-00119           != 0)\par
-00120       || (read_little_endian_data_uint32_t (fptr,\par
-00121                                             &vdd->type_m_path_table_location)\par
-00122           != 0)\par
-00123       || (read_little_endian_data_uint32_t (\par
-00124               fptr, &vdd->optional_type_m_path_table_location)\par
-00125           != 0))\par
-00126     \{\par
-00127       {\cf19 return} HH_FREAD_ERROR;\par
-00128     \}\par
-00129 \par
-00130   {\cf19 if} (read_array_uint8 (fptr, vdd->root_directory_entry,\par
-00131                         ROOT_DIRECTORY_ENTRY_LEN)\par
-00132       != 0)\par
-00133     \{\par
-00134       {\cf19 return} HH_FREAD_ERROR;\par
-00135     \}\par
-00136 \par
-00137   {\cf20 /* clang-format off */}\par
-00138   {\cf19 if} ((read_string (fptr, vdd->volume_set_identifier, VOLUME_SET_IDENTIFIER_LEN) != 0)\par
-00139       || (read_string (fptr, vdd->publisher_identifier, PUBLISHER_IDENTIFIER_LEN) != 0)\par
-00140       || (read_string (fptr, vdd->data_preparer_identifier, DATA_PREPARER_IDENTIFIER_LEN) != 0)\par
-00141       || (read_string (fptr, vdd->application_identifier, APPLICATION_IDENTIFIER_LEN) != 0)\par
-00142       || (read_string (fptr, vdd->copyright_file_identifier, COPYRIGHT_FILE_IDENTIFIER_LEN) != 0)\par
-00143       || (read_string (fptr, vdd->abstract_file_identifier, ABSTRACT_FILE_IDENTIFIER_LEN) != 0)\par
-00144       || (read_string (fptr, vdd->bibliographic_file_identifier, BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN) != 0))\par
-00145   \{\par
-00146     {\cf19 return} HH_FREAD_ERROR;\par
-00147   \}\par
-00148   {\cf20 /* clang-format on */}\par
+00080 int8_t\par
+00081 process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd)\par
+00082 \{\par
+00083   uint8_t descriptor_type;\par
+00084   {\cf19 if} (read_single_uint8 (fptr, &descriptor_type) != 0)\par
+00085     {\cf19 return} HH_FREAD_ERROR;\par
+00086 \par
+00087   fseek (fptr, 5, SEEK_CUR);\par
+00088 \par
+00089   uint8_t descriptor_ver;\par
+00090   {\cf19 if} (read_single_uint8 (fptr, &descriptor_ver) != 0)\par
+00091     {\cf19 return} HH_FREAD_ERROR;\par
+00092 \par
+00093   create_volume_descriptor (vd, descriptor_type, descriptor_ver);\par
+00094 \par
+00095   {\cf19 return} 0;\par
+00096 \}\par
+00097 \par
+00098 int8_t\par
+00099 process_volume_descriptor_data (FILE *fptr, volume_descriptor_data *vdd)\par
+00100 \{\par
+00101   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
+00102 \par
+00103   {\cf19 if} ((read_string (fptr, vdd->system_identifier, SYSTEM_IDENTIFIER_LEN) != 0)\par
+00104       || (read_string (fptr, vdd->volume_identifier, VOLUME_IDENTIFIER_LEN)\par
+00105           != 0))\par
+00106     \{\par
+00107       {\cf19 return} HH_FREAD_ERROR;\par
+00108     \}\par
+00109 \par
+00110   fseek (fptr, 8, SEEK_CUR); {\cf20 // Unused field}\par
+00111 \par
+00112   {\cf19 if} (read_both_endian_data_uint32 (fptr, &vdd->volume_space_size) != 0)\par
+00113     {\cf19 return} HH_FREAD_ERROR;\par
+00114 \par
+00115   fseek (fptr, 32, SEEK_CUR); {\cf20 // Unused field}\par
+00116 \par
+00117   {\cf20 /* clang-format off */}\par
+00118   {\cf19 if} ((read_both_endian_data_uint16 (fptr, &vdd->volume_set_size) != 0)\par
+00119       || (read_both_endian_data_uint16 (fptr, &vdd->volume_sequence_number) != 0)\par
+00120       || (read_both_endian_data_uint16 (fptr, &vdd->logical_block_size) != 0))\par
+00121   \{\par
+00122     {\cf19 return} HH_FREAD_ERROR;\par
+00123   \}\par
+00124   {\cf20 /* clang-format on */}\par
+00125 \par
+00126   {\cf19 if} ((read_both_endian_data_uint32 (fptr, &vdd->path_table_size) != 0)\par
+00127       || (read_little_endian_data_uint32_t (fptr,\par
+00128                                             &vdd->type_l_path_table_location)\par
+00129           != 0)\par
+00130       || (read_little_endian_data_uint32_t (\par
+00131               fptr, &vdd->optional_type_l_path_table_location)\par
+00132           != 0)\par
+00133       || (read_little_endian_data_uint32_t (fptr,\par
+00134                                             &vdd->type_m_path_table_location)\par
+00135           != 0)\par
+00136       || (read_little_endian_data_uint32_t (\par
+00137               fptr, &vdd->optional_type_m_path_table_location)\par
+00138           != 0))\par
+00139     \{\par
+00140       {\cf19 return} HH_FREAD_ERROR;\par
+00141     \}\par
+00142 \par
+00143   {\cf19 if} (read_array_uint8 (fptr, vdd->root_directory_entry,\par
+00144                         ROOT_DIRECTORY_ENTRY_LEN)\par
+00145       != 0)\par
+00146     \{\par
+00147       {\cf19 return} HH_FREAD_ERROR;\par
+00148     \}\par
 00149 \par
-00150   {\cf19 if} ((read_dec_datetime (fptr, &vdd->volume_creation_date_and_time) != 0)\par
-00151       || (read_dec_datetime (fptr, &vdd->volume_modification_date_and_time)\par
-00152           != 0)\par
-00153       || (read_dec_datetime (fptr, &vdd->volume_expiration_date_and_time) != 0)\par
-00154       || (read_dec_datetime (fptr, &vdd->volume_effective_date_and_time) != 0))\par
-00155     \{\par
-00156       {\cf19 return} HH_FREAD_ERROR;\par
-00157     \}\par
-00158 \par
-00159   {\cf19 if} (read_single_uint8 (fptr, &vdd->file_structure_version) != 0)\par
-00160     {\cf19 return} HH_FREAD_ERROR;\par
-00161 \par
-00162   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
-00163 \par
-00164   read_string (fptr, vdd->DAT_file_creation_software_identifier,\par
-00165                DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN);\par
-00166 \par
-00167   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
-00168 \par
-00169   read_string (fptr, vdd->DAT_file_creation_software_version_number,\par
-00170                DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN);\par
+00150   {\cf20 /* clang-format off */}\par
+00151   {\cf19 if} ((read_string (fptr, vdd->volume_set_identifier, VOLUME_SET_IDENTIFIER_LEN) != 0)\par
+00152       || (read_string (fptr, vdd->publisher_identifier, PUBLISHER_IDENTIFIER_LEN) != 0)\par
+00153       || (read_string (fptr, vdd->data_preparer_identifier, DATA_PREPARER_IDENTIFIER_LEN) != 0)\par
+00154       || (read_string (fptr, vdd->application_identifier, APPLICATION_IDENTIFIER_LEN) != 0)\par
+00155       || (read_string (fptr, vdd->copyright_file_identifier, COPYRIGHT_FILE_IDENTIFIER_LEN) != 0)\par
+00156       || (read_string (fptr, vdd->abstract_file_identifier, ABSTRACT_FILE_IDENTIFIER_LEN) != 0)\par
+00157       || (read_string (fptr, vdd->bibliographic_file_identifier, BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN) != 0))\par
+00158   \{\par
+00159     {\cf19 return} HH_FREAD_ERROR;\par
+00160   \}\par
+00161   {\cf20 /* clang-format on */}\par
+00162 \par
+00163   {\cf19 if} ((read_dec_datetime (fptr, &vdd->volume_creation_date_and_time) != 0)\par
+00164       || (read_dec_datetime (fptr, &vdd->volume_modification_date_and_time)\par
+00165           != 0)\par
+00166       || (read_dec_datetime (fptr, &vdd->volume_expiration_date_and_time) != 0)\par
+00167       || (read_dec_datetime (fptr, &vdd->volume_effective_date_and_time) != 0))\par
+00168     \{\par
+00169       {\cf19 return} HH_FREAD_ERROR;\par
+00170     \}\par
 00171 \par
-00172   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
-00173 \par
-00174   fseek (fptr, 0x1EC, SEEK_CUR); {\cf20 // Unknown data (492 bytes)}\par
-00175 \par
-00176   fseek (fptr, 0x28D, SEEK_CUR); {\cf20 // Reserved by ISO}\par
-00177 \par
-00178   {\cf19 return} 0;\par
-00179 \}\par
+00172   {\cf19 if} (read_single_uint8 (fptr, &vdd->file_structure_version) != 0)\par
+00173     {\cf19 return} HH_FREAD_ERROR;\par
+00174 \par
+00175   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
+00176 \par
+00177   read_string (fptr, vdd->DAT_file_creation_software_identifier,\par
+00178                DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN);\par
+00179 \par
+00180   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
+00181 \par
+00182   read_string (fptr, vdd->DAT_file_creation_software_version_number,\par
+00183                DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN);\par
+00184 \par
+00185   fseek (fptr, 1, SEEK_CUR); {\cf20 // Unused byte}\par
+00186 \par
+00187   fseek (fptr, 0x1EC, SEEK_CUR); {\cf20 // Unknown data (492 bytes)}\par
+00188 \par
+00189   fseek (fptr, 0x28D, SEEK_CUR); {\cf20 // Reserved by ISO}\par
+00190 \par
+00191   {\cf19 return} 0;\par
+00192 \}\par
 }
 \par \pard\plain 
 
@@ -10120,7 +10045,10 @@ struct {\b volume_descriptor_data}{
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 The data section of a primary volume descriptor. }}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-struct {\b volume_descriptor}}
+struct {\b volume_descriptor}{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+A volume descriptor. }}\par}
+}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Macros\par
 \pard\plain 
@@ -10128,6 +10056,11 @@ Macros\par
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 #define {\b SYSTEM_IDENTIFIER_LEN}\~ 33\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b volume_descriptor.h} - the {\f2 {\b volume_descriptor}}  and {\f2 {\b volume_descriptor_data}}  data types and their related functions. }{
+}\par
+}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 #define {\b VOLUME_IDENTIFIER_LEN}\~ 33\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
@@ -10208,7 +10141,7 @@ Macro Definition Documentation\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 17} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 34} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v APPLICATION_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:APPLICATION_IDENTIFIER_LEN}
@@ -10222,7 +10155,7 @@ Definition at line {\b 17} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 15} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 32} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN}
@@ -10236,7 +10169,7 @@ Definition at line {\b 15} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 18} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 35} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v COPYRIGHT_FILE_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:COPYRIGHT_FILE_IDENTIFIER_LEN}
@@ -10250,7 +10183,7 @@ Definition at line {\b 18} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 16} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 33} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN}
@@ -10264,7 +10197,7 @@ Definition at line {\b 16} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 19} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 36} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN}
@@ -10278,7 +10211,7 @@ Definition at line {\b 19} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 20} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 37} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v DATA_PREPARER_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:DATA_PREPARER_IDENTIFIER_LEN}
@@ -10292,7 +10225,7 @@ Definition at line {\b 20} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 14} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 31} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v PUBLISHER_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:PUBLISHER_IDENTIFIER_LEN}
@@ -10306,7 +10239,7 @@ Definition at line {\b 14} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 13} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 30} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v ROOT_DIRECTORY_ENTRY_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:ROOT_DIRECTORY_ENTRY_LEN}
@@ -10320,7 +10253,7 @@ Definition at line {\b 13} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 11} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 28} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v SYSTEM_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:SYSTEM_IDENTIFIER_LEN}
@@ -10334,7 +10267,10 @@ Definition at line {\b 11} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 9} of file {\b volume_descriptor.h}.}\par
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+{\b volume_descriptor.h} - the {\f2 {\b volume_descriptor}}  and {\f2 {\b volume_descriptor_data}}  data types and their related functions. }}\par
+{
+Definition at line {\b 26} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v VOLUME_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:VOLUME_IDENTIFIER_LEN}
@@ -10348,7 +10284,7 @@ Definition at line {\b 9} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 10} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 27} of file {\b volume_descriptor.h}.}\par
 }
 {\xe \v VOLUME_SET_IDENTIFIER_LEN\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:VOLUME_SET_IDENTIFIER_LEN}
@@ -10362,7 +10298,7 @@ Definition at line {\b 10} of file {\b volume_descriptor.h}.}\par
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 12} of file {\b volume_descriptor.h}.}\par
+Definition at line {\b 29} of file {\b volume_descriptor.h}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -10382,35 +10318,8 @@ void create_volume_descriptor ({\b volume_descriptor} * vd, uint8_t type, uint8_
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Initializes a given {\f2 {\b volume_descriptor}}  using the provided {\f2 type}  and {\f2 version}  data. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vd} \cell }{the volume descriptor to be initialized. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i type} \cell }{uin8_t denoting the {\f2 type_code}  of the {\f2 {\b volume_descriptor}} . \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i version} \cell }{uin8_t denoting the {\f2 version}  of the {\f2 {\b volume_descriptor}} . \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b volume_descriptor} \par
-{\f2 https://wiki.osdev.org/ISO_9660#Volume_Descriptors} \par
-}}}{
-Definition at line {\b 9} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 22} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v print_volume_descriptor_data\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:print_volume_descriptor_data}
@@ -10426,22 +10335,8 @@ void print_volume_descriptor_data ({\b volume_descriptor_data} * vdd)}}
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints the given {\f2 {\b volume_descriptor_data}}  to the stdout in a human-readable form. }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vdd} \cell }{the {\f2 {\b volume_descriptor_data}}  to be printed. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b volume_descriptor_data} \par
-}}}{
-Definition at line {\b 27} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 40} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v print_volume_descriptor_header\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:print_volume_descriptor_header}
@@ -10458,22 +10353,9 @@ void print_volume_descriptor_header ({\b volume_descriptor} * vd)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints the header section of a given {\f2 {\b volume_descriptor}}  in a human-readable form to stdout. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The header includes every field except for {\f2 data} , which can be printed using the {\f2 {\b print_volume_descriptor_data()}}  function.\par
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vd} \cell }{the {\f2 {\b volume_descriptor}}  to be printed. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\b volume_descriptor} \par
-{\b print_volume_descriptor_data()} \par
-}}}{
-Definition at line {\b 19} of file {\b volume_descriptor.c}.}\par
+The header includes every field except for {\f2 data} , which can be printed using the {\f2 {\b print_volume_descriptor_data()}}  function. \par
+}{
+Definition at line {\b 32} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v process_volume_descriptor_data\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:process_volume_descriptor_data}
@@ -10489,28 +10371,8 @@ int8_t process_volume_descriptor_data (FILE * fptr, {\b volume_descriptor_data} 
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes the given {\f2 {\b volume_descriptor_data}}  using data pointed to by {\f2 fptr} . }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i fptr} \cell }{pointer to data to be processed. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vdd} \cell }{{\f2 {\b volume_descriptor_data}}  to which the data should be added. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\f2 https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor} \par
-}}}{
-Definition at line {\b 86} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 99} of file {\b volume_descriptor.c}.}\par
 }
 {\xe \v process_volume_descriptor_header\:volume_descriptor.h}
 {\xe \v volume_descriptor.h\:process_volume_descriptor_header}
@@ -10526,28 +10388,8 @@ int8_t process_volume_descriptor_header (FILE * fptr, {\b volume_descriptor} * v
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes the header of a given {\f2 {\b volume_descriptor}}  using data pointed to by {\f2 fptr} . }}\par
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\par
-{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-Parameters\par}
-\pard\plain \s81\li360\widctlpar\ql\adjustright \fs20\cgrid \trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i fptr} \cell }{pointer to data to be processed. \cell }
-{\row }
-\trowd \trgaph108\trleft426\tblind426\trbrdrt\brdrs\brdrw10\brdrcf15 \trbrdrl\brdrs\brdrw10\brdrcf15 \trbrdrb\brdrs\brdrw10\brdrcf15 \trbrdrr\brdrs\brdrw10\brdrcf15 \trbrdrh\brdrs\brdrw10\brdrcf15 \trbrdrv\brdrs\brdrw10\brdrcf15 
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx2187
-\clvertalt\clbrdrt\brdrs\brdrw10\brdrcf15 \clbrdrl\brdrs\brdrw10\brdrcf15 \clbrdrb\brdrs\brdrw10\brdrcf15 \clbrdrr \brdrs\brdrw10\brdrcf15 \cltxlrtb \cellx8748
-\pard \widctlpar\intbl\adjustright
-{{\i vd} \cell }{{\f2 {\b volume_descriptor}}  to which the data should be added. \cell }
-{\row }
-}
-{{\s5\sb90\sa30\keepn\widctlpar\adjustright \b\f1\fs16\cgrid 
-See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
-{\f2 https://wiki.osdev.org/ISO_9660#Volume_Descriptors} \par
-}}}{
-Definition at line {\b 68} of file {\b volume_descriptor.c}.}\par
+{
+Definition at line {\b 81} of file {\b volume_descriptor.c}.}\par
 }
 \par \pard\plain 
 
@@ -10562,79 +10404,92 @@ volume_descriptor.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #ifndef _VOLUME_DESCRIPTOR_H_}\par
-00002 {\cf21 #define _VOLUME_DESCRIPTOR_H_}\par
-00003 \par
-00004 {\cf21 #include "datetime.h"}\par
-00005 \par
-00006 {\cf21 #include <stdint.h>}\par
-00007 {\cf21 #include <stdio.h>}\par
-00008 \par
-00009 {\cf21 #define SYSTEM_IDENTIFIER_LEN 33}\par
-00010 {\cf21 #define VOLUME_IDENTIFIER_LEN 33}\par
-00011 {\cf21 #define ROOT_DIRECTORY_ENTRY_LEN 34}\par
-00012 {\cf21 #define VOLUME_SET_IDENTIFIER_LEN 129}\par
-00013 {\cf21 #define PUBLISHER_IDENTIFIER_LEN 129}\par
-00014 {\cf21 #define DATA_PREPARER_IDENTIFIER_LEN 129}\par
-00015 {\cf21 #define APPLICATION_IDENTIFIER_LEN 129}\par
-00016 {\cf21 #define COPYRIGHT_FILE_IDENTIFIER_LEN 38}\par
-00017 {\cf21 #define ABSTRACT_FILE_IDENTIFIER_LEN 38}\par
-00018 {\cf21 #define BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN 38}\par
-00019 {\cf21 #define DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN 9}\par
-00020 {\cf21 #define DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN 11}\par
-00021 \par
-00028 {\cf17 typedef} {\cf17 struct }volume_descriptor_data\par
-00029 \{\par
-00030   {\cf18 char} system_identifier[SYSTEM_IDENTIFIER_LEN];\par
-00031   {\cf18 char} volume_identifier[VOLUME_IDENTIFIER_LEN];\par
-00032   uint32_t volume_space_size;\par
-00033   uint16_t volume_set_size;\par
-00034   uint16_t volume_sequence_number;\par
-00035   uint16_t logical_block_size;\par
-00036   uint32_t path_table_size;\par
-00037   uint32_t type_l_path_table_location;\par
-00038   uint32_t optional_type_l_path_table_location;\par
-00039   uint32_t type_m_path_table_location;\par
-00040   uint32_t optional_type_m_path_table_location;\par
-00041   uint8_t root_directory_entry[ROOT_DIRECTORY_ENTRY_LEN];\par
-00042   {\cf18 char} volume_set_identifier[VOLUME_SET_IDENTIFIER_LEN];\par
-00043   {\cf18 char} publisher_identifier[PUBLISHER_IDENTIFIER_LEN];\par
-00044   {\cf18 char} data_preparer_identifier[DATA_PREPARER_IDENTIFIER_LEN];\par
-00045   {\cf18 char} application_identifier[APPLICATION_IDENTIFIER_LEN];\par
-00046   {\cf18 char} copyright_file_identifier[COPYRIGHT_FILE_IDENTIFIER_LEN];\par
-00047   {\cf18 char} abstract_file_identifier[ABSTRACT_FILE_IDENTIFIER_LEN];\par
-00048   {\cf18 char} bibliographic_file_identifier[BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN];\par
-00049   dec_datetime volume_creation_date_and_time;\par
-00050   dec_datetime volume_modification_date_and_time;\par
-00051   dec_datetime volume_expiration_date_and_time;\par
-00052   dec_datetime volume_effective_date_and_time;\par
-00053   uint8_t file_structure_version; \par
-00054   {\cf18 char} DAT_file_creation_software_identifier\par
-00055       [DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN];\par
-00056   {\cf18 char} DAT_file_creation_software_version_number\par
-00057       [DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN];\par
-00058 \} volume_descriptor_data;\par
-00059 \par
-00061 {\cf17 typedef} {\cf17 struct }volume_descriptor\par
-00062 \{\par
-00063   uint8_t type_code;\par
-00064   {\cf18 char} identifier[6]; \par
-00065   uint8_t version;\par
-00066   volume_descriptor_data data;\par
-00067 \} volume_descriptor;\par
-00068 \par
-00079 {\cf18 void} create_volume_descriptor (volume_descriptor *vd, uint8_t type,\par
-00080                                uint8_t version);\par
-00091 {\cf18 void} print_volume_descriptor_header (volume_descriptor *vd);\par
-00092 \par
-00100 {\cf18 void} print_volume_descriptor_data (volume_descriptor_data *vdd);\par
-00101 \par
-00110 int8_t process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);\par
-00111 \par
-00120 int8_t process_volume_descriptor_data (FILE *fptr,\par
-00121                                        volume_descriptor_data *vdd);\par
-00122 \par
-00123 {\cf21 #endif}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00018 {\cf21 #ifndef _HH_VOLUME_DESCRIPTOR_H_}\par
+00019 {\cf21 #define _HH_VOLUME_DESCRIPTOR_H_}\par
+00020 \par
+00021 {\cf21 #include "datetime.h"}\par
+00022 \par
+00023 {\cf21 #include <stdint.h>}\par
+00024 {\cf21 #include <stdio.h>}\par
+00025 \par
+00026 {\cf21 #define SYSTEM_IDENTIFIER_LEN 33}\par
+00027 {\cf21 #define VOLUME_IDENTIFIER_LEN 33}\par
+00028 {\cf21 #define ROOT_DIRECTORY_ENTRY_LEN 34}\par
+00029 {\cf21 #define VOLUME_SET_IDENTIFIER_LEN 129}\par
+00030 {\cf21 #define PUBLISHER_IDENTIFIER_LEN 129}\par
+00031 {\cf21 #define DATA_PREPARER_IDENTIFIER_LEN 129}\par
+00032 {\cf21 #define APPLICATION_IDENTIFIER_LEN 129}\par
+00033 {\cf21 #define COPYRIGHT_FILE_IDENTIFIER_LEN 38}\par
+00034 {\cf21 #define ABSTRACT_FILE_IDENTIFIER_LEN 38}\par
+00035 {\cf21 #define BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN 38}\par
+00036 {\cf21 #define DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN 9}\par
+00037 {\cf21 #define DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN 11}\par
+00038 \par
+00044 {\cf17 typedef} {\cf17 struct }volume_descriptor_data\par
+00045 \{\par
+00046   {\cf18 char} system_identifier[SYSTEM_IDENTIFIER_LEN];\par
+00047   {\cf18 char} volume_identifier[VOLUME_IDENTIFIER_LEN];\par
+00048   uint32_t volume_space_size;\par
+00049   uint16_t volume_set_size;\par
+00050   uint16_t volume_sequence_number;\par
+00051   uint16_t logical_block_size;\par
+00052   uint32_t path_table_size;\par
+00053   uint32_t type_l_path_table_location;\par
+00054   uint32_t optional_type_l_path_table_location;\par
+00055   uint32_t type_m_path_table_location;\par
+00056   uint32_t optional_type_m_path_table_location;\par
+00057   uint8_t root_directory_entry[ROOT_DIRECTORY_ENTRY_LEN];\par
+00058   {\cf18 char} volume_set_identifier[VOLUME_SET_IDENTIFIER_LEN];\par
+00059   {\cf18 char} publisher_identifier[PUBLISHER_IDENTIFIER_LEN];\par
+00060   {\cf18 char} data_preparer_identifier[DATA_PREPARER_IDENTIFIER_LEN];\par
+00061   {\cf18 char} application_identifier[APPLICATION_IDENTIFIER_LEN];\par
+00062   {\cf18 char} copyright_file_identifier[COPYRIGHT_FILE_IDENTIFIER_LEN];\par
+00063   {\cf18 char} abstract_file_identifier[ABSTRACT_FILE_IDENTIFIER_LEN];\par
+00064   {\cf18 char} bibliographic_file_identifier[BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN];\par
+00065   dec_datetime volume_creation_date_and_time;\par
+00066   dec_datetime volume_modification_date_and_time;\par
+00067   dec_datetime volume_expiration_date_and_time;\par
+00068   dec_datetime volume_effective_date_and_time;\par
+00069   uint8_t file_structure_version; \par
+00070   {\cf18 char} DAT_file_creation_software_identifier\par
+00071       [DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN];\par
+00072   {\cf18 char} DAT_file_creation_software_version_number\par
+00073       [DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN];\par
+00074 \} volume_descriptor_data;\par
+00075 \par
+00081 {\cf17 typedef} {\cf17 struct }volume_descriptor\par
+00082 \{\par
+00083   uint8_t type_code;\par
+00084   {\cf18 char} identifier[6]; \par
+00085   uint8_t version;\par
+00086   volume_descriptor_data data;\par
+00087 \} volume_descriptor;\par
+00088 \par
+00093 {\cf18 void} create_volume_descriptor (volume_descriptor *vd, uint8_t type,\par
+00094                                uint8_t version);\par
+00101 {\cf18 void} print_volume_descriptor_header (volume_descriptor *vd);\par
+00102 \par
+00107 {\cf18 void} print_volume_descriptor_data (volume_descriptor_data *vdd);\par
+00108 \par
+00113 int8_t process_volume_descriptor_header (FILE *fptr, volume_descriptor *vd);\par
+00114 \par
+00119 int8_t process_volume_descriptor_data (FILE *fptr,\par
+00120                                        volume_descriptor_data *vdd);\par
+00121 \par
+00122 {\cf21 #endif}\par
 }
 
 \pard\plain \sect\sbkpage
