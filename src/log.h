@@ -1,10 +1,3 @@
-/**
- *  log.h - wrapper for stdout functions.
- *
- *  As evidenced by the single function below, this file is rather
- *  underutilized at the moment. In the future this should host functions
- *  related to printing data out to log files, hence the name.
- */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.
 //  HarvesterHarvester is free software: you can redistribute it and/or modify
@@ -18,6 +11,13 @@
 //
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
+/**
+ *  log.h - wrapper for stdout functions.
+ *
+ *  As evidenced by the single function below, this file is rather
+ *  underutilized at the moment. In the future this should host functions
+ *  related to printing data out to log files, hence the name.
+ */
 #ifndef _HH_LOG_H_
 #define _HH_LOG_H_
 

@@ -7,7 +7,7 @@
         <itemizedlist>
             <listitem><para>struct <link linkend="_structdirectory__record">directory_record</link></para>
 
-<para>directory - the <computeroutput>directory</computeroutput> and <computeroutput><link linkend="_structdirectory__record">directory_record</link></computeroutput> datatypes and their associated functions. </para>
+<para><link linkend="_directory_8h">directory.h</link> - the <computeroutput>directory</computeroutput> and <computeroutput><link linkend="_structdirectory__record">directory_record</link></computeroutput> datatypes and their associated functions. </para>
 </listitem>
             <listitem><para>struct <link linkend="_structdirectory">directory</link></para>
 

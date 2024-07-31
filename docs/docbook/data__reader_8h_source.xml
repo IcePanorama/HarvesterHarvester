@@ -15,8 +15,8 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_data__reader_8h_source_1l00011"/>00011 <emphasis role="comment">//</emphasis>
 <anchor xml:id="_data__reader_8h_source_1l00012"/>00012 <emphasis role="comment">//&#32;&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;along</emphasis>
 <anchor xml:id="_data__reader_8h_source_1l00013"/>00013 <emphasis role="comment">//&#32;&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
-<anchor xml:id="_data__reader_8h_source_1l00021"/>00021 <emphasis role="preprocessor">#ifndef&#32;_DATA_READER_H_</emphasis>
-<anchor xml:id="_data__reader_8h_source_1l00022"/>00022 <emphasis role="preprocessor">#define&#32;_DATA_READER_H_</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00021"/>00021 <emphasis role="preprocessor">#ifndef&#32;_HH_DATA_READER_H_</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00022"/>00022 <emphasis role="preprocessor">#define&#32;_HH_DATA_READER_H_</emphasis>
 <anchor xml:id="_data__reader_8h_source_1l00023"/>00023 
 <anchor xml:id="_data__reader_8h_source_1l00024"/>00024 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_datetime_8h">datetime.h</link>&quot;</emphasis>
 <anchor xml:id="_data__reader_8h_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_file__flags_8h">file_flags.h</link>&quot;</emphasis>

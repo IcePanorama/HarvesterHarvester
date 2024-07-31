@@ -1,10 +1,3 @@
-/**
- *  directory - the `directory` and `directory_record` datatypes and their
- *  associated functions.
- *
- *  All functions, except those with a return value of void, return zero on
- *  success and non-zero on failure.
- */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.
 //  HarvesterHarvester is free software: you can redistribute it and/or modify
@@ -18,6 +11,13 @@
 //
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
+/**
+ *  directory.h - the `directory` and `directory_record` datatypes and their
+ *  associated functions.
+ *
+ *  All functions, except those with a return value of void, return zero on
+ *  success and non-zero on failure.
+ */
 #ifndef _HH_DIRECTORY_H_
 #define _HH_DIRECTORY_H_
 

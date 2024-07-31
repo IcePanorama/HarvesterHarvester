@@ -1,6 +1,3 @@
-/**
- *  hh.h - the main interface to interact with HarvesterHarvester
- */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.
 //  HarvesterHarvester is free software: you can redistribute it and/or modify
@@ -14,6 +11,9 @@
 //
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
+/**
+ *  hh.h - the main interface to interact with HarvesterHarvester
+ */
 #ifndef _HARVESTER_HARVESTER_H_
 #define _HARVESTER_HARVESTER_H_
 

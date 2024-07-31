@@ -1,4 +1,3 @@
-/** file_flags.h - file_flags data type and its associated functions. */
 //  Copyright (C) 2024  IcePanorama
 //  This file is a part of HarvesterHarvester.
 //  HarvesterHarvester is free software: you can redistribute it and/or modify
@@ -12,8 +11,9 @@
 //
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
-#ifndef _FILE_FLAGS_H_
-#define _FILE_FLAGS_H_
+/** file_flags.h - file_flags data type and its associated functions. */
+#ifndef _HH_FILE_FLAGS_H_
+#define _HH_FILE_FLAGS_H_
 
 #include <stdbool.h>
 #include <stdint.h>

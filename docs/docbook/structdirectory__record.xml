@@ -4,7 +4,7 @@
 <indexterm><primary>directory_record</primary></indexterm>
 <para>
 
-<para>directory - the <computeroutput>directory</computeroutput> and <computeroutput><link linkend="_structdirectory__record">directory_record</link></computeroutput> datatypes and their associated functions. </para>
+<para><link linkend="_directory_8h">directory.h</link> - the <computeroutput>directory</computeroutput> and <computeroutput><link linkend="_structdirectory__record">directory_record</link></computeroutput> datatypes and their associated functions. </para>
  
 </para>
 <para>
@@ -44,7 +44,7 @@
 <section>
 <title>Detailed Description</title>
 
-<para>directory - the <computeroutput>directory</computeroutput> and <computeroutput><link linkend="_structdirectory__record">directory_record</link></computeroutput> datatypes and their associated functions. </para>
+<para><link linkend="_directory_8h">directory.h</link> - the <computeroutput>directory</computeroutput> and <computeroutput><link linkend="_structdirectory__record">directory_record</link></computeroutput> datatypes and their associated functions. </para>
 
 
 

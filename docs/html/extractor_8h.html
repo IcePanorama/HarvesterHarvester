@@ -217,7 +217,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p><a class="el" href="extractor_8h.html">extractor.h</a> - container for all file extraction functions. </p>
-<p>All functions return zero on success, non-zero on failure. Extracts a file using its respective <code><a class="el" href="structdirectory__record.html" title="directory - the directory and directory_record datatypes and their associated functions.">directory_record</a></code> and data pointed to by <code>fptr</code>, outputting it to the location denoted by <code>path</code>. </p>
+<p>All functions return zero on success, non-zero on failure. Extracts a file using its respective <code><a class="el" href="structdirectory__record.html" title="directory.h - the directory and directory_record datatypes and their associated functions.">directory_record</a></code> and data pointed to by <code>fptr</code>, outputting it to the location denoted by <code>path</code>. </p>
 <p>the <code>file_identifier</code> terminates with a <code>;</code> character followed by the file ID number in ASCII coded decimal (<code>1</code>). See: <a href="https://wiki.osdev.org/ISO_9660#Directories">https://wiki.osdev.org/ISO_9660#Directories</a></p>
 <p>Just use the default/existing filename. It'll be incorrect, but probably not worth stoping execution over. Users could just manually remove the <code>;1</code> part; the data itself should be fine.</p>
 

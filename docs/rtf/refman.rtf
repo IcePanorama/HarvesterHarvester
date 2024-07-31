@@ -295,7 +295,7 @@ The date/time format used by directory records })} \tab {\field\fldedit {\*\fldi
 A collection of directory records which together make a single directory })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJS \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b directory_record} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Directory - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJW \\*MERGEFORMAT}{\fldrslt pagenum}}
+Directory.h - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJW \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b file_flags} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 File_flags.h - {\b file_flags} data type and its associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKI \\*MERGEFORMAT}{\fldrslt pagenum}}
@@ -855,7 +855,7 @@ directory_record Struct Reference\par \pard\plain
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-directory - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions. }}\par
+{\b directory.h} - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions. }}\par
 {
 {\f2 #include <directory.h>}}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -902,7 +902,7 @@ Detailed Description\par
 \pard\plain 
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-directory - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions. \par
+{\b directory.h} - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions. \par
 }
 
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -3202,8 +3202,8 @@ Go to the documentation of this file.\par
 00011 {\cf20 //}\par
 00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
 00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
-00021 {\cf21 #ifndef _DATA_READER_H_}\par
-00022 {\cf21 #define _DATA_READER_H_}\par
+00021 {\cf21 #ifndef _HH_DATA_READER_H_}\par
+00022 {\cf21 #define _HH_DATA_READER_H_}\par
 00023 \par
 00024 {\cf21 #include "datetime.h"}\par
 00025 {\cf21 #include "file_flags.h"}\par
@@ -4113,7 +4113,7 @@ Data Structures\par
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 struct {\b directory_record}{
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-directory - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions. }}\par}
+{\b directory.h} - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions. }}\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 struct {\b directory}{
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -4288,20 +4288,19 @@ directory.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00008 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00009 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00010 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00011 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00012 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00013 {\cf20 //  option) any later version.}\par
-00014 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00015 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00016 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00017 {\cf20 //  more details.}\par
-00018 {\cf20 //}\par
-00019 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00020 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00021 {\cf21 #ifndef _HH_DIRECTORY_H_}\par
 00022 {\cf21 #define _HH_DIRECTORY_H_}\par
 00023 \par
@@ -4861,20 +4860,19 @@ errors.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00002 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00003 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00004 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00005 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00006 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00007 {\cf20 //  option) any later version.}\par
-00008 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00009 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00010 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00011 {\cf20 //  more details.}\par
-00012 {\cf20 //}\par
-00013 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00014 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00015 {\cf21 #ifndef _HH_ERRORS_H_}\par
 00016 {\cf21 #define _HH_ERRORS_H_}\par
 00017 \par
@@ -5341,20 +5339,19 @@ extractor.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00006 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00007 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00008 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00009 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00010 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00011 {\cf20 //  option) any later version.}\par
-00012 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00013 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00014 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00015 {\cf20 //  more details.}\par
-00016 {\cf20 //}\par
-00017 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00018 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00019 {\cf21 #ifndef _HH_EXTRACTOR_H_}\par
 00020 {\cf21 #define _HH_EXTRACTOR_H_}\par
 00021 \par
@@ -5596,22 +5593,21 @@ file_flags.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00002 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00003 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00004 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00005 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00006 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00007 {\cf20 //  option) any later version.}\par
-00008 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00009 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00010 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00011 {\cf20 //  more details.}\par
-00012 {\cf20 //}\par
-00013 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00014 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
-00015 {\cf21 #ifndef _FILE_FLAGS_H_}\par
-00016 {\cf21 #define _FILE_FLAGS_H_}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+00015 {\cf21 #ifndef _HH_FILE_FLAGS_H_}\par
+00016 {\cf21 #define _HH_FILE_FLAGS_H_}\par
 00017 \par
 00018 {\cf21 #include <stdbool.h>}\par
 00019 {\cf21 #include <stdint.h>}\par
@@ -6383,20 +6379,19 @@ hh.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00004 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00005 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00006 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00007 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00008 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00009 {\cf20 //  option) any later version.}\par
-00010 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00011 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00012 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00013 {\cf20 //  more details.}\par
-00014 {\cf20 //}\par
-00015 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00016 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00017 {\cf21 #ifndef _HARVESTER_HARVESTER_H_}\par
 00018 {\cf21 #define _HARVESTER_HARVESTER_H_}\par
 00019 \par
@@ -7038,20 +7033,19 @@ index_file.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00019 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00020 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00021 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00022 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00023 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00024 {\cf20 //  option) any later version.}\par
-00025 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00026 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00027 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00028 {\cf20 //  more details.}\par
-00029 {\cf20 //}\par
-00030 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00031 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00032 {\cf21 #ifndef _HH_INDEX_FILE_H_}\par
 00033 {\cf21 #define _HH_INDEX_FILE_H_}\par
 00034 \par
@@ -7319,20 +7313,19 @@ log.h\par \pard\plain
 Go to the documentation of this file.\par
 {
 \par
-\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 \par
-00008 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
-00009 {\cf20 //  This file is a part of HarvesterHarvester.}\par
-00010 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
-00011 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
-00012 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
-00013 {\cf20 //  option) any later version.}\par
-00014 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
-00015 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
-00016 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
-00017 {\cf20 //  more details.}\par
-00018 {\cf20 //}\par
-00019 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
-00020 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
+\pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf20 //  Copyright (C) 2024  IcePanorama}\par
+00002 {\cf20 //  This file is a part of HarvesterHarvester.}\par
+00003 {\cf20 //  HarvesterHarvester is free software: you can redistribute it and/or modify}\par
+00004 {\cf20 //  it under the terms of the GNU General Public License as published by the}\par
+00005 {\cf20 //  Free Software Foundation, either version 3 of the License, or (at your}\par
+00006 {\cf20 //  option) any later version.}\par
+00007 {\cf20 //  This program is distributed in the hope that it will be useful, but WITHOUT}\par
+00008 {\cf20 //  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or}\par
+00009 {\cf20 //  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for}\par
+00010 {\cf20 //  more details.}\par
+00011 {\cf20 //}\par
+00012 {\cf20 //  You should have received a copy of the GNU General Public License along}\par
+00013 {\cf20 //  with this program.  If not, see <https://www.gnu.org/licenses/>.}\par
 00021 {\cf21 #ifndef _HH_LOG_H_}\par
 00022 {\cf21 #define _HH_LOG_H_}\par
 00023 \par

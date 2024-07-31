@@ -18,8 +18,8 @@
  *  caller is responsible for freeing any memory which may or may not have been
  *  allocated during the use of these functions.
  */
-#ifndef _DATA_READER_H_
-#define _DATA_READER_H_
+#ifndef _HH_DATA_READER_H_
+#define _HH_DATA_READER_H_
 
 #include "datetime.h"
 #include "file_flags.h"
