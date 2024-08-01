@@ -23,7 +23,8 @@
 #include <string.h>
 
 int8_t
-extract_file (FILE *fptr, directory_record *dr, const char *path)
+extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
+                               const char *path)
 {
   /**
    *  the `file_identifier` terminates with a `;` character followed by the
@@ -112,7 +113,7 @@ extract_directory (FILE *fptr, const uint16_t block_size, const char *path)
 
       fseek (fptr, curr_file.location_of_extent * block_size, SEEK_SET);
 
-      if (extract_file (fptr, &curr_file, path) != 0)
+      if (extract_file_using_dir_record (fptr, &curr_file, path) != 0)
         {
           destroy_directory (&dir);
           return -1;

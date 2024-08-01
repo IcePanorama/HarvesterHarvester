@@ -20,6 +20,7 @@
 #define _HH_EXTRACTOR_H_
 
 #include "directory.h"
+#include "index_file.h"
 #include "path_table.h"
 
 #include <stdint.h>
@@ -29,8 +30,8 @@
  *  Extracts a file using its respective `directory_record` and data pointed to
  *  by `fptr`, outputting it to the location denoted by `path`.
  */
-int8_t extract_file (FILE *fptr, struct directory_record *dr,
-                     const char *path);
+int8_t extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
+                                      const char *path);
 
 /** Creates a directory and then extracts every file in said directory. */
 int8_t extract_directory (FILE *fptr, const uint16_t block_size,
@@ -39,12 +40,12 @@ int8_t extract_directory (FILE *fptr, const uint16_t block_size,
 /**
  *  Creates directories for every directory in a given path table and
  *  then extracts all of its files. A wrapper for `extract_directory` and,
- *  therefore also, `extract_file` which handles the extraction of every file
- *  and subdirectory using a given path table.
+ *  therefore also, `extract_file_using_dir_record` which handles the
+ * extraction of every file and subdirectory using a given path table.
  *
  *  @param block_size   logical block size (in big endian form).
  *  @see extract_directory()
- *  @see extract_file()
+ *  @see extract_file_using_dir_record()
  */
 int8_t create_directories_and_extract_data_from_path_file (
     FILE *fptr, uint16_t block_size, struct path_table *pt);

@@ -305,28 +305,32 @@ batch_process_DAT_files ()
 int8_t
 process_new_dat_files (void)
 {
+  // "HARVEST2.DAT" is the longest filename that we're expecting.
   const uint32_t file_path_len = 3 + strlen (OP_OUTPUT_DIR) + strlen ("DISK#")
                                  + strlen ("HARVEST2.DAT");
-  char *interior_dat_file_path = calloc (file_path_len, sizeof (char));
-  if (interior_dat_file_path == NULL)
+  char *index_file_path = calloc (file_path_len, sizeof (char));
+  if (index_file_path == NULL)
     {
       fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, file_path_len);
       return HH_MEM_ALLOC_ERROR;
     }
 
-  // for subdir in OP_OUTPUT_DIR
-  strcpy (interior_dat_file_path, OP_OUTPUT_DIR);
-  strcat (interior_dat_file_path, &OP_PATH_SEPARATOR);
-  strcat (interior_dat_file_path, "DISK1"); // replace w/ subdir name
-  strcat (interior_dat_file_path, &OP_PATH_SEPARATOR);
+  /**
+   *  This should be renamed for the index file since it's not a path to a DAT
+   *  file in this instance.
+   */
+  strcpy (index_file_path, OP_OUTPUT_DIR);
+  strcat (index_file_path, &OP_PATH_SEPARATOR);
+  strcat (index_file_path, "DISK1"); // replace w/ subdir name
+  strcat (index_file_path, &OP_PATH_SEPARATOR);
   // probably need to figure out a  good solution for storing these filenames
   // for the files that we are expecting.
-  strcat (interior_dat_file_path, "INDEX.001");
+  strcat (index_file_path, "INDEX.001");
 
   FILE *fptr = NULL;
-  if (setup_extractor (&fptr, interior_dat_file_path) != 0)
+  if (setup_extractor (&fptr, index_file_path) != 0)
     {
-      free (interior_dat_file_path);
+      free (index_file_path);
       return HH_FOPEN_ERROR;
     }
 
@@ -334,7 +338,7 @@ process_new_dat_files (void)
   if (create_index_file (&idx_file) != 0)
     {
       fclose (fptr);
-      free (interior_dat_file_path);
+      free (index_file_path);
       return -1;
     }
 
@@ -342,12 +346,15 @@ process_new_dat_files (void)
     {
       destroy_index_file (&idx_file);
       fclose (fptr);
-      free (interior_dat_file_path);
+      free (index_file_path);
       return -1;
     }
+  fclose (fptr);
+  fptr = NULL;
+  free (index_file_path);
+
+  print_index_entry (&idx_file.indicies[0]);
 
   destroy_index_file (&idx_file);
-  fclose (fptr);
-  free (interior_dat_file_path);
   return 0;
 }

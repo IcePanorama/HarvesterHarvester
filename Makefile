@@ -33,7 +33,7 @@ WIN64:
 	x86_64-w64-mingw32-gcc -o $(TARGET)_x86_64.exe $(SRC_FILES) $(TEST_SRC_FILES) $(CFLAGS) -I./$(INCL_FILES)
 
 test: $(TARGET)
-	valgrind --leak-check=yes ./$(TARGET) --debug $(DAT_DIR)/HARVEST.DAT
+	valgrind --leak-check=yes ./$(TARGET) $(DAT_DIR)/HARVEST.DAT
 
 clean:
 	-@rm $(TARGET) 2>/dev/null || true

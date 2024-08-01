@@ -115,7 +115,6 @@ process_index_file (FILE *fptr, index_file *idxf)
           return -1;
         }
 
-      print_index_entry (&entry);
       if (add_entry_to_index_file (idxf, &entry) != 0)
         {
           return -1;
