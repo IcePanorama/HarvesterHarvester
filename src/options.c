@@ -44,7 +44,17 @@ handle_command_line_args (int argc, char **argv)
   int i;
   for (i = 1; i < argc; i++)
     {
-      if (argv[i][0] == '-')
+      if (strncmp (argv[i], "-o", 2) == 0)
+        {
+          i++;
+          size_t path_len = strlen (argv[i]);
+          if (argv[i][path_len - 1] == '/' || argv[i][path_len - 1] == '\\')
+            {
+              argv[i][path_len - 1] = '\0';
+            }
+          OP_OUTPUT_DIR = argv[i];
+        }
+      else if (argv[i][0] == '-')
         {
           process_flag (argv[i]);
         }
@@ -87,6 +97,7 @@ print_out_list_of_command_line_arguments (void)
   //  TODO: have some usage.md file that explains this in more detail.
   //  add a note here saying to read that file for details.
   puts ("\t-i: extract internal dat files only.");
+  puts ("\t-o [path/to/dir]: extract dat files to the given directory.");
 }
 
 void
