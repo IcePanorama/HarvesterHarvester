@@ -342,7 +342,7 @@ process_new_dat_files (void)
 
   print_index_entry (&idx_file.indicies[0]);
 
-  char dat_file_path[256];
+  char dat_file_path[256] = { 0 };
   build_path_string_from_file (table, dat_file_path);
   fclose (table);
 
@@ -356,13 +356,12 @@ process_new_dat_files (void)
       return HH_FOPEN_ERROR;
     }
 
-  char output_file_path[256];
-  strcpy (output_file_path, OP_OUTPUT_DIR);
-  strcat (output_file_path, &OP_PATH_SEPARATOR);
-  strcat (output_file_path, "DISK1");
+  char output_file_path[256] = { 0 };
+  // 10 = len("INDEX.001")
+  strncpy (output_file_path, index_file_path, strlen (index_file_path) - 10);
   strcat (output_file_path, idx_file.indicies[0].full_path);
 
-  printf ("Path: %s\n", output_file_path);
+  printf ("Output File Path: %s\n", output_file_path);
 
   if (extract_file_using_idx_entry (dat_file, &idx_file.indicies[0],
                                     output_file_path)
