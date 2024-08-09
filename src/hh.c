@@ -306,9 +306,9 @@ batch_process_DAT_files ()
 int8_t
 process_new_dat_files (void)
 {
+  /* Find, create, and process index_file. */
   // TODO: convert as many malloc'd strings to char arrays as possible.
   char index_file_path[256] = { 0 };
-
   strcpy (index_file_path, OP_OUTPUT_DIR);
   strcat (index_file_path, &OP_PATH_SEPARATOR);
   strcat (index_file_path, "DISK1");
@@ -335,12 +335,9 @@ process_new_dat_files (void)
       return -1;
     }
   fclose (fptr);
+  /*****************************************/
 
   print_index_entry (&idx_file.indicies[0]);
-
-  puts ("");
-
-  printf ("%s\n", idx_file.indicies[0].full_path);
 
   char output_file_path[256];
   strcpy (output_file_path, OP_OUTPUT_DIR);
