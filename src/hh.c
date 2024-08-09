@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -305,32 +306,17 @@ batch_process_DAT_files ()
 int8_t
 process_new_dat_files (void)
 {
-  // "HARVEST2.DAT" is the longest filename that we're expecting.
-  const uint32_t file_path_len = 3 + strlen (OP_OUTPUT_DIR) + strlen ("DISK#")
-                                 + strlen ("HARVEST2.DAT");
-  char *index_file_path = calloc (file_path_len, sizeof (char));
-  if (index_file_path == NULL)
-    {
-      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, file_path_len);
-      return HH_MEM_ALLOC_ERROR;
-    }
+  char index_file_path[256] = { 0 };
 
-  /**
-   *  This should be renamed for the index file since it's not a path to a DAT
-   *  file in this instance.
-   */
   strcpy (index_file_path, OP_OUTPUT_DIR);
   strcat (index_file_path, &OP_PATH_SEPARATOR);
-  strcat (index_file_path, "DISK1"); // replace w/ subdir name
+  strcat (index_file_path, "DISK1");
   strcat (index_file_path, &OP_PATH_SEPARATOR);
-  // probably need to figure out a  good solution for storing these filenames
-  // for the files that we are expecting.
   strcat (index_file_path, "INDEX.001");
 
   FILE *fptr = NULL;
   if (setup_extractor (&fptr, index_file_path) != 0)
     {
-      free (index_file_path);
       return HH_FOPEN_ERROR;
     }
 
@@ -338,7 +324,6 @@ process_new_dat_files (void)
   if (create_index_file (&idx_file) != 0)
     {
       fclose (fptr);
-      free (index_file_path);
       return -1;
     }
 
@@ -346,14 +331,57 @@ process_new_dat_files (void)
     {
       destroy_index_file (&idx_file);
       fclose (fptr);
-      free (index_file_path);
       return -1;
     }
   fclose (fptr);
-  fptr = NULL;
-  free (index_file_path);
 
   print_index_entry (&idx_file.indicies[0]);
+
+  puts ("");
+
+  printf ("%s\n", idx_file.indicies[0].full_path);
+
+  char output_file_path[256];
+  strcpy (output_file_path, OP_OUTPUT_DIR);
+  strcat (output_file_path, &OP_PATH_SEPARATOR);
+  strcat (output_file_path, "DISK1");
+  strcat (output_file_path, idx_file.indicies[0].full_path);
+
+  printf ("Path: %s\n", output_file_path);
+
+  strcpy (index_file_path, OP_OUTPUT_DIR);
+  strcat (index_file_path, &OP_PATH_SEPARATOR);
+  strcat (index_file_path, "DISK1");
+  strcat (index_file_path, &OP_PATH_SEPARATOR);
+  strcat (index_file_path, "HARVEST.DAT");
+
+  FILE *dat_file = fopen (index_file_path, "rb");
+  if (dat_file == NULL)
+    {
+      fprintf (stderr, "Error opening dat file, %s\n", index_file_path);
+      destroy_index_file (&idx_file);
+      return HH_FOPEN_ERROR;
+    }
+
+  FILE *output_file = fopen (output_file_path, "wb");
+  if (output_file == NULL)
+    {
+      fprintf (stderr, "Error opening output file, %s\n", output_file_path);
+      fclose (dat_file);
+      destroy_index_file (&idx_file);
+      return HH_FOPEN_ERROR;
+    }
+
+  /*
+  // File offset needs a better name
+  // TODO: rename to size.
+  for (uint32_t i = 0x0; i < idx_file.indicies[0].file_offset; i++)
+  {
+  }
+  */
+
+  fclose (output_file);
+  fclose (dat_file);
 
   destroy_index_file (&idx_file);
   return 0;
