@@ -94,8 +94,8 @@ process_index_file (FILE *fptr, index_file *idxf)
       fseek (fptr, entry.entry_start + (0x94 - 0x10), SEEK_SET);
 
       /* clang-format off */
-      if ((read_little_endian_data_uint32_t (fptr, &entry.file_start) != 0)
-          || (read_little_endian_data_uint32_t (fptr, &entry.file_offset) != 0))
+      if ((read_little_endian_data_uint32_t (fptr, &entry.start) != 0)
+          || (read_little_endian_data_uint32_t (fptr, &entry.size) != 0))
         {
           return HH_FREAD_ERROR;
         }
@@ -108,10 +108,10 @@ process_index_file (FILE *fptr, index_file *idxf)
       if (read_little_endian_data_uint32_t (fptr, &value) != 0)
         return HH_FREAD_ERROR;
 
-      if (entry.file_offset != value)
+      if (entry.size != value)
         {
-          fprintf (stderr, "ERROR: Expected %08X, got %08X.\n",
-                   entry.file_offset, value);
+          fprintf (stderr, "ERROR: Expected %08X, got %08X.\n", entry.size,
+                   value);
           return -1;
         }
 
@@ -130,8 +130,8 @@ print_index_entry (index_entry *idxe)
   printf ("Entry start: %08X\n", idxe->entry_start);
   printf ("Full path: %s\n", idxe->full_path);
   printf ("Filename: %s\n", idxe->filename);
-  printf ("File start: %08X\n", idxe->file_start);
-  printf ("File offset: %08X\n", idxe->file_offset);
+  printf ("File start: %08X\n", idxe->start);
+  printf ("File size: %08X\n", idxe->size);
 }
 
 int8_t

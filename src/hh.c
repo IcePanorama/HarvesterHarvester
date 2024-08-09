@@ -374,11 +374,9 @@ process_new_dat_files (void)
       return HH_FOPEN_ERROR;
     }
 
-  // jump to file start.
-  fseek (dat_file, idx_file.indicies[0].file_start, SEEK_SET);
+  fseek (dat_file, idx_file.indicies[0].start, SEEK_SET);
 
-  // File offset needs a better name. TODO: rename to size.
-  for (uint32_t i = 0x0; i < idx_file.indicies[0].file_offset; i++)
+  for (uint32_t i = 0x0; i < idx_file.indicies[0].size; i++)
     {
       uint8_t byte;
       if (read_single_uint8 (dat_file, &byte) != 0)
