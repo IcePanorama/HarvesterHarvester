@@ -31,8 +31,7 @@ uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000; //!< 0xF00000 = 15 MiB
 /* Global defaults */
 char *CURRENT_DISK_NAME = NULL;
 
-// TODO: update me when finished
-static const char VERSION_NUMBER_STR[9] = "00.00.00";
+static const char VERSION_NUMBER_STR[9] = "01.00.00";
 
 /** Prints a list of supported command-line arugments to stdout. */
 static void print_out_list_of_command_line_arguments (void);
@@ -75,13 +74,19 @@ print_out_list_of_command_line_arguments (void)
   printf (
       "HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\n",
       VERSION_NUMBER_STR);
-  puts ("Usage: main {options (optional)} {path/to/}[DAT FILE].DAT");
+#ifdef _WIN32
+  puts ("Usage:\n\tHarvesterHarvester_[ARCH].exe [options] "
+        "[path_to_dat_file]\n");
+#else
+  puts ("Usage:\n\t./HarvesterHarvester [options] [path/to/dat_file.dat]\n");
+#endif
   puts ("Command-line arguments:");
   puts ("\t--debug: enables debug mode, skips extracting large files.");
   puts ("\t--help: displays list of command line arguments.");
-  puts ("\t--single: outputs all files into a single directory "
-        "(default=output/).");
   puts ("\t--version: prints out the version number.");
+  //  TODO: have some usage.md file that explains this in more detail.
+  //  add a note here saying to read that file for details.
+  puts ("\t-i: extract internal dat files only.");
 }
 
 void
