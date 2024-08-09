@@ -12,7 +12,6 @@
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "hh.h"
-#include "data_reader.h"
 #include "errors.h"
 #include "extractor.h"
 #include "index_file.h"
@@ -365,30 +364,15 @@ process_new_dat_files (void)
       return HH_FOPEN_ERROR;
     }
 
-  FILE *output_file = fopen (output_file_path, "wb");
-  if (output_file == NULL)
+  if (extract_file_using_idx_entry (dat_file, &idx_file.indicies[0],
+                                    output_file_path)
+      != 0)
     {
-      fprintf (stderr, "Error opening output file, %s\n", output_file_path);
       fclose (dat_file);
       destroy_index_file (&idx_file);
-      return HH_FOPEN_ERROR;
+      return -1;
     }
 
-  fseek (dat_file, idx_file.indicies[0].start, SEEK_SET);
-
-  for (uint32_t i = 0x0; i < idx_file.indicies[0].size; i++)
-    {
-      uint8_t byte;
-      if (read_single_uint8 (dat_file, &byte) != 0)
-        {
-          fprintf (stderr, "ERROR: couldn't read byte, quitting.\n");
-          break;
-        }
-
-      fwrite (&byte, sizeof (uint8_t), 1, output_file);
-    }
-
-  fclose (output_file);
   fclose (dat_file);
 
   destroy_index_file (&idx_file);

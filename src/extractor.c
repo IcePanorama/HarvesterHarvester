@@ -179,3 +179,33 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 
   return 0;
 }
+
+int8_t
+extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
+{
+  FILE *output_file = fopen (path, "wb");
+  if (output_file == NULL)
+    {
+      fprintf (stderr, "Error opening output file, %s\n", path);
+      return HH_FOPEN_ERROR;
+    }
+
+  fseek (fptr, idx->start, SEEK_SET);
+
+  for (uint32_t i = 0x0; i < idx->size; i++)
+    {
+      uint8_t byte;
+      if (read_single_uint8 (fptr, &byte) != 0)
+        {
+          fprintf (stderr, "ERROR: couldn't read byte, quitting.\n");
+          fclose (output_file);
+          return -1;
+        }
+
+      fwrite (&byte, sizeof (uint8_t), 1, output_file);
+    }
+
+  fclose (output_file);
+
+  return 0;
+}

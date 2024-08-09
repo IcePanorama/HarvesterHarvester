@@ -32,6 +32,8 @@
  */
 int8_t extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
                                       const char *path);
+int8_t extract_file_using_idx_entry (FILE *fptr, index_entry *idx,
+                                     const char *path);
 
 /** Creates a directory and then extracts every file in said directory. */
 int8_t extract_directory (FILE *fptr, const uint16_t block_size,
