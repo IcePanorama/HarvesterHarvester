@@ -7768,7 +7768,7 @@ void handle_command_line_args (int argc, char ** argv)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes command-line arguments, setting options as needed. }}\par
 {
-Definition at line {\b 43} of file {\b options.c}.}\par
+Definition at line {\b 44} of file {\b options.c}.}\par
 }
 {\xe \v print_out_list_of_command_line_arguments\:options.c}
 {\xe \v options.c\:print_out_list_of_command_line_arguments}
@@ -7785,7 +7785,7 @@ void print_out_list_of_command_line_arguments (void ){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a list of supported command-line arugments to stdout. }}\par
 {
-Definition at line {\b 83} of file {\b options.c}.}\par
+Definition at line {\b 94} of file {\b options.c}.}\par
 }
 {\xe \v process_flag\:options.c}
 {\xe \v options.c\:process_flag}
@@ -7802,7 +7802,7 @@ void process_flag (char * f){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes options beginning with {\f2 -}  character, called flags. }}\par
 {
-Definition at line {\b 106} of file {\b options.c}.}\par
+Definition at line {\b 122} of file {\b options.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -8040,101 +8040,117 @@ Go to the documentation of this file.\par
 00035 {\cf17 static} {\cf17 const} {\cf18 char} VERSION_NUMBER_STR[9] = {\cf22 "01.00.00"};\par
 00036 \par
 00038 {\cf17 static} {\cf18 void} print_out_list_of_command_line_arguments ({\cf18 void});\par
-00040 {\cf17 static} {\cf18 void} process_flag ({\cf18 char} *f);\par
-00041 \par
-00042 {\cf18 void}\par
-00043 handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv)\par
-00044 \{\par
-00045   {\cf18 int} i;\par
-00046   {\cf19 for} (i = 1; i < argc; i++)\par
-00047     \{\par
-00048       {\cf19 if} (strncmp (argv[i], {\cf22 "-o"}, 2) == 0)\par
-00049         \{\par
-00050           i++;\par
-00051           {\cf18 size_t} path_len = strlen (argv[i]);\par
-00052           {\cf19 if} (argv[i][path_len - 1] == {\cf23 '/'} || argv[i][path_len - 1] == {\cf23 '\\\\'})\par
-00053             \{\par
-00054               argv[i][path_len - 1] = {\cf23 '\\0'};\par
-00055             \}\par
-00056           OP_OUTPUT_DIR = argv[i];\par
-00057         \}\par
-00058       {\cf19 else} {\cf19 if} (argv[i][0] == {\cf23 '-'})\par
-00059         \{\par
-00060           process_flag (argv[i]);\par
-00061         \}\par
-00062       {\cf19 else}\par
-00063         \{\par
-00064           {\cf19 break};\par
-00065         \}\par
-00066     \}\par
-00067 \par
-00068   {\cf19 if} (i == argc)\par
-00069     {\cf19 return};\par
-00070 \par
-00071   {\cf19 if} (is_string_dat_file (argv[argc - 1]))\par
-00072     \{\par
-00073       {\cf20 // just processing the user-provided file @ the user-provided path}\par
-00074       OP_BATCH_PROCESS = {\cf17 false};\par
-00075     \}\par
-00076   {\cf19 else}\par
-00077     \{\par
-00078       handle_unknown_command_line_argument_error (argv[argc - 1]);\par
-00079     \}\par
-00080 \}\par
+00039 \par
+00041 {\cf17 static} {\cf18 void} process_flag ({\cf18 char} *f);\par
+00042 \par
+00043 {\cf18 void}\par
+00044 handle_command_line_args ({\cf18 int} argc, {\cf18 char} **argv)\par
+00045 \{\par
+00046   {\cf18 int} i;\par
+00047   {\cf19 for} (i = 1; i < argc; i++)\par
+00048     \{\par
+00049       {\cf19 if} (strncmp (argv[i], {\cf22 "-d"}, 2) == 0)\par
+00050         \{\par
+00051           i++;\par
+00052           {\cf18 size_t} path_len = strlen (argv[i]);\par
+00053           {\cf19 if} (argv[i][path_len - 1] == {\cf23 '/'} || argv[i][path_len - 1] == {\cf23 '\\\\'})\par
+00054             \{\par
+00055               argv[i][path_len - 1] = {\cf23 '\\0'};\par
+00056             \}\par
+00057           OP_INPUT_DIR = argv[i];\par
+00058         \}\par
+00059       {\cf19 else} {\cf19 if} (strncmp (argv[i], {\cf22 "-o"}, 2) == 0)\par
+00060         \{\par
+00061           i++;\par
+00062           {\cf18 size_t} path_len = strlen (argv[i]);\par
+00063           {\cf19 if} (argv[i][path_len - 1] == {\cf23 '/'} || argv[i][path_len - 1] == {\cf23 '\\\\'})\par
+00064             \{\par
+00065               argv[i][path_len - 1] = {\cf23 '\\0'};\par
+00066             \}\par
+00067           OP_OUTPUT_DIR = argv[i];\par
+00068         \}\par
+00069       {\cf19 else} {\cf19 if} (argv[i][0] == {\cf23 '-'})\par
+00070         \{\par
+00071           process_flag (argv[i]);\par
+00072         \}\par
+00073       {\cf19 else}\par
+00074         \{\par
+00075           {\cf19 break};\par
+00076         \}\par
+00077     \}\par
+00078 \par
+00079   {\cf19 if} (i == argc)\par
+00080     {\cf19 return};\par
 00081 \par
-00082 {\cf18 void}\par
-00083 print_out_list_of_command_line_arguments ({\cf18 void})\par
-00084 \{\par
-00085   printf (\par
-00086       {\cf22 "HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\\n"},\par
-00087       VERSION_NUMBER_STR);\par
-00088 {\cf21 #ifdef _WIN32}\par
-00089   puts ({\cf22 "Usage:\\n\\tHarvesterHarvester_[ARCH].exe [options] "}\par
-00090         {\cf22 "[path_to_dat_file]\\n"});\par
-00091 {\cf21 #else}\par
-00092   puts ({\cf22 "Usage:\\n\\t./HarvesterHarvester [options] [path/to/dat_file.dat]\\n"});\par
-00093 {\cf21 #endif}\par
-00094   puts ({\cf22 "Command-line arguments:"});\par
-00095   puts ({\cf22 "\\t--debug: enables debug mode, skips extracting large files."});\par
-00096   puts ({\cf22 "\\t--help: displays list of command line arguments."});\par
-00097   puts ({\cf22 "\\t--version: prints out the version number."});\par
-00098   {\cf20 //  TODO: have some usage.md file that explains this in more detail.}\par
-00099   {\cf20 //  add a note here saying to read that file for details.}\par
-00100   puts ({\cf22 "\\t-e: don't extract internal dat files."});\par
-00101   puts ({\cf22 "\\t-i: extract internal dat files only."});\par
-00102   puts ({\cf22 "\\t-o [path/to/dir]: extract dat files to the given directory."});\par
-00103 \}\par
-00104 \par
-00105 {\cf18 void}\par
-00106 process_flag ({\cf18 char} *f)\par
-00107 \{\par
-00108   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
-00109     \{\par
-00110       OP_DEBUG_MODE = {\cf17 true};\par
-00111     \}\par
-00112   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
-00113     \{\par
-00114       print_out_list_of_command_line_arguments ();\par
-00115       exit (0);\par
-00116     \}\par
-00117   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-e"}) == 0)\par
-00118     \{\par
-00119       OP_SKIP_INT_DAT_PROCESSING = {\cf17 true};\par
-00120     \}\par
-00121   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-i"}) == 0)\par
-00122     \{\par
-00123       OP_SKIP_DAT_PROCESSING = {\cf17 true};\par
-00124     \}\par
-00125   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
-00126     \{\par
-00127       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
-00128       exit (0);\par
-00129     \}\par
-00130   {\cf19 else}\par
-00131     \{\par
-00132       handle_unknown_command_line_argument_error (f);\par
-00133     \}\par
-00134 \}\par
+00082   {\cf19 if} (is_string_dat_file (argv[argc - 1]))\par
+00083     \{\par
+00084       {\cf20 // just processing the user-provided file @ the user-provided path}\par
+00085       OP_BATCH_PROCESS = {\cf17 false};\par
+00086     \}\par
+00087   {\cf19 else}\par
+00088     \{\par
+00089       handle_unknown_command_line_argument_error (argv[argc - 1]);\par
+00090     \}\par
+00091 \}\par
+00092 \par
+00093 {\cf18 void}\par
+00094 print_out_list_of_command_line_arguments ({\cf18 void})\par
+00095 \{\par
+00096   printf (\par
+00097       {\cf22 "HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\\n"},\par
+00098       VERSION_NUMBER_STR);\par
+00099 {\cf21 #ifdef _WIN32}\par
+00100   puts ({\cf22 "Usage:\\n\\tHarvesterHarvester_[ARCH].exe [options] "}\par
+00101         {\cf22 "[path_to_dat_file]\\n"});\par
+00102 {\cf21 #else}\par
+00103   puts ({\cf22 "Usage:\\n\\t./HarvesterHarvester [options] [path/to/dat_file.dat]\\n"});\par
+00104 {\cf21 #endif}\par
+00105   puts ({\cf22 "Command-line arguments:"});\par
+00106   puts ({\cf22 "\\t--debug: enables debug mode, skips extracting large files."});\par
+00107   puts ({\cf22 "\\t--help: displays list of command line arguments."});\par
+00108   puts ({\cf22 "\\t--version: prints out the version number."});\par
+00109   {\cf20 //  TODO: have some usage.md file that explains this in more detail.}\par
+00110   {\cf20 //  add a note here saying to read that file for details.}\par
+00111   puts ({\cf22 "\\t-d [path/to/some-dir]: specify the input directory for batch "}\par
+00112         {\cf22 "processing dat files."});\par
+00113   puts ({\cf22 "\\t-e: don't extract internal dat files."});\par
+00114   puts ({\cf22 "\\t-i: extract internal dat files only."});\par
+00115   puts ({\cf22 "\\t-o [path/to/some-dir]: extract dat files to the given directory."});\par
+00116   puts ({\cf22 "\\nOptional:"});\par
+00117   puts ({\cf22 "\\tpath/to/dat_file.dat: specify the path to a `.dat` file to be "}\par
+00118         {\cf22 "processed."});\par
+00119 \}\par
+00120 \par
+00121 {\cf18 void}\par
+00122 process_flag ({\cf18 char} *f)\par
+00123 \{\par
+00124   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
+00125     \{\par
+00126       OP_DEBUG_MODE = {\cf17 true};\par
+00127     \}\par
+00128   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
+00129     \{\par
+00130       print_out_list_of_command_line_arguments ();\par
+00131       exit (0);\par
+00132     \}\par
+00133   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-e"}) == 0)\par
+00134     \{\par
+00135       OP_SKIP_INT_DAT_PROCESSING = {\cf17 true};\par
+00136     \}\par
+00137   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-i"}) == 0)\par
+00138     \{\par
+00139       OP_SKIP_DAT_PROCESSING = {\cf17 true};\par
+00140     \}\par
+00141   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
+00142     \{\par
+00143       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
+00144       exit (0);\par
+00145     \}\par
+00146   {\cf19 else}\par
+00147     \{\par
+00148       handle_unknown_command_line_argument_error (f);\par
+00149     \}\par
+00150 \}\par
 }
 \par \pard\plain 
 
@@ -8251,7 +8267,7 @@ void handle_command_line_args (int argc, char ** argv)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes command-line arguments, setting options as needed. }}\par
 {
-Definition at line {\b 43} of file {\b options.c}.}\par
+Definition at line {\b 44} of file {\b options.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 

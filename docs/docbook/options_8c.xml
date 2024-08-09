@@ -73,7 +73,7 @@
 <para>Processes command-line arguments, setting options as needed. </para>
 </para>
 <para>
-Definition at line <link linkend="_options_8c_source_1l00043">43</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00044">44</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8c_1a5413a17f20b0c5daf64765e6c104768d"/><section>
     <title>print_out_list_of_command_line_arguments()</title>
@@ -84,7 +84,7 @@ Definition at line <link linkend="_options_8c_source_1l00043">43</link> of file 
 <para>Prints a list of supported command-line arugments to stdout. </para>
 </para>
 <para>
-Definition at line <link linkend="_options_8c_source_1l00083">83</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00094">94</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 <anchor xml:id="_options_8c_1a6b175948738c4d93a820a0ada9e54669"/><section>
     <title>process_flag()</title>
@@ -95,7 +95,7 @@ Definition at line <link linkend="_options_8c_source_1l00083">83</link> of file 
 <para>Processes options beginning with <computeroutput>-</computeroutput> character, called flags. </para>
 </para>
 <para>
-Definition at line <link linkend="_options_8c_source_1l00106">106</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00122">122</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 </section>
 <section>

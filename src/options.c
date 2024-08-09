@@ -36,6 +36,7 @@ static const char VERSION_NUMBER_STR[9] = "01.00.00";
 
 /** Prints a list of supported command-line arugments to stdout. */
 static void print_out_list_of_command_line_arguments (void);
+
 /** Processes options beginning with `-` character, called flags. */
 static void process_flag (char *f);
 
@@ -45,7 +46,17 @@ handle_command_line_args (int argc, char **argv)
   int i;
   for (i = 1; i < argc; i++)
     {
-      if (strncmp (argv[i], "-o", 2) == 0)
+      if (strncmp (argv[i], "-d", 2) == 0)
+        {
+          i++;
+          size_t path_len = strlen (argv[i]);
+          if (argv[i][path_len - 1] == '/' || argv[i][path_len - 1] == '\\')
+            {
+              argv[i][path_len - 1] = '\0';
+            }
+          OP_INPUT_DIR = argv[i];
+        }
+      else if (strncmp (argv[i], "-o", 2) == 0)
         {
           i++;
           size_t path_len = strlen (argv[i]);
@@ -97,9 +108,14 @@ print_out_list_of_command_line_arguments (void)
   puts ("\t--version: prints out the version number.");
   //  TODO: have some usage.md file that explains this in more detail.
   //  add a note here saying to read that file for details.
+  puts ("\t-d [path/to/some-dir]: specify the input directory for batch "
+        "processing dat files.");
   puts ("\t-e: don't extract internal dat files.");
   puts ("\t-i: extract internal dat files only.");
-  puts ("\t-o [path/to/dir]: extract dat files to the given directory.");
+  puts ("\t-o [path/to/some-dir]: extract dat files to the given directory.");
+  puts ("\nOptional:");
+  puts ("\tpath/to/dat_file.dat: specify the path to a `.dat` file to be "
+        "processed.");
 }
 
 void
