@@ -32,12 +32,17 @@
  */
 int8_t extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
                                       const char *path);
+/** TODO: add documentation. */
 int8_t extract_file_using_idx_entry (FILE *fptr, index_entry *idx,
                                      const char *path);
 
 /** Creates a directory and then extracts every file in said directory. */
 int8_t extract_directory (FILE *fptr, const uint16_t block_size,
                           const char *path);
+
+/** TODO: add documentation. */
+int8_t extract_index_file (index_file *idx, const char *idx_path,
+                           const char *dat_path);
 
 /**
  *  Creates directories for every directory in a given path table and

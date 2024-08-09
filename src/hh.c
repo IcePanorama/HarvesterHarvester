@@ -309,7 +309,6 @@ process_new_dat_files (void)
       return HH_FOPEN_ERROR;
     }
 
-  /* Find, create, and process index_file. */
   // TODO: convert as many malloc'd strings to char arrays as possible.
   char index_file_path[256] = { 0 };
   build_path_string_from_file (table, index_file_path);
@@ -329,7 +328,7 @@ process_new_dat_files (void)
       return -1;
     }
 
-  printf ("Processing index file, %s\n", index_file_path);
+  printf ("Processing index file: %s.\n", index_file_path);
   if (process_index_file (fptr, &idx_file) != 0)
     {
       destroy_index_file (&idx_file);
@@ -338,41 +337,17 @@ process_new_dat_files (void)
       return -1;
     }
   fclose (fptr);
-  /*****************************************/
-
-  print_index_entry (&idx_file.indicies[0]);
 
   char dat_file_path[256] = { 0 };
   build_path_string_from_file (table, dat_file_path);
   fclose (table);
 
-  printf ("Dat file path: %s\n", dat_file_path);
-
-  FILE *dat_file = fopen (dat_file_path, "rb");
-  if (dat_file == NULL)
+  if (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)
     {
-      fprintf (stderr, "Error opening dat file, %s\n", dat_file_path);
-      destroy_index_file (&idx_file);
-      return HH_FOPEN_ERROR;
-    }
-
-  char output_file_path[256] = { 0 };
-  // 10 = len("INDEX.001")
-  strncpy (output_file_path, index_file_path, strlen (index_file_path) - 10);
-  strcat (output_file_path, idx_file.indicies[0].full_path);
-
-  printf ("Output File Path: %s\n", output_file_path);
-
-  if (extract_file_using_idx_entry (dat_file, &idx_file.indicies[0],
-                                    output_file_path)
-      != 0)
-    {
-      fclose (dat_file);
       destroy_index_file (&idx_file);
       return -1;
     }
 
-  fclose (dat_file);
   destroy_index_file (&idx_file);
   return 0;
 }

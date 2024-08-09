@@ -183,11 +183,23 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 int8_t
 extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
 {
+  printf ("Extracting file: %s\n", path);
+
   FILE *output_file = fopen (path, "wb");
   if (output_file == NULL)
     {
-      fprintf (stderr, "Error opening output file, %s\n", path);
-      return HH_FOPEN_ERROR;
+      char tmp[256] = { 0 };
+      strncpy (tmp, path, strlen (path) - strlen (idx->filename));
+
+      if (create_new_output_directory (tmp) != 0)
+        return -1;
+
+      output_file = fopen (path, "wb");
+      if (output_file == NULL)
+        {
+          fprintf (stderr, "Error opening output file, %s.\n", path);
+          return HH_FOPEN_ERROR;
+        }
     }
 
   fseek (fptr, idx->start, SEEK_SET);
@@ -206,6 +218,40 @@ extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
     }
 
   fclose (output_file);
+  return 0;
+}
 
+int8_t
+extract_index_file (index_file *idx, const char *idx_path,
+                    const char *dat_path)
+{
+  FILE *dat_file = fopen (dat_path, "rb");
+  if (dat_file == NULL)
+    {
+      fprintf (stderr, "Error opening dat file, %s.\n", dat_path);
+      return HH_FOPEN_ERROR;
+    }
+
+  for (size_t i = 0; i < idx->current_index; i++)
+    {
+      char output_path[256] = { 0 };
+
+      /**
+       *  Gives you the `OP_OUTPUT_DIR/DISK#/` part of the path.
+       *  10 = len("INDEX.001")
+       */
+      strncpy (output_path, idx_path, strlen (idx_path) - 10);
+      strcat (output_path, idx->indicies[i].full_path);
+
+      if (extract_file_using_idx_entry (dat_file, &idx->indicies[i],
+                                        output_path)
+          != 0)
+        {
+          fclose (dat_file);
+          return -1;
+        }
+    }
+
+  fclose (dat_file);
   return 0;
 }

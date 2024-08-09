@@ -36,6 +36,18 @@ create_output_directory (char *path)
   if (prepend_path_string (path, OP_OUTPUT_DIR) != 0)
     return HH_MEM_ALLOC_ERROR;
 
+  create_new_output_directory (path);
+
+  return 0;
+}
+
+int8_t
+create_new_output_directory (const char *path)
+{
+  if (directory_exists (path))
+    return 0;
+
+  // Why +2 here? '\0' and ?
   char *tmp = calloc (strlen (path) + 2, sizeof (char));
   if (tmp == NULL)
     {

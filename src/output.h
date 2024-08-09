@@ -23,6 +23,10 @@
  *
  *  @return zero on success, non-zero on failure.
  */
+// TODO: path should be of type `const char *`
 int8_t create_output_directory (char *path);
+
+/** TODO: add documentaion. */
+int8_t create_new_output_directory (const char *path);
 
 #endif
