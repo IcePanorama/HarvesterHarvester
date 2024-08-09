@@ -309,45 +309,53 @@ process_new_dat_files (void)
       return HH_FOPEN_ERROR;
     }
 
-  // TODO: convert as many malloc'd strings to char arrays as possible.
-  char index_file_path[256] = { 0 };
-  build_path_string_from_file (table, index_file_path);
-
-  FILE *fptr = NULL;
-  if (setup_extractor (&fptr, index_file_path) != 0)
+  while (!peek_eof (table))
     {
-      fclose (table);
-      return HH_FOPEN_ERROR;
-    }
+      // TODO: convert as many malloc'd strings to char arrays as possible.
+      char index_file_path[256] = { 0 };
+      build_path_string_from_file (table, index_file_path);
 
-  index_file idx_file;
-  if (create_index_file (&idx_file) != 0)
-    {
+      FILE *fptr = NULL;
+      if (setup_extractor (&fptr, index_file_path) != 0)
+        {
+          printf ("Index file, %s, not found. Skipping...\n", index_file_path);
+
+          // Skip next line
+          build_path_string_from_file (table, index_file_path);
+
+          continue;
+        }
+
+      index_file idx_file;
+      if (create_index_file (&idx_file) != 0)
+        {
+          fclose (fptr);
+          fclose (table);
+          return -1;
+        }
+
+      printf ("Processing index file: %s\n", index_file_path);
+      if (process_index_file (fptr, &idx_file) != 0)
+        {
+          destroy_index_file (&idx_file);
+          fclose (table);
+          fclose (fptr);
+          return -1;
+        }
       fclose (fptr);
-      fclose (table);
-      return -1;
-    }
 
-  printf ("Processing index file: %s.\n", index_file_path);
-  if (process_index_file (fptr, &idx_file) != 0)
-    {
+      char dat_file_path[256] = { 0 };
+      build_path_string_from_file (table, dat_file_path);
+
+      if (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)
+        {
+          destroy_index_file (&idx_file);
+          return -1;
+        }
+
       destroy_index_file (&idx_file);
-      fclose (table);
-      fclose (fptr);
-      return -1;
     }
-  fclose (fptr);
 
-  char dat_file_path[256] = { 0 };
-  build_path_string_from_file (table, dat_file_path);
   fclose (table);
-
-  if (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)
-    {
-      destroy_index_file (&idx_file);
-      return -1;
-    }
-
-  destroy_index_file (&idx_file);
   return 0;
 }
