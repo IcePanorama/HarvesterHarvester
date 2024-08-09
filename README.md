@@ -1,5 +1,5 @@
 # HarvesterHarvester
-A tool for harvesting data out of [_Harvester_'s (DigiFX Interactive, 1996)](https://en.wikipedia.org/wiki/Harvester_(video_game)) DAT files.
+A tool for harvesting data out of [_Harvester_'s (DigiFX Interactive, 1996)](https://en.wikipedia.org/wiki/Harvester_(video_game)) dat files.
 
 ## Installation
 ### Easiest Way
@@ -47,7 +47,7 @@ HARVEST4.DAT
 
 ## A note on piracy
 
-This program requires that you legally own a copy of _Harvester_ in order to source the necessary .DAT files. 
+This program requires that you legally own a copy of _Harvester_ in order to source the necessary `.dat` files. 
 
 The GOG version (which this project was built around) [is available here for $5.99](https://www.gog.com/en/game/harvester), although it's worth noting that it does go on sale rather often.
 
