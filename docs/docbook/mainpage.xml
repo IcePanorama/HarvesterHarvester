@@ -3,7 +3,7 @@
 <title>HarvesterHarvester</title>
 <indexterm><primary>HarvesterHarvester</primary></indexterm>
 
-<para><anchor xml:id="_index_1md_README"/>A tool for harvesting data out of <link xlink:href="https://en.wikipedia.org/wiki/Harvester_(video_game)"><emphasis>Harvester</emphasis>&apos;s (DigiFX Interactive, 1996)</link> DAT files.</para>
+<para><anchor xml:id="_index_1md_README"/>A tool for harvesting data out of <link xlink:href="https://en.wikipedia.org/wiki/Harvester_(video_game)"><emphasis>Harvester</emphasis>&apos;s (DigiFX Interactive, 1996)</link> dat files.</para>
 <section xml:id="_index_1autotoc_md1">
 <title>Installation</title><section xml:id="_index_1autotoc_md2">
 <title>Easiest Way</title>
@@ -56,7 +56,7 @@ HARVEST4.DAT
 </section>
 <section xml:id="_index_1autotoc_md6">
 <title>A note on piracy</title>
-<para>This program requires that you legally own a copy of <emphasis>Harvester</emphasis> in order to source the necessary .DAT files.</para>
+<para>This program requires that you legally own a copy of <emphasis>Harvester</emphasis> in order to source the necessary <computeroutput>.dat</computeroutput> files.</para>
 
 <para>The GOG version (which this project was built around) <link xlink:href="https://www.gog.com/en/game/harvester">is available here for $5.99</link>, although it&apos;s worth noting that it does go on sale rather often.</para>
 

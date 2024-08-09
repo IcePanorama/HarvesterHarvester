@@ -46,6 +46,7 @@ handle_command_line_args (int argc, char **argv)
   int i;
   for (i = 1; i < argc; i++)
     {
+      /** Handle multi-part command-line arguments. */
       if (strncmp (argv[i], "-d", 2) == 0)
         {
           i++;
@@ -114,7 +115,7 @@ print_out_list_of_command_line_arguments (void)
   puts ("\t-i: extract internal dat files only.");
   puts ("\t-o [path/to/some-dir]: extract dat files to the given directory.");
   puts ("\nOptional:");
-  puts ("\tpath/to/dat_file.dat: specify the path to a `.dat` file to be "
+  puts ("\tpath/to/dat_file.dat: specify the path to a dat file to be "
         "processed.");
 }
 
