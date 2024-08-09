@@ -139,57 +139,71 @@ $(function(){initNavTree('output_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="utils_8c.html#a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</a> (path, <a class="code hl_variable" href="options_8c.html#a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</a>) != 0)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</a>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordtype">char</span> *tmp = calloc (strlen (path) + 2, <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">if</span> (tmp == NULL)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      fprintf (stderr, <a class="code hl_variable" href="errors_8c.html#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a>, strlen (path) + 2);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</a>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  strcpy (tmp, path);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordtype">char</span> *token = strtok (tmp, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keywordtype">char</span> *dir = calloc (strlen (path) + 2, <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keywordflow">if</span> (dir == NULL)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      fprintf (stderr, <a class="code hl_variable" href="errors_8c.html#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a>, strlen (path) + 2);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      free (tmp);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</a>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="keywordflow">while</span> (token != NULL)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>      strcat (dir, token);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <a class="code hl_function" href="output_8c.html#add12be6feec39ec622b2f29e078e507d">create_new_output_directory</a> (path);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>}</div>
+</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>int8_t</div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="output_8c.html#add12be6feec39ec622b2f29e078e507d">   45</a></span><a class="code hl_function" href="output_8c.html#add12be6feec39ec622b2f29e078e507d">create_new_output_directory</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> *path)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="utils_8c.html#a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</a> (path))</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="comment">// Why +2 here? &#39;\0&#39; and ?</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordtype">char</span> *tmp = calloc (strlen (path) + 2, <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordflow">if</span> (tmp == NULL)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      fprintf (stderr, <a class="code hl_variable" href="errors_8c.html#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a>, strlen (path) + 2);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  strcpy (tmp, path);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  <span class="keywordtype">char</span> *token = strtok (tmp, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="utils_8c.html#a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</a> (dir))</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>          <span class="comment">// TODO: test on Windows</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>          <span class="keywordtype">int</span> status;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>          status = _mkdir (dir);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>          status = mkdir (dir, 0700);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>          <span class="keywordflow">if</span> (status != 0)</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>              fprintf (stderr,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                       <span class="stringliteral">&quot;ERROR: failed to create the following output &quot;</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                       <span class="stringliteral">&quot;directory, %s\n.&quot;</span>,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                       path);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>              free (dir);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>              free (tmp);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>              <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</a>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      strcat (dir, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      token = strtok (NULL, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  free (dir);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  free (tmp);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>}</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordtype">char</span> *dir = calloc (strlen (path) + 2, <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="keywordflow">if</span> (dir == NULL)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      fprintf (stderr, <a class="code hl_variable" href="errors_8c.html#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a>, strlen (path) + 2);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      free (tmp);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</a>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keywordflow">while</span> (token != NULL)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      strcat (dir, token);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="utils_8c.html#a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</a> (dir))</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        {</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>          <span class="comment">// TODO: test on Windows</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>          <span class="keywordtype">int</span> status;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>          status = _mkdir (dir);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>          status = mkdir (dir, 0700);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>          <span class="keywordflow">if</span> (status != 0)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>              fprintf (stderr,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                       <span class="stringliteral">&quot;ERROR: failed to create the following output &quot;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                       <span class="stringliteral">&quot;directory, %s\n.&quot;</span>,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                       path);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>              free (dir);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>              free (tmp);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>              <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      strcat (dir, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      token = strtok (NULL, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  free (dir);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  free (tmp);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
 </div>
 <div class="ttc" id="aerrors_8c_html_ab2272d0da4232afba19f95bf02944157"><div class="ttname"><a href="errors_8c.html#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a></div><div class="ttdeci">const char * CALLOC_FAILED_ERR_MSG_FMT</div><div class="ttdoc">Format string for failed calloc error message.</div><div class="ttdef"><b>Definition</b> <a href="errors_8c_source.html#l00006">errors.c:7</a></div></div>
 <div class="ttc" id="aerrors_8h_html"><div class="ttname"><a href="errors_8h.html">errors.h</a></div></div>
@@ -200,9 +214,10 @@ $(function(){initNavTree('output_8c_source.html',''); initResizable(true); });
 <div class="ttc" id="aoptions_8c_html_ab618e22311642682edcbbddd408ad110"><div class="ttname"><a href="options_8c.html#ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</a></div><div class="ttdeci">char * CURRENT_DISK_NAME</div><div class="ttdoc">Current disk name as denoted by the volume_identifier in volume_descriptor_data.</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00032">options.c:32</a></div></div>
 <div class="ttc" id="aoptions_8h_html"><div class="ttname"><a href="options_8h.html">options.h</a></div></div>
 <div class="ttc" id="aoutput_8c_html_acef952bf7d1077d8f68a1be1f084b2ee"><div class="ttname"><a href="output_8c.html#acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</a></div><div class="ttdeci">int8_t create_output_directory(char *path)</div><div class="ttdoc">output.h - container for functions related to the output directory.</div><div class="ttdef"><b>Definition</b> <a href="#l00028">output.c:28</a></div></div>
+<div class="ttc" id="aoutput_8c_html_add12be6feec39ec622b2f29e078e507d"><div class="ttname"><a href="output_8c.html#add12be6feec39ec622b2f29e078e507d">create_new_output_directory</a></div><div class="ttdeci">int8_t create_new_output_directory(const char *path)</div><div class="ttdoc">Creates a subdirectory at the given path, if it doesn't already exist.</div><div class="ttdef"><b>Definition</b> <a href="#l00045">output.c:45</a></div></div>
 <div class="ttc" id="aoutput_8h_html"><div class="ttname"><a href="output_8h.html">output.h</a></div></div>
-<div class="ttc" id="autils_8c_html_a28cf3fb6f4d89ea760afeca3f07a377b"><div class="ttname"><a href="utils_8c.html#a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</a></div><div class="ttdeci">bool directory_exists(const char *dir)</div><div class="ttdoc">Returns true if the given directory exists.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00088">utils.c:88</a></div></div>
-<div class="ttc" id="autils_8c_html_a41ffa7a16724ed0473f420933cfb7b87"><div class="ttname"><a href="utils_8c.html#a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</a></div><div class="ttdeci">int8_t prepend_path_string(char *str, const char *prefix)</div><div class="ttdoc">Prepends a given prefix onto a given string, adding an OP_PATH_SEPARATOR between the two of them.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00031">utils.c:31</a></div></div>
+<div class="ttc" id="autils_8c_html_a28cf3fb6f4d89ea760afeca3f07a377b"><div class="ttname"><a href="utils_8c.html#a28cf3fb6f4d89ea760afeca3f07a377b">directory_exists</a></div><div class="ttdeci">bool directory_exists(const char *dir)</div><div class="ttdoc">Returns true if the given directory exists.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00089">utils.c:89</a></div></div>
+<div class="ttc" id="autils_8c_html_a41ffa7a16724ed0473f420933cfb7b87"><div class="ttname"><a href="utils_8c.html#a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</a></div><div class="ttdeci">int8_t prepend_path_string(char *str, const char *prefix)</div><div class="ttdoc">Prepends a given prefix onto a given string, adding an OP_PATH_SEPARATOR between the two of them.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00032">utils.c:32</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

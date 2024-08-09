@@ -5,7 +5,7 @@
 <programlisting linenumbering="unnumbered">#include &quot;extractor.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;output.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>int8_t <link linkend="_extractor_8c_1a6c570aa556812918f6d97359199ef25a">extract_file</link> (FILE *fptr, <link linkend="_structdirectory__record">directory_record</link> *dr, const char *path)</para>
+            <listitem><para>int8_t <link linkend="_extractor_8c_1af2da2decbda4c7a7bf6e857b43767772">extract_file_using_dir_record</link> (FILE *fptr, struct <link linkend="_structdirectory__record">directory_record</link> *dr, const char *path)</para>
 
 <para><link linkend="_extractor_8h">extractor.h</link> - container for all file extraction functions. </para>
 </listitem>
@@ -16,6 +16,14 @@
             <listitem><para>int8_t <link linkend="_extractor_8c_1ad53840f52d541af8bc89a7e6c86e29eb">create_directories_and_extract_data_from_path_file</link> (FILE *fptr, uint16_t block_size, <link linkend="_structpath__table">path_table</link> *pt)</para>
 
 <para>Creates directories for every directory in a given path table and then extracts all of its files. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_extractor_8c_1a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</link> (FILE *fptr, <link linkend="_structindex__entry">index_entry</link> *idx, const char *path)</para>
+
+<para>Extracts a file using its corresponding <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> and data pointed to by <computeroutput>fptr</computeroutput>, outputting it to the location denoated by <computeroutput>path</computeroutput>. </para>
+</listitem>
+            <listitem><para>int8_t <link linkend="_extractor_8c_1a5bdeb2d2539ae12cbe315e3a606a98c2">extract_index_file</link> (<link linkend="_structindex__file">index_file</link> *idx, const char *idx_path, const char *dat_path)</para>
+
+<para>Extracts all of the files described in the given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -30,7 +38,7 @@
 <para>Creates directories for every directory in a given path table and then extracts all of its files. </para>
 </para>
 
-<para>A wrapper for <computeroutput>extract_directory</computeroutput> and, therefore also, <computeroutput>extract_file</computeroutput> which handles the extraction of every file and subdirectory using a given path table.</para>
+<para>A wrapper for <computeroutput>extract_directory</computeroutput> and, therefore also, <computeroutput>extract_file_using_dir_record</computeroutput> which handles the extraction of every file and subdirectory using a given path table.</para>
 
 <para>
                 <formalpara>
@@ -56,11 +64,11 @@ Parameters</title>
 
 <para><link linkend="_extractor_8h_1a4727cdfccac62ddc325d2ed70eddf467">extract_directory()</link> </para>
 
-<para><link linkend="_extractor_8h_1a553117edee61f114d5f6fd9d28d57313">extract_file()</link> </para>
+<para><link linkend="_extractor_8h_1af2da2decbda4c7a7bf6e857b43767772">extract_file_using_dir_record()</link> </para>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00127">127</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00128">128</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 <anchor xml:id="_extractor_8c_1a4727cdfccac62ddc325d2ed70eddf467"/><section>
     <title>extract_directory()</title>
@@ -71,13 +79,13 @@ Definition at line <link linkend="_extractor_8c_source_1l00127">127</link> of fi
 <para>Creates a directory and then extracts every file in said directory. </para>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00089">89</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00090">90</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
-<anchor xml:id="_extractor_8c_1a6c570aa556812918f6d97359199ef25a"/><section>
-    <title>extract_file()</title>
-<indexterm><primary>extract_file</primary><secondary>extractor.c</secondary></indexterm>
-<indexterm><primary>extractor.c</primary><secondary>extract_file</secondary></indexterm>
-<para><computeroutput>int8_t extract_file (FILE * fptr, struct <link linkend="_structdirectory__record">directory_record</link> * dr, const char * path)</computeroutput></para><para>
+<anchor xml:id="_extractor_8c_1af2da2decbda4c7a7bf6e857b43767772"/><section>
+    <title>extract_file_using_dir_record()</title>
+<indexterm><primary>extract_file_using_dir_record</primary><secondary>extractor.c</secondary></indexterm>
+<indexterm><primary>extractor.c</primary><secondary>extract_file_using_dir_record</secondary></indexterm>
+<para><computeroutput>int8_t extract_file_using_dir_record (FILE * fptr, struct <link linkend="_structdirectory__record">directory_record</link> * dr, const char * path)</computeroutput></para><para>
 
 <para><link linkend="_extractor_8h">extractor.h</link> - container for all file extraction functions. </para>
 </para>
@@ -89,6 +97,59 @@ Definition at line <link linkend="_extractor_8c_source_1l00089">89</link> of fil
 <para>Just use the default/existing filename. It&apos;ll be incorrect, but probably not worth stoping execution over. Users could just manually remove the <computeroutput>;1</computeroutput> part; the data itself should be fine.</para>
 <para>
 Definition at line <link linkend="_extractor_8c_source_1l00026">26</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+</section>
+<anchor xml:id="_extractor_8c_1a8a69ed144c7791001eb2d6055e297bfd"/><section>
+    <title>extract_file_using_idx_entry()</title>
+<indexterm><primary>extract_file_using_idx_entry</primary><secondary>extractor.c</secondary></indexterm>
+<indexterm><primary>extractor.c</primary><secondary>extract_file_using_idx_entry</secondary></indexterm>
+<para><computeroutput>int8_t extract_file_using_idx_entry (FILE * fptr, <link linkend="_structindex__entry">index_entry</link> * idx, const char * path)</computeroutput></para><para>
+
+<para>Extracts a file using its corresponding <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> and data pointed to by <computeroutput>fptr</computeroutput>, outputting it to the location denoated by <computeroutput>path</computeroutput>. </para>
+</para>
+<para>
+Definition at line <link linkend="_extractor_8c_source_1l00184">184</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+</section>
+<anchor xml:id="_extractor_8c_1a5bdeb2d2539ae12cbe315e3a606a98c2"/><section>
+    <title>extract_index_file()</title>
+<indexterm><primary>extract_index_file</primary><secondary>extractor.c</secondary></indexterm>
+<indexterm><primary>extractor.c</primary><secondary>extract_index_file</secondary></indexterm>
+<para><computeroutput>int8_t extract_index_file (<link linkend="_structindex__file">index_file</link> * idx, const char * idx_path, const char * dat_path)</computeroutput></para><para>
+
+<para>Extracts all of the files described in the given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+</para>
+
+<para><computeroutput>idx_path</computeroutput> is needed to build an output path.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>`idx_path`</entry><entry>
+<para>relative path to the given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>`dat_path`</entry><entry>
+<para>relative path to the corresponding dat file. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+
+<para>Gives you the <computeroutput>OP_OUTPUT_DIR/DISK#/</computeroutput> part of the path. 10 = len(&quot;INDEX.001&quot;)</para>
+<para>
+Definition at line <link linkend="_extractor_8c_source_1l00225">225</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 </section>
 </section>

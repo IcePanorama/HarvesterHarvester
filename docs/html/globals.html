@@ -111,6 +111,7 @@ $(function(){initNavTree('globals.html',''); initResizable(true); });
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
 <li>batch_process_DAT_files()&#160;:&#160;<a class="el" href="hh_8c.html#a94a58b09efa37ee0fca9cb994a29b16d">hh.c</a>, <a class="el" href="hh_8h.html#ae217f3d8cb5e691184f81e097a61ed15">hh.h</a></li>
 <li>BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN&#160;:&#160;<a class="el" href="volume__descriptor_8h.html#afcc3b336c283fd14202e7ed2003035df">volume_descriptor.h</a></li>
+<li>build_path_string_from_file()&#160;:&#160;<a class="el" href="data__reader_8c.html#a7d5ed65e276ef3acea52cd349795d7fe">data_reader.c</a>, <a class="el" href="data__reader_8h.html#a7d5ed65e276ef3acea52cd349795d7fe">data_reader.h</a></li>
 <li>BYTES_TO_READ&#160;:&#160;<a class="el" href="log_8c.html#a41e9ced92689f94ffc427d5e2e658382">log.c</a></li>
 </ul>
 
@@ -123,6 +124,7 @@ $(function(){initNavTree('globals.html',''); initResizable(true); });
 <li>create_directory()&#160;:&#160;<a class="el" href="directory_8c.html#a588d5ddc87f420409a34325d09ba125a">directory.c</a>, <a class="el" href="directory_8h.html#a588d5ddc87f420409a34325d09ba125a">directory.h</a></li>
 <li>create_file_flags()&#160;:&#160;<a class="el" href="file__flags_8c.html#aacfa73039d80ff8aafa6b5cc1d8c54b5">file_flags.c</a>, <a class="el" href="file__flags_8h.html#aacfa73039d80ff8aafa6b5cc1d8c54b5">file_flags.h</a></li>
 <li>create_index_file()&#160;:&#160;<a class="el" href="index__file_8c.html#a8d0c5734d83636faa168e5869954b500">index_file.c</a>, <a class="el" href="index__file_8h.html#a8d0c5734d83636faa168e5869954b500">index_file.h</a></li>
+<li>create_new_output_directory()&#160;:&#160;<a class="el" href="output_8c.html#add12be6feec39ec622b2f29e078e507d">output.c</a>, <a class="el" href="output_8h.html#add12be6feec39ec622b2f29e078e507d">output.h</a></li>
 <li>create_output_directory()&#160;:&#160;<a class="el" href="output_8c.html#acef952bf7d1077d8f68a1be1f084b2ee">output.c</a>, <a class="el" href="output_8h.html#acef952bf7d1077d8f68a1be1f084b2ee">output.h</a></li>
 <li>create_path_table()&#160;:&#160;<a class="el" href="path__table_8c.html#ac08be1296d016ba9a28db25b35ca9132">path_table.c</a>, <a class="el" href="path__table_8h.html#ac08be1296d016ba9a28db25b35ca9132">path_table.h</a></li>
 <li>create_volume_descriptor()&#160;:&#160;<a class="el" href="volume__descriptor_8c.html#ac681bcadb940c039ad4b7093f33bb952">volume_descriptor.c</a>, <a class="el" href="volume__descriptor_8h.html#a927dff4d543f323e86784b784602c3f4">volume_descriptor.h</a></li>
@@ -146,7 +148,9 @@ $(function(){initNavTree('globals.html',''); initResizable(true); });
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
 <li>extract_directory()&#160;:&#160;<a class="el" href="extractor_8c.html#a4727cdfccac62ddc325d2ed70eddf467">extractor.c</a>, <a class="el" href="extractor_8h.html#a4727cdfccac62ddc325d2ed70eddf467">extractor.h</a></li>
-<li>extract_file()&#160;:&#160;<a class="el" href="extractor_8c.html#a6c570aa556812918f6d97359199ef25a">extractor.c</a>, <a class="el" href="extractor_8h.html#a553117edee61f114d5f6fd9d28d57313">extractor.h</a></li>
+<li>extract_file_using_dir_record()&#160;:&#160;<a class="el" href="extractor_8c.html#af2da2decbda4c7a7bf6e857b43767772">extractor.c</a>, <a class="el" href="extractor_8h.html#af2da2decbda4c7a7bf6e857b43767772">extractor.h</a></li>
+<li>extract_file_using_idx_entry()&#160;:&#160;<a class="el" href="extractor_8c.html#a8a69ed144c7791001eb2d6055e297bfd">extractor.c</a>, <a class="el" href="extractor_8h.html#a8a69ed144c7791001eb2d6055e297bfd">extractor.h</a></li>
+<li>extract_index_file()&#160;:&#160;<a class="el" href="extractor_8c.html#a5bdeb2d2539ae12cbe315e3a606a98c2">extractor.c</a>, <a class="el" href="extractor_8h.html#a5bdeb2d2539ae12cbe315e3a606a98c2">extractor.h</a></li>
 </ul>
 
 
@@ -222,7 +226,7 @@ $(function(){initNavTree('globals.html',''); initResizable(true); });
 <li>process_directory()&#160;:&#160;<a class="el" href="directory_8c.html#abca5089e2010346de9a8913639c27bcd">directory.c</a>, <a class="el" href="directory_8h.html#abca5089e2010346de9a8913639c27bcd">directory.h</a></li>
 <li>process_flag()&#160;:&#160;<a class="el" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">options.c</a></li>
 <li>process_index_file()&#160;:&#160;<a class="el" href="index__file_8c.html#a8d9a7c6f483fa764254a2013aa7258b1">index_file.c</a>, <a class="el" href="index__file_8h.html#a8d9a7c6f483fa764254a2013aa7258b1">index_file.h</a></li>
-<li>process_new_dat_files()&#160;:&#160;<a class="el" href="hh_8c.html#a2a6c37e687ce290f325ced344dce575f">hh.c</a>, <a class="el" href="hh_8h.html#a0fd10454cabed1f22790da5116fe92c5">hh.h</a></li>
+<li>process_internal_dat_files()&#160;:&#160;<a class="el" href="hh_8c.html#a1146bc482f9887a59a54f5eb00394d61">hh.c</a>, <a class="el" href="hh_8h.html#ad1e46ba73646c792f1ab0a9c2457929e">hh.h</a></li>
 <li>process_type_l_path_table()&#160;:&#160;<a class="el" href="path__table_8c.html#a74af82c548f791d3b0919eeebbf078d4">path_table.c</a>, <a class="el" href="path__table_8h.html#a74af82c548f791d3b0919eeebbf078d4">path_table.h</a></li>
 <li>process_volume_descriptor_data()&#160;:&#160;<a class="el" href="volume__descriptor_8c.html#a00d2e72d3698261c77ed5e118c4cfb83">volume_descriptor.c</a>, <a class="el" href="volume__descriptor_8h.html#a00d2e72d3698261c77ed5e118c4cfb83">volume_descriptor.h</a></li>
 <li>process_volume_descriptor_header()&#160;:&#160;<a class="el" href="volume__descriptor_8c.html#ab0bb4ee4fd340fd1a57cf8e1112c66b5">volume_descriptor.c</a>, <a class="el" href="volume__descriptor_8h.html#ab0bb4ee4fd340fd1a57cf8e1112c66b5">volume_descriptor.h</a></li>

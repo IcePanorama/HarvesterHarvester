@@ -17,7 +17,7 @@
 
 <para>Processes all the <computeroutput>.DAT</computeroutput> files found in <computeroutput>OP_INPUT_DIR</computeroutput>, one at a time. </para>
 </listitem>
-            <listitem><para>static int8_t <link linkend="_hh_8h_1a0fd10454cabed1f22790da5116fe92c5">process_new_dat_files</link> (void)</para>
+            <listitem><para>static int8_t <link linkend="_hh_8h_1ad1e46ba73646c792f1ab0a9c2457929e">process_internal_dat_files</link> (void)</para>
 
 <para>Process all the new <computeroutput>.DAT</computeroutput> files created by <computeroutput>process_DAT_file</computeroutput>. </para>
 </listitem>
@@ -40,7 +40,7 @@
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00180">180</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00174">174</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8h_1a534dd93fd3f79749a0c7741f46a1aea6"/><section>
     <title>process_DAT_file()</title>
@@ -93,18 +93,18 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00095">95</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00089">89</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
-<anchor xml:id="_hh_8h_1a0fd10454cabed1f22790da5116fe92c5"/><section>
-    <title>process_new_dat_files()</title>
-<indexterm><primary>process_new_dat_files</primary><secondary>hh.h</secondary></indexterm>
-<indexterm><primary>hh.h</primary><secondary>process_new_dat_files</secondary></indexterm>
-<para><computeroutput>static int8_t process_new_dat_files (void )<computeroutput>[static]</computeroutput></computeroutput></para><para>
+<anchor xml:id="_hh_8h_1ad1e46ba73646c792f1ab0a9c2457929e"/><section>
+    <title>process_internal_dat_files()</title>
+<indexterm><primary>process_internal_dat_files</primary><secondary>hh.h</secondary></indexterm>
+<indexterm><primary>hh.h</primary><secondary>process_internal_dat_files</secondary></indexterm>
+<para><computeroutput>static int8_t process_internal_dat_files (void )<computeroutput>[static]</computeroutput></computeroutput></para><para>
 
 <para>Process all the new <computeroutput>.DAT</computeroutput> files created by <computeroutput>process_DAT_file</computeroutput>. </para>
 </para>
 
-<para>These <computeroutput>.DAT</computeroutput> files are not ISO 9660 file systems, rather they&apos;re some proprietary format. These files can be processed by reading the associated <computeroutput>INDEX.00#</computeroutput> file, which contains all the filenames, paths, and location of data for files stored in these new <computeroutput>.DAT</computeroutput> files. For those curious, this is why adding <computeroutput>HARVEST2.DAT</computeroutput> is unnecessary and therefore not mentioned in the README.</para>
+<para>These <computeroutput>.DAT</computeroutput> files are not ISO 9660 file systems, rather they&apos;re some proprietary format. These files can be processed by reading the associated <computeroutput>INDEX.00#</computeroutput> file, which contains all the filenames, paths, and location of data for files stored in these new <computeroutput>.DAT</computeroutput> files.</para>
 
 <para><formalpara><title>Returns</title>
 
@@ -112,7 +112,7 @@ Definition at line <link linkend="_hh_8c_source_1l00095">95</link> of file <link
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00306">306</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00296">296</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8h_1afed626f0d81bd0489c48269affcff572"/><section>
     <title>setup_extractor()</title>
@@ -156,7 +156,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00076">76</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00070">70</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 </section>
 </section>

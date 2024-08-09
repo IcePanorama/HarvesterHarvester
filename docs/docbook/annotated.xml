@@ -12,7 +12,7 @@ Here are the data structures with brief descriptions:<link linkend="_structdec__
 <link linkend="_structfile__flags">file_flags</link>
 <para>File_flags.h - <link linkend="_structfile__flags">file_flags</link> data type and its associated functions </para>
 <link linkend="_structindex__entry">index_entry</link>
-<para>An entry of the associated <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput> </para>
+<para>A file entry in an <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput> </para>
 <link linkend="_structindex__file">index_file</link>
 <para>Contains all the indicies within an <computeroutput>INDEX.00#</computeroutput> file </para>
 <link linkend="_structpath__table">path_table</link>

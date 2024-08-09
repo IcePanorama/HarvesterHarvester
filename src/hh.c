@@ -58,15 +58,7 @@ main (int argc, char **argv)
       fclose (fptr);
     }
 
-  /*
-   * TODO: Next steps:
-   * [] navigate to each output dir ("DISK1", "DISK2", etc.)
-   *    [] Path is just `output/DISK#/`
-   * [] load the *.IDX file and use it to read the *.DAT files.
-   * [] extract files from those new *.DAT files into the directory they're
-   *    already in.
-   */
-  if (process_new_dat_files () != 0)
+  if (process_internal_dat_files () != 0)
     {
       exit (1);
     }
@@ -301,7 +293,7 @@ batch_process_DAT_files ()
 }
 
 int8_t
-process_new_dat_files (void)
+process_internal_dat_files (void)
 {
   FILE *table = fopen ("internal-dat-file-paths.txt", "r");
   if (table == NULL)

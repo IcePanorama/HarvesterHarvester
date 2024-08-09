@@ -20,13 +20,20 @@
 
 /**
  *  Creates an output directory at the given path if it doesn't already exist.
+ *  This function does some extra steps prior to calling
+ *  `create_new_output_directory`. If you wish to create a directory, that
+ *  function probably has you covered. This function is specific to its exact
+ *  use case.
+ *
+ *  TODO: look into merging the two.
  *
  *  @return zero on success, non-zero on failure.
+ *  @see create_new_output_directory()
  */
 // TODO: path should be of type `const char *`
 int8_t create_output_directory (char *path);
 
-/** TODO: add documentaion. */
+/** Creates a subdirectory at the given path, if it doesn't already exist. */
 int8_t create_new_output_directory (const char *path);
 
 #endif

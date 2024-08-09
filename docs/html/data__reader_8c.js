@@ -1,5 +1,6 @@
 var data__reader_8c =
 [
+    [ "build_path_string_from_file", "data__reader_8c.html#a7d5ed65e276ef3acea52cd349795d7fe", null ],
     [ "read_array_uint8", "data__reader_8c.html#ac8a5617b9328c9f95fb8ce6cf446bdf0", null ],
     [ "read_big_endian_data_uint16_t", "data__reader_8c.html#ade23ba29f3b5a5c0c9b6dddb1b307df0", null ],
     [ "read_big_endian_data_uint32_t", "data__reader_8c.html#a9fe70ffc0216052a2ffededd4abded89", null ],

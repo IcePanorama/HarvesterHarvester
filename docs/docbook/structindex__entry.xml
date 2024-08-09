@@ -4,7 +4,7 @@
 <indexterm><primary>index_entry</primary></indexterm>
 <para>
 
-<para>An entry of the associated <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+<para>A file entry in an <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
  
 </para>
 <para>
@@ -14,21 +14,25 @@
     <title>Data Fields    </title>
         <itemizedlist>
             <listitem><para>uint32_t <link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link></para>
+
+<para>It&apos;s location in the <computeroutput>INDEX.00#</computeroutput> file. </para>
 </listitem>
             <listitem><para>char <link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link> [<link linkend="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</link>]</para>
 </listitem>
             <listitem><para>char <link linkend="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe">filename</link> [<link linkend="_index__file_8h_1a733cac5291dfeb37c70016d83efed505">FILENAME_MAX_LEN</link>]</para>
 </listitem>
-            <listitem><para>uint32_t <link linkend="_structindex__entry_1a7d1d2fc7b9bf408116024e87bf90cb99">file_start</link></para>
+            <listitem><para>uint32_t <link linkend="_structindex__entry_1a1f4bb5a05c786e3ee0438165fbe1d64c">start</link></para>
+
+<para>It&apos;s location in the <computeroutput>*.DAT</computeroutput> file. </para>
 </listitem>
-            <listitem><para>uint32_t <link linkend="_structindex__entry_1a36bfa1354c342164eae40175e2a8e44b">file_offset</link></para>
+            <listitem><para>uint32_t <link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Detailed Description</title>
 
-<para>An entry of the associated <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
+<para>A file entry in an <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 <para>
 Definition at line <link linkend="_index__file_8h_source_1l00043">43</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
@@ -39,21 +43,11 @@ Definition at line <link linkend="_index__file_8h_source_1l00043">43</link> of f
 <indexterm><primary>entry_start</primary><secondary>index_entry</secondary></indexterm>
 <indexterm><primary>index_entry</primary><secondary>entry_start</secondary></indexterm>
 <para><computeroutput>uint32_t index_entry::entry_start</computeroutput></para><para>
+
+<para>It&apos;s location in the <computeroutput>INDEX.00#</computeroutput> file. </para>
+</para>
+<para>
 Definition at line <link linkend="_index__file_8h_source_1l00045">45</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
-</section>
-<anchor xml:id="_structindex__entry_1a36bfa1354c342164eae40175e2a8e44b"/><section>
-    <title>file_offset</title>
-<indexterm><primary>file_offset</primary><secondary>index_entry</secondary></indexterm>
-<indexterm><primary>index_entry</primary><secondary>file_offset</secondary></indexterm>
-<para><computeroutput>uint32_t index_entry::file_offset</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8h_source_1l00049">49</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
-</section>
-<anchor xml:id="_structindex__entry_1a7d1d2fc7b9bf408116024e87bf90cb99"/><section>
-    <title>file_start</title>
-<indexterm><primary>file_start</primary><secondary>index_entry</secondary></indexterm>
-<indexterm><primary>index_entry</primary><secondary>file_start</secondary></indexterm>
-<para><computeroutput>uint32_t index_entry::file_start</computeroutput></para><para>
-Definition at line <link linkend="_index__file_8h_source_1l00048">48</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <anchor xml:id="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe"/><section>
     <title>filename</title>
@@ -68,6 +62,24 @@ Definition at line <link linkend="_index__file_8h_source_1l00047">47</link> of f
 <indexterm><primary>index_entry</primary><secondary>full_path</secondary></indexterm>
 <para><computeroutput>char index_entry::full_path[<link linkend="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</link>]</computeroutput></para><para>
 Definition at line <link linkend="_index__file_8h_source_1l00046">46</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+</section>
+<anchor xml:id="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1"/><section>
+    <title>size</title>
+<indexterm><primary>size</primary><secondary>index_entry</secondary></indexterm>
+<indexterm><primary>index_entry</primary><secondary>size</secondary></indexterm>
+<para><computeroutput>uint32_t index_entry::size</computeroutput></para><para>
+Definition at line <link linkend="_index__file_8h_source_1l00049">49</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
+</section>
+<anchor xml:id="_structindex__entry_1a1f4bb5a05c786e3ee0438165fbe1d64c"/><section>
+    <title>start</title>
+<indexterm><primary>start</primary><secondary>index_entry</secondary></indexterm>
+<indexterm><primary>index_entry</primary><secondary>start</secondary></indexterm>
+<para><computeroutput>uint32_t index_entry::start</computeroutput></para><para>
+
+<para>It&apos;s location in the <computeroutput>*.DAT</computeroutput> file. </para>
+</para>
+<para>
+Definition at line <link linkend="_index__file_8h_source_1l00048">48</link> of file <link linkend="_index__file_8h_source">index_file.h</link>.</para>
 </section>
 <para>
 The documentation for this struct was generated from the following file:</para>

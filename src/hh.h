@@ -64,12 +64,10 @@ static int8_t batch_process_DAT_files (void);
  *  `.DAT` files are not ISO 9660 file systems, rather they're some proprietary
  *  format. These files can be processed by reading the associated `INDEX.00#`
  *  file, which contains all the filenames, paths, and location of data for
- *  files stored in these new `.DAT` files. For those curious, this is why
- *  adding `HARVEST2.DAT` is unnecessary and therefore not mentioned in the
- *  README.
+ *  files stored in these new `.DAT` files.
  *
  *  @return int8_t zero on success, non-zero on failure.
  */
-static int8_t process_new_dat_files (void);
+static int8_t process_internal_dat_files (void);
 
 #endif

@@ -51,7 +51,7 @@
 <para>Adds a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> to a <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00139">139</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00138">138</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1a8d0c5734d83636faa168e5869954b500"/><section>
     <title>create_index_file()</title>
@@ -84,7 +84,7 @@ Definition at line <link linkend="_index__file_8c_source_1l00050">50</link> of f
 <para>Prints all the attributes of a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> in a human-readable form. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00129">129</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00128">128</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8c_1a8d9a7c6f483fa764254a2013aa7258b1"/><section>
     <title>process_index_file()</title>
@@ -108,7 +108,7 @@ Definition at line <link linkend="_index__file_8c_source_1l00057">57</link> of f
 <para>Grows a given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>&apos;s <computeroutput>entries</computeroutput> attribute by <computeroutput>IDX_RECORDS_GROWTH_RATE</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00155">155</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00154">154</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 </section>
 <section>

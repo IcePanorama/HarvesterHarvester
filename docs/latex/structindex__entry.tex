@@ -2,7 +2,7 @@
 \hypertarget{structindex__entry}{}\label{structindex__entry}\index{index\_entry@{index\_entry}}
 
 
-An entry of the associated {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}.  
+A file entry in an {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}.  
 
 
 
@@ -13,19 +13,19 @@ An entry of the associated {\ttfamily \doxylink{structindex__file}{index\+\_\+fi
 \begin{DoxyCompactItemize}
 \item 
 uint32\+\_\+t \mbox{\hyperlink{structindex__entry_aa79302a19ea59e36deef737dd3aa6b12}{entry\+\_\+start}}
-\item 
+\begin{DoxyCompactList}\small\item\em It\textquotesingle{}s location in the {\ttfamily INDEX.\+00\#} file. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{structindex__entry_a5dfac282860b15b527102a2e87ef63ab}{full\+\_\+path}} \mbox{[}\mbox{\hyperlink{index__file_8h_a1f72d7c1f8f994a1873de2f0405f66bf}{FULL\+\_\+\+PATH\+\_\+\+MAX\+\_\+\+LEN}}\mbox{]}
 \item 
 char \mbox{\hyperlink{structindex__entry_ae2d39eccb26bcd6b8976723a9f252fbe}{filename}} \mbox{[}\mbox{\hyperlink{index__file_8h_a733cac5291dfeb37c70016d83efed505}{FILENAME\+\_\+\+MAX\+\_\+\+LEN}}\mbox{]}
 \item 
-uint32\+\_\+t \mbox{\hyperlink{structindex__entry_a7d1d2fc7b9bf408116024e87bf90cb99}{file\+\_\+start}}
-\item 
-uint32\+\_\+t \mbox{\hyperlink{structindex__entry_a36bfa1354c342164eae40175e2a8e44b}{file\+\_\+offset}}
+uint32\+\_\+t \mbox{\hyperlink{structindex__entry_a1f4bb5a05c786e3ee0438165fbe1d64c}{start}}
+\begin{DoxyCompactList}\small\item\em It\textquotesingle{}s location in the {\ttfamily \texorpdfstring{$\ast$}{*}.DAT} file. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structindex__entry_ab355a6f02d462e68d7832b54d3fb9fe1}{size}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-An entry of the associated {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
+A file entry in an {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
 
 Definition at line \mbox{\hyperlink{index__file_8h_source_l00043}{43}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
 
@@ -40,27 +40,11 @@ uint32\+\_\+t index\+\_\+entry\+::entry\+\_\+start}
 
 
 
+It\textquotesingle{}s location in the {\ttfamily INDEX.\+00\#} file. 
+
+
+
 Definition at line \mbox{\hyperlink{index__file_8h_source_l00045}{45}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
-
-\Hypertarget{structindex__entry_a36bfa1354c342164eae40175e2a8e44b}\index{index\_entry@{index\_entry}!file\_offset@{file\_offset}}
-\index{file\_offset@{file\_offset}!index\_entry@{index\_entry}}
-\doxysubsubsection{\texorpdfstring{file\_offset}{file\_offset}}
-{\footnotesize\ttfamily \label{structindex__entry_a36bfa1354c342164eae40175e2a8e44b} 
-uint32\+\_\+t index\+\_\+entry\+::file\+\_\+offset}
-
-
-
-Definition at line \mbox{\hyperlink{index__file_8h_source_l00049}{49}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
-
-\Hypertarget{structindex__entry_a7d1d2fc7b9bf408116024e87bf90cb99}\index{index\_entry@{index\_entry}!file\_start@{file\_start}}
-\index{file\_start@{file\_start}!index\_entry@{index\_entry}}
-\doxysubsubsection{\texorpdfstring{file\_start}{file\_start}}
-{\footnotesize\ttfamily \label{structindex__entry_a7d1d2fc7b9bf408116024e87bf90cb99} 
-uint32\+\_\+t index\+\_\+entry\+::file\+\_\+start}
-
-
-
-Definition at line \mbox{\hyperlink{index__file_8h_source_l00048}{48}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
 
 \Hypertarget{structindex__entry_ae2d39eccb26bcd6b8976723a9f252fbe}\index{index\_entry@{index\_entry}!filename@{filename}}
 \index{filename@{filename}!index\_entry@{index\_entry}}
@@ -81,6 +65,30 @@ char index\+\_\+entry\+::full\+\_\+path\mbox{[}\mbox{\hyperlink{index__file_8h_a
 
 
 Definition at line \mbox{\hyperlink{index__file_8h_source_l00046}{46}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
+
+\Hypertarget{structindex__entry_ab355a6f02d462e68d7832b54d3fb9fe1}\index{index\_entry@{index\_entry}!size@{size}}
+\index{size@{size}!index\_entry@{index\_entry}}
+\doxysubsubsection{\texorpdfstring{size}{size}}
+{\footnotesize\ttfamily \label{structindex__entry_ab355a6f02d462e68d7832b54d3fb9fe1} 
+uint32\+\_\+t index\+\_\+entry\+::size}
+
+
+
+Definition at line \mbox{\hyperlink{index__file_8h_source_l00049}{49}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
+
+\Hypertarget{structindex__entry_a1f4bb5a05c786e3ee0438165fbe1d64c}\index{index\_entry@{index\_entry}!start@{start}}
+\index{start@{start}!index\_entry@{index\_entry}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily \label{structindex__entry_a1f4bb5a05c786e3ee0438165fbe1d64c} 
+uint32\+\_\+t index\+\_\+entry\+::start}
+
+
+
+It\textquotesingle{}s location in the {\ttfamily \texorpdfstring{$\ast$}{*}.DAT} file. 
+
+
+
+Definition at line \mbox{\hyperlink{index__file_8h_source_l00048}{48}} of file \mbox{\hyperlink{index__file_8h_source}{index\+\_\+file.\+h}}.
 
 
 

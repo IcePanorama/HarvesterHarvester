@@ -103,7 +103,7 @@ $(function(){initNavTree('structindex__entry.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 
-<p>An entry of the associated <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>.  
+<p>A file entry in an <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="index__file_8h_source.html">index_file.h</a>&gt;</code></p>
@@ -111,18 +111,20 @@ $(function(){initNavTree('structindex__entry.html',''); initResizable(true); });
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:aa79302a19ea59e36deef737dd3aa6b12" id="r_aa79302a19ea59e36deef737dd3aa6b12"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa79302a19ea59e36deef737dd3aa6b12">entry_start</a></td></tr>
+<tr class="memdesc:aa79302a19ea59e36deef737dd3aa6b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">It's location in the <code>INDEX.00#</code> file.  <br /></td></tr>
 <tr class="separator:aa79302a19ea59e36deef737dd3aa6b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dfac282860b15b527102a2e87ef63ab" id="r_a5dfac282860b15b527102a2e87ef63ab"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dfac282860b15b527102a2e87ef63ab">full_path</a> [<a class="el" href="index__file_8h.html#a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</a>]</td></tr>
 <tr class="separator:a5dfac282860b15b527102a2e87ef63ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2d39eccb26bcd6b8976723a9f252fbe" id="r_ae2d39eccb26bcd6b8976723a9f252fbe"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2d39eccb26bcd6b8976723a9f252fbe">filename</a> [<a class="el" href="index__file_8h.html#a733cac5291dfeb37c70016d83efed505">FILENAME_MAX_LEN</a>]</td></tr>
 <tr class="separator:ae2d39eccb26bcd6b8976723a9f252fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d1d2fc7b9bf408116024e87bf90cb99" id="r_a7d1d2fc7b9bf408116024e87bf90cb99"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d1d2fc7b9bf408116024e87bf90cb99">file_start</a></td></tr>
-<tr class="separator:a7d1d2fc7b9bf408116024e87bf90cb99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36bfa1354c342164eae40175e2a8e44b" id="r_a36bfa1354c342164eae40175e2a8e44b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36bfa1354c342164eae40175e2a8e44b">file_offset</a></td></tr>
-<tr class="separator:a36bfa1354c342164eae40175e2a8e44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f4bb5a05c786e3ee0438165fbe1d64c" id="r_a1f4bb5a05c786e3ee0438165fbe1d64c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f4bb5a05c786e3ee0438165fbe1d64c">start</a></td></tr>
+<tr class="memdesc:a1f4bb5a05c786e3ee0438165fbe1d64c"><td class="mdescLeft">&#160;</td><td class="mdescRight">It's location in the <code>*.DAT</code> file.  <br /></td></tr>
+<tr class="separator:a1f4bb5a05c786e3ee0438165fbe1d64c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab355a6f02d462e68d7832b54d3fb9fe1" id="r_ab355a6f02d462e68d7832b54d3fb9fe1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab355a6f02d462e68d7832b54d3fb9fe1">size</a></td></tr>
+<tr class="separator:ab355a6f02d462e68d7832b54d3fb9fe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An entry of the associated <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
+<div class="textblock"><p>A file entry in an <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="index__file_8h_source.html#l00043">43</a> of file <a class="el" href="index__file_8h_source.html">index_file.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
@@ -138,39 +140,9 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>It's location in the <code>INDEX.00#</code> file. </p>
+
 <p class="definition">Definition at line <a class="el" href="index__file_8h_source.html#l00045">45</a> of file <a class="el" href="index__file_8h_source.html">index_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a36bfa1354c342164eae40175e2a8e44b" name="a36bfa1354c342164eae40175e2a8e44b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36bfa1354c342164eae40175e2a8e44b">&#9670;&#160;</a></span>file_offset</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t index_entry::file_offset</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="index__file_8h_source.html#l00049">49</a> of file <a class="el" href="index__file_8h_source.html">index_file.h</a>.</p>
-
-</div>
-</div>
-<a id="a7d1d2fc7b9bf408116024e87bf90cb99" name="a7d1d2fc7b9bf408116024e87bf90cb99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d1d2fc7b9bf408116024e87bf90cb99">&#9670;&#160;</a></span>file_start</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t index_entry::file_start</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="index__file_8h_source.html#l00048">48</a> of file <a class="el" href="index__file_8h_source.html">index_file.h</a>.</p>
 
 </div>
 </div>
@@ -203,6 +175,40 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="index__file_8h_source.html#l00046">46</a> of file <a class="el" href="index__file_8h_source.html">index_file.h</a>.</p>
+
+</div>
+</div>
+<a id="ab355a6f02d462e68d7832b54d3fb9fe1" name="ab355a6f02d462e68d7832b54d3fb9fe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab355a6f02d462e68d7832b54d3fb9fe1">&#9670;&#160;</a></span>size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t index_entry::size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="index__file_8h_source.html#l00049">49</a> of file <a class="el" href="index__file_8h_source.html">index_file.h</a>.</p>
+
+</div>
+</div>
+<a id="a1f4bb5a05c786e3ee0438165fbe1d64c" name="a1f4bb5a05c786e3ee0438165fbe1d64c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f4bb5a05c786e3ee0438165fbe1d64c">&#9670;&#160;</a></span>start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t index_entry::start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>It's location in the <code>*.DAT</code> file. </p>
+
+<p class="definition">Definition at line <a class="el" href="index__file_8h_source.html#l00048">48</a> of file <a class="el" href="index__file_8h_source.html">index_file.h</a>.</p>
 
 </div>
 </div>

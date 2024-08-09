@@ -32,7 +32,10 @@
  */
 int8_t extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
                                       const char *path);
-/** TODO: add documentation. */
+/**
+ *  Extracts a file using its corresponding `index_entry` and data pointed to
+ *  by `fptr`, outputting it to the location denoated by `path`.
+ */
 int8_t extract_file_using_idx_entry (FILE *fptr, index_entry *idx,
                                      const char *path);
 
@@ -40,7 +43,13 @@ int8_t extract_file_using_idx_entry (FILE *fptr, index_entry *idx,
 int8_t extract_directory (FILE *fptr, const uint16_t block_size,
                           const char *path);
 
-/** TODO: add documentation. */
+/**
+ *  Extracts all of the files described in the given `index_file`. `idx_path`
+ *  is needed to build an output path.
+ *
+ *  @param `idx_path` relative path to the given `index_file`.
+ *  @param `dat_path` relative path to the corresponding dat file.
+ */
 int8_t extract_index_file (index_file *idx, const char *idx_path,
                            const char *dat_path);
 

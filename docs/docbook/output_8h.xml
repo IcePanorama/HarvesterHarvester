@@ -9,10 +9,25 @@
 
 <para><link linkend="_output_8h">output.h</link> - container for functions related to the output directory. </para>
 </listitem>
+            <listitem><para>int8_t <link linkend="_output_8h_1add12be6feec39ec622b2f29e078e507d">create_new_output_directory</link> (const char *path)</para>
+
+<para>Creates a subdirectory at the given path, if it doesn&apos;t already exist. </para>
+</listitem>
         </itemizedlist>
 </simplesect>
 <section>
 <title>Function Documentation</title>
+<anchor xml:id="_output_8h_1add12be6feec39ec622b2f29e078e507d"/><section>
+    <title>create_new_output_directory()</title>
+<indexterm><primary>create_new_output_directory</primary><secondary>output.h</secondary></indexterm>
+<indexterm><primary>output.h</primary><secondary>create_new_output_directory</secondary></indexterm>
+<para><computeroutput>int8_t create_new_output_directory (const char * path)</computeroutput></para><para>
+
+<para>Creates a subdirectory at the given path, if it doesn&apos;t already exist. </para>
+</para>
+<para>
+Definition at line <link linkend="_output_8c_source_1l00045">45</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+</section>
 <anchor xml:id="_output_8h_1acef952bf7d1077d8f68a1be1f084b2ee"/><section>
     <title>create_output_directory()</title>
 <indexterm><primary>create_output_directory</primary><secondary>output.h</secondary></indexterm>
@@ -22,11 +37,17 @@
 <para><link linkend="_output_8h">output.h</link> - container for functions related to the output directory. </para>
 </para>
 
-<para>Creates an output directory at the given path if it doesn&apos;t already exist.</para>
+<para>Creates an output directory at the given path if it doesn&apos;t already exist. This function does some extra steps prior to calling <computeroutput>create_new_output_directory</computeroutput>. If you wish to create a directory, that function probably has you covered. This function is specific to its exact use case.</para>
+
+<para>TODO: look into merging the two.</para>
 
 <para><formalpara><title>Returns</title>
 
 <para>zero on success, non-zero on failure. </para>
+</formalpara>
+<formalpara><title>See also</title>
+
+<para><link linkend="_output_8h_1add12be6feec39ec622b2f29e078e507d">create_new_output_directory()</link> </para>
 </formalpara>
 </para>
 <para>

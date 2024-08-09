@@ -44,5 +44,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_data__reader_8h_source_1l00094"/>00094 
 <anchor xml:id="_data__reader_8h_source_1l00100"/>00100 int8_t&#32;<link linkend="_data__reader_8h_1a706cf4826080ce7bf4a1706fe10f379a">read_file_flags</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structfile__flags">file_flags</link>&#32;*ff);
 <anchor xml:id="_data__reader_8h_source_1l00101"/>00101 
-<anchor xml:id="_data__reader_8h_source_1l00102"/>00102 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_data__reader_8h_source_1l00103"/>00103 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_data__reader_8h_1a7d5ed65e276ef3acea52cd349795d7fe">build_path_string_from_file</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*output);
+<anchor xml:id="_data__reader_8h_source_1l00104"/>00104 
+<anchor xml:id="_data__reader_8h_source_1l00105"/>00105 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

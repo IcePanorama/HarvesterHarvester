@@ -119,10 +119,14 @@ $(function(){initNavTree('output_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>int8_t <a class="code hl_function" href="output_8h.html#acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</a> (<span class="keywordtype">char</span> *path);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// TODO: path should be of type `const char *`</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>int8_t <a class="code hl_function" href="output_8h.html#acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</a> (<span class="keywordtype">char</span> *path);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>int8_t <a class="code hl_function" href="output_8h.html#add12be6feec39ec622b2f29e078e507d">create_new_output_directory</a> (<span class="keyword">const</span> <span class="keywordtype">char</span> *path);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aoutput_8h_html_acef952bf7d1077d8f68a1be1f084b2ee"><div class="ttname"><a href="output_8h.html#acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</a></div><div class="ttdeci">int8_t create_output_directory(char *path)</div><div class="ttdoc">output.h - container for functions related to the output directory.</div><div class="ttdef"><b>Definition</b> <a href="output_8c_source.html#l00028">output.c:28</a></div></div>
+<div class="ttc" id="aoutput_8h_html_add12be6feec39ec622b2f29e078e507d"><div class="ttname"><a href="output_8h.html#add12be6feec39ec622b2f29e078e507d">create_new_output_directory</a></div><div class="ttdeci">int8_t create_new_output_directory(const char *path)</div><div class="ttdoc">Creates a subdirectory at the given path, if it doesn't already exist.</div><div class="ttdef"><b>Definition</b> <a href="output_8c_source.html#l00045">output.c:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

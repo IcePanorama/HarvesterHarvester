@@ -116,15 +116,21 @@ $(function(){initNavTree('extractor_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6c570aa556812918f6d97359199ef25a" id="r_a6c570aa556812918f6d97359199ef25a"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c570aa556812918f6d97359199ef25a">extract_file</a> (FILE *fptr, <a class="el" href="structdirectory__record.html">directory_record</a> *dr, const char *path)</td></tr>
-<tr class="memdesc:a6c570aa556812918f6d97359199ef25a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="extractor_8h.html">extractor.h</a> - container for all file extraction functions.  <br /></td></tr>
-<tr class="separator:a6c570aa556812918f6d97359199ef25a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2da2decbda4c7a7bf6e857b43767772" id="r_af2da2decbda4c7a7bf6e857b43767772"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2da2decbda4c7a7bf6e857b43767772">extract_file_using_dir_record</a> (FILE *fptr, struct <a class="el" href="structdirectory__record.html">directory_record</a> *dr, const char *path)</td></tr>
+<tr class="memdesc:af2da2decbda4c7a7bf6e857b43767772"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="extractor_8h.html">extractor.h</a> - container for all file extraction functions.  <br /></td></tr>
+<tr class="separator:af2da2decbda4c7a7bf6e857b43767772"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4727cdfccac62ddc325d2ed70eddf467" id="r_a4727cdfccac62ddc325d2ed70eddf467"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4727cdfccac62ddc325d2ed70eddf467">extract_directory</a> (FILE *fptr, const uint16_t block_size, const char *path)</td></tr>
 <tr class="memdesc:a4727cdfccac62ddc325d2ed70eddf467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a directory and then extracts every file in said directory.  <br /></td></tr>
 <tr class="separator:a4727cdfccac62ddc325d2ed70eddf467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad53840f52d541af8bc89a7e6c86e29eb" id="r_ad53840f52d541af8bc89a7e6c86e29eb"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad53840f52d541af8bc89a7e6c86e29eb">create_directories_and_extract_data_from_path_file</a> (FILE *fptr, uint16_t block_size, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
 <tr class="memdesc:ad53840f52d541af8bc89a7e6c86e29eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates directories for every directory in a given path table and then extracts all of its files.  <br /></td></tr>
 <tr class="separator:ad53840f52d541af8bc89a7e6c86e29eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a69ed144c7791001eb2d6055e297bfd" id="r_a8a69ed144c7791001eb2d6055e297bfd"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</a> (FILE *fptr, <a class="el" href="structindex__entry.html">index_entry</a> *idx, const char *path)</td></tr>
+<tr class="memdesc:a8a69ed144c7791001eb2d6055e297bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a file using its corresponding <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> and data pointed to by <code>fptr</code>, outputting it to the location denoated by <code>path</code>.  <br /></td></tr>
+<tr class="separator:a8a69ed144c7791001eb2d6055e297bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bdeb2d2539ae12cbe315e3a606a98c2" id="r_a5bdeb2d2539ae12cbe315e3a606a98c2"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bdeb2d2539ae12cbe315e3a606a98c2">extract_index_file</a> (<a class="el" href="structindex__file.html">index_file</a> *idx, const char *idx_path, const char *dat_path)</td></tr>
+<tr class="memdesc:a5bdeb2d2539ae12cbe315e3a606a98c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts all of the files described in the given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>.  <br /></td></tr>
+<tr class="separator:a5bdeb2d2539ae12cbe315e3a606a98c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ad53840f52d541af8bc89a7e6c86e29eb" name="ad53840f52d541af8bc89a7e6c86e29eb"></a>
@@ -152,7 +158,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates directories for every directory in a given path table and then extracts all of its files. </p>
-<p>A wrapper for <code>extract_directory</code> and, therefore also, <code>extract_file</code> which handles the extraction of every file and subdirectory using a given path table.</p>
+<p>A wrapper for <code>extract_directory</code> and, therefore also, <code>extract_file_using_dir_record</code> which handles the extraction of every file and subdirectory using a given path table.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">block_size</td><td>logical block size (in big endian form). </td></tr>
@@ -161,9 +167,9 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="extractor_8h.html#a4727cdfccac62ddc325d2ed70eddf467" title="Creates a directory and then extracts every file in said directory.">extract_directory()</a> </dd>
 <dd>
-<a class="el" href="extractor_8h.html#a553117edee61f114d5f6fd9d28d57313" title="extractor.h - container for all file extraction functions.">extract_file()</a> </dd></dl>
+<a class="el" href="extractor_8h.html#af2da2decbda4c7a7bf6e857b43767772" title="extractor.h - container for all file extraction functions.">extract_file_using_dir_record()</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00127">127</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00128">128</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>
@@ -193,18 +199,18 @@ Functions</h2></td></tr>
 
 <p>Creates a directory and then extracts every file in said directory. </p>
 
-<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00089">89</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00090">90</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>
-<a id="a6c570aa556812918f6d97359199ef25a" name="a6c570aa556812918f6d97359199ef25a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c570aa556812918f6d97359199ef25a">&#9670;&#160;</a></span>extract_file()</h2>
+<a id="af2da2decbda4c7a7bf6e857b43767772" name="af2da2decbda4c7a7bf6e857b43767772"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2da2decbda4c7a7bf6e857b43767772">&#9670;&#160;</a></span>extract_file_using_dir_record()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t extract_file </td>
+          <td class="memname">int8_t extract_file_using_dir_record </td>
           <td>(</td>
           <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span>, </td>
         </tr>
@@ -227,6 +233,75 @@ Functions</h2></td></tr>
 <p>Just use the default/existing filename. It'll be incorrect, but probably not worth stoping execution over. Users could just manually remove the <code>;1</code> part; the data itself should be fine.</p>
 
 <p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00026">26</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+
+</div>
+</div>
+<a id="a8a69ed144c7791001eb2d6055e297bfd" name="a8a69ed144c7791001eb2d6055e297bfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a69ed144c7791001eb2d6055e297bfd">&#9670;&#160;</a></span>extract_file_using_idx_entry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t extract_file_using_idx_entry </td>
+          <td>(</td>
+          <td class="paramtype">FILE *</td>          <td class="paramname"><span class="paramname"><em>fptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structindex__entry.html">index_entry</a> *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extracts a file using its corresponding <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> and data pointed to by <code>fptr</code>, outputting it to the location denoated by <code>path</code>. </p>
+
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00184">184</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
+
+</div>
+</div>
+<a id="a5bdeb2d2539ae12cbe315e3a606a98c2" name="a5bdeb2d2539ae12cbe315e3a606a98c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bdeb2d2539ae12cbe315e3a606a98c2">&#9670;&#160;</a></span>extract_index_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t extract_index_file </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structindex__file.html">index_file</a> *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>idx_path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>dat_path</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extracts all of the files described in the given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
+<p><code>idx_path</code> is needed to build an output path.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">`idx_path`</td><td>relative path to the given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </td></tr>
+    <tr><td class="paramname">`dat_path`</td><td>relative path to the corresponding dat file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Gives you the <code>OP_OUTPUT_DIR/DISK#/</code> part of the path. 10 = len("INDEX.001")</p>
+
+<p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00225">225</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
 </div>

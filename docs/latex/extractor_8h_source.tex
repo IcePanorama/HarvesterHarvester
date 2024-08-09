@@ -19,20 +19,26 @@
 \DoxyCodeLine{\Hypertarget{extractor_8h_source_l00020}00020\ \textcolor{preprocessor}{\#define\ \_HH\_EXTRACTOR\_H\_}}
 \DoxyCodeLine{\Hypertarget{extractor_8h_source_l00021}00021\ }
 \DoxyCodeLine{\Hypertarget{extractor_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{directory_8h}{directory.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{path__table_8h}{path\_table.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00024}00024\ }
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00025}00025\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00027}00027\ }
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00032}00032\ int8\_t\ \mbox{\hyperlink{extractor_8h_a553117edee61f114d5f6fd9d28d57313}{extract\_file}}\ (FILE\ *fptr,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structdirectory__record}{directory\_record}}\ *dr,}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00036}00036\ int8\_t\ \mbox{\hyperlink{extractor_8h_a4727cdfccac62ddc325d2ed70eddf467}{extract\_directory}}\ (FILE\ *fptr,\ \textcolor{keyword}{const}\ uint16\_t\ block\_size,}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00049}00049\ int8\_t\ \mbox{\hyperlink{extractor_8h_af57d13e6e3990cbcff201cfc10e14249}{create\_directories\_and\_extract\_data\_from\_path\_file}}\ (}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00050}00050\ \ \ \ \ FILE\ *fptr,\ uint16\_t\ block\_size,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structpath__table}{path\_table}}\ *pt);}
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00051}00051\ }
-\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00052}00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{index__file_8h}{index\_file.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{path__table_8h}{path\_table.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00026}00026\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00033}00033\ int8\_t\ \mbox{\hyperlink{extractor_8h_af2da2decbda4c7a7bf6e857b43767772}{extract\_file\_using\_dir\_record}}\ (FILE\ *fptr,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structdirectory__record}{directory\_record}}\ *dr,}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00039}00039\ int8\_t\ \mbox{\hyperlink{extractor_8h_a8a69ed144c7791001eb2d6055e297bfd}{extract\_file\_using\_idx\_entry}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structindex__entry}{index\_entry}}\ *idx,}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00043}00043\ int8\_t\ \mbox{\hyperlink{extractor_8h_a4727cdfccac62ddc325d2ed70eddf467}{extract\_directory}}\ (FILE\ *fptr,\ \textcolor{keyword}{const}\ uint16\_t\ block\_size,}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *path);}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00053}00053\ int8\_t\ \mbox{\hyperlink{extractor_8h_a5bdeb2d2539ae12cbe315e3a606a98c2}{extract\_index\_file}}\ (\mbox{\hyperlink{structindex__file}{index\_file}}\ *idx,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *idx\_path,}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *dat\_path);}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00066}00066\ int8\_t\ \mbox{\hyperlink{extractor_8h_af57d13e6e3990cbcff201cfc10e14249}{create\_directories\_and\_extract\_data\_from\_path\_file}}\ (}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00067}00067\ \ \ \ \ FILE\ *fptr,\ uint16\_t\ block\_size,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structpath__table}{path\_table}}\ *pt);}
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{extractor_8h_source_l00069}00069\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

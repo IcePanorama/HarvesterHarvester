@@ -19,19 +19,25 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_extractor_8h_source_1l00020"/>00020 <emphasis role="preprocessor">#define&#32;_HH_EXTRACTOR_H_</emphasis>
 <anchor xml:id="_extractor_8h_source_1l00021"/>00021 
 <anchor xml:id="_extractor_8h_source_1l00022"/>00022 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_directory_8h">directory.h</link>&quot;</emphasis>
-<anchor xml:id="_extractor_8h_source_1l00023"/>00023 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_path__table_8h">path_table.h</link>&quot;</emphasis>
-<anchor xml:id="_extractor_8h_source_1l00024"/>00024 
-<anchor xml:id="_extractor_8h_source_1l00025"/>00025 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
-<anchor xml:id="_extractor_8h_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
-<anchor xml:id="_extractor_8h_source_1l00027"/>00027 
-<anchor xml:id="_extractor_8h_source_1l00032"/>00032 int8_t&#32;<link linkend="_extractor_8h_1a553117edee61f114d5f6fd9d28d57313">extract_file</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_structdirectory__record">directory_record</link>&#32;*dr,
-<anchor xml:id="_extractor_8h_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*path);
-<anchor xml:id="_extractor_8h_source_1l00034"/>00034 
-<anchor xml:id="_extractor_8h_source_1l00036"/>00036 int8_t&#32;<link linkend="_extractor_8h_1a4727cdfccac62ddc325d2ed70eddf467">extract_directory</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;block_size,
-<anchor xml:id="_extractor_8h_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*path);
-<anchor xml:id="_extractor_8h_source_1l00038"/>00038 
-<anchor xml:id="_extractor_8h_source_1l00049"/>00049 int8_t&#32;<link linkend="_extractor_8h_1af57d13e6e3990cbcff201cfc10e14249">create_directories_and_extract_data_from_path_file</link>&#32;(
-<anchor xml:id="_extractor_8h_source_1l00050"/>00050 &#32;&#32;&#32;&#32;FILE&#32;*fptr,&#32;uint16_t&#32;block_size,&#32;<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt);
-<anchor xml:id="_extractor_8h_source_1l00051"/>00051 
-<anchor xml:id="_extractor_8h_source_1l00052"/>00052 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_extractor_8h_source_1l00023"/>00023 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_index__file_8h">index_file.h</link>&quot;</emphasis>
+<anchor xml:id="_extractor_8h_source_1l00024"/>00024 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_path__table_8h">path_table.h</link>&quot;</emphasis>
+<anchor xml:id="_extractor_8h_source_1l00025"/>00025 
+<anchor xml:id="_extractor_8h_source_1l00026"/>00026 <emphasis role="preprocessor">#include&#32;&lt;stdint.h&gt;</emphasis>
+<anchor xml:id="_extractor_8h_source_1l00027"/>00027 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
+<anchor xml:id="_extractor_8h_source_1l00028"/>00028 
+<anchor xml:id="_extractor_8h_source_1l00033"/>00033 int8_t&#32;<link linkend="_extractor_8h_1af2da2decbda4c7a7bf6e857b43767772">extract_file_using_dir_record</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_structdirectory__record">directory_record</link>&#32;*dr,
+<anchor xml:id="_extractor_8h_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*path);
+<anchor xml:id="_extractor_8h_source_1l00039"/>00039 int8_t&#32;<link linkend="_extractor_8h_1a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structindex__entry">index_entry</link>&#32;*idx,
+<anchor xml:id="_extractor_8h_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*path);
+<anchor xml:id="_extractor_8h_source_1l00041"/>00041 
+<anchor xml:id="_extractor_8h_source_1l00043"/>00043 int8_t&#32;<link linkend="_extractor_8h_1a4727cdfccac62ddc325d2ed70eddf467">extract_directory</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keyword">const</emphasis>&#32;uint16_t&#32;block_size,
+<anchor xml:id="_extractor_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*path);
+<anchor xml:id="_extractor_8h_source_1l00045"/>00045 
+<anchor xml:id="_extractor_8h_source_1l00053"/>00053 int8_t&#32;<link linkend="_extractor_8h_1a5bdeb2d2539ae12cbe315e3a606a98c2">extract_index_file</link>&#32;(<link linkend="_structindex__file">index_file</link>&#32;*idx,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*idx_path,
+<anchor xml:id="_extractor_8h_source_1l00054"/>00054 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*dat_path);
+<anchor xml:id="_extractor_8h_source_1l00055"/>00055 
+<anchor xml:id="_extractor_8h_source_1l00066"/>00066 int8_t&#32;<link linkend="_extractor_8h_1af57d13e6e3990cbcff201cfc10e14249">create_directories_and_extract_data_from_path_file</link>&#32;(
+<anchor xml:id="_extractor_8h_source_1l00067"/>00067 &#32;&#32;&#32;&#32;FILE&#32;*fptr,&#32;uint16_t&#32;block_size,&#32;<emphasis role="keyword">struct</emphasis>&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt);
+<anchor xml:id="_extractor_8h_source_1l00068"/>00068 
+<anchor xml:id="_extractor_8h_source_1l00069"/>00069 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>
