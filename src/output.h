@@ -30,7 +30,6 @@
  *  @return zero on success, non-zero on failure.
  *  @see create_new_output_directory()
  */
-// TODO: path should be of type `const char *`
 int8_t create_output_directory (char *path);
 
 /** Creates a subdirectory at the given path, if it doesn't already exist. */
