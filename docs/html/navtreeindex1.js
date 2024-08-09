@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"structdirectory__record.html#ae46cf5b35328ad518d86aaaa6fb32ac8":[4,0,3,8],
+"structfile__flags.html":[4,0,4],
 "structfile__flags.html#a16bbb1c4299a88199b4bc23f29215049":[4,0,4,4],
 "structfile__flags.html#a4139d9b02dc7f9d1649ed9d3466dd7af":[4,0,4,3],
 "structfile__flags.html#a65c772bf6516b11d65fb49180812c109":[4,0,4,0],

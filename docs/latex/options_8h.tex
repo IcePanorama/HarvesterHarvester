@@ -13,7 +13,9 @@ void \mbox{\hyperlink{options_8h_a83aed94bb59dba20fc0286181dc64738}{handle\+\_\+
 bool \mbox{\hyperlink{options_8h_abf19eab4ae4469b24b2b34284bb72f5a}{OP\+\_\+\+BATCH\+\_\+\+PROCESS}}
 \begin{DoxyCompactList}\small\item\em \doxylink{options_8h}{options.\+h} -\/ container for all of hh\textquotesingle{}s options. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{options_8h_a1ee118406b5a5d8845db1bc412b34400}{OP\+\_\+\+SKIP\+\_\+\+DAT\+\_\+\+PROCESSING}}
-\begin{DoxyCompactList}\small\item\em If true, skip {\ttfamily .DAT} file processing and go directly to processing {\ttfamily INDEX.\+00\#} files. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em If true, skip primary dat file processing and go directly to processing {\ttfamily INDEX.\+00\#} files and their associated dat files. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{options_8h_ac385bd442dabc3eb9cb8af4cdbfdfcc4}{OP\+\_\+\+SKIP\+\_\+\+INT\+\_\+\+DAT\+\_\+\+PROCESSING}}
+\begin{DoxyCompactList}\small\item\em If true, skips extraction of dat files created from extracting primary dat files. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{options_8h_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}}
 \begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
 uint32\+\_\+t \mbox{\hyperlink{options_8h_a57685525da7ee31266f852c10c29dffb}{OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT}}
@@ -63,7 +65,7 @@ Not really an option, should be moved elsewhere. Stored here for the sake of con
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00032}{32}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00033}{33}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_abf19eab4ae4469b24b2b34284bb72f5a}\index{options.h@{options.h}!OP\_BATCH\_PROCESS@{OP\_BATCH\_PROCESS}}
 \index{OP\_BATCH\_PROCESS@{OP\_BATCH\_PROCESS}!options.h@{options.h}}
@@ -91,7 +93,7 @@ Minimum size of files to be skipped if {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+MODE} i
 
 Minimum size of files to be skipped if {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+MODE} is true. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00029}{29}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00030}{30}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a22750490a402211ccfd1c7dda808eb51}\index{options.h@{options.h}!OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}}
 \index{OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}!options.h@{options.h}}
@@ -105,7 +107,7 @@ Skips files larger than {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00025}{25}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00026}{26}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a9f2b83262a240b0baabccb91b801b096}\index{options.h@{options.h}!OP\_INPUT\_DIR@{OP\_INPUT\_DIR}}
 \index{OP\_INPUT\_DIR@{OP\_INPUT\_DIR}!options.h@{options.h}}
@@ -119,7 +121,7 @@ Directory where hh will try to batch process files from if {\ttfamily OP\+\_\+\+
 
 Default is {\ttfamily ./dat-\/files/}. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00026}{26}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00027}{27}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a517a97037702e04fc68e47a47e4af794}\index{options.h@{options.h}!OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}}
 \index{OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}!options.h@{options.h}}
@@ -133,7 +135,7 @@ Directory where hh will try to output extracted files to.
 
 Default is {\ttfamily ./output/}. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00027}{27}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a845934c83dddb0516baadb1abd079d8d}\index{options.h@{options.h}!OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}}
 \index{OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}!options.h@{options.h}}
@@ -147,7 +149,7 @@ Character used to separate directory/file names in a path string.
 
 Depends on the user\textquotesingle{}s operating system. {\ttfamily \textbackslash{}\textbackslash{}} for Windows, {\ttfamily /} for \texorpdfstring{$\ast$}{*}nix. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00029}{29}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8h_a1ee118406b5a5d8845db1bc412b34400}\index{options.h@{options.h}!OP\_SKIP\_DAT\_PROCESSING@{OP\_SKIP\_DAT\_PROCESSING}}
 \index{OP\_SKIP\_DAT\_PROCESSING@{OP\_SKIP\_DAT\_PROCESSING}!options.h@{options.h}}
@@ -157,9 +159,23 @@ bool OP\+\_\+\+SKIP\+\_\+\+DAT\+\_\+\+PROCESSING\hspace{0.3cm}{\ttfamily [extern
 
 
 
-If true, skip {\ttfamily .DAT} file processing and go directly to processing {\ttfamily INDEX.\+00\#} files. 
+If true, skip primary dat file processing and go directly to processing {\ttfamily INDEX.\+00\#} files and their associated dat files. 
 
 
 
 Definition at line \mbox{\hyperlink{options_8c_source_l00024}{24}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
+\Hypertarget{options_8h_ac385bd442dabc3eb9cb8af4cdbfdfcc4}\index{options.h@{options.h}!OP\_SKIP\_INT\_DAT\_PROCESSING@{OP\_SKIP\_INT\_DAT\_PROCESSING}}
+\index{OP\_SKIP\_INT\_DAT\_PROCESSING@{OP\_SKIP\_INT\_DAT\_PROCESSING}!options.h@{options.h}}
+\doxysubsubsection{\texorpdfstring{OP\_SKIP\_INT\_DAT\_PROCESSING}{OP\_SKIP\_INT\_DAT\_PROCESSING}}
+{\footnotesize\ttfamily \label{options_8h_ac385bd442dabc3eb9cb8af4cdbfdfcc4} 
+bool OP\+\_\+\+SKIP\+\_\+\+INT\+\_\+\+DAT\+\_\+\+PROCESSING\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+If true, skips extraction of dat files created from extracting primary dat files. 
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00025}{25}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 

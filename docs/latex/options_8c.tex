@@ -21,7 +21,9 @@ void \mbox{\hyperlink{options_8c_a83aed94bb59dba20fc0286181dc64738}{handle\+\_\+
 bool \mbox{\hyperlink{options_8c_abf19eab4ae4469b24b2b34284bb72f5a}{OP\+\_\+\+BATCH\+\_\+\+PROCESS}} = true
 \begin{DoxyCompactList}\small\item\em \doxylink{options_8h}{options.\+h} -\/ container for all of hh\textquotesingle{}s options. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{options_8c_a1ee118406b5a5d8845db1bc412b34400}{OP\+\_\+\+SKIP\+\_\+\+DAT\+\_\+\+PROCESSING}} = false
-\begin{DoxyCompactList}\small\item\em If true, skip {\ttfamily .DAT} file processing and go directly to processing {\ttfamily INDEX.\+00\#} files. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em If true, skip primary dat file processing and go directly to processing {\ttfamily INDEX.\+00\#} files and their associated dat files. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{options_8c_ac385bd442dabc3eb9cb8af4cdbfdfcc4}{OP\+\_\+\+SKIP\+\_\+\+INT\+\_\+\+DAT\+\_\+\+PROCESSING}} = false
+\begin{DoxyCompactList}\small\item\em If true, skips extraction of dat files created from extracting primary dat files. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{options_8c_a22750490a402211ccfd1c7dda808eb51}{OP\+\_\+\+DEBUG\+\_\+\+MODE}} = false
 \begin{DoxyCompactList}\small\item\em Skips files larger than {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT} if true. \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_a9f2b83262a240b0baabccb91b801b096}{OP\+\_\+\+INPUT\+\_\+\+DIR}} = (char \texorpdfstring{$\ast$}{*})"{}dat-\/files"{}
@@ -34,7 +36,7 @@ uint32\+\_\+t \mbox{\hyperlink{options_8c_a57685525da7ee31266f852c10c29dffb}{OP\
 \begin{DoxyCompactList}\small\item\em 0x\+F00000 = 15 MiB \end{DoxyCompactList}\item 
 char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{options_8c_ab618e22311642682edcbbddd408ad110}{CURRENT\+\_\+\+DISK\+\_\+\+NAME}} = NULL
 \begin{DoxyCompactList}\small\item\em Current disk name as denoted by the {\ttfamily volume\+\_\+identifier} in {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}}. \end{DoxyCompactList}\item 
-static const char \mbox{\hyperlink{options_8c_a59cde5c015f49e774b06103571d51dc9}{VERSION\+\_\+\+NUMBER\+\_\+\+STR}} \mbox{[}9\mbox{]} = "{}00.\+00.\+00"{}
+static const char \mbox{\hyperlink{options_8c_a59cde5c015f49e774b06103571d51dc9}{VERSION\+\_\+\+NUMBER\+\_\+\+STR}} \mbox{[}9\mbox{]} = "{}01.\+00.\+00"{}
 \end{DoxyCompactItemize}
 
 
@@ -65,7 +67,7 @@ Prints a list of supported command-\/line arugments to stdout.
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00073}{73}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00083}{83}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a6b175948738c4d93a820a0ada9e54669}\index{options.c@{options.c}!process\_flag@{process\_flag}}
 \index{process\_flag@{process\_flag}!options.c@{options.c}}
@@ -79,7 +81,7 @@ Processes options beginning with {\ttfamily -\/} character, called flags.
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00088}{88}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00106}{106}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 
 
@@ -101,7 +103,7 @@ Not really an option, should be moved elsewhere. Stored here for the sake of con
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00032}{32}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00033}{33}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_abf19eab4ae4469b24b2b34284bb72f5a}\index{options.c@{options.c}!OP\_BATCH\_PROCESS@{OP\_BATCH\_PROCESS}}
 \index{OP\_BATCH\_PROCESS@{OP\_BATCH\_PROCESS}!options.c@{options.c}}
@@ -129,7 +131,7 @@ uint32\+\_\+t OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+\+LIMIT = 0x\+F00000}
 
 Minimum size of files to be skipped if {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+MODE} is true. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00029}{29}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00030}{30}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a22750490a402211ccfd1c7dda808eb51}\index{options.c@{options.c}!OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}}
 \index{OP\_DEBUG\_MODE@{OP\_DEBUG\_MODE}!options.c@{options.c}}
@@ -143,7 +145,7 @@ Skips files larger than {\ttfamily OP\+\_\+\+DEBUG\+\_\+\+FILE\+\_\+\+SIZE\+\_\+
 
 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00025}{25}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00026}{26}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a9f2b83262a240b0baabccb91b801b096}\index{options.c@{options.c}!OP\_INPUT\_DIR@{OP\_INPUT\_DIR}}
 \index{OP\_INPUT\_DIR@{OP\_INPUT\_DIR}!options.c@{options.c}}
@@ -157,7 +159,7 @@ Directory where hh will try to batch process files from if {\ttfamily OP\+\_\+\+
 
 Default is {\ttfamily ./dat-\/files/}. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00026}{26}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00027}{27}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a517a97037702e04fc68e47a47e4af794}\index{options.c@{options.c}!OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}}
 \index{OP\_OUTPUT\_DIR@{OP\_OUTPUT\_DIR}!options.c@{options.c}}
@@ -171,7 +173,7 @@ Directory where hh will try to output extracted files to.
 
 Default is {\ttfamily ./output/}. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00027}{27}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a845934c83dddb0516baadb1abd079d8d}\index{options.c@{options.c}!OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}}
 \index{OP\_PATH\_SEPARATOR@{OP\_PATH\_SEPARATOR}!options.c@{options.c}}
@@ -185,7 +187,7 @@ Character used to separate directory/file names in a path string.
 
 Depends on the user\textquotesingle{}s operating system. {\ttfamily \textbackslash{}\textbackslash{}} for Windows, {\ttfamily /} for \texorpdfstring{$\ast$}{*}nix. 
 
-Definition at line \mbox{\hyperlink{options_8c_source_l00028}{28}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+Definition at line \mbox{\hyperlink{options_8c_source_l00029}{29}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
 \Hypertarget{options_8c_a1ee118406b5a5d8845db1bc412b34400}\index{options.c@{options.c}!OP\_SKIP\_DAT\_PROCESSING@{OP\_SKIP\_DAT\_PROCESSING}}
 \index{OP\_SKIP\_DAT\_PROCESSING@{OP\_SKIP\_DAT\_PROCESSING}!options.c@{options.c}}
@@ -195,17 +197,31 @@ bool OP\+\_\+\+SKIP\+\_\+\+DAT\+\_\+\+PROCESSING = false}
 
 
 
-If true, skip {\ttfamily .DAT} file processing and go directly to processing {\ttfamily INDEX.\+00\#} files. 
+If true, skip primary dat file processing and go directly to processing {\ttfamily INDEX.\+00\#} files and their associated dat files. 
 
 
 
 Definition at line \mbox{\hyperlink{options_8c_source_l00024}{24}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
 
+\Hypertarget{options_8c_ac385bd442dabc3eb9cb8af4cdbfdfcc4}\index{options.c@{options.c}!OP\_SKIP\_INT\_DAT\_PROCESSING@{OP\_SKIP\_INT\_DAT\_PROCESSING}}
+\index{OP\_SKIP\_INT\_DAT\_PROCESSING@{OP\_SKIP\_INT\_DAT\_PROCESSING}!options.c@{options.c}}
+\doxysubsubsection{\texorpdfstring{OP\_SKIP\_INT\_DAT\_PROCESSING}{OP\_SKIP\_INT\_DAT\_PROCESSING}}
+{\footnotesize\ttfamily \label{options_8c_ac385bd442dabc3eb9cb8af4cdbfdfcc4} 
+bool OP\+\_\+\+SKIP\+\_\+\+INT\+\_\+\+DAT\+\_\+\+PROCESSING = false}
+
+
+
+If true, skips extraction of dat files created from extracting primary dat files. 
+
+
+
+Definition at line \mbox{\hyperlink{options_8c_source_l00025}{25}} of file \mbox{\hyperlink{options_8c_source}{options.\+c}}.
+
 \Hypertarget{options_8c_a59cde5c015f49e774b06103571d51dc9}\index{options.c@{options.c}!VERSION\_NUMBER\_STR@{VERSION\_NUMBER\_STR}}
 \index{VERSION\_NUMBER\_STR@{VERSION\_NUMBER\_STR}!options.c@{options.c}}
 \doxysubsubsection{\texorpdfstring{VERSION\_NUMBER\_STR}{VERSION\_NUMBER\_STR}}
 {\footnotesize\ttfamily \label{options_8c_a59cde5c015f49e774b06103571d51dc9} 
-const char VERSION\+\_\+\+NUMBER\+\_\+\+STR\mbox{[}9\mbox{]} = "{}00.\+00.\+00"{}\hspace{0.3cm}{\ttfamily [static]}}
+const char VERSION\+\_\+\+NUMBER\+\_\+\+STR\mbox{[}9\mbox{]} = "{}01.\+00.\+00"{}\hspace{0.3cm}{\ttfamily [static]}}
 
 
 

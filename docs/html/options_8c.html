@@ -130,8 +130,11 @@ Variables</h2></td></tr>
 <tr class="memdesc:abf19eab4ae4469b24b2b34284bb72f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="options_8h.html">options.h</a> - container for all of hh's options.  <br /></td></tr>
 <tr class="separator:abf19eab4ae4469b24b2b34284bb72f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ee118406b5a5d8845db1bc412b34400" id="r_a1ee118406b5a5d8845db1bc412b34400"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</a> = false</td></tr>
-<tr class="memdesc:a1ee118406b5a5d8845db1bc412b34400"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, skip <code>.DAT</code> file processing and go directly to processing <code>INDEX.00#</code> files.  <br /></td></tr>
+<tr class="memdesc:a1ee118406b5a5d8845db1bc412b34400"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, skip primary dat file processing and go directly to processing <code>INDEX.00#</code> files and their associated dat files.  <br /></td></tr>
 <tr class="separator:a1ee118406b5a5d8845db1bc412b34400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac385bd442dabc3eb9cb8af4cdbfdfcc4" id="r_ac385bd442dabc3eb9cb8af4cdbfdfcc4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac385bd442dabc3eb9cb8af4cdbfdfcc4">OP_SKIP_INT_DAT_PROCESSING</a> = false</td></tr>
+<tr class="memdesc:ac385bd442dabc3eb9cb8af4cdbfdfcc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, skips extraction of dat files created from extracting primary dat files.  <br /></td></tr>
+<tr class="separator:ac385bd442dabc3eb9cb8af4cdbfdfcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22750490a402211ccfd1c7dda808eb51" id="r_a22750490a402211ccfd1c7dda808eb51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a> = false</td></tr>
 <tr class="memdesc:a22750490a402211ccfd1c7dda808eb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skips files larger than <code>OP_DEBUG_FILE_SIZE_LIMIT</code> if true.  <br /></td></tr>
 <tr class="separator:a22750490a402211ccfd1c7dda808eb51"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,7 +153,7 @@ Variables</h2></td></tr>
 <tr class="memitem:ab618e22311642682edcbbddd408ad110" id="r_ab618e22311642682edcbbddd408ad110"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</a> = NULL</td></tr>
 <tr class="memdesc:ab618e22311642682edcbbddd408ad110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current disk name as denoted by the <code>volume_identifier</code> in <code><a class="el" href="structvolume__descriptor__data.html" title="The data section of a primary volume descriptor.">volume_descriptor_data</a></code>.  <br /></td></tr>
 <tr class="separator:ab618e22311642682edcbbddd408ad110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59cde5c015f49e774b06103571d51dc9" id="r_a59cde5c015f49e774b06103571d51dc9"><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a> [9] = &quot;00.00.00&quot;</td></tr>
+<tr class="memitem:a59cde5c015f49e774b06103571d51dc9" id="r_a59cde5c015f49e774b06103571d51dc9"><td class="memItemLeft" align="right" valign="top">static const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a> [9] = &quot;01.00.00&quot;</td></tr>
 <tr class="separator:a59cde5c015f49e774b06103571d51dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -204,7 +207,7 @@ Variables</h2></td></tr>
 
 <p>Prints a list of supported command-line arugments to stdout. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00073">73</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00083">83</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -233,7 +236,7 @@ Variables</h2></td></tr>
 
 <p>Processes options beginning with <code>-</code> character, called flags. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00088">88</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00106">106</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -254,7 +257,7 @@ Variables</h2></td></tr>
 <p>Not really an option, should be moved elsewhere. Stored here for the sake of convenience.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structvolume__descriptor__data.html" title="The data section of a primary volume descriptor.">volume_descriptor_data</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00032">32</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00033">33</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -292,7 +295,7 @@ Variables</h2></td></tr>
 <p>0xF00000 = 15 MiB </p>
 <p>Minimum size of files to be skipped if <code>OP_DEBUG_MODE</code> is true. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00029">29</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00030">30</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -310,7 +313,7 @@ Variables</h2></td></tr>
 
 <p>Skips files larger than <code>OP_DEBUG_FILE_SIZE_LIMIT</code> if true. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00025">25</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00026">26</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -329,7 +332,7 @@ Variables</h2></td></tr>
 <p>Directory where hh will try to batch process files from if <code>OP_BATCH_PROCESS</code> is true. </p>
 <p>Default is <code>./dat-files/</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00026">26</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00027">27</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -348,7 +351,7 @@ Variables</h2></td></tr>
 <p>Directory where hh will try to output extracted files to. </p>
 <p>Default is <code>./output/</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00027">27</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00028">28</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -367,7 +370,7 @@ Variables</h2></td></tr>
 <p>Character used to separate directory/file names in a path string. </p>
 <p>Depends on the user's operating system. <code>\\</code> for Windows, <code>/</code> for *nix. </p>
 
-<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00028">28</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00029">29</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -383,9 +386,27 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>If true, skip <code>.DAT</code> file processing and go directly to processing <code>INDEX.00#</code> files. </p>
+<p>If true, skip primary dat file processing and go directly to processing <code>INDEX.00#</code> files and their associated dat files. </p>
 
 <p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00024">24</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
+
+</div>
+</div>
+<a id="ac385bd442dabc3eb9cb8af4cdbfdfcc4" name="ac385bd442dabc3eb9cb8af4cdbfdfcc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac385bd442dabc3eb9cb8af4cdbfdfcc4">&#9670;&#160;</a></span>OP_SKIP_INT_DAT_PROCESSING</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool OP_SKIP_INT_DAT_PROCESSING = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If true, skips extraction of dat files created from extracting primary dat files. </p>
+
+<p class="definition">Definition at line <a class="el" href="options_8c_source.html#l00025">25</a> of file <a class="el" href="options_8c_source.html">options.c</a>.</p>
 
 </div>
 </div>
@@ -399,7 +420,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char VERSION_NUMBER_STR[9] = &quot;00.00.00&quot;</td>
+          <td class="memname">const char VERSION_NUMBER_STR[9] = &quot;01.00.00&quot;</td>
         </tr>
       </table>
   </td>

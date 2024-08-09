@@ -8,5 +8,6 @@ var options_8h =
     [ "OP_INPUT_DIR", "options_8h.html#a9f2b83262a240b0baabccb91b801b096", null ],
     [ "OP_OUTPUT_DIR", "options_8h.html#a517a97037702e04fc68e47a47e4af794", null ],
     [ "OP_PATH_SEPARATOR", "options_8h.html#a845934c83dddb0516baadb1abd079d8d", null ],
-    [ "OP_SKIP_DAT_PROCESSING", "options_8h.html#a1ee118406b5a5d8845db1bc412b34400", null ]
+    [ "OP_SKIP_DAT_PROCESSING", "options_8h.html#a1ee118406b5a5d8845db1bc412b34400", null ],
+    [ "OP_SKIP_INT_DAT_PROCESSING", "options_8h.html#ac385bd442dabc3eb9cb8af4cdbfdfcc4", null ]
 ];

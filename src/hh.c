@@ -58,7 +58,7 @@ main (int argc, char **argv)
       fclose (fptr);
     }
 
-  if (process_internal_dat_files () != 0)
+  if (!OP_SKIP_INT_DAT_PROCESSING && process_internal_dat_files () != 0)
     {
       exit (1);
     }

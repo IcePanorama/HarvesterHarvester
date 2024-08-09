@@ -11,5 +11,6 @@ var options_8c =
     [ "OP_OUTPUT_DIR", "options_8c.html#a517a97037702e04fc68e47a47e4af794", null ],
     [ "OP_PATH_SEPARATOR", "options_8c.html#a845934c83dddb0516baadb1abd079d8d", null ],
     [ "OP_SKIP_DAT_PROCESSING", "options_8c.html#a1ee118406b5a5d8845db1bc412b34400", null ],
+    [ "OP_SKIP_INT_DAT_PROCESSING", "options_8c.html#ac385bd442dabc3eb9cb8af4cdbfdfcc4", null ],
     [ "VERSION_NUMBER_STR", "options_8c.html#a59cde5c015f49e774b06103571d51dc9", null ]
 ];

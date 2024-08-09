@@ -22,6 +22,7 @@
 /* Option defaults */
 bool OP_BATCH_PROCESS = true;
 bool OP_SKIP_DAT_PROCESSING = false;
+bool OP_SKIP_INT_DAT_PROCESSING = false;
 bool OP_DEBUG_MODE = false;
 char *OP_INPUT_DIR = (char *)"dat-files";
 char *OP_OUTPUT_DIR = (char *)"output";
@@ -96,6 +97,7 @@ print_out_list_of_command_line_arguments (void)
   puts ("\t--version: prints out the version number.");
   //  TODO: have some usage.md file that explains this in more detail.
   //  add a note here saying to read that file for details.
+  puts ("\t-e: don't extract internal dat files.");
   puts ("\t-i: extract internal dat files only.");
   puts ("\t-o [path/to/dir]: extract dat files to the given directory.");
 }
@@ -111,6 +113,10 @@ process_flag (char *f)
     {
       print_out_list_of_command_line_arguments ();
       exit (0);
+    }
+  else if (strcmp (f, "-e") == 0)
+    {
+      OP_SKIP_INT_DAT_PROCESSING = true;
     }
   else if (strcmp (f, "-i") == 0)
     {

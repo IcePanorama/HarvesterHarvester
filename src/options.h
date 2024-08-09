@@ -27,10 +27,16 @@
 extern bool OP_BATCH_PROCESS;
 
 /**
- *  If true, skip `.DAT` file processing and go directly to processing
- *  `INDEX.00#` files.
+ *  If true, skip primary dat file processing and go directly to processing
+ *  `INDEX.00#` files and their associated dat files.
  */
 extern bool OP_SKIP_DAT_PROCESSING;
+
+/**
+ *  If true, skips extraction of dat files created from extracting primary dat
+ *  files.
+ */
+extern bool OP_SKIP_INT_DAT_PROCESSING;
 
 /** Skips files larger than `OP_DEBUG_FILE_SIZE_LIMIT` if true. */
 extern bool OP_DEBUG_MODE;

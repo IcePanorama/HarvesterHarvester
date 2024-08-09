@@ -124,17 +124,17 @@ $(function(){initNavTree('options_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/* Option defaults */</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="options_8c.html#abf19eab4ae4469b24b2b34284bb72f5a">   23</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="options_8c.html#abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="options_8c.html#a1ee118406b5a5d8845db1bc412b34400">   24</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="options_8c.html#a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">   25</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="options_8c.html#a9f2b83262a240b0baabccb91b801b096">   26</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="options_8c.html#a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</a> = (<span class="keywordtype">char</span> *)<span class="stringliteral">&quot;dat-files&quot;</span>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="options_8c.html#a517a97037702e04fc68e47a47e4af794">   27</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="options_8c.html#a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</a> = (<span class="keywordtype">char</span> *)<span class="stringliteral">&quot;output&quot;</span>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">   28</a></span><span class="keywordtype">char</span> <a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a> = <span class="charliteral">&#39;/&#39;</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="options_8c.html#a57685525da7ee31266f852c10c29dffb">   29</a></span>uint32_t <a class="code hl_variable" href="options_8c.html#a57685525da7ee31266f852c10c29dffb">OP_DEBUG_FILE_SIZE_LIMIT</a> = 0xF00000; </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/* Global defaults */</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="options_8c.html#ab618e22311642682edcbbddd408ad110">   32</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="options_8c.html#ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</a> = NULL;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">// TODO: update me when finished</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">   35</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a>[9] = <span class="stringliteral">&quot;00.00.00&quot;</span>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="options_8c.html#ac385bd442dabc3eb9cb8af4cdbfdfcc4">   25</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="options_8c.html#ac385bd442dabc3eb9cb8af4cdbfdfcc4">OP_SKIP_INT_DAT_PROCESSING</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">   26</a></span><span class="keywordtype">bool</span> <a class="code hl_variable" href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="options_8c.html#a9f2b83262a240b0baabccb91b801b096">   27</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="options_8c.html#a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</a> = (<span class="keywordtype">char</span> *)<span class="stringliteral">&quot;dat-files&quot;</span>;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="options_8c.html#a517a97037702e04fc68e47a47e4af794">   28</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="options_8c.html#a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</a> = (<span class="keywordtype">char</span> *)<span class="stringliteral">&quot;output&quot;</span>;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">   29</a></span><span class="keywordtype">char</span> <a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a> = <span class="charliteral">&#39;/&#39;</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="options_8c.html#a57685525da7ee31266f852c10c29dffb">   30</a></span>uint32_t <a class="code hl_variable" href="options_8c.html#a57685525da7ee31266f852c10c29dffb">OP_DEBUG_FILE_SIZE_LIMIT</a> = 0xF00000; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/* Global defaults */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="options_8c.html#ab618e22311642682edcbbddd408ad110">   33</a></span><span class="keywordtype">char</span> *<a class="code hl_variable" href="options_8c.html#ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</a> = NULL;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">   35</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a>[9] = <span class="stringliteral">&quot;01.00.00&quot;</span>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</a> (<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">process_flag</a> (<span class="keywordtype">char</span> *f);</div>
@@ -146,90 +146,113 @@ $(function(){initNavTree('options_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keywordtype">int</span> i;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordflow">for</span> (i = 1; i &lt; argc; i++)</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      <span class="keywordflow">if</span> (argv[i][0] == <span class="charliteral">&#39;-&#39;</span>)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>      <span class="keywordflow">if</span> (strncmp (argv[i], <span class="stringliteral">&quot;-o&quot;</span>, 2) == 0)</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>          <a class="code hl_function" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">process_flag</a> (argv[i]);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>          <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        }</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordflow">if</span> (i == argc)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="utils_8c.html#aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</a> (argv[argc - 1]))</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      <span class="comment">// just processing the user-provided file @ the user-provided path</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      <a class="code hl_variable" href="options_8c.html#abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <a class="code hl_function" href="errors_8c.html#a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</a> (argv[argc - 1]);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>          i++;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>          <span class="keywordtype">size_t</span> path_len = strlen (argv[i]);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>          <span class="keywordflow">if</span> (argv[i][path_len - 1] == <span class="charliteral">&#39;/&#39;</span> || argv[i][path_len - 1] == <span class="charliteral">&#39;\\&#39;</span>)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>              argv[i][path_len - 1] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>          <a class="code hl_variable" href="options_8c.html#a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</a> = argv[i];</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (argv[i][0] == <span class="charliteral">&#39;-&#39;</span>)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>          <a class="code hl_function" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">process_flag</a> (argv[i]);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>      <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="keywordflow">if</span> (i == argc)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="utils_8c.html#aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</a> (argv[argc - 1]))</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      <span class="comment">// just processing the user-provided file @ the user-provided path</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      <a class="code hl_variable" href="options_8c.html#abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>      <a class="code hl_function" href="errors_8c.html#a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</a> (argv[argc - 1]);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keywordtype">void</span></div>
-<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">   73</a></span><a class="code hl_function" href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</a> (<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>{</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  printf (</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      <span class="stringliteral">&quot;HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\n&quot;</span>,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <a class="code hl_variable" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a>);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  puts (<span class="stringliteral">&quot;Usage: main {options (optional)} {path/to/}[DAT FILE].DAT&quot;</span>);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  puts (<span class="stringliteral">&quot;Command-line arguments:&quot;</span>);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  puts (<span class="stringliteral">&quot;\t--debug: enables debug mode, skips extracting large files.&quot;</span>);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  puts (<span class="stringliteral">&quot;\t--help: displays list of command line arguments.&quot;</span>);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  puts (<span class="stringliteral">&quot;\t--single: outputs all files into a single directory &quot;</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="stringliteral">&quot;(default=output/).&quot;</span>);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  puts (<span class="stringliteral">&quot;\t--version: prints out the version number.&quot;</span>);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keywordtype">void</span></div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">   83</a></span><a class="code hl_function" href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</a> (<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>{</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  printf (</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      <span class="stringliteral">&quot;HarvesterHarvester (HH) Version %s Copyright (C) 2024 IcePanorama\n&quot;</span>,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      <a class="code hl_variable" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  puts (<span class="stringliteral">&quot;Usage:\n\tHarvesterHarvester_[ARCH].exe [options] &quot;</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="stringliteral">&quot;[path_to_dat_file]\n&quot;</span>);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  puts (<span class="stringliteral">&quot;Usage:\n\t./HarvesterHarvester [options] [path/to/dat_file.dat]\n&quot;</span>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  puts (<span class="stringliteral">&quot;Command-line arguments:&quot;</span>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  puts (<span class="stringliteral">&quot;\t--debug: enables debug mode, skips extracting large files.&quot;</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  puts (<span class="stringliteral">&quot;\t--help: displays list of command line arguments.&quot;</span>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  puts (<span class="stringliteral">&quot;\t--version: prints out the version number.&quot;</span>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  <span class="comment">//  TODO: have some usage.md file that explains this in more detail.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="comment">//  add a note here saying to read that file for details.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  puts (<span class="stringliteral">&quot;\t-e: don&#39;t extract internal dat files.&quot;</span>);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  puts (<span class="stringliteral">&quot;\t-i: extract internal dat files only.&quot;</span>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  puts (<span class="stringliteral">&quot;\t-o [path/to/dir]: extract dat files to the given directory.&quot;</span>);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
 </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span></div>
-<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">   88</a></span><a class="code hl_function" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">process_flag</a> (<span class="keywordtype">char</span> *f)</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;--debug&quot;</span>) == 0)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      <a class="code hl_variable" href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;--help&quot;</span>) == 0)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      <a class="code hl_function" href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</a> ();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      exit (0);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;-i&quot;</span>) == 0)</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    {</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      <a class="code hl_variable" href="options_8c.html#a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;--version&quot;</span>) == 0)</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      printf (<span class="stringliteral">&quot;HarvesterHarvester v%s\n&quot;</span>, <a class="code hl_variable" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a>);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      exit (0);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="keywordtype">void</span></div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">  106</a></span><a class="code hl_function" href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">process_flag</a> (<span class="keywordtype">char</span> *f)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;--debug&quot;</span>) == 0)</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      <a class="code hl_function" href="errors_8c.html#a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</a> (f);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      <a class="code hl_variable" href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a> = <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;--help&quot;</span>) == 0)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>      <a class="code hl_function" href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</a> ();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      exit (0);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;-e&quot;</span>) == 0)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <a class="code hl_variable" href="options_8c.html#ac385bd442dabc3eb9cb8af4cdbfdfcc4">OP_SKIP_INT_DAT_PROCESSING</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;-i&quot;</span>) == 0)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      <a class="code hl_variable" href="options_8c.html#a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (strcmp (f, <span class="stringliteral">&quot;--version&quot;</span>) == 0)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      printf (<span class="stringliteral">&quot;HarvesterHarvester v%s\n&quot;</span>, <a class="code hl_variable" href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>      exit (0);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>      <a class="code hl_function" href="errors_8c.html#a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</a> (f);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
 </div>
 <div class="ttc" id="aerrors_8c_html_a2343c2fe78d79e1bd2092a5aa19964b0"><div class="ttname"><a href="errors_8c.html#a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</a></div><div class="ttdeci">void handle_unknown_command_line_argument_error(char *arg)</div><div class="ttdoc">Throws an unknown command line argument error.</div><div class="ttdef"><b>Definition</b> <a href="errors_8c_source.html#l00042">errors.c:42</a></div></div>
 <div class="ttc" id="aerrors_8h_html"><div class="ttname"><a href="errors_8h.html">errors.h</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a1ee118406b5a5d8845db1bc412b34400"><div class="ttname"><a href="options_8c.html#a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</a></div><div class="ttdeci">bool OP_SKIP_DAT_PROCESSING</div><div class="ttdoc">If true, skip .DAT file processing and go directly to processing INDEX.00# files.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">options.c:24</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a22750490a402211ccfd1c7dda808eb51"><div class="ttname"><a href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a></div><div class="ttdeci">bool OP_DEBUG_MODE</div><div class="ttdoc">Skips files larger than OP_DEBUG_FILE_SIZE_LIMIT if true.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">options.c:25</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a517a97037702e04fc68e47a47e4af794"><div class="ttname"><a href="options_8c.html#a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</a></div><div class="ttdeci">char * OP_OUTPUT_DIR</div><div class="ttdoc">Directory where hh will try to output extracted files to.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">options.c:27</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a5413a17f20b0c5daf64765e6c104768d"><div class="ttname"><a href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</a></div><div class="ttdeci">static void print_out_list_of_command_line_arguments(void)</div><div class="ttdoc">Prints a list of supported command-line arugments to stdout.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">options.c:73</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a57685525da7ee31266f852c10c29dffb"><div class="ttname"><a href="options_8c.html#a57685525da7ee31266f852c10c29dffb">OP_DEBUG_FILE_SIZE_LIMIT</a></div><div class="ttdeci">uint32_t OP_DEBUG_FILE_SIZE_LIMIT</div><div class="ttdoc">0xF00000 = 15 MiB</div><div class="ttdef"><b>Definition</b> <a href="#l00029">options.c:29</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a1ee118406b5a5d8845db1bc412b34400"><div class="ttname"><a href="options_8c.html#a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</a></div><div class="ttdeci">bool OP_SKIP_DAT_PROCESSING</div><div class="ttdoc">If true, skip primary dat file processing and go directly to processing INDEX.00# files and their ass...</div><div class="ttdef"><b>Definition</b> <a href="#l00024">options.c:24</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a22750490a402211ccfd1c7dda808eb51"><div class="ttname"><a href="options_8c.html#a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</a></div><div class="ttdeci">bool OP_DEBUG_MODE</div><div class="ttdoc">Skips files larger than OP_DEBUG_FILE_SIZE_LIMIT if true.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">options.c:26</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a517a97037702e04fc68e47a47e4af794"><div class="ttname"><a href="options_8c.html#a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</a></div><div class="ttdeci">char * OP_OUTPUT_DIR</div><div class="ttdoc">Directory where hh will try to output extracted files to.</div><div class="ttdef"><b>Definition</b> <a href="#l00028">options.c:28</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a5413a17f20b0c5daf64765e6c104768d"><div class="ttname"><a href="options_8c.html#a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</a></div><div class="ttdeci">static void print_out_list_of_command_line_arguments(void)</div><div class="ttdoc">Prints a list of supported command-line arugments to stdout.</div><div class="ttdef"><b>Definition</b> <a href="#l00083">options.c:83</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a57685525da7ee31266f852c10c29dffb"><div class="ttname"><a href="options_8c.html#a57685525da7ee31266f852c10c29dffb">OP_DEBUG_FILE_SIZE_LIMIT</a></div><div class="ttdeci">uint32_t OP_DEBUG_FILE_SIZE_LIMIT</div><div class="ttdoc">0xF00000 = 15 MiB</div><div class="ttdef"><b>Definition</b> <a href="#l00030">options.c:30</a></div></div>
 <div class="ttc" id="aoptions_8c_html_a59cde5c015f49e774b06103571d51dc9"><div class="ttname"><a href="options_8c.html#a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</a></div><div class="ttdeci">static const char VERSION_NUMBER_STR[9]</div><div class="ttdef"><b>Definition</b> <a href="#l00035">options.c:35</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a6b175948738c4d93a820a0ada9e54669"><div class="ttname"><a href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">process_flag</a></div><div class="ttdeci">static void process_flag(char *f)</div><div class="ttdoc">Processes options beginning with - character, called flags.</div><div class="ttdef"><b>Definition</b> <a href="#l00088">options.c:88</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a6b175948738c4d93a820a0ada9e54669"><div class="ttname"><a href="options_8c.html#a6b175948738c4d93a820a0ada9e54669">process_flag</a></div><div class="ttdeci">static void process_flag(char *f)</div><div class="ttdoc">Processes options beginning with - character, called flags.</div><div class="ttdef"><b>Definition</b> <a href="#l00106">options.c:106</a></div></div>
 <div class="ttc" id="aoptions_8c_html_a83aed94bb59dba20fc0286181dc64738"><div class="ttname"><a href="options_8c.html#a83aed94bb59dba20fc0286181dc64738">handle_command_line_args</a></div><div class="ttdeci">void handle_command_line_args(int argc, char **argv)</div><div class="ttdoc">Processes command-line arguments, setting options as needed.</div><div class="ttdef"><b>Definition</b> <a href="#l00043">options.c:43</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a845934c83dddb0516baadb1abd079d8d"><div class="ttname"><a href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a></div><div class="ttdeci">char OP_PATH_SEPARATOR</div><div class="ttdoc">Character used to separate directory/file names in a path string.</div><div class="ttdef"><b>Definition</b> <a href="#l00028">options.c:28</a></div></div>
-<div class="ttc" id="aoptions_8c_html_a9f2b83262a240b0baabccb91b801b096"><div class="ttname"><a href="options_8c.html#a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</a></div><div class="ttdeci">char * OP_INPUT_DIR</div><div class="ttdoc">Directory where hh will try to batch process files from if OP_BATCH_PROCESS is true.</div><div class="ttdef"><b>Definition</b> <a href="#l00026">options.c:26</a></div></div>
-<div class="ttc" id="aoptions_8c_html_ab618e22311642682edcbbddd408ad110"><div class="ttname"><a href="options_8c.html#ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</a></div><div class="ttdeci">char * CURRENT_DISK_NAME</div><div class="ttdoc">Current disk name as denoted by the volume_identifier in volume_descriptor_data.</div><div class="ttdef"><b>Definition</b> <a href="#l00032">options.c:32</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a845934c83dddb0516baadb1abd079d8d"><div class="ttname"><a href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a></div><div class="ttdeci">char OP_PATH_SEPARATOR</div><div class="ttdoc">Character used to separate directory/file names in a path string.</div><div class="ttdef"><b>Definition</b> <a href="#l00029">options.c:29</a></div></div>
+<div class="ttc" id="aoptions_8c_html_a9f2b83262a240b0baabccb91b801b096"><div class="ttname"><a href="options_8c.html#a9f2b83262a240b0baabccb91b801b096">OP_INPUT_DIR</a></div><div class="ttdeci">char * OP_INPUT_DIR</div><div class="ttdoc">Directory where hh will try to batch process files from if OP_BATCH_PROCESS is true.</div><div class="ttdef"><b>Definition</b> <a href="#l00027">options.c:27</a></div></div>
+<div class="ttc" id="aoptions_8c_html_ab618e22311642682edcbbddd408ad110"><div class="ttname"><a href="options_8c.html#ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</a></div><div class="ttdeci">char * CURRENT_DISK_NAME</div><div class="ttdoc">Current disk name as denoted by the volume_identifier in volume_descriptor_data.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">options.c:33</a></div></div>
 <div class="ttc" id="aoptions_8c_html_abf19eab4ae4469b24b2b34284bb72f5a"><div class="ttname"><a href="options_8c.html#abf19eab4ae4469b24b2b34284bb72f5a">OP_BATCH_PROCESS</a></div><div class="ttdeci">bool OP_BATCH_PROCESS</div><div class="ttdoc">options.h - container for all of hh's options.</div><div class="ttdef"><b>Definition</b> <a href="#l00023">options.c:23</a></div></div>
+<div class="ttc" id="aoptions_8c_html_ac385bd442dabc3eb9cb8af4cdbfdfcc4"><div class="ttname"><a href="options_8c.html#ac385bd442dabc3eb9cb8af4cdbfdfcc4">OP_SKIP_INT_DAT_PROCESSING</a></div><div class="ttdeci">bool OP_SKIP_INT_DAT_PROCESSING</div><div class="ttdoc">If true, skips extraction of dat files created from extracting primary dat files.</div><div class="ttdef"><b>Definition</b> <a href="#l00025">options.c:25</a></div></div>
 <div class="ttc" id="aoptions_8h_html"><div class="ttname"><a href="options_8h.html">options.h</a></div></div>
 <div class="ttc" id="autils_8c_html_aee9f9bd7844e8e7d21d0965980b6e9ed"><div class="ttname"><a href="utils_8c.html#aee9f9bd7844e8e7d21d0965980b6e9ed">is_string_dat_file</a></div><div class="ttdeci">bool is_string_dat_file(char *str)</div><div class="ttdoc">Returns true if the given string ends in .DAT.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00078">utils.c:78</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>

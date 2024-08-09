@@ -62,7 +62,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_hh_8c_source_1l00058"/>00058 &#32;&#32;&#32;&#32;&#32;&#32;fclose&#32;(fptr);
 <anchor xml:id="_hh_8c_source_1l00059"/>00059 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_hh_8c_source_1l00060"/>00060 
-<anchor xml:id="_hh_8c_source_1l00061"/>00061 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_hh_8c_1a1146bc482f9887a59a54f5eb00394d61">process_internal_dat_files</link>&#32;()&#32;!=&#32;0)
+<anchor xml:id="_hh_8c_source_1l00061"/>00061 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_options_8c_1ac385bd442dabc3eb9cb8af4cdbfdfcc4">OP_SKIP_INT_DAT_PROCESSING</link>&#32;&amp;&amp;&#32;<link linkend="_hh_8c_1a1146bc482f9887a59a54f5eb00394d61">process_internal_dat_files</link>&#32;()&#32;!=&#32;0)
 <anchor xml:id="_hh_8c_source_1l00062"/>00062 &#32;&#32;&#32;&#32;{
 <anchor xml:id="_hh_8c_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(1);
 <anchor xml:id="_hh_8c_source_1l00064"/>00064 &#32;&#32;&#32;&#32;}
