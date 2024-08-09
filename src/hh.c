@@ -299,21 +299,29 @@ batch_process_DAT_files ()
   return 0;
 }
 
-/*
- *  We DO need a more flexible/non-hardcoded solution as we don't necessarily
- *  know which DAT files the end user extracted in the first place.
- */
 int8_t
 process_new_dat_files (void)
 {
+  FILE *table = fopen ("internal-dat-file-paths.txt", "r");
+  if (table == NULL)
+    {
+      return HH_FOPEN_ERROR;
+    }
+
   /* Find, create, and process index_file. */
   // TODO: convert as many malloc'd strings to char arrays as possible.
+  char format[32] = { 0 };
+
+  fgets (format, sizeof (format), table);
+  size_t len = strlen (format);
+  format[len - 1] = '\0';
+  fclose (table);
+
   char index_file_path[256] = { 0 };
-  strcpy (index_file_path, OP_OUTPUT_DIR);
-  strcat (index_file_path, &OP_PATH_SEPARATOR);
-  strcat (index_file_path, "DISK1");
-  strcat (index_file_path, &OP_PATH_SEPARATOR);
-  strcat (index_file_path, "INDEX.001");
+  sprintf (index_file_path, format, OP_OUTPUT_DIR, OP_PATH_SEPARATOR,
+           OP_PATH_SEPARATOR);
+
+  printf ("%s\n", index_file_path);
 
   FILE *fptr = NULL;
   if (setup_extractor (&fptr, index_file_path) != 0)
@@ -339,14 +347,6 @@ process_new_dat_files (void)
 
   print_index_entry (&idx_file.indicies[0]);
 
-  char output_file_path[256];
-  strcpy (output_file_path, OP_OUTPUT_DIR);
-  strcat (output_file_path, &OP_PATH_SEPARATOR);
-  strcat (output_file_path, "DISK1");
-  strcat (output_file_path, idx_file.indicies[0].full_path);
-
-  printf ("Path: %s\n", output_file_path);
-
   strcpy (index_file_path, OP_OUTPUT_DIR);
   strcat (index_file_path, &OP_PATH_SEPARATOR);
   strcat (index_file_path, "DISK1");
@@ -361,6 +361,14 @@ process_new_dat_files (void)
       return HH_FOPEN_ERROR;
     }
 
+  char output_file_path[256];
+  strcpy (output_file_path, OP_OUTPUT_DIR);
+  strcat (output_file_path, &OP_PATH_SEPARATOR);
+  strcat (output_file_path, "DISK1");
+  strcat (output_file_path, idx_file.indicies[0].full_path);
+
+  printf ("Path: %s\n", output_file_path);
+
   if (extract_file_using_idx_entry (dat_file, &idx_file.indicies[0],
                                     output_file_path)
       != 0)
@@ -371,7 +379,6 @@ process_new_dat_files (void)
     }
 
   fclose (dat_file);
-
   destroy_index_file (&idx_file);
   return 0;
 }
