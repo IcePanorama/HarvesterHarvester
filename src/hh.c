@@ -12,6 +12,7 @@
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "hh.h"
+#include "data_reader.h"
 #include "errors.h"
 #include "extractor.h"
 #include "index_file.h"
@@ -306,6 +307,7 @@ batch_process_DAT_files ()
 int8_t
 process_new_dat_files (void)
 {
+  // TODO: convert as many malloc'd strings to char arrays as possible.
   char index_file_path[256] = { 0 };
 
   strcpy (index_file_path, OP_OUTPUT_DIR);
@@ -372,13 +374,21 @@ process_new_dat_files (void)
       return HH_FOPEN_ERROR;
     }
 
-  /*
-  // File offset needs a better name
-  // TODO: rename to size.
+  // jump to file start.
+  fseek (dat_file, idx_file.indicies[0].file_start, SEEK_SET);
+
+  // File offset needs a better name. TODO: rename to size.
   for (uint32_t i = 0x0; i < idx_file.indicies[0].file_offset; i++)
-  {
-  }
-  */
+    {
+      uint8_t byte;
+      if (read_single_uint8 (dat_file, &byte) != 0)
+        {
+          fprintf (stderr, "ERROR: couldn't read byte, quitting.\n");
+          break;
+        }
+
+      fwrite (&byte, sizeof (uint8_t), 1, output_file);
+    }
 
   fclose (output_file);
   fclose (dat_file);
