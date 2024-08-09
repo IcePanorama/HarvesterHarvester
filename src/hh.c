@@ -318,7 +318,7 @@ process_new_dat_files (void)
       FILE *fptr = NULL;
       if (setup_extractor (&fptr, index_file_path) != 0)
         {
-          printf ("Index file, %s, not found. Skipping...\n", index_file_path);
+          printf ("Skipping...\n");
 
           // Skip next line
           build_path_string_from_file (table, index_file_path);
