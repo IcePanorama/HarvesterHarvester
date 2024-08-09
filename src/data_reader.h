@@ -99,4 +99,6 @@ int8_t read_dir_datetime (FILE *fptr, dir_datetime *dt);
  */
 int8_t read_file_flags (FILE *fptr, file_flags *ff);
 
+void build_path_string_from_file (FILE *fptr, char *output);
+
 #endif

@@ -14,9 +14,11 @@
 #include "data_reader.h"
 #include "errors.h"
 #include "file_flags.h"
+#include "options.h"
 
 #include <stdbool.h>
 #include <stdint.h>
+#include <string.h>
 
 /**
  *  Reads a uint16_t stored in big endian format from the file pointed to by
@@ -243,4 +245,16 @@ read_file_flags (FILE *fptr, file_flags *ff)
     }
 
   return 0;
+}
+
+void
+build_path_string_from_file (FILE *fptr, char *output)
+{
+  char format[32] = { 0 };
+  fgets (format, sizeof (format), fptr);
+  size_t len = strlen (format);
+  format[len - 1] = '\0';
+
+  sprintf (output, format, OP_OUTPUT_DIR, OP_PATH_SEPARATOR,
+           OP_PATH_SEPARATOR);
 }

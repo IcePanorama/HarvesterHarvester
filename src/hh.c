@@ -12,6 +12,7 @@
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "hh.h"
+#include "data_reader.h"
 #include "errors.h"
 #include "extractor.h"
 #include "index_file.h"
@@ -310,22 +311,13 @@ process_new_dat_files (void)
 
   /* Find, create, and process index_file. */
   // TODO: convert as many malloc'd strings to char arrays as possible.
-  char format[32] = { 0 };
-
-  fgets (format, sizeof (format), table);
-  size_t len = strlen (format);
-  format[len - 1] = '\0';
-  fclose (table);
-
   char index_file_path[256] = { 0 };
-  sprintf (index_file_path, format, OP_OUTPUT_DIR, OP_PATH_SEPARATOR,
-           OP_PATH_SEPARATOR);
-
-  printf ("%s\n", index_file_path);
+  build_path_string_from_file (table, index_file_path);
 
   FILE *fptr = NULL;
   if (setup_extractor (&fptr, index_file_path) != 0)
     {
+      fclose (table);
       return HH_FOPEN_ERROR;
     }
 
@@ -333,12 +325,15 @@ process_new_dat_files (void)
   if (create_index_file (&idx_file) != 0)
     {
       fclose (fptr);
+      fclose (table);
       return -1;
     }
 
+  printf ("Processing index file, %s\n", index_file_path);
   if (process_index_file (fptr, &idx_file) != 0)
     {
       destroy_index_file (&idx_file);
+      fclose (table);
       fclose (fptr);
       return -1;
     }
@@ -347,16 +342,16 @@ process_new_dat_files (void)
 
   print_index_entry (&idx_file.indicies[0]);
 
-  strcpy (index_file_path, OP_OUTPUT_DIR);
-  strcat (index_file_path, &OP_PATH_SEPARATOR);
-  strcat (index_file_path, "DISK1");
-  strcat (index_file_path, &OP_PATH_SEPARATOR);
-  strcat (index_file_path, "HARVEST.DAT");
+  char dat_file_path[256];
+  build_path_string_from_file (table, dat_file_path);
+  fclose (table);
 
-  FILE *dat_file = fopen (index_file_path, "rb");
+  printf ("Dat file path: %s\n", dat_file_path);
+
+  FILE *dat_file = fopen (dat_file_path, "rb");
   if (dat_file == NULL)
     {
-      fprintf (stderr, "Error opening dat file, %s\n", index_file_path);
+      fprintf (stderr, "Error opening dat file, %s\n", dat_file_path);
       destroy_index_file (&idx_file);
       return HH_FOPEN_ERROR;
     }
