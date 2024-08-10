@@ -4,19 +4,17 @@ Thank you for considering contributing to HarvesterHarvester! We welcome contrib
 
 ## How to Contribute
 
-1. Fork the Repository
+### 1. Clone the Repository
 
-Start by forking the repository to your own GitHub account. This will allow you to freely make changes without affecting the main project.
-
-2. Clone Your Fork
-
-Clone your forked repository to your local machine using:
+Clone the repository to your local machine using:
 
 ```bash
-git clone https://github.com/IcePanorama/HarvesterHarvester
+git clone https://github.com/IcePanorama/HarvesterHarvester.git
+# or ...
+git clone git@github.com:IcePanorama/HarvesterHarvester.git
 ```
 
-3. Create a Branch
+### 2. Create a Branch
 
 Create a new branch for your changes:
 
@@ -24,15 +22,15 @@ Create a new branch for your changes:
 git checkout -b feature/your-feature
 ```
 
-4. Make Changes
+### 3. Make Changes
 
 Make your changes to the code or documentation. Be sure to follow our coding style and conventions.
 
-We use clang-format for autoformatting. If you are unable to run clang-format on your machine for whatever reason, we use the [GNU C style convention](https://www.gnu.org/prep/standards/html_node/Formatting.html#Formatting).
+We use clang-format for autoformatting. If you are unable to run clang-format on your machine for whatever reason, please follow the [GNU C style conventions](https://www.gnu.org/prep/standards/html_node/Writing-C.html).
 
 Finally, if possible, prior to commiting/pushing your changes run `make full` to test the program using Valgrind first.
 
-5. Commit Your Changes
+### 4. Commit Your Changes
 
 Commit your changes with a descriptive commit message:
 
@@ -41,15 +39,15 @@ git add .
 git commit -m "Add a feature or fix a bug"
 ```
 
-6. Push Your Changes
+### 5. Push Your Changes
 
-Push your changes to your forked repository:
+Push your changes to the repository:
 
 ```bash
 git push origin feature/your-feature
 ```
 
-7. Submit a Pull Request
+### 6. Submit a Pull Request
 
 Go to the original repository on GitHub and open a pull request. Provide a clear description of the changes you’ve made and any additional context or information that may be helpful for reviewers.
 
@@ -67,10 +65,11 @@ We are committed to providing a welcoming and inclusive community for everyone. 
 
 * Testing: If possible, run `make full` prior to commiting/pushing your changes. This will test your program with Valgrind.
 
-# Reporting Issues
+## Reporting Issues
 
-If you find a bug or have a feature request, please open an issue in the [issue tracker](issues/). Provide as much detail as possible to help us understand and address the issue.
-Contact
+If you find a bug or have a feature request, please open an issue in the [issue tracker](https://github.com/IcePanorama/HarvesterHarvester/issues). Provide as much detail as possible to help us understand and address the issue.
+
+## Contact
 
 For any questions or additional information, feel free to reach out to us via email <open-harvester@proton.me> or open a discussion on GitHub.
 
