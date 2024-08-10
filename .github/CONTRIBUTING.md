@@ -26,7 +26,7 @@ git checkout -b feature/your-feature
 
 Make your changes to the code or documentation. Be sure to follow our coding style and conventions.
 
-We use clang-format for autoformatting. If you are unable to run clang-format on your machine for whatever reason, please follow the [GNU C style conventions](https://www.gnu.org/prep/standards/html_node/Writing-C.html).
+We use clang-format for autoformatting. If you are unable to run clang-format on your machine for whatever reason, please follow the [GNU C conventions](https://www.gnu.org/prep/standards/html_node/Writing-C.html).
 
 Finally, if possible, prior to commiting/pushing your changes run `make full` to test the program using Valgrind first.
 
@@ -53,11 +53,11 @@ Go to the original repository on GitHub and open a pull request. Provide a clear
 
 ## Code of Conduct
 
-We are committed to providing a welcoming and inclusive community for everyone. Please read and follow our [Code of Conduct]().
+We are committed to providing a welcoming and inclusive community for everyone. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Development Guidelines
 
-* Coding Standards: Follow the coding standards used in this project. Refer to our [style guide]() for more information.
+* Coding Standards: Follow the coding standards used in this project. Refer to our [style guide](STYLE_GUIDE.md) for more information.
 
 * Commit Messages: Write clear and concise commit messages.
 
