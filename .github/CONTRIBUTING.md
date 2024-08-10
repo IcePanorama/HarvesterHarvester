@@ -1,6 +1,10 @@
 # Contributing to HarvesterHarvester
 
-Thank you for considering contributing to HarvesterHarvester! We welcome contributions of all kinds, from code to documentation, and we're excited to work with you to improve our project. If you'd like to help, but you're unsure where to start, see [the to do section below](#To-Do). Here are some guidelines to help you get started.
+Thank you for considering contributing to HarvesterHarvester! We welcome contributions of all kinds, from code to documentation, and we're excited to work with you to improve our project.
+
+If you'd like to help, but you're unsure where to start, see [the 'to do' section below](#To-Do) for some ideas.
+
+Here are some guidelines to help you get started.
 
 ## How to Contribute
 
