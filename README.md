@@ -1,6 +1,15 @@
 # HarvesterHarvester
 A tool for harvesting data out of [_Harvester_'s (DigiFX Interactive, 1996)](https://en.wikipedia.org/wiki/Harvester_(video_game)) dat files.
 
+This program is the first piece of a toolchain that I'm developing as I work to reverse engineering *Harvester*. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering. 
+
+The program works in two steps: 
+
+1. It reconstructs the original disk images that the game would've shipped with.
+   * _Note_: if you own the original game disks, this step is not needed.
+   * See [USAGE.md](.github/USAGE.md) for more details.
+2. It extracts files out of the numerous dat files that this first step produces.
+
 ## Installation
 ### Easiest Way
 Navigate to the [releases](https://github.com/IcePanorama/HarvesterHarvester/releases) page and download the latest zip file. Once downloaded, simply extract the zip file and run the appropriate executable given your operating system/architecture.
@@ -27,6 +36,7 @@ $ make full    # for just the *nix executable
 Running `make release` is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.
 
 ## Usage
+### Basic Usage
 1) Install Harvester onto your machine if you haven't already done so.
 2) Copy the following files from your harvester installation to the `dat-files/` folder:
 ```
@@ -35,15 +45,6 @@ HARVEST3.DAT
 HARVEST4.DAT
 ```
 4) Run the `HarvesterHarvester` executable.
-
-## To Do
-+ Handle SIGINT/Windows-equivalent of SIGINT gracefully
-    + Currently, if a user presses `CTRL+C` while the program is executing, this causes a memory leak.
-        + To see this in action, run `make test` and then press `CTRL+C`.
-    + An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting
-    + Ideally, this solution should also be cross-platform, if at all possible.
-    + Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.
-+ Create a guide for building the project from source for Windows users. 
 
 ## A note on piracy
 
