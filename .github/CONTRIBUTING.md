@@ -1,6 +1,6 @@
 # Contributing to HarvesterHarvester
 
-Thank you for considering contributing to HarvesterHarvester! We welcome contributions of all kinds, from code to documentation, and we're excited to work with you to improve our project. Here are some guidelines to help you get started.
+Thank you for considering contributing to HarvesterHarvester! We welcome contributions of all kinds, from code to documentation, and we're excited to work with you to improve our project. If you'd like to help, but you're unsure where to start, see [the to do section below](#To-Do). Here are some guidelines to help you get started.
 
 ## How to Contribute
 
@@ -74,3 +74,12 @@ If you find a bug or have a feature request, please open an issue in the [issue 
 For any questions or additional information, feel free to reach out to us via email <open-harvester@proton.me> or open a discussion on GitHub.
 
 Thank you for contributing to HarvesterHarvester! Your help is invaluable and appreciated.
+
+## To Do
++ Handle SIGINT/Windows-equivalent of SIGINT gracefully
+    + Currently, if a user presses `CTRL+C` while the program is executing, this causes a memory leak.
+        + To see this in action, run `make test` and then press `CTRL+C`.
+    + An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting
+    + Ideally, this solution should also be cross-platform, if at all possible.
+    + Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.
++ Create a guide for building the project from source for Windows users. 
