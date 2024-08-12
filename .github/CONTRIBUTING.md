@@ -86,4 +86,5 @@ Thank you for contributing to HarvesterHarvester! Your help is invaluable and ap
     + An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting
     + Ideally, this solution should also be cross-platform, if at all possible.
     + Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.
-+ Create a guide for building the project from source for Windows users. 
++ Create a guide for building the project from source for Windows users.
++ Handle interal dat file extraction from CDs without requiring game files to be copied to the user's hard drive.
