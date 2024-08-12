@@ -110,10 +110,11 @@ print_out_list_of_command_line_arguments (void)
   //  TODO: have some usage.md file that explains this in more detail.
   //  add a note here saying to read that file for details.
   puts ("\t-d [path/to/some-dir]: specify the input directory for batch "
-        "processing dat files.");
+        "processing dat files. (Default=./dat-files/)");
   puts ("\t-e: don't extract internal dat files.");
   puts ("\t-i: extract internal dat files only.");
-  puts ("\t-o [path/to/some-dir]: extract dat files to the given directory.");
+  puts ("\t-o [path/to/some-dir]: extract dat files to the given "
+        "directory/look here for internal dat files. (Default=./output/)");
   puts ("\nOptional:");
   puts ("\tpath/to/dat_file.dat: specify the path to a dat file to be "
         "processed.");
