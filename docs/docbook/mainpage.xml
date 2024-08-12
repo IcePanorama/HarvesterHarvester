@@ -7,11 +7,9 @@
 
 <para>This program is the first piece of a toolchain that I&apos;m developing as I work to reverse engineering <emphasis>Harvester</emphasis>. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering.</para>
 
-<para>The program works in two steps:</para>
-
-<para><orderedlist>
+<para>The program works in two steps:<orderedlist>
 <listitem>
-<para>It reconstructs the original disk images that the game would&apos;ve shipped with.<itemizedlist>
+<para>It reconstructs the original disk images that Harvester would&apos;ve shipped with in 1996<itemizedlist>
 <listitem>
 <para><emphasis>Note</emphasis>: if you own the original game disks, this step is not needed.</para>
 </listitem><listitem>
@@ -19,11 +17,19 @@
 </listitem></itemizedlist>
 </para>
 </listitem><listitem>
-<para>It extracts files out of the numerous dat files that this first step produces.</para>
+<para>It extracts the dat files contained within those new directories in order to give you full access to all of the game&apos;s files.</para>
 </listitem></orderedlist>
 </para>
 <section xml:id="_index_1autotoc_md1">
-<title>Installation</title><section xml:id="_index_1autotoc_md2">
+<title>Future Projects</title>
+<para>The next step for me in this project will be creating an asset viewer.</para>
+
+<para>This will require me to reverse engineer all of the various, non-standardized file formats that DigiFX used when making the game, which will be essential for porting the game in the future.</para>
+
+<para>So far, I&apos;ve already been able to reverse engineer the <computeroutput>*.BM</computeroutput> files, which are used for all the static backgrounds in the games, for character portraits, the map, and more. Unfortunately, I likely can&apos;t to share these files, at least not in bulk (see below). I will, however, be sharing a small handful of these images as I show this project off online and I&apos;ll make sure to add a link here in the future if you wish to view those!</para>
+</section>
+<section xml:id="_index_1autotoc_md2">
+<title>Installation</title><section xml:id="_index_1autotoc_md3">
 <title>Easiest Way</title>
 <para>Navigate to the <link xlink:href="https://github.com/IcePanorama/HarvesterHarvester/releases">releases</link> page and download the latest zip file. Once downloaded, simply extract the zip file and run the appropriate executable given your operating system/architecture.</para>
 
@@ -31,7 +37,7 @@
 
 <para><emphasis role="bold">NOTE</emphasis>: <emphasis>if you&apos;re reading this in the present, you&apos;ll notice that there currently aren&apos;t any available releases. I&apos;m writing this README in advance &#8211; this project isn&apos;t quite done yet, sorry!</emphasis></para>
 </section>
-<section xml:id="_index_1autotoc_md3">
+<section xml:id="_index_1autotoc_md4">
 <title>Building from source (Linux/MacOS/Unix)</title>
 <para>1) Install the following dependencies: <literallayout><computeroutput>gcc&#32;make&#32;mingw32-gcc&#32;clang-tools-extra&#32;valgrind&#32;doxygen
 </computeroutput></literallayout> 2) Clone the repo: <literallayout><computeroutput>$&#32;git&#32;clone&#32;https://github.com/IcePanorama/HarvesterHarvester/&#32;&amp;&amp;&#32;cd&#32;HarvesterHarvester
@@ -41,8 +47,8 @@ $&#32;make&#32;full&#32;&#32;&#32;&#32;#&#32;for&#32;just&#32;the&#32;*nix&#32;e
 </computeroutput></literallayout> Running <computeroutput>make release</computeroutput> is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.</para>
 </section>
 </section>
-<section xml:id="_index_1autotoc_md4">
-<title>Usage</title><section xml:id="_index_1autotoc_md5">
+<section xml:id="_index_1autotoc_md5">
+<title>Usage</title><section xml:id="_index_1autotoc_md6">
 <title>Basic Usage</title>
 <para>1) Install Harvester onto your machine if you haven&apos;t already done so. 2) Copy the following files from your harvester installation to the <computeroutput>dat-files/</computeroutput> folder: <literallayout><computeroutput>HARVEST.DAT
 HARVEST3.DAT
@@ -50,7 +56,7 @@ HARVEST4.DAT
 </computeroutput></literallayout> 4) Run the <computeroutput>HarvesterHarvester</computeroutput> executable.</para>
 </section>
 </section>
-<section xml:id="_index_1autotoc_md6">
+<section xml:id="_index_1autotoc_md7">
 <title>A note on piracy</title>
 <para>This program requires that you legally own a copy of <emphasis>Harvester</emphasis> in order to source the necessary <computeroutput>.dat</computeroutput> files.</para>
 

@@ -34,7 +34,8 @@ create_directory (directory *d)
   d->records = malloc (sizeof (directory_record) * DIR_STARTING_NUM_RECORDS);
   if (d->records == NULL)
     {
-      perror ("ERROR: Failed to allocate memory for directory.");
+      perror ("[HarvesterHarvester]ERROR: Failed to allocate memory for "
+              "directory.");
       return HH_MEM_ALLOC_ERROR;
     }
 
@@ -104,7 +105,8 @@ resize_directory_records (directory *d)
       d->records, sizeof (directory_record) * new_size);
   if (new_records == NULL)
     {
-      perror ("ERROR: failed to reallocate memory for the directory records.");
+      perror ("[HarvesterHarvester]ERROR: failed to reallocate memory for the "
+              "directory records.");
       destroy_directory (d);
       return -1;
     }

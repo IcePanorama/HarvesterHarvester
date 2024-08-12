@@ -86,21 +86,22 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_output_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(status&#32;!=&#32;0)
 <anchor xml:id="_output_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
 <anchor xml:id="_output_8c_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf&#32;(stderr,
-<anchor xml:id="_output_8c_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;ERROR:&#32;failed&#32;to&#32;create&#32;the&#32;following&#32;output&#32;&quot;</emphasis>
-<anchor xml:id="_output_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;directory,&#32;%s\n.&quot;</emphasis>,
-<anchor xml:id="_output_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;path);
-<anchor xml:id="_output_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free&#32;(dir);
-<anchor xml:id="_output_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free&#32;(tmp);
-<anchor xml:id="_output_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>;
-<anchor xml:id="_output_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_output_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_output_8c_source_1l00093"/>00093 
-<anchor xml:id="_output_8c_source_1l00094"/>00094 &#32;&#32;&#32;&#32;&#32;&#32;strcat&#32;(dir,&#32;&amp;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
-<anchor xml:id="_output_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;token&#32;=&#32;strtok&#32;(NULL,&#32;&amp;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
-<anchor xml:id="_output_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_output_8c_source_1l00097"/>00097 
-<anchor xml:id="_output_8c_source_1l00098"/>00098 &#32;&#32;free&#32;(dir);
-<anchor xml:id="_output_8c_source_1l00099"/>00099 &#32;&#32;free&#32;(tmp);
-<anchor xml:id="_output_8c_source_1l00100"/>00100 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_output_8c_source_1l00101"/>00101 }
+<anchor xml:id="_output_8c_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;failed&#32;to&#32;create&#32;the&#32;&quot;</emphasis>
+<anchor xml:id="_output_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;following&#32;output&#32;&quot;</emphasis>
+<anchor xml:id="_output_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;directory,&#32;%s\n.&quot;</emphasis>,
+<anchor xml:id="_output_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;path);
+<anchor xml:id="_output_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free&#32;(dir);
+<anchor xml:id="_output_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free&#32;(tmp);
+<anchor xml:id="_output_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>;
+<anchor xml:id="_output_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_output_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_output_8c_source_1l00094"/>00094 
+<anchor xml:id="_output_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;strcat&#32;(dir,&#32;&amp;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
+<anchor xml:id="_output_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;token&#32;=&#32;strtok&#32;(NULL,&#32;&amp;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
+<anchor xml:id="_output_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_output_8c_source_1l00098"/>00098 
+<anchor xml:id="_output_8c_source_1l00099"/>00099 &#32;&#32;free&#32;(dir);
+<anchor xml:id="_output_8c_source_1l00100"/>00100 &#32;&#32;free&#32;(tmp);
+<anchor xml:id="_output_8c_source_1l00101"/>00101 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_output_8c_source_1l00102"/>00102 }
 </programlisting></section>

@@ -102,7 +102,8 @@ process_DAT_file (FILE *fptr)
   // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
     {
-      puts ("Error: Unexpected volume descriptor type code.");
+      puts ("[HarvesterHarvester]ERROR: Unexpected volume descriptor type "
+            "code.");
       printf ("\tExpected %02x, got %02x.\n", 0x01, vd.type_code);
       return -1;
     }
@@ -155,7 +156,7 @@ process_DAT_file (FILE *fptr)
     }
 
   strcpy (path, OP_OUTPUT_DIR);
-  strcat (path, "/");
+  strcat (path, &OP_PATH_SEPARATOR);
   strcat (path, CURRENT_DISK_NAME);
 
   if (extract_directory (fptr, block_size_be, path) != 0)
@@ -174,7 +175,7 @@ int8_t
 batch_process_DAT_files ()
 {
   const char *OPEN_INPUT_DIR_ERR_MSG_FMT
-      = "ERROR: Error opening input directory, %s.\n";
+      = "[HarvesterHarvester]ERROR: Error opening input directory, %s.\n";
   const uint8_t DAT_FILENAME_LEN = strlen ("HARVESTX.DAT");
   char *filename;
 
@@ -299,7 +300,8 @@ process_internal_dat_files (void)
   FILE *table = fopen (interal_paths, "rb");
   if (table == NULL)
     {
-      fprintf (stderr, "Couldn't find %s\n.", interal_paths);
+      fprintf (stderr, "[HarvesterHarvester]ERROR: Couldn't find %s\n.",
+               interal_paths);
       return HH_FOPEN_ERROR;
     }
 
@@ -312,7 +314,7 @@ process_internal_dat_files (void)
       FILE *fptr = NULL;
       if (setup_extractor (&fptr, index_file_path) != 0)
         {
-          printf ("Skipping...\n");
+          printf ("[HarvesterHarvester]Skipping...\n");
 
           // Skip next line
           build_path_string_from_file (table, index_file_path);
@@ -328,7 +330,8 @@ process_internal_dat_files (void)
           return -1;
         }
 
-      printf ("Processing index file: %s\n", index_file_path);
+      printf ("[HarvesterHarvester]Processing index file: %s\n",
+              index_file_path);
       if (process_index_file (fptr, &idx_file) != 0)
         {
           destroy_index_file (&idx_file);

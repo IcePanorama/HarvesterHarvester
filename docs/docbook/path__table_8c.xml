@@ -55,7 +55,7 @@
 <para>Adds a <computeroutput><link linkend="_structpath__table__entry">path_table_entry</link></computeroutput> to the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>&apos;s list of <computeroutput>entries</computeroutput>, resizing it as needed. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00066">66</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00067">67</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1ac08be1296d016ba9a28db25b35ca9132"/><section>
     <title>create_path_table()</title>
@@ -79,7 +79,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00029">29</link> of f
 <para>Destroys the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, freeing any and all memory alloc&apos;d for <computeroutput>entries</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00050">50</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00051">51</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84"/><section>
     <title>print_path_table()</title>
@@ -90,7 +90,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00050">50</link> of f
 <para>Prints the given path table out to the stdout, formatting it into a human-readible form. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00104">104</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00107">107</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566"/><section>
     <title>print_path_table_entry()</title>
@@ -101,7 +101,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00104">104</link> of 
 <para>Prints a <link linkend="_structpath__table__entry">path_table_entry</link> to the stdout in a human-readable form. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00114">114</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00117">117</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1a74af82c548f791d3b0919eeebbf078d4"/><section>
     <title>process_type_l_path_table()</title>
@@ -112,7 +112,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00114">114</link> of 
 <para>Processes the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput> as a Type-L <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, using the data pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00126">126</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00129">129</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8c_1a9fd2417f1963df24a90b786e3c09a64a"/><section>
     <title>resize_path_table_entries()</title>
@@ -123,7 +123,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00126">126</link> of 
 <para>Resizes a given <computeroutput>path_tables</computeroutput> list of entries by a factor of <computeroutput>PT_GROWTH_RATE</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00080">80</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00081">81</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 </section>
 <section>

@@ -82,7 +82,8 @@ create_new_output_directory (const char *path)
           if (status != 0)
             {
               fprintf (stderr,
-                       "ERROR: failed to create the following output "
+                       "[HarvesterHarvester]ERROR: failed to create the "
+                       "following output "
                        "directory, %s\n.",
                        path);
               free (dir);

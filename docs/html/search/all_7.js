@@ -9,7 +9,7 @@ var searchData=
   ['index_5ffile_2ec_6',['index_file.c',['../index__file_8c.html',1,'']]],
   ['index_5ffile_2eh_7',['index_file.h',['../index__file_8h.html',1,'']]],
   ['indicies_8',['indicies',['../structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0',1,'index_file']]],
-  ['installation_9',['Installation',['../index.html#autotoc_md1',1,'']]],
+  ['installation_9',['Installation',['../index.html#autotoc_md2',1,'']]],
   ['interleave_5fgap_5fsize_10',['interleave_gap_size',['../structdirectory__record.html#aa4308bfec1f0d16a68155bf9b63113d4',1,'directory_record']]],
   ['is_5fstring_5fdat_5ffile_11',['is_string_dat_file',['../utils_8c.html#aee9f9bd7844e8e7d21d0965980b6e9ed',1,'is_string_dat_file(char *str):&#160;utils.c'],['../utils_8h.html#aee9f9bd7844e8e7d21d0965980b6e9ed',1,'is_string_dat_file(char *str):&#160;utils.c']]]
 ];

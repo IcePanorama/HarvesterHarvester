@@ -44,7 +44,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_utils_8c_source_1l00040"/>00040 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;*tmp&#32;=&#32;calloc&#32;(strlen&#32;(str)&#32;+&#32;strlen&#32;(prefix)&#32;+&#32;2,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>));
 <anchor xml:id="_utils_8c_source_1l00041"/>00041 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tmp&#32;==&#32;NULL)
 <anchor xml:id="_utils_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_utils_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;perror&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;unable&#32;to&#32;calloc&#32;tmp&#32;string&quot;</emphasis>);
+<anchor xml:id="_utils_8c_source_1l00043"/>00043 &#32;&#32;&#32;&#32;&#32;&#32;perror&#32;(<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;unable&#32;to&#32;calloc&#32;tmp&#32;string&quot;</emphasis>);
 <anchor xml:id="_utils_8c_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
 <anchor xml:id="_utils_8c_source_1l00045"/>00045 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_utils_8c_source_1l00046"/>00046 
@@ -69,7 +69,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_utils_8c_source_1l00065"/>00065 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;*tmp&#32;=&#32;calloc&#32;(strlen&#32;(str)&#32;+&#32;strlen&#32;(prefix)&#32;+&#32;2,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>));
 <anchor xml:id="_utils_8c_source_1l00066"/>00066 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(tmp&#32;==&#32;NULL)
 <anchor xml:id="_utils_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_utils_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;perror&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;unable&#32;to&#32;calloc&#32;tmp&#32;string&quot;</emphasis>);
+<anchor xml:id="_utils_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;perror&#32;(<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;unable&#32;to&#32;calloc&#32;tmp&#32;string&quot;</emphasis>);
 <anchor xml:id="_utils_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(1);
 <anchor xml:id="_utils_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_utils_8c_source_1l00071"/>00071 &#32;&#32;strcpy&#32;(tmp,&#32;str);

@@ -43,7 +43,7 @@ extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
       actual_filename = dr->file_identifier;
     }
 
-  printf ("Extracting file: %s\n", actual_filename);
+  printf ("[HarvesterHarvester]Extracting file: %s\n", actual_filename);
 
   // +1 for the null terminator, +1 for `/` between dir and filename
   size_t filename_length = strlen (path) + strlen (actual_filename) + 2;
@@ -93,7 +93,7 @@ extract_directory (FILE *fptr, const uint16_t block_size, const char *path)
   create_directory (&dir);
   process_directory (fptr, &dir);
 
-  printf ("Extracting directory: %s\n", path);
+  printf ("[HarvesterHarvester]Extracting directory: %s\n", path);
 
   for (size_t i = 0x0; i < dir.current_record; i++)
     {
@@ -106,7 +106,7 @@ extract_directory (FILE *fptr, const uint16_t block_size, const char *path)
       else if (OP_DEBUG_MODE
                && curr_file.data_length > OP_DEBUG_FILE_SIZE_LIMIT)
         {
-          printf ("[DEBUG_MODE] Skipping file, %s.\n",
+          printf ("[HarvesterHarvester][DEBUG_MODE] Skipping file, %s.\n",
                   curr_file.file_identifier);
           continue;
         }
@@ -183,7 +183,7 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 int8_t
 extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
 {
-  printf ("Extracting file: %s\n", path);
+  printf ("[HarvesterHarvester]Extracting file: %s\n", path);
 
   FILE *output_file = fopen (path, "wb");
   if (output_file == NULL)
@@ -197,7 +197,10 @@ extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
       output_file = fopen (path, "wb");
       if (output_file == NULL)
         {
-          fprintf (stderr, "Error opening output file, %s.\n", path);
+          fprintf (
+              stderr,
+              "[HarvesterHarvester]ERROR: Error opening output file, %s.\n",
+              path);
           return HH_FOPEN_ERROR;
         }
     }
@@ -209,7 +212,9 @@ extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
       uint8_t byte;
       if (read_single_uint8 (fptr, &byte) != 0)
         {
-          fprintf (stderr, "ERROR: couldn't read byte, quitting.\n");
+          fprintf (
+              stderr,
+              "[HarvesterHarvester]ERROR: couldn't read byte, quitting.\n");
           fclose (output_file);
           return -1;
         }
@@ -228,7 +233,9 @@ extract_index_file (index_file *idx, const char *idx_path,
   FILE *dat_file = fopen (dat_path, "rb");
   if (dat_file == NULL)
     {
-      fprintf (stderr, "Error opening dat file, %s.\n", dat_path);
+      fprintf (stderr,
+               "[HarvesterHarvester]ERROR: error opening dat file, %s.\n",
+               dat_path);
       return HH_FOPEN_ERROR;
     }
 

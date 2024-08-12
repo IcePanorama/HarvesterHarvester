@@ -187,27 +187,35 @@ HarvesterHarvester\par \pard\plain
 {\bkmkend AAAAAAAANA}
 A tool for harvesting data out of {\f2 {\i Harvester} 's (DigiFX Interactive, 1996)} dat files.\par
 This program is the first piece of a toolchain that I'm developing as I work to reverse engineering {\i Harvester} . The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering.\par
-The program works in two steps:\par
-{
+The program works in two steps:{
 \par
 \pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
-1.\tab It reconstructs the original disk images that the game would've shipped with.{
+1.\tab It reconstructs the original disk images that Harvester would've shipped with in 1996{
 \par
 \pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
 {\i Note} : if you own the original game disks, this step is not needed.\par
 \pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
 See USAGE.md for more details.\par}
 \pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
-2.\tab It extracts files out of the numerous dat files that this first step produces.\par}
+2.\tab It extracts the dat files contained within those new directories in order to give you full access to all of the game's files.\par}
 \par
 {\bkmkstart AAAAAAAANB}
 {\bkmkend AAAAAAAANB}
+{{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Future Projects
+\par}
+{\tc\tcl3 \v Future Projects}
+The next step for me in this project will be creating an asset viewer.\par
+This will require me to reverse engineer all of the various, non-standardized file formats that DigiFX used when making the game, which will be essential for porting the game in the future.\par
+So far, I've already been able to reverse engineer the {\f2 *.BM}  files, which are used for all the static backgrounds in the games, for character portraits, the map, and more. Unfortunately, I likely can't to share these files, at least not in bulk (see below). I will, however, be sharing a small handful of these images as I show this project off online and I'll make sure to add a link here in the future if you wish to view those!\par}
+{\bkmkstart AAAAAAAANC}
+{\bkmkend AAAAAAAANC}
 {{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 Installation
 \par}
 {\tc\tcl2 \v Installation}
-{\bkmkstart AAAAAAAANC}
-{\bkmkend AAAAAAAANC}
+{\bkmkstart AAAAAAAAND}
+{\bkmkend AAAAAAAAND}
 {{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Easiest Way
 \par}
@@ -215,8 +223,8 @@ Easiest Way
 Navigate to the {\f2 releases} page and download the latest zip file. Once downloaded, simply extract the zip file and run the appropriate executable given your operating system/architecture.\par
 If you're on a modern Windows machine and you're unsure of which file to run, your best bet is likely the one ending in {\f2 x86_64} ; that executable should run on most Windows machines made in the past 15 years.\par
 {\b NOTE} : {\i if you're reading this in the present, you'll notice that there currently aren't any available releases. I'm writing this README in advance \'96 this project isn't quite done yet, sorry!} \par}
-{\bkmkstart AAAAAAAAND}
-{\bkmkend AAAAAAAAND}
+{\bkmkstart AAAAAAAANE}
+{\bkmkend AAAAAAAANE}
 {{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Building from source (Linux/MacOS/Unix)
 \par}
@@ -237,14 +245,14 @@ $ make full    # for just the *nix executable\par
 }
  Running {\f2 make release}  is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.\par}
 \par}
-{\bkmkstart AAAAAAAANE}
-{\bkmkend AAAAAAAANE}
+{\bkmkstart AAAAAAAANF}
+{\bkmkend AAAAAAAANF}
 {{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 Usage
 \par}
 {\tc\tcl2 \v Usage}
-{\bkmkstart AAAAAAAANF}
-{\bkmkend AAAAAAAANF}
+{\bkmkstart AAAAAAAANG}
+{\bkmkend AAAAAAAANG}
 {{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Basic Usage
 \par}
@@ -257,8 +265,8 @@ HARVEST4.DAT\par
 }
  4) Run the {\f2 HarvesterHarvester}  executable.\par}
 \par}
-{\bkmkstart AAAAAAAANG}
-{\bkmkend AAAAAAAANG}
+{\bkmkstart AAAAAAAANH}
+{\bkmkend AAAAAAAANH}
 {{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 A note on piracy
 \par}
@@ -2435,7 +2443,7 @@ void build_path_string_from_file (FILE * fptr, char * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Builds strings using formats provided by {\f2 internal-dat-file-paths.txt} . }}\par
 {
-Definition at line {\b 252} of file {\b data_reader.c}.}\par
+Definition at line {\b 254} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_array_uint8\:data_reader.c}
 {\xe \v data_reader.c\:read_array_uint8}
@@ -2452,7 +2460,7 @@ int8_t read_array_uint8 (FILE * fptr, uint8_t * arr, uint8_t length)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads an array of uint8_t's, of a given length, from a given file, storing the result in {\f2 output} . }}\par
 {
-Definition at line {\b 156} of file {\b data_reader.c}.}\par
+Definition at line {\b 158} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_big_endian_data_uint16_t\:data_reader.c}
 {\xe \v data_reader.c\:read_big_endian_data_uint16_t}
@@ -2469,7 +2477,7 @@ int8_t read_big_endian_data_uint16_t (FILE * fptr, uint16_t * output){\f2 [stati
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a uint16_t stored in big endian format from the file pointed to by {\f2 fptr}  and stores the result in {\f2 output} . }}\par
 {
-Definition at line {\b 127} of file {\b data_reader.c}.}\par
+Definition at line {\b 129} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_big_endian_data_uint32_t\:data_reader.c}
 {\xe \v data_reader.c\:read_big_endian_data_uint32_t}
@@ -2486,7 +2494,7 @@ int8_t read_big_endian_data_uint32_t (FILE * fptr, uint32_t * output){\f2 [stati
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a uint32_t stored in big endian format from the file pointed to by {\f2 fptr}  and stores the result in {\f2 output} . }}\par
 {
-Definition at line {\b 96} of file {\b data_reader.c}.}\par
+Definition at line {\b 98} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_both_endian_data_uint16\:data_reader.c}
 {\xe \v data_reader.c\:read_both_endian_data_uint16}
@@ -2508,7 +2516,7 @@ This is almost certainly unnecessary, but it makes me feel better :).\par
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 read_both_endian_data_unint32() \par
 }}}{
-Definition at line {\b 57} of file {\b data_reader.c}.}\par
+Definition at line {\b 58} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_both_endian_data_uint32\:data_reader.c}
 {\xe \v data_reader.c\:read_both_endian_data_uint32}
@@ -2552,7 +2560,7 @@ Reads in {\f2 {\b dec_datetime}}  data from a given file, storing the output in 
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b dec_datetime} \par
 }}}{
-Definition at line {\b 169} of file {\b data_reader.c}.}\par
+Definition at line {\b 171} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_dir_datetime\:data_reader.c}
 {\xe \v data_reader.c\:read_dir_datetime}
@@ -2574,7 +2582,7 @@ Reads in {\f2 {\b dir_datetime}}  data from a given file, storing the output in 
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b dir_datetime} \par
 }}}{
-Definition at line {\b 202} of file {\b data_reader.c}.}\par
+Definition at line {\b 204} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_file_flags\:data_reader.c}
 {\xe \v data_reader.c\:read_file_flags}
@@ -2596,7 +2604,7 @@ Reads in {\f2 file_flag}  data from a given file, storing the output in {\f2 ff}
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b file_flags} \par
 }}}{
-Definition at line {\b 219} of file {\b data_reader.c}.}\par
+Definition at line {\b 221} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_little_endian_data_uint16_t\:data_reader.c}
 {\xe \v data_reader.c\:read_little_endian_data_uint16_t}
@@ -2613,7 +2621,7 @@ int8_t read_little_endian_data_uint16_t (FILE * fptr, uint16_t * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a uint16_t stored in little endian format from the file pointed to by {\f2 fptr}  and stores the result in {\f2 output} . }}\par
 {
-Definition at line {\b 112} of file {\b data_reader.c}.}\par
+Definition at line {\b 114} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_little_endian_data_uint32_t\:data_reader.c}
 {\xe \v data_reader.c\:read_little_endian_data_uint32_t}
@@ -2630,7 +2638,7 @@ int8_t read_little_endian_data_uint32_t (FILE * fptr, uint32_t * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a uint32_t stored in little endian format from the file pointed to by {\f2 fptr}  and stores the result in {\f2 output} . }}\par
 {
-Definition at line {\b 78} of file {\b data_reader.c}.}\par
+Definition at line {\b 80} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_single_uint8\:data_reader.c}
 {\xe \v data_reader.c\:read_single_uint8}
@@ -2649,7 +2657,7 @@ data_header.h - container for various data access functions. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 All of these functions return zero on success, non-zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8_t from a given file, storing the output in {\f2 value} . \par
 }{
-Definition at line {\b 189} of file {\b data_reader.c}.}\par
+Definition at line {\b 191} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_string\:data_reader.c}
 {\xe \v data_reader.c\:read_string}
@@ -2666,7 +2674,7 @@ int8_t read_string (FILE * fptr, char * output, uint8_t length)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a string of a given length from a given file, storing the result in {\f2 output} . }}\par
 {
-Definition at line {\b 142} of file {\b data_reader.c}.}\par
+Definition at line {\b 144} of file {\b data_reader.c}.}\par
 }
 \par \pard\plain 
 
@@ -2719,221 +2727,223 @@ Go to the documentation of this file.\par
 00044 \par
 00045   {\cf19 if} (value != expected_value)\par
 00046     \{\par
-00047       printf ({\cf22 "ERROR: Incorrect endian conversion (uint32_t).\\n\\tExpected "}\par
-00048               {\cf22 "%08X, got %08X.\\n"},\par
-00049               expected_value, value);\par
-00050     \}\par
-00051 \par
-00052   *output = value;\par
-00053   {\cf19 return} 0;\par
-00054 \}\par
-00055 \par
-00056 int8_t\par
-00057 read_both_endian_data_uint16 (FILE *fptr, uint16_t *output)\par
-00058 \{\par
-00059   {\cf19 if} (read_little_endian_data_uint16_t (fptr, output) != 0)\par
-00060     {\cf19 return} HH_FREAD_ERROR;\par
-00061 \par
-00062   uint16_t expected_value;\par
-00063   {\cf19 if} (read_big_endian_data_uint16_t (fptr, &expected_value) != 0)\par
-00064     {\cf19 return} HH_FREAD_ERROR;\par
-00065 \par
-00066   {\cf19 if} (*output != expected_value)\par
-00067     \{\par
-00068       printf ({\cf22 "ERROR: Incorrect endian conversion (uint16_t).\\n\\tExpected "}\par
-00069               {\cf22 "%04X, got %04X.\\n"},\par
-00070               expected_value, *output);\par
-00071       {\cf19 return} -1;\par
-00072     \}\par
-00073 \par
-00074   {\cf19 return} 0;\par
-00075 \}\par
-00076 \par
-00077 int8_t\par
-00078 read_little_endian_data_uint32_t (FILE *fptr, uint32_t *output)\par
-00079 \{\par
-00080   uint8_t bytes[4];\par
-00081   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 4, fptr);\par
-00082   {\cf19 if} (bytes_read != 4)\par
-00083     \{\par
-00084       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
-00085 \par
-00086       {\cf19 return} HH_FREAD_ERROR;\par
-00087     \}\par
-00088 \par
-00089   *output = ((uint32_t)bytes[3] << 24) | ((uint32_t)bytes[2] << 16)\par
-00090             | ((uint32_t)bytes[1] << 8) | (uint32_t)bytes[0];\par
-00091 \par
-00092   {\cf19 return} 0;\par
-00093 \}\par
-00094 \par
-00095 int8_t\par
-00096 read_big_endian_data_uint32_t (FILE *fptr, uint32_t *output)\par
-00097 \{\par
-00098   uint8_t bytes[4];\par
-00099   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 4, fptr);\par
-00100   {\cf19 if} (bytes_read != 4)\par
-00101     \{\par
-00102       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
-00103       {\cf19 return} HH_FREAD_ERROR;\par
-00104     \}\par
-00105 \par
-00106   *output = ((uint32_t)bytes[0] << 24) | ((uint32_t)bytes[1] << 16)\par
-00107             | ((uint32_t)bytes[2] << 8) | (uint32_t)bytes[3];\par
-00108   {\cf19 return} 0;\par
-00109 \}\par
-00110 \par
-00111 int8_t\par
-00112 read_little_endian_data_uint16_t (FILE *fptr, uint16_t *output)\par
-00113 \{\par
-00114   uint8_t bytes[2];\par
-00115   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 2, fptr);\par
-00116   {\cf19 if} (bytes_read != 2)\par
-00117     \{\par
-00118       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
-00119       {\cf19 return} HH_FREAD_ERROR;\par
-00120     \}\par
-00121 \par
-00122   *output = ((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1];\par
-00123   {\cf19 return} 0;\par
-00124 \}\par
-00125 \par
-00126 int8_t\par
-00127 read_big_endian_data_uint16_t (FILE *fptr, uint16_t *output)\par
-00128 \{\par
-00129   uint8_t bytes[2];\par
-00130   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 2, fptr);\par
-00131   {\cf19 if} (bytes_read != 2)\par
-00132     \{\par
-00133       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
-00134       {\cf19 return} HH_FREAD_ERROR;\par
-00135     \}\par
-00136 \par
-00137   *output = ((uint16_t)bytes[1] << 8) | (uint16_t)bytes[0];\par
-00138   {\cf19 return} 0;\par
-00139 \}\par
-00140 \par
-00141 int8_t\par
-00142 read_string (FILE *fptr, {\cf18 char} *output, uint8_t length)\par
-00143 \{\par
-00144   {\cf18 size_t} bytes_read = fread (output, {\cf17 sizeof} ({\cf18 char}), length - 1, fptr);\par
-00145   output[length - 1] = {\cf23 '\\0'};\par
-00146   {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * length - 1)\par
-00147     \{\par
-00148       handle_fread_error (bytes_read, {\cf17 sizeof} ({\cf18 char}) * length - 1);\par
-00149       {\cf19 return} HH_FREAD_ERROR;\par
-00150     \}\par
-00151 \par
-00152   {\cf19 return} 0;\par
-00153 \}\par
-00154 \par
-00155 int8_t\par
-00156 read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length)\par
-00157 \{\par
-00158   {\cf18 size_t} bytes_read = fread (arr, {\cf17 sizeof} (uint8_t), length, fptr);\par
-00159   {\cf19 if} (bytes_read != {\cf17 sizeof} (uint8_t) * length)\par
-00160     \{\par
-00161       handle_fread_error (bytes_read, {\cf17 sizeof} (uint8_t) * length);\par
-00162       {\cf19 return} HH_FREAD_ERROR;\par
-00163     \}\par
-00164 \par
-00165   {\cf19 return} 0;\par
-00166 \}\par
-00167 \par
-00168 int8_t\par
-00169 read_dec_datetime (FILE *fptr, dec_datetime *dt)\par
-00170 \{\par
-00171   {\cf19 if} ((read_string (fptr, dt->year, YEAR_FIELD_LEN) != 0)\par
-00172       || (read_string (fptr, dt->month, MONTH_FIELD_LEN) != 0)\par
-00173       || (read_string (fptr, dt->day, DAY_FIELD_LEN) != 0)\par
-00174       || (read_string (fptr, dt->hour, HOUR_FIELD_LEN) != 0)\par
-00175       || (read_string (fptr, dt->minute, MINUTE_FIELD_LEN) != 0)\par
-00176       || (read_string (fptr, dt->second, SECOND_FIELD_LEN) != 0)\par
-00177       || (read_string (fptr, dt->hundredths_of_a_second,\par
-00178                        HUNDREDTHS_OF_A_SECOND_FIELD_LEN)\par
-00179           != 0)\par
-00180       || (read_single_uint8 (fptr, &dt->time_zone_offset) != 0))\par
-00181     \{\par
-00182       {\cf19 return} HH_FREAD_ERROR;\par
-00183     \}\par
-00184 \par
-00185   {\cf19 return} 0;\par
-00186 \}\par
-00187 \par
-00188 int8_t\par
-00189 read_single_uint8 (FILE *fptr, uint8_t *value)\par
-00190 \{\par
-00191   {\cf18 size_t} bytes_read = fread (value, {\cf17 sizeof} (uint8_t), 1, fptr);\par
-00192   {\cf19 if} (bytes_read != {\cf17 sizeof} (uint8_t))\par
-00193     \{\par
-00194       handle_fread_error (bytes_read, {\cf17 sizeof} (uint8_t));\par
-00195       {\cf19 return} HH_FREAD_ERROR;\par
-00196     \}\par
-00197 \par
-00198   {\cf19 return} 0;\par
-00199 \}\par
-00200 \par
-00201 int8_t\par
-00202 read_dir_datetime (FILE *fptr, dir_datetime *dt)\par
-00203 \{\par
-00204   {\cf19 if} ((read_single_uint8 (fptr, &dt->year) != 0)\par
-00205       || (read_single_uint8 (fptr, &dt->month) != 0)\par
-00206       || (read_single_uint8 (fptr, &dt->day) != 0)\par
-00207       || (read_single_uint8 (fptr, &dt->hour) != 0)\par
-00208       || (read_single_uint8 (fptr, &dt->minute) != 0)\par
-00209       || (read_single_uint8 (fptr, &dt->second) != 0)\par
-00210       || (read_single_uint8 (fptr, &dt->time_zone_offset) != 0))\par
-00211     \{\par
-00212       {\cf19 return} HH_FREAD_ERROR;\par
-00213     \}\par
-00214 \par
-00215   {\cf19 return} 0;\par
-00216 \}\par
-00217 \par
-00218 int8_t\par
-00219 read_file_flags (FILE *fptr, file_flags *ff)\par
-00220 \{\par
-00221   uint8_t byte;\par
-00222   {\cf19 if} (read_single_uint8 (fptr, &{\cf18 byte}) != 0)\par
-00223     {\cf19 return} HH_FREAD_ERROR;\par
-00224 \par
-00225   {\cf19 if} ({\cf18 byte} & 0x1)\par
-00226     \{\par
-00227       ff->hidden = {\cf17 true};\par
-00228     \}\par
-00229   {\cf19 if} ({\cf18 byte} & 0x2)\par
-00230     \{\par
-00231       ff->subdirectory = {\cf17 true};\par
-00232     \}\par
-00233   {\cf19 if} ({\cf18 byte} & 0x4)\par
-00234     \{\par
-00235       ff->associated_file = {\cf17 true};\par
-00236     \}\par
-00237   {\cf19 if} ({\cf18 byte} & 0x8)\par
-00238     \{\par
-00239       ff->extended_attribute_record_contains_owner_and_group_permissions\par
-00240           = {\cf17 true};\par
-00241     \}\par
-00242   {\cf19 if} ({\cf18 byte} & 0x10)\par
-00243     \{\par
-00244       ff->final_directory_record = {\cf17 true};\par
-00245     \}\par
-00246 \par
-00247   {\cf19 return} 0;\par
-00248 \}\par
-00249 \par
-00250 {\cf20 // this system could probably be replaced with a macro}\par
-00251 {\cf18 void}\par
-00252 build_path_string_from_file (FILE *fptr, {\cf18 char} *output)\par
-00253 \{\par
-00254   {\cf18 char} format[32] = \{ 0 \};\par
-00255   fgets (format, {\cf17 sizeof} (format), fptr);\par
-00256   {\cf18 size_t} len = strlen (format);\par
-00257   format[len - 1] = {\cf23 '\\0'};\par
-00258 \par
-00259   sprintf (output, format, OP_OUTPUT_DIR, OP_PATH_SEPARATOR,\par
-00260            OP_PATH_SEPARATOR);\par
-00261 \}\par
+00047       printf ({\cf22 "[HarvesterHarvester]ERROR: Incorrect endian conversion "}\par
+00048               {\cf22 "(uint32_t).\\n\\tExpected "}\par
+00049               {\cf22 "%08X, got %08X.\\n"},\par
+00050               expected_value, value);\par
+00051     \}\par
+00052 \par
+00053   *output = value;\par
+00054   {\cf19 return} 0;\par
+00055 \}\par
+00056 \par
+00057 int8_t\par
+00058 read_both_endian_data_uint16 (FILE *fptr, uint16_t *output)\par
+00059 \{\par
+00060   {\cf19 if} (read_little_endian_data_uint16_t (fptr, output) != 0)\par
+00061     {\cf19 return} HH_FREAD_ERROR;\par
+00062 \par
+00063   uint16_t expected_value;\par
+00064   {\cf19 if} (read_big_endian_data_uint16_t (fptr, &expected_value) != 0)\par
+00065     {\cf19 return} HH_FREAD_ERROR;\par
+00066 \par
+00067   {\cf19 if} (*output != expected_value)\par
+00068     \{\par
+00069       printf ({\cf22 "[HarvesterHarvester]ERROR: Incorrect endian conversion "}\par
+00070               {\cf22 "(uint16_t).\\n\\tExpected "}\par
+00071               {\cf22 "%04X, got %04X.\\n"},\par
+00072               expected_value, *output);\par
+00073       {\cf19 return} -1;\par
+00074     \}\par
+00075 \par
+00076   {\cf19 return} 0;\par
+00077 \}\par
+00078 \par
+00079 int8_t\par
+00080 read_little_endian_data_uint32_t (FILE *fptr, uint32_t *output)\par
+00081 \{\par
+00082   uint8_t bytes[4];\par
+00083   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 4, fptr);\par
+00084   {\cf19 if} (bytes_read != 4)\par
+00085     \{\par
+00086       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
+00087 \par
+00088       {\cf19 return} HH_FREAD_ERROR;\par
+00089     \}\par
+00090 \par
+00091   *output = ((uint32_t)bytes[3] << 24) | ((uint32_t)bytes[2] << 16)\par
+00092             | ((uint32_t)bytes[1] << 8) | (uint32_t)bytes[0];\par
+00093 \par
+00094   {\cf19 return} 0;\par
+00095 \}\par
+00096 \par
+00097 int8_t\par
+00098 read_big_endian_data_uint32_t (FILE *fptr, uint32_t *output)\par
+00099 \{\par
+00100   uint8_t bytes[4];\par
+00101   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 4, fptr);\par
+00102   {\cf19 if} (bytes_read != 4)\par
+00103     \{\par
+00104       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
+00105       {\cf19 return} HH_FREAD_ERROR;\par
+00106     \}\par
+00107 \par
+00108   *output = ((uint32_t)bytes[0] << 24) | ((uint32_t)bytes[1] << 16)\par
+00109             | ((uint32_t)bytes[2] << 8) | (uint32_t)bytes[3];\par
+00110   {\cf19 return} 0;\par
+00111 \}\par
+00112 \par
+00113 int8_t\par
+00114 read_little_endian_data_uint16_t (FILE *fptr, uint16_t *output)\par
+00115 \{\par
+00116   uint8_t bytes[2];\par
+00117   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 2, fptr);\par
+00118   {\cf19 if} (bytes_read != 2)\par
+00119     \{\par
+00120       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
+00121       {\cf19 return} HH_FREAD_ERROR;\par
+00122     \}\par
+00123 \par
+00124   *output = ((uint16_t)bytes[0] << 8) | (uint16_t)bytes[1];\par
+00125   {\cf19 return} 0;\par
+00126 \}\par
+00127 \par
+00128 int8_t\par
+00129 read_big_endian_data_uint16_t (FILE *fptr, uint16_t *output)\par
+00130 \{\par
+00131   uint8_t bytes[2];\par
+00132   {\cf18 size_t} bytes_read = fread (bytes, {\cf17 sizeof} (uint8_t), 2, fptr);\par
+00133   {\cf19 if} (bytes_read != 2)\par
+00134     \{\par
+00135       handle_fread_error (bytes_read, {\cf17 sizeof} (bytes));\par
+00136       {\cf19 return} HH_FREAD_ERROR;\par
+00137     \}\par
+00138 \par
+00139   *output = ((uint16_t)bytes[1] << 8) | (uint16_t)bytes[0];\par
+00140   {\cf19 return} 0;\par
+00141 \}\par
+00142 \par
+00143 int8_t\par
+00144 read_string (FILE *fptr, {\cf18 char} *output, uint8_t length)\par
+00145 \{\par
+00146   {\cf18 size_t} bytes_read = fread (output, {\cf17 sizeof} ({\cf18 char}), length - 1, fptr);\par
+00147   output[length - 1] = {\cf23 '\\0'};\par
+00148   {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * length - 1)\par
+00149     \{\par
+00150       handle_fread_error (bytes_read, {\cf17 sizeof} ({\cf18 char}) * length - 1);\par
+00151       {\cf19 return} HH_FREAD_ERROR;\par
+00152     \}\par
+00153 \par
+00154   {\cf19 return} 0;\par
+00155 \}\par
+00156 \par
+00157 int8_t\par
+00158 read_array_uint8 (FILE *fptr, uint8_t *arr, uint8_t length)\par
+00159 \{\par
+00160   {\cf18 size_t} bytes_read = fread (arr, {\cf17 sizeof} (uint8_t), length, fptr);\par
+00161   {\cf19 if} (bytes_read != {\cf17 sizeof} (uint8_t) * length)\par
+00162     \{\par
+00163       handle_fread_error (bytes_read, {\cf17 sizeof} (uint8_t) * length);\par
+00164       {\cf19 return} HH_FREAD_ERROR;\par
+00165     \}\par
+00166 \par
+00167   {\cf19 return} 0;\par
+00168 \}\par
+00169 \par
+00170 int8_t\par
+00171 read_dec_datetime (FILE *fptr, dec_datetime *dt)\par
+00172 \{\par
+00173   {\cf19 if} ((read_string (fptr, dt->year, YEAR_FIELD_LEN) != 0)\par
+00174       || (read_string (fptr, dt->month, MONTH_FIELD_LEN) != 0)\par
+00175       || (read_string (fptr, dt->day, DAY_FIELD_LEN) != 0)\par
+00176       || (read_string (fptr, dt->hour, HOUR_FIELD_LEN) != 0)\par
+00177       || (read_string (fptr, dt->minute, MINUTE_FIELD_LEN) != 0)\par
+00178       || (read_string (fptr, dt->second, SECOND_FIELD_LEN) != 0)\par
+00179       || (read_string (fptr, dt->hundredths_of_a_second,\par
+00180                        HUNDREDTHS_OF_A_SECOND_FIELD_LEN)\par
+00181           != 0)\par
+00182       || (read_single_uint8 (fptr, &dt->time_zone_offset) != 0))\par
+00183     \{\par
+00184       {\cf19 return} HH_FREAD_ERROR;\par
+00185     \}\par
+00186 \par
+00187   {\cf19 return} 0;\par
+00188 \}\par
+00189 \par
+00190 int8_t\par
+00191 read_single_uint8 (FILE *fptr, uint8_t *value)\par
+00192 \{\par
+00193   {\cf18 size_t} bytes_read = fread (value, {\cf17 sizeof} (uint8_t), 1, fptr);\par
+00194   {\cf19 if} (bytes_read != {\cf17 sizeof} (uint8_t))\par
+00195     \{\par
+00196       handle_fread_error (bytes_read, {\cf17 sizeof} (uint8_t));\par
+00197       {\cf19 return} HH_FREAD_ERROR;\par
+00198     \}\par
+00199 \par
+00200   {\cf19 return} 0;\par
+00201 \}\par
+00202 \par
+00203 int8_t\par
+00204 read_dir_datetime (FILE *fptr, dir_datetime *dt)\par
+00205 \{\par
+00206   {\cf19 if} ((read_single_uint8 (fptr, &dt->year) != 0)\par
+00207       || (read_single_uint8 (fptr, &dt->month) != 0)\par
+00208       || (read_single_uint8 (fptr, &dt->day) != 0)\par
+00209       || (read_single_uint8 (fptr, &dt->hour) != 0)\par
+00210       || (read_single_uint8 (fptr, &dt->minute) != 0)\par
+00211       || (read_single_uint8 (fptr, &dt->second) != 0)\par
+00212       || (read_single_uint8 (fptr, &dt->time_zone_offset) != 0))\par
+00213     \{\par
+00214       {\cf19 return} HH_FREAD_ERROR;\par
+00215     \}\par
+00216 \par
+00217   {\cf19 return} 0;\par
+00218 \}\par
+00219 \par
+00220 int8_t\par
+00221 read_file_flags (FILE *fptr, file_flags *ff)\par
+00222 \{\par
+00223   uint8_t byte;\par
+00224   {\cf19 if} (read_single_uint8 (fptr, &{\cf18 byte}) != 0)\par
+00225     {\cf19 return} HH_FREAD_ERROR;\par
+00226 \par
+00227   {\cf19 if} ({\cf18 byte} & 0x1)\par
+00228     \{\par
+00229       ff->hidden = {\cf17 true};\par
+00230     \}\par
+00231   {\cf19 if} ({\cf18 byte} & 0x2)\par
+00232     \{\par
+00233       ff->subdirectory = {\cf17 true};\par
+00234     \}\par
+00235   {\cf19 if} ({\cf18 byte} & 0x4)\par
+00236     \{\par
+00237       ff->associated_file = {\cf17 true};\par
+00238     \}\par
+00239   {\cf19 if} ({\cf18 byte} & 0x8)\par
+00240     \{\par
+00241       ff->extended_attribute_record_contains_owner_and_group_permissions\par
+00242           = {\cf17 true};\par
+00243     \}\par
+00244   {\cf19 if} ({\cf18 byte} & 0x10)\par
+00245     \{\par
+00246       ff->final_directory_record = {\cf17 true};\par
+00247     \}\par
+00248 \par
+00249   {\cf19 return} 0;\par
+00250 \}\par
+00251 \par
+00252 {\cf20 // this system could probably be replaced with a macro}\par
+00253 {\cf18 void}\par
+00254 build_path_string_from_file (FILE *fptr, {\cf18 char} *output)\par
+00255 \{\par
+00256   {\cf18 char} format[32] = \{ 0 \};\par
+00257   fgets (format, {\cf17 sizeof} (format), fptr);\par
+00258   {\cf18 size_t} len = strlen (format);\par
+00259   format[len - 1] = {\cf23 '\\0'};\par
+00260 \par
+00261   sprintf (output, format, OP_OUTPUT_DIR, OP_PATH_SEPARATOR,\par
+00262            OP_PATH_SEPARATOR);\par
+00263 \}\par
 }
 \par \pard\plain 
 
@@ -3053,7 +3063,7 @@ void build_path_string_from_file (FILE * fptr, char * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Builds strings using formats provided by {\f2 internal-dat-file-paths.txt} . }}\par
 {
-Definition at line {\b 252} of file {\b data_reader.c}.}\par
+Definition at line {\b 254} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_array_uint8\:data_reader.h}
 {\xe \v data_reader.h\:read_array_uint8}
@@ -3070,7 +3080,7 @@ int8_t read_array_uint8 (FILE * fptr, uint8_t * arr, uint8_t length)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads an array of uint8_t's, of a given length, from a given file, storing the result in {\f2 output} . }}\par
 {
-Definition at line {\b 156} of file {\b data_reader.c}.}\par
+Definition at line {\b 158} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_both_endian_data_uint16\:data_reader.h}
 {\xe \v data_reader.h\:read_both_endian_data_uint16}
@@ -3092,7 +3102,7 @@ This is almost certainly unnecessary, but it makes me feel better :).\par
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 read_both_endian_data_unint32() \par
 }}}{
-Definition at line {\b 57} of file {\b data_reader.c}.}\par
+Definition at line {\b 58} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_both_endian_data_uint32\:data_reader.h}
 {\xe \v data_reader.h\:read_both_endian_data_uint32}
@@ -3136,7 +3146,7 @@ Reads in {\f2 {\b dec_datetime}}  data from a given file, storing the output in 
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b dec_datetime} \par
 }}}{
-Definition at line {\b 169} of file {\b data_reader.c}.}\par
+Definition at line {\b 171} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_dir_datetime\:data_reader.h}
 {\xe \v data_reader.h\:read_dir_datetime}
@@ -3158,7 +3168,7 @@ Reads in {\f2 {\b dir_datetime}}  data from a given file, storing the output in 
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b dir_datetime} \par
 }}}{
-Definition at line {\b 202} of file {\b data_reader.c}.}\par
+Definition at line {\b 204} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_file_flags\:data_reader.h}
 {\xe \v data_reader.h\:read_file_flags}
@@ -3180,7 +3190,7 @@ Reads in {\f2 file_flag}  data from a given file, storing the output in {\f2 ff}
 See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 {\b file_flags} \par
 }}}{
-Definition at line {\b 219} of file {\b data_reader.c}.}\par
+Definition at line {\b 221} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_little_endian_data_uint16_t\:data_reader.h}
 {\xe \v data_reader.h\:read_little_endian_data_uint16_t}
@@ -3197,7 +3207,7 @@ int8_t read_little_endian_data_uint16_t (FILE * fptr, uint16_t * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a uint16_t stored in little endian format from the file pointed to by {\f2 fptr}  and stores the result in {\f2 output} . }}\par
 {
-Definition at line {\b 112} of file {\b data_reader.c}.}\par
+Definition at line {\b 114} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_little_endian_data_uint32_t\:data_reader.h}
 {\xe \v data_reader.h\:read_little_endian_data_uint32_t}
@@ -3214,7 +3224,7 @@ int8_t read_little_endian_data_uint32_t (FILE * fptr, uint32_t * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a uint32_t stored in little endian format from the file pointed to by {\f2 fptr}  and stores the result in {\f2 output} . }}\par
 {
-Definition at line {\b 78} of file {\b data_reader.c}.}\par
+Definition at line {\b 80} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_single_uint8\:data_reader.h}
 {\xe \v data_reader.h\:read_single_uint8}
@@ -3233,7 +3243,7 @@ data_header.h - container for various data access functions. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 All of these functions return zero on success, non-zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8_t from a given file, storing the output in {\f2 value} . \par
 }{
-Definition at line {\b 189} of file {\b data_reader.c}.}\par
+Definition at line {\b 191} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_string\:data_reader.h}
 {\xe \v data_reader.h\:read_string}
@@ -3250,7 +3260,7 @@ int8_t read_string (FILE * fptr, char * output, uint8_t length)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Reads a string of a given length from a given file, storing the result in {\f2 output} . }}\par
 {
-Definition at line {\b 142} of file {\b data_reader.c}.}\par
+Definition at line {\b 144} of file {\b data_reader.c}.}\par
 }
 \par \pard\plain 
 
@@ -3820,7 +3830,7 @@ int8_t add_record_to_directory ({\b directory} * d, {\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }}\par
 {
-Definition at line {\b 69} of file {\b directory.c}.}\par
+Definition at line {\b 70} of file {\b directory.c}.}\par
 }
 {\xe \v create_directory\:directory.c}
 {\xe \v directory.c\:create_directory}
@@ -3856,7 +3866,7 @@ void destroy_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys all the directory records within a given directory before then destroying the directory itself. }}\par
 {
-Definition at line {\b 53} of file {\b directory.c}.}\par
+Definition at line {\b 54} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory\:directory.c}
 {\xe \v directory.c\:print_directory}
@@ -3873,7 +3883,7 @@ void print_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory to stdout in a human-readable form. }}\par
 {
-Definition at line {\b 123} of file {\b directory.c}.}\par
+Definition at line {\b 125} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory_record\:directory.c}
 {\xe \v directory.c\:print_directory_record}
@@ -3890,7 +3900,7 @@ void print_directory_record ({\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory record to the stdout in a human-readable form. }}\par
 {
-Definition at line {\b 83} of file {\b directory.c}.}\par
+Definition at line {\b 84} of file {\b directory.c}.}\par
 }
 {\xe \v process_directory\:directory.c}
 {\xe \v directory.c\:process_directory}
@@ -3907,7 +3917,7 @@ int8_t process_directory (FILE * fptr, {\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }}\par
 {
-Definition at line {\b 135} of file {\b directory.c}.}\par
+Definition at line {\b 137} of file {\b directory.c}.}\par
 }
 {\xe \v resize_directory_records\:directory.c}
 {\xe \v directory.c\:resize_directory_records}
@@ -3924,7 +3934,7 @@ int8_t resize_directory_records ({\b directory} * d){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Expands the size of a given directory's {\f2 records}  attribute by a factor of {\f2 DIR_RECORDS_GROWTH_RATE} . }}\par
 {
-Definition at line {\b 100} of file {\b directory.c}.}\par
+Definition at line {\b 101} of file {\b directory.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -4003,168 +4013,170 @@ Go to the documentation of this file.\par
 00034   d->records = malloc ({\cf17 sizeof} (directory_record) * DIR_STARTING_NUM_RECORDS);\par
 00035   {\cf19 if} (d->records == NULL)\par
 00036     \{\par
-00037       perror ({\cf22 "ERROR: Failed to allocate memory for directory."});\par
-00038       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00039     \}\par
-00040 \par
-00041   d->size = DIR_STARTING_NUM_RECORDS;\par
-00042   d->current_record = 0;\par
-00043 \par
-00044   {\cf19 for} ({\cf18 size_t} i = 0; i < DIR_STARTING_NUM_RECORDS; i++)\par
-00045     \{\par
-00046       d->records[i].file_identifier = NULL;\par
-00047     \}\par
-00048 \par
-00049   {\cf19 return} 0;\par
-00050 \}\par
-00051 \par
-00052 {\cf18 void}\par
-00053 destroy_directory (directory *d)\par
-00054 \{\par
-00055   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
-00056     \{\par
-00057       {\cf19 if} (d->records[i].file_identifier == NULL)\par
-00058         {\cf19 continue};\par
-00059 \par
-00060       free (d->records[i].file_identifier);\par
-00061       d->records[i].file_identifier = NULL;\par
-00062     \}\par
-00063 \par
-00064   free (d->records);\par
-00065   d->records = NULL;\par
-00066 \}\par
-00067 \par
-00068 int8_t\par
-00069 add_record_to_directory (directory *d, directory_record *r)\par
-00070 \{\par
-00071   {\cf19 if} (d->current_record >= d->size)\par
-00072     \{\par
-00073       {\cf19 if} (resize_directory_records (d) != 0)\par
-00074         {\cf19 return} -1;\par
-00075     \}\par
-00076 \par
-00077   d->records[d->current_record] = *r;\par
-00078   d->current_record++;\par
-00079   {\cf19 return} 0;\par
-00080 \}\par
-00081 \par
-00082 {\cf18 void}\par
-00083 print_directory_record (directory_record *r)\par
-00084 \{\par
-00085   printf ({\cf22 "Record length: %02X\\n"}, r->record_length);\par
-00086   printf ({\cf22 "Extended attribute record length: %02X\\n"},\par
-00087           r->extended_attribute_record_length);\par
-00088   printf ({\cf22 "Location of extent: %08X\\n"}, r->location_of_extent);\par
-00089   printf ({\cf22 "Data length: %08X\\n"}, r->data_length);\par
-00090   print_dir_datetime (r->recording_datetime);\par
-00091   print_file_flags (&r->file_flags);\par
-00092   printf ({\cf22 "File unit size: %02X\\n"}, r->file_unit_size);\par
-00093   printf ({\cf22 "Interleave gap size: %02X\\n"}, r->interleave_gap_size);\par
-00094   printf ({\cf22 "Volume sequence number: %04X\\n"}, r->volume_sequence_number);\par
-00095   printf ({\cf22 "File identifier length: %02X\\n"}, r->file_identifier_length);\par
-00096   printf ({\cf22 "File identifier: %s\\n"}, r->file_identifier);\par
-00097 \}\par
-00098 \par
-00099 int8_t\par
-00100 resize_directory_records (directory *d)\par
-00101 \{\par
-00102   {\cf18 size_t} new_size = d->size * DIR_RECORDS_GROWTH_RATE;\par
-00103   directory_record *new_records = (directory_record *)realloc (\par
-00104       d->records, sizeof (directory_record) * new_size);\par
-00105   {\cf19 if} (new_records == NULL)\par
-00106     \{\par
-00107       perror ({\cf22 "ERROR: failed to reallocate memory for the directory records."});\par
-00108       destroy_directory (d);\par
-00109       {\cf19 return} -1;\par
-00110     \}\par
-00111 \par
-00112   d->records = new_records;\par
-00113   {\cf19 for} ({\cf18 size_t} i = d->size; i < new_size; i++)\par
-00114     \{\par
-00115       d->records[i].file_identifier = NULL;\par
-00116     \}\par
-00117 \par
-00118   d->size = new_size;\par
-00119   {\cf19 return} 0;\par
-00120 \}\par
-00121 \par
-00122 {\cf18 void}\par
-00123 print_directory (directory *d)\par
-00124 \{\par
-00125   printf ({\cf22 "Number of records: %zu\\n"}, d->current_record + 1);\par
-00126   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
-00127     \{\par
-00128       printf ({\cf22 "!!! Record #%zu\\n"}, i + 1);\par
-00129       print_directory_record (&d->records[i]);\par
-00130       puts ({\cf22 "-------------------------------"});\par
-00131     \}\par
-00132 \}\par
-00133 \par
-00134 int8_t\par
-00135 process_directory (FILE *fptr, directory *d)\par
-00136 \{\par
-00137   uint8_t single_byte;\par
-00138   {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
-00139     {\cf19 return} HH_FREAD_ERROR;\par
-00140 \par
-00141   {\cf19 do}\par
-00142     \{\par
-00143       directory_record dr;\par
-00144       dr.record_length = single_byte;\par
-00145 \par
-00146       {\cf19 if} ((read_single_uint8 (fptr, &dr.extended_attribute_record_length) != 0)\par
-00147           || (read_both_endian_data_uint32 (fptr, &dr.location_of_extent) != 0)\par
-00148           || (read_both_endian_data_uint32 (fptr, &dr.data_length) != 0)\par
-00149           || (read_dir_datetime (fptr, &dr.recording_datetime) != 0))\par
-00150         \{\par
-00151           {\cf19 return} HH_FREAD_ERROR;\par
-00152         \}\par
-00153 \par
-00154       dr.file_flags = create_file_flags ();\par
-00155       read_file_flags (fptr, &dr.file_flags);\par
-00156 \par
-00157       {\cf19 if} (read_single_uint8 (fptr, &dr.file_unit_size) != 0\par
-00158           || read_single_uint8 (fptr, &dr.interleave_gap_size) != 0)\par
-00159         \{\par
-00160           {\cf19 return} HH_FREAD_ERROR;\par
-00161         \}\par
-00162 \par
-00163       {\cf19 if} (read_both_endian_data_uint16 (fptr, &dr.volume_sequence_number) != 0)\par
-00164         {\cf19 return} HH_FREAD_ERROR;\par
-00165 \par
-00166       {\cf19 if} (read_single_uint8 (fptr, &dr.file_identifier_length) != 0)\par
-00167         \{\par
-00168           {\cf19 return} HH_FREAD_ERROR;\par
-00169         \}\par
-00170       dr.file_identifier_length++;\par
-00171 \par
-00172       dr.file_identifier\par
-00173           = ({\cf18 char} *)calloc (dr.file_identifier_length, sizeof ({\cf18 char}));\par
-00174       {\cf18 size_t} bytes_read = fread (dr.file_identifier, sizeof ({\cf18 char}),\par
-00175                                  dr.file_identifier_length - 1, fptr);\par
-00176       dr.file_identifier[dr.file_identifier_length - 1] = {\cf23 '\\0'};\par
-00177       {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1))\par
-00178         \{\par
-00179           handle_fread_error (bytes_read,\par
-00180                               {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1));\par
-00181           {\cf19 return} HH_FREAD_ERROR;\par
-00182         \}\par
-00183 \par
-00184       {\cf19 if} (add_record_to_directory (d, &dr) != 0)\par
-00185         \{\par
-00186           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00187         \}\par
-00188 \par
-00189       {\cf19 if} (dr.file_identifier_length % 2 != 0) {\cf20 // handle padding field}\par
-00190         fseek (fptr, 1, SEEK_CUR);\par
-00191 \par
-00192       {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
-00193         {\cf19 return} HH_FREAD_ERROR;\par
-00194     \}\par
-00195   {\cf19 while} (single_byte != 0);\par
-00196 \par
-00197   {\cf19 return} 0;\par
-00198 \}\par
+00037       perror ({\cf22 "[HarvesterHarvester]ERROR: Failed to allocate memory for "}\par
+00038               {\cf22 "directory."});\par
+00039       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00040     \}\par
+00041 \par
+00042   d->size = DIR_STARTING_NUM_RECORDS;\par
+00043   d->current_record = 0;\par
+00044 \par
+00045   {\cf19 for} ({\cf18 size_t} i = 0; i < DIR_STARTING_NUM_RECORDS; i++)\par
+00046     \{\par
+00047       d->records[i].file_identifier = NULL;\par
+00048     \}\par
+00049 \par
+00050   {\cf19 return} 0;\par
+00051 \}\par
+00052 \par
+00053 {\cf18 void}\par
+00054 destroy_directory (directory *d)\par
+00055 \{\par
+00056   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
+00057     \{\par
+00058       {\cf19 if} (d->records[i].file_identifier == NULL)\par
+00059         {\cf19 continue};\par
+00060 \par
+00061       free (d->records[i].file_identifier);\par
+00062       d->records[i].file_identifier = NULL;\par
+00063     \}\par
+00064 \par
+00065   free (d->records);\par
+00066   d->records = NULL;\par
+00067 \}\par
+00068 \par
+00069 int8_t\par
+00070 add_record_to_directory (directory *d, directory_record *r)\par
+00071 \{\par
+00072   {\cf19 if} (d->current_record >= d->size)\par
+00073     \{\par
+00074       {\cf19 if} (resize_directory_records (d) != 0)\par
+00075         {\cf19 return} -1;\par
+00076     \}\par
+00077 \par
+00078   d->records[d->current_record] = *r;\par
+00079   d->current_record++;\par
+00080   {\cf19 return} 0;\par
+00081 \}\par
+00082 \par
+00083 {\cf18 void}\par
+00084 print_directory_record (directory_record *r)\par
+00085 \{\par
+00086   printf ({\cf22 "Record length: %02X\\n"}, r->record_length);\par
+00087   printf ({\cf22 "Extended attribute record length: %02X\\n"},\par
+00088           r->extended_attribute_record_length);\par
+00089   printf ({\cf22 "Location of extent: %08X\\n"}, r->location_of_extent);\par
+00090   printf ({\cf22 "Data length: %08X\\n"}, r->data_length);\par
+00091   print_dir_datetime (r->recording_datetime);\par
+00092   print_file_flags (&r->file_flags);\par
+00093   printf ({\cf22 "File unit size: %02X\\n"}, r->file_unit_size);\par
+00094   printf ({\cf22 "Interleave gap size: %02X\\n"}, r->interleave_gap_size);\par
+00095   printf ({\cf22 "Volume sequence number: %04X\\n"}, r->volume_sequence_number);\par
+00096   printf ({\cf22 "File identifier length: %02X\\n"}, r->file_identifier_length);\par
+00097   printf ({\cf22 "File identifier: %s\\n"}, r->file_identifier);\par
+00098 \}\par
+00099 \par
+00100 int8_t\par
+00101 resize_directory_records (directory *d)\par
+00102 \{\par
+00103   {\cf18 size_t} new_size = d->size * DIR_RECORDS_GROWTH_RATE;\par
+00104   directory_record *new_records = (directory_record *)realloc (\par
+00105       d->records, sizeof (directory_record) * new_size);\par
+00106   {\cf19 if} (new_records == NULL)\par
+00107     \{\par
+00108       perror ({\cf22 "[HarvesterHarvester]ERROR: failed to reallocate memory for the "}\par
+00109               {\cf22 "directory records."});\par
+00110       destroy_directory (d);\par
+00111       {\cf19 return} -1;\par
+00112     \}\par
+00113 \par
+00114   d->records = new_records;\par
+00115   {\cf19 for} ({\cf18 size_t} i = d->size; i < new_size; i++)\par
+00116     \{\par
+00117       d->records[i].file_identifier = NULL;\par
+00118     \}\par
+00119 \par
+00120   d->size = new_size;\par
+00121   {\cf19 return} 0;\par
+00122 \}\par
+00123 \par
+00124 {\cf18 void}\par
+00125 print_directory (directory *d)\par
+00126 \{\par
+00127   printf ({\cf22 "Number of records: %zu\\n"}, d->current_record + 1);\par
+00128   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
+00129     \{\par
+00130       printf ({\cf22 "!!! Record #%zu\\n"}, i + 1);\par
+00131       print_directory_record (&d->records[i]);\par
+00132       puts ({\cf22 "-------------------------------"});\par
+00133     \}\par
+00134 \}\par
+00135 \par
+00136 int8_t\par
+00137 process_directory (FILE *fptr, directory *d)\par
+00138 \{\par
+00139   uint8_t single_byte;\par
+00140   {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
+00141     {\cf19 return} HH_FREAD_ERROR;\par
+00142 \par
+00143   {\cf19 do}\par
+00144     \{\par
+00145       directory_record dr;\par
+00146       dr.record_length = single_byte;\par
+00147 \par
+00148       {\cf19 if} ((read_single_uint8 (fptr, &dr.extended_attribute_record_length) != 0)\par
+00149           || (read_both_endian_data_uint32 (fptr, &dr.location_of_extent) != 0)\par
+00150           || (read_both_endian_data_uint32 (fptr, &dr.data_length) != 0)\par
+00151           || (read_dir_datetime (fptr, &dr.recording_datetime) != 0))\par
+00152         \{\par
+00153           {\cf19 return} HH_FREAD_ERROR;\par
+00154         \}\par
+00155 \par
+00156       dr.file_flags = create_file_flags ();\par
+00157       read_file_flags (fptr, &dr.file_flags);\par
+00158 \par
+00159       {\cf19 if} (read_single_uint8 (fptr, &dr.file_unit_size) != 0\par
+00160           || read_single_uint8 (fptr, &dr.interleave_gap_size) != 0)\par
+00161         \{\par
+00162           {\cf19 return} HH_FREAD_ERROR;\par
+00163         \}\par
+00164 \par
+00165       {\cf19 if} (read_both_endian_data_uint16 (fptr, &dr.volume_sequence_number) != 0)\par
+00166         {\cf19 return} HH_FREAD_ERROR;\par
+00167 \par
+00168       {\cf19 if} (read_single_uint8 (fptr, &dr.file_identifier_length) != 0)\par
+00169         \{\par
+00170           {\cf19 return} HH_FREAD_ERROR;\par
+00171         \}\par
+00172       dr.file_identifier_length++;\par
+00173 \par
+00174       dr.file_identifier\par
+00175           = ({\cf18 char} *)calloc (dr.file_identifier_length, sizeof ({\cf18 char}));\par
+00176       {\cf18 size_t} bytes_read = fread (dr.file_identifier, sizeof ({\cf18 char}),\par
+00177                                  dr.file_identifier_length - 1, fptr);\par
+00178       dr.file_identifier[dr.file_identifier_length - 1] = {\cf23 '\\0'};\par
+00179       {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1))\par
+00180         \{\par
+00181           handle_fread_error (bytes_read,\par
+00182                               {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1));\par
+00183           {\cf19 return} HH_FREAD_ERROR;\par
+00184         \}\par
+00185 \par
+00186       {\cf19 if} (add_record_to_directory (d, &dr) != 0)\par
+00187         \{\par
+00188           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00189         \}\par
+00190 \par
+00191       {\cf19 if} (dr.file_identifier_length % 2 != 0) {\cf20 // handle padding field}\par
+00192         fseek (fptr, 1, SEEK_CUR);\par
+00193 \par
+00194       {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
+00195         {\cf19 return} HH_FREAD_ERROR;\par
+00196     \}\par
+00197   {\cf19 while} (single_byte != 0);\par
+00198 \par
+00199   {\cf19 return} 0;\par
+00200 \}\par
 }
 \par \pard\plain 
 
@@ -4264,7 +4276,7 @@ int8_t add_record_to_directory ({\b directory} * d, {\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }}\par
 {
-Definition at line {\b 69} of file {\b directory.c}.}\par
+Definition at line {\b 70} of file {\b directory.c}.}\par
 }
 {\xe \v create_directory\:directory.h}
 {\xe \v directory.h\:create_directory}
@@ -4300,7 +4312,7 @@ void destroy_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys all the directory records within a given directory before then destroying the directory itself. }}\par
 {
-Definition at line {\b 53} of file {\b directory.c}.}\par
+Definition at line {\b 54} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory\:directory.h}
 {\xe \v directory.h\:print_directory}
@@ -4317,7 +4329,7 @@ void print_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory to stdout in a human-readable form. }}\par
 {
-Definition at line {\b 123} of file {\b directory.c}.}\par
+Definition at line {\b 125} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory_record\:directory.h}
 {\xe \v directory.h\:print_directory_record}
@@ -4334,7 +4346,7 @@ void print_directory_record ({\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory record to the stdout in a human-readable form. }}\par
 {
-Definition at line {\b 83} of file {\b directory.c}.}\par
+Definition at line {\b 84} of file {\b directory.c}.}\par
 }
 {\xe \v process_directory\:directory.h}
 {\xe \v directory.h\:process_directory}
@@ -4351,7 +4363,7 @@ int8_t process_directory (FILE * fptr, {\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }}\par
 {
-Definition at line {\b 135} of file {\b directory.c}.}\par
+Definition at line {\b 137} of file {\b directory.c}.}\par
 }
 \par \pard\plain 
 
@@ -4480,14 +4492,14 @@ Variables\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-const char * {\b CALLOC_FAILED_ERR_MSG_FMT} = "ERROR: unable to calloc string of size %zu.\\n"\par
+const char * {\b CALLOC_FAILED_ERR_MSG_FMT} = "[HarvesterHarvester]ERROR: unable to calloc string of size %zu.\\n"\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Format string for failed calloc error message. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-const char * {\b FOPEN_FAILED_ERR_MSG_FMT} = "ERROR: unable to open output file, %s\\n."\par
+const char * {\b FOPEN_FAILED_ERR_MSG_FMT} = "[HarvesterHarvester]ERROR: unable to open output file, %s\\n."\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Format string for failed fopen error message. }{
@@ -4574,7 +4586,7 @@ Variable Documentation\par
 {\xe \v errors.c\:CALLOC_FAILED_ERR_MSG_FMT}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-const char* CALLOC_FAILED_ERR_MSG_FMT = "ERROR: unable to calloc string of size %zu.\\n"}}
+const char* CALLOC_FAILED_ERR_MSG_FMT = "[HarvesterHarvester]ERROR: unable to calloc string of size %zu.\\n"}}
 \par
 {\bkmkstart AAAAAAAADM}
 {\bkmkend AAAAAAAADM}
@@ -4591,7 +4603,7 @@ Definition at line {\b 6} of file {\b errors.c}.}\par
 {\xe \v errors.c\:FOPEN_FAILED_ERR_MSG_FMT}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-const char* FOPEN_FAILED_ERR_MSG_FMT = "ERROR: unable to open output file, %s\\n."}}
+const char* FOPEN_FAILED_ERR_MSG_FMT = "[HarvesterHarvester]ERROR: unable to open output file, %s\\n."}}
 \par
 {\bkmkstart AAAAAAAADN}
 {\bkmkend AAAAAAAADN}
@@ -4623,20 +4635,20 @@ Go to the documentation of this file.\par
 00004 {\cf21 #include <stdlib.h>}\par
 00005 \par
 00006 {\cf17 const} {\cf18 char} *CALLOC_FAILED_ERR_MSG_FMT\par
-00007     = {\cf22 "ERROR: unable to calloc string of size %zu.\\n"};\par
+00007     = {\cf22 "[HarvesterHarvester]ERROR: unable to calloc string of size %zu.\\n"};\par
 00008 {\cf17 const} {\cf18 char} *FOPEN_FAILED_ERR_MSG_FMT\par
-00009     = {\cf22 "ERROR: unable to open output file, %s\\n."};\par
+00009     = {\cf22 "[HarvesterHarvester]ERROR: unable to open output file, %s\\n."};\par
 00010 \par
 00011 {\cf18 void}\par
 00012 improper_usage_error ({\cf18 void})\par
 00013 \{\par
 00014   {\cf18 bool} windows;\par
-00015 {\cf21 #ifdef __WIN32}\par
+00015 {\cf21 #ifdef _WIN32}\par
 00016   windows = {\cf17 true};\par
 00017 {\cf21 #else}\par
 00018   windows = {\cf17 false};\par
 00019 {\cf21 #endif}\par
-00020   puts ({\cf22 "ERROR: Improper usage!"});\par
+00020   puts ({\cf22 "[HarvesterHarvester]ERROR: Improper usage!"});\par
 00021   printf ({\cf22 "try: %s HARVEST.DAT\\n"},\par
 00022           !windows ? {\cf22 "$ ./HarvesterHarvester"} : {\cf22 "HarvesterHarvester.exe"});\par
 00023 \par
@@ -4646,14 +4658,14 @@ Go to the documentation of this file.\par
 00027 {\cf18 void}\par
 00028 fopen_error ({\cf18 char} *filename)\par
 00029 \{\par
-00030   printf ({\cf22 "ERROR: Unable to open file, %s.\\n"}, filename);\par
+00030   printf ({\cf22 "[HarvesterHarvester]ERROR: Unable to open file, %s.\\n"}, filename);\par
 00031 \}\par
 00032 \par
 00033 HH_ERRORS\par
 00034 handle_fread_error ({\cf18 size_t} actual, {\cf18 size_t} expected_bytes)\par
 00035 \{\par
-00036   printf ({\cf22 "ERROR: Only read %zu byte(s), expected %zu.\\n"}, actual,\par
-00037           expected_bytes);\par
+00036   printf ({\cf22 "[HarvesterHarvester]ERROR: Only read %zu byte(s), expected %zu.\\n"},\par
+00037           actual, expected_bytes);\par
 00038   {\cf19 return} HH_FREAD_ERROR;\par
 00039 \}\par
 00040 \par
@@ -4661,16 +4673,17 @@ Go to the documentation of this file.\par
 00042 handle_unknown_command_line_argument_error ({\cf18 char} *arg)\par
 00043 \{\par
 00044   {\cf18 bool} windows;\par
-00045 {\cf21 #ifdef __WIN32}\par
+00045 {\cf21 #ifdef _WIN32}\par
 00046   windows = {\cf17 true};\par
 00047 {\cf21 #else}\par
 00048   windows = {\cf17 false};\par
 00049 {\cf21 #endif}\par
-00050   printf ({\cf22 "ERROR: unknown command-line argument, %s.\\n"}, arg);\par
-00051   printf ({\cf22 "Run %s --help for a list of command-line arguments.\\n"},\par
-00052           !windows ? {\cf22 "./HarvesterHarvester"} : {\cf22 "HarvesterHarvester.exe"});\par
-00053   exit (1);\par
-00054 \}\par
+00050   printf ({\cf22 "[HarvesterHarvester]ERROR: unknown command-line argument, %s.\\n"},\par
+00051           arg);\par
+00052   printf ({\cf22 "Run %s --help for a list of command-line arguments.\\n"},\par
+00053           !windows ? {\cf22 "./HarvesterHarvester"} : {\cf22 "HarvesterHarvester.exe"});\par
+00054   exit (1);\par
+00055 \}\par
 }
 \par \pard\plain 
 
@@ -5168,7 +5181,7 @@ Parameters\par}
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Gives you the {\f2 OP_OUTPUT_DIR/DISK#/}  part of the path. 10 = len("INDEX.001")\par
 }{
-Definition at line {\b 225} of file {\b extractor.c}.}\par
+Definition at line {\b 230} of file {\b extractor.c}.}\par
 }
 \par \pard\plain 
 
@@ -5217,7 +5230,7 @@ Go to the documentation of this file.\par
 00043       actual_filename = dr->file_identifier;\par
 00044     \}\par
 00045 \par
-00046   printf ({\cf22 "Extracting file: %s\\n"}, actual_filename);\par
+00046   printf ({\cf22 "[HarvesterHarvester]Extracting file: %s\\n"}, actual_filename);\par
 00047 \par
 00048   {\cf20 // +1 for the null terminator, +1 for `/` between dir and filename}\par
 00049   {\cf18 size_t} filename_length = strlen (path) + strlen (actual_filename) + 2;\par
@@ -5267,7 +5280,7 @@ Go to the documentation of this file.\par
 00093   create_directory (&dir);\par
 00094   process_directory (fptr, &dir);\par
 00095 \par
-00096   printf ({\cf22 "Extracting directory: %s\\n"}, path);\par
+00096   printf ({\cf22 "[HarvesterHarvester]Extracting directory: %s\\n"}, path);\par
 00097 \par
 00098   {\cf19 for} ({\cf18 size_t} i = 0x0; i < dir.current_record; i++)\par
 00099     \{\par
@@ -5280,7 +5293,7 @@ Go to the documentation of this file.\par
 00106       {\cf19 else} {\cf19 if} (OP_DEBUG_MODE\par
 00107                && curr_file.data_length > OP_DEBUG_FILE_SIZE_LIMIT)\par
 00108         \{\par
-00109           printf ({\cf22 "[DEBUG_MODE] Skipping file, %s.\\n"},\par
+00109           printf ({\cf22 "[HarvesterHarvester][DEBUG_MODE] Skipping file, %s.\\n"},\par
 00110                   curr_file.file_identifier);\par
 00111           {\cf19 continue};\par
 00112         \}\par
@@ -5357,7 +5370,7 @@ Go to the documentation of this file.\par
 00183 int8_t\par
 00184 extract_file_using_idx_entry (FILE *fptr, index_entry *idx, {\cf17 const} {\cf18 char} *path)\par
 00185 \{\par
-00186   printf ({\cf22 "Extracting file: %s\\n"}, path);\par
+00186   printf ({\cf22 "[HarvesterHarvester]Extracting file: %s\\n"}, path);\par
 00187 \par
 00188   FILE *output_file = fopen (path, {\cf22 "wb"});\par
 00189   {\cf19 if} (output_file == NULL)\par
@@ -5371,60 +5384,67 @@ Go to the documentation of this file.\par
 00197       output_file = fopen (path, {\cf22 "wb"});\par
 00198       {\cf19 if} (output_file == NULL)\par
 00199         \{\par
-00200           fprintf (stderr, {\cf22 "Error opening output file, %s.\\n"}, path);\par
-00201           {\cf19 return} HH_FOPEN_ERROR;\par
-00202         \}\par
-00203     \}\par
-00204 \par
-00205   fseek (fptr, idx->start, SEEK_SET);\par
-00206 \par
-00207   {\cf19 for} (uint32_t i = 0x0; i < idx->size; i++)\par
-00208     \{\par
-00209       uint8_t byte;\par
-00210       {\cf19 if} (read_single_uint8 (fptr, &{\cf18 byte}) != 0)\par
-00211         \{\par
-00212           fprintf (stderr, {\cf22 "ERROR: couldn't read byte, quitting.\\n"});\par
-00213           fclose (output_file);\par
-00214           {\cf19 return} -1;\par
-00215         \}\par
-00216 \par
-00217       fwrite (&{\cf18 byte}, {\cf17 sizeof} (uint8_t), 1, output_file);\par
-00218     \}\par
-00219 \par
-00220   fclose (output_file);\par
-00221   {\cf19 return} 0;\par
-00222 \}\par
-00223 \par
-00224 int8_t\par
-00225 extract_index_file (index_file *idx, {\cf17 const} {\cf18 char} *idx_path,\par
-00226                     {\cf17 const} {\cf18 char} *dat_path)\par
-00227 \{\par
-00228   FILE *dat_file = fopen (dat_path, {\cf22 "rb"});\par
-00229   {\cf19 if} (dat_file == NULL)\par
-00230     \{\par
-00231       fprintf (stderr, {\cf22 "Error opening dat file, %s.\\n"}, dat_path);\par
-00232       {\cf19 return} HH_FOPEN_ERROR;\par
-00233     \}\par
-00234 \par
-00235   {\cf19 for} ({\cf18 size_t} i = 0; i < idx->current_index; i++)\par
-00236     \{\par
-00237       {\cf18 char} output_path[256] = \{ 0 \};\par
-00238 \par
-00243       strncpy (output_path, idx_path, strlen (idx_path) - 10);\par
-00244       strcat (output_path, idx->indicies[i].full_path);\par
+00200           fprintf (\par
+00201               stderr,\par
+00202               {\cf22 "[HarvesterHarvester]ERROR: Error opening output file, %s.\\n"},\par
+00203               path);\par
+00204           {\cf19 return} HH_FOPEN_ERROR;\par
+00205         \}\par
+00206     \}\par
+00207 \par
+00208   fseek (fptr, idx->start, SEEK_SET);\par
+00209 \par
+00210   {\cf19 for} (uint32_t i = 0x0; i < idx->size; i++)\par
+00211     \{\par
+00212       uint8_t byte;\par
+00213       {\cf19 if} (read_single_uint8 (fptr, &{\cf18 byte}) != 0)\par
+00214         \{\par
+00215           fprintf (\par
+00216               stderr,\par
+00217               {\cf22 "[HarvesterHarvester]ERROR: couldn't read byte, quitting.\\n"});\par
+00218           fclose (output_file);\par
+00219           {\cf19 return} -1;\par
+00220         \}\par
+00221 \par
+00222       fwrite (&{\cf18 byte}, {\cf17 sizeof} (uint8_t), 1, output_file);\par
+00223     \}\par
+00224 \par
+00225   fclose (output_file);\par
+00226   {\cf19 return} 0;\par
+00227 \}\par
+00228 \par
+00229 int8_t\par
+00230 extract_index_file (index_file *idx, {\cf17 const} {\cf18 char} *idx_path,\par
+00231                     {\cf17 const} {\cf18 char} *dat_path)\par
+00232 \{\par
+00233   FILE *dat_file = fopen (dat_path, {\cf22 "rb"});\par
+00234   {\cf19 if} (dat_file == NULL)\par
+00235     \{\par
+00236       fprintf (stderr,\par
+00237                {\cf22 "[HarvesterHarvester]ERROR: error opening dat file, %s.\\n"},\par
+00238                dat_path);\par
+00239       {\cf19 return} HH_FOPEN_ERROR;\par
+00240     \}\par
+00241 \par
+00242   {\cf19 for} ({\cf18 size_t} i = 0; i < idx->current_index; i++)\par
+00243     \{\par
+00244       {\cf18 char} output_path[256] = \{ 0 \};\par
 00245 \par
-00246       {\cf19 if} (extract_file_using_idx_entry (dat_file, &idx->indicies[i],\par
-00247                                         output_path)\par
-00248           != 0)\par
-00249         \{\par
-00250           fclose (dat_file);\par
-00251           {\cf19 return} -1;\par
-00252         \}\par
-00253     \}\par
-00254 \par
-00255   fclose (dat_file);\par
-00256   {\cf19 return} 0;\par
-00257 \}\par
+00250       strncpy (output_path, idx_path, strlen (idx_path) - 10);\par
+00251       strcat (output_path, idx->indicies[i].full_path);\par
+00252 \par
+00253       {\cf19 if} (extract_file_using_idx_entry (dat_file, &idx->indicies[i],\par
+00254                                         output_path)\par
+00255           != 0)\par
+00256         \{\par
+00257           fclose (dat_file);\par
+00258           {\cf19 return} -1;\par
+00259         \}\par
+00260     \}\par
+00261 \par
+00262   fclose (dat_file);\par
+00263   {\cf19 return} 0;\par
+00264 \}\par
 }
 \par \pard\plain 
 
@@ -5610,7 +5630,7 @@ Parameters\par}
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Gives you the {\f2 OP_OUTPUT_DIR/DISK#/}  part of the path. 10 = len("INDEX.001")\par
 }{
-Definition at line {\b 225} of file {\b extractor.c}.}\par
+Definition at line {\b 230} of file {\b extractor.c}.}\par
 }
 \par \pard\plain 
 
@@ -6007,7 +6027,7 @@ Processes all the {\f2 .DAT}  files found in {\f2 OP_INPUT_DIR} , one at a time.
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 174} of file {\b hh.c}.}\par
+Definition at line {\b 175} of file {\b hh.c}.}\par
 }
 {\xe \v main\:hh.c}
 {\xe \v hh.c\:main}
@@ -6082,7 +6102,7 @@ These {\f2 .DAT}  files are not ISO 9660 file systems, rather they're some propr
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 int8_t zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 296} of file {\b hh.c}.}\par
+Definition at line {\b 297} of file {\b hh.c}.}\par
 }
 {\xe \v setup_extractor\:hh.c}
 {\xe \v hh.c\:setup_extractor}
@@ -6238,257 +6258,260 @@ Go to the documentation of this file.\par
 00102   {\cf20 // Verify that this is a primary volume descriptor}\par
 00103   {\cf19 if} (vd.type_code != 0x01)\par
 00104     \{\par
-00105       puts ({\cf22 "Error: Unexpected volume descriptor type code."});\par
-00106       printf ({\cf22 "\\tExpected %02x, got %02x.\\n"}, 0x01, vd.type_code);\par
-00107       {\cf19 return} -1;\par
-00108     \}\par
-00109 \par
-00110   {\cf19 if} (process_volume_descriptor_data (fptr, &vd.data) != 0)\par
-00111     {\cf19 return} -1;\par
-00112 \par
-00113   {\cf18 size_t} current_disk_name_length = strcspn (vd.data.volume_identifier, {\cf22 " "});\par
-00114   CURRENT_DISK_NAME = vd.data.volume_identifier;\par
-00115   CURRENT_DISK_NAME[current_disk_name_length] = {\cf23 '\\0'};\par
-00116 \par
-00117   {\cf20 // TODO: print the volume descriptor header/data to some file/log.}\par
-00118 \par
-00119   {\cf20 // logical block size, in big endian form}\par
-00120   {\cf17 const} uint16_t block_size_be\par
-00121       = change_endianness_uint16 (vd.data.logical_block_size);\par
-00122 \par
-00123   {\cf20 // move to beginning of type-l path table}\par
-00124   fseek (fptr, block_size_be * vd.data.type_l_path_table_location, SEEK_SET);\par
-00125 \par
-00126   path_table pt;\par
-00127   {\cf19 if} (create_path_table (&pt) != 0)\par
-00128     {\cf19 return} -1;\par
-00129 \par
-00130   {\cf19 if} (process_type_l_path_table (fptr, &pt) != 0)\par
-00131     \{\par
-00132       destroy_path_table (&pt);\par
-00133       {\cf19 return} -1;\par
-00134     \}\par
-00135 \par
-00136   {\cf19 if} (create_directories_and_extract_data_from_path_file (fptr, block_size_be,\par
-00137                                                           &pt)\par
-00138       != 0)\par
-00139     \{\par
-00140       destroy_path_table (&pt);\par
-00141       {\cf19 return} -1;\par
-00142     \}\par
-00143 \par
-00144   {\cf20 // handle root directory}\par
-00145   fseek (fptr, block_size_be * pt.entries[0].location_of_extent, SEEK_SET);\par
-00146 \par
-00147   {\cf18 char} *path = calloc (strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2,\par
-00148                        {\cf17 sizeof} ({\cf18 char}));\par
-00149   {\cf19 if} (path == NULL)\par
-00150     \{\par
-00151       fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,\par
-00152                strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2);\par
-00153       destroy_path_table (&pt);\par
-00154       {\cf19 return} -1;\par
-00155     \}\par
-00156 \par
-00157   strcpy (path, OP_OUTPUT_DIR);\par
-00158   strcat (path, {\cf22 "/"});\par
-00159   strcat (path, CURRENT_DISK_NAME);\par
-00160 \par
-00161   {\cf19 if} (extract_directory (fptr, block_size_be, path) != 0)\par
-00162     \{\par
-00163       free (path);\par
-00164       destroy_path_table (&pt);\par
-00165       {\cf19 return} -1;\par
-00166     \}\par
-00167 \par
-00168   free (path);\par
-00169   destroy_path_table (&pt);\par
-00170   {\cf19 return} 0;\par
-00171 \}\par
-00172 \par
-00173 int8_t\par
-00174 batch_process_DAT_files ()\par
-00175 \{\par
-00176   {\cf17 const} {\cf18 char} *OPEN_INPUT_DIR_ERR_MSG_FMT\par
-00177       = {\cf22 "ERROR: Error opening input directory, %s.\\n"};\par
-00178   {\cf17 const} uint8_t DAT_FILENAME_LEN = strlen ({\cf22 "HARVESTX.DAT"});\par
-00179   {\cf18 char} *filename;\par
-00180 \par
-00181 {\cf21 #ifdef _WIN32}\par
-00182   WIN32_FIND_DATAA file_data;\par
-00183   HANDLE hFind;\par
-00184   {\cf18 char} search_path[256];\par
-00185   strcpy (search_path, OP_INPUT_DIR);\par
-00186   strcat (search_path, {\cf22 "\\\\*"});\par
-00187 \par
-00188   hFind = FindFirstFileA (search_path, &file_data);\par
-00189   {\cf19 if} (hFind == INVALID_HANDLE_VALUE)\par
-00190     \{\par
-00191       fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
-00192       {\cf19 return} -1;\par
-00193     \}\par
-00194 \par
-00195   {\cf19 do}\par
-00196     \{\par
-00197       {\cf19 if} (strcmp (file_data.cFileName, {\cf22 "."}) == 0\par
-00198           || strcmp (file_data.cFileName, {\cf22 ".."}) == 0\par
-00199           || !is_string_dat_file (file_data.cFileName))\par
-00200         \{\par
-00201           {\cf19 continue};\par
-00202         \}\par
-00203 \par
-00204       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
-00205                          {\cf17 sizeof} ({\cf18 char}));\par
-00206       {\cf19 if} (filename == NULL)\par
-00207         \{\par
-00208           fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,\par
-00209                    strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);\par
-00210           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00211         \}\par
-00212 \par
-00213       strcpy (filename, OP_INPUT_DIR);\par
-00214       strcat (filename, &OP_PATH_SEPARATOR);\par
-00215       strcat (filename, file_data.cFileName);\par
-00216 \par
-00217       FILE *fptr = NULL;\par
-00218       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
-00219         \{\par
-00220           free (filename);\par
-00221           FindClose (hFind);\par
-00222           {\cf19 return} HH_FOPEN_ERROR;\par
-00223         \}\par
-00224 \par
-00225       {\cf19 if} (process_DAT_file (fptr) != 0)\par
-00226         \{\par
-00227           fclose (fptr);\par
-00228           free (filename);\par
-00229           FindClose (hFind);\par
-00230           {\cf19 return} -1;\par
-00231         \}\par
-00232 \par
-00233       fclose (fptr);\par
-00234       free (filename);\par
-00235     \}\par
-00236   {\cf19 while} (FindNextFileA (hFind, &file_data) != 0);\par
-00237 \par
-00238   FindClose (hFind);\par
-00239 {\cf21 #else}\par
-00240   {\cf17 struct }dirent *entry;\par
-00241   DIR *dir;\par
-00242   dir = opendir (OP_INPUT_DIR);\par
-00243   {\cf19 if} (dir == NULL)\par
-00244     \{\par
-00245       fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
-00246       {\cf19 return} -1;\par
-00247     \}\par
-00248 \par
-00249   {\cf19 while} ((entry = readdir (dir)) != NULL)\par
-00250     \{\par
-00251       {\cf19 if} (strcmp (entry->d_name, {\cf22 "."}) == 0 || strcmp (entry->d_name, {\cf22 ".."}) == 0\par
-00252           || !is_string_dat_file (entry->d_name))\par
-00253         \{\par
-00254           {\cf19 continue};\par
-00255         \}\par
-00256 \par
-00257       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
-00258                          {\cf17 sizeof} ({\cf18 char}));\par
-00259       {\cf19 if} (filename == NULL)\par
-00260         \{\par
-00261           fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,\par
-00262                    strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);\par
-00263           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00264         \}\par
-00265 \par
-00266       strcpy (filename, OP_INPUT_DIR);\par
-00267       strcat (filename, &OP_PATH_SEPARATOR);\par
-00268       strcat (filename, entry->d_name);\par
-00269 \par
-00270       FILE *fptr = NULL;\par
-00271       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
-00272         \{\par
-00273           free (filename);\par
-00274           closedir (dir);\par
-00275           {\cf19 return} HH_FOPEN_ERROR;\par
-00276         \}\par
-00277 \par
-00278       {\cf19 if} (process_DAT_file (fptr) != 0)\par
-00279         \{\par
-00280           fclose (fptr);\par
-00281           free (filename);\par
-00282           closedir (dir);\par
-00283           {\cf19 return} -1;\par
-00284         \}\par
-00285 \par
-00286       fclose (fptr);\par
-00287       free (filename);\par
-00288     \}\par
-00289 \par
-00290   closedir (dir);\par
-00291 {\cf21 #endif}\par
-00292   {\cf19 return} 0;\par
-00293 \}\par
-00294 \par
-00295 int8_t\par
-00296 process_internal_dat_files ({\cf18 void})\par
-00297 \{\par
-00298   {\cf17 const} {\cf18 char} *interal_paths = {\cf22 "internal-dat-file-paths.txt"};\par
-00299   FILE *table = fopen (interal_paths, {\cf22 "rb"});\par
-00300   {\cf19 if} (table == NULL)\par
-00301     \{\par
-00302       fprintf (stderr, {\cf22 "Couldn't find %s\\n."}, interal_paths);\par
-00303       {\cf19 return} HH_FOPEN_ERROR;\par
-00304     \}\par
-00305 \par
-00306   {\cf19 while} (!peek_eof (table))\par
-00307     \{\par
-00308       {\cf20 // TODO: convert as many malloc'd strings to char arrays as possible.}\par
-00309       {\cf18 char} index_file_path[256] = \{ 0 \};\par
-00310       build_path_string_from_file (table, index_file_path);\par
-00311 \par
-00312       FILE *fptr = NULL;\par
-00313       {\cf19 if} (setup_extractor (&fptr, index_file_path) != 0)\par
-00314         \{\par
-00315           printf ({\cf22 "Skipping...\\n"});\par
-00316 \par
-00317           {\cf20 // Skip next line}\par
-00318           build_path_string_from_file (table, index_file_path);\par
-00319 \par
-00320           {\cf19 continue};\par
-00321         \}\par
-00322 \par
-00323       index_file idx_file;\par
-00324       {\cf19 if} (create_index_file (&idx_file) != 0)\par
-00325         \{\par
-00326           fclose (fptr);\par
-00327           fclose (table);\par
-00328           {\cf19 return} -1;\par
-00329         \}\par
-00330 \par
-00331       printf ({\cf22 "Processing index file: %s\\n"}, index_file_path);\par
-00332       {\cf19 if} (process_index_file (fptr, &idx_file) != 0)\par
-00333         \{\par
-00334           destroy_index_file (&idx_file);\par
-00335           fclose (table);\par
-00336           fclose (fptr);\par
-00337           {\cf19 return} -1;\par
-00338         \}\par
-00339       fclose (fptr);\par
-00340 \par
-00341       {\cf18 char} dat_file_path[256] = \{ 0 \};\par
-00342       build_path_string_from_file (table, dat_file_path);\par
+00105       puts ({\cf22 "[HarvesterHarvester]ERROR: Unexpected volume descriptor type "}\par
+00106             {\cf22 "code."});\par
+00107       printf ({\cf22 "\\tExpected %02x, got %02x.\\n"}, 0x01, vd.type_code);\par
+00108       {\cf19 return} -1;\par
+00109     \}\par
+00110 \par
+00111   {\cf19 if} (process_volume_descriptor_data (fptr, &vd.data) != 0)\par
+00112     {\cf19 return} -1;\par
+00113 \par
+00114   {\cf18 size_t} current_disk_name_length = strcspn (vd.data.volume_identifier, {\cf22 " "});\par
+00115   CURRENT_DISK_NAME = vd.data.volume_identifier;\par
+00116   CURRENT_DISK_NAME[current_disk_name_length] = {\cf23 '\\0'};\par
+00117 \par
+00118   {\cf20 // TODO: print the volume descriptor header/data to some file/log.}\par
+00119 \par
+00120   {\cf20 // logical block size, in big endian form}\par
+00121   {\cf17 const} uint16_t block_size_be\par
+00122       = change_endianness_uint16 (vd.data.logical_block_size);\par
+00123 \par
+00124   {\cf20 // move to beginning of type-l path table}\par
+00125   fseek (fptr, block_size_be * vd.data.type_l_path_table_location, SEEK_SET);\par
+00126 \par
+00127   path_table pt;\par
+00128   {\cf19 if} (create_path_table (&pt) != 0)\par
+00129     {\cf19 return} -1;\par
+00130 \par
+00131   {\cf19 if} (process_type_l_path_table (fptr, &pt) != 0)\par
+00132     \{\par
+00133       destroy_path_table (&pt);\par
+00134       {\cf19 return} -1;\par
+00135     \}\par
+00136 \par
+00137   {\cf19 if} (create_directories_and_extract_data_from_path_file (fptr, block_size_be,\par
+00138                                                           &pt)\par
+00139       != 0)\par
+00140     \{\par
+00141       destroy_path_table (&pt);\par
+00142       {\cf19 return} -1;\par
+00143     \}\par
+00144 \par
+00145   {\cf20 // handle root directory}\par
+00146   fseek (fptr, block_size_be * pt.entries[0].location_of_extent, SEEK_SET);\par
+00147 \par
+00148   {\cf18 char} *path = calloc (strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2,\par
+00149                        {\cf17 sizeof} ({\cf18 char}));\par
+00150   {\cf19 if} (path == NULL)\par
+00151     \{\par
+00152       fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,\par
+00153                strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2);\par
+00154       destroy_path_table (&pt);\par
+00155       {\cf19 return} -1;\par
+00156     \}\par
+00157 \par
+00158   strcpy (path, OP_OUTPUT_DIR);\par
+00159   strcat (path, &OP_PATH_SEPARATOR);\par
+00160   strcat (path, CURRENT_DISK_NAME);\par
+00161 \par
+00162   {\cf19 if} (extract_directory (fptr, block_size_be, path) != 0)\par
+00163     \{\par
+00164       free (path);\par
+00165       destroy_path_table (&pt);\par
+00166       {\cf19 return} -1;\par
+00167     \}\par
+00168 \par
+00169   free (path);\par
+00170   destroy_path_table (&pt);\par
+00171   {\cf19 return} 0;\par
+00172 \}\par
+00173 \par
+00174 int8_t\par
+00175 batch_process_DAT_files ()\par
+00176 \{\par
+00177   {\cf17 const} {\cf18 char} *OPEN_INPUT_DIR_ERR_MSG_FMT\par
+00178       = {\cf22 "[HarvesterHarvester]ERROR: Error opening input directory, %s.\\n"};\par
+00179   {\cf17 const} uint8_t DAT_FILENAME_LEN = strlen ({\cf22 "HARVESTX.DAT"});\par
+00180   {\cf18 char} *filename;\par
+00181 \par
+00182 {\cf21 #ifdef _WIN32}\par
+00183   WIN32_FIND_DATAA file_data;\par
+00184   HANDLE hFind;\par
+00185   {\cf18 char} search_path[256];\par
+00186   strcpy (search_path, OP_INPUT_DIR);\par
+00187   strcat (search_path, {\cf22 "\\\\*"});\par
+00188 \par
+00189   hFind = FindFirstFileA (search_path, &file_data);\par
+00190   {\cf19 if} (hFind == INVALID_HANDLE_VALUE)\par
+00191     \{\par
+00192       fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
+00193       {\cf19 return} -1;\par
+00194     \}\par
+00195 \par
+00196   {\cf19 do}\par
+00197     \{\par
+00198       {\cf19 if} (strcmp (file_data.cFileName, {\cf22 "."}) == 0\par
+00199           || strcmp (file_data.cFileName, {\cf22 ".."}) == 0\par
+00200           || !is_string_dat_file (file_data.cFileName))\par
+00201         \{\par
+00202           {\cf19 continue};\par
+00203         \}\par
+00204 \par
+00205       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
+00206                          {\cf17 sizeof} ({\cf18 char}));\par
+00207       {\cf19 if} (filename == NULL)\par
+00208         \{\par
+00209           fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,\par
+00210                    strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);\par
+00211           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00212         \}\par
+00213 \par
+00214       strcpy (filename, OP_INPUT_DIR);\par
+00215       strcat (filename, &OP_PATH_SEPARATOR);\par
+00216       strcat (filename, file_data.cFileName);\par
+00217 \par
+00218       FILE *fptr = NULL;\par
+00219       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
+00220         \{\par
+00221           free (filename);\par
+00222           FindClose (hFind);\par
+00223           {\cf19 return} HH_FOPEN_ERROR;\par
+00224         \}\par
+00225 \par
+00226       {\cf19 if} (process_DAT_file (fptr) != 0)\par
+00227         \{\par
+00228           fclose (fptr);\par
+00229           free (filename);\par
+00230           FindClose (hFind);\par
+00231           {\cf19 return} -1;\par
+00232         \}\par
+00233 \par
+00234       fclose (fptr);\par
+00235       free (filename);\par
+00236     \}\par
+00237   {\cf19 while} (FindNextFileA (hFind, &file_data) != 0);\par
+00238 \par
+00239   FindClose (hFind);\par
+00240 {\cf21 #else}\par
+00241   {\cf17 struct }dirent *entry;\par
+00242   DIR *dir;\par
+00243   dir = opendir (OP_INPUT_DIR);\par
+00244   {\cf19 if} (dir == NULL)\par
+00245     \{\par
+00246       fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
+00247       {\cf19 return} -1;\par
+00248     \}\par
+00249 \par
+00250   {\cf19 while} ((entry = readdir (dir)) != NULL)\par
+00251     \{\par
+00252       {\cf19 if} (strcmp (entry->d_name, {\cf22 "."}) == 0 || strcmp (entry->d_name, {\cf22 ".."}) == 0\par
+00253           || !is_string_dat_file (entry->d_name))\par
+00254         \{\par
+00255           {\cf19 continue};\par
+00256         \}\par
+00257 \par
+00258       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
+00259                          {\cf17 sizeof} ({\cf18 char}));\par
+00260       {\cf19 if} (filename == NULL)\par
+00261         \{\par
+00262           fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,\par
+00263                    strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);\par
+00264           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00265         \}\par
+00266 \par
+00267       strcpy (filename, OP_INPUT_DIR);\par
+00268       strcat (filename, &OP_PATH_SEPARATOR);\par
+00269       strcat (filename, entry->d_name);\par
+00270 \par
+00271       FILE *fptr = NULL;\par
+00272       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
+00273         \{\par
+00274           free (filename);\par
+00275           closedir (dir);\par
+00276           {\cf19 return} HH_FOPEN_ERROR;\par
+00277         \}\par
+00278 \par
+00279       {\cf19 if} (process_DAT_file (fptr) != 0)\par
+00280         \{\par
+00281           fclose (fptr);\par
+00282           free (filename);\par
+00283           closedir (dir);\par
+00284           {\cf19 return} -1;\par
+00285         \}\par
+00286 \par
+00287       fclose (fptr);\par
+00288       free (filename);\par
+00289     \}\par
+00290 \par
+00291   closedir (dir);\par
+00292 {\cf21 #endif}\par
+00293   {\cf19 return} 0;\par
+00294 \}\par
+00295 \par
+00296 int8_t\par
+00297 process_internal_dat_files ({\cf18 void})\par
+00298 \{\par
+00299   {\cf17 const} {\cf18 char} *interal_paths = {\cf22 "internal-dat-file-paths.txt"};\par
+00300   FILE *table = fopen (interal_paths, {\cf22 "rb"});\par
+00301   {\cf19 if} (table == NULL)\par
+00302     \{\par
+00303       fprintf (stderr, {\cf22 "[HarvesterHarvester]ERROR: Couldn't find %s\\n."},\par
+00304                interal_paths);\par
+00305       {\cf19 return} HH_FOPEN_ERROR;\par
+00306     \}\par
+00307 \par
+00308   {\cf19 while} (!peek_eof (table))\par
+00309     \{\par
+00310       {\cf20 // TODO: convert as many malloc'd strings to char arrays as possible.}\par
+00311       {\cf18 char} index_file_path[256] = \{ 0 \};\par
+00312       build_path_string_from_file (table, index_file_path);\par
+00313 \par
+00314       FILE *fptr = NULL;\par
+00315       {\cf19 if} (setup_extractor (&fptr, index_file_path) != 0)\par
+00316         \{\par
+00317           printf ({\cf22 "[HarvesterHarvester]Skipping...\\n"});\par
+00318 \par
+00319           {\cf20 // Skip next line}\par
+00320           build_path_string_from_file (table, index_file_path);\par
+00321 \par
+00322           {\cf19 continue};\par
+00323         \}\par
+00324 \par
+00325       index_file idx_file;\par
+00326       {\cf19 if} (create_index_file (&idx_file) != 0)\par
+00327         \{\par
+00328           fclose (fptr);\par
+00329           fclose (table);\par
+00330           {\cf19 return} -1;\par
+00331         \}\par
+00332 \par
+00333       printf ({\cf22 "[HarvesterHarvester]Processing index file: %s\\n"},\par
+00334               index_file_path);\par
+00335       {\cf19 if} (process_index_file (fptr, &idx_file) != 0)\par
+00336         \{\par
+00337           destroy_index_file (&idx_file);\par
+00338           fclose (table);\par
+00339           fclose (fptr);\par
+00340           {\cf19 return} -1;\par
+00341         \}\par
+00342       fclose (fptr);\par
 00343 \par
-00344       {\cf19 if} (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)\par
-00345         \{\par
-00346           destroy_index_file (&idx_file);\par
-00347           {\cf19 return} -1;\par
-00348         \}\par
-00349 \par
-00350       destroy_index_file (&idx_file);\par
-00351     \}\par
+00344       {\cf18 char} dat_file_path[256] = \{ 0 \};\par
+00345       build_path_string_from_file (table, dat_file_path);\par
+00346 \par
+00347       {\cf19 if} (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)\par
+00348         \{\par
+00349           destroy_index_file (&idx_file);\par
+00350           {\cf19 return} -1;\par
+00351         \}\par
 00352 \par
-00353   fclose (table);\par
-00354   {\cf19 return} 0;\par
-00355 \}\par
+00353       destroy_index_file (&idx_file);\par
+00354     \}\par
+00355 \par
+00356   fclose (table);\par
+00357   {\cf19 return} 0;\par
+00358 \}\par
 }
 \par \pard\plain 
 
@@ -6562,7 +6585,7 @@ Processes all the {\f2 .DAT}  files found in {\f2 OP_INPUT_DIR} , one at a time.
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 174} of file {\b hh.c}.}\par
+Definition at line {\b 175} of file {\b hh.c}.}\par
 }
 {\xe \v process_DAT_file\:hh.h}
 {\xe \v hh.h\:process_DAT_file}
@@ -6623,7 +6646,7 @@ These {\f2 .DAT}  files are not ISO 9660 file systems, rather they're some propr
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 int8_t zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 296} of file {\b hh.c}.}\par
+Definition at line {\b 297} of file {\b hh.c}.}\par
 }
 {\xe \v setup_extractor\:hh.h}
 {\xe \v hh.h\:setup_extractor}
@@ -6800,7 +6823,7 @@ int8_t add_entry_to_index_file ({\b index_file} * file, {\b index_entry} * entry
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a given {\f2 {\b index_entry}}  to a {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 138} of file {\b index_file.c}.}\par
+Definition at line {\b 143} of file {\b index_file.c}.}\par
 }
 {\xe \v create_index_file\:index_file.c}
 {\xe \v index_file.c\:create_index_file}
@@ -6834,7 +6857,7 @@ int8_t destroy_index_file ({\b index_file} * i)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys a given {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 50} of file {\b index_file.c}.}\par
+Definition at line {\b 52} of file {\b index_file.c}.}\par
 }
 {\xe \v print_index_entry\:index_file.c}
 {\xe \v index_file.c\:print_index_entry}
@@ -6851,7 +6874,7 @@ void print_index_entry ({\b index_entry} * idxe)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints all the attributes of a given {\f2 {\b index_entry}}  in a human-readable form. }}\par
 {
-Definition at line {\b 128} of file {\b index_file.c}.}\par
+Definition at line {\b 133} of file {\b index_file.c}.}\par
 }
 {\xe \v process_index_file\:index_file.c}
 {\xe \v index_file.c\:process_index_file}
@@ -6872,7 +6895,7 @@ Reads data from a given file, creating {\f2 {\b index_entry}} s for every entry 
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Every entry is 0x94 bytes apart, the part we're most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.\par
 }{
-Definition at line {\b 57} of file {\b index_file.c}.}\par
+Definition at line {\b 59} of file {\b index_file.c}.}\par
 }
 {\xe \v resize_indicies\:index_file.c}
 {\xe \v index_file.c\:resize_indicies}
@@ -6889,7 +6912,7 @@ int8_t resize_indicies ({\b index_file} * idx){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Grows a given {\f2 {\b index_file}} 's {\f2 entries}  attribute by {\f2 IDX_RECORDS_GROWTH_RATE} . }}\par
 {
-Definition at line {\b 154} of file {\b index_file.c}.}\par
+Definition at line {\b 159} of file {\b index_file.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -6969,133 +6992,140 @@ Go to the documentation of this file.\par
 00035   i->indicies = malloc (IDX_STARTING_NUM_INDICIES * {\cf17 sizeof} (index_entry));\par
 00036   {\cf19 if} (i->indicies == NULL)\par
 00037     \{\par
-00038       fprintf (stderr, {\cf22 "ERROR: unable to malloc array of %zu indicies."},\par
-00039                IDX_STARTING_NUM_INDICIES * {\cf17 sizeof} (index_entry));\par
-00040       {\cf19 return} -1;\par
-00041     \}\par
-00042 \par
-00043   i->size = IDX_STARTING_NUM_INDICIES;\par
-00044   i->current_index = 0;\par
-00045 \par
-00046   {\cf19 return} 0;\par
-00047 \}\par
-00048 \par
-00049 int8_t\par
-00050 destroy_index_file (index_file *i)\par
-00051 \{\par
-00052   free (i->indicies);\par
-00053   {\cf19 return} 0;\par
-00054 \}\par
-00055 \par
-00056 int8_t\par
-00057 process_index_file (FILE *fptr, index_file *idxf)\par
-00058 \{\par
-00059   {\cf19 while} (!peek_eof (fptr))\par
-00060     \{\par
-00061       index_entry entry;\par
-00062       entry.entry_start = ftell (fptr);\par
-00063 \par
-00064       fseek (fptr, 0x5, SEEK_CUR); {\cf20 // skip `XFLE#`}\par
+00038       fprintf (\par
+00039           stderr,\par
+00040           {\cf22 "[HarvesterHarvester]ERROR: unable to malloc array of %zu indicies."},\par
+00041           IDX_STARTING_NUM_INDICIES * {\cf17 sizeof} (index_entry));\par
+00042       {\cf19 return} -1;\par
+00043     \}\par
+00044 \par
+00045   i->size = IDX_STARTING_NUM_INDICIES;\par
+00046   i->current_index = 0;\par
+00047 \par
+00048   {\cf19 return} 0;\par
+00049 \}\par
+00050 \par
+00051 int8_t\par
+00052 destroy_index_file (index_file *i)\par
+00053 \{\par
+00054   free (i->indicies);\par
+00055   {\cf19 return} 0;\par
+00056 \}\par
+00057 \par
+00058 int8_t\par
+00059 process_index_file (FILE *fptr, index_file *idxf)\par
+00060 \{\par
+00061   {\cf19 while} (!peek_eof (fptr))\par
+00062     \{\par
+00063       index_entry entry;\par
+00064       entry.entry_start = ftell (fptr);\par
 00065 \par
-00066       {\cf19 if} (!peek_char_is (fptr, {\cf23 ':'}))\par
-00067         \{\par
-00068           fprintf (stderr, {\cf22 "ERROR: Unexpected character in index file. "}\par
-00069                            {\cf22 "Aborting processing.\\n"});\par
-00070           {\cf19 return} -1;\par
-00071         \}\par
-00072 \par
-00073       {\cf19 if} (read_string (fptr, entry.full_path, (uint8_t)FULL_PATH_MAX_LEN) != 0)\par
-00074         {\cf19 return} HH_FREAD_ERROR;\par
-00075 \par
-00076       uint8_t len = strlen (entry.full_path);\par
-00077       {\cf18 char} *last_word = entry.full_path;\par
-00078       {\cf19 for} (uint8_t i = 0; i < len; i++)\par
-00079         \{\par
-00080           {\cf19 if} (entry.full_path[i] == {\cf23 '\\\\'})\par
-00081             \{\par
-00082               last_word = entry.full_path + i + 1;\par
-00083               entry.full_path[i] = OP_PATH_SEPARATOR;\par
-00084             \}\par
-00085         \}\par
-00086       strcpy (entry.filename, last_word);\par
-00087 \par
-00094       fseek (fptr, entry.entry_start + (0x94 - 0x10), SEEK_SET);\par
-00095 \par
-00096       {\cf20 /* clang-format off */}\par
-00097       {\cf19 if} ((read_little_endian_data_uint32_t (fptr, &entry.start) != 0)\par
-00098           || (read_little_endian_data_uint32_t (fptr, &entry.size) != 0))\par
-00099         \{\par
-00100           {\cf19 return} HH_FREAD_ERROR;\par
-00101         \}\par
-00102       {\cf20 /* clang-format on */}\par
-00103 \par
-00104       fseek (fptr, 0x4, SEEK_CUR); {\cf20 // Skip zeros}\par
-00105 \par
-00106       {\cf20 // Very unnecessary, but we might as well double check our data}\par
-00107       uint32_t value;\par
-00108       {\cf19 if} (read_little_endian_data_uint32_t (fptr, &value) != 0)\par
-00109         {\cf19 return} HH_FREAD_ERROR;\par
-00110 \par
-00111       {\cf19 if} (entry.size != value)\par
-00112         \{\par
-00113           fprintf (stderr, {\cf22 "ERROR: Expected %08X, got %08X.\\n"}, entry.size,\par
-00114                    value);\par
-00115           {\cf19 return} -1;\par
-00116         \}\par
-00117 \par
-00118       {\cf19 if} (add_entry_to_index_file (idxf, &entry) != 0)\par
-00119         \{\par
+00066       fseek (fptr, 0x5, SEEK_CUR); {\cf20 // skip `XFLE#`}\par
+00067 \par
+00068       {\cf19 if} (!peek_char_is (fptr, {\cf23 ':'}))\par
+00069         \{\par
+00070           fprintf (\par
+00071               stderr,\par
+00072               {\cf22 "[HarvesterHarvester]ERROR: Unexpected character in index file. "}\par
+00073               {\cf22 "Aborting processing.\\n"});\par
+00074           {\cf19 return} -1;\par
+00075         \}\par
+00076 \par
+00077       {\cf19 if} (read_string (fptr, entry.full_path, (uint8_t)FULL_PATH_MAX_LEN) != 0)\par
+00078         {\cf19 return} HH_FREAD_ERROR;\par
+00079 \par
+00080       uint8_t len = strlen (entry.full_path);\par
+00081       {\cf18 char} *last_word = entry.full_path;\par
+00082       {\cf19 for} (uint8_t i = 0; i < len; i++)\par
+00083         \{\par
+00084           {\cf19 if} (entry.full_path[i] == {\cf23 '\\\\'})\par
+00085             \{\par
+00086               last_word = entry.full_path + i + 1;\par
+00087               entry.full_path[i] = OP_PATH_SEPARATOR;\par
+00088             \}\par
+00089         \}\par
+00090       strcpy (entry.filename, last_word);\par
+00091 \par
+00098       fseek (fptr, entry.entry_start + (0x94 - 0x10), SEEK_SET);\par
+00099 \par
+00100       {\cf20 /* clang-format off */}\par
+00101       {\cf19 if} ((read_little_endian_data_uint32_t (fptr, &entry.start) != 0)\par
+00102           || (read_little_endian_data_uint32_t (fptr, &entry.size) != 0))\par
+00103         \{\par
+00104           {\cf19 return} HH_FREAD_ERROR;\par
+00105         \}\par
+00106       {\cf20 /* clang-format on */}\par
+00107 \par
+00108       fseek (fptr, 0x4, SEEK_CUR); {\cf20 // Skip zeros}\par
+00109 \par
+00110       {\cf20 // Very unnecessary, but we might as well double check our data}\par
+00111       uint32_t value;\par
+00112       {\cf19 if} (read_little_endian_data_uint32_t (fptr, &value) != 0)\par
+00113         {\cf19 return} HH_FREAD_ERROR;\par
+00114 \par
+00115       {\cf19 if} (entry.size != value)\par
+00116         \{\par
+00117           fprintf (stderr,\par
+00118                    {\cf22 "[HarvesterHarvester]ERROR: Expected %08X, got %08X.\\n"},\par
+00119                    entry.size, value);\par
 00120           {\cf19 return} -1;\par
 00121         \}\par
-00122     \}\par
-00123 \par
-00124   {\cf19 return} 0;\par
-00125 \}\par
-00126 \par
-00127 {\cf18 void}\par
-00128 print_index_entry (index_entry *idxe)\par
-00129 \{\par
-00130   printf ({\cf22 "Entry start: %08X\\n"}, idxe->entry_start);\par
-00131   printf ({\cf22 "Full path: %s\\n"}, idxe->full_path);\par
-00132   printf ({\cf22 "Filename: %s\\n"}, idxe->filename);\par
-00133   printf ({\cf22 "File start: %08X\\n"}, idxe->start);\par
-00134   printf ({\cf22 "File size: %08X\\n"}, idxe->size);\par
-00135 \}\par
-00136 \par
-00137 int8_t\par
-00138 add_entry_to_index_file (index_file *file, index_entry *entry)\par
-00139 \{\par
-00140   {\cf19 if} (file->current_index >= file->size)\par
-00141     \{\par
-00142       {\cf19 if} (resize_indicies (file) != 0)\par
-00143         \{\par
-00144           {\cf19 return} -1;\par
-00145         \}\par
-00146     \}\par
-00147 \par
-00148   file->indicies[file->current_index] = *entry;\par
-00149   file->current_index++;\par
-00150   {\cf19 return} 0;\par
-00151 \}\par
+00122 \par
+00123       {\cf19 if} (add_entry_to_index_file (idxf, &entry) != 0)\par
+00124         \{\par
+00125           {\cf19 return} -1;\par
+00126         \}\par
+00127     \}\par
+00128 \par
+00129   {\cf19 return} 0;\par
+00130 \}\par
+00131 \par
+00132 {\cf18 void}\par
+00133 print_index_entry (index_entry *idxe)\par
+00134 \{\par
+00135   printf ({\cf22 "Entry start: %08X\\n"}, idxe->entry_start);\par
+00136   printf ({\cf22 "Full path: %s\\n"}, idxe->full_path);\par
+00137   printf ({\cf22 "Filename: %s\\n"}, idxe->filename);\par
+00138   printf ({\cf22 "File start: %08X\\n"}, idxe->start);\par
+00139   printf ({\cf22 "File size: %08X\\n"}, idxe->size);\par
+00140 \}\par
+00141 \par
+00142 int8_t\par
+00143 add_entry_to_index_file (index_file *file, index_entry *entry)\par
+00144 \{\par
+00145   {\cf19 if} (file->current_index >= file->size)\par
+00146     \{\par
+00147       {\cf19 if} (resize_indicies (file) != 0)\par
+00148         \{\par
+00149           {\cf19 return} -1;\par
+00150         \}\par
+00151     \}\par
 00152 \par
-00153 int8_t\par
-00154 resize_indicies (index_file *idx)\par
-00155 \{\par
-00156   {\cf18 size_t} new_size = idx->size * IDX_RECORDS_GROWTH_RATE;\par
-00157   index_entry *new_indicies = (index_entry *)realloc (\par
-00158       idx->indicies, new_size * sizeof (index_entry));\par
-00159   {\cf19 if} (new_indicies == NULL)\par
-00160     \{\par
-00161       fprintf (stderr, {\cf22 "ERROR: unable to ralloc index from size %zu to %zu.\\n"},\par
-00162                idx->size, new_size);\par
-00163       destroy_index_file (idx);\par
-00164       {\cf19 return} -1;\par
-00165     \}\par
-00166 \par
-00167   idx->indicies = new_indicies;\par
-00168   idx->size = new_size;\par
-00169   {\cf19 return} 0;\par
-00170 \}\par
+00153   file->indicies[file->current_index] = *entry;\par
+00154   file->current_index++;\par
+00155   {\cf19 return} 0;\par
+00156 \}\par
+00157 \par
+00158 int8_t\par
+00159 resize_indicies (index_file *idx)\par
+00160 \{\par
+00161   {\cf18 size_t} new_size = idx->size * IDX_RECORDS_GROWTH_RATE;\par
+00162   index_entry *new_indicies = (index_entry *)realloc (\par
+00163       idx->indicies, new_size * sizeof (index_entry));\par
+00164   {\cf19 if} (new_indicies == NULL)\par
+00165     \{\par
+00166       fprintf (stderr,\par
+00167                {\cf22 "[HarvesterHarvester]ERROR: unable to ralloc index from size "}\par
+00168                {\cf22 "%zu to %zu.\\n"},\par
+00169                idx->size, new_size);\par
+00170       destroy_index_file (idx);\par
+00171       {\cf19 return} -1;\par
+00172     \}\par
+00173 \par
+00174   idx->indicies = new_indicies;\par
+00175   idx->size = new_size;\par
+00176   {\cf19 return} 0;\par
+00177 \}\par
 }
 \par \pard\plain 
 
@@ -7241,7 +7271,7 @@ int8_t add_entry_to_index_file ({\b index_file} * file, {\b index_entry} * entry
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a given {\f2 {\b index_entry}}  to a {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 138} of file {\b index_file.c}.}\par
+Definition at line {\b 143} of file {\b index_file.c}.}\par
 }
 {\xe \v create_index_file\:index_file.h}
 {\xe \v index_file.h\:create_index_file}
@@ -7275,7 +7305,7 @@ int8_t destroy_index_file ({\b index_file} * i)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys a given {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 50} of file {\b index_file.c}.}\par
+Definition at line {\b 52} of file {\b index_file.c}.}\par
 }
 {\xe \v print_index_entry\:index_file.h}
 {\xe \v index_file.h\:print_index_entry}
@@ -7292,7 +7322,7 @@ void print_index_entry ({\b index_entry} * idxe)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints all the attributes of a given {\f2 {\b index_entry}}  in a human-readable form. }}\par
 {
-Definition at line {\b 128} of file {\b index_file.c}.}\par
+Definition at line {\b 133} of file {\b index_file.c}.}\par
 }
 {\xe \v process_index_file\:index_file.h}
 {\xe \v index_file.h\:process_index_file}
@@ -7313,7 +7343,7 @@ Reads data from a given file, creating {\f2 {\b index_entry}} s for every entry 
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Every entry is 0x94 bytes apart, the part we're most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.\par
 }{
-Definition at line {\b 57} of file {\b index_file.c}.}\par
+Definition at line {\b 59} of file {\b index_file.c}.}\par
 }
 \par \pard\plain 
 
@@ -8686,23 +8716,24 @@ Go to the documentation of this file.\par
 00082           {\cf19 if} (status != 0)\par
 00083             \{\par
 00084               fprintf (stderr,\par
-00085                        {\cf22 "ERROR: failed to create the following output "}\par
-00086                        {\cf22 "directory, %s\\n."},\par
-00087                        path);\par
-00088               free (dir);\par
-00089               free (tmp);\par
-00090               {\cf19 return} HH_CREATE_OUTPUT_DIR_ERROR;\par
-00091             \}\par
-00092         \}\par
-00093 \par
-00094       strcat (dir, &OP_PATH_SEPARATOR);\par
-00095       token = strtok (NULL, &OP_PATH_SEPARATOR);\par
-00096     \}\par
-00097 \par
-00098   free (dir);\par
-00099   free (tmp);\par
-00100   {\cf19 return} 0;\par
-00101 \}\par
+00085                        {\cf22 "[HarvesterHarvester]ERROR: failed to create the "}\par
+00086                        {\cf22 "following output "}\par
+00087                        {\cf22 "directory, %s\\n."},\par
+00088                        path);\par
+00089               free (dir);\par
+00090               free (tmp);\par
+00091               {\cf19 return} HH_CREATE_OUTPUT_DIR_ERROR;\par
+00092             \}\par
+00093         \}\par
+00094 \par
+00095       strcat (dir, &OP_PATH_SEPARATOR);\par
+00096       token = strtok (NULL, &OP_PATH_SEPARATOR);\par
+00097     \}\par
+00098 \par
+00099   free (dir);\par
+00100   free (tmp);\par
+00101   {\cf19 return} 0;\par
+00102 \}\par
 }
 \par \pard\plain 
 
@@ -8925,7 +8956,7 @@ int8_t add_entry_to_path_table ({\b path_table} * pt, {\b path_table_entry} * en
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a {\f2 {\b path_table_entry}}  to the given {\f2 {\b path_table}} 's list of {\f2 entries} , resizing it as needed. }}\par
 {
-Definition at line {\b 66} of file {\b path_table.c}.}\par
+Definition at line {\b 67} of file {\b path_table.c}.}\par
 }
 {\xe \v create_path_table\:path_table.c}
 {\xe \v path_table.c\:create_path_table}
@@ -8961,7 +8992,7 @@ void destroy_path_table ({\b path_table} * pt)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
 {
-Definition at line {\b 50} of file {\b path_table.c}.}\par
+Definition at line {\b 51} of file {\b path_table.c}.}\par
 }
 {\xe \v print_path_table\:path_table.c}
 {\xe \v path_table.c\:print_path_table}
@@ -8978,7 +9009,7 @@ void print_path_table ({\b path_table} * pt)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
 {
-Definition at line {\b 104} of file {\b path_table.c}.}\par
+Definition at line {\b 107} of file {\b path_table.c}.}\par
 }
 {\xe \v print_path_table_entry\:path_table.c}
 {\xe \v path_table.c\:print_path_table_entry}
@@ -8995,7 +9026,7 @@ void print_path_table_entry ({\b path_table_entry} * e){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a {\b path_table_entry} to the stdout in a human-readable form. }}\par
 {
-Definition at line {\b 114} of file {\b path_table.c}.}\par
+Definition at line {\b 117} of file {\b path_table.c}.}\par
 }
 {\xe \v process_type_l_path_table\:path_table.c}
 {\xe \v path_table.c\:process_type_l_path_table}
@@ -9012,7 +9043,7 @@ int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }}\par
 {
-Definition at line {\b 126} of file {\b path_table.c}.}\par
+Definition at line {\b 129} of file {\b path_table.c}.}\par
 }
 {\xe \v resize_path_table_entries\:path_table.c}
 {\xe \v path_table.c\:resize_path_table_entries}
@@ -9029,7 +9060,7 @@ int8_t resize_path_table_entries ({\b path_table} * pt){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Resizes a given {\f2 path_tables}  list of entries by a factor of {\f2 PT_GROWTH_RATE} . }}\par
 {
-Definition at line {\b 80} of file {\b path_table.c}.}\par
+Definition at line {\b 81} of file {\b path_table.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -9100,161 +9131,164 @@ Go to the documentation of this file.\par
 00031   pt->entries = malloc ({\cf17 sizeof} (path_table_entry) * PT_STARTING_NUM_ENTRIES);\par
 00032   {\cf19 if} (pt->entries == NULL)\par
 00033     \{\par
-00034       perror ({\cf22 "ERROR: Failed to allocate memory for path table."});\par
-00035       {\cf19 return} -1;\par
-00036     \}\par
-00037 \par
-00038   pt->size = PT_STARTING_NUM_ENTRIES;\par
-00039   pt->current_entry = 0;\par
-00040 \par
-00041   {\cf19 for} ({\cf18 size_t} i = 0; i < PT_STARTING_NUM_ENTRIES; i++)\par
-00042     \{\par
-00043       pt->entries[i].directory_identifier = NULL;\par
-00044     \}\par
-00045 \par
-00046   {\cf19 return} 0;\par
-00047 \}\par
-00048 \par
-00049 {\cf18 void}\par
-00050 destroy_path_table (path_table *pt)\par
-00051 \{\par
-00052   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->size; i++)\par
-00053     \{\par
-00054       {\cf19 if} (pt->entries[i].directory_identifier == NULL)\par
-00055         {\cf19 continue};\par
-00056 \par
-00057       free (pt->entries[i].directory_identifier);\par
-00058       pt->entries[i].directory_identifier = NULL;\par
-00059     \}\par
-00060 \par
-00061   free (pt->entries);\par
-00062   pt->entries = NULL;\par
-00063 \}\par
-00064 \par
-00065 int8_t\par
-00066 add_entry_to_path_table (path_table *pt, path_table_entry *entry)\par
-00067 \{\par
-00068   {\cf19 if} (pt->current_entry >= pt->size)\par
-00069     \{\par
-00070       {\cf19 if} (resize_path_table_entries (pt) != 0)\par
-00071         {\cf19 return} HH_PT_RESIZE_ERROR;\par
-00072     \}\par
-00073 \par
-00074   pt->entries[pt->current_entry] = *entry;\par
-00075   pt->current_entry++;\par
-00076   {\cf19 return} 0;\par
-00077 \}\par
-00078 \par
-00079 int8_t\par
-00080 resize_path_table_entries (path_table *pt)\par
-00081 \{\par
-00082   {\cf18 size_t} new_size = (size_t)(pt->size * PT_GROWTH_RATE);\par
-00083   path_table_entry *new_entries = (path_table_entry *)realloc (\par
-00084       pt->entries, sizeof (path_table_entry) * new_size);\par
-00085   {\cf19 if} (new_entries == NULL)\par
-00086     \{\par
-00087       fprintf (stderr, {\cf22 "ERROR: Ralloc failed for `entries` of size %zu.\\n"},\par
-00088                new_size);\par
-00089       destroy_path_table (pt);\par
-00090       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00091     \}\par
-00092 \par
-00093   pt->entries = new_entries;\par
-00094   {\cf19 for} ({\cf18 size_t} i = pt->size; i < new_size; i++)\par
-00095     \{\par
-00096       pt->entries[i].directory_identifier = NULL;\par
-00097     \}\par
-00098 \par
-00099   pt->size = new_size;\par
-00100   {\cf19 return} 0;\par
-00101 \}\par
-00102 \par
-00103 {\cf18 void}\par
-00104 print_path_table (path_table *pt)\par
-00105 \{\par
-00106   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->current_entry; i++)\par
-00107     \{\par
-00108       printf ({\cf22 "Entry %zu:\\n"}, i + 1);\par
-00109       print_path_table_entry (&pt->entries[i]);\par
-00110     \}\par
-00111 \}\par
-00112 \par
-00113 {\cf18 void}\par
-00114 print_path_table_entry (path_table_entry *e)\par
-00115 \{\par
-00116   printf ({\cf22 "\\tDirectory identifier length: %02X\\n"},\par
-00117           e->directory_identifier_length);\par
-00118   printf ({\cf22 "\\tExtended attribute record length: %02X\\n"},\par
-00119           e->extended_attribute_record_length);\par
-00120   printf ({\cf22 "\\tLocation of extant: %08X\\n"}, e->location_of_extent);\par
-00121   printf ({\cf22 "\\tParent directory number: %04X\\n"}, e->parent_directory_number);\par
-00122   printf ({\cf22 "\\tDirectory identifier: %s\\n"}, e->directory_identifier);\par
-00123 \}\par
-00124 \par
-00125 int8_t\par
-00126 process_type_l_path_table (FILE *fptr, path_table *pt)\par
-00127 \{\par
-00128   uint8_t dir_identifier_length;\par
-00129   {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
-00130     {\cf19 return} HH_FREAD_ERROR;\par
-00131 \par
-00132   {\cf19 do}\par
-00133     \{\par
-00134       path_table_entry curr;\par
-00135       curr.directory_identifier_length = dir_identifier_length;\par
-00136 \par
-00137       {\cf19 if} (curr.directory_identifier_length != 1)\par
-00138         curr.directory_identifier_length += 1;\par
+00034       perror ({\cf22 "[HarvesterHarvester]ERROR: Failed to allocate memory for path "}\par
+00035               {\cf22 "table."});\par
+00036       {\cf19 return} -1;\par
+00037     \}\par
+00038 \par
+00039   pt->size = PT_STARTING_NUM_ENTRIES;\par
+00040   pt->current_entry = 0;\par
+00041 \par
+00042   {\cf19 for} ({\cf18 size_t} i = 0; i < PT_STARTING_NUM_ENTRIES; i++)\par
+00043     \{\par
+00044       pt->entries[i].directory_identifier = NULL;\par
+00045     \}\par
+00046 \par
+00047   {\cf19 return} 0;\par
+00048 \}\par
+00049 \par
+00050 {\cf18 void}\par
+00051 destroy_path_table (path_table *pt)\par
+00052 \{\par
+00053   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->size; i++)\par
+00054     \{\par
+00055       {\cf19 if} (pt->entries[i].directory_identifier == NULL)\par
+00056         {\cf19 continue};\par
+00057 \par
+00058       free (pt->entries[i].directory_identifier);\par
+00059       pt->entries[i].directory_identifier = NULL;\par
+00060     \}\par
+00061 \par
+00062   free (pt->entries);\par
+00063   pt->entries = NULL;\par
+00064 \}\par
+00065 \par
+00066 int8_t\par
+00067 add_entry_to_path_table (path_table *pt, path_table_entry *entry)\par
+00068 \{\par
+00069   {\cf19 if} (pt->current_entry >= pt->size)\par
+00070     \{\par
+00071       {\cf19 if} (resize_path_table_entries (pt) != 0)\par
+00072         {\cf19 return} HH_PT_RESIZE_ERROR;\par
+00073     \}\par
+00074 \par
+00075   pt->entries[pt->current_entry] = *entry;\par
+00076   pt->current_entry++;\par
+00077   {\cf19 return} 0;\par
+00078 \}\par
+00079 \par
+00080 int8_t\par
+00081 resize_path_table_entries (path_table *pt)\par
+00082 \{\par
+00083   {\cf18 size_t} new_size = (size_t)(pt->size * PT_GROWTH_RATE);\par
+00084   path_table_entry *new_entries = (path_table_entry *)realloc (\par
+00085       pt->entries, sizeof (path_table_entry) * new_size);\par
+00086   {\cf19 if} (new_entries == NULL)\par
+00087     \{\par
+00088       fprintf (stderr,\par
+00089                {\cf22 "[HarvesterHarvester]ERROR: Ralloc failed for `entries` of "}\par
+00090                {\cf22 "size %zu.\\n"},\par
+00091                new_size);\par
+00092       destroy_path_table (pt);\par
+00093       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00094     \}\par
+00095 \par
+00096   pt->entries = new_entries;\par
+00097   {\cf19 for} ({\cf18 size_t} i = pt->size; i < new_size; i++)\par
+00098     \{\par
+00099       pt->entries[i].directory_identifier = NULL;\par
+00100     \}\par
+00101 \par
+00102   pt->size = new_size;\par
+00103   {\cf19 return} 0;\par
+00104 \}\par
+00105 \par
+00106 {\cf18 void}\par
+00107 print_path_table (path_table *pt)\par
+00108 \{\par
+00109   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->current_entry; i++)\par
+00110     \{\par
+00111       printf ({\cf22 "Entry %zu:\\n"}, i + 1);\par
+00112       print_path_table_entry (&pt->entries[i]);\par
+00113     \}\par
+00114 \}\par
+00115 \par
+00116 {\cf18 void}\par
+00117 print_path_table_entry (path_table_entry *e)\par
+00118 \{\par
+00119   printf ({\cf22 "\\tDirectory identifier length: %02X\\n"},\par
+00120           e->directory_identifier_length);\par
+00121   printf ({\cf22 "\\tExtended attribute record length: %02X\\n"},\par
+00122           e->extended_attribute_record_length);\par
+00123   printf ({\cf22 "\\tLocation of extant: %08X\\n"}, e->location_of_extent);\par
+00124   printf ({\cf22 "\\tParent directory number: %04X\\n"}, e->parent_directory_number);\par
+00125   printf ({\cf22 "\\tDirectory identifier: %s\\n"}, e->directory_identifier);\par
+00126 \}\par
+00127 \par
+00128 int8_t\par
+00129 process_type_l_path_table (FILE *fptr, path_table *pt)\par
+00130 \{\par
+00131   uint8_t dir_identifier_length;\par
+00132   {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
+00133     {\cf19 return} HH_FREAD_ERROR;\par
+00134 \par
+00135   {\cf19 do}\par
+00136     \{\par
+00137       path_table_entry curr;\par
+00138       curr.directory_identifier_length = dir_identifier_length;\par
 00139 \par
-00140       {\cf20 /* clang-format off */}\par
-00141       {\cf19 if} ((read_single_uint8 (fptr, &curr.extended_attribute_record_length) != 0)\par
-00142           || (read_little_endian_data_uint32_t (fptr, &curr.location_of_extent) != 0)\par
-00143           || (read_little_endian_data_uint16_t (fptr, &curr.parent_directory_number)) != 0)\par
-00144         \{\par
-00145           {\cf19 return} HH_FREAD_ERROR;\par
-00146         \}\par
-00147       {\cf20 /* clang-format on */}\par
-00148 \par
-00149       curr.directory_identifier\par
-00150           = ({\cf18 char} *)calloc (curr.directory_identifier_length, sizeof ({\cf18 char}));\par
+00140       {\cf19 if} (curr.directory_identifier_length != 1)\par
+00141         curr.directory_identifier_length += 1;\par
+00142 \par
+00143       {\cf20 /* clang-format off */}\par
+00144       {\cf19 if} ((read_single_uint8 (fptr, &curr.extended_attribute_record_length) != 0)\par
+00145           || (read_little_endian_data_uint32_t (fptr, &curr.location_of_extent) != 0)\par
+00146           || (read_little_endian_data_uint16_t (fptr, &curr.parent_directory_number)) != 0)\par
+00147         \{\par
+00148           {\cf19 return} HH_FREAD_ERROR;\par
+00149         \}\par
+00150       {\cf20 /* clang-format on */}\par
 00151 \par
-00152       {\cf19 if} (curr.directory_identifier_length != 1)\par
-00153         \{\par
-00154           {\cf18 size_t} bytes_read\par
-00155               = fread (curr.directory_identifier, sizeof ({\cf18 char}),\par
-00156                        curr.directory_identifier_length - 1, fptr);\par
-00157           curr.directory_identifier[curr.directory_identifier_length - 1]\par
-00158               = {\cf23 '\\0'};\par
-00159           {\cf19 if} (bytes_read\par
-00160               != {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1))\par
-00161             \{\par
-00162               handle_fread_error (\par
-00163                   bytes_read,\par
-00164                   {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1));\par
-00165               {\cf19 return} HH_FREAD_ERROR;\par
-00166             \}\par
-00167         \}\par
-00168       {\cf19 else}\par
-00169         \{\par
-00170           fseek (fptr, 1, SEEK_CUR);\par
-00171         \}\par
-00172 \par
-00173       {\cf19 if} (add_entry_to_path_table (pt, &curr) != 0)\par
-00174         {\cf19 return} HH_PT_RESIZE_ERROR;\par
+00152       curr.directory_identifier\par
+00153           = ({\cf18 char} *)calloc (curr.directory_identifier_length, sizeof ({\cf18 char}));\par
+00154 \par
+00155       {\cf19 if} (curr.directory_identifier_length != 1)\par
+00156         \{\par
+00157           {\cf18 size_t} bytes_read\par
+00158               = fread (curr.directory_identifier, sizeof ({\cf18 char}),\par
+00159                        curr.directory_identifier_length - 1, fptr);\par
+00160           curr.directory_identifier[curr.directory_identifier_length - 1]\par
+00161               = {\cf23 '\\0'};\par
+00162           {\cf19 if} (bytes_read\par
+00163               != {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1))\par
+00164             \{\par
+00165               handle_fread_error (\par
+00166                   bytes_read,\par
+00167                   {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1));\par
+00168               {\cf19 return} HH_FREAD_ERROR;\par
+00169             \}\par
+00170         \}\par
+00171       {\cf19 else}\par
+00172         \{\par
+00173           fseek (fptr, 1, SEEK_CUR);\par
+00174         \}\par
 00175 \par
-00176       {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
-00177         {\cf19 return} HH_FREAD_ERROR;\par
+00176       {\cf19 if} (add_entry_to_path_table (pt, &curr) != 0)\par
+00177         {\cf19 return} HH_PT_RESIZE_ERROR;\par
 00178 \par
-00179       {\cf19 if} (dir_identifier_length == 0) {\cf20 // handle padding field}\par
-00180         \{\par
-00181           {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
-00182             {\cf19 return} HH_FREAD_ERROR;\par
-00183         \}\par
-00184     \}\par
-00185   {\cf19 while} (dir_identifier_length != 0);\par
-00186 \par
-00187   {\cf19 return} 0;\par
-00188 \}\par
+00179       {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
+00180         {\cf19 return} HH_FREAD_ERROR;\par
+00181 \par
+00182       {\cf19 if} (dir_identifier_length == 0) {\cf20 // handle padding field}\par
+00183         \{\par
+00184           {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
+00185             {\cf19 return} HH_FREAD_ERROR;\par
+00186         \}\par
+00187     \}\par
+00188   {\cf19 while} (dir_identifier_length != 0);\par
+00189 \par
+00190   {\cf19 return} 0;\par
+00191 \}\par
 }
 \par \pard\plain 
 
@@ -9356,7 +9390,7 @@ void destroy_path_table ({\b path_table} * pt)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
 {
-Definition at line {\b 50} of file {\b path_table.c}.}\par
+Definition at line {\b 51} of file {\b path_table.c}.}\par
 }
 {\xe \v print_path_table\:path_table.h}
 {\xe \v path_table.h\:print_path_table}
@@ -9373,7 +9407,7 @@ void print_path_table ({\b path_table} * pt)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
 {
-Definition at line {\b 104} of file {\b path_table.c}.}\par
+Definition at line {\b 107} of file {\b path_table.c}.}\par
 }
 {\xe \v process_type_l_path_table\:path_table.h}
 {\xe \v path_table.h\:process_type_l_path_table}
@@ -9390,7 +9424,7 @@ int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }}\par
 {
-Definition at line {\b 126} of file {\b path_table.c}.}\par
+Definition at line {\b 129} of file {\b path_table.c}.}\par
 }
 \par \pard\plain 
 
@@ -9739,7 +9773,7 @@ Go to the documentation of this file.\par
 00040   {\cf18 char} *tmp = calloc (strlen (str) + strlen (prefix) + 2, {\cf17 sizeof} ({\cf18 char}));\par
 00041   {\cf19 if} (tmp == NULL)\par
 00042     \{\par
-00043       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
+00043       perror ({\cf22 "[HarvesterHarvester]ERROR: unable to calloc tmp string"});\par
 00044       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
 00045     \}\par
 00046 \par
@@ -9764,7 +9798,7 @@ Go to the documentation of this file.\par
 00065   {\cf18 char} *tmp = calloc (strlen (str) + strlen (prefix) + 2, {\cf17 sizeof} ({\cf18 char}));\par
 00066   {\cf19 if} (tmp == NULL)\par
 00067     \{\par
-00068       perror ({\cf22 "ERROR: unable to calloc tmp string"});\par
+00068       perror ({\cf22 "[HarvesterHarvester]ERROR: unable to calloc tmp string"});\par
 00069       exit (1);\par
 00070     \}\par
 00071   strcpy (tmp, str);\par

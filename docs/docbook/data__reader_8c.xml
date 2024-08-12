@@ -70,7 +70,7 @@
 <para>Builds strings using formats provided by <computeroutput>internal-dat-file-paths.txt</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00252">252</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00254">254</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1ac8a5617b9328c9f95fb8ce6cf446bdf0"/><section>
     <title>read_array_uint8()</title>
@@ -81,7 +81,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00252">252</link> of
 <para>Reads an array of uint8_t&apos;s, of a given length, from a given file, storing the result in <computeroutput>output</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00156">156</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00158">158</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1ade23ba29f3b5a5c0c9b6dddb1b307df0"/><section>
     <title>read_big_endian_data_uint16_t()</title>
@@ -92,7 +92,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00156">156</link> of
 <para>Reads a uint16_t stored in big endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00127">127</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00129">129</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a9fe70ffc0216052a2ffededd4abded89"/><section>
     <title>read_big_endian_data_uint32_t()</title>
@@ -103,7 +103,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00127">127</link> of
 <para>Reads a uint32_t stored in big endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00096">96</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00098">98</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1ac5eb33b86992b7eec9d57407d8bb5bb4"/><section>
     <title>read_both_endian_data_uint16()</title>
@@ -122,7 +122,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00096">96</link> of 
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00057">57</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00058">58</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a640713d2880309d518aebed5ebff89e0"/><section>
     <title>read_both_endian_data_uint32()</title>
@@ -158,7 +158,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00036">36</link> of 
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00169">169</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00171">171</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a671723ae43b83cdf3db007816fc6b0a0"/><section>
     <title>read_dir_datetime()</title>
@@ -175,7 +175,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00169">169</link> of
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00202">202</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00204">204</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a706cf4826080ce7bf4a1706fe10f379a"/><section>
     <title>read_file_flags()</title>
@@ -192,7 +192,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00202">202</link> of
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00219">219</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00221">221</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a78ed65e60aaa0c5e49f37c65baf761a4"/><section>
     <title>read_little_endian_data_uint16_t()</title>
@@ -203,7 +203,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00219">219</link> of
 <para>Reads a uint16_t stored in little endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00112">112</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00114">114</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b"/><section>
     <title>read_little_endian_data_uint32_t()</title>
@@ -214,7 +214,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00112">112</link> of
 <para>Reads a uint32_t stored in little endian format from the file pointed to by <computeroutput>fptr</computeroutput> and stores the result in <computeroutput>output</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00078">78</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00080">80</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc"/><section>
     <title>read_single_uint8()</title>
@@ -227,7 +227,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00078">78</link> of 
 
 <para>All of these functions return zero on success, non-zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8_t from a given file, storing the output in <computeroutput>value</computeroutput>. </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00189">189</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00191">191</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1a095233f80d488c02ecbdd3aca2d38231"/><section>
     <title>read_string()</title>
@@ -238,7 +238,7 @@ Definition at line <link linkend="_data__reader_8c_source_1l00189">189</link> of
 <para>Reads a string of a given length from a given file, storing the result in <computeroutput>output</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00142">142</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00144">144</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 </section>
 </section>

@@ -35,8 +35,10 @@ create_index_file (index_file *i)
   i->indicies = malloc (IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
   if (i->indicies == NULL)
     {
-      fprintf (stderr, "ERROR: unable to malloc array of %zu indicies.",
-               IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
+      fprintf (
+          stderr,
+          "[HarvesterHarvester]ERROR: unable to malloc array of %zu indicies.",
+          IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
       return -1;
     }
 
@@ -65,8 +67,10 @@ process_index_file (FILE *fptr, index_file *idxf)
 
       if (!peek_char_is (fptr, ':'))
         {
-          fprintf (stderr, "ERROR: Unexpected character in index file. "
-                           "Aborting processing.\n");
+          fprintf (
+              stderr,
+              "[HarvesterHarvester]ERROR: Unexpected character in index file. "
+              "Aborting processing.\n");
           return -1;
         }
 
@@ -110,8 +114,9 @@ process_index_file (FILE *fptr, index_file *idxf)
 
       if (entry.size != value)
         {
-          fprintf (stderr, "ERROR: Expected %08X, got %08X.\n", entry.size,
-                   value);
+          fprintf (stderr,
+                   "[HarvesterHarvester]ERROR: Expected %08X, got %08X.\n",
+                   entry.size, value);
           return -1;
         }
 
@@ -158,7 +163,9 @@ resize_indicies (index_file *idx)
       idx->indicies, new_size * sizeof (index_entry));
   if (new_indicies == NULL)
     {
-      fprintf (stderr, "ERROR: unable to ralloc index from size %zu to %zu.\n",
+      fprintf (stderr,
+               "[HarvesterHarvester]ERROR: unable to ralloc index from size "
+               "%zu to %zu.\n",
                idx->size, new_size);
       destroy_index_file (idx);
       return -1;

@@ -44,7 +44,8 @@ read_both_endian_data_uint32 (FILE *fptr, uint32_t *output)
 
   if (value != expected_value)
     {
-      printf ("ERROR: Incorrect endian conversion (uint32_t).\n\tExpected "
+      printf ("[HarvesterHarvester]ERROR: Incorrect endian conversion "
+              "(uint32_t).\n\tExpected "
               "%08X, got %08X.\n",
               expected_value, value);
     }
@@ -65,7 +66,8 @@ read_both_endian_data_uint16 (FILE *fptr, uint16_t *output)
 
   if (*output != expected_value)
     {
-      printf ("ERROR: Incorrect endian conversion (uint16_t).\n\tExpected "
+      printf ("[HarvesterHarvester]ERROR: Incorrect endian conversion "
+              "(uint16_t).\n\tExpected "
               "%04X, got %04X.\n",
               expected_value, *output);
       return -1;

@@ -149,7 +149,7 @@ Parameters</title>
 
 <para>Gives you the <computeroutput>OP_OUTPUT_DIR/DISK#/</computeroutput> part of the path. 10 = len(&quot;INDEX.001&quot;)</para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00225">225</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00230">230</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 </section>
 </section>

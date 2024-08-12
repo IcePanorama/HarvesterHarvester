@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['easiest_20way_0',['Easiest Way',['../index.html#autotoc_md2',1,'']]],
+  ['easiest_20way_0',['Easiest Way',['../index.html#autotoc_md3',1,'']]],
   ['entries_1',['entries',['../structpath__table.html#a33d282004152acf2e3359dd2c40da884',1,'path_table']]],
   ['entry_5fstart_2',['entry_start',['../structindex__entry.html#aa79302a19ea59e36deef737dd3aa6b12',1,'index_entry']]],
   ['errors_2ec_3',['errors.c',['../errors_8c.html',1,'']]],

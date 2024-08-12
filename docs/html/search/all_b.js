@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['on_20piracy_0',['A note on piracy',['../index.html#autotoc_md6',1,'']]],
+  ['on_20piracy_0',['A note on piracy',['../index.html#autotoc_md7',1,'']]],
   ['op_5fbatch_5fprocess_1',['OP_BATCH_PROCESS',['../options_8c.html#abf19eab4ae4469b24b2b34284bb72f5a',1,'OP_BATCH_PROCESS:&#160;options.c'],['../options_8h.html#abf19eab4ae4469b24b2b34284bb72f5a',1,'OP_BATCH_PROCESS:&#160;options.c']]],
   ['op_5fdebug_5ffile_5fsize_5flimit_2',['OP_DEBUG_FILE_SIZE_LIMIT',['../options_8c.html#a57685525da7ee31266f852c10c29dffb',1,'OP_DEBUG_FILE_SIZE_LIMIT:&#160;options.c'],['../options_8h.html#a57685525da7ee31266f852c10c29dffb',1,'OP_DEBUG_FILE_SIZE_LIMIT:&#160;options.c']]],
   ['op_5fdebug_5fmode_3',['OP_DEBUG_MODE',['../options_8c.html#a22750490a402211ccfd1c7dda808eb51',1,'OP_DEBUG_MODE:&#160;options.c'],['../options_8h.html#a22750490a402211ccfd1c7dda808eb51',1,'OP_DEBUG_MODE:&#160;options.c']]],

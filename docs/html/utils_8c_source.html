@@ -143,7 +143,7 @@ $(function(){initNavTree('utils_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">char</span> *tmp = calloc (strlen (str) + strlen (prefix) + 2, <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordflow">if</span> (tmp == NULL)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      perror (<span class="stringliteral">&quot;ERROR: unable to calloc tmp string&quot;</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      perror (<span class="stringliteral">&quot;[HarvesterHarvester]ERROR: unable to calloc tmp string&quot;</span>);</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</a>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
@@ -170,7 +170,7 @@ $(function(){initNavTree('utils_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <span class="keywordtype">char</span> *tmp = calloc (strlen (str) + strlen (prefix) + 2, <span class="keyword">sizeof</span> (<span class="keywordtype">char</span>));</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keywordflow">if</span> (tmp == NULL)</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      perror (<span class="stringliteral">&quot;ERROR: unable to calloc tmp string&quot;</span>);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      perror (<span class="stringliteral">&quot;[HarvesterHarvester]ERROR: unable to calloc tmp string&quot;</span>);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      exit (1);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  strcpy (tmp, str);</div>
@@ -258,7 +258,7 @@ $(function(){initNavTree('utils_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>  <span class="keywordflow">return</span> (value &lt;&lt; 8) | (value &gt;&gt; 8);</div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}</div>
 </div>
-<div class="ttc" id="adata__reader_8c_html_a3987a7d12b6ef51327e5d1ae63d087cc"><div class="ttname"><a href="data__reader_8c.html#a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</a></div><div class="ttdeci">int8_t read_single_uint8(FILE *fptr, uint8_t *value)</div><div class="ttdoc">data_header.h - container for various data access functions.</div><div class="ttdef"><b>Definition</b> <a href="data__reader_8c_source.html#l00189">data_reader.c:189</a></div></div>
+<div class="ttc" id="adata__reader_8c_html_a3987a7d12b6ef51327e5d1ae63d087cc"><div class="ttname"><a href="data__reader_8c.html#a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</a></div><div class="ttdeci">int8_t read_single_uint8(FILE *fptr, uint8_t *value)</div><div class="ttdoc">data_header.h - container for various data access functions.</div><div class="ttdef"><b>Definition</b> <a href="data__reader_8c_source.html#l00191">data_reader.c:191</a></div></div>
 <div class="ttc" id="adata__reader_8h_html"><div class="ttname"><a href="data__reader_8h.html">data_reader.h</a></div></div>
 <div class="ttc" id="aerrors_8h_html"><div class="ttname"><a href="errors_8h.html">errors.h</a></div></div>
 <div class="ttc" id="aerrors_8h_html_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d"><div class="ttname"><a href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</a></div><div class="ttdeci">@ HH_MEM_ALLOC_ERROR</div><div class="ttdef"><b>Definition</b> <a href="errors_8h_source.html#l00028">errors.h:28</a></div></div>

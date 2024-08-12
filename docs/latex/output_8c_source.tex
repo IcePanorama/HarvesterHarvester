@@ -86,22 +86,23 @@
 \DoxyCodeLine{\Hypertarget{output_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (status\ !=\ 0)}
 \DoxyCodeLine{\Hypertarget{output_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{output_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fprintf\ (stderr,}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ERROR:\ failed\ to\ create\ the\ following\ output\ "{}}}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}directory,\ \%s\(\backslash\)n."{}},}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ path);}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free\ (dir);}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free\ (tmp);}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa}{HH\_CREATE\_OUTPUT\_DIR\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00093}00093\ }
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00094}00094\ \ \ \ \ \ \ strcat\ (dir,\ \&\mbox{\hyperlink{options_8c_a845934c83dddb0516baadb1abd079d8d}{OP\_PATH\_SEPARATOR}});}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00095}00095\ \ \ \ \ \ \ token\ =\ strtok\ (NULL,\ \&\mbox{\hyperlink{options_8c_a845934c83dddb0516baadb1abd079d8d}{OP\_PATH\_SEPARATOR}});}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00096}00096\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00097}00097\ }
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00098}00098\ \ \ free\ (dir);}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00099}00099\ \ \ free\ (tmp);}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00100}00100\ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{output_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}[HarvesterHarvester]ERROR:\ failed\ to\ create\ the\ "{}}}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}following\ output\ "{}}}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}directory,\ \%s\(\backslash\)n."{}},}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ path);}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free\ (dir);}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ free\ (tmp);}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa}{HH\_CREATE\_OUTPUT\_DIR\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00093}00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00095}00095\ \ \ \ \ \ \ strcat\ (dir,\ \&\mbox{\hyperlink{options_8c_a845934c83dddb0516baadb1abd079d8d}{OP\_PATH\_SEPARATOR}});}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00096}00096\ \ \ \ \ \ \ token\ =\ strtok\ (NULL,\ \&\mbox{\hyperlink{options_8c_a845934c83dddb0516baadb1abd079d8d}{OP\_PATH\_SEPARATOR}});}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00099}00099\ \ \ free\ (dir);}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00100}00100\ \ \ free\ (tmp);}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00101}00101\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{output_8c_source_l00102}00102\ \}}
 
 \end{DoxyCode}

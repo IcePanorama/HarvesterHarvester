@@ -40,7 +40,7 @@ prepend_path_string (char *str, const char *prefix)
   char *tmp = calloc (strlen (str) + strlen (prefix) + 2, sizeof (char));
   if (tmp == NULL)
     {
-      perror ("ERROR: unable to calloc tmp string");
+      perror ("[HarvesterHarvester]ERROR: unable to calloc tmp string");
       return HH_MEM_ALLOC_ERROR;
     }
 
@@ -65,7 +65,7 @@ prepend_string (char *str, const char *prefix)
   char *tmp = calloc (strlen (str) + strlen (prefix) + 2, sizeof (char));
   if (tmp == NULL)
     {
-      perror ("ERROR: unable to calloc tmp string");
+      perror ("[HarvesterHarvester]ERROR: unable to calloc tmp string");
       exit (1);
     }
   strcpy (tmp, str);

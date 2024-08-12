@@ -8,20 +8,20 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
 <anchor xml:id="_errors_8c_source_1l00005"/>00005 
 <anchor xml:id="_errors_8c_source_1l00006"/><link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">00006</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>
-<anchor xml:id="_errors_8c_source_1l00007"/>00007 &#32;&#32;&#32;&#32;=&#32;<emphasis role="stringliteral">&quot;ERROR:&#32;unable&#32;to&#32;calloc&#32;string&#32;of&#32;size&#32;%zu.\n&quot;</emphasis>;
+<anchor xml:id="_errors_8c_source_1l00007"/>00007 &#32;&#32;&#32;&#32;=&#32;<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;unable&#32;to&#32;calloc&#32;string&#32;of&#32;size&#32;%zu.\n&quot;</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00008"/><link linkend="_errors_8c_1a03ff53905312bd88e728b1863cf1b1c9">00008</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8c_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>
-<anchor xml:id="_errors_8c_source_1l00009"/>00009 &#32;&#32;&#32;&#32;=&#32;<emphasis role="stringliteral">&quot;ERROR:&#32;unable&#32;to&#32;open&#32;output&#32;file,&#32;%s\n.&quot;</emphasis>;
+<anchor xml:id="_errors_8c_source_1l00009"/>00009 &#32;&#32;&#32;&#32;=&#32;<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;unable&#32;to&#32;open&#32;output&#32;file,&#32;%s\n.&quot;</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00010"/>00010 
 <anchor xml:id="_errors_8c_source_1l00011"/>00011 <emphasis role="keywordtype">void</emphasis>
 <anchor xml:id="_errors_8c_source_1l00012"/><link linkend="_errors_8c_1a1fa621098d550bb126a641aba0638f7f">00012</link> <link linkend="_errors_8c_1a1fa621098d550bb126a641aba0638f7f">improper_usage_error</link>&#32;(<emphasis role="keywordtype">void</emphasis>)
 <anchor xml:id="_errors_8c_source_1l00013"/>00013 {
 <anchor xml:id="_errors_8c_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;windows;
-<anchor xml:id="_errors_8c_source_1l00015"/>00015 <emphasis role="preprocessor">#ifdef&#32;__WIN32</emphasis>
+<anchor xml:id="_errors_8c_source_1l00015"/>00015 <emphasis role="preprocessor">#ifdef&#32;_WIN32</emphasis>
 <anchor xml:id="_errors_8c_source_1l00016"/>00016 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">true</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00017"/>00017 <emphasis role="preprocessor">#else</emphasis>
 <anchor xml:id="_errors_8c_source_1l00018"/>00018 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">false</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00019"/>00019 <emphasis role="preprocessor">#endif</emphasis>
-<anchor xml:id="_errors_8c_source_1l00020"/>00020 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;Improper&#32;usage!&quot;</emphasis>);
+<anchor xml:id="_errors_8c_source_1l00020"/>00020 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;Improper&#32;usage!&quot;</emphasis>);
 <anchor xml:id="_errors_8c_source_1l00021"/>00021 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;try:&#32;%s&#32;HARVEST.DAT\n&quot;</emphasis>,
 <anchor xml:id="_errors_8c_source_1l00022"/>00022 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!windows&#32;?&#32;<emphasis role="stringliteral">&quot;$&#32;./HarvesterHarvester&quot;</emphasis>&#32;:&#32;<emphasis role="stringliteral">&quot;HarvesterHarvester.exe&quot;</emphasis>);
 <anchor xml:id="_errors_8c_source_1l00023"/>00023 
@@ -31,14 +31,14 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8c_source_1l00027"/>00027 <emphasis role="keywordtype">void</emphasis>
 <anchor xml:id="_errors_8c_source_1l00028"/><link linkend="_errors_8c_1a9b9a6494b96286134308f2da3e179af9">00028</link> <link linkend="_errors_8c_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename)
 <anchor xml:id="_errors_8c_source_1l00029"/>00029 {
-<anchor xml:id="_errors_8c_source_1l00030"/>00030 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;Unable&#32;to&#32;open&#32;file,&#32;%s.\n&quot;</emphasis>,&#32;filename);
+<anchor xml:id="_errors_8c_source_1l00030"/>00030 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;Unable&#32;to&#32;open&#32;file,&#32;%s.\n&quot;</emphasis>,&#32;filename);
 <anchor xml:id="_errors_8c_source_1l00031"/>00031 }
 <anchor xml:id="_errors_8c_source_1l00032"/>00032 
 <anchor xml:id="_errors_8c_source_1l00033"/>00033 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
 <anchor xml:id="_errors_8c_source_1l00034"/><link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">00034</link> <link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes)
 <anchor xml:id="_errors_8c_source_1l00035"/>00035 {
-<anchor xml:id="_errors_8c_source_1l00036"/>00036 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;Only&#32;read&#32;%zu&#32;byte(s),&#32;expected&#32;%zu.\n&quot;</emphasis>,&#32;actual,
-<anchor xml:id="_errors_8c_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;expected_bytes);
+<anchor xml:id="_errors_8c_source_1l00036"/>00036 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;Only&#32;read&#32;%zu&#32;byte(s),&#32;expected&#32;%zu.\n&quot;</emphasis>,
+<anchor xml:id="_errors_8c_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;actual,&#32;expected_bytes);
 <anchor xml:id="_errors_8c_source_1l00038"/>00038 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
 <anchor xml:id="_errors_8c_source_1l00039"/>00039 }
 <anchor xml:id="_errors_8c_source_1l00040"/>00040 
@@ -46,14 +46,15 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8c_source_1l00042"/><link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">00042</link> <link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg)
 <anchor xml:id="_errors_8c_source_1l00043"/>00043 {
 <anchor xml:id="_errors_8c_source_1l00044"/>00044 &#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;windows;
-<anchor xml:id="_errors_8c_source_1l00045"/>00045 <emphasis role="preprocessor">#ifdef&#32;__WIN32</emphasis>
+<anchor xml:id="_errors_8c_source_1l00045"/>00045 <emphasis role="preprocessor">#ifdef&#32;_WIN32</emphasis>
 <anchor xml:id="_errors_8c_source_1l00046"/>00046 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">true</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00047"/>00047 <emphasis role="preprocessor">#else</emphasis>
 <anchor xml:id="_errors_8c_source_1l00048"/>00048 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">false</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00049"/>00049 <emphasis role="preprocessor">#endif</emphasis>
-<anchor xml:id="_errors_8c_source_1l00050"/>00050 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;ERROR:&#32;unknown&#32;command-line&#32;argument,&#32;%s.\n&quot;</emphasis>,&#32;arg);
-<anchor xml:id="_errors_8c_source_1l00051"/>00051 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Run&#32;%s&#32;--help&#32;for&#32;a&#32;list&#32;of&#32;command-line&#32;arguments.\n&quot;</emphasis>,
-<anchor xml:id="_errors_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!windows&#32;?&#32;<emphasis role="stringliteral">&quot;./HarvesterHarvester&quot;</emphasis>&#32;:&#32;<emphasis role="stringliteral">&quot;HarvesterHarvester.exe&quot;</emphasis>);
-<anchor xml:id="_errors_8c_source_1l00053"/>00053 &#32;&#32;exit&#32;(1);
-<anchor xml:id="_errors_8c_source_1l00054"/>00054 }
+<anchor xml:id="_errors_8c_source_1l00050"/>00050 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;[HarvesterHarvester]ERROR:&#32;unknown&#32;command-line&#32;argument,&#32;%s.\n&quot;</emphasis>,
+<anchor xml:id="_errors_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;arg);
+<anchor xml:id="_errors_8c_source_1l00052"/>00052 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Run&#32;%s&#32;--help&#32;for&#32;a&#32;list&#32;of&#32;command-line&#32;arguments.\n&quot;</emphasis>,
+<anchor xml:id="_errors_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!windows&#32;?&#32;<emphasis role="stringliteral">&quot;./HarvesterHarvester&quot;</emphasis>&#32;:&#32;<emphasis role="stringliteral">&quot;HarvesterHarvester.exe&quot;</emphasis>);
+<anchor xml:id="_errors_8c_source_1l00054"/>00054 &#32;&#32;exit&#32;(1);
+<anchor xml:id="_errors_8c_source_1l00055"/>00055 }
 </programlisting></section>

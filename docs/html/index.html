@@ -102,23 +102,27 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a>A tool for harvesting data out of <a href="https://en.wikipedia.org/wiki/Harvester_(video_game)"><em>Harvester</em>'s (DigiFX Interactive, 1996)</a> dat files.</p>
 <p>This program is the first piece of a toolchain that I'm developing as I work to reverse engineering <em>Harvester</em>. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering.</p>
-<p>The program works in two steps:</p>
-<ol type="1">
-<li>It reconstructs the original disk images that the game would've shipped with.<ul>
+<p>The program works in two steps:</p><ol type="1">
+<li>It reconstructs the original disk images that Harvester would've shipped with in 1996<ul>
 <li><em>Note</em>: if you own the original game disks, this step is not needed.</li>
 <li>See USAGE.md for more details.</li>
 </ul>
 </li>
-<li>It extracts files out of the numerous dat files that this first step produces.</li>
+<li>It extracts the dat files contained within those new directories in order to give you full access to all of the game's files.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Future Projects</h2>
+<p>The next step for me in this project will be creating an asset viewer.</p>
+<p>This will require me to reverse engineer all of the various, non-standardized file formats that DigiFX used when making the game, which will be essential for porting the game in the future.</p>
+<p>So far, I've already been able to reverse engineer the <code>*.BM</code> files, which are used for all the static backgrounds in the games, for character portraits, the map, and more. Unfortunately, I likely can't to share these files, at least not in bulk (see below). I will, however, be sharing a small handful of these images as I show this project off online and I'll make sure to add a link here in the future if you wish to view those!</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Installation</h1>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md3"></a>
 Easiest Way</h2>
 <p>Navigate to the <a href="https://github.com/IcePanorama/HarvesterHarvester/releases">releases</a> page and download the latest zip file. Once downloaded, simply extract the zip file and run the appropriate executable given your operating system/architecture.</p>
 <p>If you're on a modern Windows machine and you're unsure of which file to run, your best bet is likely the one ending in <code>x86_64</code>; that executable should run on most Windows machines made in the past 15 years.</p>
 <p><b>NOTE</b>: <em>if you're reading this in the present, you'll notice that there currently aren't any available releases. I'm writing this README in advance &ndash; this project isn't quite done yet, sorry!</em></p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Building from source (Linux/MacOS/Unix)</h2>
 <p>1) Install the following dependencies: </p><div class="fragment"><div class="line">gcc make mingw32-gcc clang-tools-extra valgrind doxygen</div>
 </div><!-- fragment --><p> 2) Clone the repo: </p><div class="fragment"><div class="line">$ git clone https://github.com/IcePanorama/HarvesterHarvester/ &amp;&amp; cd HarvesterHarvester</div>
@@ -126,15 +130,15 @@ Building from source (Linux/MacOS/Unix)</h2>
 <div class="line"># ... or, alternatively ...</div>
 <div class="line">$ make full    # for just the *nix executable</div>
 </div><!-- fragment --><p> Running <code>make release</code> is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Usage</h1>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Basic Usage</h2>
 <p>1) Install Harvester onto your machine if you haven't already done so. 2) Copy the following files from your harvester installation to the <code>dat-files/</code> folder: </p><div class="fragment"><div class="line">HARVEST.DAT</div>
 <div class="line">HARVEST3.DAT</div>
 <div class="line">HARVEST4.DAT</div>
 </div><!-- fragment --><p> 4) Run the <code>HarvesterHarvester</code> executable.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 A note on piracy</h1>
 <p>This program requires that you legally own a copy of <em>Harvester</em> in order to source the necessary <code>.dat</code> files.</p>
 <p>The GOG version (which this project was built around) <a href="https://www.gog.com/en/game/harvester">is available here for $5.99</a>, although it's worth noting that it does go on sale rather often.</p>

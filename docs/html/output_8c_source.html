@@ -187,23 +187,24 @@ $(function(){initNavTree('output_8c_source.html',''); initResizable(true); });
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>          <span class="keywordflow">if</span> (status != 0)</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            {</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>              fprintf (stderr,</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                       <span class="stringliteral">&quot;ERROR: failed to create the following output &quot;</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                       <span class="stringliteral">&quot;directory, %s\n.&quot;</span>,</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                       path);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>              free (dir);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>              free (tmp);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>              <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</a>;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      strcat (dir, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      token = strtok (NULL, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  free (dir);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  free (tmp);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                       <span class="stringliteral">&quot;[HarvesterHarvester]ERROR: failed to create the &quot;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                       <span class="stringliteral">&quot;following output &quot;</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                       <span class="stringliteral">&quot;directory, %s\n.&quot;</span>,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                       path);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>              free (dir);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>              free (tmp);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>              <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      strcat (dir, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      token = strtok (NULL, &amp;<a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  free (dir);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  free (tmp);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
 </div>
 <div class="ttc" id="aerrors_8c_html_ab2272d0da4232afba19f95bf02944157"><div class="ttname"><a href="errors_8c.html#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a></div><div class="ttdeci">const char * CALLOC_FAILED_ERR_MSG_FMT</div><div class="ttdoc">Format string for failed calloc error message.</div><div class="ttdef"><b>Definition</b> <a href="errors_8c_source.html#l00006">errors.c:7</a></div></div>
 <div class="ttc" id="aerrors_8h_html"><div class="ttname"><a href="errors_8h.html">errors.h</a></div></div>
