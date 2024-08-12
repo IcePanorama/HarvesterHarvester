@@ -88,3 +88,5 @@ Thank you for contributing to HarvesterHarvester! Your help is invaluable and ap
     + Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.
 + Create a guide for building the project from source for Windows users.
 + Handle interal dat file extraction from CDs without requiring game files to be copied to the user's hard drive.
++ Version 1.0.0 is unoptimised as I'm currently not 100% sure this will work on all devices.
+    + Future release builds should be made with the -O2 flag.
