@@ -3,7 +3,7 @@
 The following document will attempt to give an in-depth guide on how to use HarvesterHarvester for a wide variety of possible use cases. These use cases include:
 + [Usage for users who own the game through GOG/Steam(\*)](#Using-HarvesterHarvester-with-Modern-Releases)
 + [Usage for users who own the game on CDs](#Using-HarvesterHarvester-With-Original-CDs)
-+ Advanced usage
++ [Advanced usage](#Advanced-Usage)
 + Usage as a library
 
 \**I'm assuming here that the GOG and Steam releases are similar. If they aren't, please feel free to submit an [issue](https://github.com/IcePanorama/HarvesterHarvester/issues/).*
@@ -96,4 +96,23 @@ Then, run HH by executing one of the following commands in a command-prompt/term
 HarvesterHarvester_x86_64.exe -i -o path\to\your\dir # 64-bit Windows machines, the default if you're not sure
 HarvesterHarvester_i686.exe -i -o path\to\your\dir # 32-bit Windows machines
 ./HarvesterHarvester -i -o path/to/your/dir # *nix machines
+```
+
+## Advanced Usage
+
+```
+Usage:
+	./HarvesterHarvester [options] [path/to/dat_file.dat]
+
+Command-line arguments:
+	--debug: enables debug mode, skips extracting large files. Useful for developers.
+	--help: displays list of command line arguments.
+	--version: prints out the version number.
+	-d [path/to/some-dir]: specify the input directory for batch processing dat files. (Default=./dat-files/)
+	-e: don't extract internal dat files.
+	-i: extract internal dat files only.
+	-o [path/to/some-dir]: extract dat files to the given directory/look here for internal dat files.
+
+Optional:
+	path/to/dat_file.dat: specify the path to a dat file to be processed.
 ```
