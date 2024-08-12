@@ -295,9 +295,11 @@ batch_process_DAT_files ()
 int8_t
 process_internal_dat_files (void)
 {
-  FILE *table = fopen ("internal-dat-file-paths.txt", "r");
+  const char *interal_paths = "internal-dat-file-paths.txt";
+  FILE *table = fopen (interal_paths, "rb");
   if (table == NULL)
     {
+      fprintf (stderr, "Couldn't find %s\n.", interal_paths);
       return HH_FOPEN_ERROR;
     }
 

@@ -247,6 +247,7 @@ read_file_flags (FILE *fptr, file_flags *ff)
   return 0;
 }
 
+// this system could probably be replaced with a macro
 void
 build_path_string_from_file (FILE *fptr, char *output)
 {
