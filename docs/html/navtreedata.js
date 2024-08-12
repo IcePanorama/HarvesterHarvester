@@ -29,8 +29,9 @@ var NAVTREE =
       [ "Easiest Way", "index.html#autotoc_md2", null ],
       [ "Building from source (Linux/MacOS/Unix)", "index.html#autotoc_md3", null ]
     ] ],
-    [ "Usage", "index.html#autotoc_md4", null ],
-    [ "To Do", "index.html#autotoc_md5", null ],
+    [ "Usage", "index.html#autotoc_md4", [
+      [ "Basic Usage", "index.html#autotoc_md5", null ]
+    ] ],
     [ "A note on piracy", "index.html#autotoc_md6", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],

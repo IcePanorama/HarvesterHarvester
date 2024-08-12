@@ -97,7 +97,7 @@ Definition at line <link linkend="_options_8c_source_1l00095">95</link> of file 
 <para>Processes options beginning with <computeroutput>-</computeroutput> character, called flags. </para>
 </para>
 <para>
-Definition at line <link linkend="_options_8c_source_1l00123">123</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
+Definition at line <link linkend="_options_8c_source_1l00124">124</link> of file <link linkend="_options_8c_source">options.c</link>.</para>
 </section>
 </section>
 <section>

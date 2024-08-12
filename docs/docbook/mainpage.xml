@@ -4,6 +4,24 @@
 <indexterm><primary>HarvesterHarvester</primary></indexterm>
 
 <para><anchor xml:id="_index_1md_README"/>A tool for harvesting data out of <link xlink:href="https://en.wikipedia.org/wiki/Harvester_(video_game)"><emphasis>Harvester</emphasis>&apos;s (DigiFX Interactive, 1996)</link> dat files.</para>
+
+<para>This program is the first piece of a toolchain that I&apos;m developing as I work to reverse engineering <emphasis>Harvester</emphasis>. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering.</para>
+
+<para>The program works in two steps:</para>
+
+<para><orderedlist>
+<listitem>
+<para>It reconstructs the original disk images that the game would&apos;ve shipped with.<itemizedlist>
+<listitem>
+<para><emphasis>Note</emphasis>: if you own the original game disks, this step is not needed.</para>
+</listitem><listitem>
+<para>See USAGE.md for more details.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem>
+<para>It extracts files out of the numerous dat files that this first step produces.</para>
+</listitem></orderedlist>
+</para>
 <section xml:id="_index_1autotoc_md1">
 <title>Installation</title><section xml:id="_index_1autotoc_md2">
 <title>Easiest Way</title>
@@ -24,35 +42,13 @@ $&#32;make&#32;full&#32;&#32;&#32;&#32;#&#32;for&#32;just&#32;the&#32;*nix&#32;e
 </section>
 </section>
 <section xml:id="_index_1autotoc_md4">
-<title>Usage</title>
+<title>Usage</title><section xml:id="_index_1autotoc_md5">
+<title>Basic Usage</title>
 <para>1) Install Harvester onto your machine if you haven&apos;t already done so. 2) Copy the following files from your harvester installation to the <computeroutput>dat-files/</computeroutput> folder: <literallayout><computeroutput>HARVEST.DAT
 HARVEST3.DAT
 HARVEST4.DAT
 </computeroutput></literallayout> 4) Run the <computeroutput>HarvesterHarvester</computeroutput> executable.</para>
 </section>
-<section xml:id="_index_1autotoc_md5">
-<title>To Do</title>
-<para><itemizedlist>
-<listitem>
-<para>Handle SIGINT/Windows-equivalent of SIGINT gracefully<itemizedlist>
-<listitem>
-<para>Currently, if a user presses <computeroutput>CTRL+C</computeroutput> while the program is executing, this causes a memory leak.<itemizedlist>
-<listitem>
-<para>To see this in action, run <computeroutput>make test</computeroutput> and then press <computeroutput>CTRL+C</computeroutput>.</para>
-</listitem></itemizedlist>
-</para>
-</listitem><listitem>
-<para>An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting</para>
-</listitem><listitem>
-<para>Ideally, this solution should also be cross-platform, if at all possible.</para>
-</listitem><listitem>
-<para>Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.</para>
-</listitem></itemizedlist>
-</para>
-</listitem><listitem>
-<para>Create a guide for building the project from source for Windows users.</para>
-</listitem></itemizedlist>
-</para>
 </section>
 <section xml:id="_index_1autotoc_md6">
 <title>A note on piracy</title>

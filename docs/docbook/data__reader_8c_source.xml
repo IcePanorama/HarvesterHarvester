@@ -243,15 +243,16 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_data__reader_8c_source_1l00247"/>00247 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
 <anchor xml:id="_data__reader_8c_source_1l00248"/>00248 }
 <anchor xml:id="_data__reader_8c_source_1l00249"/>00249 
-<anchor xml:id="_data__reader_8c_source_1l00250"/>00250 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_data__reader_8c_source_1l00251"/><link linkend="_data__reader_8c_1a7d5ed65e276ef3acea52cd349795d7fe">00251</link> <link linkend="_data__reader_8c_1a7d5ed65e276ef3acea52cd349795d7fe">build_path_string_from_file</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*output)
-<anchor xml:id="_data__reader_8c_source_1l00252"/>00252 {
-<anchor xml:id="_data__reader_8c_source_1l00253"/>00253 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;format[32]&#32;=&#32;{&#32;0&#32;};
-<anchor xml:id="_data__reader_8c_source_1l00254"/>00254 &#32;&#32;fgets&#32;(format,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(format),&#32;fptr);
-<anchor xml:id="_data__reader_8c_source_1l00255"/>00255 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;len&#32;=&#32;strlen&#32;(format);
-<anchor xml:id="_data__reader_8c_source_1l00256"/>00256 &#32;&#32;format[len&#32;-&#32;1]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
-<anchor xml:id="_data__reader_8c_source_1l00257"/>00257 
-<anchor xml:id="_data__reader_8c_source_1l00258"/>00258 &#32;&#32;sprintf&#32;(output,&#32;format,&#32;<link linkend="_options_8c_1a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</link>,&#32;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>,
-<anchor xml:id="_data__reader_8c_source_1l00259"/>00259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
-<anchor xml:id="_data__reader_8c_source_1l00260"/>00260 }
+<anchor xml:id="_data__reader_8c_source_1l00250"/>00250 <emphasis role="comment">//&#32;this&#32;system&#32;could&#32;probably&#32;be&#32;replaced&#32;with&#32;a&#32;macro</emphasis>
+<anchor xml:id="_data__reader_8c_source_1l00251"/>00251 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_data__reader_8c_source_1l00252"/><link linkend="_data__reader_8c_1a7d5ed65e276ef3acea52cd349795d7fe">00252</link> <link linkend="_data__reader_8c_1a7d5ed65e276ef3acea52cd349795d7fe">build_path_string_from_file</link>&#32;(FILE&#32;*fptr,&#32;<emphasis role="keywordtype">char</emphasis>&#32;*output)
+<anchor xml:id="_data__reader_8c_source_1l00253"/>00253 {
+<anchor xml:id="_data__reader_8c_source_1l00254"/>00254 &#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;format[32]&#32;=&#32;{&#32;0&#32;};
+<anchor xml:id="_data__reader_8c_source_1l00255"/>00255 &#32;&#32;fgets&#32;(format,&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(format),&#32;fptr);
+<anchor xml:id="_data__reader_8c_source_1l00256"/>00256 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;len&#32;=&#32;strlen&#32;(format);
+<anchor xml:id="_data__reader_8c_source_1l00257"/>00257 &#32;&#32;format[len&#32;-&#32;1]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_data__reader_8c_source_1l00258"/>00258 
+<anchor xml:id="_data__reader_8c_source_1l00259"/>00259 &#32;&#32;sprintf&#32;(output,&#32;format,&#32;<link linkend="_options_8c_1a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</link>,&#32;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>,
+<anchor xml:id="_data__reader_8c_source_1l00260"/>00260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>);
+<anchor xml:id="_data__reader_8c_source_1l00261"/>00261 }
 </programlisting></section>

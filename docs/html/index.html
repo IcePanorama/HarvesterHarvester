@@ -101,6 +101,16 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a>A tool for harvesting data out of <a href="https://en.wikipedia.org/wiki/Harvester_(video_game)"><em>Harvester</em>'s (DigiFX Interactive, 1996)</a> dat files.</p>
+<p>This program is the first piece of a toolchain that I'm developing as I work to reverse engineering <em>Harvester</em>. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering.</p>
+<p>The program works in two steps:</p>
+<ol type="1">
+<li>It reconstructs the original disk images that the game would've shipped with.<ul>
+<li><em>Note</em>: if you own the original game disks, this step is not needed.</li>
+<li>See USAGE.md for more details.</li>
+</ul>
+</li>
+<li>It extracts files out of the numerous dat files that this first step produces.</li>
+</ol>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Installation</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
@@ -118,25 +128,12 @@ Building from source (Linux/MacOS/Unix)</h2>
 </div><!-- fragment --><p> Running <code>make release</code> is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.</p>
 <h1><a class="anchor" id="autotoc_md4"></a>
 Usage</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Basic Usage</h2>
 <p>1) Install Harvester onto your machine if you haven't already done so. 2) Copy the following files from your harvester installation to the <code>dat-files/</code> folder: </p><div class="fragment"><div class="line">HARVEST.DAT</div>
 <div class="line">HARVEST3.DAT</div>
 <div class="line">HARVEST4.DAT</div>
 </div><!-- fragment --><p> 4) Run the <code>HarvesterHarvester</code> executable.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
-To Do</h1>
-<ul>
-<li>Handle SIGINT/Windows-equivalent of SIGINT gracefully<ul>
-<li>Currently, if a user presses <code>CTRL+C</code> while the program is executing, this causes a memory leak.<ul>
-<li>To see this in action, run <code>make test</code> and then press <code>CTRL+C</code>.</li>
-</ul>
-</li>
-<li>An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting</li>
-<li>Ideally, this solution should also be cross-platform, if at all possible.</li>
-<li>Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.</li>
-</ul>
-</li>
-<li>Create a guide for building the project from source for Windows users.</li>
-</ul>
 <h1><a class="anchor" id="autotoc_md6"></a>
 A note on piracy</h1>
 <p>This program requires that you legally own a copy of <em>Harvester</em> in order to source the necessary <code>.dat</code> files.</p>

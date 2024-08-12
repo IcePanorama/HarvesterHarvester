@@ -2,7 +2,21 @@
 \hypertarget{index}{}\label{index}\index{HarvesterHarvester@{HarvesterHarvester}}
 \label{index_md_README}%
 \Hypertarget{index_md_README}%
-A tool for harvesting data out of \href{https://en.wikipedia.org/wiki/Harvester_(video_game)}{\texttt{ {\itshape Harvester}\textquotesingle{}s (Digi\+FX Interactive, 1996)}} dat files.\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md1}
+A tool for harvesting data out of \href{https://en.wikipedia.org/wiki/Harvester_(video_game)}{\texttt{ {\itshape Harvester}\textquotesingle{}s (Digi\+FX Interactive, 1996)}} dat files.
+
+This program is the first piece of a toolchain that I\textquotesingle{}m developing as I work to reverse engineering {\itshape Harvester}. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or Open\+GL) just for fun/to teach myself the basics of reverse engineering.
+
+The program works in two steps\+:
+
+
+\begin{DoxyEnumerate}
+\item It reconstructs the original disk images that the game would\textquotesingle{}ve shipped with.
+\begin{DoxyItemize}
+\item {\itshape Note}\+: if you own the original game disks, this step is not needed.
+\item See USAGE.md for more details.
+\end{DoxyItemize}
+\item It extracts files out of the numerous dat files that this first step produces.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md1}
 \hypertarget{index_autotoc_md2}{}\doxysubsection{\texorpdfstring{Easiest Way}{Easiest Way}}\label{index_autotoc_md2}
 Navigate to the \href{https://github.com/IcePanorama/HarvesterHarvester/releases}{\texttt{ releases}} page and download the latest zip file. Once downloaded, simply extract the zip file and run the appropriate executable given your operating system/architecture.
 
@@ -27,6 +41,7 @@ If you\textquotesingle{}re on a modern Windows machine and you\textquotesingle{}
 
 \end{DoxyCode}
  Running {\ttfamily make release} is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Usage}{Usage}}\label{index_autotoc_md4}
+\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Basic Usage}{Basic Usage}}\label{index_autotoc_md5}
 1) Install Harvester onto your machine if you haven\textquotesingle{}t already done so. 2) Copy the following files from your harvester installation to the {\ttfamily dat-\/files/} folder\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{HARVEST.DAT}
@@ -34,21 +49,7 @@ If you\textquotesingle{}re on a modern Windows machine and you\textquotesingle{}
 \DoxyCodeLine{HARVEST4.DAT}
 
 \end{DoxyCode}
- 4) Run the {\ttfamily Harvester\+Harvester} executable.\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{To Do}{To Do}}\label{index_autotoc_md5}
-
-\begin{DoxyItemize}
-\item Handle SIGINT/\+Windows-\/equivalent of SIGINT gracefully
-\begin{DoxyItemize}
-\item Currently, if a user presses {\ttfamily CTRL+C} while the program is executing, this causes a memory leak.
-\begin{DoxyItemize}
-\item To see this in action, run {\ttfamily make test} and then press {\ttfamily CTRL+C}.
-\end{DoxyItemize}
-\item An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting
-\item Ideally, this solution should also be cross-\/platform, if at all possible.
-\item Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.
-\end{DoxyItemize}
-\item Create a guide for building the project from source for Windows users.
-\end{DoxyItemize}\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{A note on piracy}{A note on piracy}}\label{index_autotoc_md6}
+ 4) Run the {\ttfamily Harvester\+Harvester} executable.\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{A note on piracy}{A note on piracy}}\label{index_autotoc_md6}
 This program requires that you legally own a copy of {\itshape Harvester} in order to source the necessary {\ttfamily .dat} files.
 
 The GOG version (which this project was built around) \href{https://www.gog.com/en/game/harvester}{\texttt{ is available here for \$5.99}}, although it\textquotesingle{}s worth noting that it does go on sale rather often.

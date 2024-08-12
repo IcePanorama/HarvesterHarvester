@@ -186,6 +186,20 @@ HarvesterHarvester\par \pard\plain
 {\bkmkstart AAAAAAAANA}
 {\bkmkend AAAAAAAANA}
 A tool for harvesting data out of {\f2 {\i Harvester} 's (DigiFX Interactive, 1996)} dat files.\par
+This program is the first piece of a toolchain that I'm developing as I work to reverse engineering {\i Harvester} . The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering.\par
+The program works in two steps:\par
+{
+\par
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+1.\tab It reconstructs the original disk images that the game would've shipped with.{
+\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+{\i Note} : if you own the original game disks, this step is not needed.\par
+\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
+See USAGE.md for more details.\par}
+\pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
+2.\tab It extracts files out of the numerous dat files that this first step produces.\par}
+\par
 {\bkmkstart AAAAAAAANB}
 {\bkmkend AAAAAAAANB}
 {{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
@@ -229,6 +243,12 @@ $ make full    # for just the *nix executable\par
 Usage
 \par}
 {\tc\tcl2 \v Usage}
+{\bkmkstart AAAAAAAANF}
+{\bkmkend AAAAAAAANF}
+{{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
+Basic Usage
+\par}
+{\tc\tcl3 \v Basic Usage}
 1) Install Harvester onto your machine if you haven't already done so. 2) Copy the following files from your harvester installation to the {\f2 dat-files/}  folder: {
 \par
 \pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid HARVEST.DAT\par
@@ -236,31 +256,6 @@ HARVEST3.DAT\par
 HARVEST4.DAT\par
 }
  4) Run the {\f2 HarvesterHarvester}  executable.\par}
-{\bkmkstart AAAAAAAANF}
-{\bkmkend AAAAAAAANF}
-{{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
-To Do
-\par}
-{\tc\tcl2 \v To Do}
-{
-\par
-\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
-Handle SIGINT/Windows-equivalent of SIGINT gracefully{
-\par
-\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
-Currently, if a user presses {\f2 CTRL+C}  while the program is executing, this causes a memory leak.{
-\par
-\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9642\tab}\ilvl2\ls1 \li0\ri0\lin0\rin0\fi-360\tx1080\li1080\ri0\lin1080\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
-To see this in action, run {\f2 make test}  and then press {\f2 CTRL+C} .\par}
-\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
-An ideal solution would free any outstanding, allocated memory and close open file handlers before exiting\par
-\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
-Ideally, this solution should also be cross-platform, if at all possible.\par
-\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u9702\tab}\ilvl1\ls1 \li0\ri0\lin0\rin0\fi-360\tx720\li720\ri0\lin720\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
-Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.\par}
-\pard\plain {\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\nowidctlpar\cf0\hich\af0\langfe2052\dbch\af0\afs24\lang1081\loch\f0\fs24\lang1033{\listtext\pard\plain \hich\af3\dbch\af3\loch\f8 \'01\u8226\tab}\ilvl0\ls1 \li0\ri0\lin0\rin0\fi-360\tx360\li360\ri0\lin360\rin0\fi-360\kerning1\hich\af4\dbch\af5\rtlch \ltrch\loch\fs20
-Create a guide for building the project from source for Windows users.\par}
-\par
 \par}
 {\bkmkstart AAAAAAAANG}
 {\bkmkend AAAAAAAANG}
@@ -2440,7 +2435,7 @@ void build_path_string_from_file (FILE * fptr, char * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Builds strings using formats provided by {\f2 internal-dat-file-paths.txt} . }}\par
 {
-Definition at line {\b 251} of file {\b data_reader.c}.}\par
+Definition at line {\b 252} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_array_uint8\:data_reader.c}
 {\xe \v data_reader.c\:read_array_uint8}
@@ -2927,17 +2922,18 @@ Go to the documentation of this file.\par
 00247   {\cf19 return} 0;\par
 00248 \}\par
 00249 \par
-00250 {\cf18 void}\par
-00251 build_path_string_from_file (FILE *fptr, {\cf18 char} *output)\par
-00252 \{\par
-00253   {\cf18 char} format[32] = \{ 0 \};\par
-00254   fgets (format, {\cf17 sizeof} (format), fptr);\par
-00255   {\cf18 size_t} len = strlen (format);\par
-00256   format[len - 1] = {\cf23 '\\0'};\par
-00257 \par
-00258   sprintf (output, format, OP_OUTPUT_DIR, OP_PATH_SEPARATOR,\par
-00259            OP_PATH_SEPARATOR);\par
-00260 \}\par
+00250 {\cf20 // this system could probably be replaced with a macro}\par
+00251 {\cf18 void}\par
+00252 build_path_string_from_file (FILE *fptr, {\cf18 char} *output)\par
+00253 \{\par
+00254   {\cf18 char} format[32] = \{ 0 \};\par
+00255   fgets (format, {\cf17 sizeof} (format), fptr);\par
+00256   {\cf18 size_t} len = strlen (format);\par
+00257   format[len - 1] = {\cf23 '\\0'};\par
+00258 \par
+00259   sprintf (output, format, OP_OUTPUT_DIR, OP_PATH_SEPARATOR,\par
+00260            OP_PATH_SEPARATOR);\par
+00261 \}\par
 }
 \par \pard\plain 
 
@@ -3057,7 +3053,7 @@ void build_path_string_from_file (FILE * fptr, char * output)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Builds strings using formats provided by {\f2 internal-dat-file-paths.txt} . }}\par
 {
-Definition at line {\b 251} of file {\b data_reader.c}.}\par
+Definition at line {\b 252} of file {\b data_reader.c}.}\par
 }
 {\xe \v read_array_uint8\:data_reader.h}
 {\xe \v data_reader.h\:read_array_uint8}
@@ -6435,62 +6431,64 @@ Go to the documentation of this file.\par
 00295 int8_t\par
 00296 process_internal_dat_files ({\cf18 void})\par
 00297 \{\par
-00298   FILE *table = fopen ({\cf22 "internal-dat-file-paths.txt"}, {\cf22 "r"});\par
-00299   {\cf19 if} (table == NULL)\par
-00300     \{\par
-00301       {\cf19 return} HH_FOPEN_ERROR;\par
-00302     \}\par
-00303 \par
-00304   {\cf19 while} (!peek_eof (table))\par
-00305     \{\par
-00306       {\cf20 // TODO: convert as many malloc'd strings to char arrays as possible.}\par
-00307       {\cf18 char} index_file_path[256] = \{ 0 \};\par
-00308       build_path_string_from_file (table, index_file_path);\par
-00309 \par
-00310       FILE *fptr = NULL;\par
-00311       {\cf19 if} (setup_extractor (&fptr, index_file_path) != 0)\par
-00312         \{\par
-00313           printf ({\cf22 "Skipping...\\n"});\par
-00314 \par
-00315           {\cf20 // Skip next line}\par
-00316           build_path_string_from_file (table, index_file_path);\par
-00317 \par
-00318           {\cf19 continue};\par
-00319         \}\par
-00320 \par
-00321       index_file idx_file;\par
-00322       {\cf19 if} (create_index_file (&idx_file) != 0)\par
-00323         \{\par
-00324           fclose (fptr);\par
-00325           fclose (table);\par
-00326           {\cf19 return} -1;\par
-00327         \}\par
-00328 \par
-00329       printf ({\cf22 "Processing index file: %s\\n"}, index_file_path);\par
-00330       {\cf19 if} (process_index_file (fptr, &idx_file) != 0)\par
-00331         \{\par
-00332           destroy_index_file (&idx_file);\par
-00333           fclose (table);\par
-00334           fclose (fptr);\par
-00335           {\cf19 return} -1;\par
-00336         \}\par
-00337       fclose (fptr);\par
-00338 \par
-00339       {\cf18 char} dat_file_path[256] = \{ 0 \};\par
-00340       build_path_string_from_file (table, dat_file_path);\par
-00341 \par
-00342       {\cf19 if} (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)\par
-00343         \{\par
-00344           destroy_index_file (&idx_file);\par
-00345           {\cf19 return} -1;\par
-00346         \}\par
-00347 \par
-00348       destroy_index_file (&idx_file);\par
-00349     \}\par
-00350 \par
-00351   fclose (table);\par
-00352   {\cf19 return} 0;\par
-00353 \}\par
+00298   {\cf17 const} {\cf18 char} *interal_paths = {\cf22 "internal-dat-file-paths.txt"};\par
+00299   FILE *table = fopen (interal_paths, {\cf22 "rb"});\par
+00300   {\cf19 if} (table == NULL)\par
+00301     \{\par
+00302       fprintf (stderr, {\cf22 "Couldn't find %s\\n."}, interal_paths);\par
+00303       {\cf19 return} HH_FOPEN_ERROR;\par
+00304     \}\par
+00305 \par
+00306   {\cf19 while} (!peek_eof (table))\par
+00307     \{\par
+00308       {\cf20 // TODO: convert as many malloc'd strings to char arrays as possible.}\par
+00309       {\cf18 char} index_file_path[256] = \{ 0 \};\par
+00310       build_path_string_from_file (table, index_file_path);\par
+00311 \par
+00312       FILE *fptr = NULL;\par
+00313       {\cf19 if} (setup_extractor (&fptr, index_file_path) != 0)\par
+00314         \{\par
+00315           printf ({\cf22 "Skipping...\\n"});\par
+00316 \par
+00317           {\cf20 // Skip next line}\par
+00318           build_path_string_from_file (table, index_file_path);\par
+00319 \par
+00320           {\cf19 continue};\par
+00321         \}\par
+00322 \par
+00323       index_file idx_file;\par
+00324       {\cf19 if} (create_index_file (&idx_file) != 0)\par
+00325         \{\par
+00326           fclose (fptr);\par
+00327           fclose (table);\par
+00328           {\cf19 return} -1;\par
+00329         \}\par
+00330 \par
+00331       printf ({\cf22 "Processing index file: %s\\n"}, index_file_path);\par
+00332       {\cf19 if} (process_index_file (fptr, &idx_file) != 0)\par
+00333         \{\par
+00334           destroy_index_file (&idx_file);\par
+00335           fclose (table);\par
+00336           fclose (fptr);\par
+00337           {\cf19 return} -1;\par
+00338         \}\par
+00339       fclose (fptr);\par
+00340 \par
+00341       {\cf18 char} dat_file_path[256] = \{ 0 \};\par
+00342       build_path_string_from_file (table, dat_file_path);\par
+00343 \par
+00344       {\cf19 if} (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)\par
+00345         \{\par
+00346           destroy_index_file (&idx_file);\par
+00347           {\cf19 return} -1;\par
+00348         \}\par
+00349 \par
+00350       destroy_index_file (&idx_file);\par
+00351     \}\par
+00352 \par
+00353   fclose (table);\par
+00354   {\cf19 return} 0;\par
+00355 \}\par
 }
 \par \pard\plain 
 
@@ -7806,7 +7804,7 @@ void process_flag (char * f){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes options beginning with {\f2 -}  character, called flags. }}\par
 {
-Definition at line {\b 123} of file {\b options.c}.}\par
+Definition at line {\b 124} of file {\b options.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -8116,45 +8114,46 @@ Go to the documentation of this file.\par
 00110   {\cf20 //  TODO: have some usage.md file that explains this in more detail.}\par
 00111   {\cf20 //  add a note here saying to read that file for details.}\par
 00112   puts ({\cf22 "\\t-d [path/to/some-dir]: specify the input directory for batch "}\par
-00113         {\cf22 "processing dat files."});\par
+00113         {\cf22 "processing dat files. (Default=./dat-files/)"});\par
 00114   puts ({\cf22 "\\t-e: don't extract internal dat files."});\par
 00115   puts ({\cf22 "\\t-i: extract internal dat files only."});\par
-00116   puts ({\cf22 "\\t-o [path/to/some-dir]: extract dat files to the given directory."});\par
-00117   puts ({\cf22 "\\nOptional:"});\par
-00118   puts ({\cf22 "\\tpath/to/dat_file.dat: specify the path to a dat file to be "}\par
-00119         {\cf22 "processed."});\par
-00120 \}\par
-00121 \par
-00122 {\cf18 void}\par
-00123 process_flag ({\cf18 char} *f)\par
-00124 \{\par
-00125   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
-00126     \{\par
-00127       OP_DEBUG_MODE = {\cf17 true};\par
-00128     \}\par
-00129   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
-00130     \{\par
-00131       print_out_list_of_command_line_arguments ();\par
-00132       exit (0);\par
-00133     \}\par
-00134   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-e"}) == 0)\par
-00135     \{\par
-00136       OP_SKIP_INT_DAT_PROCESSING = {\cf17 true};\par
-00137     \}\par
-00138   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-i"}) == 0)\par
-00139     \{\par
-00140       OP_SKIP_DAT_PROCESSING = {\cf17 true};\par
-00141     \}\par
-00142   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
-00143     \{\par
-00144       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
-00145       exit (0);\par
-00146     \}\par
-00147   {\cf19 else}\par
-00148     \{\par
-00149       handle_unknown_command_line_argument_error (f);\par
-00150     \}\par
-00151 \}\par
+00116   puts ({\cf22 "\\t-o [path/to/some-dir]: extract dat files to the given "}\par
+00117         {\cf22 "directory/look here for internal dat files. (Default=./output/)"});\par
+00118   puts ({\cf22 "\\nOptional:"});\par
+00119   puts ({\cf22 "\\tpath/to/dat_file.dat: specify the path to a dat file to be "}\par
+00120         {\cf22 "processed."});\par
+00121 \}\par
+00122 \par
+00123 {\cf18 void}\par
+00124 process_flag ({\cf18 char} *f)\par
+00125 \{\par
+00126   {\cf19 if} (strcmp (f, {\cf22 "--debug"}) == 0)\par
+00127     \{\par
+00128       OP_DEBUG_MODE = {\cf17 true};\par
+00129     \}\par
+00130   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--help"}) == 0)\par
+00131     \{\par
+00132       print_out_list_of_command_line_arguments ();\par
+00133       exit (0);\par
+00134     \}\par
+00135   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-e"}) == 0)\par
+00136     \{\par
+00137       OP_SKIP_INT_DAT_PROCESSING = {\cf17 true};\par
+00138     \}\par
+00139   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "-i"}) == 0)\par
+00140     \{\par
+00141       OP_SKIP_DAT_PROCESSING = {\cf17 true};\par
+00142     \}\par
+00143   {\cf19 else} {\cf19 if} (strcmp (f, {\cf22 "--version"}) == 0)\par
+00144     \{\par
+00145       printf ({\cf22 "HarvesterHarvester v%s\\n"}, VERSION_NUMBER_STR);\par
+00146       exit (0);\par
+00147     \}\par
+00148   {\cf19 else}\par
+00149     \{\par
+00150       handle_unknown_command_line_argument_error (f);\par
+00151     \}\par
+00152 \}\par
 }
 \par \pard\plain 
 

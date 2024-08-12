@@ -70,7 +70,7 @@
 <para>Builds strings using formats provided by <computeroutput>internal-dat-file-paths.txt</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_data__reader_8c_source_1l00251">251</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
+Definition at line <link linkend="_data__reader_8c_source_1l00252">252</link> of file <link linkend="_data__reader_8c_source">data_reader.c</link>.</para>
 </section>
 <anchor xml:id="_data__reader_8c_1ac8a5617b9328c9f95fb8ce6cf446bdf0"/><section>
     <title>read_array_uint8()</title>

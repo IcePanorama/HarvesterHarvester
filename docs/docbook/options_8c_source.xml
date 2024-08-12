@@ -111,43 +111,44 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_options_8c_source_1l00110"/>00110 &#32;&#32;<emphasis role="comment">//&#32;&#32;TODO:&#32;have&#32;some&#32;usage.md&#32;file&#32;that&#32;explains&#32;this&#32;in&#32;more&#32;detail.</emphasis>
 <anchor xml:id="_options_8c_source_1l00111"/>00111 &#32;&#32;<emphasis role="comment">//&#32;&#32;add&#32;a&#32;note&#32;here&#32;saying&#32;to&#32;read&#32;that&#32;file&#32;for&#32;details.</emphasis>
 <anchor xml:id="_options_8c_source_1l00112"/>00112 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\t-d&#32;[path/to/some-dir]:&#32;specify&#32;the&#32;input&#32;directory&#32;for&#32;batch&#32;&quot;</emphasis>
-<anchor xml:id="_options_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;processing&#32;dat&#32;files.&quot;</emphasis>);
+<anchor xml:id="_options_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;processing&#32;dat&#32;files.&#32;(Default=./dat-files/)&quot;</emphasis>);
 <anchor xml:id="_options_8c_source_1l00114"/>00114 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\t-e:&#32;don&apos;t&#32;extract&#32;internal&#32;dat&#32;files.&quot;</emphasis>);
 <anchor xml:id="_options_8c_source_1l00115"/>00115 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\t-i:&#32;extract&#32;internal&#32;dat&#32;files&#32;only.&quot;</emphasis>);
-<anchor xml:id="_options_8c_source_1l00116"/>00116 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\t-o&#32;[path/to/some-dir]:&#32;extract&#32;dat&#32;files&#32;to&#32;the&#32;given&#32;directory.&quot;</emphasis>);
-<anchor xml:id="_options_8c_source_1l00117"/>00117 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\nOptional:&quot;</emphasis>);
-<anchor xml:id="_options_8c_source_1l00118"/>00118 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\tpath/to/dat_file.dat:&#32;specify&#32;the&#32;path&#32;to&#32;a&#32;dat&#32;file&#32;to&#32;be&#32;&quot;</emphasis>
-<anchor xml:id="_options_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;processed.&quot;</emphasis>);
-<anchor xml:id="_options_8c_source_1l00120"/>00120 }
-<anchor xml:id="_options_8c_source_1l00121"/>00121 
-<anchor xml:id="_options_8c_source_1l00122"/>00122 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_options_8c_source_1l00123"/><link linkend="_options_8c_1a6b175948738c4d93a820a0ada9e54669">00123</link> <link linkend="_options_8c_1a6b175948738c4d93a820a0ada9e54669">process_flag</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*f)
-<anchor xml:id="_options_8c_source_1l00124"/>00124 {
-<anchor xml:id="_options_8c_source_1l00125"/>00125 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;--debug&quot;</emphasis>)&#32;==&#32;0)
-<anchor xml:id="_options_8c_source_1l00126"/>00126 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_options_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
-<anchor xml:id="_options_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_options_8c_source_1l00129"/>00129 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;--help&quot;</emphasis>)&#32;==&#32;0)
-<anchor xml:id="_options_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_options_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</link>&#32;();
-<anchor xml:id="_options_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(0);
-<anchor xml:id="_options_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_options_8c_source_1l00134"/>00134 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;-e&quot;</emphasis>)&#32;==&#32;0)
-<anchor xml:id="_options_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_options_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1ac385bd442dabc3eb9cb8af4cdbfdfcc4">OP_SKIP_INT_DAT_PROCESSING</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
-<anchor xml:id="_options_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_options_8c_source_1l00138"/>00138 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;-i&quot;</emphasis>)&#32;==&#32;0)
-<anchor xml:id="_options_8c_source_1l00139"/>00139 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_options_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
-<anchor xml:id="_options_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_options_8c_source_1l00142"/>00142 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;--version&quot;</emphasis>)&#32;==&#32;0)
-<anchor xml:id="_options_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_options_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;HarvesterHarvester&#32;v%s\n&quot;</emphasis>,&#32;<link linkend="_options_8c_1a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</link>);
-<anchor xml:id="_options_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(0);
-<anchor xml:id="_options_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_options_8c_source_1l00147"/>00147 &#32;&#32;<emphasis role="keywordflow">else</emphasis>
-<anchor xml:id="_options_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_options_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(f);
-<anchor xml:id="_options_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_options_8c_source_1l00151"/>00151 }
+<anchor xml:id="_options_8c_source_1l00116"/>00116 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\t-o&#32;[path/to/some-dir]:&#32;extract&#32;dat&#32;files&#32;to&#32;the&#32;given&#32;&quot;</emphasis>
+<anchor xml:id="_options_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;directory/look&#32;here&#32;for&#32;internal&#32;dat&#32;files.&#32;(Default=./output/)&quot;</emphasis>);
+<anchor xml:id="_options_8c_source_1l00118"/>00118 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\nOptional:&quot;</emphasis>);
+<anchor xml:id="_options_8c_source_1l00119"/>00119 &#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;\tpath/to/dat_file.dat:&#32;specify&#32;the&#32;path&#32;to&#32;a&#32;dat&#32;file&#32;to&#32;be&#32;&quot;</emphasis>
+<anchor xml:id="_options_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;processed.&quot;</emphasis>);
+<anchor xml:id="_options_8c_source_1l00121"/>00121 }
+<anchor xml:id="_options_8c_source_1l00122"/>00122 
+<anchor xml:id="_options_8c_source_1l00123"/>00123 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_options_8c_source_1l00124"/><link linkend="_options_8c_1a6b175948738c4d93a820a0ada9e54669">00124</link> <link linkend="_options_8c_1a6b175948738c4d93a820a0ada9e54669">process_flag</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*f)
+<anchor xml:id="_options_8c_source_1l00125"/>00125 {
+<anchor xml:id="_options_8c_source_1l00126"/>00126 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;--debug&quot;</emphasis>)&#32;==&#32;0)
+<anchor xml:id="_options_8c_source_1l00127"/>00127 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_options_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a22750490a402211ccfd1c7dda808eb51">OP_DEBUG_MODE</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_options_8c_source_1l00129"/>00129 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_options_8c_source_1l00130"/>00130 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;--help&quot;</emphasis>)&#32;==&#32;0)
+<anchor xml:id="_options_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_options_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a5413a17f20b0c5daf64765e6c104768d">print_out_list_of_command_line_arguments</link>&#32;();
+<anchor xml:id="_options_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(0);
+<anchor xml:id="_options_8c_source_1l00134"/>00134 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_options_8c_source_1l00135"/>00135 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;-e&quot;</emphasis>)&#32;==&#32;0)
+<anchor xml:id="_options_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_options_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1ac385bd442dabc3eb9cb8af4cdbfdfcc4">OP_SKIP_INT_DAT_PROCESSING</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_options_8c_source_1l00138"/>00138 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_options_8c_source_1l00139"/>00139 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;-i&quot;</emphasis>)&#32;==&#32;0)
+<anchor xml:id="_options_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_options_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_options_8c_1a1ee118406b5a5d8845db1bc412b34400">OP_SKIP_DAT_PROCESSING</link>&#32;=&#32;<emphasis role="keyword">true</emphasis>;
+<anchor xml:id="_options_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_options_8c_source_1l00143"/>00143 &#32;&#32;<emphasis role="keywordflow">else</emphasis>&#32;<emphasis role="keywordflow">if</emphasis>&#32;(strcmp&#32;(f,&#32;<emphasis role="stringliteral">&quot;--version&quot;</emphasis>)&#32;==&#32;0)
+<anchor xml:id="_options_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_options_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;HarvesterHarvester&#32;v%s\n&quot;</emphasis>,&#32;<link linkend="_options_8c_1a59cde5c015f49e774b06103571d51dc9">VERSION_NUMBER_STR</link>);
+<anchor xml:id="_options_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;exit&#32;(0);
+<anchor xml:id="_options_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_options_8c_source_1l00148"/>00148 &#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_options_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_options_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(f);
+<anchor xml:id="_options_8c_source_1l00151"/>00151 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_options_8c_source_1l00152"/>00152 }
 </programlisting></section>

@@ -111,44 +111,45 @@
 \DoxyCodeLine{\Hypertarget{options_8c_source_l00110}00110\ \ \ \textcolor{comment}{//\ \ TODO:\ have\ some\ usage.md\ file\ that\ explains\ this\ in\ more\ detail.}}
 \DoxyCodeLine{\Hypertarget{options_8c_source_l00111}00111\ \ \ \textcolor{comment}{//\ \ add\ a\ note\ here\ saying\ to\ read\ that\ file\ for\ details.}}
 \DoxyCodeLine{\Hypertarget{options_8c_source_l00112}00112\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)t-\/d\ [path/to/some-\/dir]:\ specify\ the\ input\ directory\ for\ batch\ "{}}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}processing\ dat\ files."{}});}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}processing\ dat\ files.\ (Default=./dat-\/files/)"{}});}
 \DoxyCodeLine{\Hypertarget{options_8c_source_l00114}00114\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)t-\/e:\ don't\ extract\ internal\ dat\ files."{}});}
 \DoxyCodeLine{\Hypertarget{options_8c_source_l00115}00115\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)t-\/i:\ extract\ internal\ dat\ files\ only."{}});}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00116}00116\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)t-\/o\ [path/to/some-\/dir]:\ extract\ dat\ files\ to\ the\ given\ directory."{}});}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00117}00117\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)nOptional:"{}});}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00118}00118\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)tpath/to/dat\_file.dat:\ specify\ the\ path\ to\ a\ dat\ file\ to\ be\ "{}}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}processed."{}});}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00120}00120\ \}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00121}00121\ }
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00122}00122\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00123}\mbox{\hyperlink{options_8c_a6b175948738c4d93a820a0ada9e54669}{00123}}\ \mbox{\hyperlink{options_8c_a6b175948738c4d93a820a0ada9e54669}{process\_flag}}\ (\textcolor{keywordtype}{char}\ *f)}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00124}00124\ \{}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00125}00125\ \ \ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/-\/debug"{}})\ ==\ 0)}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00126}00126\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00127}00127\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_a22750490a402211ccfd1c7dda808eb51}{OP\_DEBUG\_MODE}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00128}00128\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00129}00129\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/-\/help"{}})\ ==\ 0)}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00130}00130\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00131}00131\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_a5413a17f20b0c5daf64765e6c104768d}{print\_out\_list\_of\_command\_line\_arguments}}\ ();}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00132}00132\ \ \ \ \ \ \ exit\ (0);}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00133}00133\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00134}00134\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/e"{}})\ ==\ 0)}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00135}00135\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00136}00136\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_ac385bd442dabc3eb9cb8af4cdbfdfcc4}{OP\_SKIP\_INT\_DAT\_PROCESSING}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00137}00137\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00138}00138\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/i"{}})\ ==\ 0)}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00139}00139\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00140}00140\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_a1ee118406b5a5d8845db1bc412b34400}{OP\_SKIP\_DAT\_PROCESSING}}\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00141}00141\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00142}00142\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/-\/version"{}})\ ==\ 0)}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00143}00143\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00144}00144\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}HarvesterHarvester\ v\%s\(\backslash\)n"{}},\ \mbox{\hyperlink{options_8c_a59cde5c015f49e774b06103571d51dc9}{VERSION\_NUMBER\_STR}});}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00145}00145\ \ \ \ \ \ \ exit\ (0);}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00146}00146\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00147}00147\ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00148}00148\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00149}00149\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\_unknown\_command\_line\_argument\_error}}\ (f);}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00150}00150\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{options_8c_source_l00151}00151\ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00116}00116\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)t-\/o\ [path/to/some-\/dir]:\ extract\ dat\ files\ to\ the\ given\ "{}}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}directory/look\ here\ for\ internal\ dat\ files.\ (Default=./output/)"{}});}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00118}00118\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)nOptional:"{}});}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00119}00119\ \ \ puts\ (\textcolor{stringliteral}{"{}\(\backslash\)tpath/to/dat\_file.dat:\ specify\ the\ path\ to\ a\ dat\ file\ to\ be\ "{}}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}processed."{}});}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00121}00121\ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00123}00123\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00124}\mbox{\hyperlink{options_8c_a6b175948738c4d93a820a0ada9e54669}{00124}}\ \mbox{\hyperlink{options_8c_a6b175948738c4d93a820a0ada9e54669}{process\_flag}}\ (\textcolor{keywordtype}{char}\ *f)}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00125}00125\ \{}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00126}00126\ \ \ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/-\/debug"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00127}00127\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00128}00128\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_a22750490a402211ccfd1c7dda808eb51}{OP\_DEBUG\_MODE}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00129}00129\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00130}00130\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/-\/help"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00131}00131\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00132}00132\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_a5413a17f20b0c5daf64765e6c104768d}{print\_out\_list\_of\_command\_line\_arguments}}\ ();}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00133}00133\ \ \ \ \ \ \ exit\ (0);}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00135}00135\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/e"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00136}00136\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00137}00137\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_ac385bd442dabc3eb9cb8af4cdbfdfcc4}{OP\_SKIP\_INT\_DAT\_PROCESSING}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00138}00138\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00139}00139\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/i"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00140}00140\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00141}00141\ \ \ \ \ \ \ \mbox{\hyperlink{options_8c_a1ee118406b5a5d8845db1bc412b34400}{OP\_SKIP\_DAT\_PROCESSING}}\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00142}00142\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00143}00143\ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (strcmp\ (f,\ \textcolor{stringliteral}{"{}-\/-\/version"{}})\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00144}00144\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00145}00145\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}HarvesterHarvester\ v\%s\(\backslash\)n"{}},\ \mbox{\hyperlink{options_8c_a59cde5c015f49e774b06103571d51dc9}{VERSION\_NUMBER\_STR}});}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00146}00146\ \ \ \ \ \ \ exit\ (0);}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00147}00147\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00148}00148\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00149}00149\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00150}00150\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\_unknown\_command\_line\_argument\_error}}\ (f);}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00151}00151\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{options_8c_source_l00152}00152\ \}}
 
 \end{DoxyCode}
