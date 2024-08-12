@@ -19,9 +19,9 @@ So far, I've already been able to reverse engineer the `*.BM` files, which are u
 
 ## Installation
 ### Easiest Way
-Navigate to the [releases](https://github.com/IcePanorama/HarvesterHarvester/releases) page and download the latest zip file. Once downloaded, simply extract the zip file and run the appropriate executable given your operating system/architecture.
+Navigate to the [releases](https://github.com/IcePanorama/HarvesterHarvester/releases) page and download the latest zip file.
 
-If you're on a modern Windows machine and you're unsure of which file to run, your best bet is likely the one ending in `x86_64`; that executable should run on most Windows machines made in the past 15 years.
+Once downloaded, extract the zip file wherever you'd like and you're done! See [USAGE.md](.github/USAGE.md) for more details on how to run the program.
 
 **NOTE**: _if you're reading this in the present, you'll notice that there currently aren't any available releases. I'm writing this README in advance -- this project isn't quite done yet, sorry!_
 
@@ -42,20 +42,11 @@ $ make full    # for just the *nix executable
 ```
 Running `make release` is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.
 
-## Usage
-### Basic Usage
-1) Install Harvester onto your machine if you haven't already done so.
-2) Copy the following files from your harvester installation to the `dat-files/` folder:
-```
-HARVEST.DAT
-HARVEST3.DAT
-HARVEST4.DAT
-```
-4) Run the `HarvesterHarvester` executable.
+Congrats! You're now all set to [use the program](.github/USAGE.md) or [start contributing](.github/CONTRIBUTING.md).
 
 ## A note on piracy
 
-This program requires that you legally own a copy of _Harvester_ in order to source the necessary `.dat` files. 
+This program requires that you legally own a copy of _Harvester_ in order to source the necessary dat files. 
 
 The GOG version (which this project was built around) [is available here for $5.99](https://www.gog.com/en/game/harvester), although it's worth noting that it does go on sale rather often.
 
