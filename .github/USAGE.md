@@ -102,7 +102,9 @@ HarvesterHarvester_i686.exe -i -o path\to\your\dir # 32-bit Windows machines
 
 ```
 Usage:
-	./HarvesterHarvester [options] [path/to/dat_file.dat]
+	HarvesterHarvester_x86_64.exe [options] [path/to/dat_file.dat] # 64-bit Windows machines
+	HarvesterHarvester_i686.exe [options] [path/to/dat_file.dat] # 32-bit Windows machines
+	./HarvesterHarvester [options] [path/to/dat_file.dat] # *nix machines
 
 Command-line arguments:
 	--debug: enables debug mode, skips extracting large files. Useful for developers.
