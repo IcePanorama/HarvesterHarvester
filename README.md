@@ -4,11 +4,18 @@ A tool for harvesting data out of [_Harvester_'s (DigiFX Interactive, 1996)](htt
 This program is the first piece of a toolchain that I'm developing as I work to reverse engineering *Harvester*. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering. 
 
 The program works in two steps: 
-
-1. It reconstructs the original disk images that the game would've shipped with.
+1. It reconstructs the original disk images that Harvester would've shipped with in 1996
    * _Note_: if you own the original game disks, this step is not needed.
    * See [USAGE.md](.github/USAGE.md) for more details.
-2. It extracts files out of the numerous dat files that this first step produces.
+2. It extracts the dat files contained within those new directories in order to give you full access to all of the game's files.
+
+### Future Projects
+
+The next step for me in this project will be creating an asset viewer.
+
+This will require me to reverse engineer all of the various, non-standardized file formats that DigiFX used when making the game, which will be essential for porting the game in the future.
+
+So far, I've already been able to reverse engineer the `*.BM` files, which are used for all the static backgrounds in the games, for character portraits, the map, and more.  Unfortunately, I likely can't to share these files, at least not in bulk (see [below](#A-note-on-piracy)). I will, however, be sharing a small handful of these images as I show this project off online and I'll make sure to add a link here in the future if you wish to view those! 
 
 ## Installation
 ### Easiest Way
