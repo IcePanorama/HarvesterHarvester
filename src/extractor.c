@@ -62,7 +62,7 @@ extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
   FILE *output_file = fopen (output_filename, "wb");
   if (output_file == NULL)
     {
-      fopen_error (output_filename);
+      handle_fopen_error (output_filename);
       free (output_filename);
       return HH_FOPEN_ERROR;
     }
@@ -226,8 +226,7 @@ extract_index_file (index_file *idx, const char *idx_path,
   FILE *dat_file = fopen (dat_path, "rb");
   if (dat_file == NULL)
     {
-      fopen_error ((char *)dat_path);
-      return HH_FOPEN_ERROR;
+      return handle_fopen_error ((char *)dat_path);
     }
 
   for (size_t i = 0; i < idx->current_index; i++)

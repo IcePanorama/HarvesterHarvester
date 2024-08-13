@@ -32,7 +32,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8h_source_1l00031"/>00031 
 <anchor xml:id="_errors_8h_source_1l00033"/>00033 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>;
 <anchor xml:id="_errors_8h_source_1l00034"/>00034 
-<anchor xml:id="_errors_8h_source_1l00036"/>00036 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
+<anchor xml:id="_errors_8h_source_1l00036"/>00036 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
 <anchor xml:id="_errors_8h_source_1l00037"/>00037 
 <anchor xml:id="_errors_8h_source_1l00039"/>00039 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes);
 <anchor xml:id="_errors_8h_source_1l00040"/>00040 

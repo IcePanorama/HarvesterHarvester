@@ -7,10 +7,11 @@
 const char *CALLOC_FAILED_ERR_MSG_FMT = "Unable to calloc string of size %zu.";
 const char *FOPEN_FAILED_ERR_MSG_FMT = "Unable to open output file, %s.";
 
-void
-fopen_error (char *filename)
+HH_ERRORS
+handle_fopen_error (char *filename)
 {
   hh_log (HH_LOG_ERROR, "Unable to open file, %s.", filename);
+  return HH_FOPEN_ERROR;
 }
 
 HH_ERRORS

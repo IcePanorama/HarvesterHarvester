@@ -33,7 +33,7 @@ typedef enum HH_ERRORS
 extern const char *FOPEN_FAILED_ERR_MSG_FMT;
 
 /** Throws an fopen error. */
-void fopen_error (char *filename);
+HH_ERRORS handle_fopen_error (char *filename);
 
 /** Throws an fread error. */
 HH_ERRORS handle_fread_error (size_t actual, size_t expected_bytes);

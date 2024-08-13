@@ -42,7 +42,7 @@
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00176">176</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00180">180</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8c_1a3c04138a5bfe5d72780bb7e82a18e627"/><section>
     <title>main()</title>
@@ -102,7 +102,7 @@ Parameters</title>
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00090">90</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00094">94</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8c_1a1146bc482f9887a59a54f5eb00394d61"/><section>
     <title>process_internal_dat_files()</title>
@@ -121,7 +121,7 @@ Definition at line <link linkend="_hh_8c_source_1l00090">90</link> of file <link
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_hh_8c_source_1l00296">296</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
+Definition at line <link linkend="_hh_8c_source_1l00300">300</link> of file <link linkend="_hh_8c_source">hh.c</link>.</para>
 </section>
 <anchor xml:id="_hh_8c_1aee43b2058351de4cc24d923d0bb0ed3c"/><section>
     <title>setup_extractor()</title>

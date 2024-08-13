@@ -11,10 +11,9 @@ var searchData=
   ['filename_8',['filename',['../structindex__entry.html#ae2d39eccb26bcd6b8976723a9f252fbe',1,'index_entry']]],
   ['filename_5fmax_5flen_9',['FILENAME_MAX_LEN',['../index__file_8h.html#a733cac5291dfeb37c70016d83efed505',1,'index_file.h']]],
   ['final_5fdirectory_5frecord_10',['final_directory_record',['../structfile__flags.html#aef4a9f3598c6b75c602d7c7a969669a3',1,'file_flags']]],
-  ['fopen_5ferror_11',['fopen_error',['../errors_8c.html#a9b9a6494b96286134308f2da3e179af9',1,'fopen_error(char *filename):&#160;errors.c'],['../errors_8h.html#a9b9a6494b96286134308f2da3e179af9',1,'fopen_error(char *filename):&#160;errors.c']]],
-  ['fopen_5ffailed_5ferr_5fmsg_5ffmt_12',['FOPEN_FAILED_ERR_MSG_FMT',['../errors_8c.html#a03ff53905312bd88e728b1863cf1b1c9',1,'FOPEN_FAILED_ERR_MSG_FMT:&#160;errors.c'],['../errors_8h.html#a03ff53905312bd88e728b1863cf1b1c9',1,'FOPEN_FAILED_ERR_MSG_FMT:&#160;errors.c']]],
-  ['from_20source_20linux_20macos_20unix_13',['Building from source (Linux/MacOS/Unix)',['../index.html#autotoc_md4',1,'']]],
-  ['full_5fpath_14',['full_path',['../structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab',1,'index_entry']]],
-  ['full_5fpath_5fmax_5flen_15',['FULL_PATH_MAX_LEN',['../index__file_8h.html#a1f72d7c1f8f994a1873de2f0405f66bf',1,'index_file.h']]],
-  ['future_20projects_16',['Future Projects',['../index.html#autotoc_md1',1,'']]]
+  ['fopen_5ffailed_5ferr_5fmsg_5ffmt_11',['FOPEN_FAILED_ERR_MSG_FMT',['../errors_8c.html#a03ff53905312bd88e728b1863cf1b1c9',1,'FOPEN_FAILED_ERR_MSG_FMT:&#160;errors.c'],['../errors_8h.html#a03ff53905312bd88e728b1863cf1b1c9',1,'FOPEN_FAILED_ERR_MSG_FMT:&#160;errors.c']]],
+  ['from_20source_20linux_20macos_20unix_12',['Building from source (Linux/MacOS/Unix)',['../index.html#autotoc_md4',1,'']]],
+  ['full_5fpath_13',['full_path',['../structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab',1,'index_entry']]],
+  ['full_5fpath_5fmax_5flen_14',['FULL_PATH_MAX_LEN',['../index__file_8h.html#a1f72d7c1f8f994a1873de2f0405f66bf',1,'index_file.h']]],
+  ['future_20projects_15',['Future Projects',['../index.html#autotoc_md1',1,'']]]
 ];

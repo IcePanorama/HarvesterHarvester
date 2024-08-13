@@ -73,7 +73,11 @@ setup_extractor (FILE **fptr, char *filename)
   *fptr = fopen (filename, "rb");
   if (*fptr == NULL)
     {
-      fopen_error (filename);
+      handle_fopen_error (filename);
+      /*
+       * Need to explicitly return `HH_FOPEN_ERROR` here otherwise gcc
+       * complains
+       */
       return HH_FOPEN_ERROR;
     }
 
@@ -299,8 +303,7 @@ process_internal_dat_files (void)
   FILE *table = fopen (interal_paths, "rb");
   if (table == NULL)
     {
-      fopen_error ((char *)interal_paths);
-      return HH_FOPEN_ERROR;
+      return handle_fopen_error ((char *)interal_paths);
     }
 
   while (!peek_eof (table))

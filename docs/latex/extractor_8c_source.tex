@@ -55,7 +55,7 @@
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00062}00062\ \ \ FILE\ *output\_file\ =\ fopen\ (output\_filename,\ \textcolor{stringliteral}{"{}wb"{}});}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00063}00063\ \ \ \textcolor{keywordflow}{if}\ (output\_file\ ==\ NULL)}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00064}00064\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00065}00065\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a9b9a6494b96286134308f2da3e179af9}{fopen\_error}}\ (output\_filename);}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00065}00065\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a362a48baf5e9d27699c8f7cfe184d77d}{handle\_fopen\_error}}\ (output\_filename);}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00066}00066\ \ \ \ \ \ \ free\ (output\_filename);}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00067}00067\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a}{HH\_FOPEN\_ERROR}};}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00068}00068\ \ \ \ \ \}}
@@ -219,28 +219,27 @@
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00226}00226\ \ \ FILE\ *dat\_file\ =\ fopen\ (dat\_path,\ \textcolor{stringliteral}{"{}rb"{}});}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00227}00227\ \ \ \textcolor{keywordflow}{if}\ (dat\_file\ ==\ NULL)}
 \DoxyCodeLine{\Hypertarget{extractor_8c_source_l00228}00228\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00229}00229\ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a9b9a6494b96286134308f2da3e179af9}{fopen\_error}}\ ((\textcolor{keywordtype}{char}\ *)dat\_path);}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00230}00230\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a}{HH\_FOPEN\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00231}00231\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00232}00232\ }
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00233}00233\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ idx-\/>\mbox{\hyperlink{structindex__file_ae7878b33b733dd77bc70ca4dfa390628}{current\_index}};\ i++)}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00234}00234\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00235}00235\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ output\_path[256]\ =\ \{\ 0\ \};}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00236}00236\ }
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00241}00241\ \ \ \ \ \ \ strncpy\ (output\_path,\ idx\_path,\ strlen\ (idx\_path)\ -\/\ 10);}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00242}00242\ \ \ \ \ \ \ strcat\ (output\_path,\ idx-\/>\mbox{\hyperlink{structindex__file_ad6b0840d539f5109be6ccfaab1d1a3d0}{indicies}}[i].\mbox{\hyperlink{structindex__entry_a5dfac282860b15b527102a2e87ef63ab}{full\_path}});}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00243}00243\ }
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00244}00244\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{extractor_8c_a8a69ed144c7791001eb2d6055e297bfd}{extract\_file\_using\_idx\_entry}}\ (dat\_file,\ \&idx-\/>\mbox{\hyperlink{structindex__file_ad6b0840d539f5109be6ccfaab1d1a3d0}{indicies}}[i],}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output\_path)}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ fclose\ (dat\_file);}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00250}00250\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00251}00251\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00252}00252\ }
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00253}00253\ \ \ fclose\ (dat\_file);}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00254}00254\ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00255}00255\ \}}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00229}00229\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8c_a362a48baf5e9d27699c8f7cfe184d77d}{handle\_fopen\_error}}\ ((\textcolor{keywordtype}{char}\ *)dat\_path);}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00230}00230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00232}00232\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ idx-\/>\mbox{\hyperlink{structindex__file_ae7878b33b733dd77bc70ca4dfa390628}{current\_index}};\ i++)}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00233}00233\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00234}00234\ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ output\_path[256]\ =\ \{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00240}00240\ \ \ \ \ \ \ strncpy\ (output\_path,\ idx\_path,\ strlen\ (idx\_path)\ -\/\ 10);}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00241}00241\ \ \ \ \ \ \ strcat\ (output\_path,\ idx-\/>\mbox{\hyperlink{structindex__file_ad6b0840d539f5109be6ccfaab1d1a3d0}{indicies}}[i].\mbox{\hyperlink{structindex__entry_a5dfac282860b15b527102a2e87ef63ab}{full\_path}});}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00243}00243\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{extractor_8c_a8a69ed144c7791001eb2d6055e297bfd}{extract\_file\_using\_idx\_entry}}\ (dat\_file,\ \&idx-\/>\mbox{\hyperlink{structindex__file_ad6b0840d539f5109be6ccfaab1d1a3d0}{indicies}}[i],}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ output\_path)}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00246}00246\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ fclose\ (dat\_file);}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00250}00250\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00252}00252\ \ \ fclose\ (dat\_file);}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00253}00253\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{extractor_8c_source_l00254}00254\ \}}
 
 \end{DoxyCode}

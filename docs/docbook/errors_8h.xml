@@ -19,7 +19,7 @@
 <simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>void <link linkend="_errors_8h_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link> (char *filename)</para>
+            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8h_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link> (char *filename)</para>
 
 <para>Throws an fopen error. </para>
 </listitem>
@@ -93,17 +93,6 @@ Definition at line <link linkend="_errors_8h_source_1l00022">22</link> of file <
 </section>
 <section>
 <title>Function Documentation</title>
-<anchor xml:id="_errors_8h_1a9b9a6494b96286134308f2da3e179af9"/><section>
-    <title>fopen_error()</title>
-<indexterm><primary>fopen_error</primary><secondary>errors.h</secondary></indexterm>
-<indexterm><primary>errors.h</primary><secondary>fopen_error</secondary></indexterm>
-<para><computeroutput>void fopen_error (char * filename)</computeroutput></para><para>
-
-<para>Throws an fopen error. </para>
-</para>
-<para>
-Definition at line <link linkend="_errors_8c_source_1l00011">11</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
-</section>
 <anchor xml:id="_errors_8h_1a264d565f946a86af55409cbe5b980060"/><section>
     <title>handle_calloc_error()</title>
 <indexterm><primary>handle_calloc_error</primary><secondary>errors.h</secondary></indexterm>
@@ -113,7 +102,18 @@ Definition at line <link linkend="_errors_8c_source_1l00011">11</link> of file <
 <para>Throws an calloc error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00041">41</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00042">42</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+</section>
+<anchor xml:id="_errors_8h_1a362a48baf5e9d27699c8f7cfe184d77d"/><section>
+    <title>handle_fopen_error()</title>
+<indexterm><primary>handle_fopen_error</primary><secondary>errors.h</secondary></indexterm>
+<indexterm><primary>errors.h</primary><secondary>handle_fopen_error</secondary></indexterm>
+<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_fopen_error (char * filename)</computeroutput></para><para>
+
+<para>Throws an fopen error. </para>
+</para>
+<para>
+Definition at line <link linkend="_errors_8c_source_1l00011">11</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc"/><section>
     <title>handle_fread_error()</title>
@@ -124,7 +124,7 @@ Definition at line <link linkend="_errors_8c_source_1l00041">41</link> of file <
 <para>Throws an fread error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00017">17</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00018">18</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a8ae11ef9f755479186d4d1a6dcf3ec99"/><section>
     <title>handle_malloc_error()</title>
@@ -135,7 +135,7 @@ Definition at line <link linkend="_errors_8c_source_1l00017">17</link> of file <
 <para>Throws an malloc error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00057">57</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00058">58</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a0779e2db9fc5d11057840045b4196a4f"/><section>
     <title>handle_realloc_error()</title>
@@ -146,7 +146,7 @@ Definition at line <link linkend="_errors_8c_source_1l00057">57</link> of file <
 <para>Throws an calloc error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00048">48</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00049">49</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0"/><section>
     <title>handle_unknown_command_line_argument_error()</title>
@@ -157,7 +157,7 @@ Definition at line <link linkend="_errors_8c_source_1l00048">48</link> of file <
 <para>Throws an unknown command line argument error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00025">25</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00026">26</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 </section>
 <section>

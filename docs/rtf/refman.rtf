@@ -4438,7 +4438,7 @@ Functions\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-void {\b fopen_error} (char *filename)\par
+{\b HH_ERRORS} {\b handle_fopen_error} (char *filename)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an fopen error. }{
@@ -4499,11 +4499,11 @@ Format string for failed fopen error message. }{
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Function Documentation\par
 \pard\plain 
-{\xe \v fopen_error\:errors.c}
-{\xe \v errors.c\:fopen_error}
+{\xe \v handle_calloc_error\:errors.c}
+{\xe \v errors.c\:handle_calloc_error}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-void fopen_error (char * filename)}}
+{\b HH_ERRORS} handle_calloc_error (size_t size)}}
 \par
 {\bkmkstart AAAAAAAADI}
 {\bkmkend AAAAAAAADI}
@@ -4512,15 +4512,15 @@ void fopen_error (char * filename)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Throws an fopen error. }}\par
+Throws an calloc error. }}\par
 {
-Definition at line {\b 11} of file {\b errors.c}.}\par
+Definition at line {\b 42} of file {\b errors.c}.}\par
 }
-{\xe \v handle_calloc_error\:errors.c}
-{\xe \v errors.c\:handle_calloc_error}
+{\xe \v handle_fopen_error\:errors.c}
+{\xe \v errors.c\:handle_fopen_error}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-{\b HH_ERRORS} handle_calloc_error (size_t size)}}
+{\b HH_ERRORS} handle_fopen_error (char * filename)}}
 \par
 {\bkmkstart AAAAAAAADJ}
 {\bkmkend AAAAAAAADJ}
@@ -4529,9 +4529,9 @@ Definition at line {\b 11} of file {\b errors.c}.}\par
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Throws an calloc error. }}\par
+Throws an fopen error. }}\par
 {
-Definition at line {\b 41} of file {\b errors.c}.}\par
+Definition at line {\b 11} of file {\b errors.c}.}\par
 }
 {\xe \v handle_fread_error\:errors.c}
 {\xe \v errors.c\:handle_fread_error}
@@ -4548,7 +4548,7 @@ Definition at line {\b 41} of file {\b errors.c}.}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an fread error. }}\par
 {
-Definition at line {\b 17} of file {\b errors.c}.}\par
+Definition at line {\b 18} of file {\b errors.c}.}\par
 }
 {\xe \v handle_malloc_error\:errors.c}
 {\xe \v errors.c\:handle_malloc_error}
@@ -4565,7 +4565,7 @@ Definition at line {\b 17} of file {\b errors.c}.}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an malloc error. }}\par
 {
-Definition at line {\b 57} of file {\b errors.c}.}\par
+Definition at line {\b 58} of file {\b errors.c}.}\par
 }
 {\xe \v handle_realloc_error\:errors.c}
 {\xe \v errors.c\:handle_realloc_error}
@@ -4582,7 +4582,7 @@ Definition at line {\b 57} of file {\b errors.c}.}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an calloc error. }}\par
 {
-Definition at line {\b 48} of file {\b errors.c}.}\par
+Definition at line {\b 49} of file {\b errors.c}.}\par
 }
 {\xe \v handle_unknown_command_line_argument_error\:errors.c}
 {\xe \v errors.c\:handle_unknown_command_line_argument_error}
@@ -4599,7 +4599,7 @@ void handle_unknown_command_line_argument_error (char * arg)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an unknown command line argument error. }}\par
 {
-Definition at line {\b 25} of file {\b errors.c}.}\par
+Definition at line {\b 26} of file {\b errors.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -4658,58 +4658,59 @@ Go to the documentation of this file.\par
 00007 {\cf17 const} {\cf18 char} *CALLOC_FAILED_ERR_MSG_FMT = {\cf22 "Unable to calloc string of size %zu."};\par
 00008 {\cf17 const} {\cf18 char} *FOPEN_FAILED_ERR_MSG_FMT = {\cf22 "Unable to open output file, %s."};\par
 00009 \par
-00010 {\cf18 void}\par
-00011 fopen_error ({\cf18 char} *filename)\par
+00010 HH_ERRORS\par
+00011 handle_fopen_error ({\cf18 char} *filename)\par
 00012 \{\par
 00013   hh_log (HH_LOG_ERROR, {\cf22 "Unable to open file, %s."}, filename);\par
-00014 \}\par
-00015 \par
-00016 HH_ERRORS\par
-00017 handle_fread_error ({\cf18 size_t} actual, {\cf18 size_t} expected_bytes)\par
-00018 \{\par
-00019   hh_log (HH_LOG_ERROR, {\cf22 "Only read %zu byte(s), expected %zu."}, actual,\par
-00020           expected_bytes);\par
-00021   {\cf19 return} HH_FREAD_ERROR;\par
-00022 \}\par
-00023 \par
-00024 {\cf18 void}\par
-00025 handle_unknown_command_line_argument_error ({\cf18 char} *arg)\par
-00026 \{\par
-00027   {\cf18 bool} windows;\par
-00028 {\cf21 #ifdef _WIN32}\par
-00029   windows = {\cf17 true};\par
-00030 {\cf21 #else}\par
-00031   windows = {\cf17 false};\par
-00032 {\cf21 #endif}\par
-00033   hh_log (HH_LOG_ERROR,\par
-00034           {\cf22 "Unknown command-line argument, %s. Run %s --help for a list of "}\par
-00035           {\cf22 "command-line arguments."},\par
-00036           arg, !windows ? {\cf22 "./HarvesterHarvester"} : {\cf22 "HarvesterHarvester.exe"});\par
-00037   exit (1);\par
-00038 \}\par
-00039 \par
-00040 HH_ERRORS\par
-00041 handle_calloc_error ({\cf18 size_t} size)\par
-00042 \{\par
-00043   hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, size);\par
-00044   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00045 \}\par
-00046 \par
-00047 HH_ERRORS\par
-00048 handle_realloc_error ({\cf17 const} {\cf18 char} *arr_name, {\cf18 size_t} old_size, {\cf18 size_t} new_size)\par
-00049 \{\par
-00050   hh_log (HH_LOG_ERROR,\par
-00051           {\cf22 "Failed to reallocate array, %s, from size %zu to %zu."}, arr_name,\par
-00052           old_size, new_size);\par
-00053   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00054 \}\par
-00055 \par
-00056 HH_ERRORS\par
-00057 handle_malloc_error ({\cf17 const} {\cf18 char} *obj_name)\par
-00058 \{\par
-00059   hh_log (HH_LOG_ERROR, {\cf22 "Failed to allocate memory for %s."}, obj_name);\par
-00060   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00061 \}\par
+00014   {\cf19 return} HH_FOPEN_ERROR;\par
+00015 \}\par
+00016 \par
+00017 HH_ERRORS\par
+00018 handle_fread_error ({\cf18 size_t} actual, {\cf18 size_t} expected_bytes)\par
+00019 \{\par
+00020   hh_log (HH_LOG_ERROR, {\cf22 "Only read %zu byte(s), expected %zu."}, actual,\par
+00021           expected_bytes);\par
+00022   {\cf19 return} HH_FREAD_ERROR;\par
+00023 \}\par
+00024 \par
+00025 {\cf18 void}\par
+00026 handle_unknown_command_line_argument_error ({\cf18 char} *arg)\par
+00027 \{\par
+00028   {\cf18 bool} windows;\par
+00029 {\cf21 #ifdef _WIN32}\par
+00030   windows = {\cf17 true};\par
+00031 {\cf21 #else}\par
+00032   windows = {\cf17 false};\par
+00033 {\cf21 #endif}\par
+00034   hh_log (HH_LOG_ERROR,\par
+00035           {\cf22 "Unknown command-line argument, %s. Run %s --help for a list of "}\par
+00036           {\cf22 "command-line arguments."},\par
+00037           arg, !windows ? {\cf22 "./HarvesterHarvester"} : {\cf22 "HarvesterHarvester.exe"});\par
+00038   exit (1);\par
+00039 \}\par
+00040 \par
+00041 HH_ERRORS\par
+00042 handle_calloc_error ({\cf18 size_t} size)\par
+00043 \{\par
+00044   hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, size);\par
+00045   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00046 \}\par
+00047 \par
+00048 HH_ERRORS\par
+00049 handle_realloc_error ({\cf17 const} {\cf18 char} *arr_name, {\cf18 size_t} old_size, {\cf18 size_t} new_size)\par
+00050 \{\par
+00051   hh_log (HH_LOG_ERROR,\par
+00052           {\cf22 "Failed to reallocate array, %s, from size %zu to %zu."}, arr_name,\par
+00053           old_size, new_size);\par
+00054   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00055 \}\par
+00056 \par
+00057 HH_ERRORS\par
+00058 handle_malloc_error ({\cf17 const} {\cf18 char} *obj_name)\par
+00059 \{\par
+00060   hh_log (HH_LOG_ERROR, {\cf22 "Failed to allocate memory for %s."}, obj_name);\par
+00061   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00062 \}\par
 }
 \par \pard\plain 
 
@@ -4747,7 +4748,7 @@ Functions\par
 
 {
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
-void {\b fopen_error} (char *filename)\par
+{\b HH_ERRORS} {\b handle_fopen_error} (char *filename)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an fopen error. }{
@@ -4865,11 +4866,11 @@ Definition at line {\b 22} of file {\b errors.h}.}\par
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Function Documentation\par
 \pard\plain 
-{\xe \v fopen_error\:errors.h}
-{\xe \v errors.h\:fopen_error}
+{\xe \v handle_calloc_error\:errors.h}
+{\xe \v errors.h\:handle_calloc_error}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-void fopen_error (char * filename)}}
+{\b HH_ERRORS} handle_calloc_error (size_t size)}}
 \par
 {\bkmkstart AAAAAAAADX}
 {\bkmkend AAAAAAAADX}
@@ -4878,15 +4879,15 @@ void fopen_error (char * filename)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Throws an fopen error. }}\par
+Throws an calloc error. }}\par
 {
-Definition at line {\b 11} of file {\b errors.c}.}\par
+Definition at line {\b 42} of file {\b errors.c}.}\par
 }
-{\xe \v handle_calloc_error\:errors.h}
-{\xe \v errors.h\:handle_calloc_error}
+{\xe \v handle_fopen_error\:errors.h}
+{\xe \v errors.h\:handle_fopen_error}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-{\b HH_ERRORS} handle_calloc_error (size_t size)}}
+{\b HH_ERRORS} handle_fopen_error (char * filename)}}
 \par
 {\bkmkstart AAAAAAAADY}
 {\bkmkend AAAAAAAADY}
@@ -4895,9 +4896,9 @@ Definition at line {\b 11} of file {\b errors.c}.}\par
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Throws an calloc error. }}\par
+Throws an fopen error. }}\par
 {
-Definition at line {\b 41} of file {\b errors.c}.}\par
+Definition at line {\b 11} of file {\b errors.c}.}\par
 }
 {\xe \v handle_fread_error\:errors.h}
 {\xe \v errors.h\:handle_fread_error}
@@ -4914,7 +4915,7 @@ Definition at line {\b 41} of file {\b errors.c}.}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an fread error. }}\par
 {
-Definition at line {\b 17} of file {\b errors.c}.}\par
+Definition at line {\b 18} of file {\b errors.c}.}\par
 }
 {\xe \v handle_malloc_error\:errors.h}
 {\xe \v errors.h\:handle_malloc_error}
@@ -4931,7 +4932,7 @@ Definition at line {\b 17} of file {\b errors.c}.}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an malloc error. }}\par
 {
-Definition at line {\b 57} of file {\b errors.c}.}\par
+Definition at line {\b 58} of file {\b errors.c}.}\par
 }
 {\xe \v handle_realloc_error\:errors.h}
 {\xe \v errors.h\:handle_realloc_error}
@@ -4948,7 +4949,7 @@ Definition at line {\b 57} of file {\b errors.c}.}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an calloc error. }}\par
 {
-Definition at line {\b 48} of file {\b errors.c}.}\par
+Definition at line {\b 49} of file {\b errors.c}.}\par
 }
 {\xe \v handle_unknown_command_line_argument_error\:errors.h}
 {\xe \v errors.h\:handle_unknown_command_line_argument_error}
@@ -4965,7 +4966,7 @@ void handle_unknown_command_line_argument_error (char * arg)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Throws an unknown command line argument error. }}\par
 {
-Definition at line {\b 25} of file {\b errors.c}.}\par
+Definition at line {\b 26} of file {\b errors.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -5031,7 +5032,7 @@ Go to the documentation of this file.\par
 00031 \par
 00033 {\cf17 extern} {\cf17 const} {\cf18 char} *FOPEN_FAILED_ERR_MSG_FMT;\par
 00034 \par
-00036 {\cf18 void} fopen_error ({\cf18 char} *filename);\par
+00036 HH_ERRORS handle_fopen_error ({\cf18 char} *filename);\par
 00037 \par
 00039 HH_ERRORS handle_fread_error ({\cf18 size_t} actual, {\cf18 size_t} expected_bytes);\par
 00040 \par
@@ -5303,7 +5304,7 @@ Go to the documentation of this file.\par
 00062   FILE *output_file = fopen (output_filename, {\cf22 "wb"});\par
 00063   {\cf19 if} (output_file == NULL)\par
 00064     \{\par
-00065       fopen_error (output_filename);\par
+00065       handle_fopen_error (output_filename);\par
 00066       free (output_filename);\par
 00067       {\cf19 return} HH_FOPEN_ERROR;\par
 00068     \}\par
@@ -5467,29 +5468,28 @@ Go to the documentation of this file.\par
 00226   FILE *dat_file = fopen (dat_path, {\cf22 "rb"});\par
 00227   {\cf19 if} (dat_file == NULL)\par
 00228     \{\par
-00229       fopen_error (({\cf18 char} *)dat_path);\par
-00230       {\cf19 return} HH_FOPEN_ERROR;\par
-00231     \}\par
-00232 \par
-00233   {\cf19 for} ({\cf18 size_t} i = 0; i < idx->current_index; i++)\par
-00234     \{\par
-00235       {\cf18 char} output_path[256] = \{ 0 \};\par
-00236 \par
-00241       strncpy (output_path, idx_path, strlen (idx_path) - 10);\par
-00242       strcat (output_path, idx->indicies[i].full_path);\par
-00243 \par
-00244       {\cf19 if} (extract_file_using_idx_entry (dat_file, &idx->indicies[i],\par
-00245                                         output_path)\par
-00246           != 0)\par
-00247         \{\par
-00248           fclose (dat_file);\par
-00249           {\cf19 return} -1;\par
-00250         \}\par
-00251     \}\par
-00252 \par
-00253   fclose (dat_file);\par
-00254   {\cf19 return} 0;\par
-00255 \}\par
+00229       {\cf19 return} handle_fopen_error (({\cf18 char} *)dat_path);\par
+00230     \}\par
+00231 \par
+00232   {\cf19 for} ({\cf18 size_t} i = 0; i < idx->current_index; i++)\par
+00233     \{\par
+00234       {\cf18 char} output_path[256] = \{ 0 \};\par
+00235 \par
+00240       strncpy (output_path, idx_path, strlen (idx_path) - 10);\par
+00241       strcat (output_path, idx->indicies[i].full_path);\par
+00242 \par
+00243       {\cf19 if} (extract_file_using_idx_entry (dat_file, &idx->indicies[i],\par
+00244                                         output_path)\par
+00245           != 0)\par
+00246         \{\par
+00247           fclose (dat_file);\par
+00248           {\cf19 return} -1;\par
+00249         \}\par
+00250     \}\par
+00251 \par
+00252   fclose (dat_file);\par
+00253   {\cf19 return} 0;\par
+00254 \}\par
 }
 \par \pard\plain 
 
@@ -6073,7 +6073,7 @@ Processes all the {\f2 .DAT}  files found in {\f2 OP_INPUT_DIR} , one at a time.
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 176} of file {\b hh.c}.}\par
+Definition at line {\b 180} of file {\b hh.c}.}\par
 }
 {\xe \v main\:hh.c}
 {\xe \v hh.c\:main}
@@ -6126,7 +6126,7 @@ See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 90} of file {\b hh.c}.}\par
+Definition at line {\b 94} of file {\b hh.c}.}\par
 }
 {\xe \v process_internal_dat_files\:hh.c}
 {\xe \v hh.c\:process_internal_dat_files}
@@ -6148,7 +6148,7 @@ These {\f2 .DAT}  files are not ISO 9660 file systems, rather they're some propr
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 int8_t zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 296} of file {\b hh.c}.}\par
+Definition at line {\b 300} of file {\b hh.c}.}\par
 }
 {\xe \v setup_extractor\:hh.c}
 {\xe \v hh.c\:setup_extractor}
@@ -6275,286 +6275,289 @@ Go to the documentation of this file.\par
 00073   *fptr = fopen (filename, {\cf22 "rb"});\par
 00074   {\cf19 if} (*fptr == NULL)\par
 00075     \{\par
-00076       fopen_error (filename);\par
-00077       {\cf19 return} HH_FOPEN_ERROR;\par
-00078     \}\par
-00079 \par
-00080 {\cf21 #ifdef _WIN32}\par
-00081   OP_PATH_SEPARATOR = {\cf23 '\\\\'};\par
-00082 {\cf21 #else}\par
-00083   OP_PATH_SEPARATOR = {\cf23 '/'};\par
-00084 {\cf21 #endif}\par
-00085 \par
-00086   {\cf19 return} 0;\par
-00087 \}\par
-00088 \par
-00089 int8_t\par
-00090 process_DAT_file (FILE *fptr)\par
-00091 \{\par
-00092   {\cf20 /*}\par
-00093 {\cf20    * First 32k (up to 0x8000) stores the `system area` of the disk.}\par
-00094 {\cf20    * Unused by HARVEST.DAT, HARVEST3.DAT, HARVEST4.DAT.}\par
-00095 {\cf20    * See: https://wiki.osdev.org/ISO_9660#System_Area}\par
-00096 {\cf20    */}\par
-00097   fseek (fptr, 0x8000, SEEK_SET);\par
-00098 \par
-00099   volume_descriptor vd;\par
-00100   {\cf19 if} (process_volume_descriptor_header (fptr, &vd) != 0)\par
-00101     {\cf19 return} -1;\par
+00076       handle_fopen_error (filename);\par
+00077       {\cf20 /*}\par
+00078 {\cf20        * Need to explicitly return `HH_FOPEN_ERROR` here otherwise gcc}\par
+00079 {\cf20        * complains}\par
+00080 {\cf20        */}\par
+00081       {\cf19 return} HH_FOPEN_ERROR;\par
+00082     \}\par
+00083 \par
+00084 {\cf21 #ifdef _WIN32}\par
+00085   OP_PATH_SEPARATOR = {\cf23 '\\\\'};\par
+00086 {\cf21 #else}\par
+00087   OP_PATH_SEPARATOR = {\cf23 '/'};\par
+00088 {\cf21 #endif}\par
+00089 \par
+00090   {\cf19 return} 0;\par
+00091 \}\par
+00092 \par
+00093 int8_t\par
+00094 process_DAT_file (FILE *fptr)\par
+00095 \{\par
+00096   {\cf20 /*}\par
+00097 {\cf20    * First 32k (up to 0x8000) stores the `system area` of the disk.}\par
+00098 {\cf20    * Unused by HARVEST.DAT, HARVEST3.DAT, HARVEST4.DAT.}\par
+00099 {\cf20    * See: https://wiki.osdev.org/ISO_9660#System_Area}\par
+00100 {\cf20    */}\par
+00101   fseek (fptr, 0x8000, SEEK_SET);\par
 00102 \par
-00103   {\cf20 // Verify that this is a primary volume descriptor}\par
-00104   {\cf19 if} (vd.type_code != 0x01)\par
-00105     \{\par
-00106       hh_log (HH_LOG_ERROR,\par
-00107               {\cf22 "Unexpected volume descriptor type code. Expected 0x%02X, got "}\par
-00108               {\cf22 "0x%02X."},\par
-00109               0x01, vd.type_code);\par
-00110       {\cf19 return} -1;\par
-00111     \}\par
-00112 \par
-00113   {\cf19 if} (process_volume_descriptor_data (fptr, &vd.data) != 0)\par
-00114     {\cf19 return} -1;\par
-00115 \par
-00116   {\cf18 size_t} current_disk_name_length = strcspn (vd.data.volume_identifier, {\cf22 " "});\par
-00117   CURRENT_DISK_NAME = vd.data.volume_identifier;\par
-00118   CURRENT_DISK_NAME[current_disk_name_length] = {\cf23 '\\0'};\par
+00103   volume_descriptor vd;\par
+00104   {\cf19 if} (process_volume_descriptor_header (fptr, &vd) != 0)\par
+00105     {\cf19 return} -1;\par
+00106 \par
+00107   {\cf20 // Verify that this is a primary volume descriptor}\par
+00108   {\cf19 if} (vd.type_code != 0x01)\par
+00109     \{\par
+00110       hh_log (HH_LOG_ERROR,\par
+00111               {\cf22 "Unexpected volume descriptor type code. Expected 0x%02X, got "}\par
+00112               {\cf22 "0x%02X."},\par
+00113               0x01, vd.type_code);\par
+00114       {\cf19 return} -1;\par
+00115     \}\par
+00116 \par
+00117   {\cf19 if} (process_volume_descriptor_data (fptr, &vd.data) != 0)\par
+00118     {\cf19 return} -1;\par
 00119 \par
-00120   {\cf20 // TODO: print the volume descriptor header/data to some file/log.}\par
-00121 \par
-00122   {\cf20 // logical block size, in big endian form}\par
-00123   {\cf17 const} uint16_t block_size_be\par
-00124       = change_endianness_uint16 (vd.data.logical_block_size);\par
+00120   {\cf18 size_t} current_disk_name_length = strcspn (vd.data.volume_identifier, {\cf22 " "});\par
+00121   CURRENT_DISK_NAME = vd.data.volume_identifier;\par
+00122   CURRENT_DISK_NAME[current_disk_name_length] = {\cf23 '\\0'};\par
+00123 \par
+00124   {\cf20 // TODO: print the volume descriptor header/data to some file/log.}\par
 00125 \par
-00126   {\cf20 // move to beginning of type-l path table}\par
-00127   fseek (fptr, block_size_be * vd.data.type_l_path_table_location, SEEK_SET);\par
-00128 \par
-00129   path_table pt;\par
-00130   {\cf19 if} (create_path_table (&pt) != 0)\par
-00131     {\cf19 return} -1;\par
+00126   {\cf20 // logical block size, in big endian form}\par
+00127   {\cf17 const} uint16_t block_size_be\par
+00128       = change_endianness_uint16 (vd.data.logical_block_size);\par
+00129 \par
+00130   {\cf20 // move to beginning of type-l path table}\par
+00131   fseek (fptr, block_size_be * vd.data.type_l_path_table_location, SEEK_SET);\par
 00132 \par
-00133   {\cf19 if} (process_type_l_path_table (fptr, &pt) != 0)\par
-00134     \{\par
-00135       destroy_path_table (&pt);\par
-00136       {\cf19 return} -1;\par
-00137     \}\par
-00138 \par
-00139   {\cf19 if} (create_directories_and_extract_data_from_path_file (fptr, block_size_be,\par
-00140                                                           &pt)\par
-00141       != 0)\par
-00142     \{\par
-00143       destroy_path_table (&pt);\par
-00144       {\cf19 return} -1;\par
-00145     \}\par
-00146 \par
-00147   {\cf20 // handle root directory}\par
-00148   fseek (fptr, block_size_be * pt.entries[0].location_of_extent, SEEK_SET);\par
-00149 \par
-00150   {\cf18 char} *path = calloc (strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2,\par
-00151                        {\cf17 sizeof} ({\cf18 char}));\par
-00152   {\cf19 if} (path == NULL)\par
-00153     \{\par
-00154       destroy_path_table (&pt);\par
-00155       {\cf19 return} handle_calloc_error (strlen (OP_OUTPUT_DIR)\par
-00156                                   + current_disk_name_length + 2);\par
-00157     \}\par
-00158 \par
-00159   strcpy (path, OP_OUTPUT_DIR);\par
-00160   strcat (path, &OP_PATH_SEPARATOR);\par
-00161   strcat (path, CURRENT_DISK_NAME);\par
+00133   path_table pt;\par
+00134   {\cf19 if} (create_path_table (&pt) != 0)\par
+00135     {\cf19 return} -1;\par
+00136 \par
+00137   {\cf19 if} (process_type_l_path_table (fptr, &pt) != 0)\par
+00138     \{\par
+00139       destroy_path_table (&pt);\par
+00140       {\cf19 return} -1;\par
+00141     \}\par
+00142 \par
+00143   {\cf19 if} (create_directories_and_extract_data_from_path_file (fptr, block_size_be,\par
+00144                                                           &pt)\par
+00145       != 0)\par
+00146     \{\par
+00147       destroy_path_table (&pt);\par
+00148       {\cf19 return} -1;\par
+00149     \}\par
+00150 \par
+00151   {\cf20 // handle root directory}\par
+00152   fseek (fptr, block_size_be * pt.entries[0].location_of_extent, SEEK_SET);\par
+00153 \par
+00154   {\cf18 char} *path = calloc (strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2,\par
+00155                        {\cf17 sizeof} ({\cf18 char}));\par
+00156   {\cf19 if} (path == NULL)\par
+00157     \{\par
+00158       destroy_path_table (&pt);\par
+00159       {\cf19 return} handle_calloc_error (strlen (OP_OUTPUT_DIR)\par
+00160                                   + current_disk_name_length + 2);\par
+00161     \}\par
 00162 \par
-00163   {\cf19 if} (extract_directory (fptr, block_size_be, path) != 0)\par
-00164     \{\par
-00165       free (path);\par
-00166       destroy_path_table (&pt);\par
-00167       {\cf19 return} -1;\par
-00168     \}\par
-00169 \par
-00170   free (path);\par
-00171   destroy_path_table (&pt);\par
-00172   {\cf19 return} 0;\par
-00173 \}\par
-00174 \par
-00175 int8_t\par
-00176 batch_process_DAT_files ()\par
-00177 \{\par
-00178   {\cf17 const} {\cf18 char} *OPEN_INPUT_DIR_ERR_MSG_FMT\par
-00179       = {\cf22 "[HarvesterHarvester]ERROR: Error opening input directory, %s."};\par
-00180   {\cf17 const} uint8_t DAT_FILENAME_LEN = strlen ({\cf22 "HARVESTX.DAT"});\par
-00181   {\cf18 char} *filename;\par
-00182 \par
-00183 {\cf21 #ifdef _WIN32}\par
-00184   WIN32_FIND_DATAA file_data;\par
-00185   HANDLE hFind;\par
-00186   {\cf18 char} search_path[256];\par
-00187   strcpy (search_path, OP_INPUT_DIR);\par
-00188   strcat (search_path, {\cf22 "\\\\*"});\par
-00189 \par
-00190   hFind = FindFirstFileA (search_path, &file_data);\par
-00191   {\cf19 if} (hFind == INVALID_HANDLE_VALUE)\par
-00192     \{\par
-00193       hh_log (HH_LOG_ERROR, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
-00194       {\cf19 return} -1;\par
-00195     \}\par
-00196 \par
-00197   {\cf19 do}\par
-00198     \{\par
-00199       {\cf19 if} (strcmp (file_data.cFileName, {\cf22 "."}) == 0\par
-00200           || strcmp (file_data.cFileName, {\cf22 ".."}) == 0\par
-00201           || !is_string_dat_file (file_data.cFileName))\par
-00202         \{\par
-00203           {\cf19 continue};\par
-00204         \}\par
-00205 \par
-00206       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
-00207                          {\cf17 sizeof} ({\cf18 char}));\par
-00208       {\cf19 if} (filename == NULL)\par
-00209         \{\par
-00210           {\cf19 return} handle_calloc_error (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN\par
-00211                                       + 2);\par
-00212         \}\par
-00213 \par
-00214       strcpy (filename, OP_INPUT_DIR);\par
-00215       strcat (filename, &OP_PATH_SEPARATOR);\par
-00216       strcat (filename, file_data.cFileName);\par
+00163   strcpy (path, OP_OUTPUT_DIR);\par
+00164   strcat (path, &OP_PATH_SEPARATOR);\par
+00165   strcat (path, CURRENT_DISK_NAME);\par
+00166 \par
+00167   {\cf19 if} (extract_directory (fptr, block_size_be, path) != 0)\par
+00168     \{\par
+00169       free (path);\par
+00170       destroy_path_table (&pt);\par
+00171       {\cf19 return} -1;\par
+00172     \}\par
+00173 \par
+00174   free (path);\par
+00175   destroy_path_table (&pt);\par
+00176   {\cf19 return} 0;\par
+00177 \}\par
+00178 \par
+00179 int8_t\par
+00180 batch_process_DAT_files ()\par
+00181 \{\par
+00182   {\cf17 const} {\cf18 char} *OPEN_INPUT_DIR_ERR_MSG_FMT\par
+00183       = {\cf22 "[HarvesterHarvester]ERROR: Error opening input directory, %s."};\par
+00184   {\cf17 const} uint8_t DAT_FILENAME_LEN = strlen ({\cf22 "HARVESTX.DAT"});\par
+00185   {\cf18 char} *filename;\par
+00186 \par
+00187 {\cf21 #ifdef _WIN32}\par
+00188   WIN32_FIND_DATAA file_data;\par
+00189   HANDLE hFind;\par
+00190   {\cf18 char} search_path[256];\par
+00191   strcpy (search_path, OP_INPUT_DIR);\par
+00192   strcat (search_path, {\cf22 "\\\\*"});\par
+00193 \par
+00194   hFind = FindFirstFileA (search_path, &file_data);\par
+00195   {\cf19 if} (hFind == INVALID_HANDLE_VALUE)\par
+00196     \{\par
+00197       hh_log (HH_LOG_ERROR, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
+00198       {\cf19 return} -1;\par
+00199     \}\par
+00200 \par
+00201   {\cf19 do}\par
+00202     \{\par
+00203       {\cf19 if} (strcmp (file_data.cFileName, {\cf22 "."}) == 0\par
+00204           || strcmp (file_data.cFileName, {\cf22 ".."}) == 0\par
+00205           || !is_string_dat_file (file_data.cFileName))\par
+00206         \{\par
+00207           {\cf19 continue};\par
+00208         \}\par
+00209 \par
+00210       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
+00211                          {\cf17 sizeof} ({\cf18 char}));\par
+00212       {\cf19 if} (filename == NULL)\par
+00213         \{\par
+00214           {\cf19 return} handle_calloc_error (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN\par
+00215                                       + 2);\par
+00216         \}\par
 00217 \par
-00218       FILE *fptr = NULL;\par
-00219       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
-00220         \{\par
-00221           free (filename);\par
-00222           FindClose (hFind);\par
-00223           {\cf19 return} HH_FOPEN_ERROR;\par
-00224         \}\par
-00225 \par
-00226       {\cf19 if} (process_DAT_file (fptr) != 0)\par
-00227         \{\par
-00228           fclose (fptr);\par
-00229           free (filename);\par
-00230           FindClose (hFind);\par
-00231           {\cf19 return} -1;\par
-00232         \}\par
-00233 \par
-00234       fclose (fptr);\par
-00235       free (filename);\par
-00236     \}\par
-00237   {\cf19 while} (FindNextFileA (hFind, &file_data) != 0);\par
-00238 \par
-00239   FindClose (hFind);\par
-00240 {\cf21 #else}\par
-00241   {\cf17 struct }dirent *entry;\par
-00242   DIR *dir;\par
-00243   dir = opendir (OP_INPUT_DIR);\par
-00244   {\cf19 if} (dir == NULL)\par
-00245     \{\par
-00246       hh_log (HH_LOG_ERROR, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
-00247       {\cf19 return} -1;\par
-00248     \}\par
-00249 \par
-00250   {\cf19 while} ((entry = readdir (dir)) != NULL)\par
-00251     \{\par
-00252       {\cf19 if} (strcmp (entry->d_name, {\cf22 "."}) == 0 || strcmp (entry->d_name, {\cf22 ".."}) == 0\par
-00253           || !is_string_dat_file (entry->d_name))\par
-00254         \{\par
-00255           {\cf19 continue};\par
-00256         \}\par
-00257 \par
-00258       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
-00259                          {\cf17 sizeof} ({\cf18 char}));\par
-00260       {\cf19 if} (filename == NULL)\par
-00261         \{\par
-00262           {\cf19 return} handle_calloc_error (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN\par
-00263                                       + 2);\par
-00264         \}\par
-00265 \par
-00266       strcpy (filename, OP_INPUT_DIR);\par
-00267       strcat (filename, &OP_PATH_SEPARATOR);\par
-00268       strcat (filename, entry->d_name);\par
+00218       strcpy (filename, OP_INPUT_DIR);\par
+00219       strcat (filename, &OP_PATH_SEPARATOR);\par
+00220       strcat (filename, file_data.cFileName);\par
+00221 \par
+00222       FILE *fptr = NULL;\par
+00223       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
+00224         \{\par
+00225           free (filename);\par
+00226           FindClose (hFind);\par
+00227           {\cf19 return} HH_FOPEN_ERROR;\par
+00228         \}\par
+00229 \par
+00230       {\cf19 if} (process_DAT_file (fptr) != 0)\par
+00231         \{\par
+00232           fclose (fptr);\par
+00233           free (filename);\par
+00234           FindClose (hFind);\par
+00235           {\cf19 return} -1;\par
+00236         \}\par
+00237 \par
+00238       fclose (fptr);\par
+00239       free (filename);\par
+00240     \}\par
+00241   {\cf19 while} (FindNextFileA (hFind, &file_data) != 0);\par
+00242 \par
+00243   FindClose (hFind);\par
+00244 {\cf21 #else}\par
+00245   {\cf17 struct }dirent *entry;\par
+00246   DIR *dir;\par
+00247   dir = opendir (OP_INPUT_DIR);\par
+00248   {\cf19 if} (dir == NULL)\par
+00249     \{\par
+00250       hh_log (HH_LOG_ERROR, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);\par
+00251       {\cf19 return} -1;\par
+00252     \}\par
+00253 \par
+00254   {\cf19 while} ((entry = readdir (dir)) != NULL)\par
+00255     \{\par
+00256       {\cf19 if} (strcmp (entry->d_name, {\cf22 "."}) == 0 || strcmp (entry->d_name, {\cf22 ".."}) == 0\par
+00257           || !is_string_dat_file (entry->d_name))\par
+00258         \{\par
+00259           {\cf19 continue};\par
+00260         \}\par
+00261 \par
+00262       filename = calloc (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2,\par
+00263                          {\cf17 sizeof} ({\cf18 char}));\par
+00264       {\cf19 if} (filename == NULL)\par
+00265         \{\par
+00266           {\cf19 return} handle_calloc_error (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN\par
+00267                                       + 2);\par
+00268         \}\par
 00269 \par
-00270       FILE *fptr = NULL;\par
-00271       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
-00272         \{\par
-00273           free (filename);\par
-00274           closedir (dir);\par
-00275           {\cf19 return} HH_FOPEN_ERROR;\par
-00276         \}\par
-00277 \par
-00278       {\cf19 if} (process_DAT_file (fptr) != 0)\par
-00279         \{\par
-00280           fclose (fptr);\par
-00281           free (filename);\par
-00282           closedir (dir);\par
-00283           {\cf19 return} -1;\par
-00284         \}\par
-00285 \par
-00286       fclose (fptr);\par
-00287       free (filename);\par
-00288     \}\par
+00270       strcpy (filename, OP_INPUT_DIR);\par
+00271       strcat (filename, &OP_PATH_SEPARATOR);\par
+00272       strcat (filename, entry->d_name);\par
+00273 \par
+00274       FILE *fptr = NULL;\par
+00275       {\cf19 if} (setup_extractor (&fptr, filename) != 0)\par
+00276         \{\par
+00277           free (filename);\par
+00278           closedir (dir);\par
+00279           {\cf19 return} HH_FOPEN_ERROR;\par
+00280         \}\par
+00281 \par
+00282       {\cf19 if} (process_DAT_file (fptr) != 0)\par
+00283         \{\par
+00284           fclose (fptr);\par
+00285           free (filename);\par
+00286           closedir (dir);\par
+00287           {\cf19 return} -1;\par
+00288         \}\par
 00289 \par
-00290   closedir (dir);\par
-00291 {\cf21 #endif}\par
-00292   {\cf19 return} 0;\par
-00293 \}\par
-00294 \par
-00295 int8_t\par
-00296 process_internal_dat_files ({\cf18 void})\par
-00297 \{\par
-00298   {\cf17 const} {\cf18 char} *interal_paths = {\cf22 "internal-dat-file-paths.txt"};\par
-00299   FILE *table = fopen (interal_paths, {\cf22 "rb"});\par
-00300   {\cf19 if} (table == NULL)\par
-00301     \{\par
-00302       fopen_error (({\cf18 char} *)interal_paths);\par
-00303       {\cf19 return} HH_FOPEN_ERROR;\par
-00304     \}\par
-00305 \par
-00306   {\cf19 while} (!peek_eof (table))\par
-00307     \{\par
-00308       {\cf20 // TODO: convert as many malloc'd strings to char arrays as possible.}\par
-00309       {\cf18 char} index_file_path[256] = \{ 0 \};\par
-00310       build_path_string_from_file (table, index_file_path);\par
-00311 \par
-00312       FILE *fptr = NULL;\par
-00313       {\cf19 if} (setup_extractor (&fptr, index_file_path) != 0)\par
-00314         \{\par
-00315           hh_log (HH_LOG_WARNING, {\cf22 "Skipping..."});\par
-00316 \par
-00317           {\cf20 // Skip next line}\par
-00318           build_path_string_from_file (table, index_file_path);\par
+00290       fclose (fptr);\par
+00291       free (filename);\par
+00292     \}\par
+00293 \par
+00294   closedir (dir);\par
+00295 {\cf21 #endif}\par
+00296   {\cf19 return} 0;\par
+00297 \}\par
+00298 \par
+00299 int8_t\par
+00300 process_internal_dat_files ({\cf18 void})\par
+00301 \{\par
+00302   {\cf17 const} {\cf18 char} *interal_paths = {\cf22 "internal-dat-file-paths.txt"};\par
+00303   FILE *table = fopen (interal_paths, {\cf22 "rb"});\par
+00304   {\cf19 if} (table == NULL)\par
+00305     \{\par
+00306       {\cf19 return} handle_fopen_error (({\cf18 char} *)interal_paths);\par
+00307     \}\par
+00308 \par
+00309   {\cf19 while} (!peek_eof (table))\par
+00310     \{\par
+00311       {\cf20 // TODO: convert as many malloc'd strings to char arrays as possible.}\par
+00312       {\cf18 char} index_file_path[256] = \{ 0 \};\par
+00313       build_path_string_from_file (table, index_file_path);\par
+00314 \par
+00315       FILE *fptr = NULL;\par
+00316       {\cf19 if} (setup_extractor (&fptr, index_file_path) != 0)\par
+00317         \{\par
+00318           hh_log (HH_LOG_WARNING, {\cf22 "Skipping..."});\par
 00319 \par
-00320           {\cf19 continue};\par
-00321         \}\par
+00320           {\cf20 // Skip next line}\par
+00321           build_path_string_from_file (table, index_file_path);\par
 00322 \par
-00323       index_file idx_file;\par
-00324       {\cf19 if} (create_index_file (&idx_file) != 0)\par
-00325         \{\par
-00326           fclose (fptr);\par
-00327           fclose (table);\par
-00328           {\cf19 return} -1;\par
-00329         \}\par
-00330 \par
-00331       hh_log (HH_LOG_INFO, {\cf22 "Processing index file: %s"}, index_file_path);\par
-00332       {\cf19 if} (process_index_file (fptr, &idx_file) != 0)\par
-00333         \{\par
-00334           destroy_index_file (&idx_file);\par
-00335           fclose (table);\par
-00336           fclose (fptr);\par
-00337           {\cf19 return} -1;\par
-00338         \}\par
-00339       fclose (fptr);\par
-00340 \par
-00341       {\cf18 char} dat_file_path[256] = \{ 0 \};\par
-00342       build_path_string_from_file (table, dat_file_path);\par
+00323           {\cf19 continue};\par
+00324         \}\par
+00325 \par
+00326       index_file idx_file;\par
+00327       {\cf19 if} (create_index_file (&idx_file) != 0)\par
+00328         \{\par
+00329           fclose (fptr);\par
+00330           fclose (table);\par
+00331           {\cf19 return} -1;\par
+00332         \}\par
+00333 \par
+00334       hh_log (HH_LOG_INFO, {\cf22 "Processing index file: %s"}, index_file_path);\par
+00335       {\cf19 if} (process_index_file (fptr, &idx_file) != 0)\par
+00336         \{\par
+00337           destroy_index_file (&idx_file);\par
+00338           fclose (table);\par
+00339           fclose (fptr);\par
+00340           {\cf19 return} -1;\par
+00341         \}\par
+00342       fclose (fptr);\par
 00343 \par
-00344       {\cf19 if} (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)\par
-00345         \{\par
-00346           destroy_index_file (&idx_file);\par
-00347           {\cf19 return} -1;\par
-00348         \}\par
-00349 \par
-00350       destroy_index_file (&idx_file);\par
-00351     \}\par
+00344       {\cf18 char} dat_file_path[256] = \{ 0 \};\par
+00345       build_path_string_from_file (table, dat_file_path);\par
+00346 \par
+00347       {\cf19 if} (extract_index_file (&idx_file, index_file_path, dat_file_path) != 0)\par
+00348         \{\par
+00349           destroy_index_file (&idx_file);\par
+00350           {\cf19 return} -1;\par
+00351         \}\par
 00352 \par
-00353   fclose (table);\par
-00354   {\cf19 return} 0;\par
-00355 \}\par
+00353       destroy_index_file (&idx_file);\par
+00354     \}\par
+00355 \par
+00356   fclose (table);\par
+00357   {\cf19 return} 0;\par
+00358 \}\par
 }
 \par \pard\plain 
 
@@ -6628,7 +6631,7 @@ Processes all the {\f2 .DAT}  files found in {\f2 OP_INPUT_DIR} , one at a time.
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 176} of file {\b hh.c}.}\par
+Definition at line {\b 180} of file {\b hh.c}.}\par
 }
 {\xe \v process_DAT_file\:hh.h}
 {\xe \v hh.h\:process_DAT_file}
@@ -6667,7 +6670,7 @@ See also\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 90} of file {\b hh.c}.}\par
+Definition at line {\b 94} of file {\b hh.c}.}\par
 }
 {\xe \v process_internal_dat_files\:hh.h}
 {\xe \v hh.h\:process_internal_dat_files}
@@ -6689,7 +6692,7 @@ These {\f2 .DAT}  files are not ISO 9660 file systems, rather they're some propr
 Returns\par}\pard\plain \s82\li720\widctlpar\ql\adjustright \fs20\cgrid {\s17 \sa60 \sb30
 int8_t zero on success, non-zero on failure. \par
 }}}{
-Definition at line {\b 296} of file {\b hh.c}.}\par
+Definition at line {\b 300} of file {\b hh.c}.}\par
 }
 {\xe \v setup_extractor\:hh.h}
 {\xe \v hh.h\:setup_extractor}

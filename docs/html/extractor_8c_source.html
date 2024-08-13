@@ -154,7 +154,7 @@ $(function(){initNavTree('extractor_8c_source.html',''); initResizable(true); })
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  FILE *output_file = fopen (output_filename, <span class="stringliteral">&quot;wb&quot;</span>);</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keywordflow">if</span> (output_file == NULL)</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      <a class="code hl_function" href="errors_8c.html#a9b9a6494b96286134308f2da3e179af9">fopen_error</a> (output_filename);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      <a class="code hl_function" href="errors_8c.html#a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</a> (output_filename);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      free (output_filename);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</a>;</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    }</div>
@@ -326,37 +326,36 @@ $(function(){initNavTree('extractor_8c_source.html',''); initResizable(true); })
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  FILE *dat_file = fopen (dat_path, <span class="stringliteral">&quot;rb&quot;</span>);</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>  <span class="keywordflow">if</span> (dat_file == NULL)</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      <a class="code hl_function" href="errors_8c.html#a9b9a6494b96286134308f2da3e179af9">fopen_error</a> ((<span class="keywordtype">char</span> *)dat_path);</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>      <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</a>;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; idx-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a>; i++)</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    {</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>      <span class="keywordtype">char</span> output_path[256] = { 0 };</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>      strncpy (output_path, idx_path, strlen (idx_path) - 10);</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>      strcat (output_path, idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>[i].<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>);</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="extractor_8c.html#a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</a> (dat_file, &amp;idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>[i],</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                                        output_path)</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>          != 0)</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>          fclose (dat_file);</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>          <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        }</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    }</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  fclose (dat_file);</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>}</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      <span class="keywordflow">return</span> <a class="code hl_function" href="errors_8c.html#a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</a> ((<span class="keywordtype">char</span> *)dat_path);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; idx-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a>; i++)</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>      <span class="keywordtype">char</span> output_path[256] = { 0 };</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>      strncpy (output_path, idx_path, strlen (idx_path) - 10);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>      strcat (output_path, idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>[i].<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="extractor_8c.html#a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</a> (dat_file, &amp;idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>[i],</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                                        output_path)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>          != 0)</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        {</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>          fclose (dat_file);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>          <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        }</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  fclose (dat_file);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>}</div>
 </div>
 <div class="ttc" id="adata__reader_8c_html_a3987a7d12b6ef51327e5d1ae63d087cc"><div class="ttname"><a href="data__reader_8c.html#a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</a></div><div class="ttdeci">int8_t read_single_uint8(FILE *fptr, uint8_t *value)</div><div class="ttdoc">data_header.h - container for various data access functions.</div><div class="ttdef"><b>Definition</b> <a href="data__reader_8c_source.html#l00192">data_reader.c:192</a></div></div>
 <div class="ttc" id="adata__reader_8h_html"><div class="ttname"><a href="data__reader_8h.html">data_reader.h</a></div></div>
 <div class="ttc" id="adirectory_8c_html_a588d5ddc87f420409a34325d09ba125a"><div class="ttname"><a href="directory_8c.html#a588d5ddc87f420409a34325d09ba125a">create_directory</a></div><div class="ttdeci">int8_t create_directory(directory *d)</div><div class="ttdoc">Initializes a directory.</div><div class="ttdef"><b>Definition</b> <a href="directory_8c_source.html#l00032">directory.c:32</a></div></div>
 <div class="ttc" id="adirectory_8c_html_a5bb3c915259dac9f8fb2c102cc72ccda"><div class="ttname"><a href="directory_8c.html#a5bb3c915259dac9f8fb2c102cc72ccda">destroy_directory</a></div><div class="ttdeci">void destroy_directory(directory *d)</div><div class="ttdoc">Destroys all the directory records within a given directory before then destroying the directory itse...</div><div class="ttdef"><b>Definition</b> <a href="directory_8c_source.html#l00052">directory.c:52</a></div></div>
 <div class="ttc" id="adirectory_8c_html_abca5089e2010346de9a8913639c27bcd"><div class="ttname"><a href="directory_8c.html#abca5089e2010346de9a8913639c27bcd">process_directory</a></div><div class="ttdeci">int8_t process_directory(FILE *fptr, directory *d)</div><div class="ttdoc">Creates directory records for every sub-directory and file in a given directory, filling out each dat...</div><div class="ttdef"><b>Definition</b> <a href="directory_8c_source.html#l00133">directory.c:133</a></div></div>
-<div class="ttc" id="aerrors_8c_html_a264d565f946a86af55409cbe5b980060"><div class="ttname"><a href="errors_8c.html#a264d565f946a86af55409cbe5b980060">handle_calloc_error</a></div><div class="ttdeci">HH_ERRORS handle_calloc_error(size_t size)</div><div class="ttdoc">Throws an calloc error.</div><div class="ttdef"><b>Definition</b> <a href="errors_8c_source.html#l00041">errors.c:41</a></div></div>
-<div class="ttc" id="aerrors_8c_html_a9b9a6494b96286134308f2da3e179af9"><div class="ttname"><a href="errors_8c.html#a9b9a6494b96286134308f2da3e179af9">fopen_error</a></div><div class="ttdeci">void fopen_error(char *filename)</div><div class="ttdoc">Throws an fopen error.</div><div class="ttdef"><b>Definition</b> <a href="errors_8c_source.html#l00011">errors.c:11</a></div></div>
+<div class="ttc" id="aerrors_8c_html_a264d565f946a86af55409cbe5b980060"><div class="ttname"><a href="errors_8c.html#a264d565f946a86af55409cbe5b980060">handle_calloc_error</a></div><div class="ttdeci">HH_ERRORS handle_calloc_error(size_t size)</div><div class="ttdoc">Throws an calloc error.</div><div class="ttdef"><b>Definition</b> <a href="errors_8c_source.html#l00042">errors.c:42</a></div></div>
+<div class="ttc" id="aerrors_8c_html_a362a48baf5e9d27699c8f7cfe184d77d"><div class="ttname"><a href="errors_8c.html#a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</a></div><div class="ttdeci">HH_ERRORS handle_fopen_error(char *filename)</div><div class="ttdoc">Throws an fopen error.</div><div class="ttdef"><b>Definition</b> <a href="errors_8c_source.html#l00011">errors.c:11</a></div></div>
 <div class="ttc" id="aerrors_8h_html"><div class="ttname"><a href="errors_8h.html">errors.h</a></div></div>
 <div class="ttc" id="aerrors_8h_html_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df"><div class="ttname"><a href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a></div><div class="ttdeci">@ HH_FREAD_ERROR</div><div class="ttdef"><b>Definition</b> <a href="errors_8h_source.html#l00025">errors.h:25</a></div></div>
 <div class="ttc" id="aerrors_8h_html_a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a"><div class="ttname"><a href="errors_8h.html#a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</a></div><div class="ttdeci">@ HH_FOPEN_ERROR</div><div class="ttdef"><b>Definition</b> <a href="errors_8h_source.html#l00024">errors.h:24</a></div></div>

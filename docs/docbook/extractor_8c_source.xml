@@ -55,7 +55,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_extractor_8c_source_1l00062"/>00062 &#32;&#32;FILE&#32;*output_file&#32;=&#32;fopen&#32;(output_filename,&#32;<emphasis role="stringliteral">&quot;wb&quot;</emphasis>);
 <anchor xml:id="_extractor_8c_source_1l00063"/>00063 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(output_file&#32;==&#32;NULL)
 <anchor xml:id="_extractor_8c_source_1l00064"/>00064 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_extractor_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(output_filename);
+<anchor xml:id="_extractor_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link>&#32;(output_filename);
 <anchor xml:id="_extractor_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;free&#32;(output_filename);
 <anchor xml:id="_extractor_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link>;
 <anchor xml:id="_extractor_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;}
@@ -219,27 +219,26 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_extractor_8c_source_1l00226"/>00226 &#32;&#32;FILE&#32;*dat_file&#32;=&#32;fopen&#32;(dat_path,&#32;<emphasis role="stringliteral">&quot;rb&quot;</emphasis>);
 <anchor xml:id="_extractor_8c_source_1l00227"/>00227 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(dat_file&#32;==&#32;NULL)
 <anchor xml:id="_extractor_8c_source_1l00228"/>00228 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_extractor_8c_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;((<emphasis role="keywordtype">char</emphasis>&#32;*)dat_path);
-<anchor xml:id="_extractor_8c_source_1l00230"/>00230 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link>;
-<anchor xml:id="_extractor_8c_source_1l00231"/>00231 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_extractor_8c_source_1l00232"/>00232 
-<anchor xml:id="_extractor_8c_source_1l00233"/>00233 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;idx-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>;&#32;i++)
-<anchor xml:id="_extractor_8c_source_1l00234"/>00234 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_extractor_8c_source_1l00235"/>00235 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;output_path[256]&#32;=&#32;{&#32;0&#32;};
-<anchor xml:id="_extractor_8c_source_1l00236"/>00236 
-<anchor xml:id="_extractor_8c_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;strncpy&#32;(output_path,&#32;idx_path,&#32;strlen&#32;(idx_path)&#32;-&#32;10);
-<anchor xml:id="_extractor_8c_source_1l00242"/>00242 &#32;&#32;&#32;&#32;&#32;&#32;strcat&#32;(output_path,&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>[i].<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>);
-<anchor xml:id="_extractor_8c_source_1l00243"/>00243 
-<anchor xml:id="_extractor_8c_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_extractor_8c_1a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</link>&#32;(dat_file,&#32;&amp;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>[i],
-<anchor xml:id="_extractor_8c_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;output_path)
-<anchor xml:id="_extractor_8c_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!=&#32;0)
-<anchor xml:id="_extractor_8c_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_extractor_8c_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fclose&#32;(dat_file);
-<anchor xml:id="_extractor_8c_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_extractor_8c_source_1l00250"/>00250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_extractor_8c_source_1l00251"/>00251 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_extractor_8c_source_1l00252"/>00252 
-<anchor xml:id="_extractor_8c_source_1l00253"/>00253 &#32;&#32;fclose&#32;(dat_file);
-<anchor xml:id="_extractor_8c_source_1l00254"/>00254 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_extractor_8c_source_1l00255"/>00255 }
+<anchor xml:id="_extractor_8c_source_1l00229"/>00229 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8c_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link>&#32;((<emphasis role="keywordtype">char</emphasis>&#32;*)dat_path);
+<anchor xml:id="_extractor_8c_source_1l00230"/>00230 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_extractor_8c_source_1l00231"/>00231 
+<anchor xml:id="_extractor_8c_source_1l00232"/>00232 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;idx-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>;&#32;i++)
+<anchor xml:id="_extractor_8c_source_1l00233"/>00233 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_extractor_8c_source_1l00234"/>00234 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;output_path[256]&#32;=&#32;{&#32;0&#32;};
+<anchor xml:id="_extractor_8c_source_1l00235"/>00235 
+<anchor xml:id="_extractor_8c_source_1l00240"/>00240 &#32;&#32;&#32;&#32;&#32;&#32;strncpy&#32;(output_path,&#32;idx_path,&#32;strlen&#32;(idx_path)&#32;-&#32;10);
+<anchor xml:id="_extractor_8c_source_1l00241"/>00241 &#32;&#32;&#32;&#32;&#32;&#32;strcat&#32;(output_path,&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>[i].<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>);
+<anchor xml:id="_extractor_8c_source_1l00242"/>00242 
+<anchor xml:id="_extractor_8c_source_1l00243"/>00243 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_extractor_8c_1a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</link>&#32;(dat_file,&#32;&amp;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>[i],
+<anchor xml:id="_extractor_8c_source_1l00244"/>00244 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;output_path)
+<anchor xml:id="_extractor_8c_source_1l00245"/>00245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!=&#32;0)
+<anchor xml:id="_extractor_8c_source_1l00246"/>00246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_extractor_8c_source_1l00247"/>00247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fclose&#32;(dat_file);
+<anchor xml:id="_extractor_8c_source_1l00248"/>00248 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_extractor_8c_source_1l00249"/>00249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_extractor_8c_source_1l00250"/>00250 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_extractor_8c_source_1l00251"/>00251 
+<anchor xml:id="_extractor_8c_source_1l00252"/>00252 &#32;&#32;fclose&#32;(dat_file);
+<anchor xml:id="_extractor_8c_source_1l00253"/>00253 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_extractor_8c_source_1l00254"/>00254 }
 </programlisting></section>

@@ -11,57 +11,58 @@
 \DoxyCodeLine{\Hypertarget{errors_8c_source_l00007}\mbox{\hyperlink{errors_8c_ab2272d0da4232afba19f95bf02944157}{00007}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{errors_8c_ab2272d0da4232afba19f95bf02944157}{CALLOC\_FAILED\_ERR\_MSG\_FMT}}\ =\ \textcolor{stringliteral}{"{}Unable\ to\ calloc\ string\ of\ size\ \%zu."{}};}
 \DoxyCodeLine{\Hypertarget{errors_8c_source_l00008}\mbox{\hyperlink{errors_8c_a03ff53905312bd88e728b1863cf1b1c9}{00008}}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{errors_8c_a03ff53905312bd88e728b1863cf1b1c9}{FOPEN\_FAILED\_ERR\_MSG\_FMT}}\ =\ \textcolor{stringliteral}{"{}Unable\ to\ open\ output\ file,\ \%s."{}};}
 \DoxyCodeLine{\Hypertarget{errors_8c_source_l00009}00009\ }
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00010}00010\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00011}\mbox{\hyperlink{errors_8c_a9b9a6494b96286134308f2da3e179af9}{00011}}\ \mbox{\hyperlink{errors_8c_a9b9a6494b96286134308f2da3e179af9}{fopen\_error}}\ (\textcolor{keywordtype}{char}\ *filename)}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00010}00010\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00011}\mbox{\hyperlink{errors_8c_a362a48baf5e9d27699c8f7cfe184d77d}{00011}}\ \mbox{\hyperlink{errors_8c_a362a48baf5e9d27699c8f7cfe184d77d}{handle\_fopen\_error}}\ (\textcolor{keywordtype}{char}\ *filename)}
 \DoxyCodeLine{\Hypertarget{errors_8c_source_l00012}00012\ \{}
 \DoxyCodeLine{\Hypertarget{errors_8c_source_l00013}00013\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \textcolor{stringliteral}{"{}Unable\ to\ open\ file,\ \%s."{}},\ filename);}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00014}00014\ \}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00016}00016\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00017}\mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{00017}}\ \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (\textcolor{keywordtype}{size\_t}\ actual,\ \textcolor{keywordtype}{size\_t}\ expected\_bytes)}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00018}00018\ \{}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00019}00019\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \textcolor{stringliteral}{"{}Only\ read\ \%zu\ byte(s),\ expected\ \%zu."{}},\ actual,}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ expected\_bytes);}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00021}00021\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00022}00022\ \}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00024}00024\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00025}\mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{00025}}\ \mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\_unknown\_command\_line\_argument\_error}}\ (\textcolor{keywordtype}{char}\ *arg)}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00026}00026\ \{}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00027}00027\ \ \ \textcolor{keywordtype}{bool}\ windows;}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00028}00028\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00029}00029\ \ \ windows\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00030}00030\ \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00031}00031\ \ \ windows\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00032}00032\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00033}00033\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Unknown\ command-\/line\ argument,\ \%s.\ Run\ \%s\ -\/-\/help\ for\ a\ list\ of\ "{}}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}command-\/line\ arguments."{}},}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ arg,\ !windows\ ?\ \textcolor{stringliteral}{"{}./HarvesterHarvester"{}}\ :\ \textcolor{stringliteral}{"{}HarvesterHarvester.exe"{}});}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00037}00037\ \ \ exit\ (1);}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00038}00038\ \}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00039}00039\ }
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00040}00040\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00041}\mbox{\hyperlink{errors_8c_a264d565f946a86af55409cbe5b980060}{00041}}\ \mbox{\hyperlink{errors_8c_a264d565f946a86af55409cbe5b980060}{handle\_calloc\_error}}\ (\textcolor{keywordtype}{size\_t}\ size)}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00042}00042\ \{}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00043}00043\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \mbox{\hyperlink{errors_8c_ab2272d0da4232afba19f95bf02944157}{CALLOC\_FAILED\_ERR\_MSG\_FMT}},\ size);}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00044}00044\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00045}00045\ \}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00046}00046\ }
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00047}00047\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00048}\mbox{\hyperlink{errors_8c_a0779e2db9fc5d11057840045b4196a4f}{00048}}\ \mbox{\hyperlink{errors_8c_a0779e2db9fc5d11057840045b4196a4f}{handle\_realloc\_error}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *arr\_name,\ \textcolor{keywordtype}{size\_t}\ old\_size,\ \textcolor{keywordtype}{size\_t}\ new\_size)}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00049}00049\ \{}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00050}00050\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Failed\ to\ reallocate\ array,\ \%s,\ from\ size\ \%zu\ to\ \%zu."{}},\ arr\_name,}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ old\_size,\ new\_size);}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00053}00053\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00054}00054\ \}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00055}00055\ }
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00056}00056\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00057}\mbox{\hyperlink{errors_8c_a8ae11ef9f755479186d4d1a6dcf3ec99}{00057}}\ \mbox{\hyperlink{errors_8c_a8ae11ef9f755479186d4d1a6dcf3ec99}{handle\_malloc\_error}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *obj\_name)}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00058}00058\ \{}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00059}00059\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \textcolor{stringliteral}{"{}Failed\ to\ allocate\ memory\ for\ \%s."{}},\ obj\_name);}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00060}00060\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{errors_8c_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00014}00014\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a}{HH\_FOPEN\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00017}00017\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00018}\mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{00018}}\ \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (\textcolor{keywordtype}{size\_t}\ actual,\ \textcolor{keywordtype}{size\_t}\ expected\_bytes)}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00020}00020\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \textcolor{stringliteral}{"{}Only\ read\ \%zu\ byte(s),\ expected\ \%zu."{}},\ actual,}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ expected\_bytes);}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00022}00022\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00023}00023\ \}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00025}00025\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00026}\mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{00026}}\ \mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\_unknown\_command\_line\_argument\_error}}\ (\textcolor{keywordtype}{char}\ *arg)}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00028}00028\ \ \ \textcolor{keywordtype}{bool}\ windows;}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00029}00029\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00030}00030\ \ \ windows\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00031}00031\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00032}00032\ \ \ windows\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00033}00033\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00034}00034\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Unknown\ command-\/line\ argument,\ \%s.\ Run\ \%s\ -\/-\/help\ for\ a\ list\ of\ "{}}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}command-\/line\ arguments."{}},}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ arg,\ !windows\ ?\ \textcolor{stringliteral}{"{}./HarvesterHarvester"{}}\ :\ \textcolor{stringliteral}{"{}HarvesterHarvester.exe"{}});}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00038}00038\ \ \ exit\ (1);}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00041}00041\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00042}\mbox{\hyperlink{errors_8c_a264d565f946a86af55409cbe5b980060}{00042}}\ \mbox{\hyperlink{errors_8c_a264d565f946a86af55409cbe5b980060}{handle\_calloc\_error}}\ (\textcolor{keywordtype}{size\_t}\ size)}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00043}00043\ \{}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00044}00044\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \mbox{\hyperlink{errors_8c_ab2272d0da4232afba19f95bf02944157}{CALLOC\_FAILED\_ERR\_MSG\_FMT}},\ size);}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00045}00045\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00048}00048\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00049}\mbox{\hyperlink{errors_8c_a0779e2db9fc5d11057840045b4196a4f}{00049}}\ \mbox{\hyperlink{errors_8c_a0779e2db9fc5d11057840045b4196a4f}{handle\_realloc\_error}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *arr\_name,\ \textcolor{keywordtype}{size\_t}\ old\_size,\ \textcolor{keywordtype}{size\_t}\ new\_size)}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00050}00050\ \{}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00051}00051\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Failed\ to\ reallocate\ array,\ \%s,\ from\ size\ \%zu\ to\ \%zu."{}},\ arr\_name,}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ old\_size,\ new\_size);}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00054}00054\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00057}00057\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\_ERRORS}}}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00058}\mbox{\hyperlink{errors_8c_a8ae11ef9f755479186d4d1a6dcf3ec99}{00058}}\ \mbox{\hyperlink{errors_8c_a8ae11ef9f755479186d4d1a6dcf3ec99}{handle\_malloc\_error}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *obj\_name)}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00059}00059\ \{}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00060}00060\ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \textcolor{stringliteral}{"{}Failed\ to\ allocate\ memory\ for\ \%s."{}},\ obj\_name);}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00061}00061\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{errors_8c_source_l00062}00062\ \}}
 
 \end{DoxyCode}
