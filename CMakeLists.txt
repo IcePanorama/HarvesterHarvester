@@ -53,3 +53,9 @@ add_custom_target(format
 )
 
 add_dependencies(${PROJECT_NAME} format)
+
+add_custom_target(test
+    COMMAND valgrind --leak-check=yes ./${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/dat-files/HARVEST.DAT
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    COMMENT "Testing for memory leaks with Valgrind."
+)
