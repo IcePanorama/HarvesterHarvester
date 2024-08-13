@@ -46,3 +46,8 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_DIR})
+
+add_custom_target(format
+    COMMAND clang-format -style=GNU -i ${SRC_FILES} ${PROJECT_SOURCE_DIR}/${INCL_DIR}/*.h
+    COMMENT "Formatting code."
+)
