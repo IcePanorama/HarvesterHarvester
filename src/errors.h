@@ -35,9 +35,6 @@ extern const char *CALLOC_FAILED_ERR_MSG_FMT;
 /** Format string for failed fopen error message. */
 extern const char *FOPEN_FAILED_ERR_MSG_FMT;
 
-/** Throws an improper usage error. */
-void improper_usage_error (void);
-
 /** Throws an fopen error. */
 void fopen_error (char *filename);
 

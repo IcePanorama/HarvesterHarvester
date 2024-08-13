@@ -8,20 +8,6 @@ const char *CALLOC_FAILED_ERR_MSG_FMT = "Unable to calloc string of size %zu.";
 const char *FOPEN_FAILED_ERR_MSG_FMT = "Unable to open output file, %s.";
 
 void
-improper_usage_error (void)
-{
-  bool windows;
-#ifdef _WIN32
-  windows = true;
-#else
-  windows = false;
-#endif
-  hh_log (HH_LOG_ERROR, "Improper usage!\ntry: %s HARVEST.DAT",
-          !windows ? "$ ./HarvesterHarvester" : "HarvesterHarvester.exe");
-  exit (1);
-}
-
-void
 fopen_error (char *filename)
 {
   hh_log (HH_LOG_ERROR, "Unable to open file, %s.", filename);
