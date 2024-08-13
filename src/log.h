@@ -12,11 +12,7 @@
 //  You should have received a copy of the GNU General Public License along
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
 /**
- *  log.h - wrapper for stdout functions.
- *
- *  As evidenced by the single function below, this file is rather
- *  underutilized at the moment. In the future this should host functions
- *  related to printing data out to log files, hence the name.
+ *  log.h - wrapper for hh_log and its related functions functions.
  */
 #ifndef _HH_LOG_H_
 #define _HH_LOG_H_
@@ -24,6 +20,13 @@
 #include <stdint.h>
 #include <stdio.h>
 
+/**
+ *  The three levels of log messages: INFO, WARNING, and ERROR. When used with
+ *  the `hh_log()` function, these log_levels modify the output string and
+ *  stream.
+ *
+ *  @see hh_log
+ */
 typedef enum hh_log_level
 {
   HH_LOG_INFO,
@@ -31,6 +34,10 @@ typedef enum hh_log_level
   HH_LOG_ERROR,
 } hh_log_level;
 
+/**
+ *  A logger function. Outputs fmt and args to either the stdout or stderr
+ *  depending on the `lvl` passed into the function.
+ */
 void hh_log (hh_log_level lvl, const char *fmt, ...);
 
 /**
