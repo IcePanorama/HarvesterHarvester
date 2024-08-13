@@ -81,106 +81,104 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_path__table_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>,&#32;sizeof&#32;(<link linkend="_structpath__table__entry">path_table_entry</link>)&#32;*&#32;new_size);
 <anchor xml:id="_path__table_8c_source_1l00087"/>00087 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_entries&#32;==&#32;NULL)
 <anchor xml:id="_path__table_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Ralloc&#32;failed&#32;for&#32;`entries`&#32;of&#32;size&#32;%zu.&quot;</emphasis>,
-<anchor xml:id="_path__table_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;new_size);
-<anchor xml:id="_path__table_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_path__table_8c_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</link>&#32;(pt);
-<anchor xml:id="_path__table_8c_source_1l00092"/>00092 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
-<anchor xml:id="_path__table_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00094"/>00094 
-<anchor xml:id="_path__table_8c_source_1l00095"/>00095 &#32;&#32;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>&#32;=&#32;new_entries;
-<anchor xml:id="_path__table_8c_source_1l00096"/>00096 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;pt-&gt;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>;&#32;i&#32;&lt;&#32;new_size;&#32;i++)
-<anchor xml:id="_path__table_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>[i].<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>&#32;=&#32;NULL;
-<anchor xml:id="_path__table_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00100"/>00100 
-<anchor xml:id="_path__table_8c_source_1l00101"/>00101 &#32;&#32;pt-&gt;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>&#32;=&#32;new_size;
-<anchor xml:id="_path__table_8c_source_1l00102"/>00102 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_path__table_8c_source_1l00103"/>00103 }
-<anchor xml:id="_path__table_8c_source_1l00104"/>00104 
-<anchor xml:id="_path__table_8c_source_1l00105"/>00105 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00106"/><link linkend="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84">00106</link> <link linkend="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84">print_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt)
-<anchor xml:id="_path__table_8c_source_1l00107"/>00107 {
-<anchor xml:id="_path__table_8c_source_1l00108"/>00108 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;pt-&gt;<link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link>;&#32;i++)
-<anchor xml:id="_path__table_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Entry&#32;%zu:\n&quot;</emphasis>,&#32;i&#32;+&#32;1);
-<anchor xml:id="_path__table_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</link>&#32;(&amp;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>[i]);
-<anchor xml:id="_path__table_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00113"/>00113 }
-<anchor xml:id="_path__table_8c_source_1l00114"/>00114 
-<anchor xml:id="_path__table_8c_source_1l00115"/>00115 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00116"/><link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">00116</link> <link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</link>&#32;(<link linkend="_structpath__table__entry">path_table_entry</link>&#32;*e)
-<anchor xml:id="_path__table_8c_source_1l00117"/>00117 {
-<anchor xml:id="_path__table_8c_source_1l00118"/>00118 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tDirectory&#32;identifier&#32;length:&#32;%02X\n&quot;</emphasis>,
-<anchor xml:id="_path__table_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e-&gt;<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>);
-<anchor xml:id="_path__table_8c_source_1l00120"/>00120 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tExtended&#32;attribute&#32;record&#32;length:&#32;%02X\n&quot;</emphasis>,
-<anchor xml:id="_path__table_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e-&gt;<link linkend="_structpath__table__entry_1a12e7dadd206e8c3c3b1c162c9691f523">extended_attribute_record_length</link>);
-<anchor xml:id="_path__table_8c_source_1l00122"/>00122 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tLocation&#32;of&#32;extant:&#32;%08X\n&quot;</emphasis>,&#32;e-&gt;<link linkend="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca">location_of_extent</link>);
-<anchor xml:id="_path__table_8c_source_1l00123"/>00123 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tParent&#32;directory&#32;number:&#32;%04X\n&quot;</emphasis>,&#32;e-&gt;<link linkend="_structpath__table__entry_1a8867a81ce59add3e34b7a868af6e795d">parent_directory_number</link>);
-<anchor xml:id="_path__table_8c_source_1l00124"/>00124 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tDirectory&#32;identifier:&#32;%s\n&quot;</emphasis>,&#32;e-&gt;<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>);
-<anchor xml:id="_path__table_8c_source_1l00125"/>00125 }
-<anchor xml:id="_path__table_8c_source_1l00126"/>00126 
-<anchor xml:id="_path__table_8c_source_1l00127"/>00127 int8_t
-<anchor xml:id="_path__table_8c_source_1l00128"/><link linkend="_path__table_8c_1a74af82c548f791d3b0919eeebbf078d4">00128</link> <link linkend="_path__table_8c_1a74af82c548f791d3b0919eeebbf078d4">process_type_l_path_table</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt)
-<anchor xml:id="_path__table_8c_source_1l00129"/>00129 {
-<anchor xml:id="_path__table_8c_source_1l00130"/>00130 &#32;&#32;uint8_t&#32;dir_identifier_length;
-<anchor xml:id="_path__table_8c_source_1l00131"/>00131 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dir_identifier_length)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_path__table_8c_source_1l00133"/>00133 
-<anchor xml:id="_path__table_8c_source_1l00134"/>00134 &#32;&#32;<emphasis role="keywordflow">do</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structpath__table__entry">path_table_entry</link>&#32;curr;
-<anchor xml:id="_path__table_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;=&#32;dir_identifier_length;
-<anchor xml:id="_path__table_8c_source_1l00138"/>00138 
-<anchor xml:id="_path__table_8c_source_1l00139"/>00139 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;!=&#32;1)
-<anchor xml:id="_path__table_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;+=&#32;1;
-<anchor xml:id="_path__table_8c_source_1l00141"/>00141 
-<anchor xml:id="_path__table_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;off&#32;*/</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;curr.<link linkend="_structpath__table__entry_1a12e7dadd206e8c3c3b1c162c9691f523">extended_attribute_record_length</link>)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;curr.<link linkend="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca">location_of_extent</link>)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a78ed65e60aaa0c5e49f37c65baf761a4">read_little_endian_data_uint16_t</link>&#32;(fptr,&#32;&amp;curr.<link linkend="_structpath__table__entry_1a8867a81ce59add3e34b7a868af6e795d">parent_directory_number</link>))&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_path__table_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;on&#32;*/</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00150"/>00150 
-<anchor xml:id="_path__table_8c_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>
-<anchor xml:id="_path__table_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*)calloc&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>));
-<anchor xml:id="_path__table_8c_source_1l00153"/>00153 
-<anchor xml:id="_path__table_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;!=&#32;1)
-<anchor xml:id="_path__table_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;bytes_read
-<anchor xml:id="_path__table_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;fread&#32;(curr.<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>),
-<anchor xml:id="_path__table_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1,&#32;fptr);
-<anchor xml:id="_path__table_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>[curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1]
-<anchor xml:id="_path__table_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
-<anchor xml:id="_path__table_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(bytes_read
-<anchor xml:id="_path__table_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!=&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1))
-<anchor xml:id="_path__table_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(
-<anchor xml:id="_path__table_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bytes_read,
-<anchor xml:id="_path__table_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1));
-<anchor xml:id="_path__table_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_path__table_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;1,&#32;SEEK_CUR);
-<anchor xml:id="_path__table_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00174"/>00174 
-<anchor xml:id="_path__table_8c_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_path__table_8c_1a492a544af54cae408fa7d4331e7083ae">add_entry_to_path_table</link>&#32;(pt,&#32;&amp;curr)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link>;
-<anchor xml:id="_path__table_8c_source_1l00177"/>00177 
-<anchor xml:id="_path__table_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dir_identifier_length)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_path__table_8c_source_1l00180"/>00180 
-<anchor xml:id="_path__table_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(dir_identifier_length&#32;==&#32;0)&#32;<emphasis role="comment">//&#32;handle&#32;padding&#32;field</emphasis>
-<anchor xml:id="_path__table_8c_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_path__table_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dir_identifier_length)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_path__table_8c_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00186"/>00186 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_path__table_8c_source_1l00187"/>00187 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(dir_identifier_length&#32;!=&#32;0);
-<anchor xml:id="_path__table_8c_source_1l00188"/>00188 
-<anchor xml:id="_path__table_8c_source_1l00189"/>00189 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_path__table_8c_source_1l00190"/>00190 }
+<anchor xml:id="_path__table_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_path__table_8c_1afb0f3858425278e8f770eee3eaf010f9">destroy_path_table</link>&#32;(pt);
+<anchor xml:id="_path__table_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="stringliteral">&quot;entries&quot;</emphasis>,&#32;pt-&gt;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>,&#32;new_size);
+<anchor xml:id="_path__table_8c_source_1l00091"/>00091 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00092"/>00092 
+<anchor xml:id="_path__table_8c_source_1l00093"/>00093 &#32;&#32;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>&#32;=&#32;new_entries;
+<anchor xml:id="_path__table_8c_source_1l00094"/>00094 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;pt-&gt;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>;&#32;i&#32;&lt;&#32;new_size;&#32;i++)
+<anchor xml:id="_path__table_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>[i].<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>&#32;=&#32;NULL;
+<anchor xml:id="_path__table_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00098"/>00098 
+<anchor xml:id="_path__table_8c_source_1l00099"/>00099 &#32;&#32;pt-&gt;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>&#32;=&#32;new_size;
+<anchor xml:id="_path__table_8c_source_1l00100"/>00100 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_path__table_8c_source_1l00101"/>00101 }
+<anchor xml:id="_path__table_8c_source_1l00102"/>00102 
+<anchor xml:id="_path__table_8c_source_1l00103"/>00103 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00104"/><link linkend="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84">00104</link> <link linkend="_path__table_8c_1a4d1b9400850a8ace93b4404599932a84">print_path_table</link>&#32;(<link linkend="_structpath__table">path_table</link>&#32;*pt)
+<anchor xml:id="_path__table_8c_source_1l00105"/>00105 {
+<anchor xml:id="_path__table_8c_source_1l00106"/>00106 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;pt-&gt;<link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link>;&#32;i++)
+<anchor xml:id="_path__table_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Entry&#32;%zu:\n&quot;</emphasis>,&#32;i&#32;+&#32;1);
+<anchor xml:id="_path__table_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</link>&#32;(&amp;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>[i]);
+<anchor xml:id="_path__table_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00111"/>00111 }
+<anchor xml:id="_path__table_8c_source_1l00112"/>00112 
+<anchor xml:id="_path__table_8c_source_1l00113"/>00113 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00114"/><link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">00114</link> <link linkend="_path__table_8c_1a0089b0d4d8773a794efd9c1171a6b566">print_path_table_entry</link>&#32;(<link linkend="_structpath__table__entry">path_table_entry</link>&#32;*e)
+<anchor xml:id="_path__table_8c_source_1l00115"/>00115 {
+<anchor xml:id="_path__table_8c_source_1l00116"/>00116 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tDirectory&#32;identifier&#32;length:&#32;%02X\n&quot;</emphasis>,
+<anchor xml:id="_path__table_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e-&gt;<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>);
+<anchor xml:id="_path__table_8c_source_1l00118"/>00118 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tExtended&#32;attribute&#32;record&#32;length:&#32;%02X\n&quot;</emphasis>,
+<anchor xml:id="_path__table_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;e-&gt;<link linkend="_structpath__table__entry_1a12e7dadd206e8c3c3b1c162c9691f523">extended_attribute_record_length</link>);
+<anchor xml:id="_path__table_8c_source_1l00120"/>00120 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tLocation&#32;of&#32;extant:&#32;%08X\n&quot;</emphasis>,&#32;e-&gt;<link linkend="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca">location_of_extent</link>);
+<anchor xml:id="_path__table_8c_source_1l00121"/>00121 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tParent&#32;directory&#32;number:&#32;%04X\n&quot;</emphasis>,&#32;e-&gt;<link linkend="_structpath__table__entry_1a8867a81ce59add3e34b7a868af6e795d">parent_directory_number</link>);
+<anchor xml:id="_path__table_8c_source_1l00122"/>00122 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;\tDirectory&#32;identifier:&#32;%s\n&quot;</emphasis>,&#32;e-&gt;<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>);
+<anchor xml:id="_path__table_8c_source_1l00123"/>00123 }
+<anchor xml:id="_path__table_8c_source_1l00124"/>00124 
+<anchor xml:id="_path__table_8c_source_1l00125"/>00125 int8_t
+<anchor xml:id="_path__table_8c_source_1l00126"/><link linkend="_path__table_8c_1a74af82c548f791d3b0919eeebbf078d4">00126</link> <link linkend="_path__table_8c_1a74af82c548f791d3b0919eeebbf078d4">process_type_l_path_table</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structpath__table">path_table</link>&#32;*pt)
+<anchor xml:id="_path__table_8c_source_1l00127"/>00127 {
+<anchor xml:id="_path__table_8c_source_1l00128"/>00128 &#32;&#32;uint8_t&#32;dir_identifier_length;
+<anchor xml:id="_path__table_8c_source_1l00129"/>00129 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dir_identifier_length)&#32;!=&#32;0)
+<anchor xml:id="_path__table_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00131"/>00131 
+<anchor xml:id="_path__table_8c_source_1l00132"/>00132 &#32;&#32;<emphasis role="keywordflow">do</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00134"/>00134 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structpath__table__entry">path_table_entry</link>&#32;curr;
+<anchor xml:id="_path__table_8c_source_1l00135"/>00135 &#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;=&#32;dir_identifier_length;
+<anchor xml:id="_path__table_8c_source_1l00136"/>00136 
+<anchor xml:id="_path__table_8c_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;!=&#32;1)
+<anchor xml:id="_path__table_8c_source_1l00138"/>00138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;+=&#32;1;
+<anchor xml:id="_path__table_8c_source_1l00139"/>00139 
+<anchor xml:id="_path__table_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;off&#32;*/</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;curr.<link linkend="_structpath__table__entry_1a12e7dadd206e8c3c3b1c162c9691f523">extended_attribute_record_length</link>)&#32;!=&#32;0)
+<anchor xml:id="_path__table_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;curr.<link linkend="_structpath__table__entry_1a23582a06f7cd2208bcbd568d3ad375ca">location_of_extent</link>)&#32;!=&#32;0)
+<anchor xml:id="_path__table_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a78ed65e60aaa0c5e49f37c65baf761a4">read_little_endian_data_uint16_t</link>&#32;(fptr,&#32;&amp;curr.<link linkend="_structpath__table__entry_1a8867a81ce59add3e34b7a868af6e795d">parent_directory_number</link>))&#32;!=&#32;0)
+<anchor xml:id="_path__table_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;on&#32;*/</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00148"/>00148 
+<anchor xml:id="_path__table_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>
+<anchor xml:id="_path__table_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*)calloc&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>));
+<anchor xml:id="_path__table_8c_source_1l00151"/>00151 
+<anchor xml:id="_path__table_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;!=&#32;1)
+<anchor xml:id="_path__table_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;bytes_read
+<anchor xml:id="_path__table_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;fread&#32;(curr.<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>),
+<anchor xml:id="_path__table_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1,&#32;fptr);
+<anchor xml:id="_path__table_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;curr.<link linkend="_structpath__table__entry_1a61425e8e4243cbb94a9c97da41300277">directory_identifier</link>[curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1]
+<anchor xml:id="_path__table_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_path__table_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(bytes_read
+<anchor xml:id="_path__table_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;!=&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1))
+<anchor xml:id="_path__table_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(
+<anchor xml:id="_path__table_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;bytes_read,
+<anchor xml:id="_path__table_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(curr.<link linkend="_structpath__table__entry_1ac227667b0410a7575544b1f23beed3bd">directory_identifier_length</link>&#32;-&#32;1));
+<anchor xml:id="_path__table_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;1,&#32;SEEK_CUR);
+<anchor xml:id="_path__table_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00172"/>00172 
+<anchor xml:id="_path__table_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_path__table_8c_1a492a544af54cae408fa7d4331e7083ae">add_entry_to_path_table</link>&#32;(pt,&#32;&amp;curr)&#32;!=&#32;0)
+<anchor xml:id="_path__table_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00175"/>00175 
+<anchor xml:id="_path__table_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dir_identifier_length)&#32;!=&#32;0)
+<anchor xml:id="_path__table_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00178"/>00178 
+<anchor xml:id="_path__table_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(dir_identifier_length&#32;==&#32;0)&#32;<emphasis role="comment">//&#32;handle&#32;padding&#32;field</emphasis>
+<anchor xml:id="_path__table_8c_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_path__table_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dir_identifier_length)&#32;!=&#32;0)
+<anchor xml:id="_path__table_8c_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00184"/>00184 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_path__table_8c_source_1l00185"/>00185 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(dir_identifier_length&#32;!=&#32;0);
+<anchor xml:id="_path__table_8c_source_1l00186"/>00186 
+<anchor xml:id="_path__table_8c_source_1l00187"/>00187 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_path__table_8c_source_1l00188"/>00188 }
 </programlisting></section>

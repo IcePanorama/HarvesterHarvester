@@ -38,7 +38,10 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8h_source_1l00040"/>00040 
 <anchor xml:id="_errors_8h_source_1l00042"/>00042 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;size);
 <anchor xml:id="_errors_8h_source_1l00043"/>00043 
-<anchor xml:id="_errors_8h_source_1l00045"/>00045 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
-<anchor xml:id="_errors_8h_source_1l00046"/>00046 
-<anchor xml:id="_errors_8h_source_1l00047"/>00047 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_errors_8h_source_1l00045"/>00045 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*arr_name,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;old_size,
+<anchor xml:id="_errors_8h_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;new_size);
+<anchor xml:id="_errors_8h_source_1l00047"/>00047 
+<anchor xml:id="_errors_8h_source_1l00049"/>00049 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
+<anchor xml:id="_errors_8h_source_1l00050"/>00050 
+<anchor xml:id="_errors_8h_source_1l00051"/>00051 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

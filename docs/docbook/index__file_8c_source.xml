@@ -153,14 +153,12 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_index__file_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>,&#32;new_size&#32;*&#32;sizeof&#32;(<link linkend="_structindex__entry">index_entry</link>));
 <anchor xml:id="_index__file_8c_source_1l00160"/>00160 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_indicies&#32;==&#32;NULL)
 <anchor xml:id="_index__file_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Unable&#32;to&#32;ralloc&#32;indicies&#32;to&#32;size&#32;%zu.&quot;</emphasis>,
-<anchor xml:id="_index__file_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;new_size);
-<anchor xml:id="_index__file_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link>&#32;(idx);
-<anchor xml:id="_index__file_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_index__file_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00167"/>00167 
-<anchor xml:id="_index__file_8c_source_1l00168"/>00168 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>&#32;=&#32;new_indicies;
-<anchor xml:id="_index__file_8c_source_1l00169"/>00169 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;=&#32;new_size;
-<anchor xml:id="_index__file_8c_source_1l00170"/>00170 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_index__file_8c_source_1l00171"/>00171 }
+<anchor xml:id="_index__file_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link>&#32;(idx);
+<anchor xml:id="_index__file_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="stringliteral">&quot;indicies&quot;</emphasis>,&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>,&#32;new_size);
+<anchor xml:id="_index__file_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00165"/>00165 
+<anchor xml:id="_index__file_8c_source_1l00166"/>00166 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>&#32;=&#32;new_indicies;
+<anchor xml:id="_index__file_8c_source_1l00167"/>00167 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;=&#32;new_size;
+<anchor xml:id="_index__file_8c_source_1l00168"/>00168 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_index__file_8c_source_1l00169"/>00169 }
 </programlisting></section>

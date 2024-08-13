@@ -90,7 +90,7 @@ Definition at line <link linkend="_directory_8c_source_1l00055">55</link> of fil
 <para>Prints a given directory to stdout in a human-readable form. </para>
 </para>
 <para>
-Definition at line <link linkend="_directory_8c_source_1l00126">126</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00124">124</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1aefcaed1602ed0c137cf53d3c297411b5"/><section>
     <title>print_directory_record()</title>
@@ -112,7 +112,7 @@ Definition at line <link linkend="_directory_8c_source_1l00085">85</link> of fil
 <para>Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_directory_8c_source_1l00138">138</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
+Definition at line <link linkend="_directory_8c_source_1l00136">136</link> of file <link linkend="_directory_8c_source">directory.c</link>.</para>
 </section>
 <anchor xml:id="_directory_8c_1a615bd20f8485a1abb2890e7912c8ecad"/><section>
     <title>resize_directory_records()</title>

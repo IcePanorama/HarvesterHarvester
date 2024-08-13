@@ -47,4 +47,13 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8c_source_1l00043"/>00043 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>,&#32;size);
 <anchor xml:id="_errors_8c_source_1l00044"/>00044 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
 <anchor xml:id="_errors_8c_source_1l00045"/>00045 }
+<anchor xml:id="_errors_8c_source_1l00046"/>00046 
+<anchor xml:id="_errors_8c_source_1l00047"/>00047 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
+<anchor xml:id="_errors_8c_source_1l00048"/><link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">00048</link> <link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*arr_name,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;old_size,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;new_size)
+<anchor xml:id="_errors_8c_source_1l00049"/>00049 {
+<anchor xml:id="_errors_8c_source_1l00050"/>00050 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,
+<anchor xml:id="_errors_8c_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;reallocate&#32;array,&#32;%s,&#32;from&#32;size&#32;%zu&#32;to&#32;%zu.&quot;</emphasis>,&#32;arr_name,
+<anchor xml:id="_errors_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;old_size,&#32;new_size);
+<anchor xml:id="_errors_8c_source_1l00053"/>00053 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
+<anchor xml:id="_errors_8c_source_1l00054"/>00054 }
 </programlisting></section>

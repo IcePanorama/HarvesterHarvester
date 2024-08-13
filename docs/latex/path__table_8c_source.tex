@@ -81,107 +81,105 @@
 \DoxyCodeLine{\Hypertarget{path__table_8c_source_l00086}00086\ \ \ \ \ \ \ pt-\/>\mbox{\hyperlink{structpath__table_a33d282004152acf2e3359dd2c40da884}{entries}},\ sizeof\ (\mbox{\hyperlink{structpath__table__entry}{path\_table\_entry}})\ *\ new\_size);}
 \DoxyCodeLine{\Hypertarget{path__table_8c_source_l00087}00087\ \ \ \textcolor{keywordflow}{if}\ (new\_entries\ ==\ NULL)}
 \DoxyCodeLine{\Hypertarget{path__table_8c_source_l00088}00088\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00089}00089\ \ \ \ \ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \textcolor{stringliteral}{"{}Ralloc\ failed\ for\ \`{}entries`\ of\ size\ \%zu."{}},}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_size);}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00091}00091\ \ \ \ \ \ \ \mbox{\hyperlink{path__table_8c_afb0f3858425278e8f770eee3eaf010f9}{destroy\_path\_table}}\ (pt);}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00092}00092\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d}{HH\_MEM\_ALLOC\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00093}00093\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00094}00094\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00095}00095\ \ \ pt-\/>\mbox{\hyperlink{structpath__table_a33d282004152acf2e3359dd2c40da884}{entries}}\ =\ new\_entries;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00096}00096\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ pt-\/>\mbox{\hyperlink{structpath__table_a273f99c8a539dcdcc0a499296fde3a9b}{size}};\ i\ <\ new\_size;\ i++)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00097}00097\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00098}00098\ \ \ \ \ \ \ pt-\/>\mbox{\hyperlink{structpath__table_a33d282004152acf2e3359dd2c40da884}{entries}}[i].\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}}\ =\ NULL;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00099}00099\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00100}00100\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00101}00101\ \ \ pt-\/>\mbox{\hyperlink{structpath__table_a273f99c8a539dcdcc0a499296fde3a9b}{size}}\ =\ new\_size;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00102}00102\ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00103}00103\ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00104}00104\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00105}00105\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00106}\mbox{\hyperlink{path__table_8c_a4d1b9400850a8ace93b4404599932a84}{00106}}\ \mbox{\hyperlink{path__table_8c_a4d1b9400850a8ace93b4404599932a84}{print\_path\_table}}\ (\mbox{\hyperlink{structpath__table}{path\_table}}\ *pt)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00107}00107\ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00108}00108\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ pt-\/>\mbox{\hyperlink{structpath__table_ae73602760f6f2a1939eb651087570e63}{current\_entry}};\ i++)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00109}00109\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00110}00110\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}Entry\ \%zu:\(\backslash\)n"{}},\ i\ +\ 1);}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00111}00111\ \ \ \ \ \ \ \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\_path\_table\_entry}}\ (\&pt-\/>\mbox{\hyperlink{structpath__table_a33d282004152acf2e3359dd2c40da884}{entries}}[i]);}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00112}00112\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00113}00113\ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00114}00114\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00115}00115\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00116}\mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{00116}}\ \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\_path\_table\_entry}}\ (\mbox{\hyperlink{structpath__table__entry}{path\_table\_entry}}\ *e)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00117}00117\ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00118}00118\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tDirectory\ identifier\ length:\ \%02X\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ e-\/>\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}});}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00120}00120\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tExtended\ attribute\ record\ length:\ \%02X\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ e-\/>\mbox{\hyperlink{structpath__table__entry_a12e7dadd206e8c3c3b1c162c9691f523}{extended\_attribute\_record\_length}});}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00122}00122\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tLocation\ of\ extant:\ \%08X\(\backslash\)n"{}},\ e-\/>\mbox{\hyperlink{structpath__table__entry_a23582a06f7cd2208bcbd568d3ad375ca}{location\_of\_extent}});}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00123}00123\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tParent\ directory\ number:\ \%04X\(\backslash\)n"{}},\ e-\/>\mbox{\hyperlink{structpath__table__entry_a8867a81ce59add3e34b7a868af6e795d}{parent\_directory\_number}});}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00124}00124\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tDirectory\ identifier:\ \%s\(\backslash\)n"{}},\ e-\/>\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}});}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00125}00125\ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00126}00126\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00127}00127\ int8\_t}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00128}\mbox{\hyperlink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{00128}}\ \mbox{\hyperlink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{process\_type\_l\_path\_table}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structpath__table}{path\_table}}\ *pt)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00129}00129\ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00130}00130\ \ \ uint8\_t\ dir\_identifier\_length;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00131}00131\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&dir\_identifier\_length)\ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00132}00132\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00133}00133\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00134}00134\ \ \ \textcolor{keywordflow}{do}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00135}00135\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00136}00136\ \ \ \ \ \ \ \mbox{\hyperlink{structpath__table__entry}{path\_table\_entry}}\ curr;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00137}00137\ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ =\ dir\_identifier\_length;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00138}00138\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00139}00139\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ !=\ 1)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00140}00140\ \ \ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ +=\ 1;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00141}00141\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00142}00142\ \ \ \ \ \ \ \textcolor{comment}{/*\ clang-\/format\ off\ */}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00143}00143\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&curr.\mbox{\hyperlink{structpath__table__entry_a12e7dadd206e8c3c3b1c162c9691f523}{extended\_attribute\_record\_length}})\ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (fptr,\ \&curr.\mbox{\hyperlink{structpath__table__entry_a23582a06f7cd2208bcbd568d3ad375ca}{location\_of\_extent}})\ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a78ed65e60aaa0c5e49f37c65baf761a4}{read\_little\_endian\_data\_uint16\_t}}\ (fptr,\ \&curr.\mbox{\hyperlink{structpath__table__entry_a8867a81ce59add3e34b7a868af6e795d}{parent\_directory\_number}}))\ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00149}00149\ \ \ \ \ \ \ \textcolor{comment}{/*\ clang-\/format\ on\ */}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00150}00150\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00151}00151\ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ =\ (\textcolor{keywordtype}{char}\ *)calloc\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}},\ sizeof\ (\textcolor{keywordtype}{char}));}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00153}00153\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00154}00154\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ !=\ 1)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ fread\ (curr.\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}},\ sizeof\ (\textcolor{keywordtype}{char}),}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1,\ fptr);}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}}[curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1]}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bytes\_read}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !=\ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char})\ *\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1))}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bytes\_read,}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char})\ *\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1));}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00170}00170\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00174}00174\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00175}00175\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{path__table_8c_a492a544af54cae408fa7d4331e7083ae}{add\_entry\_to\_path\_table}}\ (pt,\ \&curr)\ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3}{HH\_PT\_RESIZE\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00177}00177\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00178}00178\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&dir\_identifier\_length)\ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00180}00180\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00181}00181\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dir\_identifier\_length\ ==\ 0)\ \textcolor{comment}{//\ handle\ padding\ field}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&dir\_identifier\_length)\ !=\ 0)}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00185}00185\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00186}00186\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00187}00187\ \ \ \textcolor{keywordflow}{while}\ (dir\_identifier\_length\ !=\ 0);}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00188}00188\ }
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00189}00189\ \ \ \textcolor{keywordflow}{return}\ 0;}
-\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00190}00190\ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00089}00089\ \ \ \ \ \ \ \mbox{\hyperlink{path__table_8c_afb0f3858425278e8f770eee3eaf010f9}{destroy\_path\_table}}\ (pt);}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00090}00090\ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8c_a0779e2db9fc5d11057840045b4196a4f}{handle\_realloc\_error}}\ (\textcolor{stringliteral}{"{}entries"{}},\ pt-\/>\mbox{\hyperlink{structpath__table_a273f99c8a539dcdcc0a499296fde3a9b}{size}},\ new\_size);}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00093}00093\ \ \ pt-\/>\mbox{\hyperlink{structpath__table_a33d282004152acf2e3359dd2c40da884}{entries}}\ =\ new\_entries;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00094}00094\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ pt-\/>\mbox{\hyperlink{structpath__table_a273f99c8a539dcdcc0a499296fde3a9b}{size}};\ i\ <\ new\_size;\ i++)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00095}00095\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00096}00096\ \ \ \ \ \ \ pt-\/>\mbox{\hyperlink{structpath__table_a33d282004152acf2e3359dd2c40da884}{entries}}[i].\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00099}00099\ \ \ pt-\/>\mbox{\hyperlink{structpath__table_a273f99c8a539dcdcc0a499296fde3a9b}{size}}\ =\ new\_size;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00100}00100\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00103}00103\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00104}\mbox{\hyperlink{path__table_8c_a4d1b9400850a8ace93b4404599932a84}{00104}}\ \mbox{\hyperlink{path__table_8c_a4d1b9400850a8ace93b4404599932a84}{print\_path\_table}}\ (\mbox{\hyperlink{structpath__table}{path\_table}}\ *pt)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00105}00105\ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00106}00106\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ pt-\/>\mbox{\hyperlink{structpath__table_ae73602760f6f2a1939eb651087570e63}{current\_entry}};\ i++)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00107}00107\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00108}00108\ \ \ \ \ \ \ printf\ (\textcolor{stringliteral}{"{}Entry\ \%zu:\(\backslash\)n"{}},\ i\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00109}00109\ \ \ \ \ \ \ \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\_path\_table\_entry}}\ (\&pt-\/>\mbox{\hyperlink{structpath__table_a33d282004152acf2e3359dd2c40da884}{entries}}[i]);}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00113}00113\ \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00114}\mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{00114}}\ \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\_path\_table\_entry}}\ (\mbox{\hyperlink{structpath__table__entry}{path\_table\_entry}}\ *e)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00115}00115\ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00116}00116\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tDirectory\ identifier\ length:\ \%02X\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ e-\/>\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}});}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00118}00118\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tExtended\ attribute\ record\ length:\ \%02X\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ e-\/>\mbox{\hyperlink{structpath__table__entry_a12e7dadd206e8c3c3b1c162c9691f523}{extended\_attribute\_record\_length}});}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00120}00120\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tLocation\ of\ extant:\ \%08X\(\backslash\)n"{}},\ e-\/>\mbox{\hyperlink{structpath__table__entry_a23582a06f7cd2208bcbd568d3ad375ca}{location\_of\_extent}});}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00121}00121\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tParent\ directory\ number:\ \%04X\(\backslash\)n"{}},\ e-\/>\mbox{\hyperlink{structpath__table__entry_a8867a81ce59add3e34b7a868af6e795d}{parent\_directory\_number}});}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00122}00122\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tDirectory\ identifier:\ \%s\(\backslash\)n"{}},\ e-\/>\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}});}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00123}00123\ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00125}00125\ int8\_t}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00126}\mbox{\hyperlink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{00126}}\ \mbox{\hyperlink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{process\_type\_l\_path\_table}}\ (FILE\ *fptr,\ \mbox{\hyperlink{structpath__table}{path\_table}}\ *pt)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00127}00127\ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00128}00128\ \ \ uint8\_t\ dir\_identifier\_length;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00129}00129\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&dir\_identifier\_length)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00130}00130\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00132}00132\ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00133}00133\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00134}00134\ \ \ \ \ \ \ \mbox{\hyperlink{structpath__table__entry}{path\_table\_entry}}\ curr;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00135}00135\ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ =\ dir\_identifier\_length;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00137}00137\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ !=\ 1)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00139}00139\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00140}00140\ \ \ \ \ \ \ \textcolor{comment}{/*\ clang-\/format\ off\ */}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00141}00141\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&curr.\mbox{\hyperlink{structpath__table__entry_a12e7dadd206e8c3c3b1c162c9691f523}{extended\_attribute\_record\_length}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a35b8ba7297a3da1c6b2f847ca471299b}{read\_little\_endian\_data\_uint32\_t}}\ (fptr,\ \&curr.\mbox{\hyperlink{structpath__table__entry_a23582a06f7cd2208bcbd568d3ad375ca}{location\_of\_extent}})\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ ||\ (\mbox{\hyperlink{data__reader_8c_a78ed65e60aaa0c5e49f37c65baf761a4}{read\_little\_endian\_data\_uint16\_t}}\ (fptr,\ \&curr.\mbox{\hyperlink{structpath__table__entry_a8867a81ce59add3e34b7a868af6e795d}{parent\_directory\_number}}))\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00144}00144\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00146}00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00147}00147\ \ \ \ \ \ \ \textcolor{comment}{/*\ clang-\/format\ on\ */}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00149}00149\ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ =\ (\textcolor{keywordtype}{char}\ *)calloc\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}},\ sizeof\ (\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00152}00152\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ !=\ 1)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00153}00153\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ bytes\_read}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ fread\ (curr.\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}},\ sizeof\ (\textcolor{keywordtype}{char}),}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1,\ fptr);}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ curr.\mbox{\hyperlink{structpath__table__entry_a61425e8e4243cbb94a9c97da41300277}{directory\_identifier}}[curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1]}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \textcolor{charliteral}{'\(\backslash\)0'};}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bytes\_read}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ !=\ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char})\ *\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1))}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\_fread\_error}}\ (}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bytes\_read,}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}\ (\textcolor{keywordtype}{char})\ *\ (curr.\mbox{\hyperlink{structpath__table__entry_ac227667b0410a7575544b1f23beed3bd}{directory\_identifier\_length}}\ -\/\ 1));}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00168}00168\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ fseek\ (fptr,\ 1,\ SEEK\_CUR);}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00173}00173\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{path__table_8c_a492a544af54cae408fa7d4331e7083ae}{add\_entry\_to\_path\_table}}\ (pt,\ \&curr)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3}{HH\_PT\_RESIZE\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00176}00176\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&dir\_identifier\_length)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00177}00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00179}00179\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dir\_identifier\_length\ ==\ 0)\ \textcolor{comment}{//\ handle\ padding\ field}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00180}00180\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}{read\_single\_uint8}}\ (fptr,\ \&dir\_identifier\_length)\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df}{HH\_FREAD\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00183}00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00184}00184\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00185}00185\ \ \ \textcolor{keywordflow}{while}\ (dir\_identifier\_length\ !=\ 0);}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00187}00187\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{path__table_8c_source_l00188}00188\ \}}
 
 \end{DoxyCode}

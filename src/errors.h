@@ -41,6 +41,10 @@ HH_ERRORS handle_fread_error (size_t actual, size_t expected_bytes);
 /** Throws an calloc error. */
 HH_ERRORS handle_calloc_error (size_t size);
 
+/** Throws an calloc error. */
+HH_ERRORS handle_realloc_error (const char *arr_name, size_t old_size,
+                                size_t new_size);
+
 /** Throws an unknown command line argument error. */
 void handle_unknown_command_line_argument_error (char *arg);
 

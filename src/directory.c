@@ -106,10 +106,8 @@ resize_directory_records (directory *d)
       d->records, sizeof (directory_record) * new_size);
   if (new_records == NULL)
     {
-      hh_log (HH_LOG_ERROR, "Failed to reallocate records to size %zu.",
-              new_size);
       destroy_directory (d);
-      return -1;
+      return handle_realloc_error ("records", d->size, new_size);
     }
 
   d->records = new_records;

@@ -106,97 +106,95 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_directory_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;d-&gt;<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>,&#32;sizeof&#32;(<link linkend="_structdirectory__record">directory_record</link>)&#32;*&#32;new_size);
 <anchor xml:id="_directory_8c_source_1l00107"/>00107 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_records&#32;==&#32;NULL)
 <anchor xml:id="_directory_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;reallocate&#32;records&#32;to&#32;size&#32;%zu.&quot;</emphasis>,
-<anchor xml:id="_directory_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;new_size);
-<anchor xml:id="_directory_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_directory_8c_1a5bb3c915259dac9f8fb2c102cc72ccda">destroy_directory</link>&#32;(d);
-<anchor xml:id="_directory_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_directory_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00114"/>00114 
-<anchor xml:id="_directory_8c_source_1l00115"/>00115 &#32;&#32;d-&gt;<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>&#32;=&#32;new_records;
-<anchor xml:id="_directory_8c_source_1l00116"/>00116 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;d-&gt;<link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">size</link>;&#32;i&#32;&lt;&#32;new_size;&#32;i++)
-<anchor xml:id="_directory_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;d-&gt;<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>[i].<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>&#32;=&#32;NULL;
-<anchor xml:id="_directory_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00120"/>00120 
-<anchor xml:id="_directory_8c_source_1l00121"/>00121 &#32;&#32;d-&gt;<link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">size</link>&#32;=&#32;new_size;
-<anchor xml:id="_directory_8c_source_1l00122"/>00122 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_directory_8c_source_1l00123"/>00123 }
-<anchor xml:id="_directory_8c_source_1l00124"/>00124 
-<anchor xml:id="_directory_8c_source_1l00125"/>00125 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_directory_8c_source_1l00126"/><link linkend="_directory_8c_1a62a8754d4c77904a749f780b57be2152">00126</link> <link linkend="_directory_8c_1a62a8754d4c77904a749f780b57be2152">print_directory</link>&#32;(<link linkend="_structdirectory">directory</link>&#32;*d)
-<anchor xml:id="_directory_8c_source_1l00127"/>00127 {
-<anchor xml:id="_directory_8c_source_1l00128"/>00128 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Number&#32;of&#32;records:&#32;%zu\n&quot;</emphasis>,&#32;d-&gt;<link linkend="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7">current_record</link>&#32;+&#32;1);
-<anchor xml:id="_directory_8c_source_1l00129"/>00129 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;d-&gt;<link linkend="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7">current_record</link>;&#32;i++)
-<anchor xml:id="_directory_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;!!!&#32;Record&#32;#%zu\n&quot;</emphasis>,&#32;i&#32;+&#32;1);
-<anchor xml:id="_directory_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_directory_8c_1aefcaed1602ed0c137cf53d3c297411b5">print_directory_record</link>&#32;(&amp;d-&gt;<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>[i]);
-<anchor xml:id="_directory_8c_source_1l00133"/>00133 &#32;&#32;&#32;&#32;&#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;-------------------------------&quot;</emphasis>);
-<anchor xml:id="_directory_8c_source_1l00134"/>00134 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00135"/>00135 }
-<anchor xml:id="_directory_8c_source_1l00136"/>00136 
-<anchor xml:id="_directory_8c_source_1l00137"/>00137 int8_t
-<anchor xml:id="_directory_8c_source_1l00138"/><link linkend="_directory_8c_1abca5089e2010346de9a8913639c27bcd">00138</link> <link linkend="_directory_8c_1abca5089e2010346de9a8913639c27bcd">process_directory</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structdirectory">directory</link>&#32;*d)
-<anchor xml:id="_directory_8c_source_1l00139"/>00139 {
-<anchor xml:id="_directory_8c_source_1l00140"/>00140 &#32;&#32;uint8_t&#32;single_byte;
-<anchor xml:id="_directory_8c_source_1l00141"/>00141 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;single_byte)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00143"/>00143 
-<anchor xml:id="_directory_8c_source_1l00144"/>00144 &#32;&#32;<emphasis role="keywordflow">do</emphasis>
-<anchor xml:id="_directory_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structdirectory__record">directory_record</link>&#32;dr;
-<anchor xml:id="_directory_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1ae46cf5b35328ad518d86aaaa6fb32ac8">record_length</link>&#32;=&#32;single_byte;
-<anchor xml:id="_directory_8c_source_1l00148"/>00148 
-<anchor xml:id="_directory_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a6e6e77cb9de1ffe1253350f7f4a7b66a">extended_attribute_record_length</link>)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a20f2e0fd671b1791e6f2935aa44f9f63">location_of_extent</link>)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1aa2a5c7f49a3edac5dfe11b6bcd19b49d">data_length</link>)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a671723ae43b83cdf3db007816fc6b0a0">read_dir_datetime</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1ac1654a106d931729a0f2af11e4c85a97">recording_datetime</link>)&#32;!=&#32;0))
-<anchor xml:id="_directory_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00154"/>00154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00156"/>00156 
-<anchor xml:id="_directory_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1a25a79fcf15457ebc2f2f3fcf17028fe4">file_flags</link>&#32;=&#32;<link linkend="_file__flags_8c_1aacfa73039d80ff8aafa6b5cc1d8c54b5">create_file_flags</link>&#32;();
-<anchor xml:id="_directory_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_data__reader_8c_1a706cf4826080ce7bf4a1706fe10f379a">read_file_flags</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a25a79fcf15457ebc2f2f3fcf17028fe4">file_flags</link>);
-<anchor xml:id="_directory_8c_source_1l00159"/>00159 
-<anchor xml:id="_directory_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a57f5f98e6202bd369a4ce259dab5dd98">file_unit_size</link>)&#32;!=&#32;0
-<anchor xml:id="_directory_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1aa4308bfec1f0d16a68155bf9b63113d4">interleave_gap_size</link>)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00165"/>00165 
-<anchor xml:id="_directory_8c_source_1l00166"/>00166 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1ac5eb33b86992b7eec9d57407d8bb5bb4">read_both_endian_data_uint16</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a521be5065bacca09dd4f0d0317852a2c">volume_sequence_number</link>)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00168"/>00168 
-<anchor xml:id="_directory_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00172"/>00172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>++;
-<anchor xml:id="_directory_8c_source_1l00174"/>00174 
-<anchor xml:id="_directory_8c_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>
-<anchor xml:id="_directory_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*)calloc&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>));
-<anchor xml:id="_directory_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;bytes_read&#32;=&#32;fread&#32;(dr.<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>),
-<anchor xml:id="_directory_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1,&#32;fptr);
-<anchor xml:id="_directory_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>[dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
-<anchor xml:id="_directory_8c_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(bytes_read&#32;!=&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1))
-<anchor xml:id="_directory_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(bytes_read,
-<anchor xml:id="_directory_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1));
-<anchor xml:id="_directory_8c_source_1l00184"/>00184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00186"/>00186 
-<anchor xml:id="_directory_8c_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_directory_8c_1a979ab5c3dbd4bc0f116661d40ecbd26c">add_record_to_directory</link>&#32;(d,&#32;&amp;dr)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_directory_8c_source_1l00189"/>00189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00191"/>00191 
-<anchor xml:id="_directory_8c_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;%&#32;2&#32;!=&#32;0)&#32;<emphasis role="comment">//&#32;handle&#32;padding&#32;field</emphasis>
-<anchor xml:id="_directory_8c_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;1,&#32;SEEK_CUR);
-<anchor xml:id="_directory_8c_source_1l00194"/>00194 
-<anchor xml:id="_directory_8c_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;single_byte)&#32;!=&#32;0)
-<anchor xml:id="_directory_8c_source_1l00196"/>00196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_directory_8c_source_1l00197"/>00197 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_directory_8c_source_1l00198"/>00198 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(single_byte&#32;!=&#32;0);
-<anchor xml:id="_directory_8c_source_1l00199"/>00199 
-<anchor xml:id="_directory_8c_source_1l00200"/>00200 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_directory_8c_source_1l00201"/>00201 }
+<anchor xml:id="_directory_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_directory_8c_1a5bb3c915259dac9f8fb2c102cc72ccda">destroy_directory</link>&#32;(d);
+<anchor xml:id="_directory_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="stringliteral">&quot;records&quot;</emphasis>,&#32;d-&gt;<link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">size</link>,&#32;new_size);
+<anchor xml:id="_directory_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00112"/>00112 
+<anchor xml:id="_directory_8c_source_1l00113"/>00113 &#32;&#32;d-&gt;<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>&#32;=&#32;new_records;
+<anchor xml:id="_directory_8c_source_1l00114"/>00114 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;d-&gt;<link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">size</link>;&#32;i&#32;&lt;&#32;new_size;&#32;i++)
+<anchor xml:id="_directory_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;d-&gt;<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>[i].<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>&#32;=&#32;NULL;
+<anchor xml:id="_directory_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00118"/>00118 
+<anchor xml:id="_directory_8c_source_1l00119"/>00119 &#32;&#32;d-&gt;<link linkend="_structdirectory_1a2b8b7f416abbf3cfd40f2587e43d0721">size</link>&#32;=&#32;new_size;
+<anchor xml:id="_directory_8c_source_1l00120"/>00120 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_directory_8c_source_1l00121"/>00121 }
+<anchor xml:id="_directory_8c_source_1l00122"/>00122 
+<anchor xml:id="_directory_8c_source_1l00123"/>00123 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_directory_8c_source_1l00124"/><link linkend="_directory_8c_1a62a8754d4c77904a749f780b57be2152">00124</link> <link linkend="_directory_8c_1a62a8754d4c77904a749f780b57be2152">print_directory</link>&#32;(<link linkend="_structdirectory">directory</link>&#32;*d)
+<anchor xml:id="_directory_8c_source_1l00125"/>00125 {
+<anchor xml:id="_directory_8c_source_1l00126"/>00126 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Number&#32;of&#32;records:&#32;%zu\n&quot;</emphasis>,&#32;d-&gt;<link linkend="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7">current_record</link>&#32;+&#32;1);
+<anchor xml:id="_directory_8c_source_1l00127"/>00127 &#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;d-&gt;<link linkend="_structdirectory_1a1f1b2917abfe5c0625cf4034274797e7">current_record</link>;&#32;i++)
+<anchor xml:id="_directory_8c_source_1l00128"/>00128 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00129"/>00129 &#32;&#32;&#32;&#32;&#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;!!!&#32;Record&#32;#%zu\n&quot;</emphasis>,&#32;i&#32;+&#32;1);
+<anchor xml:id="_directory_8c_source_1l00130"/>00130 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_directory_8c_1aefcaed1602ed0c137cf53d3c297411b5">print_directory_record</link>&#32;(&amp;d-&gt;<link linkend="_structdirectory_1afb5ace37536c9d07d73e362194dbef2b">records</link>[i]);
+<anchor xml:id="_directory_8c_source_1l00131"/>00131 &#32;&#32;&#32;&#32;&#32;&#32;puts&#32;(<emphasis role="stringliteral">&quot;-------------------------------&quot;</emphasis>);
+<anchor xml:id="_directory_8c_source_1l00132"/>00132 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00133"/>00133 }
+<anchor xml:id="_directory_8c_source_1l00134"/>00134 
+<anchor xml:id="_directory_8c_source_1l00135"/>00135 int8_t
+<anchor xml:id="_directory_8c_source_1l00136"/><link linkend="_directory_8c_1abca5089e2010346de9a8913639c27bcd">00136</link> <link linkend="_directory_8c_1abca5089e2010346de9a8913639c27bcd">process_directory</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structdirectory">directory</link>&#32;*d)
+<anchor xml:id="_directory_8c_source_1l00137"/>00137 {
+<anchor xml:id="_directory_8c_source_1l00138"/>00138 &#32;&#32;uint8_t&#32;single_byte;
+<anchor xml:id="_directory_8c_source_1l00139"/>00139 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;single_byte)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00141"/>00141 
+<anchor xml:id="_directory_8c_source_1l00142"/>00142 &#32;&#32;<emphasis role="keywordflow">do</emphasis>
+<anchor xml:id="_directory_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structdirectory__record">directory_record</link>&#32;dr;
+<anchor xml:id="_directory_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1ae46cf5b35328ad518d86aaaa6fb32ac8">record_length</link>&#32;=&#32;single_byte;
+<anchor xml:id="_directory_8c_source_1l00146"/>00146 
+<anchor xml:id="_directory_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a6e6e77cb9de1ffe1253350f7f4a7b66a">extended_attribute_record_length</link>)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00148"/>00148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a20f2e0fd671b1791e6f2935aa44f9f63">location_of_extent</link>)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a640713d2880309d518aebed5ebff89e0">read_both_endian_data_uint32</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1aa2a5c7f49a3edac5dfe11b6bcd19b49d">data_length</link>)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00150"/>00150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a671723ae43b83cdf3db007816fc6b0a0">read_dir_datetime</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1ac1654a106d931729a0f2af11e4c85a97">recording_datetime</link>)&#32;!=&#32;0))
+<anchor xml:id="_directory_8c_source_1l00151"/>00151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00152"/>00152 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00153"/>00153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00154"/>00154 
+<anchor xml:id="_directory_8c_source_1l00155"/>00155 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1a25a79fcf15457ebc2f2f3fcf17028fe4">file_flags</link>&#32;=&#32;<link linkend="_file__flags_8c_1aacfa73039d80ff8aafa6b5cc1d8c54b5">create_file_flags</link>&#32;();
+<anchor xml:id="_directory_8c_source_1l00156"/>00156 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_data__reader_8c_1a706cf4826080ce7bf4a1706fe10f379a">read_file_flags</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a25a79fcf15457ebc2f2f3fcf17028fe4">file_flags</link>);
+<anchor xml:id="_directory_8c_source_1l00157"/>00157 
+<anchor xml:id="_directory_8c_source_1l00158"/>00158 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a57f5f98e6202bd369a4ce259dab5dd98">file_unit_size</link>)&#32;!=&#32;0
+<anchor xml:id="_directory_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1aa4308bfec1f0d16a68155bf9b63113d4">interleave_gap_size</link>)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00163"/>00163 
+<anchor xml:id="_directory_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1ac5eb33b86992b7eec9d57407d8bb5bb4">read_both_endian_data_uint16</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a521be5065bacca09dd4f0d0317852a2c">volume_sequence_number</link>)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00165"/>00165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00166"/>00166 
+<anchor xml:id="_directory_8c_source_1l00167"/>00167 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00169"/>00169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>++;
+<anchor xml:id="_directory_8c_source_1l00172"/>00172 
+<anchor xml:id="_directory_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>
+<anchor xml:id="_directory_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*)calloc&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>));
+<anchor xml:id="_directory_8c_source_1l00175"/>00175 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;bytes_read&#32;=&#32;fread&#32;(dr.<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>,&#32;sizeof&#32;(<emphasis role="keywordtype">char</emphasis>),
+<anchor xml:id="_directory_8c_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1,&#32;fptr);
+<anchor xml:id="_directory_8c_source_1l00177"/>00177 &#32;&#32;&#32;&#32;&#32;&#32;dr.<link linkend="_structdirectory__record_1ab415bc8d2753e0b33d43d9a57777df93">file_identifier</link>[dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1]&#32;=&#32;<emphasis role="charliteral">&apos;\0&apos;</emphasis>;
+<anchor xml:id="_directory_8c_source_1l00178"/>00178 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(bytes_read&#32;!=&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1))
+<anchor xml:id="_directory_8c_source_1l00179"/>00179 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00180"/>00180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(bytes_read,
+<anchor xml:id="_directory_8c_source_1l00181"/>00181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<emphasis role="keywordtype">char</emphasis>)&#32;*&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;-&#32;1));
+<anchor xml:id="_directory_8c_source_1l00182"/>00182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00183"/>00183 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00184"/>00184 
+<anchor xml:id="_directory_8c_source_1l00185"/>00185 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_directory_8c_1a979ab5c3dbd4bc0f116661d40ecbd26c">add_record_to_directory</link>&#32;(d,&#32;&amp;dr)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_directory_8c_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00188"/>00188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00189"/>00189 
+<anchor xml:id="_directory_8c_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(dr.<link linkend="_structdirectory__record_1a1ae4192560632db86400cacaccfa8446">file_identifier_length</link>&#32;%&#32;2&#32;!=&#32;0)&#32;<emphasis role="comment">//&#32;handle&#32;padding&#32;field</emphasis>
+<anchor xml:id="_directory_8c_source_1l00191"/>00191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;1,&#32;SEEK_CUR);
+<anchor xml:id="_directory_8c_source_1l00192"/>00192 
+<anchor xml:id="_directory_8c_source_1l00193"/>00193 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;single_byte)&#32;!=&#32;0)
+<anchor xml:id="_directory_8c_source_1l00194"/>00194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_directory_8c_source_1l00195"/>00195 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_directory_8c_source_1l00196"/>00196 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(single_byte&#32;!=&#32;0);
+<anchor xml:id="_directory_8c_source_1l00197"/>00197 
+<anchor xml:id="_directory_8c_source_1l00198"/>00198 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_directory_8c_source_1l00199"/>00199 }
 </programlisting></section>

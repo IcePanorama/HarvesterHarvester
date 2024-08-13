@@ -43,3 +43,12 @@ handle_calloc_error (size_t size)
   hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, size);
   return HH_MEM_ALLOC_ERROR;
 }
+
+HH_ERRORS
+handle_realloc_error (const char *arr_name, size_t old_size, size_t new_size)
+{
+  hh_log (HH_LOG_ERROR,
+          "Failed to reallocate array, %s, from size %zu to %zu.", arr_name,
+          old_size, new_size);
+  return HH_MEM_ALLOC_ERROR;
+}

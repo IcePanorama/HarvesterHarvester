@@ -159,10 +159,8 @@ resize_indicies (index_file *idx)
       idx->indicies, new_size * sizeof (index_entry));
   if (new_indicies == NULL)
     {
-      hh_log (HH_LOG_ERROR, "Unable to ralloc indicies to size %zu.",
-              new_size);
       destroy_index_file (idx);
-      return -1;
+      return handle_realloc_error ("indicies", idx->size, new_size);
     }
 
   idx->indicies = new_indicies;

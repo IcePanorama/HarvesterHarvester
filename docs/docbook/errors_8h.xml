@@ -31,6 +31,10 @@
 
 <para>Throws an calloc error. </para>
 </listitem>
+            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8h_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link> (const char *arr_name, size_t old_size, size_t new_size)</para>
+
+<para>Throws an calloc error. </para>
+</listitem>
             <listitem><para>void <link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link> (char *arg)</para>
 
 <para>Throws an unknown command line argument error. </para>
@@ -117,6 +121,17 @@ Definition at line <link linkend="_errors_8c_source_1l00041">41</link> of file <
 </para>
 <para>
 Definition at line <link linkend="_errors_8c_source_1l00017">17</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+</section>
+<anchor xml:id="_errors_8h_1a0779e2db9fc5d11057840045b4196a4f"/><section>
+    <title>handle_realloc_error()</title>
+<indexterm><primary>handle_realloc_error</primary><secondary>errors.h</secondary></indexterm>
+<indexterm><primary>errors.h</primary><secondary>handle_realloc_error</secondary></indexterm>
+<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_realloc_error (const char * arr_name, size_t old_size, size_t new_size)</computeroutput></para><para>
+
+<para>Throws an calloc error. </para>
+</para>
+<para>
+Definition at line <link linkend="_errors_8c_source_1l00048">48</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0"/><section>
     <title>handle_unknown_command_line_argument_error()</title>
