@@ -104,6 +104,7 @@ $(function(){initNavTree('errors_8c.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 </div>
@@ -111,9 +112,6 @@ $(function(){initNavTree('errors_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1fa621098d550bb126a641aba0638f7f" id="r_a1fa621098d550bb126a641aba0638f7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fa621098d550bb126a641aba0638f7f">improper_usage_error</a> (void)</td></tr>
-<tr class="memdesc:a1fa621098d550bb126a641aba0638f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an improper usage error.  <br /></td></tr>
-<tr class="separator:a1fa621098d550bb126a641aba0638f7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b9a6494b96286134308f2da3e179af9" id="r_a9b9a6494b96286134308f2da3e179af9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b9a6494b96286134308f2da3e179af9">fopen_error</a> (char *filename)</td></tr>
 <tr class="memdesc:a9b9a6494b96286134308f2da3e179af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an fopen error.  <br /></td></tr>
 <tr class="separator:a9b9a6494b96286134308f2da3e179af9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,13 +121,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a2343c2fe78d79e1bd2092a5aa19964b0" id="r_a2343c2fe78d79e1bd2092a5aa19964b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</a> (char *arg)</td></tr>
 <tr class="memdesc:a2343c2fe78d79e1bd2092a5aa19964b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an unknown command line argument error.  <br /></td></tr>
 <tr class="separator:a2343c2fe78d79e1bd2092a5aa19964b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a264d565f946a86af55409cbe5b980060" id="r_a264d565f946a86af55409cbe5b980060"><td class="memItemLeft" align="right" valign="top"><a class="el" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a264d565f946a86af55409cbe5b980060">handle_calloc_error</a> (size_t size)</td></tr>
+<tr class="memdesc:a264d565f946a86af55409cbe5b980060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Throws an calloc error.  <br /></td></tr>
+<tr class="separator:a264d565f946a86af55409cbe5b980060"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ab2272d0da4232afba19f95bf02944157" id="r_ab2272d0da4232afba19f95bf02944157"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a> = &quot;[HarvesterHarvester]ERROR: unable to calloc string of size %zu.\n&quot;</td></tr>
-<tr class="memdesc:ab2272d0da4232afba19f95bf02944157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format string for failed calloc error message.  <br /></td></tr>
+<tr class="memitem:ab2272d0da4232afba19f95bf02944157" id="r_ab2272d0da4232afba19f95bf02944157"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</a> = &quot;Unable to calloc string of size %zu.&quot;</td></tr>
 <tr class="separator:ab2272d0da4232afba19f95bf02944157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03ff53905312bd88e728b1863cf1b1c9" id="r_a03ff53905312bd88e728b1863cf1b1c9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</a> = &quot;[HarvesterHarvester]ERROR: unable to open output file, %s\n.&quot;</td></tr>
+<tr class="memitem:a03ff53905312bd88e728b1863cf1b1c9" id="r_a03ff53905312bd88e728b1863cf1b1c9"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</a> = &quot;Unable to open output file, %s.&quot;</td></tr>
 <tr class="memdesc:a03ff53905312bd88e728b1863cf1b1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format string for failed fopen error message.  <br /></td></tr>
 <tr class="separator:a03ff53905312bd88e728b1863cf1b1c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -151,7 +151,28 @@ Variables</h2></td></tr>
 
 <p>Throws an fopen error. </p>
 
-<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00028">28</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00011">11</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
+
+</div>
+</div>
+<a id="a264d565f946a86af55409cbe5b980060" name="a264d565f946a86af55409cbe5b980060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264d565f946a86af55409cbe5b980060">&#9670;&#160;</a></span>handle_calloc_error()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</a> handle_calloc_error </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Throws an calloc error. </p>
+
+<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00041">41</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
 </div>
 </div>
@@ -176,7 +197,7 @@ Variables</h2></td></tr>
 
 <p>Throws an fread error. </p>
 
-<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00034">34</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00017">17</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
 </div>
 </div>
@@ -197,28 +218,7 @@ Variables</h2></td></tr>
 
 <p>Throws an unknown command line argument error. </p>
 
-<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00042">42</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
-
-</div>
-</div>
-<a id="a1fa621098d550bb126a641aba0638f7f" name="a1fa621098d550bb126a641aba0638f7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa621098d550bb126a641aba0638f7f">&#9670;&#160;</a></span>improper_usage_error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void improper_usage_error </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Throws an improper usage error. </p>
-
-<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00012">12</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00025">25</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
 </div>
 </div>
@@ -230,14 +230,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* CALLOC_FAILED_ERR_MSG_FMT = &quot;[HarvesterHarvester]ERROR: unable to calloc string of size %zu.\n&quot;</td>
+          <td class="memname">const char* CALLOC_FAILED_ERR_MSG_FMT = &quot;Unable to calloc string of size %zu.&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Format string for failed calloc error message. </p>
-
-<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00006">6</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="errors_8c_source.html#l00007">7</a> of file <a class="el" href="errors_8c_source.html">errors.c</a>.</p>
 
 </div>
 </div>
@@ -248,7 +246,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* FOPEN_FAILED_ERR_MSG_FMT = &quot;[HarvesterHarvester]ERROR: unable to open output file, %s\n.&quot;</td>
+          <td class="memname">const char* FOPEN_FAILED_ERR_MSG_FMT = &quot;Unable to open output file, %s.&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">

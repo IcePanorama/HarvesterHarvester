@@ -8,7 +8,7 @@ var searchData=
   ['path_5ftable_5fsize_5',['path_table_size',['../structvolume__descriptor__data.html#a66accb73084de817dc58d3976c577bec',1,'volume_descriptor_data']]],
   ['peek_5fchar_5fis_6',['peek_char_is',['../utils_8c.html#a4ce51b557efd36a5220e51669c79cc86',1,'peek_char_is(FILE *fptr, uint8_t expected_ch):&#160;utils.c'],['../utils_8h.html#a4ce51b557efd36a5220e51669c79cc86',1,'peek_char_is(FILE *fptr, uint8_t expected_ch):&#160;utils.c']]],
   ['peek_5feof_7',['peek_eof',['../utils_8c.html#ad89ab9462dec77ec0a6c4f32f731f7ff',1,'peek_eof(FILE *fptr):&#160;utils.c'],['../utils_8h.html#ad89ab9462dec77ec0a6c4f32f731f7ff',1,'peek_eof(FILE *fptr):&#160;utils.c']]],
-  ['piracy_8',['A note on piracy',['../index.html#autotoc_md7',1,'']]],
+  ['piracy_8',['A note on piracy',['../index.html#autotoc_md5',1,'']]],
   ['prepend_5fpath_5fstring_9',['prepend_path_string',['../utils_8c.html#a41ffa7a16724ed0473f420933cfb7b87',1,'prepend_path_string(char *str, const char *prefix):&#160;utils.c'],['../utils_8h.html#a41ffa7a16724ed0473f420933cfb7b87',1,'prepend_path_string(char *str, const char *prefix):&#160;utils.c']]],
   ['prepend_5fstring_10',['prepend_string',['../utils_8c.html#a7f5f49b4dabd84b37e8f7b9464e57992',1,'prepend_string(char *str, const char *prefix):&#160;utils.c'],['../utils_8h.html#a7f5f49b4dabd84b37e8f7b9464e57992',1,'prepend_string(char *str, const char *prefix):&#160;utils.c']]],
   ['print_5fdec_5fdatetime_11',['print_dec_datetime',['../datetime_8c.html#a6e26118490d8999d5e73b1e3e7dd83ce',1,'print_dec_datetime(dec_datetime dt):&#160;datetime.c'],['../datetime_8h.html#a6e26118490d8999d5e73b1e3e7dd83ce',1,'print_dec_datetime(dec_datetime dt):&#160;datetime.c']]],

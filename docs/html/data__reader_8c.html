@@ -105,6 +105,7 @@ $(function(){initNavTree('data__reader_8c.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="file__flags_8h_source.html">file_flags.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
@@ -176,7 +177,7 @@ Functions</h2></td></tr>
 
 <p>Builds strings using formats provided by <code>internal-dat-file-paths.txt</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00254">254</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00255">255</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -206,7 +207,7 @@ Functions</h2></td></tr>
 
 <p>Reads an array of uint8_t's, of a given length, from a given file, storing the result in <code>output</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00158">158</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00159">159</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -239,7 +240,7 @@ Functions</h2></td></tr>
 
 <p>Reads a uint16_t stored in big endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00129">129</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00130">130</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -272,7 +273,7 @@ Functions</h2></td></tr>
 
 <p>Reads a uint32_t stored in big endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00098">98</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00099">99</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -299,7 +300,7 @@ Functions</h2></td></tr>
 <p>This is almost certainly unnecessary, but it makes me feel better :).</p>
 <dl class="section see"><dt>See also</dt><dd>read_both_endian_data_unint32() </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00058">58</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00059">59</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -326,7 +327,7 @@ Functions</h2></td></tr>
 <p>This is almost certainly unnecessary, but it makes me feel better :).</p>
 <dl class="section see"><dt>See also</dt><dd>read_both_endian_data_unint16() </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00036">36</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00037">37</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -352,7 +353,7 @@ Functions</h2></td></tr>
 <p>Reads in <code><a class="el" href="structdec__datetime.html" title="The date/time format used by Primary Volume Descriptors.">dec_datetime</a></code> data from a given file, storing the output in <code>dt</code>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structdec__datetime.html" title="The date/time format used by Primary Volume Descriptors.">dec_datetime</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00171">171</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00172">172</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -378,7 +379,7 @@ Functions</h2></td></tr>
 <p>Reads in <code><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a></code> data from a given file, storing the output in <code>dt</code>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structdir__datetime.html" title="The date/time format used by directory records.">dir_datetime</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00204">204</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00205">205</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -404,7 +405,7 @@ Functions</h2></td></tr>
 <p>Reads in <code>file_flag</code> data from a given file, storing the output in <code>ff</code>. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="structfile__flags.html" title="file_flags.h - file_flags data type and its associated functions.">file_flags</a> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00221">221</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00222">222</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -429,7 +430,7 @@ Functions</h2></td></tr>
 
 <p>Reads a uint16_t stored in little endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00114">114</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00115">115</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -454,7 +455,7 @@ Functions</h2></td></tr>
 
 <p>Reads a uint32_t stored in little endian format from the file pointed to by <code>fptr</code> and stores the result in <code>output</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00080">80</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00081">81</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -480,7 +481,7 @@ Functions</h2></td></tr>
 <p>data_header.h - container for various data access functions. </p>
 <p>All of these functions return zero on success, non-zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8_t from a given file, storing the output in <code>value</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00191">191</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00192">192</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>
@@ -510,7 +511,7 @@ Functions</h2></td></tr>
 
 <p>Reads a string of a given length from a given file, storing the result in <code>output</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00144">144</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data__reader_8c_source.html#l00145">145</a> of file <a class="el" href="data__reader_8c_source.html">data_reader.c</a>.</p>
 
 </div>
 </div>

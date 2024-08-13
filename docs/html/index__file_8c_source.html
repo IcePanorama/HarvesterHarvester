@@ -116,184 +116,181 @@ $(function(){initNavTree('index__file_8c_source.html',''); initResizable(true); 
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="index__file_8h.html">index_file.h</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="data__reader_8h.html">data_reader.h</a>&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="errors_8h.html">errors.h</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="options_8h.html">options.h</a>&quot;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">   23</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a> = 10;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">   24</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</a> = 2;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">static</span> int8_t <a class="code hl_function" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *idx);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>int8_t</div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="index__file_8c.html#a8d0c5734d83636faa168e5869954b500">   33</a></span><a class="code hl_function" href="index__file_8c.html#a8d0c5734d83636faa168e5869954b500">create_index_file</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *i)</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  i-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a> = malloc (<a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a> * <span class="keyword">sizeof</span> (<a class="code hl_struct" href="structindex__entry.html">index_entry</a>));</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordflow">if</span> (i-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a> == NULL)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      fprintf (</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>          stderr,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>          <span class="stringliteral">&quot;[HarvesterHarvester]ERROR: unable to malloc array of %zu indicies.&quot;</span>,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>          <a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a> * <span class="keyword">sizeof</span> (<a class="code hl_struct" href="structindex__entry.html">index_entry</a>));</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  i-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a> = <a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  i-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a> = 0;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="log_8h.html">log.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="options_8h.html">options.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="utils_8h.html">utils.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">   24</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a> = 10;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">   25</a></span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</a> = 2;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">static</span> int8_t <a class="code hl_function" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *idx);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>int8_t</div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="index__file_8c.html#a8d0c5734d83636faa168e5869954b500">   34</a></span><a class="code hl_function" href="index__file_8c.html#a8d0c5734d83636faa168e5869954b500">create_index_file</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *i)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  i-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a> = malloc (<a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a> * <span class="keyword">sizeof</span> (<a class="code hl_struct" href="structindex__entry.html">index_entry</a>));</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keywordflow">if</span> (i-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a> == NULL)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>      <a class="code hl_function" href="log_8c.html#a17a149a589296f67b4ecee3493403542">hh_log</a> (<a class="code hl_enumvalue" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</a>, <span class="stringliteral">&quot;Unable to malloc indicies of size %zu.&quot;</span>,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>              <a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a> * <span class="keyword">sizeof</span> (<a class="code hl_struct" href="structindex__entry.html">index_entry</a>));</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  i-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a> = <a class="code hl_variable" href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  i-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a> = 0;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>int8_t</div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">   52</a></span><a class="code hl_function" href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *i)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  free (i-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>int8_t</div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">   51</a></span><a class="code hl_function" href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *i)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  free (i-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>int8_t</div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="index__file_8c.html#a8d9a7c6f483fa764254a2013aa7258b1">   59</a></span><a class="code hl_function" href="index__file_8c.html#a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</a> (FILE *fptr, <a class="code hl_struct" href="structindex__file.html">index_file</a> *idxf)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>{</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">while</span> (!<a class="code hl_function" href="utils_8c.html#ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</a> (fptr))</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      <a class="code hl_struct" href="structindex__entry.html">index_entry</a> entry;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      entry.<a class="code hl_variable" href="structindex__entry.html#aa79302a19ea59e36deef737dd3aa6b12">entry_start</a> = ftell (fptr);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      fseek (fptr, 0x5, SEEK_CUR); <span class="comment">// skip `XFLE#`</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="utils_8c.html#a4ce51b557efd36a5220e51669c79cc86">peek_char_is</a> (fptr, <span class="charliteral">&#39;:&#39;</span>))</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>          fprintf (</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>              stderr,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>              <span class="stringliteral">&quot;[HarvesterHarvester]ERROR: Unexpected character in index file. &quot;</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>              <span class="stringliteral">&quot;Aborting processing.\n&quot;</span>);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>          <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>int8_t</div>
+<div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="index__file_8c.html#a8d9a7c6f483fa764254a2013aa7258b1">   58</a></span><a class="code hl_function" href="index__file_8c.html#a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</a> (FILE *fptr, <a class="code hl_struct" href="structindex__file.html">index_file</a> *idxf)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  <span class="keywordflow">while</span> (!<a class="code hl_function" href="utils_8c.html#ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</a> (fptr))</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>      <a class="code hl_struct" href="structindex__entry.html">index_entry</a> entry;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      entry.<a class="code hl_variable" href="structindex__entry.html#aa79302a19ea59e36deef737dd3aa6b12">entry_start</a> = ftell (fptr);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      fseek (fptr, 0x5, SEEK_CUR); <span class="comment">// skip `XFLE#`</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      <span class="keywordflow">if</span> (!<a class="code hl_function" href="utils_8c.html#a4ce51b557efd36a5220e51669c79cc86">peek_char_is</a> (fptr, <span class="charliteral">&#39;:&#39;</span>))</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>          <a class="code hl_function" href="log_8c.html#a17a149a589296f67b4ecee3493403542">hh_log</a> (<a class="code hl_enumvalue" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</a>,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                  <span class="stringliteral">&quot;Unexpected character in index file. Aborting processing.&quot;</span>);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>          <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="data__reader_8c.html#a095233f80d488c02ecbdd3aca2d38231">read_string</a> (fptr, entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>, (uint8_t)<a class="code hl_define" href="index__file_8h.html#a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</a>) != 0)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a>;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="data__reader_8c.html#a095233f80d488c02ecbdd3aca2d38231">read_string</a> (fptr, entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>, (uint8_t)<a class="code hl_define" href="index__file_8h.html#a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</a>) != 0)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      uint8_t len = strlen (entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordtype">char</span> *last_word = entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>;</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; len; i++)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>          <span class="keywordflow">if</span> (entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>[i] == <span class="charliteral">&#39;\\&#39;</span>)</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>              last_word = entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a> + i + 1;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>              entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>[i] = <a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        }</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      strcpy (entry.<a class="code hl_variable" href="structindex__entry.html#ae2d39eccb26bcd6b8976723a9f252fbe">filename</a>, last_word);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      fseek (fptr, entry.<a class="code hl_variable" href="structindex__entry.html#aa79302a19ea59e36deef737dd3aa6b12">entry_start</a> + (0x94 - 0x10), SEEK_SET);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      <span class="comment">/* clang-format off */</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      <span class="keywordflow">if</span> ((<a class="code hl_function" href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a> (fptr, &amp;entry.<a class="code hl_variable" href="structindex__entry.html#a1f4bb5a05c786e3ee0438165fbe1d64c">start</a>) != 0)</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>          || (<a class="code hl_function" href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a> (fptr, &amp;entry.<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a>) != 0))</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>          <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a>;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      <span class="comment">/* clang-format on */</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>      fseek (fptr, 0x4, SEEK_CUR); <span class="comment">// Skip zeros</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      <span class="comment">// Very unnecessary, but we might as well double check our data</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>      uint32_t value;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a> (fptr, &amp;value) != 0)</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a>;</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      <span class="keywordflow">if</span> (entry.<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a> != value)</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        {</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>          fprintf (stderr,</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                   <span class="stringliteral">&quot;[HarvesterHarvester]ERROR: Expected %08X, got %08X.\n&quot;</span>,</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                   entry.<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a>, value);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>          <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a> (idxf, &amp;entry) != 0)</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        {</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>          <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        }</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      uint8_t len = strlen (entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>      <span class="keywordtype">char</span> *last_word = entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; len; i++)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>          <span class="keywordflow">if</span> (entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>[i] == <span class="charliteral">&#39;\\&#39;</span>)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            {</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>              last_word = entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a> + i + 1;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>              entry.<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>[i] = <a class="code hl_variable" href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      strcpy (entry.<a class="code hl_variable" href="structindex__entry.html#ae2d39eccb26bcd6b8976723a9f252fbe">filename</a>, last_word);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      fseek (fptr, entry.<a class="code hl_variable" href="structindex__entry.html#aa79302a19ea59e36deef737dd3aa6b12">entry_start</a> + (0x94 - 0x10), SEEK_SET);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      <span class="comment">/* clang-format off */</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      <span class="keywordflow">if</span> ((<a class="code hl_function" href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a> (fptr, &amp;entry.<a class="code hl_variable" href="structindex__entry.html#a1f4bb5a05c786e3ee0438165fbe1d64c">start</a>) != 0)</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>          || (<a class="code hl_function" href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a> (fptr, &amp;entry.<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a>) != 0))</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        {</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>          <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      <span class="comment">/* clang-format on */</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      fseek (fptr, 0x4, SEEK_CUR); <span class="comment">// Skip zeros</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      <span class="comment">// Very unnecessary, but we might as well double check our data</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>      uint32_t value;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a> (fptr, &amp;value) != 0)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <span class="keywordflow">if</span> (entry.<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a> != value)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>          <a class="code hl_function" href="log_8c.html#a17a149a589296f67b4ecee3493403542">hh_log</a> (<a class="code hl_enumvalue" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</a>, <span class="stringliteral">&quot;Expected 0x%08X, got 0x%08X.&quot;</span>, entry.<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a>,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                  value);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>          <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a> (idxf, &amp;entry) != 0)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>          <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
 </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keywordtype">void</span></div>
-<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="index__file_8c.html#a803c3e3f6d663ff2050f3c2e60e13431">  133</a></span><a class="code hl_function" href="index__file_8c.html#a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</a> (<a class="code hl_struct" href="structindex__entry.html">index_entry</a> *idxe)</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>{</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  printf (<span class="stringliteral">&quot;Entry start: %08X\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#aa79302a19ea59e36deef737dd3aa6b12">entry_start</a>);</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  printf (<span class="stringliteral">&quot;Full path: %s\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  printf (<span class="stringliteral">&quot;Filename: %s\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#ae2d39eccb26bcd6b8976723a9f252fbe">filename</a>);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  printf (<span class="stringliteral">&quot;File start: %08X\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#a1f4bb5a05c786e3ee0438165fbe1d64c">start</a>);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>  printf (<span class="stringliteral">&quot;File size: %08X\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a>);</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keywordtype">void</span></div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="index__file_8c.html#a803c3e3f6d663ff2050f3c2e60e13431">  129</a></span><a class="code hl_function" href="index__file_8c.html#a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</a> (<a class="code hl_struct" href="structindex__entry.html">index_entry</a> *idxe)</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>{</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  printf (<span class="stringliteral">&quot;Entry start: %08X\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#aa79302a19ea59e36deef737dd3aa6b12">entry_start</a>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  printf (<span class="stringliteral">&quot;Full path: %s\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#a5dfac282860b15b527102a2e87ef63ab">full_path</a>);</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  printf (<span class="stringliteral">&quot;Filename: %s\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#ae2d39eccb26bcd6b8976723a9f252fbe">filename</a>);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  printf (<span class="stringliteral">&quot;File start: %08X\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#a1f4bb5a05c786e3ee0438165fbe1d64c">start</a>);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  printf (<span class="stringliteral">&quot;File size: %08X\n&quot;</span>, idxe-&gt;<a class="code hl_variable" href="structindex__entry.html#ab355a6f02d462e68d7832b54d3fb9fe1">size</a>);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>}</div>
 </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>int8_t</div>
-<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">  143</a></span><a class="code hl_function" href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *file, <a class="code hl_struct" href="structindex__entry.html">index_entry</a> *entry)</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>{</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  <span class="keywordflow">if</span> (file-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a> &gt;= file-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a>)</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (file) != 0)</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>          <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        }</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>  file-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>[file-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a>] = *entry;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  file-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a>++;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>}</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>int8_t</div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">  139</a></span><a class="code hl_function" href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *file, <a class="code hl_struct" href="structindex__entry.html">index_entry</a> *entry)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  <span class="keywordflow">if</span> (file-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a> &gt;= file-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a>)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      <span class="keywordflow">if</span> (<a class="code hl_function" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (file) != 0)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>          <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  file-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>[file-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a>] = *entry;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  file-&gt;<a class="code hl_variable" href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">current_index</a>++;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>}</div>
 </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>int8_t</div>
-<div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">  159</a></span><a class="code hl_function" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *idx)</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>{</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  <span class="keywordtype">size_t</span> new_size = idx-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a> * <a class="code hl_variable" href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</a>;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>  <a class="code hl_struct" href="structindex__entry.html">index_entry</a> *new_indicies = (<a class="code hl_struct" href="structindex__entry.html">index_entry</a> *)realloc (</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>      idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>, new_size * sizeof (<a class="code hl_struct" href="structindex__entry.html">index_entry</a>));</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  <span class="keywordflow">if</span> (new_indicies == NULL)</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>      fprintf (stderr,</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>               <span class="stringliteral">&quot;[HarvesterHarvester]ERROR: unable to ralloc index from size &quot;</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>               <span class="stringliteral">&quot;%zu to %zu.\n&quot;</span>,</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>               idx-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a>, new_size);</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>      <a class="code hl_function" href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a> (idx);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>      <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    }</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a> = new_indicies;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  idx-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a> = new_size;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>int8_t</div>
+<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">  155</a></span><a class="code hl_function" href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (<a class="code hl_struct" href="structindex__file.html">index_file</a> *idx)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>{</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <span class="keywordtype">size_t</span> new_size = idx-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a> * <a class="code hl_variable" href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</a>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  <a class="code hl_struct" href="structindex__entry.html">index_entry</a> *new_indicies = (<a class="code hl_struct" href="structindex__entry.html">index_entry</a> *)realloc (</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a>, new_size * sizeof (<a class="code hl_struct" href="structindex__entry.html">index_entry</a>));</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  <span class="keywordflow">if</span> (new_indicies == NULL)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>      <a class="code hl_function" href="log_8c.html#a17a149a589296f67b4ecee3493403542">hh_log</a> (<a class="code hl_enumvalue" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</a>, <span class="stringliteral">&quot;Unable to ralloc indicies to size %zu.&quot;</span>,</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>              new_size);</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>      <a class="code hl_function" href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a> (idx);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>      <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  idx-&gt;<a class="code hl_variable" href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</a> = new_indicies;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  idx-&gt;<a class="code hl_variable" href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">size</a> = new_size;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>}</div>
 </div>
-<div class="ttc" id="adata__reader_8c_html_a095233f80d488c02ecbdd3aca2d38231"><div class="ttname"><a href="data__reader_8c.html#a095233f80d488c02ecbdd3aca2d38231">read_string</a></div><div class="ttdeci">int8_t read_string(FILE *fptr, char *output, uint8_t length)</div><div class="ttdoc">Reads a string of a given length from a given file, storing the result in output.</div><div class="ttdef"><b>Definition</b> <a href="data__reader_8c_source.html#l00144">data_reader.c:144</a></div></div>
-<div class="ttc" id="adata__reader_8c_html_a35b8ba7297a3da1c6b2f847ca471299b"><div class="ttname"><a href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a></div><div class="ttdeci">int8_t read_little_endian_data_uint32_t(FILE *fptr, uint32_t *output)</div><div class="ttdoc">Reads a uint32_t stored in little endian format from the file pointed to by fptr and stores the resul...</div><div class="ttdef"><b>Definition</b> <a href="data__reader_8c_source.html#l00080">data_reader.c:80</a></div></div>
+<div class="ttc" id="adata__reader_8c_html_a095233f80d488c02ecbdd3aca2d38231"><div class="ttname"><a href="data__reader_8c.html#a095233f80d488c02ecbdd3aca2d38231">read_string</a></div><div class="ttdeci">int8_t read_string(FILE *fptr, char *output, uint8_t length)</div><div class="ttdoc">Reads a string of a given length from a given file, storing the result in output.</div><div class="ttdef"><b>Definition</b> <a href="data__reader_8c_source.html#l00145">data_reader.c:145</a></div></div>
+<div class="ttc" id="adata__reader_8c_html_a35b8ba7297a3da1c6b2f847ca471299b"><div class="ttname"><a href="data__reader_8c.html#a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</a></div><div class="ttdeci">int8_t read_little_endian_data_uint32_t(FILE *fptr, uint32_t *output)</div><div class="ttdoc">Reads a uint32_t stored in little endian format from the file pointed to by fptr and stores the resul...</div><div class="ttdef"><b>Definition</b> <a href="data__reader_8c_source.html#l00081">data_reader.c:81</a></div></div>
 <div class="ttc" id="adata__reader_8h_html"><div class="ttname"><a href="data__reader_8h.html">data_reader.h</a></div></div>
 <div class="ttc" id="aerrors_8h_html"><div class="ttname"><a href="errors_8h.html">errors.h</a></div></div>
 <div class="ttc" id="aerrors_8h_html_a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df"><div class="ttname"><a href="errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</a></div><div class="ttdeci">@ HH_FREAD_ERROR</div><div class="ttdef"><b>Definition</b> <a href="errors_8h_source.html#l00025">errors.h:25</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_a642840a928d9784ac4cf34228672fbbc"><div class="ttname"><a href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a></div><div class="ttdeci">int8_t destroy_index_file(index_file *i)</div><div class="ttdoc">Destroys a given index_file.</div><div class="ttdef"><b>Definition</b> <a href="#l00052">index_file.c:52</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_a746462bc35bd98ad993e5da86bd6b2a7"><div class="ttname"><a href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a></div><div class="ttdeci">int8_t add_entry_to_index_file(index_file *file, index_entry *entry)</div><div class="ttdoc">Adds a given index_entry to a index_file.</div><div class="ttdef"><b>Definition</b> <a href="#l00143">index_file.c:143</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_a803c3e3f6d663ff2050f3c2e60e13431"><div class="ttname"><a href="index__file_8c.html#a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</a></div><div class="ttdeci">void print_index_entry(index_entry *idxe)</div><div class="ttdoc">Prints all the attributes of a given index_entry in a human-readable form.</div><div class="ttdef"><b>Definition</b> <a href="#l00133">index_file.c:133</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_a86b0e469cb65d26ec56d01a1ab5d9c25"><div class="ttname"><a href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</a></div><div class="ttdeci">static const size_t IDX_RECORDS_GROWTH_RATE</div><div class="ttdef"><b>Definition</b> <a href="#l00024">index_file.c:24</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_a8d0c5734d83636faa168e5869954b500"><div class="ttname"><a href="index__file_8c.html#a8d0c5734d83636faa168e5869954b500">create_index_file</a></div><div class="ttdeci">int8_t create_index_file(index_file *i)</div><div class="ttdoc">Initializes an index_file.</div><div class="ttdef"><b>Definition</b> <a href="#l00033">index_file.c:33</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_a8d9a7c6f483fa764254a2013aa7258b1"><div class="ttname"><a href="index__file_8c.html#a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</a></div><div class="ttdeci">int8_t process_index_file(FILE *fptr, index_file *idxf)</div><div class="ttdoc">Reads data from a given file, creating index_entrys for every entry in said file.</div><div class="ttdef"><b>Definition</b> <a href="#l00059">index_file.c:59</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_aa1eca15092ee97d412940e6e9a48de60"><div class="ttname"><a href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a></div><div class="ttdeci">static const size_t IDX_STARTING_NUM_INDICIES</div><div class="ttdef"><b>Definition</b> <a href="#l00023">index_file.c:23</a></div></div>
-<div class="ttc" id="aindex__file_8c_html_ac4e7fdb31a69d93e8723a7f7ff725261"><div class="ttname"><a href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a></div><div class="ttdeci">static int8_t resize_indicies(index_file *idx)</div><div class="ttdoc">Grows a given index_file's entries attribute by IDX_RECORDS_GROWTH_RATE.</div><div class="ttdef"><b>Definition</b> <a href="#l00159">index_file.c:159</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_a642840a928d9784ac4cf34228672fbbc"><div class="ttname"><a href="index__file_8c.html#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a></div><div class="ttdeci">int8_t destroy_index_file(index_file *i)</div><div class="ttdoc">Destroys a given index_file.</div><div class="ttdef"><b>Definition</b> <a href="#l00051">index_file.c:51</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_a746462bc35bd98ad993e5da86bd6b2a7"><div class="ttname"><a href="index__file_8c.html#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a></div><div class="ttdeci">int8_t add_entry_to_index_file(index_file *file, index_entry *entry)</div><div class="ttdoc">Adds a given index_entry to a index_file.</div><div class="ttdef"><b>Definition</b> <a href="#l00139">index_file.c:139</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_a803c3e3f6d663ff2050f3c2e60e13431"><div class="ttname"><a href="index__file_8c.html#a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</a></div><div class="ttdeci">void print_index_entry(index_entry *idxe)</div><div class="ttdoc">Prints all the attributes of a given index_entry in a human-readable form.</div><div class="ttdef"><b>Definition</b> <a href="#l00129">index_file.c:129</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_a86b0e469cb65d26ec56d01a1ab5d9c25"><div class="ttname"><a href="index__file_8c.html#a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</a></div><div class="ttdeci">static const size_t IDX_RECORDS_GROWTH_RATE</div><div class="ttdef"><b>Definition</b> <a href="#l00025">index_file.c:25</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_a8d0c5734d83636faa168e5869954b500"><div class="ttname"><a href="index__file_8c.html#a8d0c5734d83636faa168e5869954b500">create_index_file</a></div><div class="ttdeci">int8_t create_index_file(index_file *i)</div><div class="ttdoc">Initializes an index_file.</div><div class="ttdef"><b>Definition</b> <a href="#l00034">index_file.c:34</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_a8d9a7c6f483fa764254a2013aa7258b1"><div class="ttname"><a href="index__file_8c.html#a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</a></div><div class="ttdeci">int8_t process_index_file(FILE *fptr, index_file *idxf)</div><div class="ttdoc">Reads data from a given file, creating index_entrys for every entry in said file.</div><div class="ttdef"><b>Definition</b> <a href="#l00058">index_file.c:58</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_aa1eca15092ee97d412940e6e9a48de60"><div class="ttname"><a href="index__file_8c.html#aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</a></div><div class="ttdeci">static const size_t IDX_STARTING_NUM_INDICIES</div><div class="ttdef"><b>Definition</b> <a href="#l00024">index_file.c:24</a></div></div>
+<div class="ttc" id="aindex__file_8c_html_ac4e7fdb31a69d93e8723a7f7ff725261"><div class="ttname"><a href="index__file_8c.html#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a></div><div class="ttdeci">static int8_t resize_indicies(index_file *idx)</div><div class="ttdoc">Grows a given index_file's entries attribute by IDX_RECORDS_GROWTH_RATE.</div><div class="ttdef"><b>Definition</b> <a href="#l00155">index_file.c:155</a></div></div>
 <div class="ttc" id="aindex__file_8h_html"><div class="ttname"><a href="index__file_8h.html">index_file.h</a></div></div>
 <div class="ttc" id="aindex__file_8h_html_a1f72d7c1f8f994a1873de2f0405f66bf"><div class="ttname"><a href="index__file_8h.html#a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</a></div><div class="ttdeci">#define FULL_PATH_MAX_LEN</div><div class="ttdoc">index_file.h - index_file datatype and its associated functions.</div><div class="ttdef"><b>Definition</b> <a href="index__file_8h_source.html#l00039">index_file.h:39</a></div></div>
+<div class="ttc" id="alog_8c_html_a17a149a589296f67b4ecee3493403542"><div class="ttname"><a href="log_8c.html#a17a149a589296f67b4ecee3493403542">hh_log</a></div><div class="ttdeci">void hh_log(hh_log_level lvl, const char *fmt,...)</div><div class="ttdoc">A logger function.</div><div class="ttdef"><b>Definition</b> <a href="log_8c_source.html#l00069">log.c:69</a></div></div>
+<div class="ttc" id="alog_8h_html"><div class="ttname"><a href="log_8h.html">log.h</a></div></div>
+<div class="ttc" id="alog_8h_html_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656"><div class="ttname"><a href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</a></div><div class="ttdeci">@ HH_LOG_ERROR</div><div class="ttdef"><b>Definition</b> <a href="log_8h_source.html#l00034">log.h:34</a></div></div>
 <div class="ttc" id="aoptions_8c_html_a845934c83dddb0516baadb1abd079d8d"><div class="ttname"><a href="options_8c.html#a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</a></div><div class="ttdeci">char OP_PATH_SEPARATOR</div><div class="ttdoc">Character used to separate directory/file names in a path string.</div><div class="ttdef"><b>Definition</b> <a href="options_8c_source.html#l00029">options.c:29</a></div></div>
 <div class="ttc" id="aoptions_8h_html"><div class="ttname"><a href="options_8h.html">options.h</a></div></div>
 <div class="ttc" id="astructindex__entry_html"><div class="ttname"><a href="structindex__entry.html">index_entry</a></div><div class="ttdoc">A file entry in an index_file.</div><div class="ttdef"><b>Definition</b> <a href="index__file_8h_source.html#l00043">index_file.h:44</a></div></div>
@@ -306,8 +303,8 @@ $(function(){initNavTree('index__file_8c_source.html',''); initResizable(true); 
 <div class="ttc" id="astructindex__file_html_ac84968b0f55ad08b1b9d65e651eca828"><div class="ttname"><a href="structindex__file.html#ac84968b0f55ad08b1b9d65e651eca828">index_file::size</a></div><div class="ttdeci">size_t size</div><div class="ttdoc">max size of indicies.</div><div class="ttdef"><b>Definition</b> <a href="index__file_8h_source.html#l00056">index_file.h:56</a></div></div>
 <div class="ttc" id="astructindex__file_html_ad6b0840d539f5109be6ccfaab1d1a3d0"><div class="ttname"><a href="structindex__file.html#ad6b0840d539f5109be6ccfaab1d1a3d0">index_file::indicies</a></div><div class="ttdeci">index_entry * indicies</div><div class="ttdef"><b>Definition</b> <a href="index__file_8h_source.html#l00055">index_file.h:55</a></div></div>
 <div class="ttc" id="astructindex__file_html_ae7878b33b733dd77bc70ca4dfa390628"><div class="ttname"><a href="structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628">index_file::current_index</a></div><div class="ttdeci">size_t current_index</div><div class="ttdoc">pointer to last item in indicies.</div><div class="ttdef"><b>Definition</b> <a href="index__file_8h_source.html#l00057">index_file.h:57</a></div></div>
-<div class="ttc" id="autils_8c_html_a4ce51b557efd36a5220e51669c79cc86"><div class="ttname"><a href="utils_8c.html#a4ce51b557efd36a5220e51669c79cc86">peek_char_is</a></div><div class="ttdeci">bool peek_char_is(FILE *fptr, uint8_t expected_ch)</div><div class="ttdoc">On error, returns false.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00114">utils.c:114</a></div></div>
-<div class="ttc" id="autils_8c_html_ad89ab9462dec77ec0a6c4f32f731f7ff"><div class="ttname"><a href="utils_8c.html#ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</a></div><div class="ttdeci">bool peek_eof(FILE *fptr)</div><div class="ttdoc">This is sort of a hacky solution.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00132">utils.c:132</a></div></div>
+<div class="ttc" id="autils_8c_html_a4ce51b557efd36a5220e51669c79cc86"><div class="ttname"><a href="utils_8c.html#a4ce51b557efd36a5220e51669c79cc86">peek_char_is</a></div><div class="ttdeci">bool peek_char_is(FILE *fptr, uint8_t expected_ch)</div><div class="ttdoc">On error, returns false.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00117">utils.c:117</a></div></div>
+<div class="ttc" id="autils_8c_html_ad89ab9462dec77ec0a6c4f32f731f7ff"><div class="ttname"><a href="utils_8c.html#ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</a></div><div class="ttdeci">bool peek_eof(FILE *fptr)</div><div class="ttdoc">This is sort of a hacky solution.</div><div class="ttdef"><b>Definition</b> <a href="utils_8c_source.html#l00135">utils.c:135</a></div></div>
 <div class="ttc" id="autils_8h_html"><div class="ttname"><a href="utils_8h.html">utils.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

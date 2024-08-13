@@ -19,10 +19,6 @@
 <simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>void <link linkend="_errors_8h_1a1fa621098d550bb126a641aba0638f7f">improper_usage_error</link> (void)</para>
-
-<para>Throws an improper usage error. </para>
-</listitem>
             <listitem><para>void <link linkend="_errors_8h_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link> (char *filename)</para>
 
 <para>Throws an fopen error. </para>
@@ -30,6 +26,10 @@
             <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link> (size_t actual, size_t expected_bytes)</para>
 
 <para>Throws an fread error. </para>
+</listitem>
+            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8h_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link> (size_t size)</para>
+
+<para>Throws an calloc error. </para>
 </listitem>
             <listitem><para>void <link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link> (char *arg)</para>
 
@@ -40,10 +40,6 @@
 <simplesect>
     <title>Variables    </title>
         <itemizedlist>
-            <listitem><para>const char * <link linkend="_errors_8h_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link></para>
-
-<para>Format string for failed calloc error message. </para>
-</listitem>
             <listitem><para>const char * <link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link></para>
 
 <para>Format string for failed fopen error message. </para>
@@ -98,7 +94,18 @@ Definition at line <link linkend="_errors_8h_source_1l00022">22</link> of file <
 <para>Throws an fopen error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00028">28</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00011">11</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+</section>
+<anchor xml:id="_errors_8h_1a264d565f946a86af55409cbe5b980060"/><section>
+    <title>handle_calloc_error()</title>
+<indexterm><primary>handle_calloc_error</primary><secondary>errors.h</secondary></indexterm>
+<indexterm><primary>errors.h</primary><secondary>handle_calloc_error</secondary></indexterm>
+<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_calloc_error (size_t size)</computeroutput></para><para>
+
+<para>Throws an calloc error. </para>
+</para>
+<para>
+Definition at line <link linkend="_errors_8c_source_1l00041">41</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc"/><section>
     <title>handle_fread_error()</title>
@@ -109,7 +116,7 @@ Definition at line <link linkend="_errors_8c_source_1l00028">28</link> of file <
 <para>Throws an fread error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00034">34</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00017">17</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0"/><section>
     <title>handle_unknown_command_line_argument_error()</title>
@@ -120,33 +127,11 @@ Definition at line <link linkend="_errors_8c_source_1l00034">34</link> of file <
 <para>Throws an unknown command line argument error. </para>
 </para>
 <para>
-Definition at line <link linkend="_errors_8c_source_1l00042">42</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
-</section>
-<anchor xml:id="_errors_8h_1a1fa621098d550bb126a641aba0638f7f"/><section>
-    <title>improper_usage_error()</title>
-<indexterm><primary>improper_usage_error</primary><secondary>errors.h</secondary></indexterm>
-<indexterm><primary>errors.h</primary><secondary>improper_usage_error</secondary></indexterm>
-<para><computeroutput>void improper_usage_error (void )</computeroutput></para><para>
-
-<para>Throws an improper usage error. </para>
-</para>
-<para>
-Definition at line <link linkend="_errors_8c_source_1l00012">12</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
+Definition at line <link linkend="_errors_8c_source_1l00025">25</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 </section>
 <section>
 <title>Variable Documentation</title>
-<anchor xml:id="_errors_8h_1ab2272d0da4232afba19f95bf02944157"/><section>
-    <title>CALLOC_FAILED_ERR_MSG_FMT</title>
-<indexterm><primary>CALLOC_FAILED_ERR_MSG_FMT</primary><secondary>errors.h</secondary></indexterm>
-<indexterm><primary>errors.h</primary><secondary>CALLOC_FAILED_ERR_MSG_FMT</secondary></indexterm>
-<para><computeroutput>const char* CALLOC_FAILED_ERR_MSG_FMT<computeroutput>[extern]</computeroutput></computeroutput></para><para>
-
-<para>Format string for failed calloc error message. </para>
-</para>
-<para>
-Definition at line <link linkend="_errors_8c_source_1l00006">6</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
-</section>
 <anchor xml:id="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9"/><section>
     <title>FOPEN_FAILED_ERR_MSG_FMT</title>
 <indexterm><primary>FOPEN_FAILED_ERR_MSG_FMT</primary><secondary>errors.h</secondary></indexterm>

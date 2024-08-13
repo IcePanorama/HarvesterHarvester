@@ -3,6 +3,7 @@
 {\ttfamily \#include "{}extractor.\+h"{}}\newline
 {\ttfamily \#include "{}data\+\_\+reader.\+h"{}}\newline
 {\ttfamily \#include "{}errors.\+h"{}}\newline
+{\ttfamily \#include "{}log.\+h"{}}\newline
 {\ttfamily \#include "{}options.\+h"{}}\newline
 {\ttfamily \#include "{}output.\+h"{}}\newline
 {\ttfamily \#include "{}utils.\+h"{}}\newline
@@ -79,7 +80,7 @@ All functions return zero on success, non-\/zero on failure. Extracts a file usi
 
 Just use the default/existing filename. It\textquotesingle{}ll be incorrect, but probably not worth stoping execution over. Users could just manually remove the {\ttfamily ;1} part; the data itself should be fine.
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00026}{26}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00027}{27}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 
 \Hypertarget{extractor_8c_a8a69ed144c7791001eb2d6055e297bfd}\index{extractor.c@{extractor.c}!extract\_file\_using\_idx\_entry@{extract\_file\_using\_idx\_entry}}
 \index{extract\_file\_using\_idx\_entry@{extract\_file\_using\_idx\_entry}!extractor.c@{extractor.c}}
@@ -93,7 +94,7 @@ Extracts a file using its corresponding {\ttfamily \doxylink{structindex__entry}
 
 
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00184}{184}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00183}{183}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 
 \Hypertarget{extractor_8c_a5bdeb2d2539ae12cbe315e3a606a98c2}\index{extractor.c@{extractor.c}!extract\_index\_file@{extract\_index\_file}}
 \index{extract\_index\_file@{extract\_index\_file}!extractor.c@{extractor.c}}
@@ -116,5 +117,5 @@ Extracts all of the files described in the given {\ttfamily \doxylink{structinde
 \end{DoxyParams}
 Gives you the {\ttfamily OP\+\_\+\+OUTPUT\+\_\+\+DIR/\+DISK\#/} part of the path. 10 = len("{}\+INDEX.\+001"{})
 
-Definition at line \mbox{\hyperlink{extractor_8c_source_l00230}{230}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
+Definition at line \mbox{\hyperlink{extractor_8c_source_l00223}{223}} of file \mbox{\hyperlink{extractor_8c_source}{extractor.\+c}}.
 

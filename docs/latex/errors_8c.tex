@@ -1,25 +1,26 @@
 \doxysection{src/errors.c File Reference}
 \hypertarget{errors_8c}{}\label{errors_8c}\index{src/errors.c@{src/errors.c}}
 {\ttfamily \#include "{}errors.\+h"{}}\newline
+{\ttfamily \#include "{}log.\+h"{}}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{errors_8c_a1fa621098d550bb126a641aba0638f7f}{improper\+\_\+usage\+\_\+error}} (void)
-\begin{DoxyCompactList}\small\item\em Throws an improper usage error. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{errors_8c_a9b9a6494b96286134308f2da3e179af9}{fopen\+\_\+error}} (char \texorpdfstring{$\ast$}{*}filename)
 \begin{DoxyCompactList}\small\item\em Throws an fopen error. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\+\_\+\+ERRORS}} \mbox{\hyperlink{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}{handle\+\_\+fread\+\_\+error}} (size\+\_\+t actual, size\+\_\+t expected\+\_\+bytes)
 \begin{DoxyCompactList}\small\item\em Throws an fread error. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}{handle\+\_\+unknown\+\_\+command\+\_\+line\+\_\+argument\+\_\+error}} (char \texorpdfstring{$\ast$}{*}arg)
-\begin{DoxyCompactList}\small\item\em Throws an unknown command line argument error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Throws an unknown command line argument error. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\+\_\+\+ERRORS}} \mbox{\hyperlink{errors_8c_a264d565f946a86af55409cbe5b980060}{handle\+\_\+calloc\+\_\+error}} (size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Throws an calloc error. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8c_ab2272d0da4232afba19f95bf02944157}{CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}} = "{}\mbox{[}Harvester\+Harvester\mbox{]}ERROR\+: unable to calloc string of size \%zu.\textbackslash{}n"{}
-\begin{DoxyCompactList}\small\item\em Format string for failed calloc error message. \end{DoxyCompactList}\item 
-const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8c_a03ff53905312bd88e728b1863cf1b1c9}{FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}} = "{}\mbox{[}Harvester\+Harvester\mbox{]}ERROR\+: unable to open output file, \%s\textbackslash{}n."{}
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8c_ab2272d0da4232afba19f95bf02944157}{CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}} = "{}Unable to calloc string of size \%zu."{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{errors_8c_a03ff53905312bd88e728b1863cf1b1c9}{FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT}} = "{}Unable to open output file, \%s."{}
 \begin{DoxyCompactList}\small\item\em Format string for failed fopen error message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -36,7 +37,21 @@ Throws an fopen error.
 
 
 
-Definition at line \mbox{\hyperlink{errors_8c_source_l00028}{28}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+Definition at line \mbox{\hyperlink{errors_8c_source_l00011}{11}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+
+\Hypertarget{errors_8c_a264d565f946a86af55409cbe5b980060}\index{errors.c@{errors.c}!handle\_calloc\_error@{handle\_calloc\_error}}
+\index{handle\_calloc\_error@{handle\_calloc\_error}!errors.c@{errors.c}}
+\doxysubsubsection{\texorpdfstring{handle\_calloc\_error()}{handle\_calloc\_error()}}
+{\footnotesize\ttfamily \label{errors_8c_a264d565f946a86af55409cbe5b980060} 
+\mbox{\hyperlink{errors_8h_a7c84f993e326519edca8fd9efdec746e}{HH\+\_\+\+ERRORS}} handle\+\_\+calloc\+\_\+error (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size}{}\end{DoxyParamCaption})}
+
+
+
+Throws an calloc error. 
+
+
+
+Definition at line \mbox{\hyperlink{errors_8c_source_l00041}{41}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
 \Hypertarget{errors_8c_a2628891f509e5466f8a7c932a72bd2dc}\index{errors.c@{errors.c}!handle\_fread\_error@{handle\_fread\_error}}
 \index{handle\_fread\_error@{handle\_fread\_error}!errors.c@{errors.c}}
@@ -50,7 +65,7 @@ Throws an fread error.
 
 
 
-Definition at line \mbox{\hyperlink{errors_8c_source_l00034}{34}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+Definition at line \mbox{\hyperlink{errors_8c_source_l00017}{17}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
 \Hypertarget{errors_8c_a2343c2fe78d79e1bd2092a5aa19964b0}\index{errors.c@{errors.c}!handle\_unknown\_command\_line\_argument\_error@{handle\_unknown\_command\_line\_argument\_error}}
 \index{handle\_unknown\_command\_line\_argument\_error@{handle\_unknown\_command\_line\_argument\_error}!errors.c@{errors.c}}
@@ -64,21 +79,7 @@ Throws an unknown command line argument error.
 
 
 
-Definition at line \mbox{\hyperlink{errors_8c_source_l00042}{42}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
-
-\Hypertarget{errors_8c_a1fa621098d550bb126a641aba0638f7f}\index{errors.c@{errors.c}!improper\_usage\_error@{improper\_usage\_error}}
-\index{improper\_usage\_error@{improper\_usage\_error}!errors.c@{errors.c}}
-\doxysubsubsection{\texorpdfstring{improper\_usage\_error()}{improper\_usage\_error()}}
-{\footnotesize\ttfamily \label{errors_8c_a1fa621098d550bb126a641aba0638f7f} 
-void improper\+\_\+usage\+\_\+error (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
-
-
-
-Throws an improper usage error. 
-
-
-
-Definition at line \mbox{\hyperlink{errors_8c_source_l00012}{12}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+Definition at line \mbox{\hyperlink{errors_8c_source_l00025}{25}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
 
 
@@ -87,21 +88,17 @@ Definition at line \mbox{\hyperlink{errors_8c_source_l00012}{12}} of file \mbox{
 \index{CALLOC\_FAILED\_ERR\_MSG\_FMT@{CALLOC\_FAILED\_ERR\_MSG\_FMT}!errors.c@{errors.c}}
 \doxysubsubsection{\texorpdfstring{CALLOC\_FAILED\_ERR\_MSG\_FMT}{CALLOC\_FAILED\_ERR\_MSG\_FMT}}
 {\footnotesize\ttfamily \label{errors_8c_ab2272d0da4232afba19f95bf02944157} 
-const char\texorpdfstring{$\ast$}{*} CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT = "{}\mbox{[}Harvester\+Harvester\mbox{]}ERROR\+: unable to calloc string of size \%zu.\textbackslash{}n"{}}
+const char\texorpdfstring{$\ast$}{*} CALLOC\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT = "{}Unable to calloc string of size \%zu."{}}
 
 
 
-Format string for failed calloc error message. 
-
-
-
-Definition at line \mbox{\hyperlink{errors_8c_source_l00006}{6}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
+Definition at line \mbox{\hyperlink{errors_8c_source_l00007}{7}} of file \mbox{\hyperlink{errors_8c_source}{errors.\+c}}.
 
 \Hypertarget{errors_8c_a03ff53905312bd88e728b1863cf1b1c9}\index{errors.c@{errors.c}!FOPEN\_FAILED\_ERR\_MSG\_FMT@{FOPEN\_FAILED\_ERR\_MSG\_FMT}}
 \index{FOPEN\_FAILED\_ERR\_MSG\_FMT@{FOPEN\_FAILED\_ERR\_MSG\_FMT}!errors.c@{errors.c}}
 \doxysubsubsection{\texorpdfstring{FOPEN\_FAILED\_ERR\_MSG\_FMT}{FOPEN\_FAILED\_ERR\_MSG\_FMT}}
 {\footnotesize\ttfamily \label{errors_8c_a03ff53905312bd88e728b1863cf1b1c9} 
-const char\texorpdfstring{$\ast$}{*} FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT = "{}\mbox{[}Harvester\+Harvester\mbox{]}ERROR\+: unable to open output file, \%s\textbackslash{}n."{}}
+const char\texorpdfstring{$\ast$}{*} FOPEN\+\_\+\+FAILED\+\_\+\+ERR\+\_\+\+MSG\+\_\+\+FMT = "{}Unable to open output file, \%s."{}}
 
 
 

@@ -49,7 +49,7 @@
 
 <para>By default, <computeroutput>entries</computeroutput> is given a size of <computeroutput>PT_STARTING_NUM_ENTRIES</computeroutput>. Note that <computeroutput>PT_STARTING_NUM_ENTRIES</computeroutput> is defined in <computeroutput><link linkend="_path__table_8c">path_table.c</link></computeroutput>. </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00029">29</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00030">30</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8h_1afb0f3858425278e8f770eee3eaf010f9"/><section>
     <title>destroy_path_table()</title>
@@ -60,7 +60,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00029">29</link> of f
 <para>Destroys the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, freeing any and all memory alloc&apos;d for <computeroutput>entries</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00051">51</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00052">52</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8h_1a4d1b9400850a8ace93b4404599932a84"/><section>
     <title>print_path_table()</title>
@@ -71,7 +71,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00051">51</link> of f
 <para>Prints the given path table out to the stdout, formatting it into a human-readible form. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00107">107</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00106">106</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 <anchor xml:id="_path__table_8h_1a74af82c548f791d3b0919eeebbf078d4"/><section>
     <title>process_type_l_path_table()</title>
@@ -82,7 +82,7 @@ Definition at line <link linkend="_path__table_8c_source_1l00107">107</link> of 
 <para>Processes the given <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput> as a Type-L <computeroutput><link linkend="_structpath__table">path_table</link></computeroutput>, using the data pointed to by <computeroutput>fptr</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_path__table_8c_source_1l00129">129</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
+Definition at line <link linkend="_path__table_8c_source_1l00128">128</link> of file <link linkend="_path__table_8c_source">path_table.c</link>.</para>
 </section>
 </section>
 </section>

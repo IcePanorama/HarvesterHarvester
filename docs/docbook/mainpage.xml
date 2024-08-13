@@ -31,9 +31,9 @@
 <section xml:id="_index_1autotoc_md2">
 <title>Installation</title><section xml:id="_index_1autotoc_md3">
 <title>Easiest Way</title>
-<para>Navigate to the <link xlink:href="https://github.com/IcePanorama/HarvesterHarvester/releases">releases</link> page and download the latest zip file. Once downloaded, simply extract the zip file and run the appropriate executable given your operating system/architecture.</para>
+<para>Navigate to the <link xlink:href="https://github.com/IcePanorama/HarvesterHarvester/releases">releases</link> page and download the latest zip file.</para>
 
-<para>If you&apos;re on a modern Windows machine and you&apos;re unsure of which file to run, your best bet is likely the one ending in <computeroutput>x86_64</computeroutput>; that executable should run on most Windows machines made in the past 15 years.</para>
+<para>Once downloaded, extract the zip file wherever you&apos;d like and you&apos;re done! See USAGE.md for more details on how to run the program.</para>
 
 <para><emphasis role="bold">NOTE</emphasis>: <emphasis>if you&apos;re reading this in the present, you&apos;ll notice that there currently aren&apos;t any available releases. I&apos;m writing this README in advance &#8211; this project isn&apos;t quite done yet, sorry!</emphasis></para>
 </section>
@@ -45,20 +45,13 @@
 #&#32;...&#32;or,&#32;alternatively&#32;...
 $&#32;make&#32;full&#32;&#32;&#32;&#32;#&#32;for&#32;just&#32;the&#32;*nix&#32;executable
 </computeroutput></literallayout> Running <computeroutput>make release</computeroutput> is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.</para>
+
+<para>Congrats! You&apos;re now all set to use the program or start contributing.</para>
 </section>
 </section>
 <section xml:id="_index_1autotoc_md5">
-<title>Usage</title><section xml:id="_index_1autotoc_md6">
-<title>Basic Usage</title>
-<para>1) Install Harvester onto your machine if you haven&apos;t already done so. 2) Copy the following files from your harvester installation to the <computeroutput>dat-files/</computeroutput> folder: <literallayout><computeroutput>HARVEST.DAT
-HARVEST3.DAT
-HARVEST4.DAT
-</computeroutput></literallayout> 4) Run the <computeroutput>HarvesterHarvester</computeroutput> executable.</para>
-</section>
-</section>
-<section xml:id="_index_1autotoc_md7">
 <title>A note on piracy</title>
-<para>This program requires that you legally own a copy of <emphasis>Harvester</emphasis> in order to source the necessary <computeroutput>.dat</computeroutput> files.</para>
+<para>This program requires that you legally own a copy of <emphasis>Harvester</emphasis> in order to source the necessary dat files.</para>
 
 <para>The GOG version (which this project was built around) <link xlink:href="https://www.gog.com/en/game/harvester">is available here for $5.99</link>, although it&apos;s worth noting that it does go on sale rather often.</para>
 

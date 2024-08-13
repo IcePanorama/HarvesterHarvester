@@ -52,7 +52,7 @@
 
 <para>Swaps a <computeroutput>uint16_t</computeroutput> from little endian to big endian or vice-versa. </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00141">141</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00144">144</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a28cf3fb6f4d89ea760afeca3f07a377b"/><section>
     <title>directory_exists()</title>
@@ -65,7 +65,7 @@ Definition at line <link linkend="_utils_8c_source_1l00141">141</link> of file <
 
 <para><computeroutput>dir</computeroutput> is a string containing the path to said directory. </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00089">89</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00092">92</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a0038df898c35b6a483fa874b3671735b"/><section>
     <title>file_exists()</title>
@@ -78,7 +78,7 @@ Definition at line <link linkend="_utils_8c_source_1l00089">89</link> of file <l
 
 <para><computeroutput>filename</computeroutput> is a string containing the path to said file. </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00101">101</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00104">104</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1aee9f9bd7844e8e7d21d0965980b6e9ed"/><section>
     <title>is_string_dat_file()</title>
@@ -89,7 +89,7 @@ Definition at line <link linkend="_utils_8c_source_1l00101">101</link> of file <
 <para>Returns true if the given string ends in <computeroutput>.DAT</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00078">78</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00081">81</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a4ce51b557efd36a5220e51669c79cc86"/><section>
     <title>peek_char_is()</title>
@@ -102,7 +102,7 @@ Definition at line <link linkend="_utils_8c_source_1l00078">78</link> of file <l
 
 <para>Returns true if the next character in the file matches <computeroutput>expected_ch</computeroutput>. </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00114">114</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00117">117</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1ad89ab9462dec77ec0a6c4f32f731f7ff"/><section>
     <title>peek_eof()</title>
@@ -117,7 +117,7 @@ Definition at line <link linkend="_utils_8c_source_1l00114">114</link> of file <
 
 <para>TODO: implement better err handling. </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00132">132</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00135">135</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a41ffa7a16724ed0473f420933cfb7b87"/><section>
     <title>prepend_path_string()</title>
@@ -128,7 +128,7 @@ Definition at line <link linkend="_utils_8c_source_1l00132">132</link> of file <
 <para>Prepends a given <computeroutput>prefix</computeroutput> onto a given string, adding an <computeroutput>OP_PATH_SEPARATOR</computeroutput> between the two of them. </para>
 </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00032">32</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00033">33</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 <anchor xml:id="_utils_8h_1a7f5f49b4dabd84b37e8f7b9464e57992"/><section>
     <title>prepend_string()</title>
@@ -139,7 +139,7 @@ Definition at line <link linkend="_utils_8c_source_1l00032">32</link> of file <l
 <para>Prepends a given <computeroutput>prefix</computeroutput> onto a given string. </para>
 </para>
 <para>
-Definition at line <link linkend="_utils_8c_source_1l00057">57</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
+Definition at line <link linkend="_utils_8c_source_1l00059">59</link> of file <link linkend="_utils_8c_source">utils.c</link>.</para>
 </section>
 </section>
 </section>

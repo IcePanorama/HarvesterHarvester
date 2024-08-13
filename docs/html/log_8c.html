@@ -105,6 +105,8 @@ $(function(){initNavTree('log_8c.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
 </div>
 <p><a href="log_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -121,6 +123,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af9859f7b27d46f040c836ecfdc1ac304" id="r_af9859f7b27d46f040c836ecfdc1ac304"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a> (FILE *fptr)</td></tr>
 <tr class="memdesc:af9859f7b27d46f040c836ecfdc1ac304"><td class="mdescLeft">&#160;</td><td class="mdescRight">As this function can safely fail without affecting normal operations, this doesn't return any errors, despite possibly having a fread error during normal usage.  <br /></td></tr>
 <tr class="separator:af9859f7b27d46f040c836ecfdc1ac304"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a149a589296f67b4ecee3493403542" id="r_a17a149a589296f67b4ecee3493403542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17a149a589296f67b4ecee3493403542">hh_log</a> (<a class="el" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a> lvl, const char *fmt,...)</td></tr>
+<tr class="memdesc:a17a149a589296f67b4ecee3493403542"><td class="mdescLeft">&#160;</td><td class="mdescRight">A logger function.  <br /></td></tr>
+<tr class="separator:a17a149a589296f67b4ecee3493403542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a41e9ced92689f94ffc427d5e2e658382" name="a41e9ced92689f94ffc427d5e2e658382"></a>
@@ -135,11 +140,42 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00043">43</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00046">46</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a17a149a589296f67b4ecee3493403542" name="a17a149a589296f67b4ecee3493403542"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17a149a589296f67b4ecee3493403542">&#9670;&#160;</a></span>hh_log()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void hh_log </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a></td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A logger function. </p>
+<p>Outputs fmt and args to either the stdout or stderr depending on the <code>lvl</code> passed into the function. </p>
+
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00069">69</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+
+</div>
+</div>
 <a id="aaaf9265dd175725985b56eeac3db2f30" name="aaaf9265dd175725985b56eeac3db2f30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaaf9265dd175725985b56eeac3db2f30">&#9670;&#160;</a></span>print_hex_data()</h2>
 
@@ -163,7 +199,7 @@ Functions</h2></td></tr>
 <p>Formats said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.</p>
 <p>TODO: These values are currently hardcoded in, but they likely should be moved to <a class="el" href="options_8h.html">options.h</a> in the future. </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00026">26</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00029">29</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
 </div>
 </div>
@@ -183,9 +219,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>As this function can safely fail without affecting normal operations, this doesn't return any errors, despite possibly having a fread error during normal usage. </p>
-<p><a class="el" href="log_8h.html">log.h</a> - wrapper for stdout functions. </p>
+<p>Prints the next <code>BYTES_TO_READ</code> many bytes to the stdout, formatted in order to be easy to read. </p>
 
-<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00050">50</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00053">53</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
 </div>
 </div>

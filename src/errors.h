@@ -38,7 +38,7 @@ void fopen_error (char *filename);
 /** Throws an fread error. */
 HH_ERRORS handle_fread_error (size_t actual, size_t expected_bytes);
 
-/** Throws an fread error. */
+/** Throws an calloc error. */
 HH_ERRORS handle_calloc_error (size_t size);
 
 /** Throws an unknown command line argument error. */

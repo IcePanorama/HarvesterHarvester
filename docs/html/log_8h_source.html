@@ -113,16 +113,32 @@ $(function(){initNavTree('log_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//  You should have received a copy of the GNU General Public License along</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//  with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#ifndef _HH_LOG_H_</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#define _HH_LOG_H_</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> <a class="code hl_function" href="log_8h.html#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a> (FILE *fptr);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="alog_8h_html_af9859f7b27d46f040c836ecfdc1ac304"><div class="ttname"><a href="log_8h.html#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a></div><div class="ttdeci">void print_some_data_from_file(FILE *fptr)</div><div class="ttdoc">log.h - wrapper for stdout functions.</div><div class="ttdef"><b>Definition</b> <a href="log_8c_source.html#l00050">log.c:50</a></div></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef _HH_LOG_H_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define _HH_LOG_H_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">   30</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> <a class="code hl_enumeration" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019a3739eb4c17ed09ed2ec5d4ccd80704d7">   32</a></span>  <a class="code hl_enumvalue" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019a3739eb4c17ed09ed2ec5d4ccd80704d7">HH_LOG_INFO</a>,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019a9f923aec82f4569dbe1ef1856ca8471e">   33</a></span>  <a class="code hl_enumvalue" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019a9f923aec82f4569dbe1ef1856ca8471e">HH_LOG_WARNING</a>,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">   34</a></span>  <a class="code hl_enumvalue" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</a>,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <a class="code hl_enumeration" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a>;</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keywordtype">void</span> <a class="code hl_function" href="log_8h.html#a17a149a589296f67b4ecee3493403542">hh_log</a> (<a class="code hl_enumeration" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a> lvl, <span class="keyword">const</span> <span class="keywordtype">char</span> *fmt, ...);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">void</span> <a class="code hl_function" href="log_8h.html#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a> (FILE *fptr);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alog_8h_html_a17a149a589296f67b4ecee3493403542"><div class="ttname"><a href="log_8h.html#a17a149a589296f67b4ecee3493403542">hh_log</a></div><div class="ttdeci">void hh_log(hh_log_level lvl, const char *fmt,...)</div><div class="ttdoc">A logger function.</div><div class="ttdef"><b>Definition</b> <a href="log_8c_source.html#l00069">log.c:69</a></div></div>
+<div class="ttc" id="alog_8h_html_a7bfe9eca60a5e3bda36f482236a9a019"><div class="ttname"><a href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a></div><div class="ttdeci">hh_log_level</div><div class="ttdoc">log.h - wrapper for hh_log and its related functions functions.</div><div class="ttdef"><b>Definition</b> <a href="#l00030">log.h:31</a></div></div>
+<div class="ttc" id="alog_8h_html_a7bfe9eca60a5e3bda36f482236a9a019a3739eb4c17ed09ed2ec5d4ccd80704d7"><div class="ttname"><a href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019a3739eb4c17ed09ed2ec5d4ccd80704d7">HH_LOG_INFO</a></div><div class="ttdeci">@ HH_LOG_INFO</div><div class="ttdef"><b>Definition</b> <a href="#l00032">log.h:32</a></div></div>
+<div class="ttc" id="alog_8h_html_a7bfe9eca60a5e3bda36f482236a9a019a9f923aec82f4569dbe1ef1856ca8471e"><div class="ttname"><a href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019a9f923aec82f4569dbe1ef1856ca8471e">HH_LOG_WARNING</a></div><div class="ttdeci">@ HH_LOG_WARNING</div><div class="ttdef"><b>Definition</b> <a href="#l00033">log.h:33</a></div></div>
+<div class="ttc" id="alog_8h_html_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656"><div class="ttname"><a href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</a></div><div class="ttdeci">@ HH_LOG_ERROR</div><div class="ttdef"><b>Definition</b> <a href="#l00034">log.h:34</a></div></div>
+<div class="ttc" id="alog_8h_html_af9859f7b27d46f040c836ecfdc1ac304"><div class="ttname"><a href="log_8h.html#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a></div><div class="ttdeci">void print_some_data_from_file(FILE *fptr)</div><div class="ttdoc">Prints the next BYTES_TO_READ many bytes to the stdout, formatted in order to be easy to read.</div><div class="ttdef"><b>Definition</b> <a href="log_8c_source.html#l00053">log.c:53</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

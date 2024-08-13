@@ -96,7 +96,7 @@ Definition at line <link linkend="_extractor_8c_source_1l00090">90</link> of fil
 
 <para>Just use the default/existing filename. It&apos;ll be incorrect, but probably not worth stoping execution over. Users could just manually remove the <computeroutput>;1</computeroutput> part; the data itself should be fine.</para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00026">26</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00027">27</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 <anchor xml:id="_extractor_8h_1a8a69ed144c7791001eb2d6055e297bfd"/><section>
     <title>extract_file_using_idx_entry()</title>
@@ -107,7 +107,7 @@ Definition at line <link linkend="_extractor_8c_source_1l00026">26</link> of fil
 <para>Extracts a file using its corresponding <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> and data pointed to by <computeroutput>fptr</computeroutput>, outputting it to the location denoated by <computeroutput>path</computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00184">184</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00183">183</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 <anchor xml:id="_extractor_8h_1a5bdeb2d2539ae12cbe315e3a606a98c2"/><section>
     <title>extract_index_file()</title>
@@ -149,7 +149,7 @@ Parameters</title>
 
 <para>Gives you the <computeroutput>OP_OUTPUT_DIR/DISK#/</computeroutput> part of the path. 10 = len(&quot;INDEX.001&quot;)</para>
 <para>
-Definition at line <link linkend="_extractor_8c_source_1l00230">230</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
+Definition at line <link linkend="_extractor_8c_source_1l00223">223</link> of file <link linkend="_extractor_8c_source">extractor.c</link>.</para>
 </section>
 </section>
 </section>

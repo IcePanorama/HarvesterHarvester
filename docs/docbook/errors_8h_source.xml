@@ -30,17 +30,15 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8h_source_1l00029"/>00029 &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>&#32;=&#32;-5
 <anchor xml:id="_errors_8h_source_1l00030"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">00030</link> }&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>;
 <anchor xml:id="_errors_8h_source_1l00031"/>00031 
-<anchor xml:id="_errors_8h_source_1l00033"/>00033 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>;
+<anchor xml:id="_errors_8h_source_1l00033"/>00033 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>;
 <anchor xml:id="_errors_8h_source_1l00034"/>00034 
-<anchor xml:id="_errors_8h_source_1l00036"/>00036 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>;
+<anchor xml:id="_errors_8h_source_1l00036"/>00036 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
 <anchor xml:id="_errors_8h_source_1l00037"/>00037 
-<anchor xml:id="_errors_8h_source_1l00039"/>00039 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a1fa621098d550bb126a641aba0638f7f">improper_usage_error</link>&#32;(<emphasis role="keywordtype">void</emphasis>);
+<anchor xml:id="_errors_8h_source_1l00039"/>00039 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes);
 <anchor xml:id="_errors_8h_source_1l00040"/>00040 
-<anchor xml:id="_errors_8h_source_1l00042"/>00042 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a9b9a6494b96286134308f2da3e179af9">fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
+<anchor xml:id="_errors_8h_source_1l00042"/>00042 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;size);
 <anchor xml:id="_errors_8h_source_1l00043"/>00043 
-<anchor xml:id="_errors_8h_source_1l00045"/>00045 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes);
+<anchor xml:id="_errors_8h_source_1l00045"/>00045 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
 <anchor xml:id="_errors_8h_source_1l00046"/>00046 
-<anchor xml:id="_errors_8h_source_1l00048"/>00048 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
-<anchor xml:id="_errors_8h_source_1l00049"/>00049 
-<anchor xml:id="_errors_8h_source_1l00050"/>00050 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_errors_8h_source_1l00047"/>00047 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

@@ -26,7 +26,7 @@
 <para>Creates a subdirectory at the given path, if it doesn&apos;t already exist. </para>
 </para>
 <para>
-Definition at line <link linkend="_output_8c_source_1l00045">45</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+Definition at line <link linkend="_output_8c_source_1l00046">46</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 <anchor xml:id="_output_8h_1acef952bf7d1077d8f68a1be1f084b2ee"/><section>
     <title>create_output_directory()</title>
@@ -51,7 +51,7 @@ Definition at line <link linkend="_output_8c_source_1l00045">45</link> of file <
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_output_8c_source_1l00028">28</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+Definition at line <link linkend="_output_8c_source_1l00029">29</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>
 </section>

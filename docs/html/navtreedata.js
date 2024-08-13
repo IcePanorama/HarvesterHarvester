@@ -30,10 +30,7 @@ var NAVTREE =
       [ "Easiest Way", "index.html#autotoc_md3", null ],
       [ "Building from source (Linux/MacOS/Unix)", "index.html#autotoc_md4", null ]
     ] ],
-    [ "Usage", "index.html#autotoc_md5", [
-      [ "Basic Usage", "index.html#autotoc_md6", null ]
-    ] ],
-    [ "A note on piracy", "index.html#autotoc_md7", null ],
+    [ "A note on piracy", "index.html#autotoc_md5", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -59,7 +56,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structdirectory__record.html#ac1654a106d931729a0f2af11e4c85a97"
+"structdirectory__record.html#aa2a5c7f49a3edac5dfe11b6bcd19b49d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

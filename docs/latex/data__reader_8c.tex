@@ -3,6 +3,7 @@
 {\ttfamily \#include "{}data\+\_\+reader.\+h"{}}\newline
 {\ttfamily \#include "{}errors.\+h"{}}\newline
 {\ttfamily \#include "{}file\+\_\+flags.\+h"{}}\newline
+{\ttfamily \#include "{}log.\+h"{}}\newline
 {\ttfamily \#include "{}options.\+h"{}}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
@@ -51,7 +52,7 @@ Builds strings using formats provided by {\ttfamily internal-\/dat-\/file-\/path
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00254}{254}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00255}{255}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_ac8a5617b9328c9f95fb8ce6cf446bdf0}\index{data\_reader.c@{data\_reader.c}!read\_array\_uint8@{read\_array\_uint8}}
 \index{read\_array\_uint8@{read\_array\_uint8}!data\_reader.c@{data\_reader.c}}
@@ -65,7 +66,7 @@ Reads an array of uint8\+\_\+t\textquotesingle{}s, of a given length, from a giv
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00158}{158}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00159}{159}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_ade23ba29f3b5a5c0c9b6dddb1b307df0}\index{data\_reader.c@{data\_reader.c}!read\_big\_endian\_data\_uint16\_t@{read\_big\_endian\_data\_uint16\_t}}
 \index{read\_big\_endian\_data\_uint16\_t@{read\_big\_endian\_data\_uint16\_t}!data\_reader.c@{data\_reader.c}}
@@ -79,7 +80,7 @@ Reads a uint16\+\_\+t stored in big endian format from the file pointed to by {\
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00129}{129}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00130}{130}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a9fe70ffc0216052a2ffededd4abded89}\index{data\_reader.c@{data\_reader.c}!read\_big\_endian\_data\_uint32\_t@{read\_big\_endian\_data\_uint32\_t}}
 \index{read\_big\_endian\_data\_uint32\_t@{read\_big\_endian\_data\_uint32\_t}!data\_reader.c@{data\_reader.c}}
@@ -93,7 +94,7 @@ Reads a uint32\+\_\+t stored in big endian format from the file pointed to by {\
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00098}{98}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00099}{99}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_ac5eb33b86992b7eec9d57407d8bb5bb4}\index{data\_reader.c@{data\_reader.c}!read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}}
 \index{read\_both\_endian\_data\_uint16@{read\_both\_endian\_data\_uint16}!data\_reader.c@{data\_reader.c}}
@@ -112,7 +113,7 @@ read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint32()
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00058}{58}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00059}{59}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a640713d2880309d518aebed5ebff89e0}\index{data\_reader.c@{data\_reader.c}!read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}}
 \index{read\_both\_endian\_data\_uint32@{read\_both\_endian\_data\_uint32}!data\_reader.c@{data\_reader.c}}
@@ -131,7 +132,7 @@ read\+\_\+both\+\_\+endian\+\_\+data\+\_\+unint16()
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00036}{36}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00037}{37}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a9fa8fe51a3363438da9a616c4363e837}\index{data\_reader.c@{data\_reader.c}!read\_dec\_datetime@{read\_dec\_datetime}}
 \index{read\_dec\_datetime@{read\_dec\_datetime}!data\_reader.c@{data\_reader.c}}
@@ -148,7 +149,7 @@ Reads in {\ttfamily \doxylink{structdec__datetime}{dec\+\_\+datetime}} data from
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00171}{171}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00172}{172}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a671723ae43b83cdf3db007816fc6b0a0}\index{data\_reader.c@{data\_reader.c}!read\_dir\_datetime@{read\_dir\_datetime}}
 \index{read\_dir\_datetime@{read\_dir\_datetime}!data\_reader.c@{data\_reader.c}}
@@ -165,7 +166,7 @@ Reads in {\ttfamily \doxylink{structdir__datetime}{dir\+\_\+datetime}} data from
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00204}{204}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00205}{205}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a706cf4826080ce7bf4a1706fe10f379a}\index{data\_reader.c@{data\_reader.c}!read\_file\_flags@{read\_file\_flags}}
 \index{read\_file\_flags@{read\_file\_flags}!data\_reader.c@{data\_reader.c}}
@@ -182,7 +183,7 @@ Reads in {\ttfamily file\+\_\+flag} data from a given file, storing the output i
 \end{DoxySeeAlso}
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00221}{221}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00222}{222}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a78ed65e60aaa0c5e49f37c65baf761a4}\index{data\_reader.c@{data\_reader.c}!read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}}
 \index{read\_little\_endian\_data\_uint16\_t@{read\_little\_endian\_data\_uint16\_t}!data\_reader.c@{data\_reader.c}}
@@ -196,7 +197,7 @@ Reads a uint16\+\_\+t stored in little endian format from the file pointed to by
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00114}{114}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00115}{115}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a35b8ba7297a3da1c6b2f847ca471299b}\index{data\_reader.c@{data\_reader.c}!read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}}
 \index{read\_little\_endian\_data\_uint32\_t@{read\_little\_endian\_data\_uint32\_t}!data\_reader.c@{data\_reader.c}}
@@ -210,7 +211,7 @@ Reads a uint32\+\_\+t stored in little endian format from the file pointed to by
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00080}{80}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00081}{81}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a3987a7d12b6ef51327e5d1ae63d087cc}\index{data\_reader.c@{data\_reader.c}!read\_single\_uint8@{read\_single\_uint8}}
 \index{read\_single\_uint8@{read\_single\_uint8}!data\_reader.c@{data\_reader.c}}
@@ -224,7 +225,7 @@ data\+\_\+header.\+h -\/ container for various data access functions.
 
 All of these functions return zero on success, non-\/zero on failure. The caller is responsible for freeing any memory which may or may not have been allocated during the use of these functions. Reads in a single uint8\+\_\+t from a given file, storing the output in {\ttfamily value}. 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00191}{191}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00192}{192}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 
 \Hypertarget{data__reader_8c_a095233f80d488c02ecbdd3aca2d38231}\index{data\_reader.c@{data\_reader.c}!read\_string@{read\_string}}
 \index{read\_string@{read\_string}!data\_reader.c@{data\_reader.c}}
@@ -238,5 +239,5 @@ Reads a string of a given length from a given file, storing the result in {\ttfa
 
 
 
-Definition at line \mbox{\hyperlink{data__reader_8c_source_l00144}{144}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
+Definition at line \mbox{\hyperlink{data__reader_8c_source_l00145}{145}} of file \mbox{\hyperlink{data__reader_8c_source}{data\+\_\+reader.\+c}}.
 

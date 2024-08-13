@@ -3,30 +3,96 @@
 <title>src/log.h File Reference</title>
 <indexterm><primary>src/log.h</primary></indexterm>
 <programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</link> { <link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019a3739eb4c17ed09ed2ec5d4ccd80704d7">HH_LOG_INFO</link>
+, <link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019a9f923aec82f4569dbe1ef1856ca8471e">HH_LOG_WARNING</link>
+, <link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>
+ }</para>
+
+<para><link linkend="_log_8h">log.h</link> - wrapper for hh_log and its related functions functions. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
     <title>Functions    </title>
         <itemizedlist>
+            <listitem><para>void <link linkend="_log_8h_1a17a149a589296f67b4ecee3493403542">hh_log</link> (<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</link> lvl, const char *fmt,...)</para>
+
+<para>A logger function. </para>
+</listitem>
             <listitem><para>void <link linkend="_log_8h_1af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</link> (FILE *fptr)</para>
 
-<para><link linkend="_log_8h">log.h</link> - wrapper for stdout functions. </para>
+<para>Prints the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted in order to be easy to read. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
 <section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019"/><section>
+    <title>hh_log_level</title>
+<indexterm><primary>hh_log_level</primary><secondary>log.h</secondary></indexterm>
+<indexterm><primary>log.h</primary><secondary>hh_log_level</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</link></computeroutput></para><para>
+
+<para><link linkend="_log_8h">log.h</link> - wrapper for hh_log and its related functions functions. </para>
+</para>
+
+<para>The three levels of log messages: INFO, WARNING, and ERROR. When used with the <computeroutput><link linkend="_log_8h_1a17a149a589296f67b4ecee3493403542">hh_log()</link></computeroutput> function, these log_levels modify the output string and stream.</para>
+
+<para><formalpara><title>See also</title>
+
+<para><link linkend="_log_8h_1a17a149a589296f67b4ecee3493403542">hh_log</link> </para>
+</formalpara>
+</para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>HH_LOG_INFO</primary><secondary>log.h</secondary></indexterm>
+<indexterm><primary>log.h</primary><secondary>HH_LOG_INFO</secondary></indexterm>
+<anchor xml:id="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019a3739eb4c17ed09ed2ec5d4ccd80704d7"/>HH_LOG_INFO</entry><entry></entry></row><row><entry><indexterm><primary>HH_LOG_WARNING</primary><secondary>log.h</secondary></indexterm>
+<indexterm><primary>log.h</primary><secondary>HH_LOG_WARNING</secondary></indexterm>
+<anchor xml:id="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019a9f923aec82f4569dbe1ef1856ca8471e"/>HH_LOG_WARNING</entry><entry></entry></row><row><entry><indexterm><primary>HH_LOG_ERROR</primary><secondary>log.h</secondary></indexterm>
+<indexterm><primary>log.h</primary><secondary>HH_LOG_ERROR</secondary></indexterm>
+<anchor xml:id="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656"/>HH_LOG_ERROR</entry><entry></entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line <link linkend="_log_8h_source_1l00030">30</link> of file <link linkend="_log_8h_source">log.h</link>.</para>
+</section>
+</section>
+<section>
 <title>Function Documentation</title>
+<anchor xml:id="_log_8h_1a17a149a589296f67b4ecee3493403542"/><section>
+    <title>hh_log()</title>
+<indexterm><primary>hh_log</primary><secondary>log.h</secondary></indexterm>
+<indexterm><primary>log.h</primary><secondary>hh_log</secondary></indexterm>
+<para><computeroutput>void hh_log (<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</link> lvl, const char * fmt,  ...)</computeroutput></para><para>
+
+<para>A logger function. </para>
+</para>
+
+<para>Outputs fmt and args to either the stdout or stderr depending on the <computeroutput>lvl</computeroutput> passed into the function. </para>
+<para>
+Definition at line <link linkend="_log_8c_source_1l00069">69</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+</section>
 <anchor xml:id="_log_8h_1af9859f7b27d46f040c836ecfdc1ac304"/><section>
     <title>print_some_data_from_file()</title>
 <indexterm><primary>print_some_data_from_file</primary><secondary>log.h</secondary></indexterm>
 <indexterm><primary>log.h</primary><secondary>print_some_data_from_file</secondary></indexterm>
 <para><computeroutput>void print_some_data_from_file (FILE * fptr)</computeroutput></para><para>
 
-<para><link linkend="_log_8h">log.h</link> - wrapper for stdout functions. </para>
+<para>Prints the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted in order to be easy to read. </para>
 </para>
 
-<para>As evidenced by the single function below, this file is rather underutilized at the moment. In the future this should host functions related to printing data out to log files, hence the name. Prints the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted in order to be easy to read. Useful for debugging. Note that <computeroutput>BYTES_TO_READ</computeroutput> is defined in <computeroutput><link linkend="_log_8c">log.c</link></computeroutput>.</para>
+<para>Useful for debugging. Note that <computeroutput>BYTES_TO_READ</computeroutput> is defined in <computeroutput><link linkend="_log_8c">log.c</link></computeroutput>.</para>
 
-<para><link linkend="_log_8h">log.h</link> - wrapper for stdout functions. </para>
+<para>Prints the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted in order to be easy to read. </para>
 <para>
-Definition at line <link linkend="_log_8c_source_1l00050">50</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
+Definition at line <link linkend="_log_8c_source_1l00053">53</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 </section>
 </section>

@@ -106,6 +106,7 @@ $(function(){initNavTree('index__file_8c.html',''); initResizable(true); });
 <div class="textblock"><code>#include &quot;<a class="el" href="index__file_8h_source.html">index_file.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
@@ -163,7 +164,7 @@ Variables</h2></td></tr>
 
 <p>Adds a given <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> to a <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00143">143</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00139">139</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>
@@ -184,7 +185,7 @@ Variables</h2></td></tr>
 
 <p>Initializes an <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00033">33</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00034">34</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>
@@ -205,7 +206,7 @@ Variables</h2></td></tr>
 
 <p>Destroys a given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00052">52</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00051">51</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>
@@ -226,7 +227,7 @@ Variables</h2></td></tr>
 
 <p>Prints all the attributes of a given <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> in a human-readable form. </p>
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00133">133</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00129">129</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>
@@ -252,7 +253,7 @@ Variables</h2></td></tr>
 <p>Reads data from a given file, creating <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code>s for every entry in said file. </p>
 <p>Every entry is 0x94 bytes apart, the part we're most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.</p>
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00059">59</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00058">58</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>
@@ -281,7 +282,7 @@ Variables</h2></td></tr>
 
 <p>Grows a given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>'s <code>entries</code> attribute by <code>IDX_RECORDS_GROWTH_RATE</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00159">159</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00155">155</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>
@@ -306,7 +307,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00024">24</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00025">25</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>
@@ -330,7 +331,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00023">23</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00024">24</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
 </div>
 </div>

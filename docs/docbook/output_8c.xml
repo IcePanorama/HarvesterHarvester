@@ -2,7 +2,7 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_output_8c" xml:lang="en-US">
 <title>src/output.c File Reference</title>
 <indexterm><primary>src/output.c</primary></indexterm>
-<programlisting linenumbering="unnumbered">#include &quot;output.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;sys/stat.h&gt;<?linebreak?></programlisting><simplesect>
+<programlisting linenumbering="unnumbered">#include &quot;output.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &quot;log.h&quot;<?linebreak?>#include &quot;options.h&quot;<?linebreak?>#include &quot;utils.h&quot;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?>#include &lt;sys/stat.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
             <listitem><para>int8_t <link linkend="_output_8c_1acef952bf7d1077d8f68a1be1f084b2ee">create_output_directory</link> (char *path)</para>
@@ -26,7 +26,7 @@
 <para>Creates a subdirectory at the given path, if it doesn&apos;t already exist. </para>
 </para>
 <para>
-Definition at line <link linkend="_output_8c_source_1l00045">45</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+Definition at line <link linkend="_output_8c_source_1l00046">46</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 <anchor xml:id="_output_8c_1acef952bf7d1077d8f68a1be1f084b2ee"/><section>
     <title>create_output_directory()</title>
@@ -51,7 +51,7 @@ Definition at line <link linkend="_output_8c_source_1l00045">45</link> of file <
 </formalpara>
 </para>
 <para>
-Definition at line <link linkend="_output_8c_source_1l00028">28</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
+Definition at line <link linkend="_output_8c_source_1l00029">29</link> of file <link linkend="_output_8c_source">output.c</link>.</para>
 </section>
 </section>
 </section>
