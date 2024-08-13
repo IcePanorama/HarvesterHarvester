@@ -24,6 +24,15 @@
 #include <stdint.h>
 #include <stdio.h>
 
+typedef enum hh_log_level
+{
+  HH_INFO,
+  HH_WARNING,
+  HH_ERROR,
+} hh_log_level;
+
+void hh_log (hh_log_level lvl, const char *fmt, ...);
+
 /**
  *  Prints the next `BYTES_TO_READ` many bytes to the stdout, formatted in
  *  order to be easy to read. Useful for debugging. Note that `BYTES_TO_READ`

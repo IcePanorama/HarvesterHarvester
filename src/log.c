@@ -14,6 +14,9 @@
 #include "log.h"
 #include "errors.h"
 
+#include <stdarg.h>
+#include <stdio.h>
+
 /**
  *  Outputs hex data from a given `buffer` to stdout. Formats said data to
  *  add spaces between bytes, tabs after after every four bytes, and a new line
@@ -59,4 +62,37 @@ print_some_data_from_file (FILE *fptr)
 
   print_hex_data (buffer, BYTES_TO_READ);
   fseek (fptr, -BYTES_TO_READ, SEEK_CUR);
+}
+
+// TODO: add an command-line arg to output to a log file or to run silently.
+void
+hh_log (hh_log_level lvl, const char *fmt, ...)
+{
+  const char *program_tag = "[HarvesterHarvester]";
+  FILE *output_stream = stdout;
+
+  switch (lvl)
+    {
+    case HH_INFO:
+      fprintf (stdout, "%s[INFO] ", program_tag);
+      output_stream = stdout;
+      break;
+    case HH_WARNING:
+      fprintf (stderr, "%s[WARNING] ", program_tag);
+      output_stream = stderr;
+      break;
+    case HH_ERROR:
+      fprintf (stderr, "%s[ERROR] ", program_tag);
+      output_stream = stderr;
+      break;
+    default:
+      hh_log (HH_ERROR, "Unrecognized hh_log_level, %d", lvl);
+      return;
+    }
+
+  va_list args;
+  va_start (args, fmt);
+  vfprintf (output_stream, fmt, args);
+  va_end (args);
+  fprintf (output_stream, "\n");
 }

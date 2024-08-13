@@ -16,6 +16,7 @@
 #include "errors.h"
 #include "extractor.h"
 #include "index_file.h"
+#include "log.h"
 #include "options.h"
 #include "path_table.h"
 #include "utils.h"
@@ -102,9 +103,10 @@ process_DAT_file (FILE *fptr)
   // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
     {
-      puts ("[HarvesterHarvester]ERROR: Unexpected volume descriptor type "
-            "code.");
-      printf ("\tExpected %02x, got %02x.\n", 0x01, vd.type_code);
+      hh_log (HH_ERROR,
+              "Unexpected volume descriptor type code. Expected 0x%02X, got "
+              "0x%02X.",
+              0x01, vd.type_code);
       return -1;
     }
 
