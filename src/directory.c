@@ -14,6 +14,7 @@
 #include "directory.h"
 #include "data_reader.h"
 #include "errors.h"
+#include "log.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -34,8 +35,8 @@ create_directory (directory *d)
   d->records = malloc (sizeof (directory_record) * DIR_STARTING_NUM_RECORDS);
   if (d->records == NULL)
     {
-      perror ("[HarvesterHarvester]ERROR: Failed to allocate memory for "
-              "directory.");
+      hh_log (HH_LOG_ERROR,
+              "Failed to allocate memory for directory records.");
       return HH_MEM_ALLOC_ERROR;
     }
 
@@ -105,8 +106,8 @@ resize_directory_records (directory *d)
       d->records, sizeof (directory_record) * new_size);
   if (new_records == NULL)
     {
-      perror ("[HarvesterHarvester]ERROR: failed to reallocate memory for the "
-              "directory records.");
+      hh_log (HH_LOG_ERROR, "Failed to reallocate records to size %zu.",
+              new_size);
       destroy_directory (d);
       return -1;
     }

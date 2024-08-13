@@ -177,7 +177,7 @@ int8_t
 batch_process_DAT_files ()
 {
   const char *OPEN_INPUT_DIR_ERR_MSG_FMT
-      = "[HarvesterHarvester]ERROR: Error opening input directory, %s.\n";
+      = "[HarvesterHarvester]ERROR: Error opening input directory, %s.";
   const uint8_t DAT_FILENAME_LEN = strlen ("HARVESTX.DAT");
   char *filename;
 
@@ -302,7 +302,7 @@ process_internal_dat_files (void)
   FILE *table = fopen (interal_paths, "rb");
   if (table == NULL)
     {
-      hh_log (HH_LOG_ERROR, "Couldn't find %s\n.", interal_paths);
+      fopen_error ((char *)interal_paths);
       return HH_FOPEN_ERROR;
     }
 
@@ -331,7 +331,7 @@ process_internal_dat_files (void)
           return -1;
         }
 
-      hh_log (HH_LOG_INFO, "Processing index file: %s\n", index_file_path);
+      hh_log (HH_LOG_INFO, "Processing index file: %s", index_file_path);
       if (process_index_file (fptr, &idx_file) != 0)
         {
           destroy_index_file (&idx_file);

@@ -14,6 +14,7 @@
 #include "extractor.h"
 #include "data_reader.h"
 #include "errors.h"
+#include "log.h"
 #include "options.h"
 #include "output.h"
 #include "utils.h"
@@ -43,7 +44,7 @@ extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
       actual_filename = dr->file_identifier;
     }
 
-  printf ("[HarvesterHarvester]Extracting file: %s\n", actual_filename);
+  hh_log (HH_LOG_INFO, "Extracting file: %s", actual_filename);
 
   // +1 for the null terminator, +1 for `/` between dir and filename
   size_t filename_length = strlen (path) + strlen (actual_filename) + 2;
@@ -51,7 +52,7 @@ extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
   char *output_filename = (char *)calloc (filename_length, sizeof (char));
   if (output_filename == NULL)
     {
-      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, filename_length);
+      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, filename_length);
       return HH_MEM_ALLOC_ERROR;
     }
 
@@ -62,7 +63,7 @@ extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
   FILE *output_file = fopen (output_filename, "wb");
   if (output_file == NULL)
     {
-      fprintf (stderr, FOPEN_FAILED_ERR_MSG_FMT, output_filename);
+      fopen_error (output_filename);
       free (output_filename);
       return HH_FOPEN_ERROR;
     }
@@ -93,7 +94,7 @@ extract_directory (FILE *fptr, const uint16_t block_size, const char *path)
   create_directory (&dir);
   process_directory (fptr, &dir);
 
-  printf ("[HarvesterHarvester]Extracting directory: %s\n", path);
+  hh_log (HH_LOG_INFO, "Extracting directory: %s", path);
 
   for (size_t i = 0x0; i < dir.current_record; i++)
     {
@@ -106,7 +107,7 @@ extract_directory (FILE *fptr, const uint16_t block_size, const char *path)
       else if (OP_DEBUG_MODE
                && curr_file.data_length > OP_DEBUG_FILE_SIZE_LIMIT)
         {
-          printf ("[HarvesterHarvester][DEBUG_MODE] Skipping file, %s.\n",
+          hh_log (HH_LOG_INFO, "[DEBUG_MODE]Skipping file, %s.",
                   curr_file.file_identifier);
           continue;
         }
@@ -142,7 +143,7 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       char *path = calloc (PATH_MAX_LEN, sizeof (char));
       if (path == NULL)
         {
-          fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, PATH_MAX_LEN);
+          hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, PATH_MAX_LEN);
           return HH_MEM_ALLOC_ERROR;
         }
 
@@ -183,7 +184,7 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
 int8_t
 extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
 {
-  printf ("[HarvesterHarvester]Extracting file: %s\n", path);
+  hh_log (HH_LOG_INFO, "Extracting file: %s", path);
 
   FILE *output_file = fopen (path, "wb");
   if (output_file == NULL)
@@ -197,10 +198,7 @@ extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
       output_file = fopen (path, "wb");
       if (output_file == NULL)
         {
-          fprintf (
-              stderr,
-              "[HarvesterHarvester]ERROR: Error opening output file, %s.\n",
-              path);
+          hh_log (HH_LOG_ERROR, "Error opening output file, %s.", path);
           return HH_FOPEN_ERROR;
         }
     }
@@ -212,9 +210,6 @@ extract_file_using_idx_entry (FILE *fptr, index_entry *idx, const char *path)
       uint8_t byte;
       if (read_single_uint8 (fptr, &byte) != 0)
         {
-          fprintf (
-              stderr,
-              "[HarvesterHarvester]ERROR: couldn't read byte, quitting.\n");
           fclose (output_file);
           return -1;
         }
@@ -233,9 +228,7 @@ extract_index_file (index_file *idx, const char *idx_path,
   FILE *dat_file = fopen (dat_path, "rb");
   if (dat_file == NULL)
     {
-      fprintf (stderr,
-               "[HarvesterHarvester]ERROR: error opening dat file, %s.\n",
-               dat_path);
+      fopen_error ((char *)dat_path);
       return HH_FOPEN_ERROR;
     }
 

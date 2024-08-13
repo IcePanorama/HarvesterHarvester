@@ -14,6 +14,7 @@
 #include "utils.h"
 #include "data_reader.h"
 #include "errors.h"
+#include "log.h"
 #include "options.h"
 
 #include <stdio.h>
@@ -40,7 +41,8 @@ prepend_path_string (char *str, const char *prefix)
   char *tmp = calloc (strlen (str) + strlen (prefix) + 2, sizeof (char));
   if (tmp == NULL)
     {
-      perror ("[HarvesterHarvester]ERROR: unable to calloc tmp string");
+      hh_log (HH_LOG_ERROR, "Unable to calloc string of size %zu.",
+              strlen (str) + strlen (prefix) + 2);
       return HH_MEM_ALLOC_ERROR;
     }
 
@@ -65,7 +67,8 @@ prepend_string (char *str, const char *prefix)
   char *tmp = calloc (strlen (str) + strlen (prefix) + 2, sizeof (char));
   if (tmp == NULL)
     {
-      perror ("[HarvesterHarvester]ERROR: unable to calloc tmp string");
+      hh_log (HH_LOG_ERROR, "Unable to calloc string of size %zu.",
+              strlen (str) + strlen (prefix) + 2);
       exit (1);
     }
   strcpy (tmp, str);

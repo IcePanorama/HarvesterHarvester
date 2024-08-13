@@ -1,6 +1,7 @@
 #include "path_table.h"
 #include "data_reader.h"
 #include "errors.h"
+#include "log.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -31,8 +32,8 @@ create_path_table (path_table *pt)
   pt->entries = malloc (sizeof (path_table_entry) * PT_STARTING_NUM_ENTRIES);
   if (pt->entries == NULL)
     {
-      perror ("[HarvesterHarvester]ERROR: Failed to allocate memory for path "
-              "table.");
+      hh_log (HH_LOG_ERROR,
+              "Failed to allocate memory for path table entries.");
       return -1;
     }
 
@@ -85,10 +86,8 @@ resize_path_table_entries (path_table *pt)
       pt->entries, sizeof (path_table_entry) * new_size);
   if (new_entries == NULL)
     {
-      fprintf (stderr,
-               "[HarvesterHarvester]ERROR: Ralloc failed for `entries` of "
-               "size %zu.\n",
-               new_size);
+      hh_log (HH_LOG_ERROR, "Ralloc failed for `entries` of size %zu.",
+              new_size);
       destroy_path_table (pt);
       return HH_MEM_ALLOC_ERROR;
     }

@@ -14,6 +14,7 @@
 #include "index_file.h"
 #include "data_reader.h"
 #include "errors.h"
+#include "log.h"
 #include "options.h"
 #include "utils.h"
 
@@ -35,10 +36,8 @@ create_index_file (index_file *i)
   i->indicies = malloc (IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
   if (i->indicies == NULL)
     {
-      fprintf (
-          stderr,
-          "[HarvesterHarvester]ERROR: unable to malloc array of %zu indicies.",
-          IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
+      hh_log (HH_LOG_ERROR, "Unable to malloc indicies of size %zu.",
+              IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
       return -1;
     }
 
@@ -67,10 +66,8 @@ process_index_file (FILE *fptr, index_file *idxf)
 
       if (!peek_char_is (fptr, ':'))
         {
-          fprintf (
-              stderr,
-              "[HarvesterHarvester]ERROR: Unexpected character in index file. "
-              "Aborting processing.\n");
+          hh_log (HH_LOG_ERROR,
+                  "Unexpected character in index file. Aborting processing.");
           return -1;
         }
 
@@ -114,9 +111,8 @@ process_index_file (FILE *fptr, index_file *idxf)
 
       if (entry.size != value)
         {
-          fprintf (stderr,
-                   "[HarvesterHarvester]ERROR: Expected %08X, got %08X.\n",
-                   entry.size, value);
+          hh_log (HH_LOG_ERROR, "Expected 0x%08X, got 0x%08X.", entry.size,
+                  value);
           return -1;
         }
 
@@ -163,10 +159,8 @@ resize_indicies (index_file *idx)
       idx->indicies, new_size * sizeof (index_entry));
   if (new_indicies == NULL)
     {
-      fprintf (stderr,
-               "[HarvesterHarvester]ERROR: unable to ralloc index from size "
-               "%zu to %zu.\n",
-               idx->size, new_size);
+      hh_log (HH_LOG_ERROR, "Unable to ralloc indicies to size %zu.",
+              new_size);
       destroy_index_file (idx);
       return -1;
     }

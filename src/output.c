@@ -13,6 +13,7 @@
 //  with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "output.h"
 #include "errors.h"
+#include "log.h"
 #include "options.h"
 #include "utils.h"
 
@@ -51,7 +52,7 @@ create_new_output_directory (const char *path)
   char *tmp = calloc (strlen (path) + 2, sizeof (char));
   if (tmp == NULL)
     {
-      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);
+      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);
       return HH_MEM_ALLOC_ERROR;
     }
 
@@ -61,7 +62,7 @@ create_new_output_directory (const char *path)
   char *dir = calloc (strlen (path) + 2, sizeof (char));
   if (dir == NULL)
     {
-      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);
+      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);
       free (tmp);
       return HH_MEM_ALLOC_ERROR;
     }
@@ -81,11 +82,9 @@ create_new_output_directory (const char *path)
 #endif
           if (status != 0)
             {
-              fprintf (stderr,
-                       "[HarvesterHarvester]ERROR: failed to create the "
-                       "following output "
-                       "directory, %s\n.",
-                       path);
+              hh_log (HH_LOG_ERROR,
+                      "Failed to create the following output directory, %s.",
+                      path);
               free (dir);
               free (tmp);
               return HH_CREATE_OUTPUT_DIR_ERROR;
