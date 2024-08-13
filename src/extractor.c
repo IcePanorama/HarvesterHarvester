@@ -52,8 +52,7 @@ extract_file_using_dir_record (FILE *fptr, struct directory_record *dr,
   char *output_filename = (char *)calloc (filename_length, sizeof (char));
   if (output_filename == NULL)
     {
-      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, filename_length);
-      return HH_MEM_ALLOC_ERROR;
+      return handle_calloc_error (filename_length);
     }
 
   strcpy (output_filename, path);
@@ -143,8 +142,7 @@ create_directories_and_extract_data_from_path_file (FILE *fptr,
       char *path = calloc (PATH_MAX_LEN, sizeof (char));
       if (path == NULL)
         {
-          hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, PATH_MAX_LEN);
-          return HH_MEM_ALLOC_ERROR;
+          return handle_calloc_error (PATH_MAX_LEN);
         }
 
       strcat (path, curr_dir.directory_identifier);

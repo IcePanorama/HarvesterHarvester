@@ -36,3 +36,10 @@ handle_unknown_command_line_argument_error (char *arg)
           arg, !windows ? "./HarvesterHarvester" : "HarvesterHarvester.exe");
   exit (1);
 }
+
+HH_ERRORS
+handle_calloc_error (size_t size)
+{
+  hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, size);
+  return HH_MEM_ALLOC_ERROR;
+}

@@ -29,9 +29,6 @@ typedef enum HH_ERRORS
   HH_CREATE_OUTPUT_DIR_ERROR = -5
 } HH_ERRORS;
 
-/** Format string for failed calloc error message. */
-extern const char *CALLOC_FAILED_ERR_MSG_FMT;
-
 /** Format string for failed fopen error message. */
 extern const char *FOPEN_FAILED_ERR_MSG_FMT;
 
@@ -40,6 +37,9 @@ void fopen_error (char *filename);
 
 /** Throws an fread error. */
 HH_ERRORS handle_fread_error (size_t actual, size_t expected_bytes);
+
+/** Throws an fread error. */
+HH_ERRORS handle_calloc_error (size_t size);
 
 /** Throws an unknown command line argument error. */
 void handle_unknown_command_line_argument_error (char *arg);

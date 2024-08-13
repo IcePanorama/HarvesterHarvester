@@ -151,10 +151,9 @@ process_DAT_file (FILE *fptr)
                        sizeof (char));
   if (path == NULL)
     {
-      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT,
-              strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2);
       destroy_path_table (&pt);
-      return -1;
+      return handle_calloc_error (strlen (OP_OUTPUT_DIR)
+                                  + current_disk_name_length + 2);
     }
 
   strcpy (path, OP_OUTPUT_DIR);
@@ -208,9 +207,8 @@ batch_process_DAT_files ()
                          sizeof (char));
       if (filename == NULL)
         {
-          hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT,
-                  strlen (OP_OUTPUT_DIR) + DAT_FILENAME_LEN + 2);
-          return HH_MEM_ALLOC_ERROR;
+          return handle_calloc_error (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN
+                                      + 2);
         }
 
       strcpy (filename, OP_INPUT_DIR);
@@ -261,9 +259,8 @@ batch_process_DAT_files ()
                          sizeof (char));
       if (filename == NULL)
         {
-          hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT,
-                  strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);
-          return HH_MEM_ALLOC_ERROR;
+          return handle_calloc_error (strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN
+                                      + 2);
         }
 
       strcpy (filename, OP_INPUT_DIR);

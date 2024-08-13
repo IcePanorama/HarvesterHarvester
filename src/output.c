@@ -52,8 +52,7 @@ create_new_output_directory (const char *path)
   char *tmp = calloc (strlen (path) + 2, sizeof (char));
   if (tmp == NULL)
     {
-      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);
-      return HH_MEM_ALLOC_ERROR;
+      return handle_calloc_error (strlen (path) + 2);
     }
 
   strcpy (tmp, path);
@@ -62,9 +61,8 @@ create_new_output_directory (const char *path)
   char *dir = calloc (strlen (path) + 2, sizeof (char));
   if (dir == NULL)
     {
-      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT, strlen (path) + 2);
       free (tmp);
-      return HH_MEM_ALLOC_ERROR;
+      return handle_calloc_error (strlen (path) + 2);
     }
 
   while (token != NULL)
