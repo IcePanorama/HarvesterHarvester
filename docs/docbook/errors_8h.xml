@@ -5,11 +5,10 @@
 <programlisting linenumbering="unnumbered">#include &lt;stdint.h&gt;<?linebreak?>#include &lt;stdio.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Enumerations    </title>
         <itemizedlist>
-            <listitem><para>enum <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> { <?linebreak?><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link> = -1
+            <listitem><para>enum <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> { <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link> = -1
 , <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link> = -2
-, <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link> = -3
-, <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link> = -4
-, <?linebreak?><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link> = -5
+, <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link> = -3
+, <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link> = -4
  }</para>
 
 <para><link linkend="_errors_8h">errors.h</link> - a wrapper for all of hh&apos;s potential errors. </para>
@@ -76,11 +75,7 @@
 <indexterm><primary>errors.h</primary><secondary>HH_FOPEN_ERROR</secondary></indexterm>
 <anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a"/>HH_FOPEN_ERROR</entry><entry></entry></row><row><entry><indexterm><primary>HH_FREAD_ERROR</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>HH_FREAD_ERROR</secondary></indexterm>
-<anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df"/>HH_FREAD_ERROR</entry><entry></entry></row><row><entry><indexterm><primary>HH_PT_RESIZE_ERROR</primary><secondary>errors.h</secondary></indexterm>
-<indexterm><primary>errors.h</primary><secondary>HH_PT_RESIZE_ERROR</secondary></indexterm>
-<anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3"/>HH_PT_RESIZE_ERROR</entry><entry>
-<para>Path table resize error. </para>
-</entry></row><row><entry><indexterm><primary>HH_MEM_ALLOC_ERROR</primary><secondary>errors.h</secondary></indexterm>
+<anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df"/>HH_FREAD_ERROR</entry><entry></entry></row><row><entry><indexterm><primary>HH_MEM_ALLOC_ERROR</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>HH_MEM_ALLOC_ERROR</secondary></indexterm>
 <anchor xml:id="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d"/>HH_MEM_ALLOC_ERROR</entry><entry></entry></row><row><entry><indexterm><primary>HH_CREATE_OUTPUT_DIR_ERROR</primary><secondary>errors.h</secondary></indexterm>
 <indexterm><primary>errors.h</primary><secondary>HH_CREATE_OUTPUT_DIR_ERROR</secondary></indexterm>

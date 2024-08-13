@@ -23,10 +23,8 @@ typedef enum HH_ERRORS
 {
   HH_FOPEN_ERROR = -1,
   HH_FREAD_ERROR = -2,
-  /** Path table resize error */
-  HH_PT_RESIZE_ERROR = -3,
-  HH_MEM_ALLOC_ERROR = -4,
-  HH_CREATE_OUTPUT_DIR_ERROR = -5
+  HH_MEM_ALLOC_ERROR = -3,
+  HH_CREATE_OUTPUT_DIR_ERROR = -4
 } HH_ERRORS;
 
 /** Format string for failed fopen error message. */

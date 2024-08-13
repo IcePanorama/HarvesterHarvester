@@ -62,7 +62,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_path__table_8c_source_1l00067"/>00067 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(pt-&gt;<link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link>&#32;&gt;=&#32;pt-&gt;<link linkend="_structpath__table_1a273f99c8a539dcdcc0a499296fde3a9b">size</link>)
 <anchor xml:id="_path__table_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;{
 <anchor xml:id="_path__table_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_path__table_8c_1a9fd2417f1963df24a90b786e3c09a64a">resize_path_table_entries</link>&#32;(pt)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
 <anchor xml:id="_path__table_8c_source_1l00071"/>00071 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_path__table_8c_source_1l00072"/>00072 
 <anchor xml:id="_path__table_8c_source_1l00073"/>00073 &#32;&#32;pt-&gt;<link linkend="_structpath__table_1a33d282004152acf2e3359dd2c40da884">entries</link>[pt-&gt;<link linkend="_structpath__table_1ae73602760f6f2a1939eb651087570e63">current_entry</link>]&#32;=&#32;*entry;
@@ -163,7 +163,7 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_path__table_8c_source_1l00168"/>00168 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
 <anchor xml:id="_path__table_8c_source_1l00169"/>00169 
 <anchor xml:id="_path__table_8c_source_1l00170"/>00170 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_path__table_8c_1a492a544af54cae408fa7d4331e7083ae">add_entry_to_path_table</link>&#32;(pt,&#32;&amp;curr)&#32;!=&#32;0)
-<anchor xml:id="_path__table_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link>;
+<anchor xml:id="_path__table_8c_source_1l00171"/>00171 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
 <anchor xml:id="_path__table_8c_source_1l00172"/>00172 
 <anchor xml:id="_path__table_8c_source_1l00173"/>00173 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a3987a7d12b6ef51327e5d1ae63d087cc">read_single_uint8</link>&#32;(fptr,&#32;&amp;dir_identifier_length)&#32;!=&#32;0)
 <anchor xml:id="_path__table_8c_source_1l00174"/>00174 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;

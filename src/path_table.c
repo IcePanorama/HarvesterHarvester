@@ -67,7 +67,7 @@ add_entry_to_path_table (path_table *pt, path_table_entry *entry)
   if (pt->current_entry >= pt->size)
     {
       if (resize_path_table_entries (pt) != 0)
-        return HH_PT_RESIZE_ERROR;
+        return HH_MEM_ALLOC_ERROR;
     }
 
   pt->entries[pt->current_entry] = *entry;
@@ -168,7 +168,7 @@ process_type_l_path_table (FILE *fptr, path_table *pt)
         }
 
       if (add_entry_to_path_table (pt, &curr) != 0)
-        return HH_PT_RESIZE_ERROR;
+        return HH_MEM_ALLOC_ERROR;
 
       if (read_single_uint8 (fptr, &dir_identifier_length) != 0)
         return HH_FREAD_ERROR;

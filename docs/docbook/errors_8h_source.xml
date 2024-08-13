@@ -25,25 +25,24 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8h_source_1l00023"/>00023 {
 <anchor xml:id="_errors_8h_source_1l00024"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">00024</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link>&#32;=&#32;-1,
 <anchor xml:id="_errors_8h_source_1l00025"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">00025</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>&#32;=&#32;-2,
-<anchor xml:id="_errors_8h_source_1l00027"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">00027</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3">HH_PT_RESIZE_ERROR</link>&#32;=&#32;-3,
-<anchor xml:id="_errors_8h_source_1l00028"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">00028</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>&#32;=&#32;-4,
-<anchor xml:id="_errors_8h_source_1l00029"/>00029 &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>&#32;=&#32;-5
-<anchor xml:id="_errors_8h_source_1l00030"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">00030</link> }&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>;
-<anchor xml:id="_errors_8h_source_1l00031"/>00031 
-<anchor xml:id="_errors_8h_source_1l00033"/>00033 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>;
-<anchor xml:id="_errors_8h_source_1l00034"/>00034 
-<anchor xml:id="_errors_8h_source_1l00036"/>00036 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
-<anchor xml:id="_errors_8h_source_1l00037"/>00037 
-<anchor xml:id="_errors_8h_source_1l00039"/>00039 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes);
-<anchor xml:id="_errors_8h_source_1l00040"/>00040 
-<anchor xml:id="_errors_8h_source_1l00042"/>00042 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;size);
-<anchor xml:id="_errors_8h_source_1l00043"/>00043 
-<anchor xml:id="_errors_8h_source_1l00045"/>00045 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*arr_name,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;old_size,
-<anchor xml:id="_errors_8h_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;new_size);
-<anchor xml:id="_errors_8h_source_1l00047"/>00047 
-<anchor xml:id="_errors_8h_source_1l00049"/>00049 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a8ae11ef9f755479186d4d1a6dcf3ec99">handle_malloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*obj_name);
-<anchor xml:id="_errors_8h_source_1l00050"/>00050 
-<anchor xml:id="_errors_8h_source_1l00052"/>00052 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
-<anchor xml:id="_errors_8h_source_1l00053"/>00053 
-<anchor xml:id="_errors_8h_source_1l00054"/>00054 <emphasis role="preprocessor">#endif</emphasis>
+<anchor xml:id="_errors_8h_source_1l00026"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">00026</link> &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>&#32;=&#32;-3,
+<anchor xml:id="_errors_8h_source_1l00027"/>00027 &#32;&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>&#32;=&#32;-4
+<anchor xml:id="_errors_8h_source_1l00028"/><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">00028</link> }&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>;
+<anchor xml:id="_errors_8h_source_1l00029"/>00029 
+<anchor xml:id="_errors_8h_source_1l00031"/>00031 <emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8h_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>;
+<anchor xml:id="_errors_8h_source_1l00032"/>00032 
+<anchor xml:id="_errors_8h_source_1l00034"/>00034 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename);
+<anchor xml:id="_errors_8h_source_1l00035"/>00035 
+<anchor xml:id="_errors_8h_source_1l00037"/>00037 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes);
+<anchor xml:id="_errors_8h_source_1l00038"/>00038 
+<anchor xml:id="_errors_8h_source_1l00040"/>00040 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;size);
+<anchor xml:id="_errors_8h_source_1l00041"/>00041 
+<anchor xml:id="_errors_8h_source_1l00043"/>00043 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*arr_name,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;old_size,
+<anchor xml:id="_errors_8h_source_1l00044"/>00044 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;new_size);
+<anchor xml:id="_errors_8h_source_1l00045"/>00045 
+<anchor xml:id="_errors_8h_source_1l00047"/>00047 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>&#32;<link linkend="_errors_8h_1a8ae11ef9f755479186d4d1a6dcf3ec99">handle_malloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*obj_name);
+<anchor xml:id="_errors_8h_source_1l00048"/>00048 
+<anchor xml:id="_errors_8h_source_1l00050"/>00050 <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_errors_8h_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*arg);
+<anchor xml:id="_errors_8h_source_1l00051"/>00051 
+<anchor xml:id="_errors_8h_source_1l00052"/>00052 <emphasis role="preprocessor">#endif</emphasis>
 </programlisting></section>

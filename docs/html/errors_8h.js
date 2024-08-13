@@ -3,7 +3,6 @@ var errors_8h =
     [ "HH_ERRORS", "errors_8h.html#a7c84f993e326519edca8fd9efdec746e", [
       [ "HH_FOPEN_ERROR", "errors_8h.html#a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a", null ],
       [ "HH_FREAD_ERROR", "errors_8h.html#a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df", null ],
-      [ "HH_PT_RESIZE_ERROR", "errors_8h.html#a7c84f993e326519edca8fd9efdec746ea6e1ae6020f33cd0672404554c59ea5e3", null ],
       [ "HH_MEM_ALLOC_ERROR", "errors_8h.html#a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d", null ],
       [ "HH_CREATE_OUTPUT_DIR_ERROR", "errors_8h.html#a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa", null ]
     ] ],
