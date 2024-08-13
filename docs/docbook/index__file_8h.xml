@@ -93,7 +93,7 @@ Definition at line <link linkend="_index__file_8h_source_1l00039">39</link> of f
 <para>Adds a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> to a <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00139">139</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00137">137</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8h_1a8d0c5734d83636faa168e5869954b500"/><section>
     <title>create_index_file()</title>
@@ -115,7 +115,7 @@ Definition at line <link linkend="_index__file_8c_source_1l00034">34</link> of f
 <para>Destroys a given <computeroutput><link linkend="_structindex__file">index_file</link></computeroutput>. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00051">51</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00049">49</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8h_1a803c3e3f6d663ff2050f3c2e60e13431"/><section>
     <title>print_index_entry()</title>
@@ -126,7 +126,7 @@ Definition at line <link linkend="_index__file_8c_source_1l00051">51</link> of f
 <para>Prints all the attributes of a given <computeroutput><link linkend="_structindex__entry">index_entry</link></computeroutput> in a human-readable form. </para>
 </para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00129">129</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00127">127</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 <anchor xml:id="_index__file_8h_1a8d9a7c6f483fa764254a2013aa7258b1"/><section>
     <title>process_index_file()</title>
@@ -139,7 +139,7 @@ Definition at line <link linkend="_index__file_8c_source_1l00129">129</link> of 
 
 <para>Every entry is 0x94 bytes apart, the part we&apos;re most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.</para>
 <para>
-Definition at line <link linkend="_index__file_8c_source_1l00058">58</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
+Definition at line <link linkend="_index__file_8c_source_1l00056">56</link> of file <link linkend="_index__file_8c_source">index_file.c</link>.</para>
 </section>
 </section>
 </section>

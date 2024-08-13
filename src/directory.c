@@ -14,7 +14,6 @@
 #include "directory.h"
 #include "data_reader.h"
 #include "errors.h"
-#include "log.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -35,9 +34,7 @@ create_directory (directory *d)
   d->records = malloc (sizeof (directory_record) * DIR_STARTING_NUM_RECORDS);
   if (d->records == NULL)
     {
-      hh_log (HH_LOG_ERROR,
-              "Failed to allocate memory for directory records.");
-      return HH_MEM_ALLOC_ERROR;
+      return handle_malloc_error ("directory records.");
     }
 
   d->size = DIR_STARTING_NUM_RECORDS;

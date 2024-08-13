@@ -36,129 +36,127 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_index__file_8c_source_1l00036"/>00036 &#32;&#32;i-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>&#32;=&#32;malloc&#32;(<link linkend="_index__file_8c_1aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</link>&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<link linkend="_structindex__entry">index_entry</link>));
 <anchor xml:id="_index__file_8c_source_1l00037"/>00037 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(i-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>&#32;==&#32;NULL)
 <anchor xml:id="_index__file_8c_source_1l00038"/>00038 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Unable&#32;to&#32;malloc&#32;indicies&#32;of&#32;size&#32;%zu.&quot;</emphasis>,
-<anchor xml:id="_index__file_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_index__file_8c_1aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</link>&#32;*&#32;<emphasis role="keyword">sizeof</emphasis>&#32;(<link linkend="_structindex__entry">index_entry</link>));
-<anchor xml:id="_index__file_8c_source_1l00041"/>00041 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_index__file_8c_source_1l00042"/>00042 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00043"/>00043 
-<anchor xml:id="_index__file_8c_source_1l00044"/>00044 &#32;&#32;i-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;=&#32;<link linkend="_index__file_8c_1aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</link>;
-<anchor xml:id="_index__file_8c_source_1l00045"/>00045 &#32;&#32;i-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>&#32;=&#32;0;
-<anchor xml:id="_index__file_8c_source_1l00046"/>00046 
-<anchor xml:id="_index__file_8c_source_1l00047"/>00047 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_index__file_8c_source_1l00048"/>00048 }
-<anchor xml:id="_index__file_8c_source_1l00049"/>00049 
-<anchor xml:id="_index__file_8c_source_1l00050"/>00050 int8_t
-<anchor xml:id="_index__file_8c_source_1l00051"/><link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">00051</link> <link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link>&#32;(<link linkend="_structindex__file">index_file</link>&#32;*i)
-<anchor xml:id="_index__file_8c_source_1l00052"/>00052 {
-<anchor xml:id="_index__file_8c_source_1l00053"/>00053 &#32;&#32;free&#32;(i-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>);
-<anchor xml:id="_index__file_8c_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_index__file_8c_source_1l00055"/>00055 }
-<anchor xml:id="_index__file_8c_source_1l00056"/>00056 
-<anchor xml:id="_index__file_8c_source_1l00057"/>00057 int8_t
-<anchor xml:id="_index__file_8c_source_1l00058"/><link linkend="_index__file_8c_1a8d9a7c6f483fa764254a2013aa7258b1">00058</link> <link linkend="_index__file_8c_1a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structindex__file">index_file</link>&#32;*idxf)
-<anchor xml:id="_index__file_8c_source_1l00059"/>00059 {
-<anchor xml:id="_index__file_8c_source_1l00060"/>00060 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!<link linkend="_utils_8c_1ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</link>&#32;(fptr))
-<anchor xml:id="_index__file_8c_source_1l00061"/>00061 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00062"/>00062 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structindex__entry">index_entry</link>&#32;entry;
-<anchor xml:id="_index__file_8c_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;entry.<link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link>&#32;=&#32;ftell&#32;(fptr);
+<anchor xml:id="_index__file_8c_source_1l00039"/>00039 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8c_1a8ae11ef9f755479186d4d1a6dcf3ec99">handle_malloc_error</link>&#32;(<emphasis role="stringliteral">&quot;index&#32;file&#32;indicies.&quot;</emphasis>);
+<anchor xml:id="_index__file_8c_source_1l00040"/>00040 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00041"/>00041 
+<anchor xml:id="_index__file_8c_source_1l00042"/>00042 &#32;&#32;i-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;=&#32;<link linkend="_index__file_8c_1aa1eca15092ee97d412940e6e9a48de60">IDX_STARTING_NUM_INDICIES</link>;
+<anchor xml:id="_index__file_8c_source_1l00043"/>00043 &#32;&#32;i-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>&#32;=&#32;0;
+<anchor xml:id="_index__file_8c_source_1l00044"/>00044 
+<anchor xml:id="_index__file_8c_source_1l00045"/>00045 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_index__file_8c_source_1l00046"/>00046 }
+<anchor xml:id="_index__file_8c_source_1l00047"/>00047 
+<anchor xml:id="_index__file_8c_source_1l00048"/>00048 int8_t
+<anchor xml:id="_index__file_8c_source_1l00049"/><link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">00049</link> <link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link>&#32;(<link linkend="_structindex__file">index_file</link>&#32;*i)
+<anchor xml:id="_index__file_8c_source_1l00050"/>00050 {
+<anchor xml:id="_index__file_8c_source_1l00051"/>00051 &#32;&#32;free&#32;(i-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>);
+<anchor xml:id="_index__file_8c_source_1l00052"/>00052 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_index__file_8c_source_1l00053"/>00053 }
+<anchor xml:id="_index__file_8c_source_1l00054"/>00054 
+<anchor xml:id="_index__file_8c_source_1l00055"/>00055 int8_t
+<anchor xml:id="_index__file_8c_source_1l00056"/><link linkend="_index__file_8c_1a8d9a7c6f483fa764254a2013aa7258b1">00056</link> <link linkend="_index__file_8c_1a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</link>&#32;(FILE&#32;*fptr,&#32;<link linkend="_structindex__file">index_file</link>&#32;*idxf)
+<anchor xml:id="_index__file_8c_source_1l00057"/>00057 {
+<anchor xml:id="_index__file_8c_source_1l00058"/>00058 &#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(!<link linkend="_utils_8c_1ad89ab9462dec77ec0a6c4f32f731f7ff">peek_eof</link>&#32;(fptr))
+<anchor xml:id="_index__file_8c_source_1l00059"/>00059 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00060"/>00060 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_structindex__entry">index_entry</link>&#32;entry;
+<anchor xml:id="_index__file_8c_source_1l00061"/>00061 &#32;&#32;&#32;&#32;&#32;&#32;entry.<link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link>&#32;=&#32;ftell&#32;(fptr);
+<anchor xml:id="_index__file_8c_source_1l00062"/>00062 
+<anchor xml:id="_index__file_8c_source_1l00063"/>00063 &#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;0x5,&#32;SEEK_CUR);&#32;<emphasis role="comment">//&#32;skip&#32;`XFLE#`</emphasis>
 <anchor xml:id="_index__file_8c_source_1l00064"/>00064 
-<anchor xml:id="_index__file_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;0x5,&#32;SEEK_CUR);&#32;<emphasis role="comment">//&#32;skip&#32;`XFLE#`</emphasis>
-<anchor xml:id="_index__file_8c_source_1l00066"/>00066 
-<anchor xml:id="_index__file_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_utils_8c_1a4ce51b557efd36a5220e51669c79cc86">peek_char_is</link>&#32;(fptr,&#32;<emphasis role="charliteral">&apos;:&apos;</emphasis>))
-<anchor xml:id="_index__file_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,
-<anchor xml:id="_index__file_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Unexpected&#32;character&#32;in&#32;index&#32;file.&#32;Aborting&#32;processing.&quot;</emphasis>);
-<anchor xml:id="_index__file_8c_source_1l00071"/>00071 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_index__file_8c_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00073"/>00073 
-<anchor xml:id="_index__file_8c_source_1l00074"/>00074 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a095233f80d488c02ecbdd3aca2d38231">read_string</link>&#32;(fptr,&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>,&#32;(uint8_t)<link linkend="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</link>)&#32;!=&#32;0)
-<anchor xml:id="_index__file_8c_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_index__file_8c_source_1l00076"/>00076 
-<anchor xml:id="_index__file_8c_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;len&#32;=&#32;strlen&#32;(entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>);
-<anchor xml:id="_index__file_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;*last_word&#32;=&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>;
-<anchor xml:id="_index__file_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(uint8_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;len;&#32;i++)
-<anchor xml:id="_index__file_8c_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>[i]&#32;==&#32;<emphasis role="charliteral">&apos;\\&apos;</emphasis>)
-<anchor xml:id="_index__file_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;last_word&#32;=&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>&#32;+&#32;i&#32;+&#32;1;
-<anchor xml:id="_index__file_8c_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>[i]&#32;=&#32;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>;
-<anchor xml:id="_index__file_8c_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;strcpy&#32;(entry.<link linkend="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe">filename</link>,&#32;last_word);
-<anchor xml:id="_index__file_8c_source_1l00088"/>00088 
-<anchor xml:id="_index__file_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;entry.<link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link>&#32;+&#32;(0x94&#32;-&#32;0x10),&#32;SEEK_SET);
-<anchor xml:id="_index__file_8c_source_1l00096"/>00096 
-<anchor xml:id="_index__file_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;off&#32;*/</emphasis>
-<anchor xml:id="_index__file_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;entry.<link linkend="_structindex__entry_1a1f4bb5a05c786e3ee0438165fbe1d64c">start</link>)&#32;!=&#32;0)
-<anchor xml:id="_index__file_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;entry.<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>)&#32;!=&#32;0))
-<anchor xml:id="_index__file_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_index__file_8c_source_1l00102"/>00102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;on&#32;*/</emphasis>
+<anchor xml:id="_index__file_8c_source_1l00065"/>00065 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(!<link linkend="_utils_8c_1a4ce51b557efd36a5220e51669c79cc86">peek_char_is</link>&#32;(fptr,&#32;<emphasis role="charliteral">&apos;:&apos;</emphasis>))
+<anchor xml:id="_index__file_8c_source_1l00066"/>00066 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00067"/>00067 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,
+<anchor xml:id="_index__file_8c_source_1l00068"/>00068 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Unexpected&#32;character&#32;in&#32;index&#32;file.&#32;Aborting&#32;processing.&quot;</emphasis>);
+<anchor xml:id="_index__file_8c_source_1l00069"/>00069 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_index__file_8c_source_1l00070"/>00070 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00071"/>00071 
+<anchor xml:id="_index__file_8c_source_1l00072"/>00072 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a095233f80d488c02ecbdd3aca2d38231">read_string</link>&#32;(fptr,&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>,&#32;(uint8_t)<link linkend="_index__file_8h_1a1f72d7c1f8f994a1873de2f0405f66bf">FULL_PATH_MAX_LEN</link>)&#32;!=&#32;0)
+<anchor xml:id="_index__file_8c_source_1l00073"/>00073 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_index__file_8c_source_1l00074"/>00074 
+<anchor xml:id="_index__file_8c_source_1l00075"/>00075 &#32;&#32;&#32;&#32;&#32;&#32;uint8_t&#32;len&#32;=&#32;strlen&#32;(entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>);
+<anchor xml:id="_index__file_8c_source_1l00076"/>00076 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">char</emphasis>&#32;*last_word&#32;=&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>;
+<anchor xml:id="_index__file_8c_source_1l00077"/>00077 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(uint8_t&#32;i&#32;=&#32;0;&#32;i&#32;&lt;&#32;len;&#32;i++)
+<anchor xml:id="_index__file_8c_source_1l00078"/>00078 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00079"/>00079 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>[i]&#32;==&#32;<emphasis role="charliteral">&apos;\\&apos;</emphasis>)
+<anchor xml:id="_index__file_8c_source_1l00080"/>00080 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;last_word&#32;=&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>&#32;+&#32;i&#32;+&#32;1;
+<anchor xml:id="_index__file_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;entry.<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>[i]&#32;=&#32;<link linkend="_options_8c_1a845934c83dddb0516baadb1abd079d8d">OP_PATH_SEPARATOR</link>;
+<anchor xml:id="_index__file_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;strcpy&#32;(entry.<link linkend="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe">filename</link>,&#32;last_word);
+<anchor xml:id="_index__file_8c_source_1l00086"/>00086 
+<anchor xml:id="_index__file_8c_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;entry.<link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link>&#32;+&#32;(0x94&#32;-&#32;0x10),&#32;SEEK_SET);
+<anchor xml:id="_index__file_8c_source_1l00094"/>00094 
+<anchor xml:id="_index__file_8c_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;off&#32;*/</emphasis>
+<anchor xml:id="_index__file_8c_source_1l00096"/>00096 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;((<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;entry.<link linkend="_structindex__entry_1a1f4bb5a05c786e3ee0438165fbe1d64c">start</link>)&#32;!=&#32;0)
+<anchor xml:id="_index__file_8c_source_1l00097"/>00097 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;||&#32;(<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;entry.<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>)&#32;!=&#32;0))
+<anchor xml:id="_index__file_8c_source_1l00098"/>00098 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00099"/>00099 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_index__file_8c_source_1l00100"/>00100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00101"/>00101 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">/*&#32;clang-format&#32;on&#32;*/</emphasis>
+<anchor xml:id="_index__file_8c_source_1l00102"/>00102 
+<anchor xml:id="_index__file_8c_source_1l00103"/>00103 &#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;0x4,&#32;SEEK_CUR);&#32;<emphasis role="comment">//&#32;Skip&#32;zeros</emphasis>
 <anchor xml:id="_index__file_8c_source_1l00104"/>00104 
-<anchor xml:id="_index__file_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;fseek&#32;(fptr,&#32;0x4,&#32;SEEK_CUR);&#32;<emphasis role="comment">//&#32;Skip&#32;zeros</emphasis>
-<anchor xml:id="_index__file_8c_source_1l00106"/>00106 
-<anchor xml:id="_index__file_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Very&#32;unnecessary,&#32;but&#32;we&#32;might&#32;as&#32;well&#32;double&#32;check&#32;our&#32;data</emphasis>
-<anchor xml:id="_index__file_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;value;
-<anchor xml:id="_index__file_8c_source_1l00109"/>00109 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;value)&#32;!=&#32;0)
-<anchor xml:id="_index__file_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
-<anchor xml:id="_index__file_8c_source_1l00111"/>00111 
-<anchor xml:id="_index__file_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(entry.<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>&#32;!=&#32;value)
-<anchor xml:id="_index__file_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Expected&#32;0x%08X,&#32;got&#32;0x%08X.&quot;</emphasis>,&#32;entry.<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>,
-<anchor xml:id="_index__file_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;value);
-<anchor xml:id="_index__file_8c_source_1l00116"/>00116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_index__file_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00118"/>00118 
-<anchor xml:id="_index__file_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_index__file_8c_1a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</link>&#32;(idxf,&#32;&amp;entry)&#32;!=&#32;0)
-<anchor xml:id="_index__file_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_index__file_8c_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00123"/>00123 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00124"/>00124 
-<anchor xml:id="_index__file_8c_source_1l00125"/>00125 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_index__file_8c_source_1l00126"/>00126 }
-<anchor xml:id="_index__file_8c_source_1l00127"/>00127 
-<anchor xml:id="_index__file_8c_source_1l00128"/>00128 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_index__file_8c_source_1l00129"/><link linkend="_index__file_8c_1a803c3e3f6d663ff2050f3c2e60e13431">00129</link> <link linkend="_index__file_8c_1a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</link>&#32;(<link linkend="_structindex__entry">index_entry</link>&#32;*idxe)
-<anchor xml:id="_index__file_8c_source_1l00130"/>00130 {
-<anchor xml:id="_index__file_8c_source_1l00131"/>00131 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Entry&#32;start:&#32;%08X\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link>);
-<anchor xml:id="_index__file_8c_source_1l00132"/>00132 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Full&#32;path:&#32;%s\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>);
-<anchor xml:id="_index__file_8c_source_1l00133"/>00133 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Filename:&#32;%s\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe">filename</link>);
-<anchor xml:id="_index__file_8c_source_1l00134"/>00134 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;File&#32;start:&#32;%08X\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1a1f4bb5a05c786e3ee0438165fbe1d64c">start</link>);
-<anchor xml:id="_index__file_8c_source_1l00135"/>00135 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;File&#32;size:&#32;%08X\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>);
-<anchor xml:id="_index__file_8c_source_1l00136"/>00136 }
-<anchor xml:id="_index__file_8c_source_1l00137"/>00137 
-<anchor xml:id="_index__file_8c_source_1l00138"/>00138 int8_t
-<anchor xml:id="_index__file_8c_source_1l00139"/><link linkend="_index__file_8c_1a746462bc35bd98ad993e5da86bd6b2a7">00139</link> <link linkend="_index__file_8c_1a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</link>&#32;(<link linkend="_structindex__file">index_file</link>&#32;*file,&#32;<link linkend="_structindex__entry">index_entry</link>&#32;*entry)
-<anchor xml:id="_index__file_8c_source_1l00140"/>00140 {
-<anchor xml:id="_index__file_8c_source_1l00141"/>00141 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(file-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>&#32;&gt;=&#32;file-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>)
-<anchor xml:id="_index__file_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</link>&#32;(file)&#32;!=&#32;0)
-<anchor xml:id="_index__file_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
-<anchor xml:id="_index__file_8c_source_1l00146"/>00146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00147"/>00147 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00148"/>00148 
-<anchor xml:id="_index__file_8c_source_1l00149"/>00149 &#32;&#32;file-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>[file-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>]&#32;=&#32;*entry;
-<anchor xml:id="_index__file_8c_source_1l00150"/>00150 &#32;&#32;file-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>++;
-<anchor xml:id="_index__file_8c_source_1l00151"/>00151 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_index__file_8c_source_1l00152"/>00152 }
-<anchor xml:id="_index__file_8c_source_1l00153"/>00153 
-<anchor xml:id="_index__file_8c_source_1l00154"/>00154 int8_t
-<anchor xml:id="_index__file_8c_source_1l00155"/><link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">00155</link> <link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</link>&#32;(<link linkend="_structindex__file">index_file</link>&#32;*idx)
-<anchor xml:id="_index__file_8c_source_1l00156"/>00156 {
-<anchor xml:id="_index__file_8c_source_1l00157"/>00157 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;new_size&#32;=&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;*&#32;<link linkend="_index__file_8c_1a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</link>;
-<anchor xml:id="_index__file_8c_source_1l00158"/>00158 &#32;&#32;<link linkend="_structindex__entry">index_entry</link>&#32;*new_indicies&#32;=&#32;(<link linkend="_structindex__entry">index_entry</link>&#32;*)realloc&#32;(
-<anchor xml:id="_index__file_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;&#32;&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>,&#32;new_size&#32;*&#32;sizeof&#32;(<link linkend="_structindex__entry">index_entry</link>));
-<anchor xml:id="_index__file_8c_source_1l00160"/>00160 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_indicies&#32;==&#32;NULL)
-<anchor xml:id="_index__file_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;{
-<anchor xml:id="_index__file_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link>&#32;(idx);
-<anchor xml:id="_index__file_8c_source_1l00163"/>00163 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="stringliteral">&quot;indicies&quot;</emphasis>,&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>,&#32;new_size);
-<anchor xml:id="_index__file_8c_source_1l00164"/>00164 &#32;&#32;&#32;&#32;}
-<anchor xml:id="_index__file_8c_source_1l00165"/>00165 
-<anchor xml:id="_index__file_8c_source_1l00166"/>00166 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>&#32;=&#32;new_indicies;
-<anchor xml:id="_index__file_8c_source_1l00167"/>00167 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;=&#32;new_size;
-<anchor xml:id="_index__file_8c_source_1l00168"/>00168 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
-<anchor xml:id="_index__file_8c_source_1l00169"/>00169 }
+<anchor xml:id="_index__file_8c_source_1l00105"/>00105 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Very&#32;unnecessary,&#32;but&#32;we&#32;might&#32;as&#32;well&#32;double&#32;check&#32;our&#32;data</emphasis>
+<anchor xml:id="_index__file_8c_source_1l00106"/>00106 &#32;&#32;&#32;&#32;&#32;&#32;uint32_t&#32;value;
+<anchor xml:id="_index__file_8c_source_1l00107"/>00107 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_data__reader_8c_1a35b8ba7297a3da1c6b2f847ca471299b">read_little_endian_data_uint32_t</link>&#32;(fptr,&#32;&amp;value)&#32;!=&#32;0)
+<anchor xml:id="_index__file_8c_source_1l00108"/>00108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_index__file_8c_source_1l00109"/>00109 
+<anchor xml:id="_index__file_8c_source_1l00110"/>00110 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(entry.<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>&#32;!=&#32;value)
+<anchor xml:id="_index__file_8c_source_1l00111"/>00111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00112"/>00112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Expected&#32;0x%08X,&#32;got&#32;0x%08X.&quot;</emphasis>,&#32;entry.<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>,
+<anchor xml:id="_index__file_8c_source_1l00113"/>00113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;value);
+<anchor xml:id="_index__file_8c_source_1l00114"/>00114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_index__file_8c_source_1l00115"/>00115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00116"/>00116 
+<anchor xml:id="_index__file_8c_source_1l00117"/>00117 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_index__file_8c_1a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</link>&#32;(idxf,&#32;&amp;entry)&#32;!=&#32;0)
+<anchor xml:id="_index__file_8c_source_1l00118"/>00118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00119"/>00119 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_index__file_8c_source_1l00120"/>00120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00121"/>00121 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00122"/>00122 
+<anchor xml:id="_index__file_8c_source_1l00123"/>00123 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_index__file_8c_source_1l00124"/>00124 }
+<anchor xml:id="_index__file_8c_source_1l00125"/>00125 
+<anchor xml:id="_index__file_8c_source_1l00126"/>00126 <emphasis role="keywordtype">void</emphasis>
+<anchor xml:id="_index__file_8c_source_1l00127"/><link linkend="_index__file_8c_1a803c3e3f6d663ff2050f3c2e60e13431">00127</link> <link linkend="_index__file_8c_1a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</link>&#32;(<link linkend="_structindex__entry">index_entry</link>&#32;*idxe)
+<anchor xml:id="_index__file_8c_source_1l00128"/>00128 {
+<anchor xml:id="_index__file_8c_source_1l00129"/>00129 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Entry&#32;start:&#32;%08X\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1aa79302a19ea59e36deef737dd3aa6b12">entry_start</link>);
+<anchor xml:id="_index__file_8c_source_1l00130"/>00130 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Full&#32;path:&#32;%s\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1a5dfac282860b15b527102a2e87ef63ab">full_path</link>);
+<anchor xml:id="_index__file_8c_source_1l00131"/>00131 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;Filename:&#32;%s\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1ae2d39eccb26bcd6b8976723a9f252fbe">filename</link>);
+<anchor xml:id="_index__file_8c_source_1l00132"/>00132 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;File&#32;start:&#32;%08X\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1a1f4bb5a05c786e3ee0438165fbe1d64c">start</link>);
+<anchor xml:id="_index__file_8c_source_1l00133"/>00133 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;File&#32;size:&#32;%08X\n&quot;</emphasis>,&#32;idxe-&gt;<link linkend="_structindex__entry_1ab355a6f02d462e68d7832b54d3fb9fe1">size</link>);
+<anchor xml:id="_index__file_8c_source_1l00134"/>00134 }
+<anchor xml:id="_index__file_8c_source_1l00135"/>00135 
+<anchor xml:id="_index__file_8c_source_1l00136"/>00136 int8_t
+<anchor xml:id="_index__file_8c_source_1l00137"/><link linkend="_index__file_8c_1a746462bc35bd98ad993e5da86bd6b2a7">00137</link> <link linkend="_index__file_8c_1a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</link>&#32;(<link linkend="_structindex__file">index_file</link>&#32;*file,&#32;<link linkend="_structindex__entry">index_entry</link>&#32;*entry)
+<anchor xml:id="_index__file_8c_source_1l00138"/>00138 {
+<anchor xml:id="_index__file_8c_source_1l00139"/>00139 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(file-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>&#32;&gt;=&#32;file-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>)
+<anchor xml:id="_index__file_8c_source_1l00140"/>00140 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00141"/>00141 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</link>&#32;(file)&#32;!=&#32;0)
+<anchor xml:id="_index__file_8c_source_1l00142"/>00142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;-1;
+<anchor xml:id="_index__file_8c_source_1l00144"/>00144 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00145"/>00145 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00146"/>00146 
+<anchor xml:id="_index__file_8c_source_1l00147"/>00147 &#32;&#32;file-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>[file-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>]&#32;=&#32;*entry;
+<anchor xml:id="_index__file_8c_source_1l00148"/>00148 &#32;&#32;file-&gt;<link linkend="_structindex__file_1ae7878b33b733dd77bc70ca4dfa390628">current_index</link>++;
+<anchor xml:id="_index__file_8c_source_1l00149"/>00149 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_index__file_8c_source_1l00150"/>00150 }
+<anchor xml:id="_index__file_8c_source_1l00151"/>00151 
+<anchor xml:id="_index__file_8c_source_1l00152"/>00152 int8_t
+<anchor xml:id="_index__file_8c_source_1l00153"/><link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">00153</link> <link linkend="_index__file_8c_1ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</link>&#32;(<link linkend="_structindex__file">index_file</link>&#32;*idx)
+<anchor xml:id="_index__file_8c_source_1l00154"/>00154 {
+<anchor xml:id="_index__file_8c_source_1l00155"/>00155 &#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;new_size&#32;=&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;*&#32;<link linkend="_index__file_8c_1a86b0e469cb65d26ec56d01a1ab5d9c25">IDX_RECORDS_GROWTH_RATE</link>;
+<anchor xml:id="_index__file_8c_source_1l00156"/>00156 &#32;&#32;<link linkend="_structindex__entry">index_entry</link>&#32;*new_indicies&#32;=&#32;(<link linkend="_structindex__entry">index_entry</link>&#32;*)realloc&#32;(
+<anchor xml:id="_index__file_8c_source_1l00157"/>00157 &#32;&#32;&#32;&#32;&#32;&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>,&#32;new_size&#32;*&#32;sizeof&#32;(<link linkend="_structindex__entry">index_entry</link>));
+<anchor xml:id="_index__file_8c_source_1l00158"/>00158 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(new_indicies&#32;==&#32;NULL)
+<anchor xml:id="_index__file_8c_source_1l00159"/>00159 &#32;&#32;&#32;&#32;{
+<anchor xml:id="_index__file_8c_source_1l00160"/>00160 &#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_index__file_8c_1a642840a928d9784ac4cf34228672fbbc">destroy_index_file</link>&#32;(idx);
+<anchor xml:id="_index__file_8c_source_1l00161"/>00161 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="stringliteral">&quot;indicies&quot;</emphasis>,&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>,&#32;new_size);
+<anchor xml:id="_index__file_8c_source_1l00162"/>00162 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_index__file_8c_source_1l00163"/>00163 
+<anchor xml:id="_index__file_8c_source_1l00164"/>00164 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ad6b0840d539f5109be6ccfaab1d1a3d0">indicies</link>&#32;=&#32;new_indicies;
+<anchor xml:id="_index__file_8c_source_1l00165"/>00165 &#32;&#32;idx-&gt;<link linkend="_structindex__file_1ac84968b0f55ad08b1b9d65e651eca828">size</link>&#32;=&#32;new_size;
+<anchor xml:id="_index__file_8c_source_1l00166"/>00166 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;0;
+<anchor xml:id="_index__file_8c_source_1l00167"/>00167 }
 </programlisting></section>

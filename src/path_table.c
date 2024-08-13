@@ -1,7 +1,6 @@
 #include "path_table.h"
 #include "data_reader.h"
 #include "errors.h"
-#include "log.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -32,9 +31,7 @@ create_path_table (path_table *pt)
   pt->entries = malloc (sizeof (path_table_entry) * PT_STARTING_NUM_ENTRIES);
   if (pt->entries == NULL)
     {
-      hh_log (HH_LOG_ERROR,
-              "Failed to allocate memory for path table entries.");
-      return -1;
+      return handle_malloc_error ("path table entries.");
     }
 
   pt->size = PT_STARTING_NUM_ENTRIES;

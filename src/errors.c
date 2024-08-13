@@ -52,3 +52,10 @@ handle_realloc_error (const char *arr_name, size_t old_size, size_t new_size)
           old_size, new_size);
   return HH_MEM_ALLOC_ERROR;
 }
+
+HH_ERRORS
+handle_malloc_error (const char *obj_name)
+{
+  hh_log (HH_LOG_ERROR, "Failed to allocate memory for %s.", obj_name);
+  return HH_MEM_ALLOC_ERROR;
+}

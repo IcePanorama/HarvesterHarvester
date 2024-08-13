@@ -179,12 +179,12 @@ Version 00.00.00\par\page\page\vertalt
 HarvesterHarvester\par \pard\plain 
 {\tc\tcl1 \v HarvesterHarvester}
 {\xe \v HarvesterHarvester}
-{\bkmkstart AAAAAAAANG}
-{\bkmkend AAAAAAAANG}
+{\bkmkstart AAAAAAAANI}
+{\bkmkend AAAAAAAANI}
 {
 \pard\plain \s17\sa60\sb30\widctlpar\qj \fs22\cgrid {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-{\bkmkstart AAAAAAAANH}
-{\bkmkend AAAAAAAANH}
+{\bkmkstart AAAAAAAANJ}
+{\bkmkend AAAAAAAANJ}
 A tool for harvesting data out of {\f2 {\i Harvester} 's (DigiFX Interactive, 1996)} dat files.\par
 This program is the first piece of a toolchain that I'm developing as I work to reverse engineering {\i Harvester} . The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering.\par
 The program works in two steps:{
@@ -199,8 +199,8 @@ See USAGE.md for more details.\par}
 \pard\plain \s140\fi-360\li360\widctlpar\fs20\cgrid 
 2.\tab It extracts the dat files contained within those new directories in order to give you full access to all of the game's files.\par}
 \par
-{\bkmkstart AAAAAAAANI}
-{\bkmkend AAAAAAAANI}
+{\bkmkstart AAAAAAAANK}
+{\bkmkend AAAAAAAANK}
 {{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Future Projects
 \par}
@@ -208,14 +208,14 @@ Future Projects
 The next step for me in this project will be creating an asset viewer.\par
 This will require me to reverse engineer all of the various, non-standardized file formats that DigiFX used when making the game, which will be essential for porting the game in the future.\par
 So far, I've already been able to reverse engineer the {\f2 *.BM}  files, which are used for all the static backgrounds in the games, for character portraits, the map, and more. Unfortunately, I likely can't to share these files, at least not in bulk (see below). I will, however, be sharing a small handful of these images as I show this project off online and I'll make sure to add a link here in the future if you wish to view those!\par}
-{\bkmkstart AAAAAAAANJ}
-{\bkmkend AAAAAAAANJ}
+{\bkmkstart AAAAAAAANL}
+{\bkmkend AAAAAAAANL}
 {{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 Installation
 \par}
 {\tc\tcl2 \v Installation}
-{\bkmkstart AAAAAAAANK}
-{\bkmkend AAAAAAAANK}
+{\bkmkstart AAAAAAAANM}
+{\bkmkend AAAAAAAANM}
 {{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Easiest Way
 \par}
@@ -223,8 +223,8 @@ Easiest Way
 Navigate to the {\f2 releases} page and download the latest zip file.\par
 Once downloaded, extract the zip file wherever you'd like and you're done! See USAGE.md for more details on how to run the program.\par
 {\b NOTE} : {\i if you're reading this in the present, you'll notice that there currently aren't any available releases. I'm writing this README in advance \'96 this project isn't quite done yet, sorry!} \par}
-{\bkmkstart AAAAAAAANL}
-{\bkmkend AAAAAAAANL}
+{\bkmkstart AAAAAAAANN}
+{\bkmkend AAAAAAAANN}
 {{\pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Building from source (Linux/MacOS/Unix)
 \par}
@@ -246,8 +246,8 @@ $ make full    # for just the *nix executable\par
  Running {\f2 make release}  is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.\par
 Congrats! You're now all set to use the program or start contributing.\par}
 \par}
-{\bkmkstart AAAAAAAANM}
-{\bkmkend AAAAAAAANM}
+{\bkmkstart AAAAAAAANO}
+{\bkmkend AAAAAAAANO}
 {{\pard\plain \s2\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs28\kerning28\cgrid 
 A note on piracy
 \par}
@@ -270,37 +270,37 @@ Data Structures\par \pard\plain
 \par
 \pard\plain \s101\li360\sa27\sb27\widctlpar\tqr\tldot\tx8640\adjustright \fs20\cgrid 
 {\b {\b dec_datetime} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The date/time format used by Primary Volume Descriptors })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJS \\*MERGEFORMAT}{\fldrslt pagenum}}
+The date/time format used by Primary Volume Descriptors })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJU \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b dir_datetime} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The date/time format used by directory records })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKB \\*MERGEFORMAT}{\fldrslt pagenum}}
+The date/time format used by directory records })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKD \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b directory} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-A collection of directory records which together make a single directory })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKJ \\*MERGEFORMAT}{\fldrslt pagenum}}
+A collection of directory records which together make a single directory })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKL \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b directory_record} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Directory.h - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKN \\*MERGEFORMAT}{\fldrslt pagenum}}
+Directory.h - the {\f2 directory}  and {\f2 {\b directory_record}}  datatypes and their associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKP \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b file_flags} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-File_flags.h - {\b file_flags} data type and its associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAKZ \\*MERGEFORMAT}{\fldrslt pagenum}}
+File_flags.h - {\b file_flags} data type and its associated functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALB \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b index_entry} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-A file entry in an {\f2 {\b index_file}}  })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALF \\*MERGEFORMAT}{\fldrslt pagenum}}
+A file entry in an {\f2 {\b index_file}}  })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALH \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b index_file} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Contains all the indicies within an {\f2 INDEX.00#}  file })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALL \\*MERGEFORMAT}{\fldrslt pagenum}}
+Contains all the indicies within an {\f2 INDEX.00#}  file })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALN \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b path_table} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-A collection of path_table_entries })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALP \\*MERGEFORMAT}{\fldrslt pagenum}}
+A collection of path_table_entries })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALR \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b path_table_entry} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Path_table.h - the {\f2 {\b path_table}}  and {\f2 {\b path_table_entry}}  data types and their related functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALT \\*MERGEFORMAT}{\fldrslt pagenum}}
+Path_table.h - the {\f2 {\b path_table}}  and {\f2 {\b path_table_entry}}  data types and their related functions })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALV \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b volume_descriptor} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-A volume descriptor })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAALZ \\*MERGEFORMAT}{\fldrslt pagenum}}
+A volume descriptor })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAMB \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 {\b {\b volume_descriptor_data} ({\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-The data section of a primary volume descriptor })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAME \\*MERGEFORMAT}{\fldrslt pagenum}}
+The data section of a primary volume descriptor })} \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAMG \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -328,47 +328,47 @@ File List\par \pard\plain
 \par
 {\b src/{\b errors.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADH \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b errors.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADP \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b errors.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAADQ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b extractor.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEC \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b extractor.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEE \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b extractor.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEI \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b extractor.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEK \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b file_flags.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEO \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b file_flags.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEQ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b file_flags.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAER \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b file_flags.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAET \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b hh.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEU \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b hh.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAEW \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b hh.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFA \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b hh.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b index_file.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFF \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b index_file.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFH \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b index_file.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFO \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b index_file.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFQ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b log.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFW \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b log.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAFY \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b log.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGB \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b log.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGD \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b options.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGI \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b options.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGK \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b options.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGW \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b options.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAGY \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b output.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHH \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b output.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHJ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b output.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHK \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b output.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHM \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b path_table.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHN \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b path_table.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHP \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b path_table.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHX \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b path_table.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAHZ \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b utils.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIC \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b utils.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIE \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b utils.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIL \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b utils.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIN \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b volume_descriptor.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIU \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b volume_descriptor.c} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAIW \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
-{\b src/{\b volume_descriptor.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJA \\*MERGEFORMAT}{\fldrslt pagenum}}
+{\b src/{\b volume_descriptor.h} } \tab {\field\fldedit {\*\fldinst PAGEREF AAAAAAAAJC \\*MERGEFORMAT}{\fldrslt pagenum}}
 \par
 \par}
 \pard\plain \sect\sbkpage
@@ -379,8 +379,8 @@ Data Structure Documentation{\tc \v Data Structure Documentation}
 dec_datetime Struct Reference\par \pard\plain 
 {\tc\tcl2 \v dec_datetime}
 {\xe \v dec_datetime}
-{\bkmkstart AAAAAAAAJS}
-{\bkmkend AAAAAAAAJS}
+{\bkmkstart AAAAAAAAJU}
+{\bkmkend AAAAAAAAJU}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -437,8 +437,8 @@ Field Documentation\par
 {\b 
 char dec_datetime::day[{\b HOUR_FIELD_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAJT}
-{\bkmkend AAAAAAAAJT}
+{\bkmkstart AAAAAAAAJV}
+{\bkmkend AAAAAAAAJV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -451,8 +451,8 @@ Definition at line {\b 42} of file {\b datetime.h}.}\par
 {\b 
 char dec_datetime::hour[{\b HOUR_FIELD_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAJU}
-{\bkmkend AAAAAAAAJU}
+{\bkmkstart AAAAAAAAJW}
+{\bkmkend AAAAAAAAJW}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -465,8 +465,8 @@ Definition at line {\b 43} of file {\b datetime.h}.}\par
 {\b 
 char dec_datetime::hundredths_of_a_second[{\b HUNDREDTHS_OF_A_SECOND_FIELD_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAJV}
-{\bkmkend AAAAAAAAJV}
+{\bkmkstart AAAAAAAAJX}
+{\bkmkend AAAAAAAAJX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -479,8 +479,8 @@ Definition at line {\b 46} of file {\b datetime.h}.}\par
 {\b 
 char dec_datetime::minute[{\b MINUTE_FIELD_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAJW}
-{\bkmkend AAAAAAAAJW}
+{\bkmkstart AAAAAAAAJY}
+{\bkmkend AAAAAAAAJY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -493,8 +493,8 @@ Definition at line {\b 44} of file {\b datetime.h}.}\par
 {\b 
 char dec_datetime::month[{\b MONTH_FIELD_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAJX}
-{\bkmkend AAAAAAAAJX}
+{\bkmkstart AAAAAAAAJZ}
+{\bkmkend AAAAAAAAJZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -507,8 +507,8 @@ Definition at line {\b 41} of file {\b datetime.h}.}\par
 {\b 
 char dec_datetime::second[{\b SECOND_FIELD_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAJY}
-{\bkmkend AAAAAAAAJY}
+{\bkmkstart AAAAAAAAKA}
+{\bkmkend AAAAAAAAKA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -521,8 +521,8 @@ Definition at line {\b 45} of file {\b datetime.h}.}\par
 {\b 
 uint8_t dec_datetime::time_zone_offset}}
 \par
-{\bkmkstart AAAAAAAAJZ}
-{\bkmkend AAAAAAAAJZ}
+{\bkmkstart AAAAAAAAKB}
+{\bkmkend AAAAAAAAKB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -535,8 +535,8 @@ Definition at line {\b 47} of file {\b datetime.h}.}\par
 {\b 
 char dec_datetime::year[{\b YEAR_FIELD_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAKA}
-{\bkmkend AAAAAAAAKA}
+{\bkmkstart AAAAAAAAKC}
+{\bkmkend AAAAAAAAKC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -555,8 +555,8 @@ src/{\b datetime.h}\par
 dir_datetime Struct Reference\par \pard\plain 
 {\tc\tcl2 \v dir_datetime}
 {\xe \v dir_datetime}
-{\bkmkstart AAAAAAAAKB}
-{\bkmkend AAAAAAAAKB}
+{\bkmkstart AAAAAAAAKD}
+{\bkmkend AAAAAAAAKD}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -616,8 +616,8 @@ Field Documentation\par
 {\b 
 uint8_t dir_datetime::day}}
 \par
-{\bkmkstart AAAAAAAAKC}
-{\bkmkend AAAAAAAAKC}
+{\bkmkstart AAAAAAAAKE}
+{\bkmkend AAAAAAAAKE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -630,8 +630,8 @@ Definition at line {\b 61} of file {\b datetime.h}.}\par
 {\b 
 uint8_t dir_datetime::hour}}
 \par
-{\bkmkstart AAAAAAAAKD}
-{\bkmkend AAAAAAAAKD}
+{\bkmkstart AAAAAAAAKF}
+{\bkmkend AAAAAAAAKF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -644,8 +644,8 @@ Definition at line {\b 62} of file {\b datetime.h}.}\par
 {\b 
 uint8_t dir_datetime::minute}}
 \par
-{\bkmkstart AAAAAAAAKE}
-{\bkmkend AAAAAAAAKE}
+{\bkmkstart AAAAAAAAKG}
+{\bkmkend AAAAAAAAKG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -658,8 +658,8 @@ Definition at line {\b 63} of file {\b datetime.h}.}\par
 {\b 
 uint8_t dir_datetime::month}}
 \par
-{\bkmkstart AAAAAAAAKF}
-{\bkmkend AAAAAAAAKF}
+{\bkmkstart AAAAAAAAKH}
+{\bkmkend AAAAAAAAKH}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -672,8 +672,8 @@ Definition at line {\b 60} of file {\b datetime.h}.}\par
 {\b 
 uint8_t dir_datetime::second}}
 \par
-{\bkmkstart AAAAAAAAKG}
-{\bkmkend AAAAAAAAKG}
+{\bkmkstart AAAAAAAAKI}
+{\bkmkend AAAAAAAAKI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -686,8 +686,8 @@ Definition at line {\b 64} of file {\b datetime.h}.}\par
 {\b 
 uint8_t dir_datetime::time_zone_offset}}
 \par
-{\bkmkstart AAAAAAAAKH}
-{\bkmkend AAAAAAAAKH}
+{\bkmkstart AAAAAAAAKJ}
+{\bkmkend AAAAAAAAKJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -700,8 +700,8 @@ Definition at line {\b 65} of file {\b datetime.h}.}\par
 {\b 
 uint8_t dir_datetime::year}}
 \par
-{\bkmkstart AAAAAAAAKI}
-{\bkmkend AAAAAAAAKI}
+{\bkmkstart AAAAAAAAKK}
+{\bkmkend AAAAAAAAKK}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -723,8 +723,8 @@ src/{\b datetime.h}\par
 directory Struct Reference\par \pard\plain 
 {\tc\tcl2 \v directory}
 {\xe \v directory}
-{\bkmkstart AAAAAAAAKJ}
-{\bkmkend AAAAAAAAKJ}
+{\bkmkstart AAAAAAAAKL}
+{\bkmkend AAAAAAAAKL}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -780,8 +780,8 @@ Field Documentation\par
 {\b 
 size_t directory::current_record}}
 \par
-{\bkmkstart AAAAAAAAKK}
-{\bkmkend AAAAAAAAKK}
+{\bkmkstart AAAAAAAAKM}
+{\bkmkend AAAAAAAAKM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -797,8 +797,8 @@ Definition at line {\b 64} of file {\b directory.h}.}\par
 {\b 
 {\b directory_record}* directory::records}}
 \par
-{\bkmkstart AAAAAAAAKL}
-{\bkmkend AAAAAAAAKL}
+{\bkmkstart AAAAAAAAKN}
+{\bkmkend AAAAAAAAKN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -811,8 +811,8 @@ Definition at line {\b 62} of file {\b directory.h}.}\par
 {\b 
 size_t directory::size}}
 \par
-{\bkmkstart AAAAAAAAKM}
-{\bkmkend AAAAAAAAKM}
+{\bkmkstart AAAAAAAAKO}
+{\bkmkend AAAAAAAAKO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -834,8 +834,8 @@ src/{\b directory.h}\par
 directory_record Struct Reference\par \pard\plain 
 {\tc\tcl2 \v directory_record}
 {\xe \v directory_record}
-{\bkmkstart AAAAAAAAKN}
-{\bkmkend AAAAAAAAKN}
+{\bkmkstart AAAAAAAAKP}
+{\bkmkend AAAAAAAAKP}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -907,8 +907,8 @@ Field Documentation\par
 {\b 
 uint32_t directory_record::data_length}}
 \par
-{\bkmkstart AAAAAAAAKO}
-{\bkmkend AAAAAAAAKO}
+{\bkmkstart AAAAAAAAKQ}
+{\bkmkend AAAAAAAAKQ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -921,8 +921,8 @@ Definition at line {\b 43} of file {\b directory.h}.}\par
 {\b 
 uint8_t directory_record::extended_attribute_record_length}}
 \par
-{\bkmkstart AAAAAAAAKP}
-{\bkmkend AAAAAAAAKP}
+{\bkmkstart AAAAAAAAKR}
+{\bkmkend AAAAAAAAKR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -935,8 +935,8 @@ Definition at line {\b 41} of file {\b directory.h}.}\par
 {\b 
 {\b file_flags} directory_record::file_flags}}
 \par
-{\bkmkstart AAAAAAAAKQ}
-{\bkmkend AAAAAAAAKQ}
+{\bkmkstart AAAAAAAAKS}
+{\bkmkend AAAAAAAAKS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -949,8 +949,8 @@ Definition at line {\b 45} of file {\b directory.h}.}\par
 {\b 
 char* directory_record::file_identifier}}
 \par
-{\bkmkstart AAAAAAAAKR}
-{\bkmkend AAAAAAAAKR}
+{\bkmkstart AAAAAAAAKT}
+{\bkmkend AAAAAAAAKT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -963,8 +963,8 @@ Definition at line {\b 52} of file {\b directory.h}.}\par
 {\b 
 uint8_t directory_record::file_identifier_length}}
 \par
-{\bkmkstart AAAAAAAAKS}
-{\bkmkend AAAAAAAAKS}
+{\bkmkstart AAAAAAAAKU}
+{\bkmkend AAAAAAAAKU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -977,8 +977,8 @@ Definition at line {\b 51} of file {\b directory.h}.}\par
 {\b 
 uint8_t directory_record::file_unit_size}}
 \par
-{\bkmkstart AAAAAAAAKT}
-{\bkmkend AAAAAAAAKT}
+{\bkmkstart AAAAAAAAKV}
+{\bkmkend AAAAAAAAKV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -994,8 +994,8 @@ Definition at line {\b 47} of file {\b directory.h}.}\par
 {\b 
 uint8_t directory_record::interleave_gap_size}}
 \par
-{\bkmkstart AAAAAAAAKU}
-{\bkmkend AAAAAAAAKU}
+{\bkmkstart AAAAAAAAKW}
+{\bkmkend AAAAAAAAKW}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1011,8 +1011,8 @@ Definition at line {\b 49} of file {\b directory.h}.}\par
 {\b 
 uint32_t directory_record::location_of_extent}}
 \par
-{\bkmkstart AAAAAAAAKV}
-{\bkmkend AAAAAAAAKV}
+{\bkmkstart AAAAAAAAKX}
+{\bkmkend AAAAAAAAKX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1025,8 +1025,8 @@ Definition at line {\b 42} of file {\b directory.h}.}\par
 {\b 
 uint8_t directory_record::record_length}}
 \par
-{\bkmkstart AAAAAAAAKW}
-{\bkmkend AAAAAAAAKW}
+{\bkmkstart AAAAAAAAKY}
+{\bkmkend AAAAAAAAKY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1039,8 +1039,8 @@ Definition at line {\b 40} of file {\b directory.h}.}\par
 {\b 
 {\b dir_datetime} directory_record::recording_datetime}}
 \par
-{\bkmkstart AAAAAAAAKX}
-{\bkmkend AAAAAAAAKX}
+{\bkmkstart AAAAAAAAKZ}
+{\bkmkend AAAAAAAAKZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1053,8 +1053,8 @@ Definition at line {\b 44} of file {\b directory.h}.}\par
 {\b 
 uint16_t directory_record::volume_sequence_number}}
 \par
-{\bkmkstart AAAAAAAAKY}
-{\bkmkend AAAAAAAAKY}
+{\bkmkstart AAAAAAAALA}
+{\bkmkend AAAAAAAALA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1073,8 +1073,8 @@ src/{\b directory.h}\par
 file_flags Struct Reference\par \pard\plain 
 {\tc\tcl2 \v file_flags}
 {\xe \v file_flags}
-{\bkmkstart AAAAAAAAKZ}
-{\bkmkend AAAAAAAAKZ}
+{\bkmkstart AAAAAAAALB}
+{\bkmkend AAAAAAAALB}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1135,8 +1135,8 @@ Field Documentation\par
 {\b 
 bool file_flags::associated_file}}
 \par
-{\bkmkstart AAAAAAAALA}
-{\bkmkend AAAAAAAALA}
+{\bkmkstart AAAAAAAALC}
+{\bkmkend AAAAAAAALC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1152,8 +1152,8 @@ Definition at line {\b 31} of file {\b file_flags.h}.}\par
 {\b 
 bool file_flags::extended_attribute_record_contains_owner_and_group_permissions}}
 \par
-{\bkmkstart AAAAAAAALB}
-{\bkmkend AAAAAAAALB}
+{\bkmkstart AAAAAAAALD}
+{\bkmkend AAAAAAAALD}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1166,8 +1166,8 @@ Definition at line {\b 32} of file {\b file_flags.h}.}\par
 {\b 
 bool file_flags::final_directory_record}}
 \par
-{\bkmkstart AAAAAAAALC}
-{\bkmkend AAAAAAAALC}
+{\bkmkstart AAAAAAAALE}
+{\bkmkend AAAAAAAALE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1183,8 +1183,8 @@ Definition at line {\b 37} of file {\b file_flags.h}.}\par
 {\b 
 bool file_flags::hidden}}
 \par
-{\bkmkstart AAAAAAAALD}
-{\bkmkend AAAAAAAALD}
+{\bkmkstart AAAAAAAALF}
+{\bkmkend AAAAAAAALF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1197,8 +1197,8 @@ Definition at line {\b 29} of file {\b file_flags.h}.}\par
 {\b 
 bool file_flags::subdirectory}}
 \par
-{\bkmkstart AAAAAAAALE}
-{\bkmkend AAAAAAAALE}
+{\bkmkstart AAAAAAAALG}
+{\bkmkend AAAAAAAALG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1217,8 +1217,8 @@ src/{\b file_flags.h}\par
 index_entry Struct Reference\par \pard\plain 
 {\tc\tcl2 \v index_entry}
 {\xe \v index_entry}
-{\bkmkstart AAAAAAAALF}
-{\bkmkend AAAAAAAALF}
+{\bkmkstart AAAAAAAALH}
+{\bkmkend AAAAAAAALH}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1271,8 +1271,8 @@ Field Documentation\par
 {\b 
 uint32_t index_entry::entry_start}}
 \par
-{\bkmkstart AAAAAAAALG}
-{\bkmkend AAAAAAAALG}
+{\bkmkstart AAAAAAAALI}
+{\bkmkend AAAAAAAALI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1288,8 +1288,8 @@ Definition at line {\b 45} of file {\b index_file.h}.}\par
 {\b 
 char index_entry::filename[{\b FILENAME_MAX_LEN}]}}
 \par
-{\bkmkstart AAAAAAAALH}
-{\bkmkend AAAAAAAALH}
+{\bkmkstart AAAAAAAALJ}
+{\bkmkend AAAAAAAALJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1302,8 +1302,8 @@ Definition at line {\b 47} of file {\b index_file.h}.}\par
 {\b 
 char index_entry::full_path[{\b FULL_PATH_MAX_LEN}]}}
 \par
-{\bkmkstart AAAAAAAALI}
-{\bkmkend AAAAAAAALI}
+{\bkmkstart AAAAAAAALK}
+{\bkmkend AAAAAAAALK}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1316,8 +1316,8 @@ Definition at line {\b 46} of file {\b index_file.h}.}\par
 {\b 
 uint32_t index_entry::size}}
 \par
-{\bkmkstart AAAAAAAALJ}
-{\bkmkend AAAAAAAALJ}
+{\bkmkstart AAAAAAAALL}
+{\bkmkend AAAAAAAALL}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1330,8 +1330,8 @@ Definition at line {\b 49} of file {\b index_file.h}.}\par
 {\b 
 uint32_t index_entry::start}}
 \par
-{\bkmkstart AAAAAAAALK}
-{\bkmkend AAAAAAAALK}
+{\bkmkstart AAAAAAAALM}
+{\bkmkend AAAAAAAALM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1353,8 +1353,8 @@ src/{\b index_file.h}\par
 index_file Struct Reference\par \pard\plain 
 {\tc\tcl2 \v index_file}
 {\xe \v index_file}
-{\bkmkstart AAAAAAAALL}
-{\bkmkend AAAAAAAALL}
+{\bkmkstart AAAAAAAALN}
+{\bkmkend AAAAAAAALN}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1403,8 +1403,8 @@ Field Documentation\par
 {\b 
 size_t index_file::current_index}}
 \par
-{\bkmkstart AAAAAAAALM}
-{\bkmkend AAAAAAAALM}
+{\bkmkstart AAAAAAAALO}
+{\bkmkend AAAAAAAALO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1420,8 +1420,8 @@ Definition at line {\b 57} of file {\b index_file.h}.}\par
 {\b 
 {\b index_entry}* index_file::indicies}}
 \par
-{\bkmkstart AAAAAAAALN}
-{\bkmkend AAAAAAAALN}
+{\bkmkstart AAAAAAAALP}
+{\bkmkend AAAAAAAALP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1434,8 +1434,8 @@ Definition at line {\b 55} of file {\b index_file.h}.}\par
 {\b 
 size_t index_file::size}}
 \par
-{\bkmkstart AAAAAAAALO}
-{\bkmkend AAAAAAAALO}
+{\bkmkstart AAAAAAAALQ}
+{\bkmkend AAAAAAAALQ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1457,8 +1457,8 @@ src/{\b index_file.h}\par
 path_table Struct Reference\par \pard\plain 
 {\tc\tcl2 \v path_table}
 {\xe \v path_table}
-{\bkmkstart AAAAAAAALP}
-{\bkmkend AAAAAAAALP}
+{\bkmkstart AAAAAAAALR}
+{\bkmkend AAAAAAAALR}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1507,8 +1507,8 @@ Field Documentation\par
 {\b 
 size_t path_table::current_entry}}
 \par
-{\bkmkstart AAAAAAAALQ}
-{\bkmkend AAAAAAAALQ}
+{\bkmkstart AAAAAAAALS}
+{\bkmkend AAAAAAAALS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1524,8 +1524,8 @@ Definition at line {\b 46} of file {\b path_table.h}.}\par
 {\b 
 {\b path_table_entry}* path_table::entries}}
 \par
-{\bkmkstart AAAAAAAALR}
-{\bkmkend AAAAAAAALR}
+{\bkmkstart AAAAAAAALT}
+{\bkmkend AAAAAAAALT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1538,8 +1538,8 @@ Definition at line {\b 44} of file {\b path_table.h}.}\par
 {\b 
 size_t path_table::size}}
 \par
-{\bkmkstart AAAAAAAALS}
-{\bkmkend AAAAAAAALS}
+{\bkmkstart AAAAAAAALU}
+{\bkmkend AAAAAAAALU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1561,8 +1561,8 @@ src/{\b path_table.h}\par
 path_table_entry Struct Reference\par \pard\plain 
 {\tc\tcl2 \v path_table_entry}
 {\xe \v path_table_entry}
-{\bkmkstart AAAAAAAALT}
-{\bkmkend AAAAAAAALT}
+{\bkmkstart AAAAAAAALV}
+{\bkmkend AAAAAAAALV}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1617,8 +1617,8 @@ Field Documentation\par
 {\b 
 char* path_table_entry::directory_identifier}}
 \par
-{\bkmkstart AAAAAAAALU}
-{\bkmkend AAAAAAAALU}
+{\bkmkstart AAAAAAAALW}
+{\bkmkend AAAAAAAALW}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1631,8 +1631,8 @@ Definition at line {\b 38} of file {\b path_table.h}.}\par
 {\b 
 uint8_t path_table_entry::directory_identifier_length}}
 \par
-{\bkmkstart AAAAAAAALV}
-{\bkmkend AAAAAAAALV}
+{\bkmkstart AAAAAAAALX}
+{\bkmkend AAAAAAAALX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1645,8 +1645,8 @@ Definition at line {\b 34} of file {\b path_table.h}.}\par
 {\b 
 uint8_t path_table_entry::extended_attribute_record_length}}
 \par
-{\bkmkstart AAAAAAAALW}
-{\bkmkend AAAAAAAALW}
+{\bkmkstart AAAAAAAALY}
+{\bkmkend AAAAAAAALY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1659,8 +1659,8 @@ Definition at line {\b 35} of file {\b path_table.h}.}\par
 {\b 
 uint32_t path_table_entry::location_of_extent}}
 \par
-{\bkmkstart AAAAAAAALX}
-{\bkmkend AAAAAAAALX}
+{\bkmkstart AAAAAAAALZ}
+{\bkmkend AAAAAAAALZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1673,8 +1673,8 @@ Definition at line {\b 36} of file {\b path_table.h}.}\par
 {\b 
 uint16_t path_table_entry::parent_directory_number}}
 \par
-{\bkmkstart AAAAAAAALY}
-{\bkmkend AAAAAAAALY}
+{\bkmkstart AAAAAAAAMA}
+{\bkmkend AAAAAAAAMA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1696,8 +1696,8 @@ src/{\b path_table.h}\par
 volume_descriptor Struct Reference\par \pard\plain 
 {\tc\tcl2 \v volume_descriptor}
 {\xe \v volume_descriptor}
-{\bkmkstart AAAAAAAALZ}
-{\bkmkend AAAAAAAALZ}
+{\bkmkstart AAAAAAAAMB}
+{\bkmkend AAAAAAAAMB}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1750,8 +1750,8 @@ Field Documentation\par
 {\b 
 {\b volume_descriptor_data} volume_descriptor::data}}
 \par
-{\bkmkstart AAAAAAAAMA}
-{\bkmkend AAAAAAAAMA}
+{\bkmkstart AAAAAAAAMC}
+{\bkmkend AAAAAAAAMC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1764,8 +1764,8 @@ Definition at line {\b 86} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor::identifier[6]}}
 \par
-{\bkmkstart AAAAAAAAMB}
-{\bkmkend AAAAAAAAMB}
+{\bkmkstart AAAAAAAAMD}
+{\bkmkend AAAAAAAAMD}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1781,8 +1781,8 @@ Definition at line {\b 84} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint8_t volume_descriptor::type_code}}
 \par
-{\bkmkstart AAAAAAAAMC}
-{\bkmkend AAAAAAAAMC}
+{\bkmkstart AAAAAAAAME}
+{\bkmkend AAAAAAAAME}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1795,8 +1795,8 @@ Definition at line {\b 83} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint8_t volume_descriptor::version}}
 \par
-{\bkmkstart AAAAAAAAMD}
-{\bkmkend AAAAAAAAMD}
+{\bkmkstart AAAAAAAAMF}
+{\bkmkend AAAAAAAAMF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1815,8 +1815,8 @@ src/{\b volume_descriptor.h}\par
 volume_descriptor_data Struct Reference\par \pard\plain 
 {\tc\tcl2 \v volume_descriptor_data}
 {\xe \v volume_descriptor_data}
-{\bkmkstart AAAAAAAAME}
-{\bkmkend AAAAAAAAME}
+{\bkmkstart AAAAAAAAMG}
+{\bkmkend AAAAAAAAMG}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -1913,8 +1913,8 @@ Field Documentation\par
 {\b 
 char volume_descriptor_data::abstract_file_identifier[{\b ABSTRACT_FILE_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMF}
-{\bkmkend AAAAAAAAMF}
+{\bkmkstart AAAAAAAAMH}
+{\bkmkend AAAAAAAAMH}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1927,8 +1927,8 @@ Definition at line {\b 63} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::application_identifier[{\b APPLICATION_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMG}
-{\bkmkend AAAAAAAAMG}
+{\bkmkstart AAAAAAAAMI}
+{\bkmkend AAAAAAAAMI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1941,8 +1941,8 @@ Definition at line {\b 61} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::bibliographic_file_identifier[{\b BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMH}
-{\bkmkend AAAAAAAAMH}
+{\bkmkstart AAAAAAAAMJ}
+{\bkmkend AAAAAAAAMJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1955,8 +1955,8 @@ Definition at line {\b 64} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::copyright_file_identifier[{\b COPYRIGHT_FILE_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMI}
-{\bkmkend AAAAAAAAMI}
+{\bkmkstart AAAAAAAAMK}
+{\bkmkend AAAAAAAAMK}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1969,8 +1969,8 @@ Definition at line {\b 62} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::DAT_file_creation_software_identifier[{\b DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMJ}
-{\bkmkend AAAAAAAAMJ}
+{\bkmkstart AAAAAAAAML}
+{\bkmkend AAAAAAAAML}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1983,8 +1983,8 @@ Definition at line {\b 70} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::DAT_file_creation_software_version_number[{\b DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMK}
-{\bkmkend AAAAAAAAMK}
+{\bkmkstart AAAAAAAAMM}
+{\bkmkend AAAAAAAAMM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -1997,8 +1997,8 @@ Definition at line {\b 72} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::data_preparer_identifier[{\b DATA_PREPARER_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAML}
-{\bkmkend AAAAAAAAML}
+{\bkmkstart AAAAAAAAMN}
+{\bkmkend AAAAAAAAMN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2011,8 +2011,8 @@ Definition at line {\b 60} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint8_t volume_descriptor_data::file_structure_version}}
 \par
-{\bkmkstart AAAAAAAAMM}
-{\bkmkend AAAAAAAAMM}
+{\bkmkstart AAAAAAAAMO}
+{\bkmkend AAAAAAAAMO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2028,8 +2028,8 @@ Definition at line {\b 69} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint16_t volume_descriptor_data::logical_block_size}}
 \par
-{\bkmkstart AAAAAAAAMN}
-{\bkmkend AAAAAAAAMN}
+{\bkmkstart AAAAAAAAMP}
+{\bkmkend AAAAAAAAMP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2042,8 +2042,8 @@ Definition at line {\b 51} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint32_t volume_descriptor_data::optional_type_l_path_table_location}}
 \par
-{\bkmkstart AAAAAAAAMO}
-{\bkmkend AAAAAAAAMO}
+{\bkmkstart AAAAAAAAMQ}
+{\bkmkend AAAAAAAAMQ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2056,8 +2056,8 @@ Definition at line {\b 54} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint32_t volume_descriptor_data::optional_type_m_path_table_location}}
 \par
-{\bkmkstart AAAAAAAAMP}
-{\bkmkend AAAAAAAAMP}
+{\bkmkstart AAAAAAAAMR}
+{\bkmkend AAAAAAAAMR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2070,8 +2070,8 @@ Definition at line {\b 56} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint32_t volume_descriptor_data::path_table_size}}
 \par
-{\bkmkstart AAAAAAAAMQ}
-{\bkmkend AAAAAAAAMQ}
+{\bkmkstart AAAAAAAAMS}
+{\bkmkend AAAAAAAAMS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2084,8 +2084,8 @@ Definition at line {\b 52} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::publisher_identifier[{\b PUBLISHER_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMR}
-{\bkmkend AAAAAAAAMR}
+{\bkmkstart AAAAAAAAMT}
+{\bkmkend AAAAAAAAMT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2098,8 +2098,8 @@ Definition at line {\b 59} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint8_t volume_descriptor_data::root_directory_entry[{\b ROOT_DIRECTORY_ENTRY_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMS}
-{\bkmkend AAAAAAAAMS}
+{\bkmkstart AAAAAAAAMU}
+{\bkmkend AAAAAAAAMU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2112,8 +2112,8 @@ Definition at line {\b 57} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::system_identifier[{\b SYSTEM_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMT}
-{\bkmkend AAAAAAAAMT}
+{\bkmkstart AAAAAAAAMV}
+{\bkmkend AAAAAAAAMV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2126,8 +2126,8 @@ Definition at line {\b 46} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint32_t volume_descriptor_data::type_l_path_table_location}}
 \par
-{\bkmkstart AAAAAAAAMU}
-{\bkmkend AAAAAAAAMU}
+{\bkmkstart AAAAAAAAMW}
+{\bkmkend AAAAAAAAMW}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2140,8 +2140,8 @@ Definition at line {\b 53} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint32_t volume_descriptor_data::type_m_path_table_location}}
 \par
-{\bkmkstart AAAAAAAAMV}
-{\bkmkend AAAAAAAAMV}
+{\bkmkstart AAAAAAAAMX}
+{\bkmkend AAAAAAAAMX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2154,8 +2154,8 @@ Definition at line {\b 55} of file {\b volume_descriptor.h}.}\par
 {\b 
 {\b dec_datetime} volume_descriptor_data::volume_creation_date_and_time}}
 \par
-{\bkmkstart AAAAAAAAMW}
-{\bkmkend AAAAAAAAMW}
+{\bkmkstart AAAAAAAAMY}
+{\bkmkend AAAAAAAAMY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2168,8 +2168,8 @@ Definition at line {\b 65} of file {\b volume_descriptor.h}.}\par
 {\b 
 {\b dec_datetime} volume_descriptor_data::volume_effective_date_and_time}}
 \par
-{\bkmkstart AAAAAAAAMX}
-{\bkmkend AAAAAAAAMX}
+{\bkmkstart AAAAAAAAMZ}
+{\bkmkend AAAAAAAAMZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2182,8 +2182,8 @@ Definition at line {\b 68} of file {\b volume_descriptor.h}.}\par
 {\b 
 {\b dec_datetime} volume_descriptor_data::volume_expiration_date_and_time}}
 \par
-{\bkmkstart AAAAAAAAMY}
-{\bkmkend AAAAAAAAMY}
+{\bkmkstart AAAAAAAANA}
+{\bkmkend AAAAAAAANA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2196,8 +2196,8 @@ Definition at line {\b 67} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::volume_identifier[{\b VOLUME_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAAMZ}
-{\bkmkend AAAAAAAAMZ}
+{\bkmkstart AAAAAAAANB}
+{\bkmkend AAAAAAAANB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2210,8 +2210,8 @@ Definition at line {\b 47} of file {\b volume_descriptor.h}.}\par
 {\b 
 {\b dec_datetime} volume_descriptor_data::volume_modification_date_and_time}}
 \par
-{\bkmkstart AAAAAAAANA}
-{\bkmkend AAAAAAAANA}
+{\bkmkstart AAAAAAAANC}
+{\bkmkend AAAAAAAANC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2224,8 +2224,8 @@ Definition at line {\b 66} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint16_t volume_descriptor_data::volume_sequence_number}}
 \par
-{\bkmkstart AAAAAAAANB}
-{\bkmkend AAAAAAAANB}
+{\bkmkstart AAAAAAAAND}
+{\bkmkend AAAAAAAAND}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2238,8 +2238,8 @@ Definition at line {\b 50} of file {\b volume_descriptor.h}.}\par
 {\b 
 char volume_descriptor_data::volume_set_identifier[{\b VOLUME_SET_IDENTIFIER_LEN}]}}
 \par
-{\bkmkstart AAAAAAAANC}
-{\bkmkend AAAAAAAANC}
+{\bkmkstart AAAAAAAANE}
+{\bkmkend AAAAAAAANE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2252,8 +2252,8 @@ Definition at line {\b 58} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint16_t volume_descriptor_data::volume_set_size}}
 \par
-{\bkmkstart AAAAAAAAND}
-{\bkmkend AAAAAAAAND}
+{\bkmkstart AAAAAAAANF}
+{\bkmkend AAAAAAAANF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -2266,8 +2266,8 @@ Definition at line {\b 49} of file {\b volume_descriptor.h}.}\par
 {\b 
 uint32_t volume_descriptor_data::volume_space_size}}
 \par
-{\bkmkstart AAAAAAAANE}
-{\bkmkend AAAAAAAANE}
+{\bkmkstart AAAAAAAANG}
+{\bkmkend AAAAAAAANG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -3725,7 +3725,6 @@ src/directory.c File Reference\par \pard\plain
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "directory.h"}\par
 {\f2 #include "data_reader.h"}\par
 {\f2 #include "errors.h"}\par
-{\f2 #include "log.h"}\par
 {\f2 #include <stdint.h>}\par
 {\f2 #include <stdio.h>}\par
 {\f2 #include <stdlib.h>}\par
@@ -3814,7 +3813,7 @@ int8_t add_record_to_directory ({\b directory} * d, {\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }}\par
 {
-Definition at line {\b 71} of file {\b directory.c}.}\par
+Definition at line {\b 68} of file {\b directory.c}.}\par
 }
 {\xe \v create_directory\:directory.c}
 {\xe \v directory.c\:create_directory}
@@ -3833,7 +3832,7 @@ Initializes a directory. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 By default, a directory has {\f2 DIR_STARTING_NUM_RECORDS}  records. \par
 }{
-Definition at line {\b 33} of file {\b directory.c}.}\par
+Definition at line {\b 32} of file {\b directory.c}.}\par
 }
 {\xe \v destroy_directory\:directory.c}
 {\xe \v directory.c\:destroy_directory}
@@ -3850,7 +3849,7 @@ void destroy_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys all the directory records within a given directory before then destroying the directory itself. }}\par
 {
-Definition at line {\b 55} of file {\b directory.c}.}\par
+Definition at line {\b 52} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory\:directory.c}
 {\xe \v directory.c\:print_directory}
@@ -3867,7 +3866,7 @@ void print_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory to stdout in a human-readable form. }}\par
 {
-Definition at line {\b 124} of file {\b directory.c}.}\par
+Definition at line {\b 121} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory_record\:directory.c}
 {\xe \v directory.c\:print_directory_record}
@@ -3884,7 +3883,7 @@ void print_directory_record ({\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory record to the stdout in a human-readable form. }}\par
 {
-Definition at line {\b 85} of file {\b directory.c}.}\par
+Definition at line {\b 82} of file {\b directory.c}.}\par
 }
 {\xe \v process_directory\:directory.c}
 {\xe \v directory.c\:process_directory}
@@ -3901,7 +3900,7 @@ int8_t process_directory (FILE * fptr, {\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }}\par
 {
-Definition at line {\b 136} of file {\b directory.c}.}\par
+Definition at line {\b 133} of file {\b directory.c}.}\par
 }
 {\xe \v resize_directory_records\:directory.c}
 {\xe \v directory.c\:resize_directory_records}
@@ -3918,7 +3917,7 @@ int8_t resize_directory_records ({\b directory} * d){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Expands the size of a given directory's {\f2 records}  attribute by a factor of {\f2 DIR_RECORDS_GROWTH_RATE} . }}\par
 {
-Definition at line {\b 102} of file {\b directory.c}.}\par
+Definition at line {\b 99} of file {\b directory.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -3936,7 +3935,7 @@ const size_t DIR_RECORDS_GROWTH_RATE = 2{\f2 [static]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 24} of file {\b directory.c}.}\par
+Definition at line {\b 23} of file {\b directory.c}.}\par
 }
 {\xe \v DIR_STARTING_NUM_RECORDS\:directory.c}
 {\xe \v directory.c\:DIR_STARTING_NUM_RECORDS}
@@ -3950,7 +3949,7 @@ const size_t DIR_STARTING_NUM_RECORDS = 10{\f2 [static]}}}
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 23} of file {\b directory.c}.}\par
+Definition at line {\b 22} of file {\b directory.c}.}\par
 }
 \par \pard\plain 
 
@@ -3981,185 +3980,182 @@ Go to the documentation of this file.\par
 00014 {\cf21 #include "directory.h"}\par
 00015 {\cf21 #include "data_reader.h"}\par
 00016 {\cf21 #include "errors.h"}\par
-00017 {\cf21 #include "log.h"}\par
-00018 \par
-00019 {\cf21 #include <stdint.h>}\par
-00020 {\cf21 #include <stdio.h>}\par
-00021 {\cf21 #include <stdlib.h>}\par
-00022 \par
-00023 {\cf17 static} {\cf17 const} {\cf18 size_t} DIR_STARTING_NUM_RECORDS = 10;\par
-00024 {\cf17 static} {\cf17 const} {\cf18 size_t} DIR_RECORDS_GROWTH_RATE = 2;\par
-00025 \par
-00030 {\cf17 static} int8_t resize_directory_records (directory *d);\par
-00031 \par
-00032 int8_t\par
-00033 create_directory (directory *d)\par
-00034 \{\par
-00035   d->records = malloc ({\cf17 sizeof} (directory_record) * DIR_STARTING_NUM_RECORDS);\par
-00036   {\cf19 if} (d->records == NULL)\par
-00037     \{\par
-00038       hh_log (HH_LOG_ERROR,\par
-00039               {\cf22 "Failed to allocate memory for directory records."});\par
-00040       {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00041     \}\par
+00017 \par
+00018 {\cf21 #include <stdint.h>}\par
+00019 {\cf21 #include <stdio.h>}\par
+00020 {\cf21 #include <stdlib.h>}\par
+00021 \par
+00022 {\cf17 static} {\cf17 const} {\cf18 size_t} DIR_STARTING_NUM_RECORDS = 10;\par
+00023 {\cf17 static} {\cf17 const} {\cf18 size_t} DIR_RECORDS_GROWTH_RATE = 2;\par
+00024 \par
+00029 {\cf17 static} int8_t resize_directory_records (directory *d);\par
+00030 \par
+00031 int8_t\par
+00032 create_directory (directory *d)\par
+00033 \{\par
+00034   d->records = malloc ({\cf17 sizeof} (directory_record) * DIR_STARTING_NUM_RECORDS);\par
+00035   {\cf19 if} (d->records == NULL)\par
+00036     \{\par
+00037       {\cf19 return} handle_malloc_error ({\cf22 "directory records."});\par
+00038     \}\par
+00039 \par
+00040   d->size = DIR_STARTING_NUM_RECORDS;\par
+00041   d->current_record = 0;\par
 00042 \par
-00043   d->size = DIR_STARTING_NUM_RECORDS;\par
-00044   d->current_record = 0;\par
-00045 \par
-00046   {\cf19 for} ({\cf18 size_t} i = 0; i < DIR_STARTING_NUM_RECORDS; i++)\par
-00047     \{\par
-00048       d->records[i].file_identifier = NULL;\par
-00049     \}\par
+00043   {\cf19 for} ({\cf18 size_t} i = 0; i < DIR_STARTING_NUM_RECORDS; i++)\par
+00044     \{\par
+00045       d->records[i].file_identifier = NULL;\par
+00046     \}\par
+00047 \par
+00048   {\cf19 return} 0;\par
+00049 \}\par
 00050 \par
-00051   {\cf19 return} 0;\par
-00052 \}\par
-00053 \par
-00054 {\cf18 void}\par
-00055 destroy_directory (directory *d)\par
-00056 \{\par
-00057   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
-00058     \{\par
-00059       {\cf19 if} (d->records[i].file_identifier == NULL)\par
-00060         {\cf19 continue};\par
-00061 \par
-00062       free (d->records[i].file_identifier);\par
-00063       d->records[i].file_identifier = NULL;\par
-00064     \}\par
-00065 \par
-00066   free (d->records);\par
-00067   d->records = NULL;\par
-00068 \}\par
-00069 \par
-00070 int8_t\par
-00071 add_record_to_directory (directory *d, directory_record *r)\par
-00072 \{\par
-00073   {\cf19 if} (d->current_record >= d->size)\par
-00074     \{\par
-00075       {\cf19 if} (resize_directory_records (d) != 0)\par
-00076         {\cf19 return} -1;\par
-00077     \}\par
-00078 \par
-00079   d->records[d->current_record] = *r;\par
-00080   d->current_record++;\par
-00081   {\cf19 return} 0;\par
-00082 \}\par
-00083 \par
-00084 {\cf18 void}\par
-00085 print_directory_record (directory_record *r)\par
-00086 \{\par
-00087   printf ({\cf22 "Record length: %02X\\n"}, r->record_length);\par
-00088   printf ({\cf22 "Extended attribute record length: %02X\\n"},\par
-00089           r->extended_attribute_record_length);\par
-00090   printf ({\cf22 "Location of extent: %08X\\n"}, r->location_of_extent);\par
-00091   printf ({\cf22 "Data length: %08X\\n"}, r->data_length);\par
-00092   print_dir_datetime (r->recording_datetime);\par
-00093   print_file_flags (&r->file_flags);\par
-00094   printf ({\cf22 "File unit size: %02X\\n"}, r->file_unit_size);\par
-00095   printf ({\cf22 "Interleave gap size: %02X\\n"}, r->interleave_gap_size);\par
-00096   printf ({\cf22 "Volume sequence number: %04X\\n"}, r->volume_sequence_number);\par
-00097   printf ({\cf22 "File identifier length: %02X\\n"}, r->file_identifier_length);\par
-00098   printf ({\cf22 "File identifier: %s\\n"}, r->file_identifier);\par
-00099 \}\par
-00100 \par
-00101 int8_t\par
-00102 resize_directory_records (directory *d)\par
-00103 \{\par
-00104   {\cf18 size_t} new_size = d->size * DIR_RECORDS_GROWTH_RATE;\par
-00105   directory_record *new_records = (directory_record *)realloc (\par
-00106       d->records, sizeof (directory_record) * new_size);\par
-00107   {\cf19 if} (new_records == NULL)\par
-00108     \{\par
-00109       destroy_directory (d);\par
-00110       {\cf19 return} handle_realloc_error ({\cf22 "records"}, d->size, new_size);\par
-00111     \}\par
-00112 \par
-00113   d->records = new_records;\par
-00114   {\cf19 for} ({\cf18 size_t} i = d->size; i < new_size; i++)\par
-00115     \{\par
-00116       d->records[i].file_identifier = NULL;\par
-00117     \}\par
-00118 \par
-00119   d->size = new_size;\par
-00120   {\cf19 return} 0;\par
-00121 \}\par
-00122 \par
-00123 {\cf18 void}\par
-00124 print_directory (directory *d)\par
-00125 \{\par
-00126   printf ({\cf22 "Number of records: %zu\\n"}, d->current_record + 1);\par
-00127   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
-00128     \{\par
-00129       printf ({\cf22 "!!! Record #%zu\\n"}, i + 1);\par
-00130       print_directory_record (&d->records[i]);\par
-00131       puts ({\cf22 "-------------------------------"});\par
-00132     \}\par
-00133 \}\par
-00134 \par
-00135 int8_t\par
-00136 process_directory (FILE *fptr, directory *d)\par
-00137 \{\par
-00138   uint8_t single_byte;\par
-00139   {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
-00140     {\cf19 return} HH_FREAD_ERROR;\par
-00141 \par
-00142   {\cf19 do}\par
-00143     \{\par
-00144       directory_record dr;\par
-00145       dr.record_length = single_byte;\par
-00146 \par
-00147       {\cf19 if} ((read_single_uint8 (fptr, &dr.extended_attribute_record_length) != 0)\par
-00148           || (read_both_endian_data_uint32 (fptr, &dr.location_of_extent) != 0)\par
-00149           || (read_both_endian_data_uint32 (fptr, &dr.data_length) != 0)\par
-00150           || (read_dir_datetime (fptr, &dr.recording_datetime) != 0))\par
-00151         \{\par
-00152           {\cf19 return} HH_FREAD_ERROR;\par
-00153         \}\par
+00051 {\cf18 void}\par
+00052 destroy_directory (directory *d)\par
+00053 \{\par
+00054   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
+00055     \{\par
+00056       {\cf19 if} (d->records[i].file_identifier == NULL)\par
+00057         {\cf19 continue};\par
+00058 \par
+00059       free (d->records[i].file_identifier);\par
+00060       d->records[i].file_identifier = NULL;\par
+00061     \}\par
+00062 \par
+00063   free (d->records);\par
+00064   d->records = NULL;\par
+00065 \}\par
+00066 \par
+00067 int8_t\par
+00068 add_record_to_directory (directory *d, directory_record *r)\par
+00069 \{\par
+00070   {\cf19 if} (d->current_record >= d->size)\par
+00071     \{\par
+00072       {\cf19 if} (resize_directory_records (d) != 0)\par
+00073         {\cf19 return} -1;\par
+00074     \}\par
+00075 \par
+00076   d->records[d->current_record] = *r;\par
+00077   d->current_record++;\par
+00078   {\cf19 return} 0;\par
+00079 \}\par
+00080 \par
+00081 {\cf18 void}\par
+00082 print_directory_record (directory_record *r)\par
+00083 \{\par
+00084   printf ({\cf22 "Record length: %02X\\n"}, r->record_length);\par
+00085   printf ({\cf22 "Extended attribute record length: %02X\\n"},\par
+00086           r->extended_attribute_record_length);\par
+00087   printf ({\cf22 "Location of extent: %08X\\n"}, r->location_of_extent);\par
+00088   printf ({\cf22 "Data length: %08X\\n"}, r->data_length);\par
+00089   print_dir_datetime (r->recording_datetime);\par
+00090   print_file_flags (&r->file_flags);\par
+00091   printf ({\cf22 "File unit size: %02X\\n"}, r->file_unit_size);\par
+00092   printf ({\cf22 "Interleave gap size: %02X\\n"}, r->interleave_gap_size);\par
+00093   printf ({\cf22 "Volume sequence number: %04X\\n"}, r->volume_sequence_number);\par
+00094   printf ({\cf22 "File identifier length: %02X\\n"}, r->file_identifier_length);\par
+00095   printf ({\cf22 "File identifier: %s\\n"}, r->file_identifier);\par
+00096 \}\par
+00097 \par
+00098 int8_t\par
+00099 resize_directory_records (directory *d)\par
+00100 \{\par
+00101   {\cf18 size_t} new_size = d->size * DIR_RECORDS_GROWTH_RATE;\par
+00102   directory_record *new_records = (directory_record *)realloc (\par
+00103       d->records, sizeof (directory_record) * new_size);\par
+00104   {\cf19 if} (new_records == NULL)\par
+00105     \{\par
+00106       destroy_directory (d);\par
+00107       {\cf19 return} handle_realloc_error ({\cf22 "records"}, d->size, new_size);\par
+00108     \}\par
+00109 \par
+00110   d->records = new_records;\par
+00111   {\cf19 for} ({\cf18 size_t} i = d->size; i < new_size; i++)\par
+00112     \{\par
+00113       d->records[i].file_identifier = NULL;\par
+00114     \}\par
+00115 \par
+00116   d->size = new_size;\par
+00117   {\cf19 return} 0;\par
+00118 \}\par
+00119 \par
+00120 {\cf18 void}\par
+00121 print_directory (directory *d)\par
+00122 \{\par
+00123   printf ({\cf22 "Number of records: %zu\\n"}, d->current_record + 1);\par
+00124   {\cf19 for} ({\cf18 size_t} i = 0; i < d->current_record; i++)\par
+00125     \{\par
+00126       printf ({\cf22 "!!! Record #%zu\\n"}, i + 1);\par
+00127       print_directory_record (&d->records[i]);\par
+00128       puts ({\cf22 "-------------------------------"});\par
+00129     \}\par
+00130 \}\par
+00131 \par
+00132 int8_t\par
+00133 process_directory (FILE *fptr, directory *d)\par
+00134 \{\par
+00135   uint8_t single_byte;\par
+00136   {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
+00137     {\cf19 return} HH_FREAD_ERROR;\par
+00138 \par
+00139   {\cf19 do}\par
+00140     \{\par
+00141       directory_record dr;\par
+00142       dr.record_length = single_byte;\par
+00143 \par
+00144       {\cf19 if} ((read_single_uint8 (fptr, &dr.extended_attribute_record_length) != 0)\par
+00145           || (read_both_endian_data_uint32 (fptr, &dr.location_of_extent) != 0)\par
+00146           || (read_both_endian_data_uint32 (fptr, &dr.data_length) != 0)\par
+00147           || (read_dir_datetime (fptr, &dr.recording_datetime) != 0))\par
+00148         \{\par
+00149           {\cf19 return} HH_FREAD_ERROR;\par
+00150         \}\par
+00151 \par
+00152       dr.file_flags = create_file_flags ();\par
+00153       read_file_flags (fptr, &dr.file_flags);\par
 00154 \par
-00155       dr.file_flags = create_file_flags ();\par
-00156       read_file_flags (fptr, &dr.file_flags);\par
-00157 \par
-00158       {\cf19 if} (read_single_uint8 (fptr, &dr.file_unit_size) != 0\par
-00159           || read_single_uint8 (fptr, &dr.interleave_gap_size) != 0)\par
-00160         \{\par
-00161           {\cf19 return} HH_FREAD_ERROR;\par
-00162         \}\par
+00155       {\cf19 if} (read_single_uint8 (fptr, &dr.file_unit_size) != 0\par
+00156           || read_single_uint8 (fptr, &dr.interleave_gap_size) != 0)\par
+00157         \{\par
+00158           {\cf19 return} HH_FREAD_ERROR;\par
+00159         \}\par
+00160 \par
+00161       {\cf19 if} (read_both_endian_data_uint16 (fptr, &dr.volume_sequence_number) != 0)\par
+00162         {\cf19 return} HH_FREAD_ERROR;\par
 00163 \par
-00164       {\cf19 if} (read_both_endian_data_uint16 (fptr, &dr.volume_sequence_number) != 0)\par
-00165         {\cf19 return} HH_FREAD_ERROR;\par
-00166 \par
-00167       {\cf19 if} (read_single_uint8 (fptr, &dr.file_identifier_length) != 0)\par
-00168         \{\par
-00169           {\cf19 return} HH_FREAD_ERROR;\par
-00170         \}\par
-00171       dr.file_identifier_length++;\par
-00172 \par
-00173       dr.file_identifier\par
-00174           = ({\cf18 char} *)calloc (dr.file_identifier_length, sizeof ({\cf18 char}));\par
-00175       {\cf18 size_t} bytes_read = fread (dr.file_identifier, sizeof ({\cf18 char}),\par
-00176                                  dr.file_identifier_length - 1, fptr);\par
-00177       dr.file_identifier[dr.file_identifier_length - 1] = {\cf23 '\\0'};\par
-00178       {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1))\par
-00179         \{\par
-00180           handle_fread_error (bytes_read,\par
-00181                               {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1));\par
-00182           {\cf19 return} HH_FREAD_ERROR;\par
-00183         \}\par
-00184 \par
-00185       {\cf19 if} (add_record_to_directory (d, &dr) != 0)\par
-00186         \{\par
-00187           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
-00188         \}\par
+00164       {\cf19 if} (read_single_uint8 (fptr, &dr.file_identifier_length) != 0)\par
+00165         \{\par
+00166           {\cf19 return} HH_FREAD_ERROR;\par
+00167         \}\par
+00168       dr.file_identifier_length++;\par
+00169 \par
+00170       dr.file_identifier\par
+00171           = ({\cf18 char} *)calloc (dr.file_identifier_length, sizeof ({\cf18 char}));\par
+00172       {\cf18 size_t} bytes_read = fread (dr.file_identifier, sizeof ({\cf18 char}),\par
+00173                                  dr.file_identifier_length - 1, fptr);\par
+00174       dr.file_identifier[dr.file_identifier_length - 1] = {\cf23 '\\0'};\par
+00175       {\cf19 if} (bytes_read != {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1))\par
+00176         \{\par
+00177           handle_fread_error (bytes_read,\par
+00178                               {\cf17 sizeof} ({\cf18 char}) * (dr.file_identifier_length - 1));\par
+00179           {\cf19 return} HH_FREAD_ERROR;\par
+00180         \}\par
+00181 \par
+00182       {\cf19 if} (add_record_to_directory (d, &dr) != 0)\par
+00183         \{\par
+00184           {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00185         \}\par
+00186 \par
+00187       {\cf19 if} (dr.file_identifier_length % 2 != 0) {\cf20 // handle padding field}\par
+00188         fseek (fptr, 1, SEEK_CUR);\par
 00189 \par
-00190       {\cf19 if} (dr.file_identifier_length % 2 != 0) {\cf20 // handle padding field}\par
-00191         fseek (fptr, 1, SEEK_CUR);\par
-00192 \par
-00193       {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
-00194         {\cf19 return} HH_FREAD_ERROR;\par
-00195     \}\par
-00196   {\cf19 while} (single_byte != 0);\par
-00197 \par
-00198   {\cf19 return} 0;\par
-00199 \}\par
+00190       {\cf19 if} (read_single_uint8 (fptr, &single_byte) != 0)\par
+00191         {\cf19 return} HH_FREAD_ERROR;\par
+00192     \}\par
+00193   {\cf19 while} (single_byte != 0);\par
+00194 \par
+00195   {\cf19 return} 0;\par
+00196 \}\par
 }
 \par \pard\plain 
 
@@ -4259,7 +4255,7 @@ int8_t add_record_to_directory ({\b directory} * d, {\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a directory record to the given directory, adjusting the size of said directory's array of records as needed. }}\par
 {
-Definition at line {\b 71} of file {\b directory.c}.}\par
+Definition at line {\b 68} of file {\b directory.c}.}\par
 }
 {\xe \v create_directory\:directory.h}
 {\xe \v directory.h\:create_directory}
@@ -4278,7 +4274,7 @@ Initializes a directory. }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 By default, a directory has {\f2 DIR_STARTING_NUM_RECORDS}  records. \par
 }{
-Definition at line {\b 33} of file {\b directory.c}.}\par
+Definition at line {\b 32} of file {\b directory.c}.}\par
 }
 {\xe \v destroy_directory\:directory.h}
 {\xe \v directory.h\:destroy_directory}
@@ -4295,7 +4291,7 @@ void destroy_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys all the directory records within a given directory before then destroying the directory itself. }}\par
 {
-Definition at line {\b 55} of file {\b directory.c}.}\par
+Definition at line {\b 52} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory\:directory.h}
 {\xe \v directory.h\:print_directory}
@@ -4312,7 +4308,7 @@ void print_directory ({\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory to stdout in a human-readable form. }}\par
 {
-Definition at line {\b 124} of file {\b directory.c}.}\par
+Definition at line {\b 121} of file {\b directory.c}.}\par
 }
 {\xe \v print_directory_record\:directory.h}
 {\xe \v directory.h\:print_directory_record}
@@ -4329,7 +4325,7 @@ void print_directory_record ({\b directory_record} * r)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints a given directory record to the stdout in a human-readable form. }}\par
 {
-Definition at line {\b 85} of file {\b directory.c}.}\par
+Definition at line {\b 82} of file {\b directory.c}.}\par
 }
 {\xe \v process_directory\:directory.h}
 {\xe \v directory.h\:process_directory}
@@ -4346,7 +4342,7 @@ int8_t process_directory (FILE * fptr, {\b directory} * d)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Creates directory records for every sub-directory and file in a given directory, filling out each data field of said record using the data found in the file pointed to by {\f2 fptr} . }}\par
 {
-Definition at line {\b 136} of file {\b directory.c}.}\par
+Definition at line {\b 133} of file {\b directory.c}.}\par
 }
 \par \pard\plain 
 
@@ -4476,6 +4472,13 @@ Throws an calloc error. }{
 Throws an calloc error. }{
 }\par
 }\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b HH_ERRORS} {\b handle_malloc_error} (const char *obj_name)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an malloc error. }{
+}\par
+}\par}
 }
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
 Variables\par
@@ -4547,14 +4550,31 @@ Throws an fread error. }}\par
 {
 Definition at line {\b 17} of file {\b errors.c}.}\par
 }
+{\xe \v handle_malloc_error\:errors.c}
+{\xe \v errors.c\:handle_malloc_error}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+{\b HH_ERRORS} handle_malloc_error (const char * obj_name)}}
+\par
+{\bkmkstart AAAAAAAADL}
+{\bkmkend AAAAAAAADL}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an malloc error. }}\par
+{
+Definition at line {\b 57} of file {\b errors.c}.}\par
+}
 {\xe \v handle_realloc_error\:errors.c}
 {\xe \v errors.c\:handle_realloc_error}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
 {\b HH_ERRORS} handle_realloc_error (const char * arr_name, size_t old_size, size_t new_size)}}
 \par
-{\bkmkstart AAAAAAAADL}
-{\bkmkend AAAAAAAADL}
+{\bkmkstart AAAAAAAADM}
+{\bkmkend AAAAAAAADM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4570,8 +4590,8 @@ Definition at line {\b 48} of file {\b errors.c}.}\par
 {\b 
 void handle_unknown_command_line_argument_error (char * arg)}}
 \par
-{\bkmkstart AAAAAAAADM}
-{\bkmkend AAAAAAAADM}
+{\bkmkstart AAAAAAAADN}
+{\bkmkend AAAAAAAADN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4591,8 +4611,8 @@ Variable Documentation\par
 {\b 
 const char* CALLOC_FAILED_ERR_MSG_FMT = "Unable to calloc string of size %zu."}}
 \par
-{\bkmkstart AAAAAAAADN}
-{\bkmkend AAAAAAAADN}
+{\bkmkstart AAAAAAAADO}
+{\bkmkend AAAAAAAADO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4605,8 +4625,8 @@ Definition at line {\b 7} of file {\b errors.c}.}\par
 {\b 
 const char* FOPEN_FAILED_ERR_MSG_FMT = "Unable to open output file, %s."}}
 \par
-{\bkmkstart AAAAAAAADO}
-{\bkmkend AAAAAAAADO}
+{\bkmkstart AAAAAAAADP}
+{\bkmkend AAAAAAAADP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4683,6 +4703,13 @@ Go to the documentation of this file.\par
 00052           old_size, new_size);\par
 00053   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
 00054 \}\par
+00055 \par
+00056 HH_ERRORS\par
+00057 handle_malloc_error ({\cf17 const} {\cf18 char} *obj_name)\par
+00058 \{\par
+00059   hh_log (HH_LOG_ERROR, {\cf22 "Failed to allocate memory for %s."}, obj_name);\par
+00060   {\cf19 return} HH_MEM_ALLOC_ERROR;\par
+00061 \}\par
 }
 \par \pard\plain 
 
@@ -4692,8 +4719,8 @@ Go to the documentation of this file.\par
 src/errors.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/errors.h}
 {\xe \v src/errors.h}
-{\bkmkstart AAAAAAAADP}
-{\bkmkend AAAAAAAADP}
+{\bkmkstart AAAAAAAADQ}
+{\bkmkend AAAAAAAADQ}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdint.h>}\par
 {\f2 #include <stdio.h>}\par
@@ -4748,6 +4775,13 @@ Throws an calloc error. }{
 }\par
 }\par}
 \pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
+{\b HH_ERRORS} {\b handle_malloc_error} (const char *obj_name)\par
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an malloc error. }{
+}\par
+}\par}
+\pard\plain \s120\fi-360\li360\widctlpar\jclisttab\tx360{\*\pn \pnlvlbody\ilvl0\ls1\pnrnot0\pndec }\ls1\adjustright \fs20\cgrid 
 void {\b handle_unknown_command_line_argument_error} (char *arg)\par
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid {\i {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
@@ -4778,8 +4812,8 @@ Enumeration Type Documentation\par
 {\b 
 enum {\b HH_ERRORS}}}
 \par
-{\bkmkstart AAAAAAAADQ}
-{\bkmkend AAAAAAAADQ}
+{\bkmkstart AAAAAAAADR}
+{\bkmkend AAAAAAAADR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4797,30 +4831,30 @@ Enumerator:\par}
 \pard \widctlpar\intbl\adjustright
 {\xe \v HH_FOPEN_ERROR\:errors.h}
 {\xe \v errors.h\:HH_FOPEN_ERROR}
-{\qr HH_FOPEN_ERROR{\bkmkstart AAAAAAAADR}
-{\bkmkend AAAAAAAADR}
+{\qr HH_FOPEN_ERROR{\bkmkstart AAAAAAAADS}
+{\bkmkend AAAAAAAADS}
 \cell }{\cell }{\row }
 {\xe \v HH_FREAD_ERROR\:errors.h}
 {\xe \v errors.h\:HH_FREAD_ERROR}
-{\qr HH_FREAD_ERROR{\bkmkstart AAAAAAAADS}
-{\bkmkend AAAAAAAADS}
+{\qr HH_FREAD_ERROR{\bkmkstart AAAAAAAADT}
+{\bkmkend AAAAAAAADT}
 \cell }{\cell }{\row }
 {\xe \v HH_PT_RESIZE_ERROR\:errors.h}
 {\xe \v errors.h\:HH_PT_RESIZE_ERROR}
-{\qr HH_PT_RESIZE_ERROR{\bkmkstart AAAAAAAADT}
-{\bkmkend AAAAAAAADT}
+{\qr HH_PT_RESIZE_ERROR{\bkmkstart AAAAAAAADU}
+{\bkmkend AAAAAAAADU}
 \cell }{{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Path table resize error. \par
 }\cell }{\row }
 {\xe \v HH_MEM_ALLOC_ERROR\:errors.h}
 {\xe \v errors.h\:HH_MEM_ALLOC_ERROR}
-{\qr HH_MEM_ALLOC_ERROR{\bkmkstart AAAAAAAADU}
-{\bkmkend AAAAAAAADU}
+{\qr HH_MEM_ALLOC_ERROR{\bkmkstart AAAAAAAADV}
+{\bkmkend AAAAAAAADV}
 \cell }{\cell }{\row }
 {\xe \v HH_CREATE_OUTPUT_DIR_ERROR\:errors.h}
 {\xe \v errors.h\:HH_CREATE_OUTPUT_DIR_ERROR}
-{\qr HH_CREATE_OUTPUT_DIR_ERROR{\bkmkstart AAAAAAAADV}
-{\bkmkend AAAAAAAADV}
+{\qr HH_CREATE_OUTPUT_DIR_ERROR{\bkmkstart AAAAAAAADW}
+{\bkmkend AAAAAAAADW}
 \cell }{\cell }{\row }
 }
 \par
@@ -4837,8 +4871,8 @@ Function Documentation\par
 {\b 
 void fopen_error (char * filename)}}
 \par
-{\bkmkstart AAAAAAAADW}
-{\bkmkend AAAAAAAADW}
+{\bkmkstart AAAAAAAADX}
+{\bkmkend AAAAAAAADX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4854,8 +4888,8 @@ Definition at line {\b 11} of file {\b errors.c}.}\par
 {\b 
 {\b HH_ERRORS} handle_calloc_error (size_t size)}}
 \par
-{\bkmkstart AAAAAAAADX}
-{\bkmkend AAAAAAAADX}
+{\bkmkstart AAAAAAAADY}
+{\bkmkend AAAAAAAADY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4871,8 +4905,8 @@ Definition at line {\b 41} of file {\b errors.c}.}\par
 {\b 
 {\b HH_ERRORS} handle_fread_error (size_t actual, size_t expected_bytes)}}
 \par
-{\bkmkstart AAAAAAAADY}
-{\bkmkend AAAAAAAADY}
+{\bkmkstart AAAAAAAADZ}
+{\bkmkend AAAAAAAADZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4882,14 +4916,31 @@ Throws an fread error. }}\par
 {
 Definition at line {\b 17} of file {\b errors.c}.}\par
 }
+{\xe \v handle_malloc_error\:errors.h}
+{\xe \v errors.h\:handle_malloc_error}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+{\b HH_ERRORS} handle_malloc_error (const char * obj_name)}}
+\par
+{\bkmkstart AAAAAAAAEA}
+{\bkmkend AAAAAAAAEA}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Throws an malloc error. }}\par
+{
+Definition at line {\b 57} of file {\b errors.c}.}\par
+}
 {\xe \v handle_realloc_error\:errors.h}
 {\xe \v errors.h\:handle_realloc_error}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
 {\b HH_ERRORS} handle_realloc_error (const char * arr_name, size_t old_size, size_t new_size)}}
 \par
-{\bkmkstart AAAAAAAADZ}
-{\bkmkend AAAAAAAADZ}
+{\bkmkstart AAAAAAAAEB}
+{\bkmkend AAAAAAAAEB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4905,8 +4956,8 @@ Definition at line {\b 48} of file {\b errors.c}.}\par
 {\b 
 void handle_unknown_command_line_argument_error (char * arg)}}
 \par
-{\bkmkstart AAAAAAAAEA}
-{\bkmkend AAAAAAAAEA}
+{\bkmkstart AAAAAAAAEC}
+{\bkmkend AAAAAAAAEC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4926,8 +4977,8 @@ Variable Documentation\par
 {\b 
 const char* FOPEN_FAILED_ERR_MSG_FMT{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAEB}
-{\bkmkend AAAAAAAAEB}
+{\bkmkstart AAAAAAAAED}
+{\bkmkend AAAAAAAAED}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -4989,9 +5040,11 @@ Go to the documentation of this file.\par
 00045 HH_ERRORS handle_realloc_error ({\cf17 const} {\cf18 char} *arr_name, {\cf18 size_t} old_size,\par
 00046                                 {\cf18 size_t} new_size);\par
 00047 \par
-00049 {\cf18 void} handle_unknown_command_line_argument_error ({\cf18 char} *arg);\par
+00049 HH_ERRORS handle_malloc_error ({\cf17 const} {\cf18 char} *obj_name);\par
 00050 \par
-00051 {\cf21 #endif}\par
+00052 {\cf18 void} handle_unknown_command_line_argument_error ({\cf18 char} *arg);\par
+00053 \par
+00054 {\cf21 #endif}\par
 }
 \par \pard\plain 
 
@@ -5001,8 +5054,8 @@ Go to the documentation of this file.\par
 src/extractor.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/extractor.c}
 {\xe \v src/extractor.c}
-{\bkmkstart AAAAAAAAEC}
-{\bkmkend AAAAAAAAEC}
+{\bkmkstart AAAAAAAAEE}
+{\bkmkend AAAAAAAAEE}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "extractor.h"}\par
 {\f2 #include "data_reader.h"}\par
@@ -5066,8 +5119,8 @@ Function Documentation\par
 {\b 
 int8_t create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t block_size, struct {\b path_table} * pt)}}
 \par
-{\bkmkstart AAAAAAAAED}
-{\bkmkend AAAAAAAAED}
+{\bkmkstart AAAAAAAAEF}
+{\bkmkend AAAAAAAAEF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5098,8 +5151,8 @@ Definition at line {\b 128} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_directory (FILE * fptr, const uint16_t block_size, const char * path)}}
 \par
-{\bkmkstart AAAAAAAAEE}
-{\bkmkend AAAAAAAAEE}
+{\bkmkstart AAAAAAAAEG}
+{\bkmkend AAAAAAAAEG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5115,8 +5168,8 @@ Definition at line {\b 90} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_file_using_dir_record (FILE * fptr, struct {\b directory_record} * dr, const char * path)}}
 \par
-{\bkmkstart AAAAAAAAEF}
-{\bkmkend AAAAAAAAEF}
+{\bkmkstart AAAAAAAAEH}
+{\bkmkend AAAAAAAAEH}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5137,8 +5190,8 @@ Definition at line {\b 27} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_file_using_idx_entry (FILE * fptr, {\b index_entry} * idx, const char * path)}}
 \par
-{\bkmkstart AAAAAAAAEG}
-{\bkmkend AAAAAAAAEG}
+{\bkmkstart AAAAAAAAEI}
+{\bkmkend AAAAAAAAEI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5154,8 +5207,8 @@ Definition at line {\b 183} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_index_file ({\b index_file} * idx, const char * idx_path, const char * dat_path)}}
 \par
-{\bkmkstart AAAAAAAAEH}
-{\bkmkend AAAAAAAAEH}
+{\bkmkstart AAAAAAAAEJ}
+{\bkmkend AAAAAAAAEJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5446,8 +5499,8 @@ Go to the documentation of this file.\par
 src/extractor.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/extractor.h}
 {\xe \v src/extractor.h}
-{\bkmkstart AAAAAAAAEI}
-{\bkmkend AAAAAAAAEI}
+{\bkmkstart AAAAAAAAEK}
+{\bkmkend AAAAAAAAEK}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "directory.h"}\par
 {\f2 #include "index_file.h"}\par
@@ -5506,8 +5559,8 @@ Function Documentation\par
 {\b 
 int8_t create_directories_and_extract_data_from_path_file (FILE * fptr, uint16_t block_size, struct {\b path_table} * pt)}}
 \par
-{\bkmkstart AAAAAAAAEJ}
-{\bkmkend AAAAAAAAEJ}
+{\bkmkstart AAAAAAAAEL}
+{\bkmkend AAAAAAAAEL}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5538,8 +5591,8 @@ Definition at line {\b 128} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_directory (FILE * fptr, const uint16_t block_size, const char * path)}}
 \par
-{\bkmkstart AAAAAAAAEK}
-{\bkmkend AAAAAAAAEK}
+{\bkmkstart AAAAAAAAEM}
+{\bkmkend AAAAAAAAEM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5555,8 +5608,8 @@ Definition at line {\b 90} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_file_using_dir_record (FILE * fptr, struct {\b directory_record} * dr, const char * path)}}
 \par
-{\bkmkstart AAAAAAAAEL}
-{\bkmkend AAAAAAAAEL}
+{\bkmkstart AAAAAAAAEN}
+{\bkmkend AAAAAAAAEN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5577,8 +5630,8 @@ Definition at line {\b 27} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_file_using_idx_entry (FILE * fptr, {\b index_entry} * idx, const char * path)}}
 \par
-{\bkmkstart AAAAAAAAEM}
-{\bkmkend AAAAAAAAEM}
+{\bkmkstart AAAAAAAAEO}
+{\bkmkend AAAAAAAAEO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5594,8 +5647,8 @@ Definition at line {\b 183} of file {\b extractor.c}.}\par
 {\b 
 int8_t extract_index_file ({\b index_file} * idx, const char * idx_path, const char * dat_path)}}
 \par
-{\bkmkstart AAAAAAAAEN}
-{\bkmkend AAAAAAAAEN}
+{\bkmkstart AAAAAAAAEP}
+{\bkmkend AAAAAAAAEP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5684,8 +5737,8 @@ Go to the documentation of this file.\par
 src/file_flags.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/file_flags.c}
 {\xe \v src/file_flags.c}
-{\bkmkstart AAAAAAAAEO}
-{\bkmkend AAAAAAAAEO}
+{\bkmkstart AAAAAAAAEQ}
+{\bkmkend AAAAAAAAEQ}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "file_flags.h"}\par
 {\f2 #include <stdio.h>}\par
@@ -5720,8 +5773,8 @@ Function Documentation\par
 {\b 
 {\b file_flags} create_file_flags (void )}}
 \par
-{\bkmkstart AAAAAAAAEP}
-{\bkmkend AAAAAAAAEP}
+{\bkmkstart AAAAAAAAER}
+{\bkmkend AAAAAAAAER}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5737,8 +5790,8 @@ Definition at line {\b 19} of file {\b file_flags.c}.}\par
 {\b 
 void print_file_flags ({\b file_flags} * ff)}}
 \par
-{\bkmkstart AAAAAAAAEQ}
-{\bkmkend AAAAAAAAEQ}
+{\bkmkstart AAAAAAAAES}
+{\bkmkend AAAAAAAAES}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5810,8 +5863,8 @@ Go to the documentation of this file.\par
 src/file_flags.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/file_flags.h}
 {\xe \v src/file_flags.h}
-{\bkmkstart AAAAAAAAER}
-{\bkmkend AAAAAAAAER}
+{\bkmkstart AAAAAAAAET}
+{\bkmkend AAAAAAAAET}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdbool.h>}\par
 {\f2 #include <stdint.h>}\par
@@ -5856,8 +5909,8 @@ Function Documentation\par
 {\b 
 {\b file_flags} create_file_flags (void )}}
 \par
-{\bkmkstart AAAAAAAAES}
-{\bkmkend AAAAAAAAES}
+{\bkmkstart AAAAAAAAEU}
+{\bkmkend AAAAAAAAEU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5873,8 +5926,8 @@ Definition at line {\b 19} of file {\b file_flags.c}.}\par
 {\b 
 void print_file_flags ({\b file_flags} * ff)}}
 \par
-{\bkmkstart AAAAAAAAET}
-{\bkmkend AAAAAAAAET}
+{\bkmkstart AAAAAAAAEV}
+{\bkmkend AAAAAAAAEV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -5939,8 +5992,8 @@ Go to the documentation of this file.\par
 src/hh.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/hh.c}
 {\xe \v src/hh.c}
-{\bkmkstart AAAAAAAAEU}
-{\bkmkend AAAAAAAAEU}
+{\bkmkstart AAAAAAAAEW}
+{\bkmkend AAAAAAAAEW}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "hh.h"}\par
 {\f2 #include "data_reader.h"}\par
@@ -6006,8 +6059,8 @@ Function Documentation\par
 {\b 
 int8_t batch_process_DAT_files (void )}}
 \par
-{\bkmkstart AAAAAAAAEV}
-{\bkmkend AAAAAAAAEV}
+{\bkmkstart AAAAAAAAEX}
+{\bkmkend AAAAAAAAEX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6028,8 +6081,8 @@ Definition at line {\b 176} of file {\b hh.c}.}\par
 {\b 
 int main (int argc, char ** argv)}}
 \par
-{\bkmkstart AAAAAAAAEW}
-{\bkmkend AAAAAAAAEW}
+{\bkmkstart AAAAAAAAEY}
+{\bkmkend AAAAAAAAEY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6042,8 +6095,8 @@ Definition at line {\b 39} of file {\b hh.c}.}\par
 {\b 
 int8_t process_DAT_file (FILE * fptr)}}
 \par
-{\bkmkstart AAAAAAAAEX}
-{\bkmkend AAAAAAAAEX}
+{\bkmkstart AAAAAAAAEZ}
+{\bkmkend AAAAAAAAEZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6081,8 +6134,8 @@ Definition at line {\b 90} of file {\b hh.c}.}\par
 {\b 
 int8_t process_internal_dat_files (void )}}
 \par
-{\bkmkstart AAAAAAAAEY}
-{\bkmkend AAAAAAAAEY}
+{\bkmkstart AAAAAAAAFA}
+{\bkmkend AAAAAAAAFA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6103,8 +6156,8 @@ Definition at line {\b 296} of file {\b hh.c}.}\par
 {\b 
 int8_t setup_extractor (FILE ** fptr, char * filename)}}
 \par
-{\bkmkstart AAAAAAAAEZ}
-{\bkmkend AAAAAAAAEZ}
+{\bkmkstart AAAAAAAAFB}
+{\bkmkend AAAAAAAAFB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6511,8 +6564,8 @@ Go to the documentation of this file.\par
 src/hh.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/hh.h}
 {\xe \v src/hh.h}
-{\bkmkstart AAAAAAAAFA}
-{\bkmkend AAAAAAAAFA}
+{\bkmkstart AAAAAAAAFC}
+{\bkmkend AAAAAAAAFC}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdint.h>}\par
 {\f2 #include <stdio.h>}\par
@@ -6561,8 +6614,8 @@ Function Documentation\par
 {\b 
 static int8_t batch_process_DAT_files (void ){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAFB}
-{\bkmkend AAAAAAAAFB}
+{\bkmkstart AAAAAAAAFD}
+{\bkmkend AAAAAAAAFD}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6583,8 +6636,8 @@ Definition at line {\b 176} of file {\b hh.c}.}\par
 {\b 
 static int8_t process_DAT_file (FILE * fptr){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAFC}
-{\bkmkend AAAAAAAAFC}
+{\bkmkstart AAAAAAAAFE}
+{\bkmkend AAAAAAAAFE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6622,8 +6675,8 @@ Definition at line {\b 90} of file {\b hh.c}.}\par
 {\b 
 static int8_t process_internal_dat_files (void ){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAFD}
-{\bkmkend AAAAAAAAFD}
+{\bkmkstart AAAAAAAAFF}
+{\bkmkend AAAAAAAAFF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6644,8 +6697,8 @@ Definition at line {\b 296} of file {\b hh.c}.}\par
 {\b 
 static int8_t setup_extractor (FILE ** fptr, char * filename){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAFE}
-{\bkmkend AAAAAAAAFE}
+{\bkmkstart AAAAAAAAFG}
+{\bkmkend AAAAAAAAFG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6725,8 +6778,8 @@ Go to the documentation of this file.\par
 src/index_file.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/index_file.c}
 {\xe \v src/index_file.c}
-{\bkmkstart AAAAAAAAFF}
-{\bkmkend AAAAAAAAFF}
+{\bkmkstart AAAAAAAAFH}
+{\bkmkend AAAAAAAAFH}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "index_file.h"}\par
 {\f2 #include "data_reader.h"}\par
@@ -6805,8 +6858,8 @@ Function Documentation\par
 {\b 
 int8_t add_entry_to_index_file ({\b index_file} * file, {\b index_entry} * entry)}}
 \par
-{\bkmkstart AAAAAAAAFG}
-{\bkmkend AAAAAAAAFG}
+{\bkmkstart AAAAAAAAFI}
+{\bkmkend AAAAAAAAFI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6814,7 +6867,7 @@ int8_t add_entry_to_index_file ({\b index_file} * file, {\b index_entry} * entry
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a given {\f2 {\b index_entry}}  to a {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 139} of file {\b index_file.c}.}\par
+Definition at line {\b 137} of file {\b index_file.c}.}\par
 }
 {\xe \v create_index_file\:index_file.c}
 {\xe \v index_file.c\:create_index_file}
@@ -6822,8 +6875,8 @@ Definition at line {\b 139} of file {\b index_file.c}.}\par
 {\b 
 int8_t create_index_file ({\b index_file} * i)}}
 \par
-{\bkmkstart AAAAAAAAFH}
-{\bkmkend AAAAAAAAFH}
+{\bkmkstart AAAAAAAAFJ}
+{\bkmkend AAAAAAAAFJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6839,8 +6892,8 @@ Definition at line {\b 34} of file {\b index_file.c}.}\par
 {\b 
 int8_t destroy_index_file ({\b index_file} * i)}}
 \par
-{\bkmkstart AAAAAAAAFI}
-{\bkmkend AAAAAAAAFI}
+{\bkmkstart AAAAAAAAFK}
+{\bkmkend AAAAAAAAFK}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6848,7 +6901,7 @@ int8_t destroy_index_file ({\b index_file} * i)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys a given {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 51} of file {\b index_file.c}.}\par
+Definition at line {\b 49} of file {\b index_file.c}.}\par
 }
 {\xe \v print_index_entry\:index_file.c}
 {\xe \v index_file.c\:print_index_entry}
@@ -6856,8 +6909,8 @@ Definition at line {\b 51} of file {\b index_file.c}.}\par
 {\b 
 void print_index_entry ({\b index_entry} * idxe)}}
 \par
-{\bkmkstart AAAAAAAAFJ}
-{\bkmkend AAAAAAAAFJ}
+{\bkmkstart AAAAAAAAFL}
+{\bkmkend AAAAAAAAFL}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6865,7 +6918,7 @@ void print_index_entry ({\b index_entry} * idxe)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints all the attributes of a given {\f2 {\b index_entry}}  in a human-readable form. }}\par
 {
-Definition at line {\b 129} of file {\b index_file.c}.}\par
+Definition at line {\b 127} of file {\b index_file.c}.}\par
 }
 {\xe \v process_index_file\:index_file.c}
 {\xe \v index_file.c\:process_index_file}
@@ -6873,8 +6926,8 @@ Definition at line {\b 129} of file {\b index_file.c}.}\par
 {\b 
 int8_t process_index_file (FILE * fptr, {\b index_file} * idxf)}}
 \par
-{\bkmkstart AAAAAAAAFK}
-{\bkmkend AAAAAAAAFK}
+{\bkmkstart AAAAAAAAFM}
+{\bkmkend AAAAAAAAFM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6886,7 +6939,7 @@ Reads data from a given file, creating {\f2 {\b index_entry}} s for every entry 
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Every entry is 0x94 bytes apart, the part we're most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.\par
 }{
-Definition at line {\b 58} of file {\b index_file.c}.}\par
+Definition at line {\b 56} of file {\b index_file.c}.}\par
 }
 {\xe \v resize_indicies\:index_file.c}
 {\xe \v index_file.c\:resize_indicies}
@@ -6894,8 +6947,8 @@ Definition at line {\b 58} of file {\b index_file.c}.}\par
 {\b 
 int8_t resize_indicies ({\b index_file} * idx){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAFL}
-{\bkmkend AAAAAAAAFL}
+{\bkmkstart AAAAAAAAFN}
+{\bkmkend AAAAAAAAFN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6903,7 +6956,7 @@ int8_t resize_indicies ({\b index_file} * idx){\f2 [static]}}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Grows a given {\f2 {\b index_file}} 's {\f2 entries}  attribute by {\f2 IDX_RECORDS_GROWTH_RATE} . }}\par
 {
-Definition at line {\b 155} of file {\b index_file.c}.}\par
+Definition at line {\b 153} of file {\b index_file.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -6915,8 +6968,8 @@ Variable Documentation\par
 {\b 
 const size_t IDX_RECORDS_GROWTH_RATE = 2{\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAFM}
-{\bkmkend AAAAAAAAFM}
+{\bkmkstart AAAAAAAAFO}
+{\bkmkend AAAAAAAAFO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6929,8 +6982,8 @@ Definition at line {\b 25} of file {\b index_file.c}.}\par
 {\b 
 const size_t IDX_STARTING_NUM_INDICIES = 10{\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAFN}
-{\bkmkend AAAAAAAAFN}
+{\bkmkstart AAAAAAAAFP}
+{\bkmkend AAAAAAAAFP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -6984,131 +7037,129 @@ Go to the documentation of this file.\par
 00036   i->indicies = malloc (IDX_STARTING_NUM_INDICIES * {\cf17 sizeof} (index_entry));\par
 00037   {\cf19 if} (i->indicies == NULL)\par
 00038     \{\par
-00039       hh_log (HH_LOG_ERROR, {\cf22 "Unable to malloc indicies of size %zu."},\par
-00040               IDX_STARTING_NUM_INDICIES * {\cf17 sizeof} (index_entry));\par
-00041       {\cf19 return} -1;\par
-00042     \}\par
-00043 \par
-00044   i->size = IDX_STARTING_NUM_INDICIES;\par
-00045   i->current_index = 0;\par
-00046 \par
-00047   {\cf19 return} 0;\par
-00048 \}\par
-00049 \par
-00050 int8_t\par
-00051 destroy_index_file (index_file *i)\par
-00052 \{\par
-00053   free (i->indicies);\par
-00054   {\cf19 return} 0;\par
-00055 \}\par
-00056 \par
-00057 int8_t\par
-00058 process_index_file (FILE *fptr, index_file *idxf)\par
-00059 \{\par
-00060   {\cf19 while} (!peek_eof (fptr))\par
-00061     \{\par
-00062       index_entry entry;\par
-00063       entry.entry_start = ftell (fptr);\par
+00039       {\cf19 return} handle_malloc_error ({\cf22 "index file indicies."});\par
+00040     \}\par
+00041 \par
+00042   i->size = IDX_STARTING_NUM_INDICIES;\par
+00043   i->current_index = 0;\par
+00044 \par
+00045   {\cf19 return} 0;\par
+00046 \}\par
+00047 \par
+00048 int8_t\par
+00049 destroy_index_file (index_file *i)\par
+00050 \{\par
+00051   free (i->indicies);\par
+00052   {\cf19 return} 0;\par
+00053 \}\par
+00054 \par
+00055 int8_t\par
+00056 process_index_file (FILE *fptr, index_file *idxf)\par
+00057 \{\par
+00058   {\cf19 while} (!peek_eof (fptr))\par
+00059     \{\par
+00060       index_entry entry;\par
+00061       entry.entry_start = ftell (fptr);\par
+00062 \par
+00063       fseek (fptr, 0x5, SEEK_CUR); {\cf20 // skip `XFLE#`}\par
 00064 \par
-00065       fseek (fptr, 0x5, SEEK_CUR); {\cf20 // skip `XFLE#`}\par
-00066 \par
-00067       {\cf19 if} (!peek_char_is (fptr, {\cf23 ':'}))\par
-00068         \{\par
-00069           hh_log (HH_LOG_ERROR,\par
-00070                   {\cf22 "Unexpected character in index file. Aborting processing."});\par
-00071           {\cf19 return} -1;\par
-00072         \}\par
-00073 \par
-00074       {\cf19 if} (read_string (fptr, entry.full_path, (uint8_t)FULL_PATH_MAX_LEN) != 0)\par
-00075         {\cf19 return} HH_FREAD_ERROR;\par
-00076 \par
-00077       uint8_t len = strlen (entry.full_path);\par
-00078       {\cf18 char} *last_word = entry.full_path;\par
-00079       {\cf19 for} (uint8_t i = 0; i < len; i++)\par
-00080         \{\par
-00081           {\cf19 if} (entry.full_path[i] == {\cf23 '\\\\'})\par
-00082             \{\par
-00083               last_word = entry.full_path + i + 1;\par
-00084               entry.full_path[i] = OP_PATH_SEPARATOR;\par
-00085             \}\par
-00086         \}\par
-00087       strcpy (entry.filename, last_word);\par
-00088 \par
-00095       fseek (fptr, entry.entry_start + (0x94 - 0x10), SEEK_SET);\par
-00096 \par
-00097       {\cf20 /* clang-format off */}\par
-00098       {\cf19 if} ((read_little_endian_data_uint32_t (fptr, &entry.start) != 0)\par
-00099           || (read_little_endian_data_uint32_t (fptr, &entry.size) != 0))\par
-00100         \{\par
-00101           {\cf19 return} HH_FREAD_ERROR;\par
-00102         \}\par
-00103       {\cf20 /* clang-format on */}\par
+00065       {\cf19 if} (!peek_char_is (fptr, {\cf23 ':'}))\par
+00066         \{\par
+00067           hh_log (HH_LOG_ERROR,\par
+00068                   {\cf22 "Unexpected character in index file. Aborting processing."});\par
+00069           {\cf19 return} -1;\par
+00070         \}\par
+00071 \par
+00072       {\cf19 if} (read_string (fptr, entry.full_path, (uint8_t)FULL_PATH_MAX_LEN) != 0)\par
+00073         {\cf19 return} HH_FREAD_ERROR;\par
+00074 \par
+00075       uint8_t len = strlen (entry.full_path);\par
+00076       {\cf18 char} *last_word = entry.full_path;\par
+00077       {\cf19 for} (uint8_t i = 0; i < len; i++)\par
+00078         \{\par
+00079           {\cf19 if} (entry.full_path[i] == {\cf23 '\\\\'})\par
+00080             \{\par
+00081               last_word = entry.full_path + i + 1;\par
+00082               entry.full_path[i] = OP_PATH_SEPARATOR;\par
+00083             \}\par
+00084         \}\par
+00085       strcpy (entry.filename, last_word);\par
+00086 \par
+00093       fseek (fptr, entry.entry_start + (0x94 - 0x10), SEEK_SET);\par
+00094 \par
+00095       {\cf20 /* clang-format off */}\par
+00096       {\cf19 if} ((read_little_endian_data_uint32_t (fptr, &entry.start) != 0)\par
+00097           || (read_little_endian_data_uint32_t (fptr, &entry.size) != 0))\par
+00098         \{\par
+00099           {\cf19 return} HH_FREAD_ERROR;\par
+00100         \}\par
+00101       {\cf20 /* clang-format on */}\par
+00102 \par
+00103       fseek (fptr, 0x4, SEEK_CUR); {\cf20 // Skip zeros}\par
 00104 \par
-00105       fseek (fptr, 0x4, SEEK_CUR); {\cf20 // Skip zeros}\par
-00106 \par
-00107       {\cf20 // Very unnecessary, but we might as well double check our data}\par
-00108       uint32_t value;\par
-00109       {\cf19 if} (read_little_endian_data_uint32_t (fptr, &value) != 0)\par
-00110         {\cf19 return} HH_FREAD_ERROR;\par
-00111 \par
-00112       {\cf19 if} (entry.size != value)\par
-00113         \{\par
-00114           hh_log (HH_LOG_ERROR, {\cf22 "Expected 0x%08X, got 0x%08X."}, entry.size,\par
-00115                   value);\par
-00116           {\cf19 return} -1;\par
-00117         \}\par
-00118 \par
-00119       {\cf19 if} (add_entry_to_index_file (idxf, &entry) != 0)\par
-00120         \{\par
-00121           {\cf19 return} -1;\par
-00122         \}\par
-00123     \}\par
-00124 \par
-00125   {\cf19 return} 0;\par
-00126 \}\par
-00127 \par
-00128 {\cf18 void}\par
-00129 print_index_entry (index_entry *idxe)\par
-00130 \{\par
-00131   printf ({\cf22 "Entry start: %08X\\n"}, idxe->entry_start);\par
-00132   printf ({\cf22 "Full path: %s\\n"}, idxe->full_path);\par
-00133   printf ({\cf22 "Filename: %s\\n"}, idxe->filename);\par
-00134   printf ({\cf22 "File start: %08X\\n"}, idxe->start);\par
-00135   printf ({\cf22 "File size: %08X\\n"}, idxe->size);\par
-00136 \}\par
-00137 \par
-00138 int8_t\par
-00139 add_entry_to_index_file (index_file *file, index_entry *entry)\par
-00140 \{\par
-00141   {\cf19 if} (file->current_index >= file->size)\par
-00142     \{\par
-00143       {\cf19 if} (resize_indicies (file) != 0)\par
-00144         \{\par
-00145           {\cf19 return} -1;\par
-00146         \}\par
-00147     \}\par
-00148 \par
-00149   file->indicies[file->current_index] = *entry;\par
-00150   file->current_index++;\par
-00151   {\cf19 return} 0;\par
-00152 \}\par
-00153 \par
-00154 int8_t\par
-00155 resize_indicies (index_file *idx)\par
-00156 \{\par
-00157   {\cf18 size_t} new_size = idx->size * IDX_RECORDS_GROWTH_RATE;\par
-00158   index_entry *new_indicies = (index_entry *)realloc (\par
-00159       idx->indicies, new_size * sizeof (index_entry));\par
-00160   {\cf19 if} (new_indicies == NULL)\par
-00161     \{\par
-00162       destroy_index_file (idx);\par
-00163       {\cf19 return} handle_realloc_error ({\cf22 "indicies"}, idx->size, new_size);\par
-00164     \}\par
-00165 \par
-00166   idx->indicies = new_indicies;\par
-00167   idx->size = new_size;\par
-00168   {\cf19 return} 0;\par
-00169 \}\par
+00105       {\cf20 // Very unnecessary, but we might as well double check our data}\par
+00106       uint32_t value;\par
+00107       {\cf19 if} (read_little_endian_data_uint32_t (fptr, &value) != 0)\par
+00108         {\cf19 return} HH_FREAD_ERROR;\par
+00109 \par
+00110       {\cf19 if} (entry.size != value)\par
+00111         \{\par
+00112           hh_log (HH_LOG_ERROR, {\cf22 "Expected 0x%08X, got 0x%08X."}, entry.size,\par
+00113                   value);\par
+00114           {\cf19 return} -1;\par
+00115         \}\par
+00116 \par
+00117       {\cf19 if} (add_entry_to_index_file (idxf, &entry) != 0)\par
+00118         \{\par
+00119           {\cf19 return} -1;\par
+00120         \}\par
+00121     \}\par
+00122 \par
+00123   {\cf19 return} 0;\par
+00124 \}\par
+00125 \par
+00126 {\cf18 void}\par
+00127 print_index_entry (index_entry *idxe)\par
+00128 \{\par
+00129   printf ({\cf22 "Entry start: %08X\\n"}, idxe->entry_start);\par
+00130   printf ({\cf22 "Full path: %s\\n"}, idxe->full_path);\par
+00131   printf ({\cf22 "Filename: %s\\n"}, idxe->filename);\par
+00132   printf ({\cf22 "File start: %08X\\n"}, idxe->start);\par
+00133   printf ({\cf22 "File size: %08X\\n"}, idxe->size);\par
+00134 \}\par
+00135 \par
+00136 int8_t\par
+00137 add_entry_to_index_file (index_file *file, index_entry *entry)\par
+00138 \{\par
+00139   {\cf19 if} (file->current_index >= file->size)\par
+00140     \{\par
+00141       {\cf19 if} (resize_indicies (file) != 0)\par
+00142         \{\par
+00143           {\cf19 return} -1;\par
+00144         \}\par
+00145     \}\par
+00146 \par
+00147   file->indicies[file->current_index] = *entry;\par
+00148   file->current_index++;\par
+00149   {\cf19 return} 0;\par
+00150 \}\par
+00151 \par
+00152 int8_t\par
+00153 resize_indicies (index_file *idx)\par
+00154 \{\par
+00155   {\cf18 size_t} new_size = idx->size * IDX_RECORDS_GROWTH_RATE;\par
+00156   index_entry *new_indicies = (index_entry *)realloc (\par
+00157       idx->indicies, new_size * sizeof (index_entry));\par
+00158   {\cf19 if} (new_indicies == NULL)\par
+00159     \{\par
+00160       destroy_index_file (idx);\par
+00161       {\cf19 return} handle_realloc_error ({\cf22 "indicies"}, idx->size, new_size);\par
+00162     \}\par
+00163 \par
+00164   idx->indicies = new_indicies;\par
+00165   idx->size = new_size;\par
+00166   {\cf19 return} 0;\par
+00167 \}\par
 }
 \par \pard\plain 
 
@@ -7118,8 +7169,8 @@ Go to the documentation of this file.\par
 src/index_file.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/index_file.h}
 {\xe \v src/index_file.h}
-{\bkmkstart AAAAAAAAFO}
-{\bkmkend AAAAAAAAFO}
+{\bkmkstart AAAAAAAAFQ}
+{\bkmkend AAAAAAAAFQ}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdint.h>}\par
 {\f2 #include <stdio.h>}\par
@@ -7204,8 +7255,8 @@ Macro Definition Documentation\par
 {\b 
 #define FILENAME_MAX_LEN\~ 32}}
 \par
-{\bkmkstart AAAAAAAAFP}
-{\bkmkend AAAAAAAAFP}
+{\bkmkstart AAAAAAAAFR}
+{\bkmkend AAAAAAAAFR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7218,8 +7269,8 @@ Definition at line {\b 40} of file {\b index_file.h}.}\par
 {\b 
 #define FULL_PATH_MAX_LEN\~ 128}}
 \par
-{\bkmkstart AAAAAAAAFQ}
-{\bkmkend AAAAAAAAFQ}
+{\bkmkstart AAAAAAAAFS}
+{\bkmkend AAAAAAAAFS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7245,8 +7296,8 @@ Function Documentation\par
 {\b 
 int8_t add_entry_to_index_file ({\b index_file} * file, {\b index_entry} * entry)}}
 \par
-{\bkmkstart AAAAAAAAFR}
-{\bkmkend AAAAAAAAFR}
+{\bkmkstart AAAAAAAAFT}
+{\bkmkend AAAAAAAAFT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7254,7 +7305,7 @@ int8_t add_entry_to_index_file ({\b index_file} * file, {\b index_entry} * entry
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a given {\f2 {\b index_entry}}  to a {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 139} of file {\b index_file.c}.}\par
+Definition at line {\b 137} of file {\b index_file.c}.}\par
 }
 {\xe \v create_index_file\:index_file.h}
 {\xe \v index_file.h\:create_index_file}
@@ -7262,8 +7313,8 @@ Definition at line {\b 139} of file {\b index_file.c}.}\par
 {\b 
 int8_t create_index_file ({\b index_file} * i)}}
 \par
-{\bkmkstart AAAAAAAAFS}
-{\bkmkend AAAAAAAAFS}
+{\bkmkstart AAAAAAAAFU}
+{\bkmkend AAAAAAAAFU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7279,8 +7330,8 @@ Definition at line {\b 34} of file {\b index_file.c}.}\par
 {\b 
 int8_t destroy_index_file ({\b index_file} * i)}}
 \par
-{\bkmkstart AAAAAAAAFT}
-{\bkmkend AAAAAAAAFT}
+{\bkmkstart AAAAAAAAFV}
+{\bkmkend AAAAAAAAFV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7288,7 +7339,7 @@ int8_t destroy_index_file ({\b index_file} * i)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Destroys a given {\f2 {\b index_file}} . }}\par
 {
-Definition at line {\b 51} of file {\b index_file.c}.}\par
+Definition at line {\b 49} of file {\b index_file.c}.}\par
 }
 {\xe \v print_index_entry\:index_file.h}
 {\xe \v index_file.h\:print_index_entry}
@@ -7296,8 +7347,8 @@ Definition at line {\b 51} of file {\b index_file.c}.}\par
 {\b 
 void print_index_entry ({\b index_entry} * idxe)}}
 \par
-{\bkmkstart AAAAAAAAFU}
-{\bkmkend AAAAAAAAFU}
+{\bkmkstart AAAAAAAAFW}
+{\bkmkend AAAAAAAAFW}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7305,7 +7356,7 @@ void print_index_entry ({\b index_entry} * idxe)}}
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Prints all the attributes of a given {\f2 {\b index_entry}}  in a human-readable form. }}\par
 {
-Definition at line {\b 129} of file {\b index_file.c}.}\par
+Definition at line {\b 127} of file {\b index_file.c}.}\par
 }
 {\xe \v process_index_file\:index_file.h}
 {\xe \v index_file.h\:process_index_file}
@@ -7313,8 +7364,8 @@ Definition at line {\b 129} of file {\b index_file.c}.}\par
 {\b 
 int8_t process_index_file (FILE * fptr, {\b index_file} * idxf)}}
 \par
-{\bkmkstart AAAAAAAAFV}
-{\bkmkend AAAAAAAAFV}
+{\bkmkstart AAAAAAAAFX}
+{\bkmkend AAAAAAAAFX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7326,7 +7377,7 @@ Reads data from a given file, creating {\f2 {\b index_entry}} s for every entry 
 }{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Every entry is 0x94 bytes apart, the part we're most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.\par
 }{
-Definition at line {\b 58} of file {\b index_file.c}.}\par
+Definition at line {\b 56} of file {\b index_file.c}.}\par
 }
 \par \pard\plain 
 
@@ -7399,8 +7450,8 @@ Go to the documentation of this file.\par
 src/log.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/log.c}
 {\xe \v src/log.c}
-{\bkmkstart AAAAAAAAFW}
-{\bkmkend AAAAAAAAFW}
+{\bkmkstart AAAAAAAAFY}
+{\bkmkend AAAAAAAAFY}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "log.h"}\par
 {\f2 #include "errors.h"}\par
@@ -7452,8 +7503,8 @@ Macro Definition Documentation\par
 {\b 
 #define BYTES_TO_READ\~ 32}}
 \par
-{\bkmkstart AAAAAAAAFX}
-{\bkmkend AAAAAAAAFX}
+{\bkmkstart AAAAAAAAFZ}
+{\bkmkend AAAAAAAAFZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7470,8 +7521,8 @@ Function Documentation\par
 {\b 
 void hh_log ({\b hh_log_level} lvl, const char * fmt,  ...)}}
 \par
-{\bkmkstart AAAAAAAAFY}
-{\bkmkend AAAAAAAAFY}
+{\bkmkstart AAAAAAAAGA}
+{\bkmkend AAAAAAAAGA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7489,8 +7540,8 @@ Definition at line {\b 69} of file {\b log.c}.}\par
 {\b 
 void print_hex_data (unsigned char * buffer, const uint8_t BUFFER_LEN)}}
 \par
-{\bkmkstart AAAAAAAAFZ}
-{\bkmkend AAAAAAAAFZ}
+{\bkmkstart AAAAAAAAGB}
+{\bkmkend AAAAAAAAGB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7509,8 +7560,8 @@ Definition at line {\b 29} of file {\b log.c}.}\par
 {\b 
 void print_some_data_from_file (FILE * fptr)}}
 \par
-{\bkmkstart AAAAAAAAGA}
-{\bkmkend AAAAAAAAGA}
+{\bkmkstart AAAAAAAAGC}
+{\bkmkend AAAAAAAAGC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7629,8 +7680,8 @@ Go to the documentation of this file.\par
 src/log.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/log.h}
 {\xe \v src/log.h}
-{\bkmkstart AAAAAAAAGB}
-{\bkmkend AAAAAAAAGB}
+{\bkmkstart AAAAAAAAGD}
+{\bkmkend AAAAAAAAGD}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdint.h>}\par
 {\f2 #include <stdio.h>}\par
@@ -7679,8 +7730,8 @@ Enumeration Type Documentation\par
 {\b 
 enum {\b hh_log_level}}}
 \par
-{\bkmkstart AAAAAAAAGC}
-{\bkmkend AAAAAAAAGC}
+{\bkmkstart AAAAAAAAGE}
+{\bkmkend AAAAAAAAGE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7701,18 +7752,18 @@ Enumerator:\par}
 \pard \widctlpar\intbl\adjustright
 {\xe \v HH_LOG_INFO\:log.h}
 {\xe \v log.h\:HH_LOG_INFO}
-{\qr HH_LOG_INFO{\bkmkstart AAAAAAAAGD}
-{\bkmkend AAAAAAAAGD}
+{\qr HH_LOG_INFO{\bkmkstart AAAAAAAAGF}
+{\bkmkend AAAAAAAAGF}
 \cell }{\cell }{\row }
 {\xe \v HH_LOG_WARNING\:log.h}
 {\xe \v log.h\:HH_LOG_WARNING}
-{\qr HH_LOG_WARNING{\bkmkstart AAAAAAAAGE}
-{\bkmkend AAAAAAAAGE}
+{\qr HH_LOG_WARNING{\bkmkstart AAAAAAAAGG}
+{\bkmkend AAAAAAAAGG}
 \cell }{\cell }{\row }
 {\xe \v HH_LOG_ERROR\:log.h}
 {\xe \v log.h\:HH_LOG_ERROR}
-{\qr HH_LOG_ERROR{\bkmkstart AAAAAAAAGF}
-{\bkmkend AAAAAAAAGF}
+{\qr HH_LOG_ERROR{\bkmkstart AAAAAAAAGH}
+{\bkmkend AAAAAAAAGH}
 \cell }{\cell }{\row }
 }
 \par
@@ -7729,8 +7780,8 @@ Function Documentation\par
 {\b 
 void hh_log ({\b hh_log_level} lvl, const char * fmt,  ...)}}
 \par
-{\bkmkstart AAAAAAAAGG}
-{\bkmkend AAAAAAAAGG}
+{\bkmkstart AAAAAAAAGI}
+{\bkmkend AAAAAAAAGI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7748,8 +7799,8 @@ Definition at line {\b 69} of file {\b log.c}.}\par
 {\b 
 void print_some_data_from_file (FILE * fptr)}}
 \par
-{\bkmkstart AAAAAAAAGH}
-{\bkmkend AAAAAAAAGH}
+{\bkmkstart AAAAAAAAGJ}
+{\bkmkend AAAAAAAAGJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7815,8 +7866,8 @@ Go to the documentation of this file.\par
 src/options.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/options.c}
 {\xe \v src/options.c}
-{\bkmkstart AAAAAAAAGI}
-{\bkmkend AAAAAAAAGI}
+{\bkmkstart AAAAAAAAGK}
+{\bkmkend AAAAAAAAGK}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "options.h"}\par
 {\f2 #include "errors.h"}\par
@@ -7933,8 +7984,8 @@ Function Documentation\par
 {\b 
 void handle_command_line_args (int argc, char ** argv)}}
 \par
-{\bkmkstart AAAAAAAAGJ}
-{\bkmkend AAAAAAAAGJ}
+{\bkmkstart AAAAAAAAGL}
+{\bkmkend AAAAAAAAGL}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7954,8 +8005,8 @@ Definition at line {\b 44} of file {\b options.c}.}\par
 {\b 
 void print_out_list_of_command_line_arguments (void ){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAGK}
-{\bkmkend AAAAAAAAGK}
+{\bkmkstart AAAAAAAAGM}
+{\bkmkend AAAAAAAAGM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7971,8 +8022,8 @@ Definition at line {\b 95} of file {\b options.c}.}\par
 {\b 
 void process_flag (char * f){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAGL}
-{\bkmkend AAAAAAAAGL}
+{\bkmkstart AAAAAAAAGN}
+{\bkmkend AAAAAAAAGN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -7992,8 +8043,8 @@ Variable Documentation\par
 {\b 
 char* CURRENT_DISK_NAME = NULL}}
 \par
-{\bkmkstart AAAAAAAAGM}
-{\bkmkend AAAAAAAAGM}
+{\bkmkstart AAAAAAAAGO}
+{\bkmkend AAAAAAAAGO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8014,8 +8065,8 @@ Definition at line {\b 33} of file {\b options.c}.}\par
 {\b 
 bool OP_BATCH_PROCESS = true}}
 \par
-{\bkmkstart AAAAAAAAGN}
-{\bkmkend AAAAAAAAGN}
+{\bkmkstart AAAAAAAAGP}
+{\bkmkend AAAAAAAAGP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8033,8 +8084,8 @@ Definition at line {\b 23} of file {\b options.c}.}\par
 {\b 
 uint32_t OP_DEBUG_FILE_SIZE_LIMIT = 0xF00000}}
 \par
-{\bkmkstart AAAAAAAAGO}
-{\bkmkend AAAAAAAAGO}
+{\bkmkstart AAAAAAAAGQ}
+{\bkmkend AAAAAAAAGQ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8052,8 +8103,8 @@ Definition at line {\b 30} of file {\b options.c}.}\par
 {\b 
 bool OP_DEBUG_MODE = false}}
 \par
-{\bkmkstart AAAAAAAAGP}
-{\bkmkend AAAAAAAAGP}
+{\bkmkstart AAAAAAAAGR}
+{\bkmkend AAAAAAAAGR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8069,8 +8120,8 @@ Definition at line {\b 26} of file {\b options.c}.}\par
 {\b 
 char* OP_INPUT_DIR = (char *)"dat-files"}}
 \par
-{\bkmkstart AAAAAAAAGQ}
-{\bkmkend AAAAAAAAGQ}
+{\bkmkstart AAAAAAAAGS}
+{\bkmkend AAAAAAAAGS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8088,8 +8139,8 @@ Definition at line {\b 27} of file {\b options.c}.}\par
 {\b 
 char* OP_OUTPUT_DIR = (char *)"output"}}
 \par
-{\bkmkstart AAAAAAAAGR}
-{\bkmkend AAAAAAAAGR}
+{\bkmkstart AAAAAAAAGT}
+{\bkmkend AAAAAAAAGT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8107,8 +8158,8 @@ Definition at line {\b 28} of file {\b options.c}.}\par
 {\b 
 char OP_PATH_SEPARATOR = '/'}}
 \par
-{\bkmkstart AAAAAAAAGS}
-{\bkmkend AAAAAAAAGS}
+{\bkmkstart AAAAAAAAGU}
+{\bkmkend AAAAAAAAGU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8126,8 +8177,8 @@ Definition at line {\b 29} of file {\b options.c}.}\par
 {\b 
 bool OP_SKIP_DAT_PROCESSING = false}}
 \par
-{\bkmkstart AAAAAAAAGT}
-{\bkmkend AAAAAAAAGT}
+{\bkmkstart AAAAAAAAGV}
+{\bkmkend AAAAAAAAGV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8143,8 +8194,8 @@ Definition at line {\b 24} of file {\b options.c}.}\par
 {\b 
 bool OP_SKIP_INT_DAT_PROCESSING = false}}
 \par
-{\bkmkstart AAAAAAAAGU}
-{\bkmkend AAAAAAAAGU}
+{\bkmkstart AAAAAAAAGW}
+{\bkmkend AAAAAAAAGW}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8160,8 +8211,8 @@ Definition at line {\b 25} of file {\b options.c}.}\par
 {\b 
 const char VERSION_NUMBER_STR[9] = "01.00.00"{\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAGV}
-{\bkmkend AAAAAAAAGV}
+{\bkmkstart AAAAAAAAGX}
+{\bkmkend AAAAAAAAGX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8339,8 +8390,8 @@ Go to the documentation of this file.\par
 src/options.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/options.h}
 {\xe \v src/options.h}
-{\bkmkstart AAAAAAAAGW}
-{\bkmkend AAAAAAAAGW}
+{\bkmkstart AAAAAAAAGY}
+{\bkmkend AAAAAAAAGY}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdbool.h>}\par
 {\f2 #include <stdint.h>}\par
@@ -8437,8 +8488,8 @@ Function Documentation\par
 {\b 
 void handle_command_line_args (int argc, char ** argv)}}
 \par
-{\bkmkstart AAAAAAAAGX}
-{\bkmkend AAAAAAAAGX}
+{\bkmkstart AAAAAAAAGZ}
+{\bkmkend AAAAAAAAGZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8462,8 +8513,8 @@ Variable Documentation\par
 {\b 
 char* CURRENT_DISK_NAME{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAGY}
-{\bkmkend AAAAAAAAGY}
+{\bkmkstart AAAAAAAAHA}
+{\bkmkend AAAAAAAAHA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8484,8 +8535,8 @@ Definition at line {\b 33} of file {\b options.c}.}\par
 {\b 
 bool OP_BATCH_PROCESS{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAGZ}
-{\bkmkend AAAAAAAAGZ}
+{\bkmkstart AAAAAAAAHB}
+{\bkmkend AAAAAAAAHB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8503,8 +8554,8 @@ Definition at line {\b 23} of file {\b options.c}.}\par
 {\b 
 uint32_t OP_DEBUG_FILE_SIZE_LIMIT{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAHA}
-{\bkmkend AAAAAAAAHA}
+{\bkmkstart AAAAAAAAHC}
+{\bkmkend AAAAAAAAHC}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8522,8 +8573,8 @@ Definition at line {\b 30} of file {\b options.c}.}\par
 {\b 
 bool OP_DEBUG_MODE{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAHB}
-{\bkmkend AAAAAAAAHB}
+{\bkmkstart AAAAAAAAHD}
+{\bkmkend AAAAAAAAHD}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8539,8 +8590,8 @@ Definition at line {\b 26} of file {\b options.c}.}\par
 {\b 
 char* OP_INPUT_DIR{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAHC}
-{\bkmkend AAAAAAAAHC}
+{\bkmkstart AAAAAAAAHE}
+{\bkmkend AAAAAAAAHE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8558,8 +8609,8 @@ Definition at line {\b 27} of file {\b options.c}.}\par
 {\b 
 char* OP_OUTPUT_DIR{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAHD}
-{\bkmkend AAAAAAAAHD}
+{\bkmkstart AAAAAAAAHF}
+{\bkmkend AAAAAAAAHF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8577,8 +8628,8 @@ Definition at line {\b 28} of file {\b options.c}.}\par
 {\b 
 char OP_PATH_SEPARATOR{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAHE}
-{\bkmkend AAAAAAAAHE}
+{\bkmkstart AAAAAAAAHG}
+{\bkmkend AAAAAAAAHG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8596,8 +8647,8 @@ Definition at line {\b 29} of file {\b options.c}.}\par
 {\b 
 bool OP_SKIP_DAT_PROCESSING{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAHF}
-{\bkmkend AAAAAAAAHF}
+{\bkmkstart AAAAAAAAHH}
+{\bkmkend AAAAAAAAHH}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8613,8 +8664,8 @@ Definition at line {\b 24} of file {\b options.c}.}\par
 {\b 
 bool OP_SKIP_INT_DAT_PROCESSING{\f2 [extern]}}}
 \par
-{\bkmkstart AAAAAAAAHG}
-{\bkmkend AAAAAAAAHG}
+{\bkmkstart AAAAAAAAHI}
+{\bkmkend AAAAAAAAHI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8686,8 +8737,8 @@ Go to the documentation of this file.\par
 src/output.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/output.c}
 {\xe \v src/output.c}
-{\bkmkstart AAAAAAAAHH}
-{\bkmkend AAAAAAAAHH}
+{\bkmkstart AAAAAAAAHJ}
+{\bkmkend AAAAAAAAHJ}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "output.h"}\par
 {\f2 #include "errors.h"}\par
@@ -8729,8 +8780,8 @@ Function Documentation\par
 {\b 
 int8_t create_new_output_directory (const char * path)}}
 \par
-{\bkmkstart AAAAAAAAHI}
-{\bkmkend AAAAAAAAHI}
+{\bkmkstart AAAAAAAAHK}
+{\bkmkend AAAAAAAAHK}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8746,8 +8797,8 @@ Definition at line {\b 46} of file {\b output.c}.}\par
 {\b 
 int8_t create_output_directory (char * path)}}
 \par
-{\bkmkstart AAAAAAAAHJ}
-{\bkmkend AAAAAAAAHJ}
+{\bkmkstart AAAAAAAAHL}
+{\bkmkend AAAAAAAAHL}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8887,8 +8938,8 @@ Go to the documentation of this file.\par
 src/output.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/output.h}
 {\xe \v src/output.h}
-{\bkmkstart AAAAAAAAHK}
-{\bkmkend AAAAAAAAHK}
+{\bkmkstart AAAAAAAAHM}
+{\bkmkend AAAAAAAAHM}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdbool.h>}\par
 {\f2 #include <stdint.h>}\par
@@ -8923,8 +8974,8 @@ Function Documentation\par
 {\b 
 int8_t create_new_output_directory (const char * path)}}
 \par
-{\bkmkstart AAAAAAAAHL}
-{\bkmkend AAAAAAAAHL}
+{\bkmkstart AAAAAAAAHN}
+{\bkmkend AAAAAAAAHN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -8940,8 +8991,8 @@ Definition at line {\b 46} of file {\b output.c}.}\par
 {\b 
 int8_t create_output_directory (char * path)}}
 \par
-{\bkmkstart AAAAAAAAHM}
-{\bkmkend AAAAAAAAHM}
+{\bkmkstart AAAAAAAAHO}
+{\bkmkend AAAAAAAAHO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9006,13 +9057,12 @@ Go to the documentation of this file.\par
 src/path_table.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/path_table.c}
 {\xe \v src/path_table.c}
-{\bkmkstart AAAAAAAAHN}
-{\bkmkend AAAAAAAAHN}
+{\bkmkstart AAAAAAAAHP}
+{\bkmkend AAAAAAAAHP}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "path_table.h"}\par
 {\f2 #include "data_reader.h"}\par
 {\f2 #include "errors.h"}\par
-{\f2 #include "log.h"}\par
 {\f2 #include <stdint.h>}\par
 {\f2 #include <stdio.h>}\par
 {\f2 #include <stdlib.h>}\par
@@ -9092,8 +9142,8 @@ Function Documentation\par
 {\b 
 int8_t add_entry_to_path_table ({\b path_table} * pt, {\b path_table_entry} * entry){\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAHO}
-{\bkmkend AAAAAAAAHO}
+{\bkmkstart AAAAAAAAHQ}
+{\bkmkend AAAAAAAAHQ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9101,7 +9151,7 @@ int8_t add_entry_to_path_table ({\b path_table} * pt, {\b path_table_entry} * en
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Adds a {\f2 {\b path_table_entry}}  to the given {\f2 {\b path_table}} 's list of {\f2 entries} , resizing it as needed. }}\par
 {
-Definition at line {\b 68} of file {\b path_table.c}.}\par
+Definition at line {\b 65} of file {\b path_table.c}.}\par
 }
 {\xe \v create_path_table\:path_table.c}
 {\xe \v path_table.c\:create_path_table}
@@ -9109,8 +9159,8 @@ Definition at line {\b 68} of file {\b path_table.c}.}\par
 {\b 
 int8_t create_path_table ({\b path_table} * pt)}}
 \par
-{\bkmkstart AAAAAAAAHP}
-{\bkmkend AAAAAAAAHP}
+{\bkmkstart AAAAAAAAHR}
+{\bkmkend AAAAAAAAHR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9120,47 +9170,13 @@ Initializes a given {\f2 {\b path_table}} . }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 By default, {\f2 entries}  is given a size of {\f2 PT_STARTING_NUM_ENTRIES} . Note that {\f2 PT_STARTING_NUM_ENTRIES}  is defined in {\f2 {\b path_table.c}} . \par
 }{
-Definition at line {\b 30} of file {\b path_table.c}.}\par
+Definition at line {\b 29} of file {\b path_table.c}.}\par
 }
 {\xe \v destroy_path_table\:path_table.c}
 {\xe \v path_table.c\:destroy_path_table}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
 void destroy_path_table ({\b path_table} * pt)}}
-\par
-{\bkmkstart AAAAAAAAHQ}
-{\bkmkend AAAAAAAAHQ}
-{
-\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-\par
-{
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
-{
-Definition at line {\b 52} of file {\b path_table.c}.}\par
-}
-{\xe \v print_path_table\:path_table.c}
-{\xe \v path_table.c\:print_path_table}
-\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
-{\b 
-void print_path_table ({\b path_table} * pt)}}
-\par
-{\bkmkstart AAAAAAAAHR}
-{\bkmkend AAAAAAAAHR}
-{
-\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-\par
-{
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
-{
-Definition at line {\b 104} of file {\b path_table.c}.}\par
-}
-{\xe \v print_path_table_entry\:path_table.c}
-{\xe \v path_table.c\:print_path_table_entry}
-\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
-{\b 
-void print_path_table_entry ({\b path_table_entry} * e){\f2 [static]}}}
 \par
 {\bkmkstart AAAAAAAAHS}
 {\bkmkend AAAAAAAAHS}
@@ -9169,15 +9185,15 @@ void print_path_table_entry ({\b path_table_entry} * e){\f2 [static]}}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Prints a {\b path_table_entry} to the stdout in a human-readable form. }}\par
+Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
 {
-Definition at line {\b 114} of file {\b path_table.c}.}\par
+Definition at line {\b 49} of file {\b path_table.c}.}\par
 }
-{\xe \v process_type_l_path_table\:path_table.c}
-{\xe \v path_table.c\:process_type_l_path_table}
+{\xe \v print_path_table\:path_table.c}
+{\xe \v path_table.c\:print_path_table}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
+void print_path_table ({\b path_table} * pt)}}
 \par
 {\bkmkstart AAAAAAAAHT}
 {\bkmkend AAAAAAAAHT}
@@ -9186,15 +9202,15 @@ int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }}\par
+Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
 {
-Definition at line {\b 126} of file {\b path_table.c}.}\par
+Definition at line {\b 101} of file {\b path_table.c}.}\par
 }
-{\xe \v resize_path_table_entries\:path_table.c}
-{\xe \v path_table.c\:resize_path_table_entries}
+{\xe \v print_path_table_entry\:path_table.c}
+{\xe \v path_table.c\:print_path_table_entry}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
-int8_t resize_path_table_entries ({\b path_table} * pt){\f2 [static]}}}
+void print_path_table_entry ({\b path_table_entry} * e){\f2 [static]}}}
 \par
 {\bkmkstart AAAAAAAAHU}
 {\bkmkend AAAAAAAAHU}
@@ -9203,9 +9219,43 @@ int8_t resize_path_table_entries ({\b path_table} * pt){\f2 [static]}}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints a {\b path_table_entry} to the stdout in a human-readable form. }}\par
+{
+Definition at line {\b 111} of file {\b path_table.c}.}\par
+}
+{\xe \v process_type_l_path_table\:path_table.c}
+{\xe \v path_table.c\:process_type_l_path_table}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
+\par
+{\bkmkstart AAAAAAAAHV}
+{\bkmkend AAAAAAAAHV}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }}\par
+{
+Definition at line {\b 123} of file {\b path_table.c}.}\par
+}
+{\xe \v resize_path_table_entries\:path_table.c}
+{\xe \v path_table.c\:resize_path_table_entries}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int8_t resize_path_table_entries ({\b path_table} * pt){\f2 [static]}}}
+\par
+{\bkmkstart AAAAAAAAHW}
+{\bkmkend AAAAAAAAHW}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Resizes a given {\f2 path_tables}  list of entries by a factor of {\f2 PT_GROWTH_RATE} . }}\par
 {
-Definition at line {\b 82} of file {\b path_table.c}.}\par
+Definition at line {\b 79} of file {\b path_table.c}.}\par
 }
 {\pard\widctlpar\brdrb\brdrs\brdrw5\brsp20 \adjustright \par}
 \pard\plain \s3\sb240\sa60\keepn\widctlpar\adjustright \b\f1\cgrid 
@@ -9217,13 +9267,13 @@ Variable Documentation\par
 {\b 
 const size_t PT_GROWTH_RATE = 2{\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAHV}
-{\bkmkend AAAAAAAAHV}
+{\bkmkstart AAAAAAAAHX}
+{\bkmkend AAAAAAAAHX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 11} of file {\b path_table.c}.}\par
+Definition at line {\b 10} of file {\b path_table.c}.}\par
 }
 {\xe \v PT_STARTING_NUM_ENTRIES\:path_table.c}
 {\xe \v path_table.c\:PT_STARTING_NUM_ENTRIES}
@@ -9231,13 +9281,13 @@ Definition at line {\b 11} of file {\b path_table.c}.}\par
 {\b 
 const size_t PT_STARTING_NUM_ENTRIES = 10{\f2 [static]}}}
 \par
-{\bkmkstart AAAAAAAAHW}
-{\bkmkend AAAAAAAAHW}
+{\bkmkstart AAAAAAAAHY}
+{\bkmkend AAAAAAAAHY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
 {
-Definition at line {\b 10} of file {\b path_table.c}.}\par
+Definition at line {\b 9} of file {\b path_table.c}.}\par
 }
 \par \pard\plain 
 
@@ -9255,182 +9305,179 @@ Go to the documentation of this file.\par
 \pard\plain \s40\li0\widctlpar\adjustright \shading1000\cbpat8 \f2\fs16\cgrid 00001 {\cf21 #include "path_table.h"}\par
 00002 {\cf21 #include "data_reader.h"}\par
 00003 {\cf21 #include "errors.h"}\par
-00004 {\cf21 #include "log.h"}\par
-00005 \par
-00006 {\cf21 #include <stdint.h>}\par
-00007 {\cf21 #include <stdio.h>}\par
-00008 {\cf21 #include <stdlib.h>}\par
-00009 \par
-00010 {\cf17 static} {\cf17 const} {\cf18 size_t} PT_STARTING_NUM_ENTRIES = 10;\par
-00011 {\cf17 static} {\cf17 const} {\cf18 size_t} PT_GROWTH_RATE = 2;\par
-00012 \par
-00017 {\cf17 static} int8_t resize_path_table_entries (path_table *pt);\par
-00018 \par
-00020 {\cf17 static} {\cf18 void} print_path_table_entry (path_table_entry *e);\par
-00021 \par
-00026 {\cf17 static} int8_t add_entry_to_path_table (path_table *pt,\par
-00027                                        path_table_entry *entry);\par
-00028 \par
-00029 int8_t\par
-00030 create_path_table (path_table *pt)\par
-00031 \{\par
-00032   pt->entries = malloc ({\cf17 sizeof} (path_table_entry) * PT_STARTING_NUM_ENTRIES);\par
-00033   {\cf19 if} (pt->entries == NULL)\par
-00034     \{\par
-00035       hh_log (HH_LOG_ERROR,\par
-00036               {\cf22 "Failed to allocate memory for path table entries."});\par
-00037       {\cf19 return} -1;\par
-00038     \}\par
+00004 \par
+00005 {\cf21 #include <stdint.h>}\par
+00006 {\cf21 #include <stdio.h>}\par
+00007 {\cf21 #include <stdlib.h>}\par
+00008 \par
+00009 {\cf17 static} {\cf17 const} {\cf18 size_t} PT_STARTING_NUM_ENTRIES = 10;\par
+00010 {\cf17 static} {\cf17 const} {\cf18 size_t} PT_GROWTH_RATE = 2;\par
+00011 \par
+00016 {\cf17 static} int8_t resize_path_table_entries (path_table *pt);\par
+00017 \par
+00019 {\cf17 static} {\cf18 void} print_path_table_entry (path_table_entry *e);\par
+00020 \par
+00025 {\cf17 static} int8_t add_entry_to_path_table (path_table *pt,\par
+00026                                        path_table_entry *entry);\par
+00027 \par
+00028 int8_t\par
+00029 create_path_table (path_table *pt)\par
+00030 \{\par
+00031   pt->entries = malloc ({\cf17 sizeof} (path_table_entry) * PT_STARTING_NUM_ENTRIES);\par
+00032   {\cf19 if} (pt->entries == NULL)\par
+00033     \{\par
+00034       {\cf19 return} handle_malloc_error ({\cf22 "path table entries."});\par
+00035     \}\par
+00036 \par
+00037   pt->size = PT_STARTING_NUM_ENTRIES;\par
+00038   pt->current_entry = 0;\par
 00039 \par
-00040   pt->size = PT_STARTING_NUM_ENTRIES;\par
-00041   pt->current_entry = 0;\par
-00042 \par
-00043   {\cf19 for} ({\cf18 size_t} i = 0; i < PT_STARTING_NUM_ENTRIES; i++)\par
-00044     \{\par
-00045       pt->entries[i].directory_identifier = NULL;\par
-00046     \}\par
+00040   {\cf19 for} ({\cf18 size_t} i = 0; i < PT_STARTING_NUM_ENTRIES; i++)\par
+00041     \{\par
+00042       pt->entries[i].directory_identifier = NULL;\par
+00043     \}\par
+00044 \par
+00045   {\cf19 return} 0;\par
+00046 \}\par
 00047 \par
-00048   {\cf19 return} 0;\par
-00049 \}\par
-00050 \par
-00051 {\cf18 void}\par
-00052 destroy_path_table (path_table *pt)\par
-00053 \{\par
-00054   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->size; i++)\par
-00055     \{\par
-00056       {\cf19 if} (pt->entries[i].directory_identifier == NULL)\par
-00057         {\cf19 continue};\par
-00058 \par
-00059       free (pt->entries[i].directory_identifier);\par
-00060       pt->entries[i].directory_identifier = NULL;\par
-00061     \}\par
-00062 \par
-00063   free (pt->entries);\par
-00064   pt->entries = NULL;\par
-00065 \}\par
-00066 \par
-00067 int8_t\par
-00068 add_entry_to_path_table (path_table *pt, path_table_entry *entry)\par
-00069 \{\par
-00070   {\cf19 if} (pt->current_entry >= pt->size)\par
-00071     \{\par
-00072       {\cf19 if} (resize_path_table_entries (pt) != 0)\par
-00073         {\cf19 return} HH_PT_RESIZE_ERROR;\par
-00074     \}\par
-00075 \par
-00076   pt->entries[pt->current_entry] = *entry;\par
-00077   pt->current_entry++;\par
-00078   {\cf19 return} 0;\par
-00079 \}\par
-00080 \par
-00081 int8_t\par
-00082 resize_path_table_entries (path_table *pt)\par
-00083 \{\par
-00084   {\cf18 size_t} new_size = (size_t)(pt->size * PT_GROWTH_RATE);\par
-00085   path_table_entry *new_entries = (path_table_entry *)realloc (\par
-00086       pt->entries, sizeof (path_table_entry) * new_size);\par
-00087   {\cf19 if} (new_entries == NULL)\par
-00088     \{\par
-00089       destroy_path_table (pt);\par
-00090       {\cf19 return} handle_realloc_error ({\cf22 "entries"}, pt->size, new_size);\par
-00091     \}\par
-00092 \par
-00093   pt->entries = new_entries;\par
-00094   {\cf19 for} ({\cf18 size_t} i = pt->size; i < new_size; i++)\par
-00095     \{\par
-00096       pt->entries[i].directory_identifier = NULL;\par
-00097     \}\par
-00098 \par
-00099   pt->size = new_size;\par
-00100   {\cf19 return} 0;\par
-00101 \}\par
-00102 \par
-00103 {\cf18 void}\par
-00104 print_path_table (path_table *pt)\par
-00105 \{\par
-00106   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->current_entry; i++)\par
-00107     \{\par
-00108       printf ({\cf22 "Entry %zu:\\n"}, i + 1);\par
-00109       print_path_table_entry (&pt->entries[i]);\par
-00110     \}\par
-00111 \}\par
-00112 \par
-00113 {\cf18 void}\par
-00114 print_path_table_entry (path_table_entry *e)\par
-00115 \{\par
-00116   printf ({\cf22 "\\tDirectory identifier length: %02X\\n"},\par
-00117           e->directory_identifier_length);\par
-00118   printf ({\cf22 "\\tExtended attribute record length: %02X\\n"},\par
-00119           e->extended_attribute_record_length);\par
-00120   printf ({\cf22 "\\tLocation of extant: %08X\\n"}, e->location_of_extent);\par
-00121   printf ({\cf22 "\\tParent directory number: %04X\\n"}, e->parent_directory_number);\par
-00122   printf ({\cf22 "\\tDirectory identifier: %s\\n"}, e->directory_identifier);\par
-00123 \}\par
-00124 \par
-00125 int8_t\par
-00126 process_type_l_path_table (FILE *fptr, path_table *pt)\par
-00127 \{\par
-00128   uint8_t dir_identifier_length;\par
-00129   {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
-00130     {\cf19 return} HH_FREAD_ERROR;\par
-00131 \par
-00132   {\cf19 do}\par
-00133     \{\par
-00134       path_table_entry curr;\par
-00135       curr.directory_identifier_length = dir_identifier_length;\par
+00048 {\cf18 void}\par
+00049 destroy_path_table (path_table *pt)\par
+00050 \{\par
+00051   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->size; i++)\par
+00052     \{\par
+00053       {\cf19 if} (pt->entries[i].directory_identifier == NULL)\par
+00054         {\cf19 continue};\par
+00055 \par
+00056       free (pt->entries[i].directory_identifier);\par
+00057       pt->entries[i].directory_identifier = NULL;\par
+00058     \}\par
+00059 \par
+00060   free (pt->entries);\par
+00061   pt->entries = NULL;\par
+00062 \}\par
+00063 \par
+00064 int8_t\par
+00065 add_entry_to_path_table (path_table *pt, path_table_entry *entry)\par
+00066 \{\par
+00067   {\cf19 if} (pt->current_entry >= pt->size)\par
+00068     \{\par
+00069       {\cf19 if} (resize_path_table_entries (pt) != 0)\par
+00070         {\cf19 return} HH_PT_RESIZE_ERROR;\par
+00071     \}\par
+00072 \par
+00073   pt->entries[pt->current_entry] = *entry;\par
+00074   pt->current_entry++;\par
+00075   {\cf19 return} 0;\par
+00076 \}\par
+00077 \par
+00078 int8_t\par
+00079 resize_path_table_entries (path_table *pt)\par
+00080 \{\par
+00081   {\cf18 size_t} new_size = (size_t)(pt->size * PT_GROWTH_RATE);\par
+00082   path_table_entry *new_entries = (path_table_entry *)realloc (\par
+00083       pt->entries, sizeof (path_table_entry) * new_size);\par
+00084   {\cf19 if} (new_entries == NULL)\par
+00085     \{\par
+00086       destroy_path_table (pt);\par
+00087       {\cf19 return} handle_realloc_error ({\cf22 "entries"}, pt->size, new_size);\par
+00088     \}\par
+00089 \par
+00090   pt->entries = new_entries;\par
+00091   {\cf19 for} ({\cf18 size_t} i = pt->size; i < new_size; i++)\par
+00092     \{\par
+00093       pt->entries[i].directory_identifier = NULL;\par
+00094     \}\par
+00095 \par
+00096   pt->size = new_size;\par
+00097   {\cf19 return} 0;\par
+00098 \}\par
+00099 \par
+00100 {\cf18 void}\par
+00101 print_path_table (path_table *pt)\par
+00102 \{\par
+00103   {\cf19 for} ({\cf18 size_t} i = 0; i < pt->current_entry; i++)\par
+00104     \{\par
+00105       printf ({\cf22 "Entry %zu:\\n"}, i + 1);\par
+00106       print_path_table_entry (&pt->entries[i]);\par
+00107     \}\par
+00108 \}\par
+00109 \par
+00110 {\cf18 void}\par
+00111 print_path_table_entry (path_table_entry *e)\par
+00112 \{\par
+00113   printf ({\cf22 "\\tDirectory identifier length: %02X\\n"},\par
+00114           e->directory_identifier_length);\par
+00115   printf ({\cf22 "\\tExtended attribute record length: %02X\\n"},\par
+00116           e->extended_attribute_record_length);\par
+00117   printf ({\cf22 "\\tLocation of extant: %08X\\n"}, e->location_of_extent);\par
+00118   printf ({\cf22 "\\tParent directory number: %04X\\n"}, e->parent_directory_number);\par
+00119   printf ({\cf22 "\\tDirectory identifier: %s\\n"}, e->directory_identifier);\par
+00120 \}\par
+00121 \par
+00122 int8_t\par
+00123 process_type_l_path_table (FILE *fptr, path_table *pt)\par
+00124 \{\par
+00125   uint8_t dir_identifier_length;\par
+00126   {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
+00127     {\cf19 return} HH_FREAD_ERROR;\par
+00128 \par
+00129   {\cf19 do}\par
+00130     \{\par
+00131       path_table_entry curr;\par
+00132       curr.directory_identifier_length = dir_identifier_length;\par
+00133 \par
+00134       {\cf19 if} (curr.directory_identifier_length != 1)\par
+00135         curr.directory_identifier_length += 1;\par
 00136 \par
-00137       {\cf19 if} (curr.directory_identifier_length != 1)\par
-00138         curr.directory_identifier_length += 1;\par
-00139 \par
-00140       {\cf20 /* clang-format off */}\par
-00141       {\cf19 if} ((read_single_uint8 (fptr, &curr.extended_attribute_record_length) != 0)\par
-00142           || (read_little_endian_data_uint32_t (fptr, &curr.location_of_extent) != 0)\par
-00143           || (read_little_endian_data_uint16_t (fptr, &curr.parent_directory_number)) != 0)\par
-00144         \{\par
-00145           {\cf19 return} HH_FREAD_ERROR;\par
-00146         \}\par
-00147       {\cf20 /* clang-format on */}\par
+00137       {\cf20 /* clang-format off */}\par
+00138       {\cf19 if} ((read_single_uint8 (fptr, &curr.extended_attribute_record_length) != 0)\par
+00139           || (read_little_endian_data_uint32_t (fptr, &curr.location_of_extent) != 0)\par
+00140           || (read_little_endian_data_uint16_t (fptr, &curr.parent_directory_number)) != 0)\par
+00141         \{\par
+00142           {\cf19 return} HH_FREAD_ERROR;\par
+00143         \}\par
+00144       {\cf20 /* clang-format on */}\par
+00145 \par
+00146       curr.directory_identifier\par
+00147           = ({\cf18 char} *)calloc (curr.directory_identifier_length, sizeof ({\cf18 char}));\par
 00148 \par
-00149       curr.directory_identifier\par
-00150           = ({\cf18 char} *)calloc (curr.directory_identifier_length, sizeof ({\cf18 char}));\par
-00151 \par
-00152       {\cf19 if} (curr.directory_identifier_length != 1)\par
-00153         \{\par
-00154           {\cf18 size_t} bytes_read\par
-00155               = fread (curr.directory_identifier, sizeof ({\cf18 char}),\par
-00156                        curr.directory_identifier_length - 1, fptr);\par
-00157           curr.directory_identifier[curr.directory_identifier_length - 1]\par
-00158               = {\cf23 '\\0'};\par
-00159           {\cf19 if} (bytes_read\par
-00160               != {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1))\par
-00161             \{\par
-00162               handle_fread_error (\par
-00163                   bytes_read,\par
-00164                   {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1));\par
-00165               {\cf19 return} HH_FREAD_ERROR;\par
-00166             \}\par
-00167         \}\par
-00168       {\cf19 else}\par
-00169         \{\par
-00170           fseek (fptr, 1, SEEK_CUR);\par
-00171         \}\par
+00149       {\cf19 if} (curr.directory_identifier_length != 1)\par
+00150         \{\par
+00151           {\cf18 size_t} bytes_read\par
+00152               = fread (curr.directory_identifier, sizeof ({\cf18 char}),\par
+00153                        curr.directory_identifier_length - 1, fptr);\par
+00154           curr.directory_identifier[curr.directory_identifier_length - 1]\par
+00155               = {\cf23 '\\0'};\par
+00156           {\cf19 if} (bytes_read\par
+00157               != {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1))\par
+00158             \{\par
+00159               handle_fread_error (\par
+00160                   bytes_read,\par
+00161                   {\cf17 sizeof} ({\cf18 char}) * (curr.directory_identifier_length - 1));\par
+00162               {\cf19 return} HH_FREAD_ERROR;\par
+00163             \}\par
+00164         \}\par
+00165       {\cf19 else}\par
+00166         \{\par
+00167           fseek (fptr, 1, SEEK_CUR);\par
+00168         \}\par
+00169 \par
+00170       {\cf19 if} (add_entry_to_path_table (pt, &curr) != 0)\par
+00171         {\cf19 return} HH_PT_RESIZE_ERROR;\par
 00172 \par
-00173       {\cf19 if} (add_entry_to_path_table (pt, &curr) != 0)\par
-00174         {\cf19 return} HH_PT_RESIZE_ERROR;\par
+00173       {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
+00174         {\cf19 return} HH_FREAD_ERROR;\par
 00175 \par
-00176       {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
-00177         {\cf19 return} HH_FREAD_ERROR;\par
-00178 \par
-00179       {\cf19 if} (dir_identifier_length == 0) {\cf20 // handle padding field}\par
-00180         \{\par
-00181           {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
-00182             {\cf19 return} HH_FREAD_ERROR;\par
-00183         \}\par
-00184     \}\par
-00185   {\cf19 while} (dir_identifier_length != 0);\par
-00186 \par
-00187   {\cf19 return} 0;\par
-00188 \}\par
+00176       {\cf19 if} (dir_identifier_length == 0) {\cf20 // handle padding field}\par
+00177         \{\par
+00178           {\cf19 if} (read_single_uint8 (fptr, &dir_identifier_length) != 0)\par
+00179             {\cf19 return} HH_FREAD_ERROR;\par
+00180         \}\par
+00181     \}\par
+00182   {\cf19 while} (dir_identifier_length != 0);\par
+00183 \par
+00184   {\cf19 return} 0;\par
+00185 \}\par
 }
 \par \pard\plain 
 
@@ -9440,8 +9487,8 @@ Go to the documentation of this file.\par
 src/path_table.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/path_table.h}
 {\xe \v src/path_table.h}
-{\bkmkstart AAAAAAAAHX}
-{\bkmkend AAAAAAAAHX}
+{\bkmkstart AAAAAAAAHZ}
+{\bkmkend AAAAAAAAHZ}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include <stdint.h>}\par
 {\f2 #include <stdio.h>}\par
@@ -9504,8 +9551,8 @@ Function Documentation\par
 {\b 
 int8_t create_path_table ({\b path_table} * pt)}}
 \par
-{\bkmkstart AAAAAAAAHY}
-{\bkmkend AAAAAAAAHY}
+{\bkmkstart AAAAAAAAIA}
+{\bkmkend AAAAAAAAIA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9515,47 +9562,13 @@ Initializes a given {\f2 {\b path_table}} . }}\par
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 By default, {\f2 entries}  is given a size of {\f2 PT_STARTING_NUM_ENTRIES} . Note that {\f2 PT_STARTING_NUM_ENTRIES}  is defined in {\f2 {\b path_table.c}} . \par
 }{
-Definition at line {\b 30} of file {\b path_table.c}.}\par
+Definition at line {\b 29} of file {\b path_table.c}.}\par
 }
 {\xe \v destroy_path_table\:path_table.h}
 {\xe \v path_table.h\:destroy_path_table}
 \pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
 {\b 
 void destroy_path_table ({\b path_table} * pt)}}
-\par
-{\bkmkstart AAAAAAAAHZ}
-{\bkmkend AAAAAAAAHZ}
-{
-\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-\par
-{
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
-{
-Definition at line {\b 52} of file {\b path_table.c}.}\par
-}
-{\xe \v print_path_table\:path_table.h}
-{\xe \v path_table.h\:print_path_table}
-\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
-{\b 
-void print_path_table ({\b path_table} * pt)}}
-\par
-{\bkmkstart AAAAAAAAIA}
-{\bkmkend AAAAAAAAIA}
-{
-\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
-\par
-{
-{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
-Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
-{
-Definition at line {\b 104} of file {\b path_table.c}.}\par
-}
-{\xe \v process_type_l_path_table\:path_table.h}
-{\xe \v path_table.h\:process_type_l_path_table}
-\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
-{\b 
-int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
 \par
 {\bkmkstart AAAAAAAAIB}
 {\bkmkend AAAAAAAAIB}
@@ -9564,9 +9577,43 @@ int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
 \par
 {
 {\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Destroys the given {\f2 {\b path_table}} , freeing any and all memory alloc'd for {\f2 entries} . }}\par
+{
+Definition at line {\b 49} of file {\b path_table.c}.}\par
+}
+{\xe \v print_path_table\:path_table.h}
+{\xe \v path_table.h\:print_path_table}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+void print_path_table ({\b path_table} * pt)}}
+\par
+{\bkmkstart AAAAAAAAIC}
+{\bkmkend AAAAAAAAIC}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
+Prints the given path table out to the stdout, formatting it into a human-readible form. }}\par
+{
+Definition at line {\b 101} of file {\b path_table.c}.}\par
+}
+{\xe \v process_type_l_path_table\:path_table.h}
+{\xe \v path_table.h\:process_type_l_path_table}
+\pard\plain \s4\sb240\sa60\keepn\widctlpar\adjustright \b\f1\fs20\cgrid {
+{\b 
+int8_t process_type_l_path_table (FILE * fptr, {\b path_table} * pt)}}
+\par
+{\bkmkstart AAAAAAAAID}
+{\bkmkend AAAAAAAAID}
+{
+\pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
+\par
+{
+{\s17\sa60\sb30\widctlpar\qj \fs22\cgrid 
 Processes the given {\f2 {\b path_table}}  as a Type-L {\f2 {\b path_table}} , using the data pointed to by {\f2 fptr} . }}\par
 {
-Definition at line {\b 126} of file {\b path_table.c}.}\par
+Definition at line {\b 123} of file {\b path_table.c}.}\par
 }
 \par \pard\plain 
 
@@ -9634,8 +9681,8 @@ Go to the documentation of this file.\par
 src/utils.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/utils.c}
 {\xe \v src/utils.c}
-{\bkmkstart AAAAAAAAIC}
-{\bkmkend AAAAAAAAIC}
+{\bkmkstart AAAAAAAAIE}
+{\bkmkend AAAAAAAAIE}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "utils.h"}\par
 {\f2 #include "data_reader.h"}\par
@@ -9720,8 +9767,8 @@ Function Documentation\par
 {\b 
 uint16_t change_endianness_uint16 (uint16_t value)}}
 \par
-{\bkmkstart AAAAAAAAID}
-{\bkmkend AAAAAAAAID}
+{\bkmkstart AAAAAAAAIF}
+{\bkmkend AAAAAAAAIF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9739,8 +9786,8 @@ Definition at line {\b 144} of file {\b utils.c}.}\par
 {\b 
 bool directory_exists (const char * dir)}}
 \par
-{\bkmkstart AAAAAAAAIE}
-{\bkmkend AAAAAAAAIE}
+{\bkmkstart AAAAAAAAIG}
+{\bkmkend AAAAAAAAIG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9758,8 +9805,8 @@ Definition at line {\b 92} of file {\b utils.c}.}\par
 {\b 
 bool file_exists (const char * filename)}}
 \par
-{\bkmkstart AAAAAAAAIF}
-{\bkmkend AAAAAAAAIF}
+{\bkmkstart AAAAAAAAIH}
+{\bkmkend AAAAAAAAIH}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9777,8 +9824,8 @@ Definition at line {\b 104} of file {\b utils.c}.}\par
 {\b 
 bool is_string_dat_file (char * str)}}
 \par
-{\bkmkstart AAAAAAAAIG}
-{\bkmkend AAAAAAAAIG}
+{\bkmkstart AAAAAAAAII}
+{\bkmkend AAAAAAAAII}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9794,8 +9841,8 @@ Definition at line {\b 81} of file {\b utils.c}.}\par
 {\b 
 bool peek_char_is (FILE * fptr, uint8_t expected_ch)}}
 \par
-{\bkmkstart AAAAAAAAIH}
-{\bkmkend AAAAAAAAIH}
+{\bkmkstart AAAAAAAAIJ}
+{\bkmkend AAAAAAAAIJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9813,8 +9860,8 @@ Definition at line {\b 117} of file {\b utils.c}.}\par
 {\b 
 bool peek_eof (FILE * fptr)}}
 \par
-{\bkmkstart AAAAAAAAII}
-{\bkmkend AAAAAAAAII}
+{\bkmkstart AAAAAAAAIK}
+{\bkmkend AAAAAAAAIK}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9833,8 +9880,8 @@ Definition at line {\b 135} of file {\b utils.c}.}\par
 {\b 
 int8_t prepend_path_string (char * str, const char * prefix)}}
 \par
-{\bkmkstart AAAAAAAAIJ}
-{\bkmkend AAAAAAAAIJ}
+{\bkmkstart AAAAAAAAIL}
+{\bkmkend AAAAAAAAIL}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -9850,8 +9897,8 @@ Definition at line {\b 33} of file {\b utils.c}.}\par
 {\b 
 void prepend_string (char * str, const char * prefix)}}
 \par
-{\bkmkstart AAAAAAAAIK}
-{\bkmkend AAAAAAAAIK}
+{\bkmkstart AAAAAAAAIM}
+{\bkmkend AAAAAAAAIM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10028,8 +10075,8 @@ Go to the documentation of this file.\par
 src/utils.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/utils.h}
 {\xe \v src/utils.h}
-{\bkmkstart AAAAAAAAIL}
-{\bkmkend AAAAAAAAIL}
+{\bkmkstart AAAAAAAAIN}
+{\bkmkend AAAAAAAAIN}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "file_flags.h"}\par
 {\f2 #include <stdbool.h>}\par
@@ -10108,8 +10155,8 @@ Function Documentation\par
 {\b 
 uint16_t change_endianness_uint16 (uint16_t value)}}
 \par
-{\bkmkstart AAAAAAAAIM}
-{\bkmkend AAAAAAAAIM}
+{\bkmkstart AAAAAAAAIO}
+{\bkmkend AAAAAAAAIO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10127,8 +10174,8 @@ Definition at line {\b 144} of file {\b utils.c}.}\par
 {\b 
 bool directory_exists (const char * dir)}}
 \par
-{\bkmkstart AAAAAAAAIN}
-{\bkmkend AAAAAAAAIN}
+{\bkmkstart AAAAAAAAIP}
+{\bkmkend AAAAAAAAIP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10146,8 +10193,8 @@ Definition at line {\b 92} of file {\b utils.c}.}\par
 {\b 
 bool file_exists (const char * filename)}}
 \par
-{\bkmkstart AAAAAAAAIO}
-{\bkmkend AAAAAAAAIO}
+{\bkmkstart AAAAAAAAIQ}
+{\bkmkend AAAAAAAAIQ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10165,8 +10212,8 @@ Definition at line {\b 104} of file {\b utils.c}.}\par
 {\b 
 bool is_string_dat_file (char * str)}}
 \par
-{\bkmkstart AAAAAAAAIP}
-{\bkmkend AAAAAAAAIP}
+{\bkmkstart AAAAAAAAIR}
+{\bkmkend AAAAAAAAIR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10182,8 +10229,8 @@ Definition at line {\b 81} of file {\b utils.c}.}\par
 {\b 
 bool peek_char_is (FILE * fptr, uint8_t expected_ch)}}
 \par
-{\bkmkstart AAAAAAAAIQ}
-{\bkmkend AAAAAAAAIQ}
+{\bkmkstart AAAAAAAAIS}
+{\bkmkend AAAAAAAAIS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10201,8 +10248,8 @@ Definition at line {\b 117} of file {\b utils.c}.}\par
 {\b 
 bool peek_eof (FILE * fptr)}}
 \par
-{\bkmkstart AAAAAAAAIR}
-{\bkmkend AAAAAAAAIR}
+{\bkmkstart AAAAAAAAIT}
+{\bkmkend AAAAAAAAIT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10221,8 +10268,8 @@ Definition at line {\b 135} of file {\b utils.c}.}\par
 {\b 
 int8_t prepend_path_string (char * str, const char * prefix)}}
 \par
-{\bkmkstart AAAAAAAAIS}
-{\bkmkend AAAAAAAAIS}
+{\bkmkstart AAAAAAAAIU}
+{\bkmkend AAAAAAAAIU}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10238,8 +10285,8 @@ Definition at line {\b 33} of file {\b utils.c}.}\par
 {\b 
 void prepend_string (char * str, const char * prefix)}}
 \par
-{\bkmkstart AAAAAAAAIT}
-{\bkmkend AAAAAAAAIT}
+{\bkmkstart AAAAAAAAIV}
+{\bkmkend AAAAAAAAIV}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10310,8 +10357,8 @@ Go to the documentation of this file.\par
 src/volume_descriptor.c File Reference\par \pard\plain 
 {\tc\tcl2 \v src/volume_descriptor.c}
 {\xe \v src/volume_descriptor.c}
-{\bkmkstart AAAAAAAAIU}
-{\bkmkend AAAAAAAAIU}
+{\bkmkstart AAAAAAAAIW}
+{\bkmkend AAAAAAAAIW}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "volume_descriptor.h"}\par
 {\f2 #include "data_reader.h"}\par
@@ -10370,8 +10417,8 @@ Function Documentation\par
 {\b 
 void create_volume_descriptor ({\b volume_descriptor} * vd, uint8_t type_code, uint8_t version)}}
 \par
-{\bkmkstart AAAAAAAAIV}
-{\bkmkend AAAAAAAAIV}
+{\bkmkstart AAAAAAAAIX}
+{\bkmkend AAAAAAAAIX}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10387,8 +10434,8 @@ Definition at line {\b 22} of file {\b volume_descriptor.c}.}\par
 {\b 
 void print_volume_descriptor_data ({\b volume_descriptor_data} * vdd)}}
 \par
-{\bkmkstart AAAAAAAAIW}
-{\bkmkend AAAAAAAAIW}
+{\bkmkstart AAAAAAAAIY}
+{\bkmkend AAAAAAAAIY}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10404,8 +10451,8 @@ Definition at line {\b 40} of file {\b volume_descriptor.c}.}\par
 {\b 
 void print_volume_descriptor_header ({\b volume_descriptor} * vd)}}
 \par
-{\bkmkstart AAAAAAAAIX}
-{\bkmkend AAAAAAAAIX}
+{\bkmkstart AAAAAAAAIZ}
+{\bkmkend AAAAAAAAIZ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10423,8 +10470,8 @@ Definition at line {\b 32} of file {\b volume_descriptor.c}.}\par
 {\b 
 int8_t process_volume_descriptor_data (FILE * fptr, {\b volume_descriptor_data} * vdd)}}
 \par
-{\bkmkstart AAAAAAAAIY}
-{\bkmkend AAAAAAAAIY}
+{\bkmkstart AAAAAAAAJA}
+{\bkmkend AAAAAAAAJA}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10440,8 +10487,8 @@ Definition at line {\b 99} of file {\b volume_descriptor.c}.}\par
 {\b 
 int8_t process_volume_descriptor_header (FILE * fptr, {\b volume_descriptor} * vd)}}
 \par
-{\bkmkstart AAAAAAAAIZ}
-{\bkmkend AAAAAAAAIZ}
+{\bkmkstart AAAAAAAAJB}
+{\bkmkend AAAAAAAAJB}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10665,8 +10712,8 @@ Go to the documentation of this file.\par
 src/volume_descriptor.h File Reference\par \pard\plain 
 {\tc\tcl2 \v src/volume_descriptor.h}
 {\xe \v src/volume_descriptor.h}
-{\bkmkstart AAAAAAAAJA}
-{\bkmkend AAAAAAAAJA}
+{\bkmkstart AAAAAAAAJC}
+{\bkmkend AAAAAAAAJC}
 {
 \pard\plain \s18\widctlpar\fs22\cgrid {\f2 #include "datetime.h"}\par
 {\f2 #include <stdint.h>}\par
@@ -10772,8 +10819,8 @@ Macro Definition Documentation\par
 {\b 
 #define ABSTRACT_FILE_IDENTIFIER_LEN\~ 38}}
 \par
-{\bkmkstart AAAAAAAAJB}
-{\bkmkend AAAAAAAAJB}
+{\bkmkstart AAAAAAAAJD}
+{\bkmkend AAAAAAAAJD}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10786,8 +10833,8 @@ Definition at line {\b 34} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define APPLICATION_IDENTIFIER_LEN\~ 129}}
 \par
-{\bkmkstart AAAAAAAAJC}
-{\bkmkend AAAAAAAAJC}
+{\bkmkstart AAAAAAAAJE}
+{\bkmkend AAAAAAAAJE}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10800,8 +10847,8 @@ Definition at line {\b 32} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define BIBLIOGRAPHIC_FILE_IDENTIFIER_LEN\~ 38}}
 \par
-{\bkmkstart AAAAAAAAJD}
-{\bkmkend AAAAAAAAJD}
+{\bkmkstart AAAAAAAAJF}
+{\bkmkend AAAAAAAAJF}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10814,8 +10861,8 @@ Definition at line {\b 35} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define COPYRIGHT_FILE_IDENTIFIER_LEN\~ 38}}
 \par
-{\bkmkstart AAAAAAAAJE}
-{\bkmkend AAAAAAAAJE}
+{\bkmkstart AAAAAAAAJG}
+{\bkmkend AAAAAAAAJG}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10828,8 +10875,8 @@ Definition at line {\b 33} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define DAT_FILE_CREATION_SOFTWARE_IDENTIFIER_LEN\~ 9}}
 \par
-{\bkmkstart AAAAAAAAJF}
-{\bkmkend AAAAAAAAJF}
+{\bkmkstart AAAAAAAAJH}
+{\bkmkend AAAAAAAAJH}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10842,8 +10889,8 @@ Definition at line {\b 36} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define DAT_FILE_CREATION_SOFTWARE_VERSION_NUMBER_LEN\~ 11}}
 \par
-{\bkmkstart AAAAAAAAJG}
-{\bkmkend AAAAAAAAJG}
+{\bkmkstart AAAAAAAAJI}
+{\bkmkend AAAAAAAAJI}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10856,8 +10903,8 @@ Definition at line {\b 37} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define DATA_PREPARER_IDENTIFIER_LEN\~ 129}}
 \par
-{\bkmkstart AAAAAAAAJH}
-{\bkmkend AAAAAAAAJH}
+{\bkmkstart AAAAAAAAJJ}
+{\bkmkend AAAAAAAAJJ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10870,8 +10917,8 @@ Definition at line {\b 31} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define PUBLISHER_IDENTIFIER_LEN\~ 129}}
 \par
-{\bkmkstart AAAAAAAAJI}
-{\bkmkend AAAAAAAAJI}
+{\bkmkstart AAAAAAAAJK}
+{\bkmkend AAAAAAAAJK}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10884,8 +10931,8 @@ Definition at line {\b 30} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define ROOT_DIRECTORY_ENTRY_LEN\~ 34}}
 \par
-{\bkmkstart AAAAAAAAJJ}
-{\bkmkend AAAAAAAAJJ}
+{\bkmkstart AAAAAAAAJL}
+{\bkmkend AAAAAAAAJL}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10898,8 +10945,8 @@ Definition at line {\b 28} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define SYSTEM_IDENTIFIER_LEN\~ 33}}
 \par
-{\bkmkstart AAAAAAAAJK}
-{\bkmkend AAAAAAAAJK}
+{\bkmkstart AAAAAAAAJM}
+{\bkmkend AAAAAAAAJM}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10915,8 +10962,8 @@ Definition at line {\b 26} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define VOLUME_IDENTIFIER_LEN\~ 33}}
 \par
-{\bkmkstart AAAAAAAAJL}
-{\bkmkend AAAAAAAAJL}
+{\bkmkstart AAAAAAAAJN}
+{\bkmkend AAAAAAAAJN}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10929,8 +10976,8 @@ Definition at line {\b 27} of file {\b volume_descriptor.h}.}\par
 {\b 
 #define VOLUME_SET_IDENTIFIER_LEN\~ 129}}
 \par
-{\bkmkstart AAAAAAAAJM}
-{\bkmkend AAAAAAAAJM}
+{\bkmkstart AAAAAAAAJO}
+{\bkmkend AAAAAAAAJO}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10947,8 +10994,8 @@ Function Documentation\par
 {\b 
 void create_volume_descriptor ({\b volume_descriptor} * vd, uint8_t type, uint8_t version)}}
 \par
-{\bkmkstart AAAAAAAAJN}
-{\bkmkend AAAAAAAAJN}
+{\bkmkstart AAAAAAAAJP}
+{\bkmkend AAAAAAAAJP}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10964,8 +11011,8 @@ Definition at line {\b 22} of file {\b volume_descriptor.c}.}\par
 {\b 
 void print_volume_descriptor_data ({\b volume_descriptor_data} * vdd)}}
 \par
-{\bkmkstart AAAAAAAAJO}
-{\bkmkend AAAAAAAAJO}
+{\bkmkstart AAAAAAAAJQ}
+{\bkmkend AAAAAAAAJQ}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -10981,8 +11028,8 @@ Definition at line {\b 40} of file {\b volume_descriptor.c}.}\par
 {\b 
 void print_volume_descriptor_header ({\b volume_descriptor} * vd)}}
 \par
-{\bkmkstart AAAAAAAAJP}
-{\bkmkend AAAAAAAAJP}
+{\bkmkstart AAAAAAAAJR}
+{\bkmkend AAAAAAAAJR}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -11000,8 +11047,8 @@ Definition at line {\b 32} of file {\b volume_descriptor.c}.}\par
 {\b 
 int8_t process_volume_descriptor_data (FILE * fptr, {\b volume_descriptor_data} * vdd)}}
 \par
-{\bkmkstart AAAAAAAAJQ}
-{\bkmkend AAAAAAAAJQ}
+{\bkmkstart AAAAAAAAJS}
+{\bkmkend AAAAAAAAJS}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par
@@ -11017,8 +11064,8 @@ Definition at line {\b 99} of file {\b volume_descriptor.c}.}\par
 {\b 
 int8_t process_volume_descriptor_header (FILE * fptr, {\b volume_descriptor} * vd)}}
 \par
-{\bkmkstart AAAAAAAAJR}
-{\bkmkend AAAAAAAAJR}
+{\bkmkstart AAAAAAAAJT}
+{\bkmkend AAAAAAAAJT}
 {
 \pard\plain \s61\li360\sa60\sb30\qj\widctlpar\qj\adjustright \fs20\cgrid 
 \par

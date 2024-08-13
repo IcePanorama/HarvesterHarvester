@@ -45,6 +45,9 @@ HH_ERRORS handle_calloc_error (size_t size);
 HH_ERRORS handle_realloc_error (const char *arr_name, size_t old_size,
                                 size_t new_size);
 
+/** Throws an malloc error. */
+HH_ERRORS handle_malloc_error (const char *obj_name);
+
 /** Throws an unknown command line argument error. */
 void handle_unknown_command_line_argument_error (char *arg);
 

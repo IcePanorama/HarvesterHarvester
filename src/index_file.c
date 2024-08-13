@@ -36,9 +36,7 @@ create_index_file (index_file *i)
   i->indicies = malloc (IDX_STARTING_NUM_INDICIES * sizeof (index_entry));
   if (i->indicies == NULL)
     {
-      hh_log (HH_LOG_ERROR,
-              "Failed to allocate memory for index file indicies.");
-      return -1;
+      return handle_malloc_error ("index file indicies.");
     }
 
   i->size = IDX_STARTING_NUM_INDICIES;
