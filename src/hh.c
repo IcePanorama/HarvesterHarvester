@@ -35,40 +35,8 @@
 #include <dirent.h>
 #endif
 
-int
-main (int argc, char **argv)
-{
-  FILE *fptr = NULL;
-
-  if (argc >= 2)
-    handle_command_line_args (argc, argv);
-
-  if (OP_BATCH_PROCESS && !OP_SKIP_DAT_PROCESSING)
-    {
-      if (batch_process_DAT_files () != 0)
-        exit (1);
-    }
-  else if (!OP_SKIP_DAT_PROCESSING)
-    {
-      if (setup_extractor (&fptr, argv[argc - 1]) != 0)
-        exit (1);
-
-      if (process_DAT_file (fptr) != 0)
-        exit (1);
-
-      fclose (fptr);
-    }
-
-  if (!OP_SKIP_INT_DAT_PROCESSING && process_internal_dat_files () != 0)
-    {
-      exit (1);
-    }
-
-  return 0;
-}
-
 int8_t
-setup_extractor (FILE **fptr, char *filename)
+hh_setup_extractor (FILE **fptr, char *filename)
 {
   *fptr = fopen (filename, "rb");
   if (*fptr == NULL)
@@ -91,7 +59,7 @@ setup_extractor (FILE **fptr, char *filename)
 }
 
 int8_t
-process_DAT_file (FILE *fptr)
+hh_process_DAT_file (FILE *fptr)
 {
   /*
    * First 32k (up to 0x8000) stores the `system area` of the disk.
@@ -177,12 +145,13 @@ process_DAT_file (FILE *fptr)
 }
 
 int8_t
-batch_process_DAT_files ()
+hh_batch_process_DAT_files (void)
 {
   const char *OPEN_INPUT_DIR_ERR_MSG_FMT
-      = "[HarvesterHarvester]ERROR: Error opening input directory, %s.";
+      = "ERROR: Error opening input directory, %s.";
   const uint8_t DAT_FILENAME_LEN = strlen ("HARVESTX.DAT");
   char *filename;
+  int8_t file_count = 0;
 
 #ifdef _WIN32
   WIN32_FIND_DATAA file_data;
@@ -200,6 +169,7 @@ batch_process_DAT_files ()
 
   do
     {
+      file_count++;
       if (strcmp (file_data.cFileName, ".") == 0
           || strcmp (file_data.cFileName, "..") == 0
           || !is_string_dat_file (file_data.cFileName))
@@ -220,14 +190,14 @@ batch_process_DAT_files ()
       strcat (filename, file_data.cFileName);
 
       FILE *fptr = NULL;
-      if (setup_extractor (&fptr, filename) != 0)
+      if (hh_setup_extractor (&fptr, filename) != 0)
         {
           free (filename);
           FindClose (hFind);
           return HH_FOPEN_ERROR;
         }
 
-      if (process_DAT_file (fptr) != 0)
+      if (hh_process_DAT_file (fptr) != 0)
         {
           fclose (fptr);
           free (filename);
@@ -253,6 +223,7 @@ batch_process_DAT_files ()
 
   while ((entry = readdir (dir)) != NULL)
     {
+      file_count++;
       if (strcmp (entry->d_name, ".") == 0 || strcmp (entry->d_name, "..") == 0
           || !is_string_dat_file (entry->d_name))
         {
@@ -272,14 +243,14 @@ batch_process_DAT_files ()
       strcat (filename, entry->d_name);
 
       FILE *fptr = NULL;
-      if (setup_extractor (&fptr, filename) != 0)
+      if (hh_setup_extractor (&fptr, filename) != 0)
         {
           free (filename);
           closedir (dir);
           return HH_FOPEN_ERROR;
         }
 
-      if (process_DAT_file (fptr) != 0)
+      if (hh_process_DAT_file (fptr) != 0)
         {
           fclose (fptr);
           free (filename);
@@ -292,12 +263,16 @@ batch_process_DAT_files ()
     }
 
   closedir (dir);
+
 #endif
+  if (file_count == 2) // 2 for `.` & `..`
+    return -1;
+
   return 0;
 }
 
 int8_t
-process_internal_dat_files (void)
+hh_process_internal_dat_files (void)
 {
   const char *interal_paths = "internal-dat-file-paths.txt";
   FILE *table = fopen (interal_paths, "rb");
@@ -313,7 +288,7 @@ process_internal_dat_files (void)
       build_path_string_from_file (table, index_file_path);
 
       FILE *fptr = NULL;
-      if (setup_extractor (&fptr, index_file_path) != 0)
+      if (hh_setup_extractor (&fptr, index_file_path) != 0)
         {
           hh_log (HH_LOG_WARNING, "Skipping...");
 

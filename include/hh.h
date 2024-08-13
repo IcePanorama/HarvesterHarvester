@@ -30,7 +30,7 @@
  *  @param  filename  the path to a DAT file
  *  @return zero on success, non-zero on failure.
  */
-static int8_t setup_extractor (FILE **fptr, char *filename);
+int8_t hh_setup_extractor (FILE **fptr, char *filename);
 
 /**
  *  Processes a DAT file pointed to by the given `FILE *`.
@@ -50,14 +50,14 @@ static int8_t setup_extractor (FILE **fptr, char *filename);
  *  @see  extract_directory()
  *  @return zero on success, non-zero on failure.
  */
-static int8_t process_DAT_file (FILE *fptr);
+int8_t hh_process_DAT_file (FILE *fptr);
 
 /**
  *  Processes all the `.DAT` files found in `OP_INPUT_DIR`, one at a time.
  *
  *  @return zero on success, non-zero on failure.
  */
-static int8_t batch_process_DAT_files (void);
+int8_t hh_batch_process_DAT_files (void);
 
 /**
  *  Process all the new `.DAT` files created by `process_DAT_file`. These
@@ -68,6 +68,6 @@ static int8_t batch_process_DAT_files (void);
  *
  *  @return int8_t zero on success, non-zero on failure.
  */
-static int8_t process_internal_dat_files (void);
+int8_t hh_process_internal_dat_files (void);
 
 #endif
