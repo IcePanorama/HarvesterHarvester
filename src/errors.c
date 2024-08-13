@@ -4,9 +4,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-const char *CALLOC_FAILED_ERR_MSG_FMT
-    = "Unable to calloc string of size %zu.\n";
-const char *FOPEN_FAILED_ERR_MSG_FMT = "Unable to open output file, %s\n.";
+const char *CALLOC_FAILED_ERR_MSG_FMT = "Unable to calloc string of size %zu.";
+const char *FOPEN_FAILED_ERR_MSG_FMT = "Unable to open output file, %s.";
 
 void
 improper_usage_error (void)
@@ -17,7 +16,7 @@ improper_usage_error (void)
 #else
   windows = false;
 #endif
-  hh_log (HH_LOG_ERROR, "Improper usage!\ntry: %s HARVEST.DAT\n",
+  hh_log (HH_LOG_ERROR, "Improper usage!\ntry: %s HARVEST.DAT",
           !windows ? "$ ./HarvesterHarvester" : "HarvesterHarvester.exe");
   exit (1);
 }
