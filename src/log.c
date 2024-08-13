@@ -73,20 +73,20 @@ hh_log (hh_log_level lvl, const char *fmt, ...)
 
   switch (lvl)
     {
-    case HH_INFO:
-      fprintf (stdout, "%s[INFO] ", program_tag);
+    case HH_LOG_INFO:
+      fprintf (stdout, "%s[INFO]", program_tag);
       output_stream = stdout;
       break;
-    case HH_WARNING:
-      fprintf (stderr, "%s[WARNING] ", program_tag);
+    case HH_LOG_WARNING:
+      fprintf (stderr, "%s[WARNING]", program_tag);
       output_stream = stderr;
       break;
-    case HH_ERROR:
-      fprintf (stderr, "%s[ERROR] ", program_tag);
+    case HH_LOG_ERROR:
+      fprintf (stderr, "%s[ERROR]", program_tag);
       output_stream = stderr;
       break;
     default:
-      hh_log (HH_ERROR, "Unrecognized hh_log_level, %d", lvl);
+      hh_log (HH_LOG_ERROR, "Unrecognized hh_log_level, %d", lvl);
       return;
     }
 

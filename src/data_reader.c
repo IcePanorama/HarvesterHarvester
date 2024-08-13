@@ -14,6 +14,7 @@
 #include "data_reader.h"
 #include "errors.h"
 #include "file_flags.h"
+#include "log.h"
 #include "options.h"
 
 #include <stdbool.h>
@@ -44,9 +45,9 @@ read_both_endian_data_uint32 (FILE *fptr, uint32_t *output)
 
   if (value != expected_value)
     {
-      printf ("[HarvesterHarvester]ERROR: Incorrect endian conversion "
-              "(uint32_t).\n\tExpected "
-              "%08X, got %08X.\n",
+      hh_log (HH_LOG_ERROR,
+              "ERROR: Incorrect endian conversion (uint32_t). Expected "
+              "0x%08X, got 0x%08X.",
               expected_value, value);
     }
 
@@ -66,9 +67,9 @@ read_both_endian_data_uint16 (FILE *fptr, uint16_t *output)
 
   if (*output != expected_value)
     {
-      printf ("[HarvesterHarvester]ERROR: Incorrect endian conversion "
-              "(uint16_t).\n\tExpected "
-              "%04X, got %04X.\n",
+      hh_log (HH_LOG_ERROR,
+              "Incorrect endian conversion (uint16_t). Expected 0x%04X, got "
+              "0x%04X.",
               expected_value, *output);
       return -1;
     }

@@ -26,9 +26,9 @@
 
 typedef enum hh_log_level
 {
-  HH_INFO,
-  HH_WARNING,
-  HH_ERROR,
+  HH_LOG_INFO,
+  HH_LOG_WARNING,
+  HH_LOG_ERROR,
 } hh_log_level;
 
 void hh_log (hh_log_level lvl, const char *fmt, ...);

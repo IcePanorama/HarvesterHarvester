@@ -103,7 +103,7 @@ process_DAT_file (FILE *fptr)
   // Verify that this is a primary volume descriptor
   if (vd.type_code != 0x01)
     {
-      hh_log (HH_ERROR,
+      hh_log (HH_LOG_ERROR,
               "Unexpected volume descriptor type code. Expected 0x%02X, got "
               "0x%02X.",
               0x01, vd.type_code);
@@ -151,8 +151,8 @@ process_DAT_file (FILE *fptr)
                        sizeof (char));
   if (path == NULL)
     {
-      fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,
-               strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2);
+      hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT,
+              strlen (OP_OUTPUT_DIR) + current_disk_name_length + 2);
       destroy_path_table (&pt);
       return -1;
     }
@@ -191,7 +191,7 @@ batch_process_DAT_files ()
   hFind = FindFirstFileA (search_path, &file_data);
   if (hFind == INVALID_HANDLE_VALUE)
     {
-      fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);
+      hh_log (HH_LOG_ERROR, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);
       return -1;
     }
 
@@ -208,8 +208,8 @@ batch_process_DAT_files ()
                          sizeof (char));
       if (filename == NULL)
         {
-          fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,
-                   strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);
+          hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT,
+                  strlen (OP_OUTPUT_DIR) + DAT_FILENAME_LEN + 2);
           return HH_MEM_ALLOC_ERROR;
         }
 
@@ -245,7 +245,7 @@ batch_process_DAT_files ()
   dir = opendir (OP_INPUT_DIR);
   if (dir == NULL)
     {
-      fprintf (stderr, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);
+      hh_log (HH_LOG_ERROR, OPEN_INPUT_DIR_ERR_MSG_FMT, OP_INPUT_DIR);
       return -1;
     }
 
@@ -261,8 +261,8 @@ batch_process_DAT_files ()
                          sizeof (char));
       if (filename == NULL)
         {
-          fprintf (stderr, CALLOC_FAILED_ERR_MSG_FMT,
-                   strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);
+          hh_log (HH_LOG_ERROR, CALLOC_FAILED_ERR_MSG_FMT,
+                  strlen (OP_INPUT_DIR) + DAT_FILENAME_LEN + 2);
           return HH_MEM_ALLOC_ERROR;
         }
 
@@ -302,8 +302,7 @@ process_internal_dat_files (void)
   FILE *table = fopen (interal_paths, "rb");
   if (table == NULL)
     {
-      fprintf (stderr, "[HarvesterHarvester]ERROR: Couldn't find %s\n.",
-               interal_paths);
+      hh_log (HH_LOG_ERROR, "Couldn't find %s\n.", interal_paths);
       return HH_FOPEN_ERROR;
     }
 
@@ -316,7 +315,7 @@ process_internal_dat_files (void)
       FILE *fptr = NULL;
       if (setup_extractor (&fptr, index_file_path) != 0)
         {
-          printf ("[HarvesterHarvester]Skipping...\n");
+          hh_log (HH_LOG_WARNING, "Skipping...");
 
           // Skip next line
           build_path_string_from_file (table, index_file_path);
@@ -332,8 +331,7 @@ process_internal_dat_files (void)
           return -1;
         }
 
-      printf ("[HarvesterHarvester]Processing index file: %s\n",
-              index_file_path);
+      hh_log (HH_LOG_INFO, "Processing index file: %s\n", index_file_path);
       if (process_index_file (fptr, &idx_file) != 0)
         {
           destroy_index_file (&idx_file);
