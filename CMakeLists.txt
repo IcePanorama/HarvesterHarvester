@@ -21,6 +21,8 @@ add_compile_options(
     -fanalyzer
 )
 
+set(WIN32_CC i686-w64-mingw32-gcc)
+
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
 set(BIN_DIR "${PROJECT_SOURCE_DIR}/bin")
@@ -104,4 +106,9 @@ add_custom_target(full
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target test
     COMMENT "Running full build (clean, format, build, and test)."
+)
+
+add_custom_target(win32
+    COMMAND ${WIN32_CC} ${CMAKE_C_FLAGS} -o "${PROJECT_NAME}_i686.exe" "${SRC_DIR}/*.c" -I${INCL_DIR}
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
 )
