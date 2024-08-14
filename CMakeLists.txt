@@ -137,3 +137,13 @@ add_custom_target(release
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target copy
     COMMENT "Running full build (clean, format, build, and test)."
 )
+
+set(extra_files_to_clean
+    "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}_i686.exe"
+    "${PROJECT_SOURCE_DIR}/${PROJECT_NAME}_x86_64.exe"
+)
+set_property(
+	TARGET ${PROJECT_NAME}
+	APPEND
+	PROPERTY ADDITIONAL_CLEAN_FILES ${extra_files_to_clean}
+)
