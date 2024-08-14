@@ -7,7 +7,7 @@ The program works in two steps:
 1. It reconstructs the original disk images that Harvester would've shipped with in 1996
    * _Note_: if you own the original game disks, this step is not needed.
    * See [USAGE.md](.github/USAGE.md) for more details.
-2. It extracts the dat files contained within those new directories in order to give you full access to all of the game's files.
+2. It extracts the dat files contained within those new directories in order to give you full access to all of the game's files (~2GiB in total!).
 
 ### Future Projects
 
