@@ -91,11 +91,12 @@ add_dependencies(${PROJECT_NAME} format)
 
 # Library
 file(MAKE_DIRECTORY ${LIB_DIR})
-add_library(${LIB_NAME} STATIC ${LIB_SRC_FILES})
+add_library(${LIB_NAME} STATIC EXCLUDE_FROM_ALL ${LIB_SRC_FILES})
 set_target_properties(${LIB_NAME} PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY ${LIB_DIR}
 )
 target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
+add_custom_target(library DEPENDS ${LIB_NAME})
 
 # Full
 add_custom_target(full
