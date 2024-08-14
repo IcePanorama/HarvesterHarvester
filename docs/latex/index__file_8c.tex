@@ -11,18 +11,18 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-static int8\+\_\+t \mbox{\hyperlink{index__file_8c_ac4e7fdb31a69d93e8723a7f7ff725261}{resize\+\_\+indicies}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}idx)
-\begin{DoxyCompactList}\small\item\em Grows a given {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}\textquotesingle{}s {\ttfamily entries} attribute by {\ttfamily IDX\+\_\+\+RECORDS\+\_\+\+GROWTH\+\_\+\+RATE}. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{index__file_8c_a8d0c5734d83636faa168e5869954b500}{create\+\_\+index\+\_\+file}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}i)
-\begin{DoxyCompactList}\small\item\em Initializes an {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{index__file_8c_a642840a928d9784ac4cf34228672fbbc}{destroy\+\_\+index\+\_\+file}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}i)
-\begin{DoxyCompactList}\small\item\em Destroys a given {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{index__file_8c_a8d9a7c6f483fa764254a2013aa7258b1}{process\+\_\+index\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}idxf)
-\begin{DoxyCompactList}\small\item\em Reads data from a given file, creating {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}}s for every entry in said file. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{index__file_8c_a803c3e3f6d663ff2050f3c2e60e13431}{print\+\_\+index\+\_\+entry}} (\mbox{\hyperlink{structindex__entry}{index\+\_\+entry}} \texorpdfstring{$\ast$}{*}idxe)
-\begin{DoxyCompactList}\small\item\em Prints all the attributes of a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} in a human-\/readable form. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{index__file_8c_a746462bc35bd98ad993e5da86bd6b2a7}{add\+\_\+entry\+\_\+to\+\_\+index\+\_\+file}} (\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}file, \mbox{\hyperlink{structindex__entry}{index\+\_\+entry}} \texorpdfstring{$\ast$}{*}entry)
-\begin{DoxyCompactList}\small\item\em Adds a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} to a {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static int8\+\_\+t \mbox{\hyperlink{index__file_8c_ac4e7fdb31a69d93e8723a7f7ff725261}{resize\+\_\+indicies}} (index\+\_\+file \texorpdfstring{$\ast$}{*}idx)
+\begin{DoxyCompactList}\small\item\em Grows a given {\ttfamily index\+\_\+file}\textquotesingle{}s {\ttfamily entries} attribute by {\ttfamily IDX\+\_\+\+RECORDS\+\_\+\+GROWTH\+\_\+\+RATE}. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{index__file_8c_a8d0c5734d83636faa168e5869954b500}{create\+\_\+index\+\_\+file}} (index\+\_\+file \texorpdfstring{$\ast$}{*}i)
+\item 
+int8\+\_\+t \mbox{\hyperlink{index__file_8c_a642840a928d9784ac4cf34228672fbbc}{destroy\+\_\+index\+\_\+file}} (index\+\_\+file \texorpdfstring{$\ast$}{*}i)
+\item 
+int8\+\_\+t \mbox{\hyperlink{index__file_8c_a8d9a7c6f483fa764254a2013aa7258b1}{process\+\_\+index\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr, index\+\_\+file \texorpdfstring{$\ast$}{*}idxf)
+\item 
+void \mbox{\hyperlink{index__file_8c_a803c3e3f6d663ff2050f3c2e60e13431}{print\+\_\+index\+\_\+entry}} (index\+\_\+entry \texorpdfstring{$\ast$}{*}idxe)
+\item 
+int8\+\_\+t \mbox{\hyperlink{index__file_8c_a746462bc35bd98ad993e5da86bd6b2a7}{add\+\_\+entry\+\_\+to\+\_\+index\+\_\+file}} (index\+\_\+file \texorpdfstring{$\ast$}{*}file, index\+\_\+entry \texorpdfstring{$\ast$}{*}entry)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,11 +37,7 @@ static const size\+\_\+t \mbox{\hyperlink{index__file_8c_a86b0e469cb65d26ec56d01
 \index{add\_entry\_to\_index\_file@{add\_entry\_to\_index\_file}!index\_file.c@{index\_file.c}}
 \doxysubsubsection{\texorpdfstring{add\_entry\_to\_index\_file()}{add\_entry\_to\_index\_file()}}
 {\footnotesize\ttfamily \label{index__file_8c_a746462bc35bd98ad993e5da86bd6b2a7} 
-int8\+\_\+t add\+\_\+entry\+\_\+to\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{\mbox{\hyperlink{structindex__entry}{index\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{entry}{}\end{DoxyParamCaption})}
-
-
-
-Adds a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} to a {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
+int8\+\_\+t add\+\_\+entry\+\_\+to\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{index\+\_\+file \texorpdfstring{$\ast$}{*}}]{file}{, }\item[{index\+\_\+entry \texorpdfstring{$\ast$}{*}}]{entry}{}\end{DoxyParamCaption})}
 
 
 
@@ -51,11 +47,7 @@ Definition at line \mbox{\hyperlink{index__file_8c_source_l00137}{137}} of file 
 \index{create\_index\_file@{create\_index\_file}!index\_file.c@{index\_file.c}}
 \doxysubsubsection{\texorpdfstring{create\_index\_file()}{create\_index\_file()}}
 {\footnotesize\ttfamily \label{index__file_8c_a8d0c5734d83636faa168e5869954b500} 
-int8\+\_\+t create\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}}]{i}{}\end{DoxyParamCaption})}
-
-
-
-Initializes an {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
+int8\+\_\+t create\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{index\+\_\+file \texorpdfstring{$\ast$}{*}}]{i}{}\end{DoxyParamCaption})}
 
 
 
@@ -65,11 +57,7 @@ Definition at line \mbox{\hyperlink{index__file_8c_source_l00034}{34}} of file \
 \index{destroy\_index\_file@{destroy\_index\_file}!index\_file.c@{index\_file.c}}
 \doxysubsubsection{\texorpdfstring{destroy\_index\_file()}{destroy\_index\_file()}}
 {\footnotesize\ttfamily \label{index__file_8c_a642840a928d9784ac4cf34228672fbbc} 
-int8\+\_\+t destroy\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}}]{i}{}\end{DoxyParamCaption})}
-
-
-
-Destroys a given {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}. 
+int8\+\_\+t destroy\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{index\+\_\+file \texorpdfstring{$\ast$}{*}}]{i}{}\end{DoxyParamCaption})}
 
 
 
@@ -79,11 +67,7 @@ Definition at line \mbox{\hyperlink{index__file_8c_source_l00049}{49}} of file \
 \index{print\_index\_entry@{print\_index\_entry}!index\_file.c@{index\_file.c}}
 \doxysubsubsection{\texorpdfstring{print\_index\_entry()}{print\_index\_entry()}}
 {\footnotesize\ttfamily \label{index__file_8c_a803c3e3f6d663ff2050f3c2e60e13431} 
-void print\+\_\+index\+\_\+entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structindex__entry}{index\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{idxe}{}\end{DoxyParamCaption})}
-
-
-
-Prints all the attributes of a given {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}} in a human-\/readable form. 
+void print\+\_\+index\+\_\+entry (\begin{DoxyParamCaption}\item[{index\+\_\+entry \texorpdfstring{$\ast$}{*}}]{idxe}{}\end{DoxyParamCaption})}
 
 
 
@@ -93,11 +77,7 @@ Definition at line \mbox{\hyperlink{index__file_8c_source_l00127}{127}} of file 
 \index{process\_index\_file@{process\_index\_file}!index\_file.c@{index\_file.c}}
 \doxysubsubsection{\texorpdfstring{process\_index\_file()}{process\_index\_file()}}
 {\footnotesize\ttfamily \label{index__file_8c_a8d9a7c6f483fa764254a2013aa7258b1} 
-int8\+\_\+t process\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}}]{idxf}{}\end{DoxyParamCaption})}
-
-
-
-Reads data from a given file, creating {\ttfamily \doxylink{structindex__entry}{index\+\_\+entry}}s for every entry in said file. 
+int8\+\_\+t process\+\_\+index\+\_\+file (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{index\+\_\+file \texorpdfstring{$\ast$}{*}}]{idxf}{}\end{DoxyParamCaption})}
 
 Every entry is 0x94 bytes apart, the part we\textquotesingle{}re most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.
 
@@ -107,11 +87,11 @@ Definition at line \mbox{\hyperlink{index__file_8c_source_l00056}{56}} of file \
 \index{resize\_indicies@{resize\_indicies}!index\_file.c@{index\_file.c}}
 \doxysubsubsection{\texorpdfstring{resize\_indicies()}{resize\_indicies()}}
 {\footnotesize\ttfamily \label{index__file_8c_ac4e7fdb31a69d93e8723a7f7ff725261} 
-int8\+\_\+t resize\+\_\+indicies (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structindex__file}{index\+\_\+file}} \texorpdfstring{$\ast$}{*}}]{idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+int8\+\_\+t resize\+\_\+indicies (\begin{DoxyParamCaption}\item[{index\+\_\+file \texorpdfstring{$\ast$}{*}}]{idx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Grows a given {\ttfamily \doxylink{structindex__file}{index\+\_\+file}}\textquotesingle{}s {\ttfamily entries} attribute by {\ttfamily IDX\+\_\+\+RECORDS\+\_\+\+GROWTH\+\_\+\+RATE}. 
+Grows a given {\ttfamily index\+\_\+file}\textquotesingle{}s {\ttfamily entries} attribute by {\ttfamily IDX\+\_\+\+RECORDS\+\_\+\+GROWTH\+\_\+\+RATE}. 
 
 
 

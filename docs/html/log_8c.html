@@ -103,8 +103,8 @@ $(function(){initNavTree('log_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">log.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;log.h&quot;</code><br />
+<code>#include &quot;errors.h&quot;</code><br />
 <code>#include &lt;stdarg.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 </div>
@@ -123,8 +123,7 @@ Functions</h2></td></tr>
 <tr class="memitem:af9859f7b27d46f040c836ecfdc1ac304" id="r_af9859f7b27d46f040c836ecfdc1ac304"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9859f7b27d46f040c836ecfdc1ac304">print_some_data_from_file</a> (FILE *fptr)</td></tr>
 <tr class="memdesc:af9859f7b27d46f040c836ecfdc1ac304"><td class="mdescLeft">&#160;</td><td class="mdescRight">As this function can safely fail without affecting normal operations, this doesn't return any errors, despite possibly having a fread error during normal usage.  <br /></td></tr>
 <tr class="separator:af9859f7b27d46f040c836ecfdc1ac304"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17a149a589296f67b4ecee3493403542" id="r_a17a149a589296f67b4ecee3493403542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17a149a589296f67b4ecee3493403542">hh_log</a> (<a class="el" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a> lvl, const char *fmt,...)</td></tr>
-<tr class="memdesc:a17a149a589296f67b4ecee3493403542"><td class="mdescLeft">&#160;</td><td class="mdescRight">A logger function.  <br /></td></tr>
+<tr class="memitem:a17a149a589296f67b4ecee3493403542" id="r_a17a149a589296f67b4ecee3493403542"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17a149a589296f67b4ecee3493403542">hh_log</a> (hh_log_level lvl, const char *fmt,...)</td></tr>
 <tr class="separator:a17a149a589296f67b4ecee3493403542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -154,7 +153,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void hh_log </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="log_8h.html#a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</a></td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
+          <td class="paramtype">hh_log_level</td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -168,9 +167,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>A logger function. </p>
-<p>Outputs fmt and args to either the stdout or stderr depending on the <code>lvl</code> passed into the function. </p>
 
 <p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00069">69</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
@@ -197,7 +193,7 @@ Functions</h2></td></tr>
 
 <p>Outputs hex data from a given <code>buffer</code> to stdout. </p>
 <p>Formats said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.</p>
-<p>TODO: These values are currently hardcoded in, but they likely should be moved to <a class="el" href="options_8h.html">options.h</a> in the future. </p>
+<p>TODO: These values are currently hardcoded in, but they likely should be moved to options.h in the future. </p>
 
 <p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00029">29</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 
@@ -219,7 +215,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>As this function can safely fail without affecting normal operations, this doesn't return any errors, despite possibly having a fread error during normal usage. </p>
-<p>Prints the next <code>BYTES_TO_READ</code> many bytes to the stdout, formatted in order to be easy to read. </p>
 
 <p class="definition">Definition at line <a class="el" href="log_8c_source.html#l00053">53</a> of file <a class="el" href="log_8c_source.html">log.c</a>.</p>
 

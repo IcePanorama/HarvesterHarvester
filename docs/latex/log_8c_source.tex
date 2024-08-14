@@ -15,8 +15,8 @@
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00011}00011\ \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00012}00012\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along}}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00013}00013\ \textcolor{comment}{//\ \ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{log_8h}{log.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{errors_8h}{errors.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}log.h"{}}}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}errors.h"{}}}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00016}00016\ }
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <stdarg.h>}}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
@@ -57,27 +57,27 @@
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00066}00066\ }
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00067}00067\ \textcolor{comment}{//\ TODO:\ add\ an\ command-\/line\ arg\ to\ output\ to\ a\ log\ file\ or\ to\ run\ silently.}}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00068}00068\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00069}\mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{00069}}\ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019}{hh\_log\_level}}\ lvl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *fmt,\ ...)}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00069}\mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{00069}}\ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (hh\_log\_level\ lvl,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *fmt,\ ...)}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00070}00070\ \{}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00071}00071\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *program\_tag\ =\ \textcolor{stringliteral}{"{}[HarvesterHarvester]"{}};}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00072}00072\ \ \ FILE\ *output\_stream\ =\ stdout;}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00073}00073\ }
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00074}00074\ \ \ \textcolor{keywordflow}{switch}\ (lvl)}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00075}00075\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019a3739eb4c17ed09ed2ec5d4ccd80704d7}{HH\_LOG\_INFO}}:}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{case}\ HH\_LOG\_INFO:}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00077}00077\ \ \ \ \ \ \ fprintf\ (stdout,\ \textcolor{stringliteral}{"{}\%s[INFO]\ "{}},\ program\_tag);}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00078}00078\ \ \ \ \ \ \ output\_stream\ =\ stdout;}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00079}00079\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019a9f923aec82f4569dbe1ef1856ca8471e}{HH\_LOG\_WARNING}}:}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{case}\ HH\_LOG\_WARNING:}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00081}00081\ \ \ \ \ \ \ fprintf\ (stderr,\ \textcolor{stringliteral}{"{}\%s[WARNING]\ "{}},\ program\_tag);}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00082}00082\ \ \ \ \ \ \ output\_stream\ =\ stderr;}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00083}00083\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}}:}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{case}\ HH\_LOG\_ERROR:}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00085}00085\ \ \ \ \ \ \ fprintf\ (stderr,\ \textcolor{stringliteral}{"{}\%s[ERROR]\ "{}},\ program\_tag);}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00086}00086\ \ \ \ \ \ \ output\_stream\ =\ stderr;}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00087}00087\ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{\Hypertarget{log_8c_source_l00089}00089\ \ \ \ \ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656}{HH\_LOG\_ERROR}},\ \textcolor{stringliteral}{"{}Unrecognized\ hh\_log\_level,\ \%d"{}},\ lvl);}
+\DoxyCodeLine{\Hypertarget{log_8c_source_l00089}00089\ \ \ \ \ \ \ \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\_log}}\ (HH\_LOG\_ERROR,\ \textcolor{stringliteral}{"{}Unrecognized\ hh\_log\_level,\ \%d"{}},\ lvl);}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00090}00090\ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00091}00091\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{log_8c_source_l00092}00092\ }

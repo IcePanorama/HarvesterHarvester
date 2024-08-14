@@ -9,20 +9,20 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-static int8\+\_\+t \mbox{\hyperlink{path__table_8c_a9fd2417f1963df24a90b786e3c09a64a}{resize\+\_\+path\+\_\+table\+\_\+entries}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
+static int8\+\_\+t \mbox{\hyperlink{path__table_8c_a9fd2417f1963df24a90b786e3c09a64a}{resize\+\_\+path\+\_\+table\+\_\+entries}} (path\+\_\+table \texorpdfstring{$\ast$}{*}pt)
 \begin{DoxyCompactList}\small\item\em Resizes a given {\ttfamily path\+\_\+tables} list of entries by a factor of {\ttfamily PT\+\_\+\+GROWTH\+\_\+\+RATE}. \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\+\_\+path\+\_\+table\+\_\+entry}} (\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}e)
-\begin{DoxyCompactList}\small\item\em Prints a \doxylink{structpath__table__entry}{path\+\_\+table\+\_\+entry} to the stdout in a human-\/readable form. \end{DoxyCompactList}\item 
-static int8\+\_\+t \mbox{\hyperlink{path__table_8c_a492a544af54cae408fa7d4331e7083ae}{add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt, \mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}entry)
-\begin{DoxyCompactList}\small\item\em Adds a {\ttfamily \doxylink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} to the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}\textquotesingle{}s list of {\ttfamily entries}, resizing it as needed. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{path__table_8c_ac08be1296d016ba9a28db25b35ca9132}{create\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
-\begin{DoxyCompactList}\small\item\em Initializes a given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{path__table_8c_afb0f3858425278e8f770eee3eaf010f9}{destroy\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
-\begin{DoxyCompactList}\small\item\em Destroys the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}, freeing any and all memory alloc\textquotesingle{}d for {\ttfamily entries}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{path__table_8c_a4d1b9400850a8ace93b4404599932a84}{print\+\_\+path\+\_\+table}} (\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
-\begin{DoxyCompactList}\small\item\em Prints the given path table out to the stdout, formatting it into a human-\/readible form. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{process\+\_\+type\+\_\+l\+\_\+path\+\_\+table}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}pt)
-\begin{DoxyCompactList}\small\item\em Processes the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}} as a Type-\/L {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}, using the data pointed to by {\ttfamily fptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static void \mbox{\hyperlink{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566}{print\+\_\+path\+\_\+table\+\_\+entry}} (path\+\_\+table\+\_\+entry \texorpdfstring{$\ast$}{*}e)
+\begin{DoxyCompactList}\small\item\em Prints a path\+\_\+table\+\_\+entry to the stdout in a human-\/readable form. \end{DoxyCompactList}\item 
+static int8\+\_\+t \mbox{\hyperlink{path__table_8c_a492a544af54cae408fa7d4331e7083ae}{add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table}} (path\+\_\+table \texorpdfstring{$\ast$}{*}pt, path\+\_\+table\+\_\+entry \texorpdfstring{$\ast$}{*}entry)
+\begin{DoxyCompactList}\small\item\em Adds a {\ttfamily path\+\_\+table\+\_\+entry} to the given {\ttfamily path\+\_\+table}\textquotesingle{}s list of {\ttfamily entries}, resizing it as needed. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{path__table_8c_ac08be1296d016ba9a28db25b35ca9132}{create\+\_\+path\+\_\+table}} (path\+\_\+table \texorpdfstring{$\ast$}{*}pt)
+\item 
+void \mbox{\hyperlink{path__table_8c_afb0f3858425278e8f770eee3eaf010f9}{destroy\+\_\+path\+\_\+table}} (path\+\_\+table \texorpdfstring{$\ast$}{*}pt)
+\item 
+void \mbox{\hyperlink{path__table_8c_a4d1b9400850a8ace93b4404599932a84}{print\+\_\+path\+\_\+table}} (path\+\_\+table \texorpdfstring{$\ast$}{*}pt)
+\item 
+int8\+\_\+t \mbox{\hyperlink{path__table_8c_a74af82c548f791d3b0919eeebbf078d4}{process\+\_\+type\+\_\+l\+\_\+path\+\_\+table}} (FILE \texorpdfstring{$\ast$}{*}fptr, path\+\_\+table \texorpdfstring{$\ast$}{*}pt)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -37,11 +37,11 @@ static const size\+\_\+t \mbox{\hyperlink{path__table_8c_a6563a4197f62a248dd1f87
 \index{add\_entry\_to\_path\_table@{add\_entry\_to\_path\_table}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{add\_entry\_to\_path\_table()}{add\_entry\_to\_path\_table()}}
 {\footnotesize\ttfamily \label{path__table_8c_a492a544af54cae408fa7d4331e7083ae} 
-int8\+\_\+t add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{, }\item[{\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{entry}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+int8\+\_\+t add\+\_\+entry\+\_\+to\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{path\+\_\+table \texorpdfstring{$\ast$}{*}}]{pt}{, }\item[{path\+\_\+table\+\_\+entry \texorpdfstring{$\ast$}{*}}]{entry}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Adds a {\ttfamily \doxylink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} to the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}\textquotesingle{}s list of {\ttfamily entries}, resizing it as needed. 
+Adds a {\ttfamily path\+\_\+table\+\_\+entry} to the given {\ttfamily path\+\_\+table}\textquotesingle{}s list of {\ttfamily entries}, resizing it as needed. 
 
 
 
@@ -51,13 +51,9 @@ Definition at line \mbox{\hyperlink{path__table_8c_source_l00065}{65}} of file \
 \index{create\_path\_table@{create\_path\_table}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{create\_path\_table()}{create\_path\_table()}}
 {\footnotesize\ttfamily \label{path__table_8c_ac08be1296d016ba9a28db25b35ca9132} 
-int8\+\_\+t create\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
+int8\+\_\+t create\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{path\+\_\+table \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
 
 
-
-Initializes a given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}. 
-
-By default, {\ttfamily entries} is given a size of {\ttfamily PT\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+ENTRIES}. Note that {\ttfamily PT\+\_\+\+STARTING\+\_\+\+NUM\+\_\+\+ENTRIES} is defined in {\ttfamily \doxylink{path__table_8c}{path\+\_\+table.\+c}}. 
 
 Definition at line \mbox{\hyperlink{path__table_8c_source_l00029}{29}} of file \mbox{\hyperlink{path__table_8c_source}{path\+\_\+table.\+c}}.
 
@@ -65,11 +61,7 @@ Definition at line \mbox{\hyperlink{path__table_8c_source_l00029}{29}} of file \
 \index{destroy\_path\_table@{destroy\_path\_table}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{destroy\_path\_table()}{destroy\_path\_table()}}
 {\footnotesize\ttfamily \label{path__table_8c_afb0f3858425278e8f770eee3eaf010f9} 
-void destroy\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
-
-
-
-Destroys the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}, freeing any and all memory alloc\textquotesingle{}d for {\ttfamily entries}. 
+void destroy\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{path\+\_\+table \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
 
 
 
@@ -79,11 +71,7 @@ Definition at line \mbox{\hyperlink{path__table_8c_source_l00049}{49}} of file \
 \index{print\_path\_table@{print\_path\_table}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{print\_path\_table()}{print\_path\_table()}}
 {\footnotesize\ttfamily \label{path__table_8c_a4d1b9400850a8ace93b4404599932a84} 
-void print\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
-
-
-
-Prints the given path table out to the stdout, formatting it into a human-\/readible form. 
+void print\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{path\+\_\+table \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
 
 
 
@@ -93,11 +81,11 @@ Definition at line \mbox{\hyperlink{path__table_8c_source_l00101}{101}} of file 
 \index{print\_path\_table\_entry@{print\_path\_table\_entry}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{print\_path\_table\_entry()}{print\_path\_table\_entry()}}
 {\footnotesize\ttfamily \label{path__table_8c_a0089b0d4d8773a794efd9c1171a6b566} 
-void print\+\_\+path\+\_\+table\+\_\+entry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table__entry}{path\+\_\+table\+\_\+entry}} \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+void print\+\_\+path\+\_\+table\+\_\+entry (\begin{DoxyParamCaption}\item[{path\+\_\+table\+\_\+entry \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-Prints a \doxylink{structpath__table__entry}{path\+\_\+table\+\_\+entry} to the stdout in a human-\/readable form. 
+Prints a path\+\_\+table\+\_\+entry to the stdout in a human-\/readable form. 
 
 
 
@@ -107,11 +95,7 @@ Definition at line \mbox{\hyperlink{path__table_8c_source_l00111}{111}} of file 
 \index{process\_type\_l\_path\_table@{process\_type\_l\_path\_table}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{process\_type\_l\_path\_table()}{process\_type\_l\_path\_table()}}
 {\footnotesize\ttfamily \label{path__table_8c_a74af82c548f791d3b0919eeebbf078d4} 
-int8\+\_\+t process\+\_\+type\+\_\+l\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
-
-
-
-Processes the given {\ttfamily \doxylink{structpath__table}{path\+\_\+table}} as a Type-\/L {\ttfamily \doxylink{structpath__table}{path\+\_\+table}}, using the data pointed to by {\ttfamily fptr}. 
+int8\+\_\+t process\+\_\+type\+\_\+l\+\_\+path\+\_\+table (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{path\+\_\+table \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})}
 
 
 
@@ -121,7 +105,7 @@ Definition at line \mbox{\hyperlink{path__table_8c_source_l00123}{123}} of file 
 \index{resize\_path\_table\_entries@{resize\_path\_table\_entries}!path\_table.c@{path\_table.c}}
 \doxysubsubsection{\texorpdfstring{resize\_path\_table\_entries()}{resize\_path\_table\_entries()}}
 {\footnotesize\ttfamily \label{path__table_8c_a9fd2417f1963df24a90b786e3c09a64a} 
-int8\+\_\+t resize\+\_\+path\+\_\+table\+\_\+entries (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structpath__table}{path\+\_\+table}} \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+int8\+\_\+t resize\+\_\+path\+\_\+table\+\_\+entries (\begin{DoxyParamCaption}\item[{path\+\_\+table \texorpdfstring{$\ast$}{*}}]{pt}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 

@@ -1,19 +1,14 @@
 var searchData=
 [
   ['calloc_5ffailed_5ferr_5fmsg_5ffmt_0',['CALLOC_FAILED_ERR_MSG_FMT',['../errors_8c.html#ab2272d0da4232afba19f95bf02944157',1,'errors.c']]],
-  ['change_5fendianness_5fuint16_1',['change_endianness_uint16',['../utils_8c.html#a4965520bde2fd7164397a78f8026164a',1,'change_endianness_uint16(uint16_t value):&#160;utils.c'],['../utils_8h.html#a4965520bde2fd7164397a78f8026164a',1,'change_endianness_uint16(uint16_t value):&#160;utils.c']]],
-  ['copyright_5ffile_5fidentifier_2',['copyright_file_identifier',['../structvolume__descriptor__data.html#a4e9fdd5d2350af4e9cb0c99d3ebc040b',1,'volume_descriptor_data']]],
-  ['copyright_5ffile_5fidentifier_5flen_3',['COPYRIGHT_FILE_IDENTIFIER_LEN',['../volume__descriptor_8h.html#a6e1898726ea2bf0bc932ad3c3d8fd8d6',1,'volume_descriptor.h']]],
-  ['create_5fdirectories_5fand_5fextract_5fdata_5ffrom_5fpath_5ffile_4',['create_directories_and_extract_data_from_path_file',['../extractor_8c.html#ad53840f52d541af8bc89a7e6c86e29eb',1,'create_directories_and_extract_data_from_path_file(FILE *fptr, uint16_t block_size, path_table *pt):&#160;extractor.c'],['../extractor_8h.html#af57d13e6e3990cbcff201cfc10e14249',1,'create_directories_and_extract_data_from_path_file(FILE *fptr, uint16_t block_size, struct path_table *pt):&#160;extractor.c']]],
-  ['create_5fdirectory_5',['create_directory',['../directory_8c.html#a588d5ddc87f420409a34325d09ba125a',1,'create_directory(directory *d):&#160;directory.c'],['../directory_8h.html#a588d5ddc87f420409a34325d09ba125a',1,'create_directory(directory *d):&#160;directory.c']]],
-  ['create_5ffile_5fflags_6',['create_file_flags',['../file__flags_8c.html#aacfa73039d80ff8aafa6b5cc1d8c54b5',1,'create_file_flags(void):&#160;file_flags.c'],['../file__flags_8h.html#aacfa73039d80ff8aafa6b5cc1d8c54b5',1,'create_file_flags(void):&#160;file_flags.c']]],
-  ['create_5findex_5ffile_7',['create_index_file',['../index__file_8c.html#a8d0c5734d83636faa168e5869954b500',1,'create_index_file(index_file *i):&#160;index_file.c'],['../index__file_8h.html#a8d0c5734d83636faa168e5869954b500',1,'create_index_file(index_file *i):&#160;index_file.c']]],
-  ['create_5fnew_5foutput_5fdirectory_8',['create_new_output_directory',['../output_8c.html#add12be6feec39ec622b2f29e078e507d',1,'create_new_output_directory(const char *path):&#160;output.c'],['../output_8h.html#add12be6feec39ec622b2f29e078e507d',1,'create_new_output_directory(const char *path):&#160;output.c']]],
-  ['create_5foutput_5fdirectory_9',['create_output_directory',['../output_8c.html#acef952bf7d1077d8f68a1be1f084b2ee',1,'create_output_directory(char *path):&#160;output.c'],['../output_8h.html#acef952bf7d1077d8f68a1be1f084b2ee',1,'create_output_directory(char *path):&#160;output.c']]],
-  ['create_5fpath_5ftable_10',['create_path_table',['../path__table_8c.html#ac08be1296d016ba9a28db25b35ca9132',1,'create_path_table(path_table *pt):&#160;path_table.c'],['../path__table_8h.html#ac08be1296d016ba9a28db25b35ca9132',1,'create_path_table(path_table *pt):&#160;path_table.c']]],
-  ['create_5fvolume_5fdescriptor_11',['create_volume_descriptor',['../volume__descriptor_8c.html#ac681bcadb940c039ad4b7093f33bb952',1,'create_volume_descriptor(volume_descriptor *vd, uint8_t type_code, uint8_t version):&#160;volume_descriptor.c'],['../volume__descriptor_8h.html#a927dff4d543f323e86784b784602c3f4',1,'create_volume_descriptor(volume_descriptor *vd, uint8_t type, uint8_t version):&#160;volume_descriptor.c']]],
-  ['current_5fdisk_5fname_12',['CURRENT_DISK_NAME',['../options_8c.html#ab618e22311642682edcbbddd408ad110',1,'CURRENT_DISK_NAME:&#160;options.c'],['../options_8h.html#ab618e22311642682edcbbddd408ad110',1,'CURRENT_DISK_NAME:&#160;options.c']]],
-  ['current_5fentry_13',['current_entry',['../structpath__table.html#ae73602760f6f2a1939eb651087570e63',1,'path_table']]],
-  ['current_5findex_14',['current_index',['../structindex__file.html#ae7878b33b733dd77bc70ca4dfa390628',1,'index_file']]],
-  ['current_5frecord_15',['current_record',['../structdirectory.html#a1f1b2917abfe5c0625cf4034274797e7',1,'directory']]]
+  ['change_5fendianness_5fuint16_1',['change_endianness_uint16',['../utils_8c.html#a4965520bde2fd7164397a78f8026164a',1,'utils.c']]],
+  ['create_5fdirectories_5fand_5fextract_5fdata_5ffrom_5fpath_5ffile_2',['create_directories_and_extract_data_from_path_file',['../extractor_8c.html#ad53840f52d541af8bc89a7e6c86e29eb',1,'extractor.c']]],
+  ['create_5fdirectory_3',['create_directory',['../directory_8c.html#a588d5ddc87f420409a34325d09ba125a',1,'directory.c']]],
+  ['create_5ffile_5fflags_4',['create_file_flags',['../file__flags_8c.html#aacfa73039d80ff8aafa6b5cc1d8c54b5',1,'file_flags.c']]],
+  ['create_5findex_5ffile_5',['create_index_file',['../index__file_8c.html#a8d0c5734d83636faa168e5869954b500',1,'index_file.c']]],
+  ['create_5fnew_5foutput_5fdirectory_6',['create_new_output_directory',['../output_8c.html#add12be6feec39ec622b2f29e078e507d',1,'output.c']]],
+  ['create_5foutput_5fdirectory_7',['create_output_directory',['../output_8c.html#acef952bf7d1077d8f68a1be1f084b2ee',1,'output.c']]],
+  ['create_5fpath_5ftable_8',['create_path_table',['../path__table_8c.html#ac08be1296d016ba9a28db25b35ca9132',1,'path_table.c']]],
+  ['create_5fvolume_5fdescriptor_9',['create_volume_descriptor',['../volume__descriptor_8c.html#ac681bcadb940c039ad4b7093f33bb952',1,'volume_descriptor.c']]],
+  ['current_5fdisk_5fname_10',['CURRENT_DISK_NAME',['../options_8c.html#ab618e22311642682edcbbddd408ad110',1,'options.c']]]
 ];

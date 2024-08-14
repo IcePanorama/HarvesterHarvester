@@ -15,11 +15,11 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_output_8c_source_1l00011"/>00011 <emphasis role="comment">//</emphasis>
 <anchor xml:id="_output_8c_source_1l00012"/>00012 <emphasis role="comment">//&#32;&#32;You&#32;should&#32;have&#32;received&#32;a&#32;copy&#32;of&#32;the&#32;GNU&#32;General&#32;Public&#32;License&#32;along</emphasis>
 <anchor xml:id="_output_8c_source_1l00013"/>00013 <emphasis role="comment">//&#32;&#32;with&#32;this&#32;program.&#32;&#32;If&#32;not,&#32;see&#32;&lt;https://www.gnu.org/licenses/&gt;.</emphasis>
-<anchor xml:id="_output_8c_source_1l00014"/>00014 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_output_8h">output.h</link>&quot;</emphasis>
-<anchor xml:id="_output_8c_source_1l00015"/>00015 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_errors_8h">errors.h</link>&quot;</emphasis>
-<anchor xml:id="_output_8c_source_1l00016"/>00016 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_log_8h">log.h</link>&quot;</emphasis>
-<anchor xml:id="_output_8c_source_1l00017"/>00017 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_options_8h">options.h</link>&quot;</emphasis>
-<anchor xml:id="_output_8c_source_1l00018"/>00018 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_utils_8h">utils.h</link>&quot;</emphasis>
+<anchor xml:id="_output_8c_source_1l00014"/>00014 <emphasis role="preprocessor">#include&#32;&quot;output.h&quot;</emphasis>
+<anchor xml:id="_output_8c_source_1l00015"/>00015 <emphasis role="preprocessor">#include&#32;&quot;errors.h&quot;</emphasis>
+<anchor xml:id="_output_8c_source_1l00016"/>00016 <emphasis role="preprocessor">#include&#32;&quot;log.h&quot;</emphasis>
+<anchor xml:id="_output_8c_source_1l00017"/>00017 <emphasis role="preprocessor">#include&#32;&quot;options.h&quot;</emphasis>
+<anchor xml:id="_output_8c_source_1l00018"/>00018 <emphasis role="preprocessor">#include&#32;&quot;utils.h&quot;</emphasis>
 <anchor xml:id="_output_8c_source_1l00019"/>00019 
 <anchor xml:id="_output_8c_source_1l00020"/>00020 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
 <anchor xml:id="_output_8c_source_1l00021"/>00021 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
@@ -35,11 +35,11 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_output_8c_source_1l00031"/>00031 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_options_8c_1ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</link>&#32;!=&#32;NULL)
 <anchor xml:id="_output_8c_source_1l00032"/>00032 &#32;&#32;&#32;&#32;{
 <anchor xml:id="_output_8c_source_1l00033"/>00033 &#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</link>&#32;(path,&#32;<link linkend="_options_8c_1ab618e22311642682edcbbddd408ad110">CURRENT_DISK_NAME</link>)&#32;!=&#32;0)
-<anchor xml:id="_output_8c_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
+<anchor xml:id="_output_8c_source_1l00034"/>00034 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_MEM_ALLOC_ERROR;
 <anchor xml:id="_output_8c_source_1l00035"/>00035 &#32;&#32;&#32;&#32;}
 <anchor xml:id="_output_8c_source_1l00036"/>00036 
 <anchor xml:id="_output_8c_source_1l00037"/>00037 &#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(<link linkend="_utils_8c_1a41ffa7a16724ed0473f420933cfb7b87">prepend_path_string</link>&#32;(path,&#32;<link linkend="_options_8c_1a517a97037702e04fc68e47a47e4af794">OP_OUTPUT_DIR</link>)&#32;!=&#32;0)
-<anchor xml:id="_output_8c_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
+<anchor xml:id="_output_8c_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_MEM_ALLOC_ERROR;
 <anchor xml:id="_output_8c_source_1l00039"/>00039 
 <anchor xml:id="_output_8c_source_1l00040"/>00040 &#32;&#32;<link linkend="_output_8c_1add12be6feec39ec622b2f29e078e507d">create_new_output_directory</link>&#32;(path);
 <anchor xml:id="_output_8c_source_1l00041"/>00041 
@@ -84,12 +84,12 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_output_8c_source_1l00080"/>00080 <emphasis role="preprocessor">#endif</emphasis>
 <anchor xml:id="_output_8c_source_1l00081"/>00081 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(status&#32;!=&#32;0)
 <anchor xml:id="_output_8c_source_1l00082"/>00082 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
-<anchor xml:id="_output_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,
+<anchor xml:id="_output_8c_source_1l00083"/>00083 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(HH_LOG_ERROR,
 <anchor xml:id="_output_8c_source_1l00084"/>00084 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;create&#32;the&#32;following&#32;output&#32;directory,&#32;%s.&quot;</emphasis>,
 <anchor xml:id="_output_8c_source_1l00085"/>00085 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;path);
 <anchor xml:id="_output_8c_source_1l00086"/>00086 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free&#32;(dir);
 <anchor xml:id="_output_8c_source_1l00087"/>00087 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;free&#32;(tmp);
-<anchor xml:id="_output_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea728e5e6c78909b6e19994316188847aa">HH_CREATE_OUTPUT_DIR_ERROR</link>;
+<anchor xml:id="_output_8c_source_1l00088"/>00088 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_CREATE_OUTPUT_DIR_ERROR;
 <anchor xml:id="_output_8c_source_1l00089"/>00089 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
 <anchor xml:id="_output_8c_source_1l00090"/>00090 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
 <anchor xml:id="_output_8c_source_1l00091"/>00091 

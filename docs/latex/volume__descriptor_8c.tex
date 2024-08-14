@@ -8,16 +8,16 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{create\+\_\+volume\+\_\+descriptor}} (\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}vd, uint8\+\_\+t type\+\_\+code, uint8\+\_\+t version)
-\begin{DoxyCompactList}\small\item\em Initializes a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} using the provided {\ttfamily type} and {\ttfamily version} data. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece}{print\+\_\+volume\+\_\+descriptor\+\_\+header}} (\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}vd)
-\begin{DoxyCompactList}\small\item\em Prints the header section of a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} in a human-\/readable form to stdout. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d}{print\+\_\+volume\+\_\+descriptor\+\_\+data}} (\mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}vdd)
-\begin{DoxyCompactList}\small\item\em Prints the given {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} to the stdout in a human-\/readable form. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{volume__descriptor_8c_ab0bb4ee4fd340fd1a57cf8e1112c66b5}{process\+\_\+volume\+\_\+descriptor\+\_\+header}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}vd)
-\begin{DoxyCompactList}\small\item\em Processes the header of a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} using data pointed to by {\ttfamily fptr}. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4cfb83}{process\+\_\+volume\+\_\+descriptor\+\_\+data}} (FILE \texorpdfstring{$\ast$}{*}fptr, \mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}vdd)
-\begin{DoxyCompactList}\small\item\em Processes the given {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} using data pointed to by {\ttfamily fptr}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952}{create\+\_\+volume\+\_\+descriptor}} (volume\+\_\+descriptor \texorpdfstring{$\ast$}{*}vd, uint8\+\_\+t type\+\_\+code, uint8\+\_\+t version)
+\item 
+void \mbox{\hyperlink{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece}{print\+\_\+volume\+\_\+descriptor\+\_\+header}} (volume\+\_\+descriptor \texorpdfstring{$\ast$}{*}vd)
+\item 
+void \mbox{\hyperlink{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d}{print\+\_\+volume\+\_\+descriptor\+\_\+data}} (volume\+\_\+descriptor\+\_\+data \texorpdfstring{$\ast$}{*}vdd)
+\item 
+int8\+\_\+t \mbox{\hyperlink{volume__descriptor_8c_ab0bb4ee4fd340fd1a57cf8e1112c66b5}{process\+\_\+volume\+\_\+descriptor\+\_\+header}} (FILE \texorpdfstring{$\ast$}{*}fptr, volume\+\_\+descriptor \texorpdfstring{$\ast$}{*}vd)
+\item 
+int8\+\_\+t \mbox{\hyperlink{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4cfb83}{process\+\_\+volume\+\_\+descriptor\+\_\+data}} (FILE \texorpdfstring{$\ast$}{*}fptr, volume\+\_\+descriptor\+\_\+data \texorpdfstring{$\ast$}{*}vdd)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -25,11 +25,7 @@ int8\+\_\+t \mbox{\hyperlink{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4c
 \index{create\_volume\_descriptor@{create\_volume\_descriptor}!volume\_descriptor.c@{volume\_descriptor.c}}
 \doxysubsubsection{\texorpdfstring{create\_volume\_descriptor()}{create\_volume\_descriptor()}}
 {\footnotesize\ttfamily \label{volume__descriptor_8c_ac681bcadb940c039ad4b7093f33bb952} 
-void create\+\_\+volume\+\_\+descriptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{, }\item[{uint8\+\_\+t}]{type\+\_\+code}{, }\item[{uint8\+\_\+t}]{version}{}\end{DoxyParamCaption})}
-
-
-
-Initializes a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} using the provided {\ttfamily type} and {\ttfamily version} data. 
+void create\+\_\+volume\+\_\+descriptor (\begin{DoxyParamCaption}\item[{volume\+\_\+descriptor \texorpdfstring{$\ast$}{*}}]{vd}{, }\item[{uint8\+\_\+t}]{type\+\_\+code}{, }\item[{uint8\+\_\+t}]{version}{}\end{DoxyParamCaption})}
 
 
 
@@ -39,11 +35,7 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00022}{22}} of
 \index{print\_volume\_descriptor\_data@{print\_volume\_descriptor\_data}!volume\_descriptor.c@{volume\_descriptor.c}}
 \doxysubsubsection{\texorpdfstring{print\_volume\_descriptor\_data()}{print\_volume\_descriptor\_data()}}
 {\footnotesize\ttfamily \label{volume__descriptor_8c_ae25c2f5ac41962af3d8db01bdacbb65d} 
-void print\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{vdd}{}\end{DoxyParamCaption})}
-
-
-
-Prints the given {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} to the stdout in a human-\/readable form. 
+void print\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCaption}\item[{volume\+\_\+descriptor\+\_\+data \texorpdfstring{$\ast$}{*}}]{vdd}{}\end{DoxyParamCaption})}
 
 
 
@@ -53,13 +45,9 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00040}{40}} of
 \index{print\_volume\_descriptor\_header@{print\_volume\_descriptor\_header}!volume\_descriptor.c@{volume\_descriptor.c}}
 \doxysubsubsection{\texorpdfstring{print\_volume\_descriptor\_header()}{print\_volume\_descriptor\_header()}}
 {\footnotesize\ttfamily \label{volume__descriptor_8c_ac83303eab8ff516e07c13652ff4adece} 
-void print\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{}\end{DoxyParamCaption})}
+void print\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCaption}\item[{volume\+\_\+descriptor \texorpdfstring{$\ast$}{*}}]{vd}{}\end{DoxyParamCaption})}
 
 
-
-Prints the header section of a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} in a human-\/readable form to stdout. 
-
-The header includes every field except for {\ttfamily data}, which can be printed using the {\ttfamily \doxylink{volume__descriptor_8h_ae25c2f5ac41962af3d8db01bdacbb65d}{print\+\_\+volume\+\_\+descriptor\+\_\+data()}} function. 
 
 Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00032}{32}} of file \mbox{\hyperlink{volume__descriptor_8c_source}{volume\+\_\+descriptor.\+c}}.
 
@@ -67,11 +55,7 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00032}{32}} of
 \index{process\_volume\_descriptor\_data@{process\_volume\_descriptor\_data}!volume\_descriptor.c@{volume\_descriptor.c}}
 \doxysubsubsection{\texorpdfstring{process\_volume\_descriptor\_data()}{process\_volume\_descriptor\_data()}}
 {\footnotesize\ttfamily \label{volume__descriptor_8c_a00d2e72d3698261c77ed5e118c4cfb83} 
-int8\+\_\+t process\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} \texorpdfstring{$\ast$}{*}}]{vdd}{}\end{DoxyParamCaption})}
-
-
-
-Processes the given {\ttfamily \doxylink{structvolume__descriptor__data}{volume\+\_\+descriptor\+\_\+data}} using data pointed to by {\ttfamily fptr}. 
+int8\+\_\+t process\+\_\+volume\+\_\+descriptor\+\_\+data (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{volume\+\_\+descriptor\+\_\+data \texorpdfstring{$\ast$}{*}}]{vdd}{}\end{DoxyParamCaption})}
 
 
 
@@ -81,11 +65,7 @@ Definition at line \mbox{\hyperlink{volume__descriptor_8c_source_l00099}{99}} of
 \index{process\_volume\_descriptor\_header@{process\_volume\_descriptor\_header}!volume\_descriptor.c@{volume\_descriptor.c}}
 \doxysubsubsection{\texorpdfstring{process\_volume\_descriptor\_header()}{process\_volume\_descriptor\_header()}}
 {\footnotesize\ttfamily \label{volume__descriptor_8c_ab0bb4ee4fd340fd1a57cf8e1112c66b5} 
-int8\+\_\+t process\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{\mbox{\hyperlink{structvolume__descriptor}{volume\+\_\+descriptor}} \texorpdfstring{$\ast$}{*}}]{vd}{}\end{DoxyParamCaption})}
-
-
-
-Processes the header of a given {\ttfamily \doxylink{structvolume__descriptor}{volume\+\_\+descriptor}} using data pointed to by {\ttfamily fptr}. 
+int8\+\_\+t process\+\_\+volume\+\_\+descriptor\+\_\+header (\begin{DoxyParamCaption}\item[{FILE \texorpdfstring{$\ast$}{*}}]{fptr}{, }\item[{volume\+\_\+descriptor \texorpdfstring{$\ast$}{*}}]{vd}{}\end{DoxyParamCaption})}
 
 
 

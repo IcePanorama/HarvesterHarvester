@@ -20,9 +20,7 @@
 
 <para>As this function can safely fail without affecting normal operations, this doesn&apos;t return any errors, despite possibly having a fread error during normal usage. </para>
 </listitem>
-            <listitem><para>void <link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link> (<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</link> lvl, const char *fmt,...)</para>
-
-<para>A logger function. </para>
+            <listitem><para>void <link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link> (hh_log_level lvl, const char *fmt,...)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -42,13 +40,7 @@ Definition at line <link linkend="_log_8c_source_1l00046">46</link> of file <lin
     <title>hh_log()</title>
 <indexterm><primary>hh_log</primary><secondary>log.c</secondary></indexterm>
 <indexterm><primary>log.c</primary><secondary>hh_log</secondary></indexterm>
-<para><computeroutput>void hh_log (<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019">hh_log_level</link> lvl, const char * fmt,  ...)</computeroutput></para><para>
-
-<para>A logger function. </para>
-</para>
-
-<para>Outputs fmt and args to either the stdout or stderr depending on the <computeroutput>lvl</computeroutput> passed into the function. </para>
-<para>
+<para><computeroutput>void hh_log (hh_log_level lvl, const char * fmt,  ...)</computeroutput></para><para>
 Definition at line <link linkend="_log_8c_source_1l00069">69</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
 <anchor xml:id="_log_8c_1aaaf9265dd175725985b56eeac3db2f30"/><section>
@@ -62,7 +54,7 @@ Definition at line <link linkend="_log_8c_source_1l00069">69</link> of file <lin
 
 <para>Formats said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.</para>
 
-<para>TODO: These values are currently hardcoded in, but they likely should be moved to <link linkend="_options_8h">options.h</link> in the future. </para>
+<para>TODO: These values are currently hardcoded in, but they likely should be moved to options.h in the future. </para>
 <para>
 Definition at line <link linkend="_log_8c_source_1l00029">29</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>
@@ -74,8 +66,6 @@ Definition at line <link linkend="_log_8c_source_1l00029">29</link> of file <lin
 
 <para>As this function can safely fail without affecting normal operations, this doesn&apos;t return any errors, despite possibly having a fread error during normal usage. </para>
 </para>
-
-<para>Prints the next <computeroutput>BYTES_TO_READ</computeroutput> many bytes to the stdout, formatted in order to be easy to read. </para>
 <para>
 Definition at line <link linkend="_log_8c_source_1l00053">53</link> of file <link linkend="_log_8c_source">log.c</link>.</para>
 </section>

@@ -7,59 +7,33 @@
         <itemizedlist>
             <listitem><para>file <link linkend="_data__reader_8c">data_reader.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_data__reader_8h">data_reader.h</link></para>
-</listitem>
             <listitem><para>file <link linkend="_datetime_8c">datetime.c</link></para>
-</listitem>
-            <listitem><para>file <link linkend="_datetime_8h">datetime.h</link></para>
 </listitem>
             <listitem><para>file <link linkend="_directory_8c">directory.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_directory_8h">directory.h</link></para>
-</listitem>
             <listitem><para>file <link linkend="_errors_8c">errors.c</link></para>
-</listitem>
-            <listitem><para>file <link linkend="_errors_8h">errors.h</link></para>
 </listitem>
             <listitem><para>file <link linkend="_extractor_8c">extractor.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_extractor_8h">extractor.h</link></para>
-</listitem>
             <listitem><para>file <link linkend="_file__flags_8c">file_flags.c</link></para>
-</listitem>
-            <listitem><para>file <link linkend="_file__flags_8h">file_flags.h</link></para>
 </listitem>
             <listitem><para>file <link linkend="_hh_8c">hh.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_hh_8h">hh.h</link></para>
-</listitem>
             <listitem><para>file <link linkend="_index__file_8c">index_file.c</link></para>
-</listitem>
-            <listitem><para>file <link linkend="_index__file_8h">index_file.h</link></para>
 </listitem>
             <listitem><para>file <link linkend="_log_8c">log.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_log_8h">log.h</link></para>
+            <listitem><para>file <link linkend="_main_8c">main.c</link></para>
 </listitem>
             <listitem><para>file <link linkend="_options_8c">options.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_options_8h">options.h</link></para>
-</listitem>
             <listitem><para>file <link linkend="_output_8c">output.c</link></para>
-</listitem>
-            <listitem><para>file <link linkend="_output_8h">output.h</link></para>
 </listitem>
             <listitem><para>file <link linkend="_path__table_8c">path_table.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_path__table_8h">path_table.h</link></para>
-</listitem>
             <listitem><para>file <link linkend="_utils_8c">utils.c</link></para>
 </listitem>
-            <listitem><para>file <link linkend="_utils_8h">utils.h</link></para>
-</listitem>
             <listitem><para>file <link linkend="_volume__descriptor_8c">volume_descriptor.c</link></para>
-</listitem>
-            <listitem><para>file <link linkend="_volume__descriptor_8h">volume_descriptor.h</link></para>
 </listitem>
         </itemizedlist>
 </simplesect>

@@ -103,12 +103,12 @@ $(function(){initNavTree('index__file_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">index_file.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="index__file_8h_source.html">index_file.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;index_file.h&quot;</code><br />
+<code>#include &quot;data_reader.h&quot;</code><br />
+<code>#include &quot;errors.h&quot;</code><br />
+<code>#include &quot;log.h&quot;</code><br />
+<code>#include &quot;options.h&quot;</code><br />
+<code>#include &quot;utils.h&quot;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 </div>
@@ -116,23 +116,18 @@ $(function(){initNavTree('index__file_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac4e7fdb31a69d93e8723a7f7ff725261" id="r_ac4e7fdb31a69d93e8723a7f7ff725261"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (<a class="el" href="structindex__file.html">index_file</a> *idx)</td></tr>
-<tr class="memdesc:ac4e7fdb31a69d93e8723a7f7ff725261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grows a given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>'s <code>entries</code> attribute by <code>IDX_RECORDS_GROWTH_RATE</code>.  <br /></td></tr>
+<tr class="memitem:ac4e7fdb31a69d93e8723a7f7ff725261" id="r_ac4e7fdb31a69d93e8723a7f7ff725261"><td class="memItemLeft" align="right" valign="top">static int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4e7fdb31a69d93e8723a7f7ff725261">resize_indicies</a> (index_file *idx)</td></tr>
+<tr class="memdesc:ac4e7fdb31a69d93e8723a7f7ff725261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grows a given <code>index_file</code>'s <code>entries</code> attribute by <code>IDX_RECORDS_GROWTH_RATE</code>.  <br /></td></tr>
 <tr class="separator:ac4e7fdb31a69d93e8723a7f7ff725261"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d0c5734d83636faa168e5869954b500" id="r_a8d0c5734d83636faa168e5869954b500"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d0c5734d83636faa168e5869954b500">create_index_file</a> (<a class="el" href="structindex__file.html">index_file</a> *i)</td></tr>
-<tr class="memdesc:a8d0c5734d83636faa168e5869954b500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>.  <br /></td></tr>
+<tr class="memitem:a8d0c5734d83636faa168e5869954b500" id="r_a8d0c5734d83636faa168e5869954b500"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d0c5734d83636faa168e5869954b500">create_index_file</a> (index_file *i)</td></tr>
 <tr class="separator:a8d0c5734d83636faa168e5869954b500"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a642840a928d9784ac4cf34228672fbbc" id="r_a642840a928d9784ac4cf34228672fbbc"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a> (<a class="el" href="structindex__file.html">index_file</a> *i)</td></tr>
-<tr class="memdesc:a642840a928d9784ac4cf34228672fbbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>.  <br /></td></tr>
+<tr class="memitem:a642840a928d9784ac4cf34228672fbbc" id="r_a642840a928d9784ac4cf34228672fbbc"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a642840a928d9784ac4cf34228672fbbc">destroy_index_file</a> (index_file *i)</td></tr>
 <tr class="separator:a642840a928d9784ac4cf34228672fbbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d9a7c6f483fa764254a2013aa7258b1" id="r_a8d9a7c6f483fa764254a2013aa7258b1"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</a> (FILE *fptr, <a class="el" href="structindex__file.html">index_file</a> *idxf)</td></tr>
-<tr class="memdesc:a8d9a7c6f483fa764254a2013aa7258b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from a given file, creating <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code>s for every entry in said file.  <br /></td></tr>
+<tr class="memitem:a8d9a7c6f483fa764254a2013aa7258b1" id="r_a8d9a7c6f483fa764254a2013aa7258b1"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d9a7c6f483fa764254a2013aa7258b1">process_index_file</a> (FILE *fptr, index_file *idxf)</td></tr>
 <tr class="separator:a8d9a7c6f483fa764254a2013aa7258b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a803c3e3f6d663ff2050f3c2e60e13431" id="r_a803c3e3f6d663ff2050f3c2e60e13431"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</a> (<a class="el" href="structindex__entry.html">index_entry</a> *idxe)</td></tr>
-<tr class="memdesc:a803c3e3f6d663ff2050f3c2e60e13431"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints all the attributes of a given <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> in a human-readable form.  <br /></td></tr>
+<tr class="memitem:a803c3e3f6d663ff2050f3c2e60e13431" id="r_a803c3e3f6d663ff2050f3c2e60e13431"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a803c3e3f6d663ff2050f3c2e60e13431">print_index_entry</a> (index_entry *idxe)</td></tr>
 <tr class="separator:a803c3e3f6d663ff2050f3c2e60e13431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a746462bc35bd98ad993e5da86bd6b2a7" id="r_a746462bc35bd98ad993e5da86bd6b2a7"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a> (<a class="el" href="structindex__file.html">index_file</a> *file, <a class="el" href="structindex__entry.html">index_entry</a> *entry)</td></tr>
-<tr class="memdesc:a746462bc35bd98ad993e5da86bd6b2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a given <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> to a <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>.  <br /></td></tr>
+<tr class="memitem:a746462bc35bd98ad993e5da86bd6b2a7" id="r_a746462bc35bd98ad993e5da86bd6b2a7"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a746462bc35bd98ad993e5da86bd6b2a7">add_entry_to_index_file</a> (index_file *file, index_entry *entry)</td></tr>
 <tr class="separator:a746462bc35bd98ad993e5da86bd6b2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -152,17 +147,15 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int8_t add_entry_to_index_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structindex__file.html">index_file</a> *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
+          <td class="paramtype">index_file *</td>          <td class="paramname"><span class="paramname"><em>file</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structindex__entry.html">index_entry</a> *</td>          <td class="paramname"><span class="paramname"><em>entry</em></span>&#160;)</td>
+          <td class="paramtype">index_entry *</td>          <td class="paramname"><span class="paramname"><em>entry</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Adds a given <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> to a <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00137">137</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
@@ -177,13 +170,11 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int8_t create_index_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structindex__file.html">index_file</a> *</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td class="paramtype">index_file *</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Initializes an <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00034">34</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
@@ -198,13 +189,11 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int8_t destroy_index_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structindex__file.html">index_file</a> *</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
+          <td class="paramtype">index_file *</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Destroys a given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00049">49</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
@@ -219,13 +208,11 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void print_index_entry </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structindex__entry.html">index_entry</a> *</td>          <td class="paramname"><span class="paramname"><em>idxe</em></span></td><td>)</td>
+          <td class="paramtype">index_entry *</td>          <td class="paramname"><span class="paramname"><em>idxe</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Prints all the attributes of a given <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> in a human-readable form. </p>
 
 <p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00127">127</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 
@@ -245,12 +232,10 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structindex__file.html">index_file</a> *</td>          <td class="paramname"><span class="paramname"><em>idxf</em></span>&#160;)</td>
+          <td class="paramtype">index_file *</td>          <td class="paramname"><span class="paramname"><em>idxf</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Reads data from a given file, creating <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code>s for every entry in said file. </p>
 <p>Every entry is 0x94 bytes apart, the part we're most concerned about is the last 16 bytes. Currently treating unknown data in between as junk. If you have any idea what this data might be used for, please feel free to make changes.</p>
 
 <p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00056">56</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
@@ -269,7 +254,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">int8_t resize_indicies </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structindex__file.html">index_file</a> *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span></td><td>)</td>
+          <td class="paramtype">index_file *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -280,7 +265,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Grows a given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>'s <code>entries</code> attribute by <code>IDX_RECORDS_GROWTH_RATE</code>. </p>
+<p>Grows a given <code>index_file</code>'s <code>entries</code> attribute by <code>IDX_RECORDS_GROWTH_RATE</code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="index__file_8c_source.html#l00153">153</a> of file <a class="el" href="index__file_8c_source.html">index_file.c</a>.</p>
 

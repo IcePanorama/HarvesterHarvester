@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['abstract_5ffile_5fidentifier_5flen_0',['ABSTRACT_FILE_IDENTIFIER_LEN',['../volume__descriptor_8h.html#ab6ba919808a912338d8e0abeb022b78c',1,'volume_descriptor.h']]],
-  ['application_5fidentifier_5flen_1',['APPLICATION_IDENTIFIER_LEN',['../volume__descriptor_8h.html#ac6cb4e8045e278793e9662627423aa09',1,'volume_descriptor.h']]]
+  ['bytes_5fto_5fread_0',['BYTES_TO_READ',['../log_8c.html#a41e9ced92689f94ffc427d5e2e658382',1,'log.c']]]
 ];

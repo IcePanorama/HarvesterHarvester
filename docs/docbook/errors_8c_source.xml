@@ -2,8 +2,8 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_errors_8c_source" xml:lang="en-US">
 <title>errors.c</title>
 <indexterm><primary>src/errors.c</primary></indexterm>
-Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_errors_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_errors_8h">errors.h</link>&quot;</emphasis>
-<anchor xml:id="_errors_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_log_8h">log.h</link>&quot;</emphasis>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_errors_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;errors.h&quot;</emphasis>
+<anchor xml:id="_errors_8c_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;log.h&quot;</emphasis>
 <anchor xml:id="_errors_8c_source_1l00003"/>00003 
 <anchor xml:id="_errors_8c_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;stdbool.h&gt;</emphasis>
 <anchor xml:id="_errors_8c_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;stdlib.h&gt;</emphasis>
@@ -11,19 +11,19 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8c_source_1l00007"/><link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">00007</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>&#32;=&#32;<emphasis role="stringliteral">&quot;Unable&#32;to&#32;calloc&#32;string&#32;of&#32;size&#32;%zu.&quot;</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00008"/><link linkend="_errors_8c_1a03ff53905312bd88e728b1863cf1b1c9">00008</link> <emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*<link linkend="_errors_8c_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link>&#32;=&#32;<emphasis role="stringliteral">&quot;Unable&#32;to&#32;open&#32;output&#32;file,&#32;%s.&quot;</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00009"/>00009 
-<anchor xml:id="_errors_8c_source_1l00010"/>00010 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
+<anchor xml:id="_errors_8c_source_1l00010"/>00010 HH_ERRORS
 <anchor xml:id="_errors_8c_source_1l00011"/><link linkend="_errors_8c_1a362a48baf5e9d27699c8f7cfe184d77d">00011</link> <link linkend="_errors_8c_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link>&#32;(<emphasis role="keywordtype">char</emphasis>&#32;*filename)
 <anchor xml:id="_errors_8c_source_1l00012"/>00012 {
-<anchor xml:id="_errors_8c_source_1l00013"/>00013 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Unable&#32;to&#32;open&#32;file,&#32;%s.&quot;</emphasis>,&#32;filename);
-<anchor xml:id="_errors_8c_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eaa67a554e13599ff5d070f2d0285e147a">HH_FOPEN_ERROR</link>;
+<anchor xml:id="_errors_8c_source_1l00013"/>00013 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(HH_LOG_ERROR,&#32;<emphasis role="stringliteral">&quot;Unable&#32;to&#32;open&#32;file,&#32;%s.&quot;</emphasis>,&#32;filename);
+<anchor xml:id="_errors_8c_source_1l00014"/>00014 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_FOPEN_ERROR;
 <anchor xml:id="_errors_8c_source_1l00015"/>00015 }
 <anchor xml:id="_errors_8c_source_1l00016"/>00016 
-<anchor xml:id="_errors_8c_source_1l00017"/>00017 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
+<anchor xml:id="_errors_8c_source_1l00017"/>00017 HH_ERRORS
 <anchor xml:id="_errors_8c_source_1l00018"/><link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">00018</link> <link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;actual,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;expected_bytes)
 <anchor xml:id="_errors_8c_source_1l00019"/>00019 {
-<anchor xml:id="_errors_8c_source_1l00020"/>00020 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Only&#32;read&#32;%zu&#32;byte(s),&#32;expected&#32;%zu.&quot;</emphasis>,&#32;actual,
+<anchor xml:id="_errors_8c_source_1l00020"/>00020 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(HH_LOG_ERROR,&#32;<emphasis role="stringliteral">&quot;Only&#32;read&#32;%zu&#32;byte(s),&#32;expected&#32;%zu.&quot;</emphasis>,&#32;actual,
 <anchor xml:id="_errors_8c_source_1l00021"/>00021 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;expected_bytes);
-<anchor xml:id="_errors_8c_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746ea0c1be935ae4f22ab2131ac82f875a6df">HH_FREAD_ERROR</link>;
+<anchor xml:id="_errors_8c_source_1l00022"/>00022 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_FREAD_ERROR;
 <anchor xml:id="_errors_8c_source_1l00023"/>00023 }
 <anchor xml:id="_errors_8c_source_1l00024"/>00024 
 <anchor xml:id="_errors_8c_source_1l00025"/>00025 <emphasis role="keywordtype">void</emphasis>
@@ -35,33 +35,33 @@ Go to the documentation of this file.<programlisting linenumbering="unnumbered">
 <anchor xml:id="_errors_8c_source_1l00031"/>00031 <emphasis role="preprocessor">#else</emphasis>
 <anchor xml:id="_errors_8c_source_1l00032"/>00032 &#32;&#32;windows&#32;=&#32;<emphasis role="keyword">false</emphasis>;
 <anchor xml:id="_errors_8c_source_1l00033"/>00033 <emphasis role="preprocessor">#endif</emphasis>
-<anchor xml:id="_errors_8c_source_1l00034"/>00034 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,
+<anchor xml:id="_errors_8c_source_1l00034"/>00034 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(HH_LOG_ERROR,
 <anchor xml:id="_errors_8c_source_1l00035"/>00035 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Unknown&#32;command-line&#32;argument,&#32;%s.&#32;Run&#32;%s&#32;--help&#32;for&#32;a&#32;list&#32;of&#32;&quot;</emphasis>
 <anchor xml:id="_errors_8c_source_1l00036"/>00036 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;command-line&#32;arguments.&quot;</emphasis>,
 <anchor xml:id="_errors_8c_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;arg,&#32;!windows&#32;?&#32;<emphasis role="stringliteral">&quot;./HarvesterHarvester&quot;</emphasis>&#32;:&#32;<emphasis role="stringliteral">&quot;HarvesterHarvester.exe&quot;</emphasis>);
 <anchor xml:id="_errors_8c_source_1l00038"/>00038 &#32;&#32;exit&#32;(1);
 <anchor xml:id="_errors_8c_source_1l00039"/>00039 }
 <anchor xml:id="_errors_8c_source_1l00040"/>00040 
-<anchor xml:id="_errors_8c_source_1l00041"/>00041 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
+<anchor xml:id="_errors_8c_source_1l00041"/>00041 HH_ERRORS
 <anchor xml:id="_errors_8c_source_1l00042"/><link linkend="_errors_8c_1a264d565f946a86af55409cbe5b980060">00042</link> <link linkend="_errors_8c_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link>&#32;(<emphasis role="keywordtype">size_t</emphasis>&#32;size)
 <anchor xml:id="_errors_8c_source_1l00043"/>00043 {
-<anchor xml:id="_errors_8c_source_1l00044"/>00044 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>,&#32;size);
-<anchor xml:id="_errors_8c_source_1l00045"/>00045 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
+<anchor xml:id="_errors_8c_source_1l00044"/>00044 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(HH_LOG_ERROR,&#32;<link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link>,&#32;size);
+<anchor xml:id="_errors_8c_source_1l00045"/>00045 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_MEM_ALLOC_ERROR;
 <anchor xml:id="_errors_8c_source_1l00046"/>00046 }
 <anchor xml:id="_errors_8c_source_1l00047"/>00047 
-<anchor xml:id="_errors_8c_source_1l00048"/>00048 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
+<anchor xml:id="_errors_8c_source_1l00048"/>00048 HH_ERRORS
 <anchor xml:id="_errors_8c_source_1l00049"/><link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">00049</link> <link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*arr_name,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;old_size,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;new_size)
 <anchor xml:id="_errors_8c_source_1l00050"/>00050 {
-<anchor xml:id="_errors_8c_source_1l00051"/>00051 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,
+<anchor xml:id="_errors_8c_source_1l00051"/>00051 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(HH_LOG_ERROR,
 <anchor xml:id="_errors_8c_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;reallocate&#32;array,&#32;%s,&#32;from&#32;size&#32;%zu&#32;to&#32;%zu.&quot;</emphasis>,&#32;arr_name,
 <anchor xml:id="_errors_8c_source_1l00053"/>00053 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;old_size,&#32;new_size);
-<anchor xml:id="_errors_8c_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
+<anchor xml:id="_errors_8c_source_1l00054"/>00054 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_MEM_ALLOC_ERROR;
 <anchor xml:id="_errors_8c_source_1l00055"/>00055 }
 <anchor xml:id="_errors_8c_source_1l00056"/>00056 
-<anchor xml:id="_errors_8c_source_1l00057"/>00057 <link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link>
+<anchor xml:id="_errors_8c_source_1l00057"/>00057 HH_ERRORS
 <anchor xml:id="_errors_8c_source_1l00058"/><link linkend="_errors_8c_1a8ae11ef9f755479186d4d1a6dcf3ec99">00058</link> <link linkend="_errors_8c_1a8ae11ef9f755479186d4d1a6dcf3ec99">handle_malloc_error</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;*obj_name)
 <anchor xml:id="_errors_8c_source_1l00059"/>00059 {
-<anchor xml:id="_errors_8c_source_1l00060"/>00060 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(<link linkend="_log_8h_1a7bfe9eca60a5e3bda36f482236a9a019abb1537fd1d42ee0e7229619be7230656">HH_LOG_ERROR</link>,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;allocate&#32;memory&#32;for&#32;%s.&quot;</emphasis>,&#32;obj_name);
-<anchor xml:id="_errors_8c_source_1l00061"/>00061 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746eafdb159091103067c71a4ed9205ba9a6d">HH_MEM_ALLOC_ERROR</link>;
+<anchor xml:id="_errors_8c_source_1l00060"/>00060 &#32;&#32;<link linkend="_log_8c_1a17a149a589296f67b4ecee3493403542">hh_log</link>&#32;(HH_LOG_ERROR,&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;allocate&#32;memory&#32;for&#32;%s.&quot;</emphasis>,&#32;obj_name);
+<anchor xml:id="_errors_8c_source_1l00061"/>00061 &#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;HH_MEM_ALLOC_ERROR;
 <anchor xml:id="_errors_8c_source_1l00062"/>00062 }
 </programlisting></section>

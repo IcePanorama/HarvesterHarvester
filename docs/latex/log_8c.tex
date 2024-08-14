@@ -16,8 +16,8 @@ void \mbox{\hyperlink{log_8c_aaaf9265dd175725985b56eeac3db2f30}{print\+\_\+hex\+
 \begin{DoxyCompactList}\small\item\em Outputs hex data from a given {\ttfamily buffer} to stdout. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{log_8c_af9859f7b27d46f040c836ecfdc1ac304}{print\+\_\+some\+\_\+data\+\_\+from\+\_\+file}} (FILE \texorpdfstring{$\ast$}{*}fptr)
 \begin{DoxyCompactList}\small\item\em As this function can safely fail without affecting normal operations, this doesn\textquotesingle{}t return any errors, despite possibly having a fread error during normal usage. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\+\_\+log}} (\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019}{hh\+\_\+log\+\_\+level}} lvl, const char \texorpdfstring{$\ast$}{*}fmt,...)
-\begin{DoxyCompactList}\small\item\em A logger function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{log_8c_a17a149a589296f67b4ecee3493403542}{hh\+\_\+log}} (hh\+\_\+log\+\_\+level lvl, const char \texorpdfstring{$\ast$}{*}fmt,...)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -38,13 +38,9 @@ Definition at line \mbox{\hyperlink{log_8c_source_l00046}{46}} of file \mbox{\hy
 \index{hh\_log@{hh\_log}!log.c@{log.c}}
 \doxysubsubsection{\texorpdfstring{hh\_log()}{hh\_log()}}
 {\footnotesize\ttfamily \label{log_8c_a17a149a589296f67b4ecee3493403542} 
-void hh\+\_\+log (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{log_8h_a7bfe9eca60a5e3bda36f482236a9a019}{hh\+\_\+log\+\_\+level}}}]{lvl}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
+void hh\+\_\+log (\begin{DoxyParamCaption}\item[{hh\+\_\+log\+\_\+level}]{lvl}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{fmt}{, }\item[{}]{...}{}\end{DoxyParamCaption})}
 
 
-
-A logger function. 
-
-Outputs fmt and args to either the stdout or stderr depending on the {\ttfamily lvl} passed into the function. 
 
 Definition at line \mbox{\hyperlink{log_8c_source_l00069}{69}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 
@@ -60,7 +56,7 @@ Outputs hex data from a given {\ttfamily buffer} to stdout.
 
 Formats said data to add spaces between bytes, tabs after after every four bytes, and a new line after every 16 bytes.
 
-TODO\+: These values are currently hardcoded in, but they likely should be moved to \doxylink{options_8h}{options.\+h} in the future. 
+TODO\+: These values are currently hardcoded in, but they likely should be moved to options.\+h in the future. 
 
 Definition at line \mbox{\hyperlink{log_8c_source_l00029}{29}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 
@@ -74,7 +70,7 @@ void print\+\_\+some\+\_\+data\+\_\+from\+\_\+file (\begin{DoxyParamCaption}\ite
 
 As this function can safely fail without affecting normal operations, this doesn\textquotesingle{}t return any errors, despite possibly having a fread error during normal usage. 
 
-Prints the next {\ttfamily BYTES\+\_\+\+TO\+\_\+\+READ} many bytes to the stdout, formatted in order to be easy to read. 
+
 
 Definition at line \mbox{\hyperlink{log_8c_source_l00053}{53}} of file \mbox{\hyperlink{log_8c_source}{log.\+c}}.
 

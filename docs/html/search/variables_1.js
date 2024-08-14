@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['bibliographic_5ffile_5fidentifier_0',['bibliographic_file_identifier',['../structvolume__descriptor__data.html#a1cdb695762c1f712e8bef804c1ece6c2',1,'volume_descriptor_data']]]
+  ['dir_5frecords_5fgrowth_5frate_0',['DIR_RECORDS_GROWTH_RATE',['../directory_8c.html#acf10cc9d69188bcb5abfd372b01091df',1,'directory.c']]],
+  ['dir_5fstarting_5fnum_5frecords_1',['DIR_STARTING_NUM_RECORDS',['../directory_8c.html#a6274f2bbe40695d0239392c544d25b8c',1,'directory.c']]]
 ];

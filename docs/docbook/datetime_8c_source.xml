@@ -2,22 +2,22 @@
 <section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_datetime_8c_source" xml:lang="en-US">
 <title>datetime.c</title>
 <indexterm><primary>src/datetime.c</primary></indexterm>
-Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_datetime_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_datetime_8h">datetime.h</link>&quot;</emphasis>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_datetime_8c_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;datetime.h&quot;</emphasis>
 <anchor xml:id="_datetime_8c_source_1l00002"/>00002 
 <anchor xml:id="_datetime_8c_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;stdio.h&gt;</emphasis>
 <anchor xml:id="_datetime_8c_source_1l00004"/>00004 
 <anchor xml:id="_datetime_8c_source_1l00005"/>00005 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_datetime_8c_source_1l00006"/><link linkend="_datetime_8c_1a6e26118490d8999d5e73b1e3e7dd83ce">00006</link> <link linkend="_datetime_8c_1a6e26118490d8999d5e73b1e3e7dd83ce">print_dec_datetime</link>&#32;(<link linkend="_structdec__datetime">dec_datetime</link>&#32;dt)
+<anchor xml:id="_datetime_8c_source_1l00006"/><link linkend="_datetime_8c_1a6e26118490d8999d5e73b1e3e7dd83ce">00006</link> <link linkend="_datetime_8c_1a6e26118490d8999d5e73b1e3e7dd83ce">print_dec_datetime</link>&#32;(dec_datetime&#32;dt)
 <anchor xml:id="_datetime_8c_source_1l00007"/>00007 {
-<anchor xml:id="_datetime_8c_source_1l00008"/>00008 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;%s-%s-%s&#32;@&#32;%s:%s:%s.%s&#32;(%02X)\n&quot;</emphasis>,&#32;dt.<link linkend="_structdec__datetime_1ab7a9ad2368962262d125e83001b987b3">year</link>,&#32;dt.<link linkend="_structdec__datetime_1a0e29c413746f7c7c2ed40979cef40212">month</link>,&#32;dt.<link linkend="_structdec__datetime_1a5e443017d6a0739863a37889f73ab0e2">day</link>,
-<anchor xml:id="_datetime_8c_source_1l00009"/>00009 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dt.<link linkend="_structdec__datetime_1a43e7d8294699fb0d801f44a6880114ac">hour</link>,&#32;dt.<link linkend="_structdec__datetime_1a065abdd6ccd6531336a1319b4927cbb9">minute</link>,&#32;dt.<link linkend="_structdec__datetime_1a6c2df5b9a9d8fce09cbbbdc5f06f509d">second</link>,&#32;dt.<link linkend="_structdec__datetime_1a153b026a6b60dc5ebe54f09a483c38c8">hundredths_of_a_second</link>,
-<anchor xml:id="_datetime_8c_source_1l00010"/>00010 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dt.<link linkend="_structdec__datetime_1a50b663ed16c5a54dab5fdfd8ef48a3d6">time_zone_offset</link>);
+<anchor xml:id="_datetime_8c_source_1l00008"/>00008 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;%s-%s-%s&#32;@&#32;%s:%s:%s.%s&#32;(%02X)\n&quot;</emphasis>,&#32;dt.year,&#32;dt.month,&#32;dt.day,
+<anchor xml:id="_datetime_8c_source_1l00009"/>00009 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dt.hour,&#32;dt.minute,&#32;dt.second,&#32;dt.hundredths_of_a_second,
+<anchor xml:id="_datetime_8c_source_1l00010"/>00010 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dt.time_zone_offset);
 <anchor xml:id="_datetime_8c_source_1l00011"/>00011 }
 <anchor xml:id="_datetime_8c_source_1l00012"/>00012 
 <anchor xml:id="_datetime_8c_source_1l00013"/>00013 <emphasis role="keywordtype">void</emphasis>
-<anchor xml:id="_datetime_8c_source_1l00014"/><link linkend="_datetime_8c_1a8eec3bb9a53b14abd5f53c04f9a06a9e">00014</link> <link linkend="_datetime_8c_1a8eec3bb9a53b14abd5f53c04f9a06a9e">print_dir_datetime</link>&#32;(<link linkend="_structdir__datetime">dir_datetime</link>&#32;dt)
+<anchor xml:id="_datetime_8c_source_1l00014"/><link linkend="_datetime_8c_1a8eec3bb9a53b14abd5f53c04f9a06a9e">00014</link> <link linkend="_datetime_8c_1a8eec3bb9a53b14abd5f53c04f9a06a9e">print_dir_datetime</link>&#32;(dir_datetime&#32;dt)
 <anchor xml:id="_datetime_8c_source_1l00015"/>00015 {
-<anchor xml:id="_datetime_8c_source_1l00016"/>00016 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;%02X-%02X-%02X&#32;@&#32;%02X:%02X:%02X&#32;(%02X)\n&quot;</emphasis>,&#32;dt.<link linkend="_structdir__datetime_1aea1e1dd3a1027d5fe236a4dab033ef95">year</link>,&#32;dt.<link linkend="_structdir__datetime_1a5481d120cb6827e5e732870f247fdd1f">month</link>,
-<anchor xml:id="_datetime_8c_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dt.<link linkend="_structdir__datetime_1af54522a1af8ab65ee2952b64cbbfcd72">day</link>,&#32;dt.<link linkend="_structdir__datetime_1a4c8fcd93cd358f7391eb1c76e0dc73c2">hour</link>,&#32;dt.<link linkend="_structdir__datetime_1aa4546643c94281e49bb4a4e877e85c36">minute</link>,&#32;dt.<link linkend="_structdir__datetime_1ab591f62d74ab9b0a116f69a3fc950162">second</link>,&#32;dt.<link linkend="_structdir__datetime_1afd2ade26637ba3a84189bcb678130834">time_zone_offset</link>);
+<anchor xml:id="_datetime_8c_source_1l00016"/>00016 &#32;&#32;printf&#32;(<emphasis role="stringliteral">&quot;%02X-%02X-%02X&#32;@&#32;%02X:%02X:%02X&#32;(%02X)\n&quot;</emphasis>,&#32;dt.year,&#32;dt.month,
+<anchor xml:id="_datetime_8c_source_1l00017"/>00017 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;dt.day,&#32;dt.hour,&#32;dt.minute,&#32;dt.second,&#32;dt.time_zone_offset);
 <anchor xml:id="_datetime_8c_source_1l00018"/>00018 }
 </programlisting></section>

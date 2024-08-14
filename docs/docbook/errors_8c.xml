@@ -5,29 +5,17 @@
 <programlisting linenumbering="unnumbered">#include &quot;errors.h&quot;<?linebreak?>#include &quot;log.h&quot;<?linebreak?>#include &lt;stdbool.h&gt;<?linebreak?>#include &lt;stdlib.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8c_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link> (char *filename)</para>
-
-<para>Throws an fopen error. </para>
+            <listitem><para>HH_ERRORS <link linkend="_errors_8c_1a362a48baf5e9d27699c8f7cfe184d77d">handle_fopen_error</link> (char *filename)</para>
 </listitem>
-            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link> (size_t actual, size_t expected_bytes)</para>
-
-<para>Throws an fread error. </para>
+            <listitem><para>HH_ERRORS <link linkend="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc">handle_fread_error</link> (size_t actual, size_t expected_bytes)</para>
 </listitem>
             <listitem><para>void <link linkend="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0">handle_unknown_command_line_argument_error</link> (char *arg)</para>
-
-<para>Throws an unknown command line argument error. </para>
 </listitem>
-            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8c_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link> (size_t size)</para>
-
-<para>Throws an calloc error. </para>
+            <listitem><para>HH_ERRORS <link linkend="_errors_8c_1a264d565f946a86af55409cbe5b980060">handle_calloc_error</link> (size_t size)</para>
 </listitem>
-            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link> (const char *arr_name, size_t old_size, size_t new_size)</para>
-
-<para>Throws an calloc error. </para>
+            <listitem><para>HH_ERRORS <link linkend="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f">handle_realloc_error</link> (const char *arr_name, size_t old_size, size_t new_size)</para>
 </listitem>
-            <listitem><para><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> <link linkend="_errors_8c_1a8ae11ef9f755479186d4d1a6dcf3ec99">handle_malloc_error</link> (const char *obj_name)</para>
-
-<para>Throws an malloc error. </para>
+            <listitem><para>HH_ERRORS <link linkend="_errors_8c_1a8ae11ef9f755479186d4d1a6dcf3ec99">handle_malloc_error</link> (const char *obj_name)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -37,8 +25,6 @@
             <listitem><para>const char * <link linkend="_errors_8c_1ab2272d0da4232afba19f95bf02944157">CALLOC_FAILED_ERR_MSG_FMT</link> = &quot;Unable to calloc string of size %zu.&quot;</para>
 </listitem>
             <listitem><para>const char * <link linkend="_errors_8c_1a03ff53905312bd88e728b1863cf1b1c9">FOPEN_FAILED_ERR_MSG_FMT</link> = &quot;Unable to open output file, %s.&quot;</para>
-
-<para>Format string for failed fopen error message. </para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -48,55 +34,35 @@
     <title>handle_calloc_error()</title>
 <indexterm><primary>handle_calloc_error</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>handle_calloc_error</secondary></indexterm>
-<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_calloc_error (size_t size)</computeroutput></para><para>
-
-<para>Throws an calloc error. </para>
-</para>
-<para>
+<para><computeroutput>HH_ERRORS handle_calloc_error (size_t size)</computeroutput></para><para>
 Definition at line <link linkend="_errors_8c_source_1l00042">42</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8c_1a362a48baf5e9d27699c8f7cfe184d77d"/><section>
     <title>handle_fopen_error()</title>
 <indexterm><primary>handle_fopen_error</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>handle_fopen_error</secondary></indexterm>
-<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_fopen_error (char * filename)</computeroutput></para><para>
-
-<para>Throws an fopen error. </para>
-</para>
-<para>
+<para><computeroutput>HH_ERRORS handle_fopen_error (char * filename)</computeroutput></para><para>
 Definition at line <link linkend="_errors_8c_source_1l00011">11</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8c_1a2628891f509e5466f8a7c932a72bd2dc"/><section>
     <title>handle_fread_error()</title>
 <indexterm><primary>handle_fread_error</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>handle_fread_error</secondary></indexterm>
-<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_fread_error (size_t actual, size_t expected_bytes)</computeroutput></para><para>
-
-<para>Throws an fread error. </para>
-</para>
-<para>
+<para><computeroutput>HH_ERRORS handle_fread_error (size_t actual, size_t expected_bytes)</computeroutput></para><para>
 Definition at line <link linkend="_errors_8c_source_1l00018">18</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8c_1a8ae11ef9f755479186d4d1a6dcf3ec99"/><section>
     <title>handle_malloc_error()</title>
 <indexterm><primary>handle_malloc_error</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>handle_malloc_error</secondary></indexterm>
-<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_malloc_error (const char * obj_name)</computeroutput></para><para>
-
-<para>Throws an malloc error. </para>
-</para>
-<para>
+<para><computeroutput>HH_ERRORS handle_malloc_error (const char * obj_name)</computeroutput></para><para>
 Definition at line <link linkend="_errors_8c_source_1l00058">58</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8c_1a0779e2db9fc5d11057840045b4196a4f"/><section>
     <title>handle_realloc_error()</title>
 <indexterm><primary>handle_realloc_error</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>handle_realloc_error</secondary></indexterm>
-<para><computeroutput><link linkend="_errors_8h_1a7c84f993e326519edca8fd9efdec746e">HH_ERRORS</link> handle_realloc_error (const char * arr_name, size_t old_size, size_t new_size)</computeroutput></para><para>
-
-<para>Throws an calloc error. </para>
-</para>
-<para>
+<para><computeroutput>HH_ERRORS handle_realloc_error (const char * arr_name, size_t old_size, size_t new_size)</computeroutput></para><para>
 Definition at line <link linkend="_errors_8c_source_1l00049">49</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 <anchor xml:id="_errors_8c_1a2343c2fe78d79e1bd2092a5aa19964b0"/><section>
@@ -104,10 +70,6 @@ Definition at line <link linkend="_errors_8c_source_1l00049">49</link> of file <
 <indexterm><primary>handle_unknown_command_line_argument_error</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>handle_unknown_command_line_argument_error</secondary></indexterm>
 <para><computeroutput>void handle_unknown_command_line_argument_error (char * arg)</computeroutput></para><para>
-
-<para>Throws an unknown command line argument error. </para>
-</para>
-<para>
 Definition at line <link linkend="_errors_8c_source_1l00026">26</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 </section>
@@ -125,10 +87,6 @@ Definition at line <link linkend="_errors_8c_source_1l00007">7</link> of file <l
 <indexterm><primary>FOPEN_FAILED_ERR_MSG_FMT</primary><secondary>errors.c</secondary></indexterm>
 <indexterm><primary>errors.c</primary><secondary>FOPEN_FAILED_ERR_MSG_FMT</secondary></indexterm>
 <para><computeroutput>const char* FOPEN_FAILED_ERR_MSG_FMT = &quot;Unable to open output file, %s.&quot;</computeroutput></para><para>
-
-<para>Format string for failed fopen error message. </para>
-</para>
-<para>
 Definition at line <link linkend="_errors_8c_source_1l00008">8</link> of file <link linkend="_errors_8c_source">errors.c</link>.</para>
 </section>
 </section>

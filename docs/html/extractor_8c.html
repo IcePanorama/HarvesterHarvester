@@ -102,13 +102,13 @@ $(function(){initNavTree('extractor_8c.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">extractor.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="extractor_8h_source.html">extractor.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="data__reader_8h_source.html">data_reader.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="errors_8h_source.html">errors.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="log_8h_source.html">log.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="options_8h_source.html">options.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="output_8h_source.html">output.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;extractor.h&quot;</code><br />
+<code>#include &quot;data_reader.h&quot;</code><br />
+<code>#include &quot;errors.h&quot;</code><br />
+<code>#include &quot;log.h&quot;</code><br />
+<code>#include &quot;options.h&quot;</code><br />
+<code>#include &quot;output.h&quot;</code><br />
+<code>#include &quot;utils.h&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
@@ -117,20 +117,15 @@ $(function(){initNavTree('extractor_8c.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af2da2decbda4c7a7bf6e857b43767772" id="r_af2da2decbda4c7a7bf6e857b43767772"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2da2decbda4c7a7bf6e857b43767772">extract_file_using_dir_record</a> (FILE *fptr, struct <a class="el" href="structdirectory__record.html">directory_record</a> *dr, const char *path)</td></tr>
-<tr class="memdesc:af2da2decbda4c7a7bf6e857b43767772"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="extractor_8h.html">extractor.h</a> - container for all file extraction functions.  <br /></td></tr>
+<tr class="memitem:af2da2decbda4c7a7bf6e857b43767772" id="r_af2da2decbda4c7a7bf6e857b43767772"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af2da2decbda4c7a7bf6e857b43767772">extract_file_using_dir_record</a> (FILE *fptr, struct directory_record *dr, const char *path)</td></tr>
 <tr class="separator:af2da2decbda4c7a7bf6e857b43767772"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4727cdfccac62ddc325d2ed70eddf467" id="r_a4727cdfccac62ddc325d2ed70eddf467"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4727cdfccac62ddc325d2ed70eddf467">extract_directory</a> (FILE *fptr, const uint16_t block_size, const char *path)</td></tr>
-<tr class="memdesc:a4727cdfccac62ddc325d2ed70eddf467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a directory and then extracts every file in said directory.  <br /></td></tr>
 <tr class="separator:a4727cdfccac62ddc325d2ed70eddf467"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad53840f52d541af8bc89a7e6c86e29eb" id="r_ad53840f52d541af8bc89a7e6c86e29eb"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad53840f52d541af8bc89a7e6c86e29eb">create_directories_and_extract_data_from_path_file</a> (FILE *fptr, uint16_t block_size, <a class="el" href="structpath__table.html">path_table</a> *pt)</td></tr>
-<tr class="memdesc:ad53840f52d541af8bc89a7e6c86e29eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates directories for every directory in a given path table and then extracts all of its files.  <br /></td></tr>
+<tr class="memitem:ad53840f52d541af8bc89a7e6c86e29eb" id="r_ad53840f52d541af8bc89a7e6c86e29eb"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad53840f52d541af8bc89a7e6c86e29eb">create_directories_and_extract_data_from_path_file</a> (FILE *fptr, uint16_t block_size, path_table *pt)</td></tr>
 <tr class="separator:ad53840f52d541af8bc89a7e6c86e29eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a69ed144c7791001eb2d6055e297bfd" id="r_a8a69ed144c7791001eb2d6055e297bfd"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</a> (FILE *fptr, <a class="el" href="structindex__entry.html">index_entry</a> *idx, const char *path)</td></tr>
-<tr class="memdesc:a8a69ed144c7791001eb2d6055e297bfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts a file using its corresponding <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> and data pointed to by <code>fptr</code>, outputting it to the location denoated by <code>path</code>.  <br /></td></tr>
+<tr class="memitem:a8a69ed144c7791001eb2d6055e297bfd" id="r_a8a69ed144c7791001eb2d6055e297bfd"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a69ed144c7791001eb2d6055e297bfd">extract_file_using_idx_entry</a> (FILE *fptr, index_entry *idx, const char *path)</td></tr>
 <tr class="separator:a8a69ed144c7791001eb2d6055e297bfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bdeb2d2539ae12cbe315e3a606a98c2" id="r_a5bdeb2d2539ae12cbe315e3a606a98c2"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bdeb2d2539ae12cbe315e3a606a98c2">extract_index_file</a> (<a class="el" href="structindex__file.html">index_file</a> *idx, const char *idx_path, const char *dat_path)</td></tr>
-<tr class="memdesc:a5bdeb2d2539ae12cbe315e3a606a98c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts all of the files described in the given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>.  <br /></td></tr>
+<tr class="memitem:a5bdeb2d2539ae12cbe315e3a606a98c2" id="r_a5bdeb2d2539ae12cbe315e3a606a98c2"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bdeb2d2539ae12cbe315e3a606a98c2">extract_index_file</a> (index_file *idx, const char *idx_path, const char *dat_path)</td></tr>
 <tr class="separator:a5bdeb2d2539ae12cbe315e3a606a98c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -153,22 +148,10 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct <a class="el" href="structpath__table.html">path_table</a> *</td>          <td class="paramname"><span class="paramname"><em>pt</em></span>&#160;)</td>
+          <td class="paramtype">path_table *</td>          <td class="paramname"><span class="paramname"><em>pt</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Creates directories for every directory in a given path table and then extracts all of its files. </p>
-<p>A wrapper for <code>extract_directory</code> and, therefore also, <code>extract_file_using_dir_record</code> which handles the extraction of every file and subdirectory using a given path table.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">block_size</td><td>logical block size (in big endian form). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="extractor_8h.html#a4727cdfccac62ddc325d2ed70eddf467" title="Creates a directory and then extracts every file in said directory.">extract_directory()</a> </dd>
-<dd>
-<a class="el" href="extractor_8h.html#af2da2decbda4c7a7bf6e857b43767772" title="extractor.h - container for all file extraction functions.">extract_file_using_dir_record()</a> </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00128">128</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
@@ -198,8 +181,6 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Creates a directory and then extracts every file in said directory. </p>
-
 <p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00090">90</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
 </div>
@@ -218,7 +199,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct <a class="el" href="structdirectory__record.html">directory_record</a> *</td>          <td class="paramname"><span class="paramname"><em>dr</em></span>, </td>
+          <td class="paramtype">struct directory_record *</td>          <td class="paramname"><span class="paramname"><em>dr</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -227,9 +208,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p><a class="el" href="extractor_8h.html">extractor.h</a> - container for all file extraction functions. </p>
-<p>All functions return zero on success, non-zero on failure. Extracts a file using its respective <code><a class="el" href="structdirectory__record.html" title="directory.h - the directory and directory_record datatypes and their associated functions.">directory_record</a></code> and data pointed to by <code>fptr</code>, outputting it to the location denoted by <code>path</code>. </p>
 <p>the <code>file_identifier</code> terminates with a <code>;</code> character followed by the file ID number in ASCII coded decimal (<code>1</code>). See: <a href="https://wiki.osdev.org/ISO_9660#Directories">https://wiki.osdev.org/ISO_9660#Directories</a></p>
 <p>Just use the default/existing filename. It'll be incorrect, but probably not worth stoping execution over. Users could just manually remove the <code>;1</code> part; the data itself should be fine.</p>
 
@@ -251,7 +229,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structindex__entry.html">index_entry</a> *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
+          <td class="paramtype">index_entry *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -260,8 +238,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Extracts a file using its corresponding <code><a class="el" href="structindex__entry.html" title="A file entry in an index_file.">index_entry</a></code> and data pointed to by <code>fptr</code>, outputting it to the location denoated by <code>path</code>. </p>
 
 <p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00183">183</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>
 
@@ -276,7 +252,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int8_t extract_index_file </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structindex__file.html">index_file</a> *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
+          <td class="paramtype">index_file *</td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -290,16 +266,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Extracts all of the files described in the given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </p>
-<p><code>idx_path</code> is needed to build an output path.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">`idx_path`</td><td>relative path to the given <code><a class="el" href="structindex__file.html" title="Contains all the indicies within an INDEX.00# file.">index_file</a></code>. </td></tr>
-    <tr><td class="paramname">`dat_path`</td><td>relative path to the corresponding dat file. </td></tr>
-  </table>
-  </dd>
-</dl>
 <p>Gives you the <code>OP_OUTPUT_DIR/DISK#/</code> part of the path. 10 = len("INDEX.001")</p>
 
 <p class="definition">Definition at line <a class="el" href="extractor_8c_source.html#l00223">223</a> of file <a class="el" href="extractor_8c_source.html">extractor.c</a>.</p>

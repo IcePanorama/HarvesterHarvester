@@ -15,32 +15,32 @@
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00011}00011\ \textcolor{comment}{//}}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00012}00012\ \textcolor{comment}{//\ \ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License\ along}}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00013}00013\ \textcolor{comment}{//\ \ with\ this\ program.\ \ If\ not,\ see\ <https://www.gnu.org/licenses/>.}}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{file__flags_8h}{file\_flags.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}file\_flags.h"{}}}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00015}00015\ }
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00017}00017\ }
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00018}00018\ \mbox{\hyperlink{structfile__flags}{file\_flags}}}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00018}00018\ file\_flags}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00019}\mbox{\hyperlink{file__flags_8c_aacfa73039d80ff8aafa6b5cc1d8c54b5}{00019}}\ \mbox{\hyperlink{file__flags_8c_aacfa73039d80ff8aafa6b5cc1d8c54b5}{create\_file\_flags}}\ (\textcolor{keywordtype}{void})}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00020}00020\ \{}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00021}00021\ \ \ \mbox{\hyperlink{structfile__flags}{file\_flags}}\ ff;}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00022}00022\ \ \ ff.\mbox{\hyperlink{structfile__flags_a4139d9b02dc7f9d1649ed9d3466dd7af}{hidden}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00023}00023\ \ \ ff.\mbox{\hyperlink{structfile__flags_a16bbb1c4299a88199b4bc23f29215049}{subdirectory}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00024}00024\ \ \ ff.\mbox{\hyperlink{structfile__flags_a65c772bf6516b11d65fb49180812c109}{associated\_file}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00025}00025\ \ \ ff.\mbox{\hyperlink{structfile__flags_a86793fb0cad3076a0f21d6c4bb1f1059}{extended\_attribute\_record\_contains\_owner\_and\_group\_permissions}}\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00026}00026\ \ \ ff.\mbox{\hyperlink{structfile__flags_aef4a9f3598c6b75c602d7c7a969669a3}{final\_directory\_record}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00021}00021\ \ \ file\_flags\ ff;}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00022}00022\ \ \ ff.hidden\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00023}00023\ \ \ ff.subdirectory\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00024}00024\ \ \ ff.associated\_file\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00025}00025\ \ \ ff.extended\_attribute\_record\_contains\_owner\_and\_group\_permissions\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00026}00026\ \ \ ff.final\_directory\_record\ =\ \textcolor{keyword}{false};}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00027}00027\ \ \ \textcolor{keywordflow}{return}\ ff;}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00028}00028\ \}}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00029}00029\ }
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00030}00030\ \textcolor{keywordtype}{void}}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00031}\mbox{\hyperlink{file__flags_8c_acac0358f9c6ab59a1d9913afb02f4f21}{00031}}\ \mbox{\hyperlink{file__flags_8c_acac0358f9c6ab59a1d9913afb02f4f21}{print\_file\_flags}}\ (\mbox{\hyperlink{structfile__flags}{file\_flags}}\ *ff)}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00031}\mbox{\hyperlink{file__flags_8c_acac0358f9c6ab59a1d9913afb02f4f21}{00031}}\ \mbox{\hyperlink{file__flags_8c_acac0358f9c6ab59a1d9913afb02f4f21}{print\_file\_flags}}\ (file\_flags\ *ff)}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00032}00032\ \{}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00033}00033\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tHidden:\ \%d\(\backslash\)n"{}},\ ff-\/>\mbox{\hyperlink{structfile__flags_a4139d9b02dc7f9d1649ed9d3466dd7af}{hidden}});}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00034}00034\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tSubdirectory:\ \%d\(\backslash\)n"{}},\ ff-\/>\mbox{\hyperlink{structfile__flags_a16bbb1c4299a88199b4bc23f29215049}{subdirectory}});}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00035}00035\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tAssociated\ file:\ \%d\(\backslash\)n"{}},\ ff-\/>\mbox{\hyperlink{structfile__flags_a65c772bf6516b11d65fb49180812c109}{associated\_file}});}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00033}00033\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tHidden:\ \%d\(\backslash\)n"{}},\ ff-\/>hidden);}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00034}00034\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tSubdirectory:\ \%d\(\backslash\)n"{}},\ ff-\/>subdirectory);}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00035}00035\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tAssociated\ file:\ \%d\(\backslash\)n"{}},\ ff-\/>associated\_file);}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00036}00036\ \ \ printf\ (}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00037}00037\ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\(\backslash\)tExtended\ attrib.\ record\ contains\ owner\ and\ group\ permissions:\ \%d\(\backslash\)n"{}},}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00038}00038\ \ \ \ \ \ \ ff-\/>\mbox{\hyperlink{structfile__flags_a86793fb0cad3076a0f21d6c4bb1f1059}{extended\_attribute\_record\_contains\_owner\_and\_group\_permissions}});}
-\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00039}00039\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tFinal\ directory\ record:\ \%d\(\backslash\)n"{}},\ ff-\/>\mbox{\hyperlink{structfile__flags_aef4a9f3598c6b75c602d7c7a969669a3}{final\_directory\_record}});}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00038}00038\ \ \ \ \ \ \ ff-\/>extended\_attribute\_record\_contains\_owner\_and\_group\_permissions);}
+\DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00039}00039\ \ \ printf\ (\textcolor{stringliteral}{"{}\(\backslash\)tFinal\ directory\ record:\ \%d\(\backslash\)n"{}},\ ff-\/>final\_directory\_record);}
 \DoxyCodeLine{\Hypertarget{file__flags_8c_source_l00040}00040\ \}}
 
 \end{DoxyCode}

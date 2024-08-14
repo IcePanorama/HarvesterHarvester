@@ -5,25 +5,15 @@
 <programlisting linenumbering="unnumbered">#include &quot;volume_descriptor.h&quot;<?linebreak?>#include &quot;data_reader.h&quot;<?linebreak?>#include &quot;errors.h&quot;<?linebreak?>#include &lt;stdint.h&gt;<?linebreak?>#include &lt;string.h&gt;<?linebreak?></programlisting><simplesect>
     <title>Functions    </title>
         <itemizedlist>
-            <listitem><para>void <link linkend="_volume__descriptor_8c_1ac681bcadb940c039ad4b7093f33bb952">create_volume_descriptor</link> (<link linkend="_structvolume__descriptor">volume_descriptor</link> *vd, uint8_t type_code, uint8_t version)</para>
-
-<para>Initializes a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using the provided <computeroutput>type</computeroutput> and <computeroutput>version</computeroutput> data. </para>
+            <listitem><para>void <link linkend="_volume__descriptor_8c_1ac681bcadb940c039ad4b7093f33bb952">create_volume_descriptor</link> (volume_descriptor *vd, uint8_t type_code, uint8_t version)</para>
 </listitem>
-            <listitem><para>void <link linkend="_volume__descriptor_8c_1ac83303eab8ff516e07c13652ff4adece">print_volume_descriptor_header</link> (<link linkend="_structvolume__descriptor">volume_descriptor</link> *vd)</para>
-
-<para>Prints the header section of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> in a human-readable form to stdout. </para>
+            <listitem><para>void <link linkend="_volume__descriptor_8c_1ac83303eab8ff516e07c13652ff4adece">print_volume_descriptor_header</link> (volume_descriptor *vd)</para>
 </listitem>
-            <listitem><para>void <link linkend="_volume__descriptor_8c_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data</link> (<link linkend="_structvolume__descriptor__data">volume_descriptor_data</link> *vdd)</para>
-
-<para>Prints the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to the stdout in a human-readable form. </para>
+            <listitem><para>void <link linkend="_volume__descriptor_8c_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data</link> (volume_descriptor_data *vdd)</para>
 </listitem>
-            <listitem><para>int8_t <link linkend="_volume__descriptor_8c_1ab0bb4ee4fd340fd1a57cf8e1112c66b5">process_volume_descriptor_header</link> (FILE *fptr, <link linkend="_structvolume__descriptor">volume_descriptor</link> *vd)</para>
-
-<para>Processes the header of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
+            <listitem><para>int8_t <link linkend="_volume__descriptor_8c_1ab0bb4ee4fd340fd1a57cf8e1112c66b5">process_volume_descriptor_header</link> (FILE *fptr, volume_descriptor *vd)</para>
 </listitem>
-            <listitem><para>int8_t <link linkend="_volume__descriptor_8c_1a00d2e72d3698261c77ed5e118c4cfb83">process_volume_descriptor_data</link> (FILE *fptr, <link linkend="_structvolume__descriptor__data">volume_descriptor_data</link> *vdd)</para>
-
-<para>Processes the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
+            <listitem><para>int8_t <link linkend="_volume__descriptor_8c_1a00d2e72d3698261c77ed5e118c4cfb83">process_volume_descriptor_data</link> (FILE *fptr, volume_descriptor_data *vdd)</para>
 </listitem>
         </itemizedlist>
 </simplesect>
@@ -33,57 +23,35 @@
     <title>create_volume_descriptor()</title>
 <indexterm><primary>create_volume_descriptor</primary><secondary>volume_descriptor.c</secondary></indexterm>
 <indexterm><primary>volume_descriptor.c</primary><secondary>create_volume_descriptor</secondary></indexterm>
-<para><computeroutput>void create_volume_descriptor (<link linkend="_structvolume__descriptor">volume_descriptor</link> * vd, uint8_t type_code, uint8_t version)</computeroutput></para><para>
-
-<para>Initializes a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using the provided <computeroutput>type</computeroutput> and <computeroutput>version</computeroutput> data. </para>
-</para>
-<para>
+<para><computeroutput>void create_volume_descriptor (volume_descriptor * vd, uint8_t type_code, uint8_t version)</computeroutput></para><para>
 Definition at line <link linkend="_volume__descriptor_8c_source_1l00022">22</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1ae25c2f5ac41962af3d8db01bdacbb65d"/><section>
     <title>print_volume_descriptor_data()</title>
 <indexterm><primary>print_volume_descriptor_data</primary><secondary>volume_descriptor.c</secondary></indexterm>
 <indexterm><primary>volume_descriptor.c</primary><secondary>print_volume_descriptor_data</secondary></indexterm>
-<para><computeroutput>void print_volume_descriptor_data (<link linkend="_structvolume__descriptor__data">volume_descriptor_data</link> * vdd)</computeroutput></para><para>
-
-<para>Prints the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> to the stdout in a human-readable form. </para>
-</para>
-<para>
+<para><computeroutput>void print_volume_descriptor_data (volume_descriptor_data * vdd)</computeroutput></para><para>
 Definition at line <link linkend="_volume__descriptor_8c_source_1l00040">40</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1ac83303eab8ff516e07c13652ff4adece"/><section>
     <title>print_volume_descriptor_header()</title>
 <indexterm><primary>print_volume_descriptor_header</primary><secondary>volume_descriptor.c</secondary></indexterm>
 <indexterm><primary>volume_descriptor.c</primary><secondary>print_volume_descriptor_header</secondary></indexterm>
-<para><computeroutput>void print_volume_descriptor_header (<link linkend="_structvolume__descriptor">volume_descriptor</link> * vd)</computeroutput></para><para>
-
-<para>Prints the header section of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> in a human-readable form to stdout. </para>
-</para>
-
-<para>The header includes every field except for <computeroutput>data</computeroutput>, which can be printed using the <computeroutput><link linkend="_volume__descriptor_8h_1ae25c2f5ac41962af3d8db01bdacbb65d">print_volume_descriptor_data()</link></computeroutput> function. </para>
-<para>
+<para><computeroutput>void print_volume_descriptor_header (volume_descriptor * vd)</computeroutput></para><para>
 Definition at line <link linkend="_volume__descriptor_8c_source_1l00032">32</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1a00d2e72d3698261c77ed5e118c4cfb83"/><section>
     <title>process_volume_descriptor_data()</title>
 <indexterm><primary>process_volume_descriptor_data</primary><secondary>volume_descriptor.c</secondary></indexterm>
 <indexterm><primary>volume_descriptor.c</primary><secondary>process_volume_descriptor_data</secondary></indexterm>
-<para><computeroutput>int8_t process_volume_descriptor_data (FILE * fptr, <link linkend="_structvolume__descriptor__data">volume_descriptor_data</link> * vdd)</computeroutput></para><para>
-
-<para>Processes the given <computeroutput><link linkend="_structvolume__descriptor__data">volume_descriptor_data</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
-</para>
-<para>
+<para><computeroutput>int8_t process_volume_descriptor_data (FILE * fptr, volume_descriptor_data * vdd)</computeroutput></para><para>
 Definition at line <link linkend="_volume__descriptor_8c_source_1l00099">99</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 <anchor xml:id="_volume__descriptor_8c_1ab0bb4ee4fd340fd1a57cf8e1112c66b5"/><section>
     <title>process_volume_descriptor_header()</title>
 <indexterm><primary>process_volume_descriptor_header</primary><secondary>volume_descriptor.c</secondary></indexterm>
 <indexterm><primary>volume_descriptor.c</primary><secondary>process_volume_descriptor_header</secondary></indexterm>
-<para><computeroutput>int8_t process_volume_descriptor_header (FILE * fptr, <link linkend="_structvolume__descriptor">volume_descriptor</link> * vd)</computeroutput></para><para>
-
-<para>Processes the header of a given <computeroutput><link linkend="_structvolume__descriptor">volume_descriptor</link></computeroutput> using data pointed to by <computeroutput>fptr</computeroutput>. </para>
-</para>
-<para>
+<para><computeroutput>int8_t process_volume_descriptor_header (FILE * fptr, volume_descriptor * vd)</computeroutput></para><para>
 Definition at line <link linkend="_volume__descriptor_8c_source_1l00081">81</link> of file <link linkend="_volume__descriptor_8c_source">volume_descriptor.c</link>.</para>
 </section>
 </section>
