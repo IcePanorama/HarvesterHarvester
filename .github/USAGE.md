@@ -32,7 +32,7 @@ HarvesterHarvester_i686.exe # 32-bit Windows machines
 
 HH works in two steps. First, it reconstructs the original disk images that Harvester would've shipped with in 1996 and then second, it extracts the dat files contained within those new directories in order to give you full access to all of the game's files.
 
-For users who already own the CDs, this first step is unnecessary and so we'll be skipping it using a command-line argument (the `-i` flag).
+For users who already own the CDs, this first step is unnecessary, and so we'll be skipping it using a command-line argument (the `-i` flag).
 
 _Full disclosure_: this isn't super elegant at the moment. I've been working under the assumption that CD users will be a small minority. Currently, all methods of working with CDs requires the contents of the disks to be copied somewhere onto your machine. I apologise in advance for the inconvenience, this should be fixed in v1.1.0 of HH.
 
@@ -76,7 +76,7 @@ HarvesterHarvester_i686.exe -i # 32-bit Windows machines
 
 If you've already copied your disks to some place on your hard drive, you can update `internal-dat-file-paths.txt` as needed and then specify that directory using a command-line argument.
 
-To update `internal-dat-file-paths.txt`, open the file in a text editor and change all occurences of `DISK1`, `DISK2`, and `DISK3` to the names of those actual subdirectories. Don't touch any other part of this file. This  is my really cheap way of handling file associations needed for internal dat file extraction. :)
+To update `internal-dat-file-paths.txt`, open the file in a text editor and change all occurrences of `DISK1`, `DISK2`, and `DISK3` to the names of those actual subdirectories. Don't touch any other part of this file. This  is my really cheap way of handling file associations needed for internal dat file extraction. :)
 
 Once that's done, open up a command prompt/terminal wherever HH is installed and type:
 
