@@ -5,6 +5,7 @@ HarvesterHarvester_x86_64.exe
 HARVEST*
 output/*
 .cache/*
+build/*
 
 # Valgrind
 vgcore.*

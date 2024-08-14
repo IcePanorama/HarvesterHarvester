@@ -43,19 +43,25 @@ set(SRC_FILES
 )
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
-add_executable(${PROJECT_NAME} ${SRC_FILES})
-
-target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_DIR})
 
 add_custom_target(format
     COMMAND clang-format -style=GNU -i ${SRC_FILES} ${PROJECT_SOURCE_DIR}/${INCL_DIR}/*.h
     COMMENT "Auto-formatting code."
 )
 
-add_dependencies(${PROJECT_NAME} format)
-
 add_custom_target(test
     COMMAND valgrind --leak-check=yes ./${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/dat-files/HARVEST.DAT
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMENT "Testing for memory leaks with Valgrind."
+)
+
+add_executable(${PROJECT_NAME} ${SRC_FILES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_DIR})
+add_dependencies(${PROJECT_NAME} format)
+
+add_custom_target(full
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target clean
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target test
+    COMMENT "Running full build (clean, format, build, and test)."
 )
