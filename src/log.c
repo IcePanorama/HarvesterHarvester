@@ -74,15 +74,15 @@ hh_log (hh_log_level lvl, const char *fmt, ...)
   switch (lvl)
     {
     case HH_LOG_INFO:
-      fprintf (stdout, "%s[INFO] ", program_tag);
+      fprintf (stdout, "%s[INFO]", program_tag);
       output_stream = stdout;
       break;
     case HH_LOG_WARNING:
-      fprintf (stderr, "%s[WARNING] ", program_tag);
+      fprintf (stderr, "%s[WARNING]", program_tag);
       output_stream = stderr;
       break;
     case HH_LOG_ERROR:
-      fprintf (stderr, "%s[ERROR] ", program_tag);
+      fprintf (stderr, "%s[ERROR]", program_tag);
       output_stream = stderr;
       break;
     default:
