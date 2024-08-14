@@ -22,6 +22,7 @@ add_compile_options(
 )
 
 set(WIN32_CC i686-w64-mingw32-gcc)
+set(WIN64_CC x86_64-w64-mingw32-gcc)
 
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
@@ -111,4 +112,19 @@ add_custom_target(full
 add_custom_target(win32
     COMMAND ${WIN32_CC} ${CMAKE_C_FLAGS} -o "${PROJECT_NAME}_i686.exe" "${SRC_DIR}/*.c" -I${INCL_DIR}
     WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+    COMMENT "Building 32-bit executable."
+)
+
+add_custom_target(win64
+    COMMAND ${WIN64_CC} ${CMAKE_C_FLAGS} -o "${PROJECT_NAME}_x86_64.exe" "${SRC_DIR}/*.c" -I${INCL_DIR}
+    WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+    COMMENT "Building 64-bit executable."
+)
+
+add_custom_target(release
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target clean
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target win32
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target win64
+    COMMENT "Running full build (clean, format, build, and test)."
 )
