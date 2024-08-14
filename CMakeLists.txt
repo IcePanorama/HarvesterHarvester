@@ -134,5 +134,6 @@ add_custom_target(release
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target win64
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target library
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target docs
+    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target copy
     COMMENT "Running full build (clean, format, build, and test)."
 )
