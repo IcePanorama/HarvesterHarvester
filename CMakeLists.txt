@@ -24,7 +24,9 @@ add_compile_options(
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
 set(BIN_DIR "${PROJECT_SOURCE_DIR}/bin")
-set(HEADER_CPY_DIR "${BIN_DIR}/include/HarvesterHarvester")
+set(HEADER_CPY_DIR "${BIN_DIR}/include/${PROJECT_NAME}")
+set(LIB_DIR "${BIN_DIR}/lib/${PROJECT_NAME}")
+set(LIB_NAME "hh")
 
 set(SRC_FILES
 	"${SRC_DIR}/data_reader.c"
@@ -44,10 +46,27 @@ set(SRC_FILES
 	"${SRC_DIR}/volume_descriptor.c"
 )
 
+set(LIB_SRC_FILES
+	"${SRC_DIR}/data_reader.c"
+	"${SRC_DIR}/datetime.c"
+	"${SRC_DIR}/directory.c"
+	"${SRC_DIR}/errors.c"
+	"${SRC_DIR}/extractor.c"
+	"${SRC_DIR}/file_flags.c"
+	"${SRC_DIR}/hh.c"
+	"${SRC_DIR}/index_file.c"
+	"${SRC_DIR}/log.c"
+	"${SRC_DIR}/options.c"
+	"${SRC_DIR}/output.c"
+	"${SRC_DIR}/path_table.c"
+	"${SRC_DIR}/utils.c"
+	"${SRC_DIR}/volume_descriptor.c"
+)
+
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 
 add_custom_target(format
-    COMMAND clang-format -style=GNU -i ${SRC_FILES} ${INCL_DIR}/*.h
+    COMMAND clang-format -style=GNU -i ${SRC_FILES} "${INCL_DIR}/*.h"
     COMMENT "Auto-formatting code."
 )
 
@@ -70,11 +89,18 @@ add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_DIR})
 add_dependencies(${PROJECT_NAME} format)
 
+# Library
+file(MAKE_DIRECTORY ${LIB_DIR})
+add_library(${LIB_NAME} STATIC ${LIB_SRC_FILES})
+set_target_properties(${LIB_NAME} PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${LIB_DIR}
+)
+target_include_directories(${LIB_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
+
 # Full
 add_custom_target(full
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target clean
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target test
-    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target copy
     COMMENT "Running full build (clean, format, build, and test)."
 )
