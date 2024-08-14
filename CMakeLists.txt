@@ -104,6 +104,7 @@ add_custom_target(docs
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_DIR})
 add_dependencies(${PROJECT_NAME} format)
+add_dependencies(${PROJECT_NAME} library)
 
 # Library target
 #FIXME: library should not be deleted by clean
@@ -143,7 +144,6 @@ add_custom_target(release
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target win32
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target win64
-    COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target library
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target docs
     COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target copy
     COMMENT "Running full build (clean, format, build, and test)."
