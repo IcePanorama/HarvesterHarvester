@@ -30,9 +30,9 @@ git checkout -b feature/your-feature
 
 Make your changes to the code or documentation. Be sure to follow our coding style and conventions.
 
-We use clang-format for autoformatting. If you are unable to run clang-format on your machine for whatever reason, please follow the [GNU C conventions](https://www.gnu.org/prep/standards/html_node/Writing-C.html).
+We use clang-format for auto-formatting. If you are unable to run clang-format on your machine for whatever reason, please follow the [GNU C conventions](https://www.gnu.org/prep/standards/html_node/Writing-C.html).
 
-Finally, if possible, prior to commiting/pushing your changes run `make full` to test the program using Valgrind first.
+Finally, if possible, prior to committing/pushing your changes run `make full` to test the program using Valgrind first.
 
 ### 4. Commit Your Changes
 
@@ -67,7 +67,7 @@ We are committed to providing a welcoming and inclusive community for everyone. 
 
 * Documentation: Update documentation if your changes affect existing functionality or introduce new features.
 
-* Testing: If possible, run `make full` prior to commiting/pushing your changes. This will test your program with Valgrind.
+* Testing: If possible, run `make full` prior to committing/pushing your changes. This will test your program with Valgrind.
 
 ## Reporting Issues
 
@@ -87,6 +87,6 @@ Thank you for contributing to HarvesterHarvester! Your help is invaluable and ap
     + Ideally, this solution should also be cross-platform, if at all possible.
     + Could possibly be worth converting the program to use an arena and a custom malloc just for the ease of freeing memory in a case such as this.
 + Create a guide for building the project from source for Windows users.
-+ Handle interal dat file extraction from CDs without requiring game files to be copied to the user's hard drive.
++ Handle internal dat file extraction from CDs without requiring game files to be copied to the user's hard drive.
 + Version 1.0.0 is unoptimised as I'm currently not 100% sure this will work on all devices.
     + Future release builds should be made with the -O2 flag.
