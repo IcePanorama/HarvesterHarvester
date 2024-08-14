@@ -28,14 +28,21 @@ Once downloaded, extract the zip file wherever you'd like and you're done! See [
 ### Building from source (Linux/MacOS/Unix)
 1) Install the following dependencies:
 ```
-gcc make mingw32-gcc clang-tools-extra valgrind doxygen
+gcc make cmake mingw32-gcc clang-tools-extra valgrind doxygen
 ```
-2) Clone the repo:
+2) Clone the repo and cd into this new directory:
 ```bash
 $ git clone https://github.com/IcePanorama/HarvesterHarvester/ && cd HarvesterHarvester
+# ... or, alternatively ...
+$ git clone git@github.com:IcePanorama/HarvesterHarvester.git && cd HarvesterHarvester
 ```
-3) Build using make:
+3) Create a build directory and cd into there:
+```
+$ mkdir build && cd build
+```
+3) Build using cmake and make:
 ```bash
+$ cmake ..
 $ make release # for *nix, x86_64, and i686 executables
 # ... or, alternatively ...
 $ make full    # for just the *nix executable
