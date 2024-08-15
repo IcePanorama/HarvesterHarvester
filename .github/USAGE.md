@@ -4,7 +4,7 @@ The following document will attempt to give an in-depth guide on how to use Harv
 + [Usage for users who own the game through GOG/Steam(\*)](#Using-HarvesterHarvester-with-Modern-Releases)
 + [Usage for users who own the game on CDs](#Using-HarvesterHarvester-With-Original-CDs)
 + [Advanced usage](#Advanced-Usage)
-+ Usage as a library
++ [Usage as a library](#Usage-as-a-library)
 + [Troubleshooting](#Troubleshooting)
 
 \**I'm assuming here that the GOG and Steam releases are similar. If they aren't, please feel free to submit an [issue](https://github.com/IcePanorama/HarvesterHarvester/issues/).*
@@ -119,6 +119,13 @@ Command-line arguments:
 Optional:
 	path/to/dat_file.dat: specify the path to a dat file to be processed.
 ```
+
+## Usage as a library
+Usage of HH as a library is still somewhat experimental. As time goes on, and I use it in future projects, its interface may very well change.
+
+To get started, please see the [bin](https://github.com/IcePanorama/HarvesterHarvester/tree/main/bin) directory for a copy of the static library file and its headers.
+
+`HarvesterHarvester/hh.h` is the main interface through which you should interact with HH. That being said, the other header files are also included as they may prove useful in future projects.
 
 ## Troubleshooting
 
