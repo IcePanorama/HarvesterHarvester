@@ -23,8 +23,6 @@ Navigate to the [releases](https://github.com/IcePanorama/HarvesterHarvester/rel
 
 Once downloaded, extract the zip file wherever you'd like and you're done! See [USAGE.md](.github/USAGE.md) for more details on how to run the program.
 
-**NOTE**: _if you're reading this in the present, you'll notice that there currently aren't any available releases. I'm writing this README in advance -- this project isn't quite done yet, sorry!_
-
 ### Building from source (Linux/MacOS/Unix)
 1) Install the following dependencies:
 ```
