@@ -5,6 +5,7 @@ The following document will attempt to give an in-depth guide on how to use Harv
 + [Usage for users who own the game on CDs](#Using-HarvesterHarvester-With-Original-CDs)
 + [Advanced usage](#Advanced-Usage)
 + Usage as a library
++ [Troubleshooting](#Troubleshooting)
 
 \**I'm assuming here that the GOG and Steam releases are similar. If they aren't, please feel free to submit an [issue](https://github.com/IcePanorama/HarvesterHarvester/issues/).*
 
@@ -118,3 +119,15 @@ Command-line arguments:
 Optional:
 	path/to/dat_file.dat: specify the path to a dat file to be processed.
 ```
+
+## Troubleshooting
+
+### "Unexpected volume descriptor type code. Expected 0x01, got 0x83."
+Full error message:
+```bash
+[HarvesterHarvester][ERROR]Unexpected volume descriptor type code. Expected 0x01, got 0x83.
+```
+
+This error likely arose either from you running HH on HARVEST2.DAT or from you running HH on batch processing mode (its default behavior) with HARVEST2.DAT in your batch processing input folder (default = ./dat-files/). It is unnecessary to use HARVEST2.DAT while running HH as a version of HARVEST2.DAT is included inside of each of the three dat files. These other versions of HARVEST2.DAT will automatically be processed during the second stage of execution.
+
+If you come across a similar error not related to HARVEST2.DAT, the first recommend course of action would be to reinstall Harvester and then recopy all of its dat files to said input folder. If the issue still persists thereafter, [please open up a new issue here](https://github.com/IcePanorama/HarvesterHarvester/issues) or leave a comment on a pre-existing issue describing your particular situation.
