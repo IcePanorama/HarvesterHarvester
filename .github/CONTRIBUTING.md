@@ -90,3 +90,5 @@ Thank you for contributing to HarvesterHarvester! Your help is invaluable and ap
 + Handle internal dat file extraction from CDs without requiring game files to be copied to the user's hard drive.
 + Version 1.0.0 is unoptimised as I'm currently not 100% sure this will work on all devices.
     + Future release builds should be made with the -O2 flag.
++ Future versions should have a Windows version of the static library
+    + Currently only ships with the linux `libhh.a` file.
