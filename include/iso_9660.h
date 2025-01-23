@@ -72,15 +72,15 @@ typedef struct Iso9660FileSystem_s
   union VolumeDescriptorData_u
   {
     /** @see: https://wiki.osdev.org/ISO_9660#The_Boot_Record */
-    struct BootRecordVolumeDescriptor_s
+    struct BootRecordVolumeDescriptorData_s
     {
       char boot_system_identifier[32];
       char boot_identifier[32];
-      uint8_t boot_system_data[1977];
+      uint8_t boot_system_data[1977]; //!< "Custom - used by the boot system."
     } boot_vol_desc;
 
     /** @see: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor */
-    struct PrimaryVolumeDescriptor_s
+    struct PrimaryVolumeDescriptorData_s
     {
       char system_identifier[32];
       char volume_identifier[32];
@@ -113,6 +113,13 @@ typedef struct Iso9660FileSystem_s
       uint8_t file_structure_version; //!< Always `0x01`.
       uint8_t application_used_data[512];
     } primary_vol_desc;
+
+    /**
+     * Volume Descriptor Set Terminator data "does not define bytes 7-2047 of
+     * its Volume Descriptor."
+     *  @see: https://wiki.osdev.org/ISO_9660#Volume_Descriptor_Set_Terminator
+     *  TODO: decide: is it even worth creating a struct for this then?
+     */
   } volume_desc_data;
 } Iso9660FileSystem_t;
 
