@@ -19,9 +19,7 @@ typedef struct Iso9660DirectoryRecord_s
     uint8_t hour;
     uint8_t minute;
     uint8_t second;
-    /**
-     *  "Offset from GMT in 15 minute intervals from -48 (West) to +52 (East)."
-     */
+    /** "Offset from GMT in 15 minute intervals from -48 ... to +52." */
     uint8_t timezone_offset;
   } recording_date_time;
 
