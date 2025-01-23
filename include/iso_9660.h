@@ -9,29 +9,32 @@ typedef struct Iso9660DirectoryRecord_s
   uint8_t dir_rec_length;
   uint8_t extended_attrib_rec_length;
   uint32_t extent_location;
-  uint32_t extent_size; // Also called its "data length".
+  uint32_t extent_size; //!< Also called its "data length".
 
   struct DirectoryRecordDateTime_s
   {
-    uint8_t year; // num years since 1900.
+    uint8_t year; //!< number of years since 1900.
     uint8_t month;
     uint8_t day;
     uint8_t hour;
     uint8_t minute;
     uint8_t second;
-    // "Offset from GMT in 15 minute intervals from -48 (West) to +52 (East)."
+    /**
+     *  "Offset from GMT in 15 minute intervals from -48 (West) to +52 (East)."
+     */
     uint8_t timezone_offset;
   } recording_date_time;
 
   uint8_t file_flags;
-  uint8_t file_unit_size; // if recorded in interleaved mode, else 0.
-  uint8_t interleave_gap_size; // if recorded in interleaved mode, else 0.
-  // "the volume that this extent is recorded on."
+  uint8_t file_unit_size; //!< if recorded in interleaved mode, else 0.
+  uint8_t interleave_gap_size; //!< if recorded in interleaved mode, else 0.
+  /** "the volume that this extent is recorded on." */
   uint16_t volume_sequence_number;
   uint8_t file_identifier_length;
 
   /**
-   *  Variable length. Length = `file_identifier_length` + ";1" (2) + '\0'.
+   *  Variable length file identifier.
+   *  Length = `file_identifier_length` + ";1" (2) + '\0'.
    *
    *  @see: `file_identifier_length`.
    */
@@ -47,7 +50,7 @@ typedef struct Iso9660PrimaryVolumeDateTime_s
   char minute[2];
   char second[2];
   char hundredths_of_a_second[2];
-  // "offset from GMT in 15 minute intervals, [from] -48 ... to 52." 0 = -48.
+  /** "offset from GMT in 15 minute intervals, [from] -48 ... to 52." */
   uint8_t time_zone_offset;
 } Iso9660PrimaryVolumeDateTime_t;
 
@@ -64,7 +67,7 @@ typedef struct Iso9660FileSystem_s
     VDTC_VOL_DESC_SET_TERMINATOR = 255
   } volume_desc_type_code;
 
-  char volume_identifier[5];  // Always `CD001`.
+  char volume_identifier[5];  //!< Always `CD001`.
   uint8_t volume_desc_version_num;
 
   /** @see: https://wiki.osdev.org/ISO_9660#Volume_Descriptors */
@@ -109,7 +112,7 @@ typedef struct Iso9660FileSystem_s
       Iso9660PrimaryVolumeDateTime_t volume_expiration_date_time;
       Iso9660PrimaryVolumeDateTime_t volume_effective_date_time;
 
-      uint8_t file_structure_version; // Always `0x01`.
+      uint8_t file_structure_version; //!< Always `0x01`.
       uint8_t application_used_data[512];
     } primary_vol_desc;
   } volume_desc_data;
