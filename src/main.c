@@ -1,35 +1,29 @@
-#include "hh.h"
-#include "options.h"
+#include <stdint.h>
+#include <stdio.h>
 
-#include <stdlib.h>
+static int8_t open_file (FILE **fptr, const char *filename);
 
 int
-main (int argc, char **argv)
+main (void)
 {
-  FILE *fptr = NULL;
+  const char *filename = "dat-files/HARVEST.DAT";
 
-  if (argc >= 2)
-    handle_command_line_args (argc, argv);
+  FILE *input_file;
+  if (open_file (&input_file, filename) != 0)
+    return -1;
 
-  if (OP_BATCH_PROCESS && !OP_SKIP_DAT_PROCESSING)
+  fclose (input_file);
+  return 0;
+}
+
+int8_t
+open_file (FILE **fptr, const char *filename)
+{
+  *fptr = fopen (filename, "rb");
+  if (*fptr == NULL)
     {
-      if (hh_batch_process_DAT_files () != 0)
-        exit (1);
-    }
-  else if (!OP_SKIP_DAT_PROCESSING)
-    {
-      if (hh_setup_extractor (&fptr, argv[argc - 1]) != 0)
-        exit (1);
-
-      if (hh_process_DAT_file (fptr) != 0)
-        exit (1);
-
-      fclose (fptr);
-    }
-
-  if (!OP_SKIP_INT_DAT_PROCESSING && hh_process_internal_dat_files () != 0)
-    {
-      exit (1);
+      fprintf (stderr, "ERROR: Unable to open file, %s.\n", filename);
+      return -1;
     }
 
   return 0;
