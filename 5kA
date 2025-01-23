@@ -1,0 +1,9 @@
+#include "iso_9660.h"
+
+int8_t
+create_iso_9660_filesystem_from_file (FILE *fptr, Iso9660FileSystem_t *fs)
+{
+  fseek(fptr, 0x8000, SEEK_SET);
+
+  return 0;
+}

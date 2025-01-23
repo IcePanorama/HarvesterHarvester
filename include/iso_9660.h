@@ -2,6 +2,7 @@
 #define _ISO_9660_FILESYSTEM_H_
 
 #include <stdint.h>
+#include <stdio.h>
 
 /** @see: https://wiki.osdev.org/ISO_9660#Directories */
 typedef struct Iso9660DirectoryRecord_s
@@ -24,7 +25,7 @@ typedef struct Iso9660DirectoryRecord_s
   } recording_date_time;
 
   uint8_t file_flags;
-  uint8_t file_unit_size; //!< if recorded in interleaved mode, else 0.
+  uint8_t file_unit_size;      //!< if recorded in interleaved mode, else 0.
   uint8_t interleave_gap_size; //!< if recorded in interleaved mode, else 0.
   /** "the volume that this extent is recorded on." */
   uint16_t volume_sequence_number;
@@ -65,7 +66,7 @@ typedef struct Iso9660FileSystem_s
     VDTC_VOL_DESC_SET_TERMINATOR = 255
   } volume_desc_type_code;
 
-  char volume_identifier[5];  //!< Always `CD001`.
+  char volume_identifier[5]; //!< Always `CD001`.
   uint8_t volume_desc_version_num;
 
   /** @see: https://wiki.osdev.org/ISO_9660#Volume_Descriptors */
@@ -85,9 +86,10 @@ typedef struct Iso9660FileSystem_s
       char system_identifier[32];
       char volume_identifier[32];
 
+      /** "number of logical blocks in which the volume is recorded." */
       uint32_t volume_space_size;
-      uint16_t volume_set_size;
-      uint16_t volume_sequence_number;
+      uint16_t volume_set_size;        //!< "number of disks."
+      uint16_t volume_sequence_number; //!< number of this disk in the set.
       uint16_t logical_block_size;
       uint32_t path_table_size;
       uint32_t type_l_path_table_location;
@@ -115,12 +117,17 @@ typedef struct Iso9660FileSystem_s
     } primary_vol_desc;
 
     /**
-     * Volume Descriptor Set Terminator data "does not define bytes 7-2047 of
-     * its Volume Descriptor."
+     *  Volume Descriptor Set Terminator data "does not define bytes 7-2047 of
+     *  its Volume Descriptor."
      *  @see: https://wiki.osdev.org/ISO_9660#Volume_Descriptor_Set_Terminator
      *  TODO: decide: is it even worth creating a struct for this then?
+     *  In theory, we could put this into a (u)int8_t array.
      */
   } volume_desc_data;
 } Iso9660FileSystem_t;
+
+/** @returns  Zero on success, non-zero on failure. */
+int8_t create_iso_9660_filesystem_from_file (FILE fptr[static 1],
+                                             Iso9660FileSystem_t fs[static 1]);
 
 #endif /* _ISO_9660_FILESYSTEM_H_ */

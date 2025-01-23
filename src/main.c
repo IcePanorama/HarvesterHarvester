@@ -1,3 +1,5 @@
+#include "iso_9660.h"
+
 #include <stdint.h>
 #include <stdio.h>
 
@@ -11,6 +13,13 @@ main (void)
   FILE *input_file;
   if (open_file (&input_file, filename) != 0)
     return -1;
+
+  Iso9660FileSystem_t fs;
+  if (create_iso_9660_filesystem_from_file (input_file, &fs) != 0)
+    {
+      fclose (input_file);
+      return -1;
+    }
 
   fclose (input_file);
   return 0;

@@ -24,6 +24,7 @@ add_compile_options(
 
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(SRC_FILES
+    "${SRC_DIR}/iso_9660.c"
     "${SRC_DIR}/main.c"
 )
 
