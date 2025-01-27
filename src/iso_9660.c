@@ -11,7 +11,7 @@ static int8_t
 read_vd_type_code_from_file (FILE *fptr,
                              enum VolumeDescriptorTypeCode_e *output);
 static void print_iso_9660_fs (Iso9660FileSystem_t *fs);
-static int8_t read_string_from_file (FILE *fptr, char *output, size_t length);
+static int8_t read_str_from_file (FILE *fptr, char *output, size_t length);
 static int8_t
 read_primary_vd_data_from_file (FILE *fptr,
                                 struct PrimaryVolumeDescriptorData_s *pvdd);
@@ -30,6 +30,13 @@ static int8_t read_directory_entry_from_file (FILE *fptr,
                                               Iso9660DirectoryRecord_t *dr);
 static void print_directory_entry (Iso9660DirectoryRecord_t *dr);
 static void print_file_flags (uint8_t file_flags);
+static int8_t
+read_primary_vol_date_time_from_file (FILE *fptr,
+                                      Iso9660PrimaryVolumeDateTime_t *dt);
+static void print_primary_vol_date_time (const char *date_time_identifier,
+                                         Iso9660PrimaryVolumeDateTime_t *dt);
+static int8_t read_uint8_array_from_file (FILE *fptr, uint8_t *output,
+                                          size_t length);
 
 int8_t
 create_iso_9660_filesystem_from_file (FILE fptr[static 1],
@@ -43,7 +50,7 @@ create_iso_9660_filesystem_from_file (FILE fptr[static 1],
     }
 
   if ((read_vd_type_code_from_file (fptr, &fs->volume_desc_type_code) != 0)
-      || (read_string_from_file (fptr, fs->volume_identifier, 5) != 0)
+      || (read_str_from_file (fptr, fs->volume_identifier, 5) != 0)
       || (read_uint8_from_file (fptr, &fs->volume_desc_version_num)))
     return -1;
 
@@ -120,7 +127,7 @@ print_iso_9660_fs (Iso9660FileSystem_t *fs)
 }
 
 int8_t
-read_string_from_file (FILE *fptr, char *output, size_t length)
+read_str_from_file (FILE *fptr, char *output, size_t length)
 {
   size_t bytes_read = fread (output, sizeof (char), length, fptr);
   if (bytes_read != (sizeof (char) * length))
@@ -139,8 +146,8 @@ read_primary_vd_data_from_file (FILE *fptr,
   if (fseek (fptr, 1, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
-  if ((read_string_from_file (fptr, pvdd->system_identifier, 32) != 0)
-      || (read_string_from_file (fptr, pvdd->volume_identifier, 32)))
+  if ((read_str_from_file (fptr, pvdd->system_identifier, 32) != 0)
+      || (read_str_from_file (fptr, pvdd->volume_identifier, 32)))
     return -1;
 
   if (fseek (fptr, 8, SEEK_CUR) != 0) // Unused
@@ -161,7 +168,20 @@ read_primary_vd_data_from_file (FILE *fptr,
       || (read_le_uint32_from_file (fptr, &pvdd->optional_type_l_path_table_location) != 0)
       || (read_be_uint32_from_file (fptr, &pvdd->type_m_path_table_location) != 0)
       || (read_be_uint32_from_file (fptr, &pvdd->optional_type_m_path_table_location) != 0)
-      || (read_directory_entry_from_file (fptr, &pvdd->root_directory_entry) != 0))
+      || (read_directory_entry_from_file (fptr, &pvdd->root_directory_entry) != 0)
+      || (read_str_from_file (fptr, pvdd->volume_set_identifier, 128) != 0)
+      || (read_str_from_file (fptr, pvdd->publisher_identifier, 128) != 0)
+      || (read_str_from_file (fptr, pvdd->data_preparer_identifier, 128) != 0)
+      || (read_str_from_file (fptr, pvdd->application_identifier, 128) != 0)
+      || (read_str_from_file (fptr, pvdd->copyright_file_identifier, 37) != 0)
+      || (read_str_from_file (fptr, pvdd->abstract_file_identifier, 37) != 0)
+      || (read_str_from_file (fptr, pvdd->bibliographic_file_identifier, 37) != 0)
+      || (read_primary_vol_date_time_from_file (fptr, &pvdd->volume_creation_date_time) != 0)
+      || (read_primary_vol_date_time_from_file (fptr, &pvdd->volume_modification_date_time) != 0)
+      || (read_primary_vol_date_time_from_file (fptr, &pvdd->volume_expiration_date_time) != 0)
+      || (read_primary_vol_date_time_from_file (fptr, &pvdd->volume_effective_date_time) != 0)
+      || (read_uint8_from_file (fptr, &pvdd->file_structure_version) != 0)
+      || (read_uint8_array_from_file(fptr, pvdd->application_used_data, 512) != 0))
     return -1;
   /* clang-format on */
 
@@ -181,6 +201,7 @@ print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
   printf ("- Volume set size: %d\n", pvdd->volume_set_size);
   printf ("- Volume sequence number: %d\n", pvdd->volume_sequence_number);
   printf ("- Logical block size: %d\n", pvdd->logical_block_size);
+
   printf ("- Path table size: %d\n", pvdd->path_table_size);
   printf ("- Location of type-l path table: 0x%08X\n",
           pvdd->type_l_path_table_location);
@@ -190,7 +211,33 @@ print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
           pvdd->type_m_path_table_location);
   printf ("- Location of optional type-m path table: 0x%08X\n",
           pvdd->optional_type_m_path_table_location);
+
+  puts ("- Root directory entry:");
   print_directory_entry (&pvdd->root_directory_entry);
+
+  printf ("- Volume set identifier: %.*s\n", 128, pvdd->volume_set_identifier);
+  printf ("- Publisher identifier: %.*s\n", 128, pvdd->publisher_identifier);
+  printf ("- Data preparer identifier: %.*s\n", 128,
+          pvdd->data_preparer_identifier);
+  printf ("- Application identifier: %.*s\n", 128,
+          pvdd->application_identifier);
+  printf ("- Copyright file identifier: %.*s\n", 37,
+          pvdd->copyright_file_identifier);
+  printf ("- Abstract file identifier: %.*s\n", 37,
+          pvdd->abstract_file_identifier);
+  printf ("- Bibliographic file identifier: %.*s\n", 37,
+          pvdd->bibliographic_file_identifier);
+
+  print_primary_vol_date_time ("- Volume creation date time",
+                               &pvdd->volume_creation_date_time);
+  print_primary_vol_date_time ("- Volume modification date time",
+                               &pvdd->volume_modification_date_time);
+  print_primary_vol_date_time ("- Volume expiration date time",
+                               &pvdd->volume_expiration_date_time);
+  print_primary_vol_date_time ("- Volume effective date time",
+                               &pvdd->volume_effective_date_time);
+
+  printf ("- File structure version: %d\n", pvdd->file_structure_version);
 }
 
 int8_t
@@ -324,14 +371,14 @@ read_directory_entry_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
       || (read_uint8_from_file (fptr, &dr->interleave_gap_size) != 0)
       || (read_le_be_uint16_from_file (fptr, &dr->volume_sequence_number) != 0)
       || (read_uint8_from_file (fptr, &dr->file_identifier_length) != 0)
-      || (read_string_from_file (fptr, dr->file_identifier,
-                                 dr->file_identifier_length)
+      || (read_str_from_file (fptr, dr->file_identifier,
+                              dr->file_identifier_length)
           != 0))
     {
       return -1;
     }
 
-  if ((dr->file_identifier_length % 2) != 0)
+  if ((dr->file_identifier_length % 2) == 0)
     {
       if (fseek (fptr, 1, SEEK_CUR) != 0)
         {
@@ -353,13 +400,16 @@ print_directory_entry (Iso9660DirectoryRecord_t *dr)
           dr->extended_attrib_rec_length);
   printf ("-- Location of extent: 0x%08X\n", dr->extent_location);
   printf ("-- Size of extent: %d\n", dr->extent_size);
+
   printf ("-- Recording date/time: %04d-%02d-%02d %02d:%02d:%02d (GMT%+02d)\n",
           1900 + dr->recording_date_time.year, dr->recording_date_time.month,
           dr->recording_date_time.day, dr->recording_date_time.hour,
           dr->recording_date_time.minute, dr->recording_date_time.second,
           (-48 + dr->recording_date_time.timezone) >> 2);
+
   puts ("-- File flags:");
   print_file_flags (dr->file_flags);
+
   printf ("-- File unit size: %d\n", dr->file_unit_size);
   printf ("-- Interleave gap size: %d\n", dr->interleave_gap_size);
   printf ("-- Volume sequence number: %d\n", dr->volume_sequence_number);
@@ -380,4 +430,48 @@ print_file_flags (uint8_t file_flags)
           (file_flags & 16) ? "true" : "false");
   printf ("--- Not final directory record? %s\n",
           (file_flags & 128) ? "true" : "false");
+}
+
+int8_t
+read_primary_vol_date_time_from_file (FILE *fptr,
+                                      Iso9660PrimaryVolumeDateTime_t *dt)
+{
+  if ((read_str_from_file (fptr, dt->year, 4) != 0)
+      || (read_str_from_file (fptr, dt->month, 2) != 0)
+      || (read_str_from_file (fptr, dt->day, 2) != 0)
+      || (read_str_from_file (fptr, dt->hour, 2) != 0)
+      || (read_str_from_file (fptr, dt->minute, 2) != 0)
+      || (read_str_from_file (fptr, dt->second, 2) != 0)
+      || (read_str_from_file (fptr, dt->hundredths_of_a_second, 2) != 0)
+      || (read_uint8_from_file (fptr, &dt->timezone) != 0))
+    {
+      return -1;
+    }
+
+  return 0;
+}
+
+void
+print_primary_vol_date_time (const char *date_time_identifier,
+                             Iso9660PrimaryVolumeDateTime_t *dt)
+{
+  printf ("%s: %.4s-%.2s-%.2s %.2s:%.2s:%.2s.%.2s (GMT%+02d)\n",
+          date_time_identifier, dt->year, dt->month, dt->day, dt->hour,
+          dt->minute, dt->second, dt->hundredths_of_a_second,
+          (-48 + dt->timezone) >> 2);
+}
+
+int8_t
+read_uint8_array_from_file (FILE *fptr, uint8_t *output, size_t length)
+{
+  size_t bytes_read = fread (output, sizeof (uint8_t), length, fptr);
+  if (bytes_read != sizeof (uint8_t) * length)
+    {
+      fprintf (stderr,
+               "ERROR: Error reading uint8 array of size %ld from file.\n",
+               length);
+      return -1;
+    }
+
+  return 0;
 }
