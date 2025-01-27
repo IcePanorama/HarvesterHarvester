@@ -21,7 +21,7 @@ typedef struct Iso9660DirectoryRecord_s
     uint8_t minute;
     uint8_t second;
     /** "Offset from GMT in 15 minute intervals from -48 ... to +52." */
-    uint8_t timezone_offset;
+    uint8_t timezone;
   } recording_date_time;
 
   uint8_t file_flags;
@@ -50,7 +50,7 @@ typedef struct Iso9660PrimaryVolumeDateTime_s
   char second[2];
   char hundredths_of_a_second[2];
   /** "offset from GMT in 15 minute intervals, [from] -48 ... to 52." */
-  uint8_t time_zone_offset;
+  uint8_t timezone;
 } Iso9660PrimaryVolumeDateTime_t;
 
 /** @see: https://wiki.osdev.org/ISO_9660 */
