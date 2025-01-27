@@ -1,42 +1,106 @@
 #include "iso_9660.h"
 
-#include <assert.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
-static int8_t read_uint8_from_file (FILE *fptr, uint8_t *output);
-/** Read a volume descriptor type code from file. */
+/**
+ *  Reads a volume descriptor type code from file.
+ *  @returns zero on success, non-zero on failure.
+ *  @see `enum VolumeDescriptorTypeCode_e`
+ */
 static int8_t
 read_vd_type_code_from_file (FILE *fptr,
                              enum VolumeDescriptorTypeCode_e *output);
-static void print_iso_9660_fs (Iso9660FileSystem_t *fs);
+/** @returns zero on success, non-zero on failure. */
+static int8_t read_uint8_from_file (FILE *fptr, uint8_t *output);
+/** @returns zero on success, non-zero on failure. */
 static int8_t read_str_from_file (FILE *fptr, char *output, size_t length);
+/**
+ *  Reads primary volume descriptor data from file.
+ *  @returns zero on success, non-zero on failure.
+ *  @see `struct PrimaryVolumeDescriptorData_s`
+ */
 static int8_t
 read_primary_vd_data_from_file (FILE *fptr,
                                 struct PrimaryVolumeDescriptorData_s *pvdd);
-static void print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd);
 /**
  *  Reads a little-endian followed by big-endian encoded unsigned 32-bit
- *  integer. Double checks that these values match because why not?
+ *  integer. Double checks that these values match because, why not?
+ *  @returns zero on success, non-zero on failure.
  */
 static int8_t read_le_be_uint32_from_file (FILE *fptr, uint32_t *output);
+/**
+ *  Reads a little endian 32-bit integer from file.
+ *  @returns zero on success, non-zero on failure.
+ */
 static int8_t read_le_uint32_from_file (FILE *fptr, uint32_t *output);
+/**
+ *  Reads a big endian 32-bit integer from file.
+ *  @returns zero on success, non-zero on failure.
+ */
 static int8_t read_be_uint32_from_file (FILE *fptr, uint32_t *output);
+/**
+ *  Reads a little-endian followed by big-endian encoded unsigned 16-bit
+ *  integer. Double checks that these values match because, why not?
+ *  @returns zero on success, non-zero on failure.
+ */
 static int8_t read_le_be_uint16_from_file (FILE *fptr, uint16_t *output);
+/**
+ *  Reads a little endian 16-bit integer from file.
+ *  @returns zero on success, non-zero on failure.
+ */
 static int8_t read_le_uint16_from_file (FILE *fptr, uint16_t *output);
+/**
+ *  Reads a big endian 16-bit integer from file.
+ *  @returns zero on success, non-zero on failure.
+ */
 static int8_t read_be_uint16_from_file (FILE *fptr, uint16_t *output);
+/**
+ *  @returns zero on success, non-zero on failure.
+ *  @see `Iso9660DirectoryRecord_t`.
+ */
 static int8_t read_directory_entry_from_file (FILE *fptr,
                                               Iso9660DirectoryRecord_t *dr);
-static void print_directory_entry (Iso9660DirectoryRecord_t *dr);
-static void print_file_flags (uint8_t file_flags);
+/**
+ *  Reads a primary volume descriptor date/time data from file.
+ *  @returns zero on success, non-zero on failure.
+ *  @see `Iso9660PrimaryVolumeDateTime_t`
+ *  @see `struct PrimaryVolumeDescriptorData_s`
+ */
 static int8_t
 read_primary_vol_date_time_from_file (FILE *fptr,
                                       Iso9660PrimaryVolumeDateTime_t *dt);
-static void print_primary_vol_date_time (const char *date_time_identifier,
-                                         Iso9660PrimaryVolumeDateTime_t *dt);
+/** @returns zero on success, non-zero on failure. */
 static int8_t read_uint8_array_from_file (FILE *fptr, uint8_t *output,
                                           size_t length);
+/**
+ *  Outputs a filesystem in a human readiable form to stdout.
+ *  @see `Iso9660FileSystem_t`
+ */
+static void print_iso_9660_fs (Iso9660FileSystem_t *fs);
+/**
+ *  Outputs primary volume descriptor data in a human readiable form to stdout.
+ *  @see `struct PrimaryVolumeDescriptorData_s`
+ */
+static void print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd);
+/**
+ *  Outputs a directory entry in a human readiable form to stdout.
+ *  @see `Iso9660DirectoryRecord_t`
+ */
+static void print_directory_entry (Iso9660DirectoryRecord_t *dr);
+/**
+ *  Outputs a directory entry's file flags in a human readiable form to stdout.
+ *  @see `Iso9660DirectoryRecord_t`
+ */
+static void print_file_flags (uint8_t file_flags);
+/**
+ *  Outputs primary volume descriptor date/time data in a human readiable form
+ *  to stdout.
+ *  @see `Iso9660PrimaryVolumeDateTime_t`
+ */
+static void print_primary_vol_date_time (const char *date_time_identifier,
+                                         Iso9660PrimaryVolumeDateTime_t *dt);
 
 int8_t
 create_iso_9660_filesystem_from_file (FILE fptr[static 1],
@@ -77,19 +141,6 @@ create_iso_9660_filesystem_from_file (FILE fptr[static 1],
 }
 
 int8_t
-read_uint8_from_file (FILE *fptr, uint8_t *output)
-{
-  size_t bytes_read = fread (output, sizeof (uint8_t), 1, fptr);
-  if (bytes_read != sizeof (uint8_t))
-    {
-      fprintf (stderr, "ERROR: Error reading uint8 from file.\n");
-      return -1;
-    }
-
-  return 0;
-}
-
-int8_t
 read_vd_type_code_from_file (FILE *fptr,
                              enum VolumeDescriptorTypeCode_e *output)
 {
@@ -108,22 +159,17 @@ read_vd_type_code_from_file (FILE *fptr,
   return 0;
 }
 
-void
-print_iso_9660_fs (Iso9660FileSystem_t *fs)
+int8_t
+read_uint8_from_file (FILE *fptr, uint8_t *output)
 {
-  printf ("Volume descriptor type code: %02X\n", fs->volume_desc_type_code);
-  printf ("Volume identifier: %.*s\n", 5, fs->volume_identifier);
-  printf ("Volume descriptor version: %02X\n", fs->volume_desc_version_num);
-
-  switch (fs->volume_desc_type_code)
+  size_t bytes_read = fread (output, sizeof (uint8_t), 1, fptr);
+  if (bytes_read != sizeof (uint8_t))
     {
-    case VDTC_PRIMARY_VOLUME:
-      puts ("Primary volume data: ");
-      print_primary_vd_data (&fs->volume_desc_data.primary_vol_desc);
-      break;
-    default:
-      break;
+      fprintf (stderr, "ERROR: Error reading uint8 from file.\n");
+      return -1;
     }
+
+  return 0;
 }
 
 int8_t
@@ -190,54 +236,6 @@ fseek_err:
   fprintf (stderr, "ERROR: failed to seek past unused byte(s) in primary "
                    "volume descriptor data.\n");
   return -1;
-}
-
-void
-print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
-{
-  printf ("- System identifier: %.*s\n", 32, pvdd->system_identifier);
-  printf ("- Volume identifier: %.*s\n", 32, pvdd->volume_identifier);
-  printf ("- Volume space size: %d\n", pvdd->volume_space_size);
-  printf ("- Volume set size: %d\n", pvdd->volume_set_size);
-  printf ("- Volume sequence number: %d\n", pvdd->volume_sequence_number);
-  printf ("- Logical block size: %d\n", pvdd->logical_block_size);
-
-  printf ("- Path table size: %d\n", pvdd->path_table_size);
-  printf ("- Location of type-l path table: 0x%08X\n",
-          pvdd->type_l_path_table_location);
-  printf ("- Location of optional type-l path table: 0x%08X\n",
-          pvdd->optional_type_l_path_table_location);
-  printf ("- Location of type-m path table: 0x%08X\n",
-          pvdd->type_m_path_table_location);
-  printf ("- Location of optional type-m path table: 0x%08X\n",
-          pvdd->optional_type_m_path_table_location);
-
-  puts ("- Root directory entry:");
-  print_directory_entry (&pvdd->root_directory_entry);
-
-  printf ("- Volume set identifier: %.*s\n", 128, pvdd->volume_set_identifier);
-  printf ("- Publisher identifier: %.*s\n", 128, pvdd->publisher_identifier);
-  printf ("- Data preparer identifier: %.*s\n", 128,
-          pvdd->data_preparer_identifier);
-  printf ("- Application identifier: %.*s\n", 128,
-          pvdd->application_identifier);
-  printf ("- Copyright file identifier: %.*s\n", 37,
-          pvdd->copyright_file_identifier);
-  printf ("- Abstract file identifier: %.*s\n", 37,
-          pvdd->abstract_file_identifier);
-  printf ("- Bibliographic file identifier: %.*s\n", 37,
-          pvdd->bibliographic_file_identifier);
-
-  print_primary_vol_date_time ("- Volume creation date time",
-                               &pvdd->volume_creation_date_time);
-  print_primary_vol_date_time ("- Volume modification date time",
-                               &pvdd->volume_modification_date_time);
-  print_primary_vol_date_time ("- Volume expiration date time",
-                               &pvdd->volume_expiration_date_time);
-  print_primary_vol_date_time ("- Volume effective date time",
-                               &pvdd->volume_effective_date_time);
-
-  printf ("- File structure version: %d\n", pvdd->file_structure_version);
 }
 
 int8_t
@@ -393,6 +391,91 @@ read_directory_entry_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
 }
 
 void
+print_iso_9660_fs (Iso9660FileSystem_t *fs)
+{
+  printf ("Volume descriptor type code: %02X\n", fs->volume_desc_type_code);
+  printf ("Volume identifier: %.*s\n", 5, fs->volume_identifier);
+  printf ("Volume descriptor version: %02X\n", fs->volume_desc_version_num);
+
+  switch (fs->volume_desc_type_code)
+    {
+    case VDTC_PRIMARY_VOLUME:
+      puts ("Primary volume data: ");
+      print_primary_vd_data (&fs->volume_desc_data.primary_vol_desc);
+      break;
+    default:
+      break;
+    }
+}
+
+int8_t
+read_primary_vol_date_time_from_file (FILE *fptr,
+                                      Iso9660PrimaryVolumeDateTime_t *dt)
+{
+  if ((read_str_from_file (fptr, dt->year, 4) != 0)
+      || (read_str_from_file (fptr, dt->month, 2) != 0)
+      || (read_str_from_file (fptr, dt->day, 2) != 0)
+      || (read_str_from_file (fptr, dt->hour, 2) != 0)
+      || (read_str_from_file (fptr, dt->minute, 2) != 0)
+      || (read_str_from_file (fptr, dt->second, 2) != 0)
+      || (read_str_from_file (fptr, dt->hundredths_of_a_second, 2) != 0)
+      || (read_uint8_from_file (fptr, &dt->timezone) != 0))
+    {
+      return -1;
+    }
+
+  return 0;
+}
+
+void
+print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
+{
+  printf ("- System identifier: %.*s\n", 32, pvdd->system_identifier);
+  printf ("- Volume identifier: %.*s\n", 32, pvdd->volume_identifier);
+  printf ("- Volume space size: %d\n", pvdd->volume_space_size);
+  printf ("- Volume set size: %d\n", pvdd->volume_set_size);
+  printf ("- Volume sequence number: %d\n", pvdd->volume_sequence_number);
+  printf ("- Logical block size: %d\n", pvdd->logical_block_size);
+
+  printf ("- Path table size: %d\n", pvdd->path_table_size);
+  printf ("- Location of type-l path table: 0x%08X\n",
+          pvdd->type_l_path_table_location);
+  printf ("- Location of optional type-l path table: 0x%08X\n",
+          pvdd->optional_type_l_path_table_location);
+  printf ("- Location of type-m path table: 0x%08X\n",
+          pvdd->type_m_path_table_location);
+  printf ("- Location of optional type-m path table: 0x%08X\n",
+          pvdd->optional_type_m_path_table_location);
+
+  puts ("- Root directory entry:");
+  print_directory_entry (&pvdd->root_directory_entry);
+
+  printf ("- Volume set identifier: %.*s\n", 128, pvdd->volume_set_identifier);
+  printf ("- Publisher identifier: %.*s\n", 128, pvdd->publisher_identifier);
+  printf ("- Data preparer identifier: %.*s\n", 128,
+          pvdd->data_preparer_identifier);
+  printf ("- Application identifier: %.*s\n", 128,
+          pvdd->application_identifier);
+  printf ("- Copyright file identifier: %.*s\n", 37,
+          pvdd->copyright_file_identifier);
+  printf ("- Abstract file identifier: %.*s\n", 37,
+          pvdd->abstract_file_identifier);
+  printf ("- Bibliographic file identifier: %.*s\n", 37,
+          pvdd->bibliographic_file_identifier);
+
+  print_primary_vol_date_time ("- Volume creation date time",
+                               &pvdd->volume_creation_date_time);
+  print_primary_vol_date_time ("- Volume modification date time",
+                               &pvdd->volume_modification_date_time);
+  print_primary_vol_date_time ("- Volume expiration date time",
+                               &pvdd->volume_expiration_date_time);
+  print_primary_vol_date_time ("- Volume effective date time",
+                               &pvdd->volume_effective_date_time);
+
+  printf ("- File structure version: %d\n", pvdd->file_structure_version);
+}
+
+void
 print_directory_entry (Iso9660DirectoryRecord_t *dr)
 {
   printf ("-- Directory record length: %d\n", dr->dir_rec_length);
@@ -430,25 +513,6 @@ print_file_flags (uint8_t file_flags)
           (file_flags & 16) ? "true" : "false");
   printf ("--- Not final directory record? %s\n",
           (file_flags & 128) ? "true" : "false");
-}
-
-int8_t
-read_primary_vol_date_time_from_file (FILE *fptr,
-                                      Iso9660PrimaryVolumeDateTime_t *dt)
-{
-  if ((read_str_from_file (fptr, dt->year, 4) != 0)
-      || (read_str_from_file (fptr, dt->month, 2) != 0)
-      || (read_str_from_file (fptr, dt->day, 2) != 0)
-      || (read_str_from_file (fptr, dt->hour, 2) != 0)
-      || (read_str_from_file (fptr, dt->minute, 2) != 0)
-      || (read_str_from_file (fptr, dt->second, 2) != 0)
-      || (read_str_from_file (fptr, dt->hundredths_of_a_second, 2) != 0)
-      || (read_uint8_from_file (fptr, &dt->timezone) != 0))
-    {
-      return -1;
-    }
-
-  return 0;
 }
 
 void
