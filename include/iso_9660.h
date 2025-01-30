@@ -130,4 +130,8 @@ typedef struct Iso9660FileSystem_s
 int8_t iso_9660_create_filesystem_from_file (FILE fptr[static 1],
                                              Iso9660FileSystem_t fs[static 1]);
 
+int8_t iso_9660_extract_filesystem (FILE input_fptr[static 1],
+                                    Iso9660FileSystem_t fs[static 1],
+                                    const char output_dir_path[static 1]);
+
 #endif /* _ISO_9660_FILESYSTEM_H_ */
