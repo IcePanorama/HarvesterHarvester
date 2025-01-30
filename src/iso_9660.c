@@ -28,6 +28,7 @@ read_primary_vd_data_from_file (FILE *fptr,
  *  Reads a little-endian followed by big-endian encoded unsigned 32-bit
  *  integer. Double checks that these values match because, why not?
  *  @returns zero on success, non-zero on failure.
+ *  @see https://wiki.osdev.org/ISO_9660#Numerical_formats
  */
 static int8_t read_le_be_uint32_from_file (FILE *fptr, uint32_t *output);
 /**
@@ -44,6 +45,7 @@ static int8_t read_be_uint32_from_file (FILE *fptr, uint32_t *output);
  *  Reads a little-endian followed by big-endian encoded unsigned 16-bit
  *  integer. Double checks that these values match because, why not?
  *  @returns zero on success, non-zero on failure.
+ *  @see https://wiki.osdev.org/ISO_9660#Numerical_formats
  */
 static int8_t read_le_be_uint16_from_file (FILE *fptr, uint16_t *output);
 /**
@@ -58,10 +60,10 @@ static int8_t read_le_uint16_from_file (FILE *fptr, uint16_t *output);
 static int8_t read_be_uint16_from_file (FILE *fptr, uint16_t *output);
 /**
  *  @returns zero on success, non-zero on failure.
- *  @see `Iso9660DirectoryRecord_t`.
+ *  @see `struct DirectoryRecord_s`.
  */
 static int8_t read_directory_entry_from_file (FILE *fptr,
-                                              Iso9660DirectoryRecord_t *dr);
+                                              struct DirectoryRecord_s *dr);
 /**
  *  Reads a primary volume descriptor date/time data from file.
  *  @returns zero on success, non-zero on failure.
@@ -86,12 +88,12 @@ static void print_iso_9660_fs (Iso9660FileSystem_t *fs);
 static void print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd);
 /**
  *  Outputs a directory entry in a human readiable form to stdout.
- *  @see `Iso9660DirectoryRecord_t`
+ *  @see `struct DirectoryRecord_s`
  */
-static void print_directory_entry (Iso9660DirectoryRecord_t *dr);
+static void print_directory_entry (struct DirectoryRecord_s *dr);
 /**
  *  Outputs a directory entry's file flags in a human readiable form to stdout.
- *  @see `Iso9660DirectoryRecord_t`
+ *  @see `struct DirectoryRecord_s`
  */
 static void print_file_flags (uint8_t file_flags);
 /**
@@ -351,7 +353,7 @@ read_be_uint16_from_file (FILE *fptr, uint16_t *output)
 }
 
 int8_t
-read_directory_entry_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
+read_directory_entry_from_file (FILE *fptr, struct DirectoryRecord_s *dr)
 {
   if ((read_uint8_from_file (fptr, &dr->dir_rec_length) != 0)
       || (read_uint8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
@@ -476,7 +478,7 @@ print_primary_vd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
 }
 
 void
-print_directory_entry (Iso9660DirectoryRecord_t *dr)
+print_directory_entry (struct DirectoryRecord_s *dr)
 {
   printf ("-- Directory record length: %d\n", dr->dir_rec_length);
   printf ("-- Extended attribute length: %d\n",
