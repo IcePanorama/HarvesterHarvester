@@ -4,6 +4,44 @@
 #include <stdint.h>
 #include <stdio.h>
 
+/** @see: https://wiki.osdev.org/ISO_9660#Directories */
+typedef struct Iso9660DirectoryRecord_s
+{
+  uint8_t dir_rec_length;
+  uint8_t extended_attrib_rec_length;
+  uint32_t extent_location;
+  uint32_t extent_size; //!< Also called its "data length".
+
+  struct DirectoryRecordDateTime_s
+  {
+    uint8_t year; //!< number of years since 1900.
+    uint8_t month;
+    uint8_t day;
+    uint8_t hour;
+    uint8_t minute;
+    uint8_t second;
+    /** "Offset from GMT in 15 minute intervals from -48 ... to +52." */
+    uint8_t timezone;
+  } recording_date_time;
+
+  uint8_t file_flags;
+  /** if recorded in interleaved mode, else 0. */
+  uint8_t file_unit_size;
+  /** if recorded in interleaved mode, else 0. */
+  uint8_t interleave_gap_size;
+  /** "the volume that this extent is recorded on." */
+  uint16_t volume_sequence_number;
+  uint8_t file_identifier_length;
+
+  /**
+   *  Variable length file identifier.
+   *  Max length = `file_identifier_length` + ";1" (2) + '\0'.
+   *
+   *  @see: `file_identifier_length`.
+   */
+  char file_identifier[UINT8_MAX + 3];
+} Iso9660DirectoryRecord_t;
+
 typedef struct Iso9660PrimaryVolumeDateTime_s
 {
   char year[4];
@@ -61,43 +99,7 @@ typedef struct Iso9660FileSystem_s
       uint32_t type_m_path_table_location;
       uint32_t optional_type_m_path_table_location;
 
-      /** @see: https://wiki.osdev.org/ISO_9660#Directories */
-      struct DirectoryRecord_s
-      {
-        uint8_t dir_rec_length;
-        uint8_t extended_attrib_rec_length;
-        uint32_t extent_location;
-        uint32_t extent_size; //!< Also called its "data length".
-
-        struct DirectoryRecordDateTime_s
-        {
-          uint8_t year; //!< number of years since 1900.
-          uint8_t month;
-          uint8_t day;
-          uint8_t hour;
-          uint8_t minute;
-          uint8_t second;
-          /** "Offset from GMT in 15 minute intervals from -48 ... to +52." */
-          uint8_t timezone;
-        } recording_date_time;
-
-        uint8_t file_flags;
-        /** if recorded in interleaved mode, else 0. */
-        uint8_t file_unit_size;
-        /** if recorded in interleaved mode, else 0. */
-        uint8_t interleave_gap_size;
-        /** "the volume that this extent is recorded on." */
-        uint16_t volume_sequence_number;
-        uint8_t file_identifier_length;
-
-        /**
-         *  Variable length file identifier.
-         *  Max length = `file_identifier_length` + ";1" (2) + '\0'.
-         *
-         *  @see: `file_identifier_length`.
-         */
-        char file_identifier[UINT8_MAX + 3];
-      } root_directory_entry;
+      Iso9660DirectoryRecord_t root_directory_entry;
 
       char volume_set_identifier[128];
       char publisher_identifier[128];

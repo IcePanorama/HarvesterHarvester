@@ -1,5 +1,6 @@
 #include "iso_9660.h"
 
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -70,10 +71,10 @@ static int8_t read_be_uint16_from_file (FILE *fptr, uint16_t *output);
 /**
  *  Reads a directory record from file.
  *  @returns zero on success, non-zero on failure.
- *  @see `struct DirectoryRecord_s`.
+ *  @see `Iso9660DirectoryRecord_t`.
  */
 static int8_t read_dir_rec_from_file (FILE *fptr,
-                                      struct DirectoryRecord_s *dr);
+                                      Iso9660DirectoryRecord_t *dr);
 /**
  *  Reads a primary volume descriptor date/time data from file.
  *  @returns zero on success, non-zero on failure.
@@ -97,12 +98,12 @@ static void print_iso_9660_fs (Iso9660FileSystem_t *fs);
 static void print_pvd_data (struct PrimaryVolumeDescriptorData_s *pvdd);
 /**
  *  Outputs a directory entry in a human readiable form to stdout.
- *  @see `struct DirectoryRecord_s`
+ *  @see `Iso9660DirectoryRecord_t`
  */
-static void print_dir_rec (struct DirectoryRecord_s *dr);
+static void print_dir_rec (Iso9660DirectoryRecord_t *dr);
 /**
  *  Outputs a directory entry's file flags in a human readiable form to stdout.
- *  @see `struct DirectoryRecord_s`
+ *  @see `Iso9660DirectoryRecord_t`
  */
 static void print_file_flags (uint8_t file_flags);
 /**
@@ -367,7 +368,7 @@ read_be_uint16_from_file (FILE *fptr, uint16_t *output)
 }
 
 int8_t
-read_dir_rec_from_file (FILE *fptr, struct DirectoryRecord_s *dr)
+read_dir_rec_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
 {
   if ((read_uint8_from_file (fptr, &dr->dir_rec_length) != 0)
       || (read_uint8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
@@ -495,7 +496,7 @@ print_pvd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
 }
 
 void
-print_dir_rec (struct DirectoryRecord_s *dr)
+print_dir_rec (Iso9660DirectoryRecord_t *dr)
 {
   printf ("-- Directory record length: %d\n", dr->dir_rec_length);
   printf ("-- Extended attribute length: %d\n",
@@ -602,11 +603,36 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       return -1;
     }
 
-  PathTable_t root_path_table;
-  if (read_pt_from_file (input_fptr, &root_path_table) != 0)
-    return -1;
+  /** TODO: Save a list of every path table, then separately process each dr. */
+  while (true)
+    {
+      PathTable_t path_table_entry;
+      if (read_pt_from_file (input_fptr, &path_table_entry) != 0)
+        return -1;
 
-  print_pt (&root_path_table);
+      if (path_table_entry.directory_identifier_length == 0)
+        break;
+
+      print_pt (&path_table_entry);
+
+      if (fseek (input_fptr, path_table_entry.extent_location * lb_size,
+                 SEEK_SET)
+          != 0)
+        {
+          fprintf (stderr,
+                   "ERROR: failed to seek to the directory record entry for "
+                   "%.*s.\n",
+                   path_table_entry.directory_identifier_length,
+                   path_table_entry.directory_identifier);
+          return -1;
+        }
+
+      Iso9660DirectoryRecord_t dr;
+      read_dir_rec_from_file (input_fptr, &dr);
+      print_dir_rec (&dr);
+
+      break;
+    }
 
   return 0;
 }
@@ -624,6 +650,16 @@ read_pt_from_file (FILE *fptr, PathTable_t *pt)
           != 0))
     {
       return -1;
+    }
+
+  if ((pt->directory_identifier_length % 2) != 0)
+    {
+      if (fseek (fptr, 1, SEEK_CUR) != 0)
+        {
+          fprintf (stderr,
+                   "ERROR: failed to seek past padding after path table.\n");
+          return -1;
+        }
     }
 
   return 0;
