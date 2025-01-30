@@ -24,12 +24,14 @@ add_compile_options(
 
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(SRC_FILES
+    "${SRC_DIR}/hh.c"
     "${SRC_DIR}/iso_9660.c"
     "${SRC_DIR}/main.c"
 )
 
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
 set(INCL_FILES
+    "${INCL_DIR}/hh.h"
     "${INCL_DIR}/iso_9660.h"
 )
 

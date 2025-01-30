@@ -105,7 +105,7 @@ static void print_primary_vol_date_time (const char *date_time_identifier,
                                          Iso9660PrimaryVolumeDateTime_t *dt);
 
 int8_t
-create_iso_9660_filesystem_from_file (FILE fptr[static 1],
+iso_9660_create_filesystem_from_file (FILE fptr[static 1],
                                       Iso9660FileSystem_t fs[static 1])
 {
   memset (fs, 0, sizeof (Iso9660FileSystem_t));
