@@ -1,9 +1,10 @@
 #include "iso_9660.h"
 #include "binary_reader.h"
 
-#include <stdbool.h>
+#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 typedef struct PathTable_s
@@ -12,7 +13,7 @@ typedef struct PathTable_s
   uint8_t extended_attribute_record_length;
   uint32_t extent_location;
   uint16_t parent_directory_number;
-  char directory_identifier[UINT8_MAX + 3];
+  char directory_identifier[UINT8_MAX];
 } PathTable_t;
 
 /**
@@ -86,6 +87,8 @@ static int8_t extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
                               const char *output_dir_path);
 static int8_t read_pt_from_file (FILE *fptr, PathTable_t *pt);
 static void print_pt (PathTable_t *pt);
+static int8_t process_pt_entries (FILE *input_fptr, PathTable_t **pts,
+                                  size_t pt_size, uint32_t pt_end);
 
 int8_t
 iso_9660_create_filesystem_from_file (FILE fptr[static 1],
@@ -408,50 +411,39 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
   puts (output_dir_path);
 
   /** Logical block size. Using this var for readability's sake. */
-  uint16_t lb_size = fs->volume_desc_data.primary_vol_desc.logical_block_size;
-  uint64_t path_table_loc
-      = fs->volume_desc_data.primary_vol_desc.type_l_path_table_location
-        * lb_size;
+  uint16_t block_size = fs->volume_desc_data.primary_vol_desc.logical_block_size;
+  uint64_t pt_start = fs->volume_desc_data.primary_vol_desc.type_l_path_table_location * block_size;
+  uint64_t pt_end = pt_start + fs->volume_desc_data.primary_vol_desc.path_table_size;
 
-  if (fseek (input_fptr, path_table_loc, SEEK_SET) != 0)
+  if (fseek (input_fptr, pt_start, SEEK_SET) != 0)
     {
-      fprintf (stderr, "ERROR: failed to seek to root directory (0x%08lX).\n",
-               path_table_loc);
+      fprintf (
+          stderr,
+          "ERROR: failed to seek to root directory path table (0x%08lX).\n",
+          pt_start);
       return -1;
     }
 
-  /** TODO: Save a list of every path table, then separately process each dr.
-   */
-  while (true)
+  // Ignore identifier for simplicity's sake
+  // FIXME: use of this var makes things very unclear
+  size_t max_num_ptable_entries = 10;
+  PathTable_t *path_table_entries
+      = calloc (max_num_ptable_entries, sizeof (PathTable_t));
+  if (path_table_entries == NULL)
     {
-      PathTable_t path_table_entry;
-      if (read_pt_from_file (input_fptr, &path_table_entry) != 0)
-        return -1;
-
-      if (path_table_entry.directory_identifier_length == 0)
-        break;
-
-      print_pt (&path_table_entry);
-
-      if (fseek (input_fptr, path_table_entry.extent_location * lb_size,
-                 SEEK_SET)
-          != 0)
-        {
-          fprintf (stderr,
-                   "ERROR: failed to seek to the directory record entry for "
-                   "%.*s.\n",
-                   path_table_entry.directory_identifier_length,
-                   path_table_entry.directory_identifier);
-          return -1;
-        }
-
-      Iso9660DirectoryRecord_t dr;
-      read_dir_rec_from_file (input_fptr, &dr);
-      print_dir_rec (&dr);
-
-      break;
+      fprintf (stderr,
+               "ERROR: Failed to alloc path table array of size, %ld\n",
+               max_num_ptable_entries);
+      return -1;
     }
 
+  if (process_pt_entries (input_fptr, &path_table_entries, max_num_ptable_entries, pt_end) != 0)
+    {
+      free (path_table_entries);
+      return -1;
+    }
+
+  free (path_table_entries);
   return 0;
 }
 
@@ -491,4 +483,40 @@ print_pt (PathTable_t *pt)
           pt->directory_identifier_length, pt->directory_identifier,
           pt->extended_attribute_record_length, pt->extent_location,
           pt->parent_directory_number);
+}
+
+int8_t
+process_pt_entries (FILE *input_fptr, PathTable_t **pts, size_t pt_size,
+                    uint32_t pt_end)
+{
+  size_t i = 0;
+  uint32_t pos = 0;
+  do
+    {
+      if (i >= pt_size)
+        {
+          pt_size *= 2;
+          PathTable_t *tmp = realloc ((*pts), sizeof (PathTable_t) * pt_size);
+          if (tmp == NULL)
+            {
+              fprintf (stderr,
+                       "ERROR: Failed to grow path table array to size, %ld\n",
+                       pt_size);
+              return -1;
+            }
+          (*pts) = tmp;
+        }
+
+      if (read_pt_from_file (input_fptr, &(*pts)[i]) != 0)
+        {
+          return -1;
+        }
+      print_pt (&(*pts)[i]);
+      i++;
+
+      pos = (uint32_t)(ftell (input_fptr));
+    }
+  while (pos != pt_end);
+
+  return 0;
 }
