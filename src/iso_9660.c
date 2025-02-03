@@ -1,4 +1,5 @@
 #include "iso_9660.h"
+#include "binary_reader.h"
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -22,10 +23,7 @@ typedef struct PathTable_s
 static int8_t
 read_vd_type_code_from_file (FILE *fptr,
                              enum VolumeDescriptorTypeCode_e *output);
-/** @returns zero on success, non-zero on failure. */
-static int8_t read_uint8_from_file (FILE *fptr, uint8_t *output);
-/** @returns zero on success, non-zero on failure. */
-static int8_t read_str_from_file (FILE *fptr, char *output, size_t length);
+
 /**
  *  Reads primary volume descriptor data from file.
  *  @returns zero on success, non-zero on failure.
@@ -34,40 +32,7 @@ static int8_t read_str_from_file (FILE *fptr, char *output, size_t length);
 static int8_t
 read_pvd_data_from_file (FILE *fptr,
                          struct PrimaryVolumeDescriptorData_s *pvdd);
-/**
- *  Reads a little-endian followed by big-endian encoded unsigned 32-bit
- *  integer. Double checks that these values match because, why not?
- *  @returns zero on success, non-zero on failure.
- *  @see https://wiki.osdev.org/ISO_9660#Numerical_formats
- */
-static int8_t read_le_be_uint32_from_file (FILE *fptr, uint32_t *output);
-/**
- *  Reads a little endian 32-bit integer from file.
- *  @returns zero on success, non-zero on failure.
- */
-static int8_t read_le_uint32_from_file (FILE *fptr, uint32_t *output);
-/**
- *  Reads a big endian 32-bit integer from file.
- *  @returns zero on success, non-zero on failure.
- */
-static int8_t read_be_uint32_from_file (FILE *fptr, uint32_t *output);
-/**
- *  Reads a little-endian followed by big-endian encoded unsigned 16-bit
- *  integer. Double checks that these values match because, why not?
- *  @returns zero on success, non-zero on failure.
- *  @see https://wiki.osdev.org/ISO_9660#Numerical_formats
- */
-static int8_t read_le_be_uint16_from_file (FILE *fptr, uint16_t *output);
-/**
- *  Reads a little endian 16-bit integer from file.
- *  @returns zero on success, non-zero on failure.
- */
-static int8_t read_le_uint16_from_file (FILE *fptr, uint16_t *output);
-/**
- *  Reads a big endian 16-bit integer from file.
- *  @returns zero on success, non-zero on failure.
- */
-static int8_t read_be_uint16_from_file (FILE *fptr, uint16_t *output);
+
 /**
  *  Reads a directory record from file.
  *  @returns zero on success, non-zero on failure.
@@ -75,6 +40,7 @@ static int8_t read_be_uint16_from_file (FILE *fptr, uint16_t *output);
  */
 static int8_t read_dir_rec_from_file (FILE *fptr,
                                       Iso9660DirectoryRecord_t *dr);
+
 /**
  *  Reads a primary volume descriptor date/time data from file.
  *  @returns zero on success, non-zero on failure.
@@ -83,29 +49,31 @@ static int8_t read_dir_rec_from_file (FILE *fptr,
  */
 static int8_t
 read_pvd_date_time_from_file (FILE *fptr, Iso9660PrimaryVolumeDateTime_t *dt);
-/** @returns zero on success, non-zero on failure. */
-static int8_t read_uint8_array_from_file (FILE *fptr, uint8_t *output,
-                                          size_t length);
+
 /**
  *  Outputs a filesystem in a human readiable form to stdout.
  *  @see `Iso9660FileSystem_t`
  */
 static void print_iso_9660_fs (Iso9660FileSystem_t *fs);
+
 /**
  *  Outputs primary volume descriptor data in a human readiable form to stdout.
  *  @see `struct PrimaryVolumeDescriptorData_s`
  */
 static void print_pvd_data (struct PrimaryVolumeDescriptorData_s *pvdd);
+
 /**
  *  Outputs a directory entry in a human readiable form to stdout.
  *  @see `Iso9660DirectoryRecord_t`
  */
 static void print_dir_rec (Iso9660DirectoryRecord_t *dr);
+
 /**
  *  Outputs a directory entry's file flags in a human readiable form to stdout.
  *  @see `Iso9660DirectoryRecord_t`
  */
 static void print_file_flags (uint8_t file_flags);
+
 /**
  *  Outputs primary volume descriptor date/time data in a human readiable form
  *  to stdout.
@@ -131,8 +99,8 @@ iso_9660_create_filesystem_from_file (FILE fptr[static 1],
     }
 
   if ((read_vd_type_code_from_file (fptr, &fs->volume_desc_type_code) != 0)
-      || (read_str_from_file (fptr, fs->volume_identifier, 5) != 0)
-      || (read_uint8_from_file (fptr, &fs->volume_desc_version_num)))
+      || (br_read_str_from_file (fptr, fs->volume_identifier, 5) != 0)
+      || (br_read_uint8_from_file (fptr, &fs->volume_desc_version_num)))
     return -1;
 
   switch (fs->volume_desc_type_code)
@@ -162,7 +130,7 @@ read_vd_type_code_from_file (FILE *fptr,
                              enum VolumeDescriptorTypeCode_e *output)
 {
   uint8_t byte;
-  if (read_uint8_from_file (fptr, &byte) != 0)
+  if (br_read_uint8_from_file (fptr, &byte) != 0)
     return -1;
 
   if ((byte > VDTC_VOL_PARTITION) && (byte != VDTC_VOL_DESC_SET_TERMINATOR))
@@ -177,74 +145,48 @@ read_vd_type_code_from_file (FILE *fptr,
 }
 
 int8_t
-read_uint8_from_file (FILE *fptr, uint8_t *output)
-{
-  size_t bytes_read = fread (output, sizeof (uint8_t), 1, fptr);
-  if (bytes_read != sizeof (uint8_t))
-    {
-      fprintf (stderr, "ERROR: Error reading uint8 from file.\n");
-      return -1;
-    }
-
-  return 0;
-}
-
-int8_t
-read_str_from_file (FILE *fptr, char *output, size_t length)
-{
-  size_t bytes_read = fread (output, sizeof (char), length, fptr);
-  if (bytes_read != (sizeof (char) * length))
-    {
-      fprintf (stderr, "ERROR: Error reading string from file.\n");
-      return -1;
-    }
-
-  return 0;
-}
-
-int8_t
 read_pvd_data_from_file (FILE *fptr,
                          struct PrimaryVolumeDescriptorData_s *pvdd)
 {
   if (fseek (fptr, 1, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
-  if ((read_str_from_file (fptr, pvdd->system_identifier, 32) != 0)
-      || (read_str_from_file (fptr, pvdd->volume_identifier, 32)))
+  if ((br_read_str_from_file (fptr, pvdd->system_identifier, 32) != 0)
+      || (br_read_str_from_file (fptr, pvdd->volume_identifier, 32)))
     return -1;
 
   if (fseek (fptr, 8, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
-  if (read_le_be_uint32_from_file (fptr, &pvdd->volume_space_size) != 0)
+  if (br_read_le_be_uint32_from_file (fptr, &pvdd->volume_space_size) != 0)
     return -1;
 
   if (fseek (fptr, 32, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
   /* clang-format off */
-  if ((read_le_be_uint16_from_file (fptr, &pvdd->volume_set_size) != 0)
-      || (read_le_be_uint16_from_file (fptr, &pvdd->volume_sequence_number) != 0)
-      || (read_le_be_uint16_from_file (fptr, &pvdd->logical_block_size) != 0)
-      || (read_le_be_uint32_from_file (fptr, &pvdd->path_table_size) != 0)
-      || (read_le_uint32_from_file (fptr, &pvdd->type_l_path_table_location) != 0)
-      || (read_le_uint32_from_file (fptr, &pvdd->optional_type_l_path_table_location) != 0)
-      || (read_be_uint32_from_file (fptr, &pvdd->type_m_path_table_location) != 0)
-      || (read_be_uint32_from_file (fptr, &pvdd->optional_type_m_path_table_location) != 0)
+  if ((br_read_le_be_uint16_from_file (fptr, &pvdd->volume_set_size) != 0)
+      || (br_read_le_be_uint16_from_file (fptr, &pvdd->volume_sequence_number) != 0)
+      || (br_read_le_be_uint16_from_file (fptr, &pvdd->logical_block_size) != 0)
+      || (br_read_le_be_uint32_from_file (fptr, &pvdd->path_table_size) != 0)
+      || (br_read_le_uint32_from_file (fptr, &pvdd->type_l_path_table_location) != 0)
+      || (br_read_le_uint32_from_file (fptr, &pvdd->optional_type_l_path_table_location) != 0)
+      || (br_read_be_uint32_from_file (fptr, &pvdd->type_m_path_table_location) != 0)
+      || (br_read_be_uint32_from_file (fptr, &pvdd->optional_type_m_path_table_location) != 0)
       || (read_dir_rec_from_file (fptr, &pvdd->root_directory_entry) != 0)
-      || (read_str_from_file (fptr, pvdd->volume_set_identifier, 128) != 0)
-      || (read_str_from_file (fptr, pvdd->publisher_identifier, 128) != 0)
-      || (read_str_from_file (fptr, pvdd->data_preparer_identifier, 128) != 0)
-      || (read_str_from_file (fptr, pvdd->application_identifier, 128) != 0)
-      || (read_str_from_file (fptr, pvdd->copyright_file_identifier, 37) != 0)
-      || (read_str_from_file (fptr, pvdd->abstract_file_identifier, 37) != 0)
-      || (read_str_from_file (fptr, pvdd->bibliographic_file_identifier, 37) != 0)
+      || (br_read_str_from_file (fptr, pvdd->volume_set_identifier, 128) != 0)
+      || (br_read_str_from_file (fptr, pvdd->publisher_identifier, 128) != 0)
+      || (br_read_str_from_file (fptr, pvdd->data_preparer_identifier, 128) != 0)
+      || (br_read_str_from_file (fptr, pvdd->application_identifier, 128) != 0)
+      || (br_read_str_from_file (fptr, pvdd->copyright_file_identifier, 37) != 0)
+      || (br_read_str_from_file (fptr, pvdd->abstract_file_identifier, 37) != 0)
+      || (br_read_str_from_file (fptr, pvdd->bibliographic_file_identifier, 37) != 0)
       || (read_pvd_date_time_from_file (fptr, &pvdd->volume_creation_date_time) != 0)
       || (read_pvd_date_time_from_file (fptr, &pvdd->volume_modification_date_time) != 0)
       || (read_pvd_date_time_from_file (fptr, &pvdd->volume_expiration_date_time) != 0)
       || (read_pvd_date_time_from_file (fptr, &pvdd->volume_effective_date_time) != 0)
-      || (read_uint8_from_file (fptr, &pvdd->file_structure_version) != 0)
-      || (read_uint8_array_from_file(fptr, pvdd->application_used_data, 512) != 0))
+      || (br_read_uint8_from_file (fptr, &pvdd->file_structure_version) != 0)
+      || (br_read_uint8_array_from_file(fptr, pvdd->application_used_data, 512) != 0))
     return -1;
   /* clang-format on */
 
@@ -256,138 +198,28 @@ fseek_err:
 }
 
 int8_t
-read_le_be_uint32_from_file (FILE *fptr, uint32_t *output)
-{
-  if (read_le_uint32_from_file (fptr, output) != 0)
-    return -1;
-
-  uint32_t value = 0;
-  if (read_be_uint32_from_file (fptr, &value) != 0)
-    return -1;
-  else if (*output != value)
-    {
-      fprintf (
-          stderr,
-          "ERROR: little endian 32-bit value read from file does not match "
-          "the big endian value which follows it. Got %08X, expected %08X.\n",
-          value, *output);
-      return -1;
-    }
-
-  return 0;
-}
-
-int8_t
-read_le_uint32_from_file (FILE *fptr, uint32_t *output)
-{
-  uint8_t bytes[4] = { 0 };
-  for (size_t i = 0; i < 4; i++)
-    {
-      if (read_uint8_from_file (fptr, &bytes[i]) != 0)
-        return -1;
-    }
-
-  *output = bytes[0];
-  *output |= (uint32_t)(bytes[1] << 8);
-  *output |= (uint32_t)(bytes[2] << 16);
-  *output |= (uint32_t)(bytes[3] << 24);
-
-  return 0;
-}
-
-int8_t
-read_be_uint32_from_file (FILE *fptr, uint32_t *output)
-{
-  uint8_t bytes[4] = { 0 };
-  for (size_t i = 0; i < 4; i++)
-    {
-      if (read_uint8_from_file (fptr, &bytes[i]) != 0)
-        return -1;
-    }
-
-  *output = bytes[3];
-  *output |= (uint32_t)(bytes[2] << 8);
-  *output |= (uint32_t)(bytes[1] << 16);
-  *output |= (uint32_t)(bytes[0] << 24);
-
-  return 0;
-}
-
-int8_t
-read_le_be_uint16_from_file (FILE *fptr, uint16_t *output)
-{
-  if (read_le_uint16_from_file (fptr, output) != 0)
-    return -1;
-
-  uint16_t value = 0;
-  if (read_be_uint16_from_file (fptr, &value) != 0)
-    return -1;
-  else if (*output != value)
-    {
-      fprintf (
-          stderr,
-          "ERROR: little endian 16-bit value read from file does not match "
-          "the big endian value which follows it. Got %04X, expected %04X.\n",
-          value, *output);
-      return -1;
-    }
-
-  return 0;
-}
-
-int8_t
-read_le_uint16_from_file (FILE *fptr, uint16_t *output)
-{
-  uint8_t bytes[2] = { 0 };
-  for (size_t i = 0; i < 2; i++)
-    {
-      if (read_uint8_from_file (fptr, &bytes[i]) != 0)
-        return -1;
-    }
-
-  *output = bytes[0];
-  *output |= (uint16_t)(bytes[1] << 8);
-
-  return 0;
-}
-
-int8_t
-read_be_uint16_from_file (FILE *fptr, uint16_t *output)
-{
-  uint8_t bytes[2] = { 0 };
-  for (size_t i = 0; i < 2; i++)
-    {
-      if (read_uint8_from_file (fptr, &bytes[i]) != 0)
-        return -1;
-    }
-
-  *output = bytes[1];
-  *output |= (uint16_t)(bytes[0] << 8);
-
-  return 0;
-}
-
-int8_t
 read_dir_rec_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
 {
-  if ((read_uint8_from_file (fptr, &dr->dir_rec_length) != 0)
-      || (read_uint8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
-      || (read_le_be_uint32_from_file (fptr, &dr->extent_location) != 0)
-      || (read_le_be_uint32_from_file (fptr, &dr->extent_size) != 0)
-      || (read_uint8_from_file (fptr, &dr->recording_date_time.year) != 0)
-      || (read_uint8_from_file (fptr, &dr->recording_date_time.month) != 0)
-      || (read_uint8_from_file (fptr, &dr->recording_date_time.day) != 0)
-      || (read_uint8_from_file (fptr, &dr->recording_date_time.hour) != 0)
-      || (read_uint8_from_file (fptr, &dr->recording_date_time.minute) != 0)
-      || (read_uint8_from_file (fptr, &dr->recording_date_time.second) != 0)
-      || (read_uint8_from_file (fptr, &dr->recording_date_time.timezone) != 0)
-      || (read_uint8_from_file (fptr, &dr->file_flags) != 0)
-      || (read_uint8_from_file (fptr, &dr->file_unit_size) != 0)
-      || (read_uint8_from_file (fptr, &dr->interleave_gap_size) != 0)
-      || (read_le_be_uint16_from_file (fptr, &dr->volume_sequence_number) != 0)
-      || (read_uint8_from_file (fptr, &dr->file_identifier_length) != 0)
-      || (read_str_from_file (fptr, dr->file_identifier,
-                              dr->file_identifier_length)
+  if ((br_read_uint8_from_file (fptr, &dr->dir_rec_length) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
+      || (br_read_le_be_uint32_from_file (fptr, &dr->extent_location) != 0)
+      || (br_read_le_be_uint32_from_file (fptr, &dr->extent_size) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.year) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.month) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.day) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.hour) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.minute) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.second) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.timezone)
+          != 0)
+      || (br_read_uint8_from_file (fptr, &dr->file_flags) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->file_unit_size) != 0)
+      || (br_read_uint8_from_file (fptr, &dr->interleave_gap_size) != 0)
+      || (br_read_le_be_uint16_from_file (fptr, &dr->volume_sequence_number)
+          != 0)
+      || (br_read_uint8_from_file (fptr, &dr->file_identifier_length) != 0)
+      || (br_read_str_from_file (fptr, dr->file_identifier,
+                                 dr->file_identifier_length)
           != 0))
     {
       return -1;
@@ -428,14 +260,14 @@ print_iso_9660_fs (Iso9660FileSystem_t *fs)
 int8_t
 read_pvd_date_time_from_file (FILE *fptr, Iso9660PrimaryVolumeDateTime_t *dt)
 {
-  if ((read_str_from_file (fptr, dt->year, 4) != 0)
-      || (read_str_from_file (fptr, dt->month, 2) != 0)
-      || (read_str_from_file (fptr, dt->day, 2) != 0)
-      || (read_str_from_file (fptr, dt->hour, 2) != 0)
-      || (read_str_from_file (fptr, dt->minute, 2) != 0)
-      || (read_str_from_file (fptr, dt->second, 2) != 0)
-      || (read_str_from_file (fptr, dt->hundredths_of_a_second, 2) != 0)
-      || (read_uint8_from_file (fptr, &dt->timezone) != 0))
+  if ((br_read_str_from_file (fptr, dt->year, 4) != 0)
+      || (br_read_str_from_file (fptr, dt->month, 2) != 0)
+      || (br_read_str_from_file (fptr, dt->day, 2) != 0)
+      || (br_read_str_from_file (fptr, dt->hour, 2) != 0)
+      || (br_read_str_from_file (fptr, dt->minute, 2) != 0)
+      || (br_read_str_from_file (fptr, dt->second, 2) != 0)
+      || (br_read_str_from_file (fptr, dt->hundredths_of_a_second, 2) != 0)
+      || (br_read_uint8_from_file (fptr, &dt->timezone) != 0))
     {
       return -1;
     }
@@ -547,21 +379,6 @@ print_pvd_date_time (const char *date_time_identifier,
 }
 
 int8_t
-read_uint8_array_from_file (FILE *fptr, uint8_t *output, size_t length)
-{
-  size_t bytes_read = fread (output, sizeof (uint8_t), length, fptr);
-  if (bytes_read != sizeof (uint8_t) * length)
-    {
-      fprintf (stderr,
-               "ERROR: Error reading uint8 array of size %ld from file.\n",
-               length);
-      return -1;
-    }
-
-  return 0;
-}
-
-int8_t
 iso_9660_extract_filesystem (FILE input_fptr[static 1],
                              Iso9660FileSystem_t fs[static 1],
                              const char output_dir_path[static 1])
@@ -603,7 +420,8 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       return -1;
     }
 
-  /** TODO: Save a list of every path table, then separately process each dr. */
+  /** TODO: Save a list of every path table, then separately process each dr.
+   */
   while (true)
     {
       PathTable_t path_table_entry;
@@ -640,13 +458,14 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
 int8_t
 read_pt_from_file (FILE *fptr, PathTable_t *pt)
 {
-  if ((read_uint8_from_file (fptr, &pt->directory_identifier_length) != 0)
-      || (read_uint8_from_file (fptr, &pt->extended_attribute_record_length)
+  if ((br_read_uint8_from_file (fptr, &pt->directory_identifier_length) != 0)
+      || (br_read_uint8_from_file (fptr, &pt->extended_attribute_record_length)
           != 0)
-      || (read_le_uint32_from_file (fptr, &pt->extent_location) != 0)
-      || (read_le_uint16_from_file (fptr, &pt->parent_directory_number) != 0)
-      || (read_str_from_file (fptr, pt->directory_identifier,
-                              pt->directory_identifier_length)
+      || (br_read_le_uint32_from_file (fptr, &pt->extent_location) != 0)
+      || (br_read_le_uint16_from_file (fptr, &pt->parent_directory_number)
+          != 0)
+      || (br_read_str_from_file (fptr, pt->directory_identifier,
+                                 pt->directory_identifier_length)
           != 0))
     {
       return -1;
