@@ -7,14 +7,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct PathTable_s
+#define PTABLE_STARTING_NUM_ENTRIES (10)
+
+typedef struct PathTableEntry_s
 {
   uint8_t directory_identifier_length;
   uint8_t extended_attribute_record_length;
   uint32_t extent_location;
   uint16_t parent_directory_number;
   char directory_identifier[UINT8_MAX];
-} PathTable_t;
+} PathTableEntry_t;
 
 /**
  *  Reads a volume descriptor type code from file.
@@ -85,10 +87,17 @@ static void print_pvd_date_time (const char *date_time_identifier,
 
 static int8_t extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
                               const char *output_dir_path);
-static int8_t read_pt_from_file (FILE *fptr, PathTable_t *pt);
-static void print_pt (PathTable_t *pt);
-static int8_t process_pt_entries (FILE *input_fptr, PathTable_t **pts,
-                                  size_t pt_size, uint32_t pt_end);
+static int8_t read_pt_from_file (FILE *fptr, PathTableEntry_t *pt);
+static void print_pt (PathTableEntry_t *pt);
+
+/**
+ *  Processes all the entries in the path table that `input_fptr` currently
+ *  points to, placing each entry in `pts` and updating `pt_max_size` as
+ *  needed.
+ *  @see `PathTableEntry_t`
+ */
+static int8_t process_pt_entries (FILE *input_fptr, PathTableEntry_t **pts,
+                                  size_t *pt_max_size, uint32_t pt_end);
 
 int8_t
 iso_9660_create_filesystem_from_file (FILE fptr[static 1],
@@ -427,10 +436,9 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
     }
 
   // Ignore identifier for simplicity's sake
-  // FIXME: use of this var makes things very unclear
-  size_t max_num_ptable_entries = 10;
-  PathTable_t *path_table_entries
-      = calloc (max_num_ptable_entries, sizeof (PathTable_t));
+  size_t max_num_ptable_entries = (PTABLE_STARTING_NUM_ENTRIES);
+  PathTableEntry_t *path_table_entries
+      = calloc (max_num_ptable_entries, sizeof (PathTableEntry_t));
   if (path_table_entries == NULL)
     {
       fprintf (stderr,
@@ -440,7 +448,7 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
     }
 
   if (process_pt_entries (input_fptr, &path_table_entries,
-                          max_num_ptable_entries, pt_end)
+                          &max_num_ptable_entries, pt_end)
       != 0)
     {
       free (path_table_entries);
@@ -452,7 +460,7 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
 }
 
 int8_t
-read_pt_from_file (FILE *fptr, PathTable_t *pt)
+read_pt_from_file (FILE *fptr, PathTableEntry_t *pt)
 {
   if ((br_read_u8_from_file (fptr, &pt->directory_identifier_length) != 0)
       || (br_read_u8_from_file (fptr, &pt->extended_attribute_record_length)
@@ -480,7 +488,7 @@ read_pt_from_file (FILE *fptr, PathTable_t *pt)
 }
 
 void
-print_pt (PathTable_t *pt)
+print_pt (PathTableEntry_t *pt)
 {
   printf ("%.*s - Ext. attrib. len: %d, Loc: %d, Parent: %d\n",
           pt->directory_identifier_length, pt->directory_identifier,
@@ -489,22 +497,23 @@ print_pt (PathTable_t *pt)
 }
 
 int8_t
-process_pt_entries (FILE *input_fptr, PathTable_t **pts, size_t pt_size,
-                    uint32_t pt_end)
+process_pt_entries (FILE *input_fptr, PathTableEntry_t **pts,
+                    size_t *pt_max_size, uint32_t pt_end)
 {
   size_t i = 0;
   uint32_t pos = 0;
   do
     {
-      if (i >= pt_size)
+      if (i >= (*pt_max_size))
         {
-          pt_size *= 2;
-          PathTable_t *tmp = realloc ((*pts), sizeof (PathTable_t) * pt_size);
+          (*pt_max_size) *= 2;
+          PathTableEntry_t *tmp
+              = realloc ((*pts), sizeof (PathTableEntry_t) * (*pt_max_size));
           if (tmp == NULL)
             {
               fprintf (stderr,
                        "ERROR: Failed to grow path table array to size, %ld\n",
-                       pt_size);
+                       (*pt_max_size));
               return -1;
             }
           (*pts) = tmp;
