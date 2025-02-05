@@ -103,7 +103,7 @@ iso_9660_create_filesystem_from_file (FILE fptr[static 1],
 
   if ((read_vd_type_code_from_file (fptr, &fs->volume_desc_type_code) != 0)
       || (br_read_str_from_file (fptr, fs->volume_identifier, 5) != 0)
-      || (br_read_uint8_from_file (fptr, &fs->volume_desc_version_num)))
+      || (br_read_u8_from_file (fptr, &fs->volume_desc_version_num)))
     return -1;
 
   switch (fs->volume_desc_type_code)
@@ -133,7 +133,7 @@ read_vd_type_code_from_file (FILE *fptr,
                              enum VolumeDescriptorTypeCode_e *output)
 {
   uint8_t byte;
-  if (br_read_uint8_from_file (fptr, &byte) != 0)
+  if (br_read_u8_from_file (fptr, &byte) != 0)
     return -1;
 
   if ((byte > VDTC_VOL_PARTITION) && (byte != VDTC_VOL_DESC_SET_TERMINATOR))
@@ -161,21 +161,21 @@ read_pvd_data_from_file (FILE *fptr,
   if (fseek (fptr, 8, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
-  if (br_read_le_be_uint32_from_file (fptr, &pvdd->volume_space_size) != 0)
+  if (br_read_le_be_u32_from_file (fptr, &pvdd->volume_space_size) != 0)
     return -1;
 
   if (fseek (fptr, 32, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
   /* clang-format off */
-  if ((br_read_le_be_uint16_from_file (fptr, &pvdd->volume_set_size) != 0)
-      || (br_read_le_be_uint16_from_file (fptr, &pvdd->volume_sequence_number) != 0)
-      || (br_read_le_be_uint16_from_file (fptr, &pvdd->logical_block_size) != 0)
-      || (br_read_le_be_uint32_from_file (fptr, &pvdd->path_table_size) != 0)
-      || (br_read_le_uint32_from_file (fptr, &pvdd->type_l_path_table_location) != 0)
-      || (br_read_le_uint32_from_file (fptr, &pvdd->optional_type_l_path_table_location) != 0)
-      || (br_read_be_uint32_from_file (fptr, &pvdd->type_m_path_table_location) != 0)
-      || (br_read_be_uint32_from_file (fptr, &pvdd->optional_type_m_path_table_location) != 0)
+  if ((br_read_le_be_u16_from_file (fptr, &pvdd->volume_set_size) != 0)
+      || (br_read_le_be_u16_from_file (fptr, &pvdd->volume_sequence_number) != 0)
+      || (br_read_le_be_u16_from_file (fptr, &pvdd->logical_block_size) != 0)
+      || (br_read_le_be_u32_from_file (fptr, &pvdd->path_table_size) != 0)
+      || (br_read_le_u32_from_file (fptr, &pvdd->type_l_path_table_location) != 0)
+      || (br_read_le_u32_from_file (fptr, &pvdd->optional_type_l_path_table_location) != 0)
+      || (br_read_be_u32_from_file (fptr, &pvdd->type_m_path_table_location) != 0)
+      || (br_read_be_u32_from_file (fptr, &pvdd->optional_type_m_path_table_location) != 0)
       || (read_dir_rec_from_file (fptr, &pvdd->root_directory_entry) != 0)
       || (br_read_str_from_file (fptr, pvdd->volume_set_identifier, 128) != 0)
       || (br_read_str_from_file (fptr, pvdd->publisher_identifier, 128) != 0)
@@ -188,8 +188,8 @@ read_pvd_data_from_file (FILE *fptr,
       || (read_pvd_date_time_from_file (fptr, &pvdd->volume_modification_date_time) != 0)
       || (read_pvd_date_time_from_file (fptr, &pvdd->volume_expiration_date_time) != 0)
       || (read_pvd_date_time_from_file (fptr, &pvdd->volume_effective_date_time) != 0)
-      || (br_read_uint8_from_file (fptr, &pvdd->file_structure_version) != 0)
-      || (br_read_uint8_array_from_file(fptr, pvdd->application_used_data, 512) != 0))
+      || (br_read_u8_from_file (fptr, &pvdd->file_structure_version) != 0)
+      || (br_read_u8_array_from_file(fptr, pvdd->application_used_data, 512) != 0))
     return -1;
   /* clang-format on */
 
@@ -203,24 +203,22 @@ fseek_err:
 int8_t
 read_dir_rec_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
 {
-  if ((br_read_uint8_from_file (fptr, &dr->dir_rec_length) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
-      || (br_read_le_be_uint32_from_file (fptr, &dr->extent_location) != 0)
-      || (br_read_le_be_uint32_from_file (fptr, &dr->extent_size) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.year) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.month) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.day) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.hour) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.minute) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.second) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->recording_date_time.timezone)
-          != 0)
-      || (br_read_uint8_from_file (fptr, &dr->file_flags) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->file_unit_size) != 0)
-      || (br_read_uint8_from_file (fptr, &dr->interleave_gap_size) != 0)
-      || (br_read_le_be_uint16_from_file (fptr, &dr->volume_sequence_number)
-          != 0)
-      || (br_read_uint8_from_file (fptr, &dr->file_identifier_length) != 0)
+  if ((br_read_u8_from_file (fptr, &dr->dir_rec_length) != 0)
+      || (br_read_u8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
+      || (br_read_le_be_u32_from_file (fptr, &dr->extent_location) != 0)
+      || (br_read_le_be_u32_from_file (fptr, &dr->extent_size) != 0)
+      || (br_read_u8_from_file (fptr, &dr->recording_date_time.year) != 0)
+      || (br_read_u8_from_file (fptr, &dr->recording_date_time.month) != 0)
+      || (br_read_u8_from_file (fptr, &dr->recording_date_time.day) != 0)
+      || (br_read_u8_from_file (fptr, &dr->recording_date_time.hour) != 0)
+      || (br_read_u8_from_file (fptr, &dr->recording_date_time.minute) != 0)
+      || (br_read_u8_from_file (fptr, &dr->recording_date_time.second) != 0)
+      || (br_read_u8_from_file (fptr, &dr->recording_date_time.timezone) != 0)
+      || (br_read_u8_from_file (fptr, &dr->file_flags) != 0)
+      || (br_read_u8_from_file (fptr, &dr->file_unit_size) != 0)
+      || (br_read_u8_from_file (fptr, &dr->interleave_gap_size) != 0)
+      || (br_read_le_be_u16_from_file (fptr, &dr->volume_sequence_number) != 0)
+      || (br_read_u8_from_file (fptr, &dr->file_identifier_length) != 0)
       || (br_read_str_from_file (fptr, dr->file_identifier,
                                  dr->file_identifier_length)
           != 0))
@@ -270,7 +268,7 @@ read_pvd_date_time_from_file (FILE *fptr, Iso9660PrimaryVolumeDateTime_t *dt)
       || (br_read_str_from_file (fptr, dt->minute, 2) != 0)
       || (br_read_str_from_file (fptr, dt->second, 2) != 0)
       || (br_read_str_from_file (fptr, dt->hundredths_of_a_second, 2) != 0)
-      || (br_read_uint8_from_file (fptr, &dt->timezone) != 0))
+      || (br_read_u8_from_file (fptr, &dt->timezone) != 0))
     {
       return -1;
     }
@@ -408,12 +406,16 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
                 const char *output_dir_path)
 {
   // tmp
-  puts (output_dir_path);
+  printf ("tmp, delete me! %s.\n", output_dir_path);
 
   /** Logical block size. Using this var for readability's sake. */
-  uint16_t block_size = fs->volume_desc_data.primary_vol_desc.logical_block_size;
-  uint64_t pt_start = fs->volume_desc_data.primary_vol_desc.type_l_path_table_location * block_size;
-  uint64_t pt_end = pt_start + fs->volume_desc_data.primary_vol_desc.path_table_size;
+  uint16_t block_size
+      = fs->volume_desc_data.primary_vol_desc.logical_block_size;
+  uint64_t pt_start
+      = fs->volume_desc_data.primary_vol_desc.type_l_path_table_location
+        * block_size;
+  uint64_t pt_end
+      = pt_start + fs->volume_desc_data.primary_vol_desc.path_table_size;
 
   if (fseek (input_fptr, pt_start, SEEK_SET) != 0)
     {
@@ -437,7 +439,9 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       return -1;
     }
 
-  if (process_pt_entries (input_fptr, &path_table_entries, max_num_ptable_entries, pt_end) != 0)
+  if (process_pt_entries (input_fptr, &path_table_entries,
+                          max_num_ptable_entries, pt_end)
+      != 0)
     {
       free (path_table_entries);
       return -1;
@@ -450,12 +454,11 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
 int8_t
 read_pt_from_file (FILE *fptr, PathTable_t *pt)
 {
-  if ((br_read_uint8_from_file (fptr, &pt->directory_identifier_length) != 0)
-      || (br_read_uint8_from_file (fptr, &pt->extended_attribute_record_length)
+  if ((br_read_u8_from_file (fptr, &pt->directory_identifier_length) != 0)
+      || (br_read_u8_from_file (fptr, &pt->extended_attribute_record_length)
           != 0)
-      || (br_read_le_uint32_from_file (fptr, &pt->extent_location) != 0)
-      || (br_read_le_uint16_from_file (fptr, &pt->parent_directory_number)
-          != 0)
+      || (br_read_le_u32_from_file (fptr, &pt->extent_location) != 0)
+      || (br_read_le_u16_from_file (fptr, &pt->parent_directory_number) != 0)
       || (br_read_str_from_file (fptr, pt->directory_identifier,
                                  pt->directory_identifier_length)
           != 0))

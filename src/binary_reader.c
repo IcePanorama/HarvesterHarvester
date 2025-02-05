@@ -1,7 +1,7 @@
 #include "binary_reader.h"
 
 int8_t
-br_read_uint8_from_file (FILE *fptr, uint8_t *output)
+br_read_u8_from_file (FILE *fptr, uint8_t *output)
 {
   size_t bytes_read = fread (output, sizeof (uint8_t), 1, fptr);
   if (bytes_read != sizeof (uint8_t))
@@ -27,13 +27,13 @@ br_read_str_from_file (FILE *fptr, char *output, size_t length)
 }
 
 int8_t
-br_read_le_be_uint32_from_file (FILE *fptr, uint32_t *output)
+br_read_le_be_u32_from_file (FILE *fptr, uint32_t *output)
 {
-  if (br_read_le_uint32_from_file (fptr, output) != 0)
+  if (br_read_le_u32_from_file (fptr, output) != 0)
     return -1;
 
   uint32_t value = 0;
-  if (br_read_be_uint32_from_file (fptr, &value) != 0)
+  if (br_read_be_u32_from_file (fptr, &value) != 0)
     return -1;
   else if (*output != value)
     {
@@ -49,12 +49,12 @@ br_read_le_be_uint32_from_file (FILE *fptr, uint32_t *output)
 }
 
 int8_t
-br_read_le_uint32_from_file (FILE *fptr, uint32_t *output)
+br_read_le_u32_from_file (FILE *fptr, uint32_t *output)
 {
   uint8_t bytes[4] = { 0 };
   for (size_t i = 0; i < 4; i++)
     {
-      if (br_read_uint8_from_file (fptr, &bytes[i]) != 0)
+      if (br_read_u8_from_file (fptr, &bytes[i]) != 0)
         return -1;
     }
 
@@ -67,12 +67,12 @@ br_read_le_uint32_from_file (FILE *fptr, uint32_t *output)
 }
 
 int8_t
-br_read_be_uint32_from_file (FILE *fptr, uint32_t *output)
+br_read_be_u32_from_file (FILE *fptr, uint32_t *output)
 {
   uint8_t bytes[4] = { 0 };
   for (size_t i = 0; i < 4; i++)
     {
-      if (br_read_uint8_from_file (fptr, &bytes[i]) != 0)
+      if (br_read_u8_from_file (fptr, &bytes[i]) != 0)
         return -1;
     }
 
@@ -85,13 +85,13 @@ br_read_be_uint32_from_file (FILE *fptr, uint32_t *output)
 }
 
 int8_t
-br_read_le_be_uint16_from_file (FILE *fptr, uint16_t *output)
+br_read_le_be_u16_from_file (FILE *fptr, uint16_t *output)
 {
-  if (br_read_le_uint16_from_file (fptr, output) != 0)
+  if (br_read_le_u16_from_file (fptr, output) != 0)
     return -1;
 
   uint16_t value = 0;
-  if (br_read_be_uint16_from_file (fptr, &value) != 0)
+  if (br_read_be_u16_from_file (fptr, &value) != 0)
     return -1;
   else if (*output != value)
     {
@@ -107,12 +107,12 @@ br_read_le_be_uint16_from_file (FILE *fptr, uint16_t *output)
 }
 
 int8_t
-br_read_le_uint16_from_file (FILE *fptr, uint16_t *output)
+br_read_le_u16_from_file (FILE *fptr, uint16_t *output)
 {
   uint8_t bytes[2] = { 0 };
   for (size_t i = 0; i < 2; i++)
     {
-      if (br_read_uint8_from_file (fptr, &bytes[i]) != 0)
+      if (br_read_u8_from_file (fptr, &bytes[i]) != 0)
         return -1;
     }
 
@@ -123,12 +123,12 @@ br_read_le_uint16_from_file (FILE *fptr, uint16_t *output)
 }
 
 int8_t
-br_read_be_uint16_from_file (FILE *fptr, uint16_t *output)
+br_read_be_u16_from_file (FILE *fptr, uint16_t *output)
 {
   uint8_t bytes[2] = { 0 };
   for (size_t i = 0; i < 2; i++)
     {
-      if (br_read_uint8_from_file (fptr, &bytes[i]) != 0)
+      if (br_read_u8_from_file (fptr, &bytes[i]) != 0)
         return -1;
     }
 
@@ -139,7 +139,7 @@ br_read_be_uint16_from_file (FILE *fptr, uint16_t *output)
 }
 
 int8_t
-br_read_uint8_array_from_file (FILE *fptr, uint8_t *output, size_t length)
+br_read_u8_array_from_file (FILE *fptr, uint8_t *output, size_t length)
 {
   size_t bytes_read = fread (output, sizeof (uint8_t), length, fptr);
   if (bytes_read != sizeof (uint8_t) * length)
