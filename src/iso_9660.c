@@ -1,5 +1,6 @@
 #include "iso_9660.h"
 #include "binary_reader.h"
+#include "utils.h"
 
 #include <stddef.h>
 #include <stdint.h>
@@ -435,11 +436,10 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       return -1;
     }
 
-  // Ignore identifier for simplicity's sake
   size_t max_num_ptable_entries = (PTABLE_STARTING_NUM_ENTRIES);
-  PathTableEntry_t *path_table_entries
+  PathTableEntry_t *root_pt_entries
       = calloc (max_num_ptable_entries, sizeof (PathTableEntry_t));
-  if (path_table_entries == NULL)
+  if (root_pt_entries == NULL)
     {
       fprintf (stderr,
                "ERROR: Failed to alloc path table array of size, %ld\n",
@@ -447,16 +447,53 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       return -1;
     }
 
-  if (process_pt_entries (input_fptr, &path_table_entries,
+  if (process_pt_entries (input_fptr, &root_pt_entries,
                           &max_num_ptable_entries, pt_end)
       != 0)
     {
-      free (path_table_entries);
-      return -1;
+      goto clean_up;
     }
 
-  free (path_table_entries);
+  for (size_t i = max_num_ptable_entries - 1; i > 0; i--)
+    {
+      PathTableEntry_t *curr = &root_pt_entries[i];
+      size_t path_len = curr->directory_identifier_length + 1;
+      char *path = calloc (path_len, sizeof (char));
+      if (path == NULL)
+        {
+          fprintf (stderr, "ERROR: Unable to alloc path string of size, %ld\n",
+                   path_len);
+          goto clean_up;
+        }
+
+      strncpy (path, curr->directory_identifier,
+               curr->directory_identifier_length);
+      path[path_len - 1] = '\0';
+
+      do
+        {
+          // `parent_directory_number` is 1-indexed.
+          curr = &root_pt_entries[curr->parent_directory_number - 1];
+
+          if (u_prepend_path_str (&path, curr->directory_identifier,
+                                  curr->directory_identifier_length)
+              != 0)
+            {
+              free (path);
+              goto clean_up;
+            }
+          printf ("Path: %s\n", path);
+        }
+      while (curr->parent_directory_number > 1);
+
+      free (path);
+    }
+
+  free (root_pt_entries);
   return 0;
+clean_up:
+  free (root_pt_entries);
+  return -1;
 }
 
 int8_t
@@ -529,6 +566,8 @@ process_pt_entries (FILE *input_fptr, PathTableEntry_t **pts,
       pos = (uint32_t)(ftell (input_fptr));
     }
   while (pos != pt_end);
+
+  (*pt_max_size) = i;
 
   return 0;
 }
