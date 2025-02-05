@@ -9,6 +9,7 @@
 #include <string.h>
 
 #define PTABLE_STARTING_NUM_ENTRIES (10)
+#define LIST_DIR_RECORD_STARTING_NUM_ENTRIES ((PTABLE_STARTING_NUM_ENTRIES))
 
 typedef struct PathTableEntry_s
 {
@@ -107,7 +108,11 @@ static int alloc_pt_entries_array (PathTableEntry_t **pts, size_t size);
  *  first space character.
  *  @returns the position of the first space character in `volume_identifier`
  */
-static uint_least8_t calculate_pvd_vol_id_len (char *volume_identifier);
+static uint_least8_t calculate_pvd_vol_id_len (const char *volume_identifier);
+
+static int populate_path_list (PathTableEntry_t *pt_list, char **path_list,
+                               size_t list_len, const char *pvd_vol_id,
+                               const char *output_dir);
 
 int8_t
 iso_9660_create_filesystem_from_file (FILE fptr[static 1],
@@ -419,18 +424,24 @@ int8_t
 extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
                 const char *output_dir_path)
 {
+  // tmp, remove me
+  if (output_dir_path == NULL)
+    return -1;
+
   size_t max_num_ptable_entries = (PTABLE_STARTING_NUM_ENTRIES);
   PathTableEntry_t *root_pt_entries;
   if (alloc_pt_entries_array (&root_pt_entries, max_num_ptable_entries) != 0)
     return -1;
 
-  // Various variables for readability's sake.
+  // Defining the following variables just for readability's sake
   struct PrimaryVolumeDescriptorData_s pvd
       = fs->volume_desc_data.primary_vol_desc;
   /** Logical block size. */
   uint16_t block_size = pvd.logical_block_size;
+  /** Path table start */
   uint64_t pt_start = pvd.type_l_path_table_location * block_size;
   uint64_t pt_end = pt_start + pvd.path_table_size;
+
   if (fseek (input_fptr, pt_start, SEEK_SET) != 0)
     {
       fprintf (
@@ -445,57 +456,41 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       != 0)
     goto clean_up;
 
-  const uint_least8_t pvd_vol_id_len = calculate_pvd_vol_id_len (
-      fs->volume_desc_data.primary_vol_desc.volume_identifier);
-
-  for (size_t i = max_num_ptable_entries - 1; i > 0; i--)
+  char **path_list = calloc (max_num_ptable_entries, sizeof (char *));
+  if (path_list == NULL)
     {
-      PathTableEntry_t *curr = &root_pt_entries[i];
-      size_t path_len = curr->directory_identifier_length + 1;
-      char *path = calloc (path_len, sizeof (char));
-      if (path == NULL)
-        {
-          fprintf (stderr, "ERROR: Unable to alloc path string of size, %ld\n",
-                   path_len);
-          goto clean_up;
-        }
-
-      strncpy (path, curr->directory_identifier,
-               curr->directory_identifier_length);
-      path[path_len - 1] = '\0';
-
-      // Recursively build path string by following entry's parent dir.
-      PathTableEntry_t *tmp = curr;
-      do
-        {
-          // `parent_directory_number` is 1-indexed.
-          tmp = &root_pt_entries[tmp->parent_directory_number - 1];
-
-          /*
-           *  `directory_identifier` is NOT NULL-terminated, hence the need for
-           *  passing its length as well.
-           */
-          if (u_prepend_path_str (&path, tmp->directory_identifier,
-                                  tmp->directory_identifier_length)
-              != 0)
-            {
-              free (path);
-              goto clean_up;
-            }
-        }
-      while (tmp->parent_directory_number > 1);
-
-      u_prepend_path_str (&path, pvd.volume_identifier, pvd_vol_id_len);
-      u_prepend_path_str (&path, output_dir_path, strlen (output_dir_path));
-      printf ("Path: %s\n", path);
-
-      // todo extract
-
-      free (path);
+      fprintf (stderr,
+               "ERROR: Failed to allocate memory for list of path strings.\n");
+      goto clean_up;
     }
 
+  if (populate_path_list (root_pt_entries, path_list, max_num_ptable_entries,
+                          pvd.volume_identifier, output_dir_path)
+      != 0)
+    goto clean_up2;
+
+  Iso9660DirectoryRecord_t **dr_list;
+  dr_list
+      = calloc (max_num_ptable_entries, sizeof (Iso9660DirectoryRecord_t *));
+  if (dr_list == NULL)
+    {
+      fprintf (
+          stderr,
+          "ERROR: Failed to allocate memory for directory record list.\n");
+      goto clean_up3;
+    }
+
+  for (size_t i = 0; i < max_num_ptable_entries; i++)
+    free (path_list[i]);
+  free (path_list);
+  free (dr_list);
   free (root_pt_entries);
   return 0;
+clean_up3:
+  for (size_t i = 0; i < max_num_ptable_entries; i++)
+    free (path_list[i]);
+clean_up2:
+  free (path_list);
 clean_up:
   free (root_pt_entries);
   return -1;
@@ -591,8 +586,73 @@ alloc_pt_entries_array (PathTableEntry_t **pts, size_t size)
   return 0;
 }
 
+int
+populate_path_list (PathTableEntry_t *pt_list, char **path_list,
+                    size_t list_len, const char *pvd_vol_id,
+                    const char *output_dir)
+{
+  const uint_least8_t pvd_vol_id_len = calculate_pvd_vol_id_len (pvd_vol_id);
+
+  for (size_t i = list_len - 1; i > 0; i--)
+    {
+      PathTableEntry_t *curr = &pt_list[i];
+      size_t path_len = curr->directory_identifier_length + 1;
+      char *path = calloc (path_len, sizeof (char));
+      if (path == NULL)
+        {
+          fprintf (stderr, "ERROR: Unable to alloc path string of size, %ld\n",
+                   path_len);
+
+          // Free every path we've alloc'd thus far.
+          for (size_t j = list_len - 1; j > i; j--)
+            {
+              free (path_list[j]);
+            }
+          return -1;
+        }
+
+      strncpy (path, curr->directory_identifier,
+               curr->directory_identifier_length);
+      path[path_len - 1] = '\0';
+
+      // Recursively build path string by following entry's parent dir.
+      PathTableEntry_t *tmp = curr;
+      do
+        {
+          // `parent_directory_number` is 1-indexed.
+          tmp = &pt_list[tmp->parent_directory_number - 1];
+
+          /*
+           *  `directory_identifier` is NOT NULL-terminated, hence the need for
+           *  passing its length as well.
+           */
+          if (u_prepend_path_str (&path, tmp->directory_identifier,
+                                  tmp->directory_identifier_length)
+              != 0)
+            {
+              // Free every path we've alloc'd thus far.
+              for (size_t j = list_len - 1; j > i; j--)
+                {
+                  free (path_list[j]);
+                }
+
+              free (path);
+              return -1;
+            }
+        }
+      while (tmp->parent_directory_number > 1);
+
+      u_prepend_path_str (&path, pvd_vol_id, pvd_vol_id_len);
+      u_prepend_path_str (&path, output_dir, strlen (output_dir));
+      path_list[i] = path;
+      printf ("Path: %s\n", path_list[i]);
+    }
+
+  return 0;
+}
+
 uint_least8_t
-calculate_pvd_vol_id_len (char *volume_identifier)
+calculate_pvd_vol_id_len (const char *volume_identifier)
 {
   size_t i;
   for (i = 0; i < 32; i++)
