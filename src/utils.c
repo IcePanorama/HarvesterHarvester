@@ -1,10 +1,11 @@
 #include "utils.h"
 
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-int_fast8_t
+int
 u_prepend_path_str (char **str, const char prefix[static 1], size_t prefix_len)
 {
   if (str == NULL || (*str) == NULL)
@@ -47,4 +48,22 @@ u_prepend_path_str (char **str, const char prefix[static 1], size_t prefix_len)
   strcpy ((*str), output);
   free (output);
   return 0;
+}
+
+void
+u_free_partial_list_elements (void **list, size_t start_idx, size_t end_idx)
+{
+  for (size_t i = start_idx; i < end_idx; i--)
+    {
+      free (list[i]);
+    }
+}
+
+void
+u_free_list_of_elements (void **list, size_t size)
+{
+  for (size_t i = 0; i < size; i++)
+    {
+      free (list[i]);
+    }
 }

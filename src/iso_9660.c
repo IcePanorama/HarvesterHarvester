@@ -480,15 +480,13 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       goto clean_up3;
     }
 
-  for (size_t i = 0; i < max_num_ptable_entries; i++)
-    free (path_list[i]);
+  u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
   free (path_list);
   free (dr_list);
   free (root_pt_entries);
   return 0;
 clean_up3:
-  for (size_t i = 0; i < max_num_ptable_entries; i++)
-    free (path_list[i]);
+  u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
 clean_up2:
   free (path_list);
 clean_up:
@@ -602,12 +600,7 @@ populate_path_list (PathTableEntry_t *pt_list, char **path_list,
         {
           fprintf (stderr, "ERROR: Unable to alloc path string of size, %ld\n",
                    path_len);
-
-          // Free every path we've alloc'd thus far.
-          for (size_t j = list_len - 1; j > i; j--)
-            {
-              free (path_list[j]);
-            }
+          u_free_partial_list_elements ((void **)path_list, i + 1, list_len);
           return -1;
         }
 
@@ -630,12 +623,8 @@ populate_path_list (PathTableEntry_t *pt_list, char **path_list,
                                   tmp->directory_identifier_length)
               != 0)
             {
-              // Free every path we've alloc'd thus far.
-              for (size_t j = list_len - 1; j > i; j--)
-                {
-                  free (path_list[j]);
-                }
-
+              u_free_partial_list_elements ((void **)path_list, i + 1,
+                                            list_len);
               free (path);
               return -1;
             }
