@@ -114,12 +114,16 @@ static uint_least8_t calculate_pvd_vol_id_len (const char *volume_identifier);
  *  Creates a path string for every entry in a given path table.
  *  @returns zero on success, non-zero on failure.
  */
-static int populate_path_list (PathTableEntry_t *pt_list, char **path_list,
-                               size_t list_len, const char *pvd_vol_id,
-                               const char *output_dir);
+static int build_paths_from_pt_list (PathTableEntry_t *pt_list,
+                                     char **path_list, size_t list_len,
+                                     const char *pvd_vol_id,
+                                     const char *output_dir);
 
-// static int populate_directory_record_list (PathTableEntry_t *pt_list,
-// Iso9660DirectoryRecord_t **dr_list, size_t list_len);
+static int populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
+                                           PathTableEntry_t *pt_list,
+                                           size_t pt_list_len,
+                                           Iso9660DirectoryRecord_t **dr_list,
+                                           size_t *dr_list_lens);
 
 int8_t
 iso_9660_create_filesystem_from_file (FILE fptr[static 1],
@@ -431,10 +435,6 @@ int8_t
 extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
                 const char *output_dir_path)
 {
-  // tmp, remove me
-  if (output_dir_path == NULL)
-    return -1;
-
   size_t max_num_ptable_entries = (PTABLE_STARTING_NUM_ENTRIES);
   PathTableEntry_t *root_pt_entries;
   if (alloc_pt_entries_array (&root_pt_entries, max_num_ptable_entries) != 0)
@@ -471,8 +471,9 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       goto clean_up;
     }
 
-  if (populate_path_list (root_pt_entries, path_list, max_num_ptable_entries,
-                          pvd.volume_identifier, output_dir_path)
+  if (build_paths_from_pt_list (root_pt_entries, path_list,
+                                max_num_ptable_entries, pvd.volume_identifier,
+                                output_dir_path)
       != 0)
     goto clean_up2;
 
@@ -487,11 +488,22 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       goto clean_up3;
     }
 
+  size_t *dr_list_lens
+      = calloc (LIST_DIR_RECORD_STARTING_NUM_ENTRIES, sizeof (size_t));
+  if (populate_directory_record_list (input_fptr, block_size, root_pt_entries,
+                                      max_num_ptable_entries, dr_list,
+                                      dr_list_lens)
+      != 0)
+    goto clean_up4;
+
+  u_free_list_of_elements ((void **)dr_list, max_num_ptable_entries);
   free (dr_list);
   u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
   free (path_list);
   free (root_pt_entries);
   return 0;
+clean_up4:
+  free (dr_list);
 clean_up3:
   u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
 clean_up2:
@@ -592,9 +604,9 @@ alloc_pt_entries_array (PathTableEntry_t **pts, size_t size)
 }
 
 int
-populate_path_list (PathTableEntry_t *pt_list, char **path_list,
-                    size_t list_len, const char *pvd_vol_id,
-                    const char *output_dir)
+build_paths_from_pt_list (PathTableEntry_t *pt_list, char **path_list,
+                          size_t list_len, const char *pvd_vol_id,
+                          const char *output_dir)
 {
   const uint_least8_t pvd_vol_id_len = calculate_pvd_vol_id_len (pvd_vol_id);
 
@@ -602,6 +614,7 @@ populate_path_list (PathTableEntry_t *pt_list, char **path_list,
     {
       PathTableEntry_t *curr = &pt_list[i];
       size_t path_len = curr->directory_identifier_length + 1;
+      // Do we really need this path variable?
       char *path = calloc (path_len, sizeof (char));
       if (path == NULL)
         {
@@ -674,14 +687,75 @@ calculate_pvd_vol_id_len (const char *volume_identifier)
   return i;
 }
 
-/*
+//FIXME: Finish implementing
 int
-populate_directory_record_list (PathTableEntry_t *pt_list,
+populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
+                                PathTableEntry_t *pt_list, size_t pt_list_len,
                                 Iso9660DirectoryRecord_t **dr_list,
-                                size_t list_len)
+                                size_t *dr_list_lens)
 {
-  for (size_t i = 0; i < dr_list; i++)
+  size_t i, j;
+
+  for (i = 0; i < pt_list_len; i++)
     {
+      dr_list_lens[i] = (LIST_DIR_RECORD_STARTING_NUM_ENTRIES);
+      dr_list[i] = calloc (dr_list_lens[i], sizeof (Iso9660DirectoryRecord_t));
+      if (dr_list[i] == NULL)
+        {
+          fprintf (
+              stderr,
+              "ERROR: Failed to allocate memory for directory record list.");
+          goto clean_up;
+        }
+
+      if (fseek (input_fptr, pt_list[i].extent_location * lbs, SEEK_SET) != 0)
+        {
+          fprintf (
+              stderr,
+              "ERROR: Failed to seek to directory record location (0x%08X).\n",
+              pt_list[i].extent_location * lbs);
+          goto clean_up;
+        }
+
+      j = 0;
+      while (1)
+        {
+          Iso9660DirectoryRecord_t dir;
+          if (read_dir_rec_from_file (input_fptr, &dir) != 0)
+            goto clean_up;
+
+          if (dir.file_identifier_length == 0)
+            break;
+
+          if (j >= dr_list_lens[i])
+            {
+              dr_list_lens[i] *= 2;
+              Iso9660DirectoryRecord_t *temp = realloc (
+                  dr_list[i],
+                  dr_list_lens[i] * sizeof (Iso9660DirectoryRecord_t));
+              if (temp == NULL)
+                {
+                  fprintf (stderr, "ERROR: Failed to reallocate memory for "
+                                   "directory record.");
+                  goto clean_up;
+                }
+              dr_list[i] = temp;
+            }
+
+          memcpy ((void *)&dr_list[i][j], &dir,
+                  sizeof (Iso9660DirectoryRecord_t));
+
+          // tmp, for readability
+          puts ("-----");
+          print_dir_rec (&dr_list[i][j]);
+          j++;
+        }
+
+      dr_list_lens[i] = j;
     }
+
+  return 0;
+clean_up:
+  u_free_partial_list_elements ((void **)dr_list, 0, i);
+  return -1;
 }
-*/
