@@ -110,9 +110,16 @@ static int alloc_pt_entries_array (PathTableEntry_t **pts, size_t size);
  */
 static uint_least8_t calculate_pvd_vol_id_len (const char *volume_identifier);
 
+/**
+ *  Creates a path string for every entry in a given path table.
+ *  @returns zero on success, non-zero on failure.
+ */
 static int populate_path_list (PathTableEntry_t *pt_list, char **path_list,
                                size_t list_len, const char *pvd_vol_id,
                                const char *output_dir);
+
+// static int populate_directory_record_list (PathTableEntry_t *pt_list,
+// Iso9660DirectoryRecord_t **dr_list, size_t list_len);
 
 int8_t
 iso_9660_create_filesystem_from_file (FILE fptr[static 1],
@@ -480,9 +487,9 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       goto clean_up3;
     }
 
+  free (dr_list);
   u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
   free (path_list);
-  free (dr_list);
   free (root_pt_entries);
   return 0;
 clean_up3:
@@ -608,7 +615,7 @@ populate_path_list (PathTableEntry_t *pt_list, char **path_list,
                curr->directory_identifier_length);
       path[path_len - 1] = '\0';
 
-      // Recursively build path string by following entry's parent dir.
+      // Recursively build path string by following `curr`'s parent dir.
       PathTableEntry_t *tmp = curr;
       do
         {
@@ -637,6 +644,20 @@ populate_path_list (PathTableEntry_t *pt_list, char **path_list,
       printf ("Path: %s\n", path_list[i]);
     }
 
+  // handle root dir, 2 for path separator & NULL-terminator
+  char *path
+      = calloc (pvd_vol_id_len + strlen (output_dir) + 2, sizeof (char));
+  if (path == NULL)
+    {
+      u_free_partial_list_elements ((void **)path_list, 1, list_len);
+      return -1;
+    }
+
+  strncpy (path, pvd_vol_id, pvd_vol_id_len);
+  u_prepend_path_str (&path, output_dir, strlen (output_dir));
+  path_list[0] = path;
+  printf ("Path: %s\n", path_list[0]);
+
   return 0;
 }
 
@@ -652,3 +673,15 @@ calculate_pvd_vol_id_len (const char *volume_identifier)
 
   return i;
 }
+
+/*
+int
+populate_directory_record_list (PathTableEntry_t *pt_list,
+                                Iso9660DirectoryRecord_t **dr_list,
+                                size_t list_len)
+{
+  for (size_t i = 0; i < dr_list; i++)
+    {
+    }
+}
+*/
