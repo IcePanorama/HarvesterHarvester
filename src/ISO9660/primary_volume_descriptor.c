@@ -4,6 +4,8 @@
 
 static int read_pvd_date_time_from_file (FILE *fptr,
                                          ISO9660PrimaryVolumeDateTime_t *dt);
+static void print_pvd_date_time (const char *date_time_identifier,
+                                 ISO9660PrimaryVolumeDateTime_t *dt);
 
 int
 read_pvd_data_from_file (FILE *fptr,
@@ -74,4 +76,62 @@ read_pvd_date_time_from_file (FILE *fptr, ISO9660PrimaryVolumeDateTime_t *dt)
     }
 
   return 0;
+}
+
+void
+print_pvd_data (ISO9660PrimaryVolumeDescriptorData_t *pvdd)
+{
+  printf ("- System identifier: %.*s\n", 32, pvdd->system_identifier);
+  printf ("- Volume identifier: %.*s\n", 32, pvdd->volume_identifier);
+  printf ("- Volume space size: %d\n", pvdd->volume_space_size);
+  printf ("- Volume set size: %d\n", pvdd->volume_set_size);
+  printf ("- Volume sequence number: %d\n", pvdd->volume_sequence_number);
+  printf ("- Logical block size: %d\n", pvdd->logical_block_size);
+
+  printf ("- Path table size: %d\n", pvdd->path_table_size);
+  printf ("- Location of type-l path table: 0x%08X\n",
+          pvdd->type_l_path_table_location);
+  printf ("- Location of optional type-l path table: 0x%08X\n",
+          pvdd->optional_type_l_path_table_location);
+  printf ("- Location of type-m path table: 0x%08X\n",
+          pvdd->type_m_path_table_location);
+  printf ("- Location of optional type-m path table: 0x%08X\n",
+          pvdd->optional_type_m_path_table_location);
+
+  puts ("- Root directory entry:");
+  print_dir_rec (&pvdd->root_directory_entry);
+
+  printf ("- Volume set identifier: %.*s\n", 128, pvdd->volume_set_identifier);
+  printf ("- Publisher identifier: %.*s\n", 128, pvdd->publisher_identifier);
+  printf ("- Data preparer identifier: %.*s\n", 128,
+          pvdd->data_preparer_identifier);
+  printf ("- Application identifier: %.*s\n", 128,
+          pvdd->application_identifier);
+  printf ("- Copyright file identifier: %.*s\n", 37,
+          pvdd->copyright_file_identifier);
+  printf ("- Abstract file identifier: %.*s\n", 37,
+          pvdd->abstract_file_identifier);
+  printf ("- Bibliographic file identifier: %.*s\n", 37,
+          pvdd->bibliographic_file_identifier);
+
+  print_pvd_date_time ("- Volume creation date time",
+                       &pvdd->volume_creation_date_time);
+  print_pvd_date_time ("- Volume modification date time",
+                       &pvdd->volume_modification_date_time);
+  print_pvd_date_time ("- Volume expiration date time",
+                       &pvdd->volume_expiration_date_time);
+  print_pvd_date_time ("- Volume effective date time",
+                       &pvdd->volume_effective_date_time);
+
+  printf ("- File structure version: %d\n", pvdd->file_structure_version);
+}
+
+void
+print_pvd_date_time (const char *date_time_identifier,
+                     ISO9660PrimaryVolumeDateTime_t *dt)
+{
+  printf ("%s: %.4s-%.2s-%.2s %.2s:%.2s:%.2s.%.2s (GMT%+02d)\n",
+          date_time_identifier, dt->year, dt->month, dt->day, dt->hour,
+          dt->minute, dt->second, dt->hundredths_of_a_second,
+          (-48 + dt->timezone) >> 2);
 }

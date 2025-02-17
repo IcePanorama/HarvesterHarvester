@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
+static void print_file_flags (uint8_t file_flags);
+
 int
 read_dir_rec_from_file (FILE *fptr, ISO9660DirectoryRecord_t *dr)
 {
@@ -41,4 +43,44 @@ read_dir_rec_from_file (FILE *fptr, ISO9660DirectoryRecord_t *dr)
     }
 
   return 0;
+}
+
+void
+print_dir_rec (ISO9660DirectoryRecord_t *dr)
+{
+  printf ("-- Directory record length: %d\n", dr->dir_rec_length);
+  printf ("-- Extended attribute length: %d\n",
+          dr->extended_attrib_rec_length);
+  printf ("-- Location of extent: 0x%08X\n", dr->extent_location);
+  printf ("-- Size of extent: %d\n", dr->extent_size);
+
+  printf ("-- Recording date/time: %04d-%02d-%02d %02d:%02d:%02d (GMT%+02d)\n",
+          1900 + dr->recording_date_time.year, dr->recording_date_time.month,
+          dr->recording_date_time.day, dr->recording_date_time.hour,
+          dr->recording_date_time.minute, dr->recording_date_time.second,
+          (-48 + dr->recording_date_time.timezone) >> 2);
+
+  puts ("-- File flags:");
+  print_file_flags (dr->file_flags);
+
+  printf ("-- File unit size: %d\n", dr->file_unit_size);
+  printf ("-- Interleave gap size: %d\n", dr->interleave_gap_size);
+  printf ("-- Volume sequence number: %d\n", dr->volume_sequence_number);
+  printf ("-- File identifier length: %d\n", dr->file_identifier_length);
+  printf ("-- File identifier: %.*s\n", dr->file_identifier_length,
+          dr->file_identifier);
+}
+
+void
+print_file_flags (uint8_t file_flags)
+{
+  printf ("--- Hidden? %s\n", (file_flags & 1) ? "true" : "false");
+  printf ("--- Directory? %s\n", (file_flags & 2) ? "true" : "false");
+  printf ("--- Associated file? %s\n", (file_flags & 4) ? "true" : "false");
+  printf ("--- Format info in extended attrib. record? %s\n",
+          (file_flags & 8) ? "true" : "false");
+  printf ("--- Owner/group perms in extended attrib. record? %s\n",
+          (file_flags & 16) ? "true" : "false");
+  printf ("--- Not final directory record? %s\n",
+          (file_flags & 128) ? "true" : "false");
 }

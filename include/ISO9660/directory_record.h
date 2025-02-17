@@ -43,5 +43,6 @@ typedef struct ISO9660DirectoryRecord_s
  *  @see `ISO9660DirectoryRecord_t`.
  */
 int read_dir_rec_from_file (FILE *fptr, ISO9660DirectoryRecord_t *dr);
+void print_dir_rec (ISO9660DirectoryRecord_t *dr);
 
 #endif /* _ISO_9660_DIRECTORY_RECORD_ */

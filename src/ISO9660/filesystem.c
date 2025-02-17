@@ -28,32 +28,6 @@ read_vd_type_code_from_file (FILE *fptr,
  */
 static void print_iso_9660_fs (ISO9660FileSystem_t *fs);
 
-/**
- *  Outputs primary volume descriptor data in a human readiable form to stdout.
- *  @see `ISO9660PrimaryVolumeDescriptorData_t`
- */
-static void print_pvd_data (ISO9660PrimaryVolumeDescriptorData_t *pvdd);
-
-/**
- *  Outputs a directory entry in a human readiable form to stdout.
- *  @see `ISO9660DirectoryRecord_t`
- */
-static void print_dir_rec (ISO9660DirectoryRecord_t *dr);
-
-/**
- *  Outputs a directory entry's file flags in a human readiable form to stdout.
- *  @see `ISO9660DirectoryRecord_t`
- */
-static void print_file_flags (uint8_t file_flags);
-
-/**
- *  Outputs primary volume descriptor date/time data in a human readiable form
- *  to stdout.
- *  @see `ISO9660PrimaryVolumeDateTime_t`
- */
-static void print_pvd_date_time (const char *date_time_identifier,
-                                 ISO9660PrimaryVolumeDateTime_t *dt);
-
 static int8_t extract_pvd_fs (FILE *input_fptr, ISO9660FileSystem_t *fs,
                               const char *output_dir_path);
 static int8_t read_pt_from_file (FILE *fptr, ISO9660PathTableEntry_t *pt);
@@ -178,104 +152,6 @@ print_iso_9660_fs (ISO9660FileSystem_t *fs)
     default:
       break;
     }
-}
-
-void
-print_pvd_data (ISO9660PrimaryVolumeDescriptorData_t *pvdd)
-{
-  printf ("- System identifier: %.*s\n", 32, pvdd->system_identifier);
-  printf ("- Volume identifier: %.*s\n", 32, pvdd->volume_identifier);
-  printf ("- Volume space size: %d\n", pvdd->volume_space_size);
-  printf ("- Volume set size: %d\n", pvdd->volume_set_size);
-  printf ("- Volume sequence number: %d\n", pvdd->volume_sequence_number);
-  printf ("- Logical block size: %d\n", pvdd->logical_block_size);
-
-  printf ("- Path table size: %d\n", pvdd->path_table_size);
-  printf ("- Location of type-l path table: 0x%08X\n",
-          pvdd->type_l_path_table_location);
-  printf ("- Location of optional type-l path table: 0x%08X\n",
-          pvdd->optional_type_l_path_table_location);
-  printf ("- Location of type-m path table: 0x%08X\n",
-          pvdd->type_m_path_table_location);
-  printf ("- Location of optional type-m path table: 0x%08X\n",
-          pvdd->optional_type_m_path_table_location);
-
-  puts ("- Root directory entry:");
-  print_dir_rec (&pvdd->root_directory_entry);
-
-  printf ("- Volume set identifier: %.*s\n", 128, pvdd->volume_set_identifier);
-  printf ("- Publisher identifier: %.*s\n", 128, pvdd->publisher_identifier);
-  printf ("- Data preparer identifier: %.*s\n", 128,
-          pvdd->data_preparer_identifier);
-  printf ("- Application identifier: %.*s\n", 128,
-          pvdd->application_identifier);
-  printf ("- Copyright file identifier: %.*s\n", 37,
-          pvdd->copyright_file_identifier);
-  printf ("- Abstract file identifier: %.*s\n", 37,
-          pvdd->abstract_file_identifier);
-  printf ("- Bibliographic file identifier: %.*s\n", 37,
-          pvdd->bibliographic_file_identifier);
-
-  print_pvd_date_time ("- Volume creation date time",
-                       &pvdd->volume_creation_date_time);
-  print_pvd_date_time ("- Volume modification date time",
-                       &pvdd->volume_modification_date_time);
-  print_pvd_date_time ("- Volume expiration date time",
-                       &pvdd->volume_expiration_date_time);
-  print_pvd_date_time ("- Volume effective date time",
-                       &pvdd->volume_effective_date_time);
-
-  printf ("- File structure version: %d\n", pvdd->file_structure_version);
-}
-
-void
-print_dir_rec (ISO9660DirectoryRecord_t *dr)
-{
-  printf ("-- Directory record length: %d\n", dr->dir_rec_length);
-  printf ("-- Extended attribute length: %d\n",
-          dr->extended_attrib_rec_length);
-  printf ("-- Location of extent: 0x%08X\n", dr->extent_location);
-  printf ("-- Size of extent: %d\n", dr->extent_size);
-
-  printf ("-- Recording date/time: %04d-%02d-%02d %02d:%02d:%02d (GMT%+02d)\n",
-          1900 + dr->recording_date_time.year, dr->recording_date_time.month,
-          dr->recording_date_time.day, dr->recording_date_time.hour,
-          dr->recording_date_time.minute, dr->recording_date_time.second,
-          (-48 + dr->recording_date_time.timezone) >> 2);
-
-  puts ("-- File flags:");
-  print_file_flags (dr->file_flags);
-
-  printf ("-- File unit size: %d\n", dr->file_unit_size);
-  printf ("-- Interleave gap size: %d\n", dr->interleave_gap_size);
-  printf ("-- Volume sequence number: %d\n", dr->volume_sequence_number);
-  printf ("-- File identifier length: %d\n", dr->file_identifier_length);
-  printf ("-- File identifier: %.*s\n", dr->file_identifier_length,
-          dr->file_identifier);
-}
-
-void
-print_file_flags (uint8_t file_flags)
-{
-  printf ("--- Hidden? %s\n", (file_flags & 1) ? "true" : "false");
-  printf ("--- Directory? %s\n", (file_flags & 2) ? "true" : "false");
-  printf ("--- Associated file? %s\n", (file_flags & 4) ? "true" : "false");
-  printf ("--- Format info in extended attrib. record? %s\n",
-          (file_flags & 8) ? "true" : "false");
-  printf ("--- Owner/group perms in extended attrib. record? %s\n",
-          (file_flags & 16) ? "true" : "false");
-  printf ("--- Not final directory record? %s\n",
-          (file_flags & 128) ? "true" : "false");
-}
-
-void
-print_pvd_date_time (const char *date_time_identifier,
-                     ISO9660PrimaryVolumeDateTime_t *dt)
-{
-  printf ("%s: %.4s-%.2s-%.2s %.2s:%.2s:%.2s.%.2s (GMT%+02d)\n",
-          date_time_identifier, dt->year, dt->month, dt->day, dt->hour,
-          dt->minute, dt->second, dt->hundredths_of_a_second,
-          (-48 + dt->timezone) >> 2);
 }
 
 int8_t

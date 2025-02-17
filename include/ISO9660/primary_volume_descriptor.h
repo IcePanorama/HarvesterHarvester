@@ -63,4 +63,10 @@ typedef struct ISO9660PrimaryVolumeDescriptorData_s
 int read_pvd_data_from_file (FILE *fptr,
                              ISO9660PrimaryVolumeDescriptorData_t *pvdd);
 
+/**
+ *  Outputs primary volume descriptor data in a human readiable form to stdout.
+ *  @see `ISO9660PrimaryVolumeDescriptorData_t`
+ */
+void print_pvd_data (ISO9660PrimaryVolumeDescriptorData_t *pvdd);
+
 #endif /* _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_ */
