@@ -2,6 +2,7 @@
 #define _ISO_9660_DIRECTORY_RECORD_
 
 #include <stdint.h>
+#include <stdio.h>
 
 /** @see: https://wiki.osdev.org/ISO_9660#Directories */
 typedef struct ISO9660DirectoryRecord_s
@@ -36,5 +37,11 @@ typedef struct ISO9660DirectoryRecord_s
   char file_identifier[UINT8_MAX];
 } ISO9660DirectoryRecord_t;
 
+/**
+ *  Reads a directory record from file.
+ *  @returns zero on success, non-zero on failure.
+ *  @see `ISO9660DirectoryRecord_t`.
+ */
+int read_dir_rec_from_file (FILE *fptr, ISO9660DirectoryRecord_t *dr);
 
 #endif /* _ISO_9660_DIRECTORY_RECORD_ */

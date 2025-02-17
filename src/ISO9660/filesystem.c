@@ -23,32 +23,6 @@ read_vd_type_code_from_file (FILE *fptr,
                              enum VolumeDescriptorTypeCode_e *output);
 
 /**
- *  Reads primary volume descriptor data from file.
- *  @returns zero on success, non-zero on failure.
- *  @see `ISO9660PrimaryVolumeDescriptorData_t`
- */
-static int8_t
-read_pvd_data_from_file (FILE *fptr,
-                         ISO9660PrimaryVolumeDescriptorData_t *pvdd);
-
-/**
- *  Reads a directory record from file.
- *  @returns zero on success, non-zero on failure.
- *  @see `ISO9660DirectoryRecord_t`.
- */
-static int8_t read_dir_rec_from_file (FILE *fptr,
-                                      ISO9660DirectoryRecord_t *dr);
-
-/**
- *  Reads a primary volume descriptor date/time data from file.
- *  @returns zero on success, non-zero on failure.
- *  @see `ISO9660PrimaryVolumeDateTime_t`
- *  @see `ISO9660PrimaryVolumeDescriptorData_t`
- */
-static int8_t
-read_pvd_date_time_from_file (FILE *fptr, ISO9660PrimaryVolumeDateTime_t *dt);
-
-/**
  *  Outputs a filesystem in a human readiable form to stdout.
  *  @see `ISO9660FileSystem_t`
  */
@@ -188,99 +162,6 @@ read_vd_type_code_from_file (FILE *fptr,
   return 0;
 }
 
-int8_t
-read_pvd_data_from_file (FILE *fptr,
-                         ISO9660PrimaryVolumeDescriptorData_t *pvdd)
-{
-  if (fseek (fptr, 1, SEEK_CUR) != 0) // Unused
-    goto fseek_err;
-
-  if ((br_read_str_from_file (fptr, pvdd->system_identifier, 32) != 0)
-      || (br_read_str_from_file (fptr, pvdd->volume_identifier, 32)))
-    return -1;
-
-  if (fseek (fptr, 8, SEEK_CUR) != 0) // Unused
-    goto fseek_err;
-
-  if (br_read_le_be_u32_from_file (fptr, &pvdd->volume_space_size) != 0)
-    return -1;
-
-  if (fseek (fptr, 32, SEEK_CUR) != 0) // Unused
-    goto fseek_err;
-
-  /* clang-format off */
-  if ((br_read_le_be_u16_from_file (fptr, &pvdd->volume_set_size) != 0)
-      || (br_read_le_be_u16_from_file (fptr, &pvdd->volume_sequence_number) != 0)
-      || (br_read_le_be_u16_from_file (fptr, &pvdd->logical_block_size) != 0)
-      || (br_read_le_be_u32_from_file (fptr, &pvdd->path_table_size) != 0)
-      || (br_read_le_u32_from_file (fptr, &pvdd->type_l_path_table_location) != 0)
-      || (br_read_le_u32_from_file (fptr, &pvdd->optional_type_l_path_table_location) != 0)
-      || (br_read_be_u32_from_file (fptr, &pvdd->type_m_path_table_location) != 0)
-      || (br_read_be_u32_from_file (fptr, &pvdd->optional_type_m_path_table_location) != 0)
-      || (read_dir_rec_from_file (fptr, &pvdd->root_directory_entry) != 0)
-      || (br_read_str_from_file (fptr, pvdd->volume_set_identifier, 128) != 0)
-      || (br_read_str_from_file (fptr, pvdd->publisher_identifier, 128) != 0)
-      || (br_read_str_from_file (fptr, pvdd->data_preparer_identifier, 128) != 0)
-      || (br_read_str_from_file (fptr, pvdd->application_identifier, 128) != 0)
-      || (br_read_str_from_file (fptr, pvdd->copyright_file_identifier, 37) != 0)
-      || (br_read_str_from_file (fptr, pvdd->abstract_file_identifier, 37) != 0)
-      || (br_read_str_from_file (fptr, pvdd->bibliographic_file_identifier, 37) != 0)
-      || (read_pvd_date_time_from_file (fptr, &pvdd->volume_creation_date_time) != 0)
-      || (read_pvd_date_time_from_file (fptr, &pvdd->volume_modification_date_time) != 0)
-      || (read_pvd_date_time_from_file (fptr, &pvdd->volume_expiration_date_time) != 0)
-      || (read_pvd_date_time_from_file (fptr, &pvdd->volume_effective_date_time) != 0)
-      || (br_read_u8_from_file (fptr, &pvdd->file_structure_version) != 0)
-      || (br_read_u8_array_from_file(fptr, pvdd->application_used_data, 512) != 0))
-    return -1;
-  /* clang-format on */
-
-  return 0;
-fseek_err:
-  fprintf (stderr, "ERROR: failed to seek past unused byte(s) in primary "
-                   "volume descriptor data.\n");
-  return -1;
-}
-
-int8_t
-read_dir_rec_from_file (FILE *fptr, ISO9660DirectoryRecord_t *dr)
-{
-  if ((br_read_u8_from_file (fptr, &dr->dir_rec_length) != 0)
-      || (br_read_u8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
-      || (br_read_le_be_u32_from_file (fptr, &dr->extent_location) != 0)
-      || (br_read_le_be_u32_from_file (fptr, &dr->extent_size) != 0)
-      || (br_read_u8_from_file (fptr, &dr->recording_date_time.year) != 0)
-      || (br_read_u8_from_file (fptr, &dr->recording_date_time.month) != 0)
-      || (br_read_u8_from_file (fptr, &dr->recording_date_time.day) != 0)
-      || (br_read_u8_from_file (fptr, &dr->recording_date_time.hour) != 0)
-      || (br_read_u8_from_file (fptr, &dr->recording_date_time.minute) != 0)
-      || (br_read_u8_from_file (fptr, &dr->recording_date_time.second) != 0)
-      || (br_read_u8_from_file (fptr, &dr->recording_date_time.timezone) != 0)
-      || (br_read_u8_from_file (fptr, &dr->file_flags) != 0)
-      || (br_read_u8_from_file (fptr, &dr->file_unit_size) != 0)
-      || (br_read_u8_from_file (fptr, &dr->interleave_gap_size) != 0)
-      || (br_read_le_be_u16_from_file (fptr, &dr->volume_sequence_number) != 0)
-      || (br_read_u8_from_file (fptr, &dr->file_identifier_length) != 0)
-      || (br_read_str_from_file (fptr, dr->file_identifier,
-                                 dr->file_identifier_length)
-          != 0))
-    {
-      return -1;
-    }
-
-  if ((dr->file_identifier_length % 2) == 0)
-    {
-      if (fseek (fptr, 1, SEEK_CUR) != 0)
-        {
-          fprintf (
-              stderr,
-              "ERROR: failed to seek past padding after directory record.\n");
-          return -1;
-        }
-    }
-
-  return 0;
-}
-
 void
 print_iso_9660_fs (ISO9660FileSystem_t *fs)
 {
@@ -297,24 +178,6 @@ print_iso_9660_fs (ISO9660FileSystem_t *fs)
     default:
       break;
     }
-}
-
-int8_t
-read_pvd_date_time_from_file (FILE *fptr, ISO9660PrimaryVolumeDateTime_t *dt)
-{
-  if ((br_read_str_from_file (fptr, dt->year, 4) != 0)
-      || (br_read_str_from_file (fptr, dt->month, 2) != 0)
-      || (br_read_str_from_file (fptr, dt->day, 2) != 0)
-      || (br_read_str_from_file (fptr, dt->hour, 2) != 0)
-      || (br_read_str_from_file (fptr, dt->minute, 2) != 0)
-      || (br_read_str_from_file (fptr, dt->second, 2) != 0)
-      || (br_read_str_from_file (fptr, dt->hundredths_of_a_second, 2) != 0)
-      || (br_read_u8_from_file (fptr, &dt->timezone) != 0))
-    {
-      return -1;
-    }
-
-  return 0;
 }
 
 void

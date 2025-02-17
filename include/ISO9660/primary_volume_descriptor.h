@@ -4,6 +4,7 @@
 #include "ISO9660/directory_record.h"
 
 #include <stdint.h>
+#include <stdio.h>
 
 typedef struct ISO9660PrimaryVolumeDateTime_s
 {
@@ -54,5 +55,12 @@ typedef struct ISO9660PrimaryVolumeDescriptorData_s
   uint8_t application_used_data[512];
 } ISO9660PrimaryVolumeDescriptorData_t;
 
+/**
+ *  Reads primary volume descriptor data from file.
+ *  @returns zero on success, non-zero on failure.
+ *  @see `ISO9660PrimaryVolumeDescriptorData_t`
+ */
+int read_pvd_data_from_file (FILE *fptr,
+                             ISO9660PrimaryVolumeDescriptorData_t *pvdd);
 
 #endif /* _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_ */

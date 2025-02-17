@@ -27,6 +27,8 @@ set(SRC_FILES
     "${SRC_DIR}/binary_reader.c"
     "${SRC_DIR}/hh.c"
     "${SRC_DIR}/ISO9660/filesystem.c"
+    "${SRC_DIR}/ISO9660/primary_volume_descriptor.c"
+    "${SRC_DIR}/ISO9660/directory_record.c"
     "${SRC_DIR}/main.c"
     "${SRC_DIR}/utils.c"
 )
@@ -36,6 +38,9 @@ set(INCL_FILES
     "${INCL_DIR}/binary_reader.h"
     "${INCL_DIR}/hh.h"
     "${INCL_DIR}/ISO9660/filesystem.h"
+    "${INCL_DIR}/ISO9660/primary_volume_descriptor.h"
+    "${INCL_DIR}/ISO9660/directory_record.h"
+    "${INCL_DIR}/ISO9660/path_table_entry.h"
     "${INCL_DIR}/utils.h"
 )
 
