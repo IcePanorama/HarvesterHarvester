@@ -1,6 +1,8 @@
-#include "iso_9660.h"
 #include "binary_reader.h"
 #include "utils.h"
+
+#include "ISO9660/filesystem.h"
+#include "ISO9660/path_table_entry.h"
 
 #include <stddef.h>
 #include <stdint.h>
@@ -10,15 +12,6 @@
 
 #define PTABLE_STARTING_NUM_ENTRIES (10)
 #define LIST_DIR_RECORD_STARTING_NUM_ENTRIES ((PTABLE_STARTING_NUM_ENTRIES))
-
-typedef struct PathTableEntry_s
-{
-  uint8_t directory_identifier_length;
-  uint8_t extended_attribute_record_length;
-  uint32_t extent_location;
-  uint16_t parent_directory_number;
-  char directory_identifier[UINT8_MAX];
-} PathTableEntry_t;
 
 /**
  *  Reads a volume descriptor type code from file.
@@ -32,75 +25,76 @@ read_vd_type_code_from_file (FILE *fptr,
 /**
  *  Reads primary volume descriptor data from file.
  *  @returns zero on success, non-zero on failure.
- *  @see `struct PrimaryVolumeDescriptorData_s`
+ *  @see `ISO9660PrimaryVolumeDescriptorData_t`
  */
 static int8_t
 read_pvd_data_from_file (FILE *fptr,
-                         struct PrimaryVolumeDescriptorData_s *pvdd);
+                         ISO9660PrimaryVolumeDescriptorData_t *pvdd);
 
 /**
  *  Reads a directory record from file.
  *  @returns zero on success, non-zero on failure.
- *  @see `Iso9660DirectoryRecord_t`.
+ *  @see `ISO9660DirectoryRecord_t`.
  */
 static int8_t read_dir_rec_from_file (FILE *fptr,
-                                      Iso9660DirectoryRecord_t *dr);
+                                      ISO9660DirectoryRecord_t *dr);
 
 /**
  *  Reads a primary volume descriptor date/time data from file.
  *  @returns zero on success, non-zero on failure.
- *  @see `Iso9660PrimaryVolumeDateTime_t`
- *  @see `struct PrimaryVolumeDescriptorData_s`
+ *  @see `ISO9660PrimaryVolumeDateTime_t`
+ *  @see `ISO9660PrimaryVolumeDescriptorData_t`
  */
 static int8_t
-read_pvd_date_time_from_file (FILE *fptr, Iso9660PrimaryVolumeDateTime_t *dt);
+read_pvd_date_time_from_file (FILE *fptr, ISO9660PrimaryVolumeDateTime_t *dt);
 
 /**
  *  Outputs a filesystem in a human readiable form to stdout.
- *  @see `Iso9660FileSystem_t`
+ *  @see `ISO9660FileSystem_t`
  */
-static void print_iso_9660_fs (Iso9660FileSystem_t *fs);
+static void print_iso_9660_fs (ISO9660FileSystem_t *fs);
 
 /**
  *  Outputs primary volume descriptor data in a human readiable form to stdout.
- *  @see `struct PrimaryVolumeDescriptorData_s`
+ *  @see `ISO9660PrimaryVolumeDescriptorData_t`
  */
-static void print_pvd_data (struct PrimaryVolumeDescriptorData_s *pvdd);
+static void print_pvd_data (ISO9660PrimaryVolumeDescriptorData_t *pvdd);
 
 /**
  *  Outputs a directory entry in a human readiable form to stdout.
- *  @see `Iso9660DirectoryRecord_t`
+ *  @see `ISO9660DirectoryRecord_t`
  */
-static void print_dir_rec (Iso9660DirectoryRecord_t *dr);
+static void print_dir_rec (ISO9660DirectoryRecord_t *dr);
 
 /**
  *  Outputs a directory entry's file flags in a human readiable form to stdout.
- *  @see `Iso9660DirectoryRecord_t`
+ *  @see `ISO9660DirectoryRecord_t`
  */
 static void print_file_flags (uint8_t file_flags);
 
 /**
  *  Outputs primary volume descriptor date/time data in a human readiable form
  *  to stdout.
- *  @see `Iso9660PrimaryVolumeDateTime_t`
+ *  @see `ISO9660PrimaryVolumeDateTime_t`
  */
 static void print_pvd_date_time (const char *date_time_identifier,
-                                 Iso9660PrimaryVolumeDateTime_t *dt);
+                                 ISO9660PrimaryVolumeDateTime_t *dt);
 
-static int8_t extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
+static int8_t extract_pvd_fs (FILE *input_fptr, ISO9660FileSystem_t *fs,
                               const char *output_dir_path);
-static int8_t read_pt_from_file (FILE *fptr, PathTableEntry_t *pt);
-static void print_pt (PathTableEntry_t *pt);
+static int8_t read_pt_from_file (FILE *fptr, ISO9660PathTableEntry_t *pt);
+static void print_pt (ISO9660PathTableEntry_t *pt);
 
 /**
  *  Processes all the entries in the path table that `input_fptr` currently
  *  points to, placing each entry in `pts` and updating `pt_max_size` as
  *  needed.
- *  @see `PathTableEntry_t`
+ *  @see `ISO9660PathTableEntry_t`
  */
-static int8_t process_pt_entries (FILE *input_fptr, PathTableEntry_t **pts,
+static int8_t process_pt_entries (FILE *input_fptr,
+                                  ISO9660PathTableEntry_t **pts,
                                   size_t *pt_max_size, uint32_t pt_end);
-static int alloc_pt_entries_array (PathTableEntry_t **pts, size_t size);
+static int alloc_pt_entries_array (ISO9660PathTableEntry_t **pts, size_t size);
 
 /**
  *  Calculates the length of a primary volume descriptor's volume identifier.
@@ -114,15 +108,15 @@ static uint_least8_t calculate_pvd_vol_id_len (const char *volume_identifier);
  *  Creates a path string for every entry in a given path table.
  *  @returns zero on success, non-zero on failure.
  */
-static int build_paths_from_pt_list (PathTableEntry_t *pt_list,
+static int build_paths_from_pt_list (ISO9660PathTableEntry_t *pt_list,
                                      char **path_list, size_t list_len,
                                      const char *pvd_vol_id,
                                      const char *output_dir);
 
 static int populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
-                                           PathTableEntry_t *pt_list,
+                                           ISO9660PathTableEntry_t *pt_list,
                                            size_t pt_list_len,
-                                           Iso9660DirectoryRecord_t **dr_list,
+                                           ISO9660DirectoryRecord_t **dr_list,
                                            size_t *dr_list_lens);
 
 /*
@@ -139,9 +133,9 @@ static int handle_sector_boundary_padding (FILE *fptr, uint16_t lbs);
 
 int8_t
 iso_9660_create_filesystem_from_file (FILE fptr[static 1],
-                                      Iso9660FileSystem_t fs[static 1])
+                                      ISO9660FileSystem_t fs[static 1])
 {
-  memset (fs, 0, sizeof (Iso9660FileSystem_t));
+  memset (fs, 0, sizeof (ISO9660FileSystem_t));
   if (fseek (fptr, 0x8000, SEEK_SET) != 0)
     {
       fprintf (stderr, "ERROR: failed to seek past system area (32KiB).\n");
@@ -196,7 +190,7 @@ read_vd_type_code_from_file (FILE *fptr,
 
 int8_t
 read_pvd_data_from_file (FILE *fptr,
-                         struct PrimaryVolumeDescriptorData_s *pvdd)
+                         ISO9660PrimaryVolumeDescriptorData_t *pvdd)
 {
   if (fseek (fptr, 1, SEEK_CUR) != 0) // Unused
     goto fseek_err;
@@ -248,7 +242,7 @@ fseek_err:
 }
 
 int8_t
-read_dir_rec_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
+read_dir_rec_from_file (FILE *fptr, ISO9660DirectoryRecord_t *dr)
 {
   if ((br_read_u8_from_file (fptr, &dr->dir_rec_length) != 0)
       || (br_read_u8_from_file (fptr, &dr->extended_attrib_rec_length) != 0)
@@ -288,7 +282,7 @@ read_dir_rec_from_file (FILE *fptr, Iso9660DirectoryRecord_t *dr)
 }
 
 void
-print_iso_9660_fs (Iso9660FileSystem_t *fs)
+print_iso_9660_fs (ISO9660FileSystem_t *fs)
 {
   printf ("Volume descriptor type code: %02X\n", fs->volume_desc_type_code);
   printf ("Volume identifier: %.*s\n", 5, fs->volume_identifier);
@@ -306,7 +300,7 @@ print_iso_9660_fs (Iso9660FileSystem_t *fs)
 }
 
 int8_t
-read_pvd_date_time_from_file (FILE *fptr, Iso9660PrimaryVolumeDateTime_t *dt)
+read_pvd_date_time_from_file (FILE *fptr, ISO9660PrimaryVolumeDateTime_t *dt)
 {
   if ((br_read_str_from_file (fptr, dt->year, 4) != 0)
       || (br_read_str_from_file (fptr, dt->month, 2) != 0)
@@ -324,7 +318,7 @@ read_pvd_date_time_from_file (FILE *fptr, Iso9660PrimaryVolumeDateTime_t *dt)
 }
 
 void
-print_pvd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
+print_pvd_data (ISO9660PrimaryVolumeDescriptorData_t *pvdd)
 {
   printf ("- System identifier: %.*s\n", 32, pvdd->system_identifier);
   printf ("- Volume identifier: %.*s\n", 32, pvdd->volume_identifier);
@@ -372,7 +366,7 @@ print_pvd_data (struct PrimaryVolumeDescriptorData_s *pvdd)
 }
 
 void
-print_dir_rec (Iso9660DirectoryRecord_t *dr)
+print_dir_rec (ISO9660DirectoryRecord_t *dr)
 {
   printf ("-- Directory record length: %d\n", dr->dir_rec_length);
   printf ("-- Extended attribute length: %d\n",
@@ -413,7 +407,7 @@ print_file_flags (uint8_t file_flags)
 
 void
 print_pvd_date_time (const char *date_time_identifier,
-                     Iso9660PrimaryVolumeDateTime_t *dt)
+                     ISO9660PrimaryVolumeDateTime_t *dt)
 {
   printf ("%s: %.4s-%.2s-%.2s %.2s:%.2s:%.2s.%.2s (GMT%+02d)\n",
           date_time_identifier, dt->year, dt->month, dt->day, dt->hour,
@@ -423,7 +417,7 @@ print_pvd_date_time (const char *date_time_identifier,
 
 int8_t
 iso_9660_extract_filesystem (FILE input_fptr[static 1],
-                             Iso9660FileSystem_t fs[static 1],
+                             ISO9660FileSystem_t fs[static 1],
                              const char output_dir_path[static 1])
 {
   switch (fs->volume_desc_type_code)
@@ -444,16 +438,16 @@ iso_9660_extract_filesystem (FILE input_fptr[static 1],
 }
 
 int8_t
-extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
+extract_pvd_fs (FILE *input_fptr, ISO9660FileSystem_t *fs,
                 const char *output_dir_path)
 {
   size_t max_num_ptable_entries = (PTABLE_STARTING_NUM_ENTRIES);
-  PathTableEntry_t *root_pt_entries;
+  ISO9660PathTableEntry_t *root_pt_entries;
   if (alloc_pt_entries_array (&root_pt_entries, max_num_ptable_entries) != 0)
     return -1;
 
   // Defining the following variables just for readability's sake
-  struct PrimaryVolumeDescriptorData_s pvd
+  ISO9660PrimaryVolumeDescriptorData_t pvd
       = fs->volume_desc_data.primary_vol_desc;
   /** Logical block size. */
   uint16_t block_size = pvd.logical_block_size;
@@ -489,9 +483,9 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       != 0)
     goto clean_up2;
 
-  Iso9660DirectoryRecord_t **dr_list;
+  ISO9660DirectoryRecord_t **dr_list;
   dr_list
-      = calloc (max_num_ptable_entries, sizeof (Iso9660DirectoryRecord_t *));
+      = calloc (max_num_ptable_entries, sizeof (ISO9660DirectoryRecord_t *));
   if (dr_list == NULL)
     {
       fprintf (
@@ -533,7 +527,7 @@ clean_up:
 }
 
 int8_t
-read_pt_from_file (FILE *fptr, PathTableEntry_t *pt)
+read_pt_from_file (FILE *fptr, ISO9660PathTableEntry_t *pt)
 {
   if ((br_read_u8_from_file (fptr, &pt->directory_identifier_length) != 0)
       || (br_read_u8_from_file (fptr, &pt->extended_attribute_record_length)
@@ -561,7 +555,7 @@ read_pt_from_file (FILE *fptr, PathTableEntry_t *pt)
 }
 
 void
-print_pt (PathTableEntry_t *pt)
+print_pt (ISO9660PathTableEntry_t *pt)
 {
   printf ("%.*s - Ext. attrib. len: %d, Loc: %d, Parent: %d\n",
           pt->directory_identifier_length, pt->directory_identifier,
@@ -570,7 +564,7 @@ print_pt (PathTableEntry_t *pt)
 }
 
 int8_t
-process_pt_entries (FILE *input_fptr, PathTableEntry_t **pts,
+process_pt_entries (FILE *input_fptr, ISO9660PathTableEntry_t **pts,
                     size_t *pt_max_size, uint32_t pt_end)
 {
   size_t i = 0;
@@ -580,8 +574,8 @@ process_pt_entries (FILE *input_fptr, PathTableEntry_t **pts,
       if (i >= (*pt_max_size))
         {
           (*pt_max_size) *= 2;
-          PathTableEntry_t *tmp
-              = realloc ((*pts), sizeof (PathTableEntry_t) * (*pt_max_size));
+          ISO9660PathTableEntry_t *tmp = realloc (
+              (*pts), sizeof (ISO9660PathTableEntry_t) * (*pt_max_size));
           if (tmp == NULL)
             {
               fprintf (stderr,
@@ -609,9 +603,9 @@ process_pt_entries (FILE *input_fptr, PathTableEntry_t **pts,
 }
 
 int
-alloc_pt_entries_array (PathTableEntry_t **pts, size_t size)
+alloc_pt_entries_array (ISO9660PathTableEntry_t **pts, size_t size)
 {
-  (*pts) = calloc (size, sizeof (PathTableEntry_t));
+  (*pts) = calloc (size, sizeof (ISO9660PathTableEntry_t));
   if ((*pts) == NULL)
     {
       fprintf (stderr,
@@ -623,7 +617,7 @@ alloc_pt_entries_array (PathTableEntry_t **pts, size_t size)
 }
 
 int
-build_paths_from_pt_list (PathTableEntry_t *pt_list, char **path_list,
+build_paths_from_pt_list (ISO9660PathTableEntry_t *pt_list, char **path_list,
                           size_t list_len, const char *pvd_vol_id,
                           const char *output_dir)
 {
@@ -631,9 +625,9 @@ build_paths_from_pt_list (PathTableEntry_t *pt_list, char **path_list,
 
   for (size_t i = list_len - 1; i > 0; i--)
     {
-      PathTableEntry_t *curr = &pt_list[i];
+      ISO9660PathTableEntry_t *curr = &pt_list[i];
       size_t path_len = curr->directory_identifier_length + 1;
-      // Do we really need this path variable?
+
       char *path = calloc (path_len, sizeof (char));
       if (path == NULL)
         {
@@ -648,7 +642,7 @@ build_paths_from_pt_list (PathTableEntry_t *pt_list, char **path_list,
       path[path_len - 1] = '\0';
 
       // Recursively build path string by following `curr`'s parent dir.
-      PathTableEntry_t *tmp = curr;
+      ISO9660PathTableEntry_t *tmp = curr;
       do
         {
           // `parent_directory_number` is 1-indexed.
@@ -706,11 +700,11 @@ calculate_pvd_vol_id_len (const char *volume_identifier)
   return i;
 }
 
-// FIXME: Finish implementing
 int
 populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
-                                PathTableEntry_t *pt_list, size_t pt_list_len,
-                                Iso9660DirectoryRecord_t **dr_list,
+                                ISO9660PathTableEntry_t *pt_list,
+                                size_t pt_list_len,
+                                ISO9660DirectoryRecord_t **dr_list,
                                 size_t *dr_list_lens)
 {
   size_t i, j;
@@ -718,7 +712,7 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
   for (i = 0; i < pt_list_len; i++)
     {
       dr_list_lens[i] = (LIST_DIR_RECORD_STARTING_NUM_ENTRIES);
-      dr_list[i] = calloc (dr_list_lens[i], sizeof (Iso9660DirectoryRecord_t));
+      dr_list[i] = calloc (dr_list_lens[i], sizeof (ISO9660DirectoryRecord_t));
       if (dr_list[i] == NULL)
         {
           fprintf (
@@ -742,7 +736,7 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
           if (handle_sector_boundary_padding (input_fptr, lbs) != 0)
             goto clean_up;
 
-          Iso9660DirectoryRecord_t dir;
+          ISO9660DirectoryRecord_t dir;
           if (read_dir_rec_from_file (input_fptr, &dir) != 0)
             goto clean_up;
 
@@ -752,9 +746,9 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
           if (j >= dr_list_lens[i])
             {
               dr_list_lens[i] *= 2;
-              Iso9660DirectoryRecord_t *temp = realloc (
+              ISO9660DirectoryRecord_t *temp = realloc (
                   dr_list[i],
-                  dr_list_lens[i] * sizeof (Iso9660DirectoryRecord_t));
+                  dr_list_lens[i] * sizeof (ISO9660DirectoryRecord_t));
               if (temp == NULL)
                 {
                   fprintf (stderr, "ERROR: Failed to reallocate memory for "
@@ -765,7 +759,7 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
             }
 
           memcpy ((void *)&dr_list[i][j], &dir,
-                  sizeof (Iso9660DirectoryRecord_t));
+                  sizeof (ISO9660DirectoryRecord_t));
           j++;
         }
 
@@ -785,7 +779,7 @@ handle_sector_boundary_padding (FILE *fptr, uint16_t lbs)
 {
   size_t curr_sector = (size_t)(ftell (fptr) / lbs);
   size_t next_sector
-      = (size_t)((ftell (fptr) + sizeof (Iso9660DirectoryRecord_t)) / lbs);
+      = (size_t)((ftell (fptr) + sizeof (ISO9660DirectoryRecord_t)) / lbs);
   if (next_sector != curr_sector) // Entry crosses sector boundary
     {
       if (fseek (fptr, (size_t)((ftell (fptr) + (lbs - 1)) / lbs), SEEK_SET)

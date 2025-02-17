@@ -1,5 +1,5 @@
 #include "hh.h"
-#include "iso_9660.h"
+#include "ISO9660/filesystem.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -14,7 +14,7 @@ hh_extract_filesystem (const char input_file_path[static 1],
   if (open_file (&input_file, input_file_path) != 0)
     return -1;
 
-  Iso9660FileSystem_t fs;
+  ISO9660FileSystem_t fs;
   if ((iso_9660_create_filesystem_from_file (input_file, &fs) != 0)
       || (iso_9660_extract_filesystem (input_file, &fs, output_dir_path) != 0))
     {
