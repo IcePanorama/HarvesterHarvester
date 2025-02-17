@@ -125,6 +125,18 @@ static int populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
                                            Iso9660DirectoryRecord_t **dr_list,
                                            size_t *dr_list_lens);
 
+/*
+ *  When processing a list of directory records: "even if a directory spans
+ *  multiple sectors, the directory entries are not permitted to cross the
+ * sector boundary ... where there is not enough space to record an entire
+ * directory entry at the end of a sector, that sector is zero-padded and the
+ * next consecutive sector is used."
+ *  @param  fptr  the file to seek through.
+ *  @param  lbs   the logical block size of the given file's filesystem.
+ *  @see: https://wiki.osdev.org/ISO_9660#Directories
+ */
+static int handle_sector_boundary_padding (FILE *fptr, uint16_t lbs);
+
 int8_t
 iso_9660_create_filesystem_from_file (FILE fptr[static 1],
                                       Iso9660FileSystem_t fs[static 1])
@@ -727,21 +739,8 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
       j = 0;
       while (1)
         {
-          /*
-           *  "Even if a directory spans multiple sectors, the directory
-           *  entries are not permitted to cross the sector boundary ... where
-           *  there is not enough space to record an entire directory entry at
-           *  the end of a sector, that sector is zero-padded and the next
-           *  consecutive sector is used."
-           *  @see: https://wiki.osdev.org/ISO_9660#Directories
-           */
-          size_t curr_sector = (size_t)(ftell (input_fptr) / lbs);
-          size_t next_sector = (size_t)((ftell (input_fptr)
-                                         + sizeof (Iso9660DirectoryRecord_t))
-                                        / lbs);
-          if (next_sector != curr_sector) // Entry crosses sector boundary
-            fseek (input_fptr,
-                   (size_t)((ftell (input_fptr) + (lbs - 1)) / lbs), SEEK_SET);
+          if (handle_sector_boundary_padding (input_fptr, lbs) != 0)
+            goto clean_up;
 
           Iso9660DirectoryRecord_t dir;
           if (read_dir_rec_from_file (input_fptr, &dir) != 0)
@@ -779,4 +778,23 @@ realloc_failure:
 clean_up:
   u_free_partial_list_elements ((void **)dr_list, 0, i);
   return -1;
+}
+
+int
+handle_sector_boundary_padding (FILE *fptr, uint16_t lbs)
+{
+  size_t curr_sector = (size_t)(ftell (fptr) / lbs);
+  size_t next_sector
+      = (size_t)((ftell (fptr) + sizeof (Iso9660DirectoryRecord_t)) / lbs);
+  if (next_sector != curr_sector) // Entry crosses sector boundary
+    {
+      if (fseek (fptr, (size_t)((ftell (fptr) + (lbs - 1)) / lbs), SEEK_SET)
+          != 0)
+        {
+          fprintf (stderr, "ERROR: Failed to seek across sector boundary.\n");
+          return -1;
+        }
+    }
+
+  return 0;
 }
