@@ -1,0 +1,5419 @@
+Volume descriptor type code: 01
+Volume identifier: CD001
+Volume descriptor version: 01
+Primary volume data: 
+- System identifier: CD-RTOS CD-BRIDGE               
+- Volume identifier: DISK1                           
+- Volume space size: 294071
+- Volume set size: 1
+- Volume sequence number: 1
+- Logical block size: 2048
+- Path table size: 312
+- Location of type-l path table: 0x00000012
+- Location of optional type-l path table: 0x00000000
+- Location of type-m path table: 0x00000013
+- Location of optional type-m path table: 0x00000000
+- Root directory entry:
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 1970-01-01 01:00:00 (GMT-11)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+- Volume set identifier:                                                                                                                                 
+- Publisher identifier:                                                                                                                                 
+- Data preparer identifier:                                                                                                                                 
+- Application identifier:                                                                                                                                 
+- Copyright file identifier:                                      
+- Abstract file identifier:                                      
+- Bibliographic file identifier:                                      
+- Volume creation date time: 2014-02-26 11:30:25.00 (GMT-11)
+- Volume modification date time: 2014-02-26 11:30:25.00 (GMT-11)
+- Volume expiration date time: 0000-00-00 00:00:00.00 (GMT-12)
+- Volume effective date time: 0000-00-00 00:00:00.00 (GMT-12)
+- File structure version: 1
+ - Ext. attrib. len: 0, Loc: 20, Parent: 1
+16BIT - Ext. attrib. len: 0, Loc: 21, Parent: 1
+32BIT - Ext. attrib. len: 0, Loc: 23, Parent: 1
+GRAPHIC - Ext. attrib. len: 0, Loc: 24, Parent: 1
+SOUND - Ext. attrib. len: 0, Loc: 30, Parent: 1
+VESA - Ext. attrib. len: 0, Loc: 33, Parent: 1
+FONT - Ext. attrib. len: 0, Loc: 25, Parent: 4
+FST - Ext. attrib. len: 0, Loc: 26, Parent: 4
+OTHER - Ext. attrib. len: 0, Loc: 28, Parent: 4
+PAL - Ext. attrib. len: 0, Loc: 29, Parent: 4
+MUSIC - Ext. attrib. len: 0, Loc: 31, Parent: 5
+ATI - Ext. attrib. len: 0, Loc: 34, Parent: 6
+C&T - Ext. attrib. len: 0, Loc: 35, Parent: 6
+EVEREX - Ext. attrib. len: 0, Loc: 36, Parent: 6
+GENCAD3D - Ext. attrib. len: 0, Loc: 37, Parent: 6
+GENOA - Ext. attrib. len: 0, Loc: 38, Parent: 6
+ORCHID - Ext. attrib. len: 0, Loc: 39, Parent: 6
+PARADISE - Ext. attrib. len: 0, Loc: 40, Parent: 6
+SAMPLES - Ext. attrib. len: 0, Loc: 41, Parent: 6
+SIGMA - Ext. attrib. len: 0, Loc: 42, Parent: 6
+STB - Ext. attrib. len: 0, Loc: 43, Parent: 6
+TECMAR - Ext. attrib. len: 0, Loc: 44, Parent: 6
+VIDEO7 - Ext. attrib. len: 0, Loc: 45, Parent: 6
+Path: output/DISK1/VESA/VIDEO7
+Path: output/DISK1/VESA/TECMAR
+Path: output/DISK1/VESA/STB
+Path: output/DISK1/VESA/SIGMA
+Path: output/DISK1/VESA/SAMPLES
+Path: output/DISK1/VESA/PARADISE
+Path: output/DISK1/VESA/ORCHID
+Path: output/DISK1/VESA/GENOA
+Path: output/DISK1/VESA/GENCAD3D
+Path: output/DISK1/VESA/EVEREX
+Path: output/DISK1/VESA/C&T
+Path: output/DISK1/VESA/ATI
+Path: output/DISK1/SOUND/MUSIC
+Path: output/DISK1/GRAPHIC/PAL
+Path: output/DISK1/GRAPHIC/OTHER
+Path: output/DISK1/GRAPHIC/FST
+Path: output/DISK1/GRAPHIC/FONT
+Path: output/DISK1/VESA
+Path: output/DISK1/SOUND
+Path: output/DISK1/GRAPHIC
+Path: output/DISK1/32BIT
+Path: output/DISK1/16BIT
+Path: output/DISK1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 2014-02-26 11:30:25 (GMT-11)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 2014-02-26 11:30:25 (GMT-11)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x00000015
+-- Size of extent: 4096
+-- Recording date/time: 1996-09-07 17:22:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 5
+-- File identifier: 16BIT
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x00000017
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 5
+-- File identifier: 32BIT
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED02
+-- Size of extent: 1593
+-- Recording date/time: 1996-04-18 11:51:56 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: ADJHEAD.RCS;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE86
+-- Size of extent: 3509
+-- Recording date/time: 1995-09-21 11:13:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: BLOOD.ABM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E81D
+-- Size of extent: 122
+-- Recording date/time: 1996-07-10 17:59:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: CONFIG.INI;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EECD
+-- Size of extent: 26325
+-- Recording date/time: 1996-09-05 11:53:58 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: DIALOG.RSP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E81E
+-- Size of extent: 270908
+-- Recording date/time: 1996-04-10 09:33:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: DIALOGUE.IDX;1
+-----
+-- Directory record length: 40
+-- Extended attribute length: 0
+-- Location of extent: 0x00000018
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 7
+-- File identifier: GRAPHIC
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E663
+-- Size of extent: 308278
+-- Recording date/time: 1996-01-19 13:43:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: HARVEST.BMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F042
+-- Size of extent: 73639698
+-- Recording date/time: 2014-02-26 11:22:39 (GMT-11)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: HARVEST.DAT;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E0E9
+-- Size of extent: 1173079
+-- Recording date/time: 1996-09-05 15:08:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: HARVEST.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EB94
+-- Size of extent: 766
+-- Recording date/time: 1995-07-06 15:14:56 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: HARVEST.ICO;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E98F
+-- Size of extent: 274
+-- Recording date/time: 1996-03-19 09:45:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: HARVEST.INI;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E327
+-- Size of extent: 523433
+-- Recording date/time: 1996-08-20 16:47:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: HARVEST.SCR;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00016D90
+-- Size of extent: 19683064
+-- Recording date/time: 1996-03-18 16:32:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: HARVEST2.DAT;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EBBF
+-- Size of extent: 81990
+-- Recording date/time: 1995-02-06 03:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: HMIDET.386;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E8A4
+-- Size of extent: 261425
+-- Recording date/time: 1995-02-06 03:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: HMIDRV.386;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EAF3
+-- Size of extent: 117776
+-- Recording date/time: 1995-02-06 03:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: HMIMDRV.386;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EB2E
+-- Size of extent: 117512
+-- Recording date/time: 1996-02-27 10:34:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: INDEX.001;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E50F
+-- Size of extent: 374588
+-- Recording date/time: 1996-02-27 10:35:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: INDEX.002;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE74
+-- Size of extent: 3256
+-- Recording date/time: 1996-03-18 16:56:38 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: INDEX.003;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE4D
+-- Size of extent: 3163
+-- Recording date/time: 1996-09-07 16:27:08 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: INSTALL.CFG;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EA32
+-- Size of extent: 140344
+-- Recording date/time: 1996-06-07 04:16:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: INSTALL.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F015
+-- Size of extent: 9216
+-- Recording date/time: 1995-10-13 17:54:38 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: ISETUP.EXE;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00036D40
+-- Size of extent: 60636584
+-- Recording date/time: 1996-07-23 12:09:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MAKINGOF.AVI;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EA77
+-- Size of extent: 403
+-- Recording date/time: 1996-09-04 11:31:08 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: MENU.INI;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFDC
+-- Size of extent: 11397
+-- Recording date/time: 1996-08-28 15:50:20 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: README.BAK;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFD2
+-- Size of extent: 11417
+-- Recording date/time: 1996-09-05 11:12:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: README.TXT;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EB68
+-- Size of extent: 766
+-- Recording date/time: 1996-01-22 17:43:56 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: SETSND.ICO;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E5C6
+-- Size of extent: 45
+-- Recording date/time: 1995-11-16 11:33:50 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: SETSOUND.BAT;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E428
+-- Size of extent: 470449
+-- Recording date/time: 1996-04-12 14:17:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: SETSOUND.EXE;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED56
+-- Size of extent: 1889
+-- Recording date/time: 1996-04-12 14:17:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: SETSOUND.INI;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE61
+-- Size of extent: 3193
+-- Recording date/time: 1996-09-04 17:31:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: SETUP.CFG;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E9E4
+-- Size of extent: 157085
+-- Recording date/time: 1995-11-08 04:02:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: SETUP.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EB95
+-- Size of extent: 83774
+-- Recording date/time: 1995-09-27 14:09:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: SMIDET.386;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E5C7
+-- Size of extent: 317317
+-- Recording date/time: 1995-09-27 14:09:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: SMIDRV.386;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EAB8
+-- Size of extent: 117852
+-- Recording date/time: 1995-09-27 14:09:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: SMIMDRV.386;1
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001E
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:31 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 5
+-- File identifier: SOUND
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000015
+-- Size of extent: 4096
+-- Recording date/time: 1996-09-07 17:22:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF80
+-- Size of extent: 6864
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: ACMCMPRS.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE24
+-- Size of extent: 39985
+-- Recording date/time: 1994-09-01 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: AVICAP.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED57
+-- Size of extent: 52476
+-- Recording date/time: 1994-03-02 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: AVIFILE.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E662
+-- Size of extent: 92
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: CLEANUP.RE_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED20
+-- Size of extent: 54527
+-- Recording date/time: 1994-03-02 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: COMPOBJ.DL_;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F00B
+-- Size of extent: 8269
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: CTL3D.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEBB
+-- Size of extent: 3722
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: DISPDIB.DL_;1
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ECE5
+-- Size of extent: 1580
+-- Recording date/time: 1994-09-01 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 9
+-- File identifier: DVA.38_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE76
+-- Size of extent: 32485
+-- Recording date/time: 1994-09-01 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: ICCVID.DR_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F02E
+-- Size of extent: 9621
+-- Recording date/time: 1994-09-01 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: IMAADPCM.AC_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEBD
+-- Size of extent: 28074
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: INIUPD.DL_;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EC3B
+-- Size of extent: 73631
+-- Recording date/time: 1995-10-20 00:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: IR32.DL_;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E925
+-- Size of extent: 215459
+-- Recording date/time: 1995-11-09 00:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: IR41.DL_;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF53
+-- Size of extent: 18533
+-- Recording date/time: 1995-03-22 00:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: IYVU9.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF17
+-- Size of extent: 4534
+-- Recording date/time: 1995-10-20 10:59:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: LICENSE.TXT;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFB9
+-- Size of extent: 7669
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MAP_WIN.HL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EDF7
+-- Size of extent: 41004
+-- Recording date/time: 1994-03-02 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: MCIAVI.DR_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF5D
+-- Size of extent: 5326
+-- Recording date/time: 1994-03-02 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: MCIOLE.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED03
+-- Size of extent: 55904
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MPLAYER.EX_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE63
+-- Size of extent: 33303
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MPLAYER.HL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EAB7
+-- Size of extent: 412
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MPLAYER.RE_;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEAC
+-- Size of extent: 30274
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: MSACM.DL_;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFBD
+-- Size of extent: 12743
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: MSACM.DR_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFEC
+-- Size of extent: 8046
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MSADPCM.AC_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE3A
+-- Size of extent: 37722
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSCOMSTF.DL_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF8C
+-- Size of extent: 6911
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSCPYDIS.DL_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED3B
+-- Size of extent: 1728
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSCPYDIS.IN_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF9C
+-- Size of extent: 13841
+-- Recording date/time: 1995-10-20 11:18:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSCUISTF.DL_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEDA
+-- Size of extent: 3742
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSDETECT.IN_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFA7
+-- Size of extent: 13519
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSDETSTF.DL_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE4F
+-- Size of extent: 36858
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSINSSTF.DL_;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF50
+-- Size of extent: 5284
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: MSRLE.DR_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFF6
+-- Size of extent: 8234
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSSHLSTF.DL_;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE98
+-- Size of extent: 3611
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MSUILSTF.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF46
+-- Size of extent: 20291
+-- Recording date/time: 1993-11-18 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: MSVIDC.DR_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EC83
+-- Size of extent: 65647
+-- Recording date/time: 1995-03-16 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MSVIDEO.DL_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EC60
+-- Size of extent: 67614
+-- Recording date/time: 1994-09-01 23:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MSVIDEO.NT_;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000017
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E6FB
+-- Size of extent: 295087
+-- Recording date/time: 1995-12-15 10:45:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 8
+-- File identifier: DATA.Z;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E0E8
+-- Size of extent: 3
+-- Recording date/time: 1995-05-01 12:01:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: DISK1.ID;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EA78
+-- Size of extent: 128512
+-- Recording date/time: 1995-07-11 18:59:40 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: ISDBGN.DLL;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF26
+-- Size of extent: 4651
+-- Recording date/time: 1995-10-20 16:01:12 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: LICENSE.TXT;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFFB
+-- Size of extent: 10840
+-- Recording date/time: 1995-12-15 10:40:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: README32.TXT;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ECE6
+-- Size of extent: 56798
+-- Recording date/time: 1995-09-26 14:44:24 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: SETUP.BMP;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EDDE
+-- Size of extent: 46592
+-- Recording date/time: 1995-08-02 00:18:28 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: SETUP.EXE;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ECC6
+-- Size of extent: 61968
+-- Recording date/time: 1995-12-15 10:45:22 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: SETUP.INS;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E78C
+-- Size of extent: 99
+-- Recording date/time: 1995-12-15 10:45:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: SETUP.PKG;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E78D
+-- Size of extent: 294520
+-- Recording date/time: 1995-08-02 02:19:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: _INST32I.EX_;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFC4
+-- Size of extent: 7680
+-- Recording date/time: 1995-07-26 15:17:14 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: _ISDEL.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F01A
+-- Size of extent: 9728
+-- Recording date/time: 1995-06-12 02:07:46 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: _SETUP.DLL;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EDA8
+-- Size of extent: 49775
+-- Recording date/time: 1995-10-20 16:04:26 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: _SETUP.LIB;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000018
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x00000019
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 4
+-- File identifier: FONT
+-----
+-- Directory record length: 36
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001A
+-- Size of extent: 4096
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 3
+-- File identifier: FST
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001C
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 5
+-- File identifier: OTHER
+-----
+-- Directory record length: 36
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001D
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 3
+-- File identifier: PAL
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001E
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:31 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:31 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001F
+-- Size of extent: 4096
+-- Recording date/time: 1996-09-07 17:22:31 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 5
+-- File identifier: MUSIC
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000014
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 36
+-- Extended attribute length: 0
+-- Location of extent: 0x00000022
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 3
+-- File identifier: ATI
+-----
+-- Directory record length: 36
+-- Extended attribute length: 0
+-- Location of extent: 0x00000023
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 3
+-- File identifier: C&T
+-----
+-- Directory record length: 40
+-- Extended attribute length: 0
+-- Location of extent: 0x00000024
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 6
+-- File identifier: EVEREX
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E50E
+-- Size of extent: 45
+-- Recording date/time: 1987-07-17 07:27:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: FILE_ID.DIZ;1
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x00000025
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 8
+-- File identifier: GENCAD3D
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x00000026
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 5
+-- File identifier: GENOA
+-----
+-- Directory record length: 40
+-- Extended attribute length: 0
+-- Location of extent: 0x00000027
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 6
+-- File identifier: ORCHID
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x00000028
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 8
+-- File identifier: PARADISE
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ECA4
+-- Size of extent: 1482
+-- Recording date/time: 1990-10-08 16:40:18 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 9
+-- File identifier: READ.ME;1
+-----
+-- Directory record length: 40
+-- Extended attribute length: 0
+-- Location of extent: 0x00000029
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 7
+-- File identifier: SAMPLES
+-----
+-- Directory record length: 38
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002A
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 5
+-- File identifier: SIGMA
+-----
+-- Directory record length: 36
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002B
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 3
+-- File identifier: STB
+-----
+-- Directory record length: 40
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002C
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 6
+-- File identifier: TECMAR
+-----
+-- Directory record length: 40
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002D
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 6
+-- File identifier: VIDEO7
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000019
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000018
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0002BF46
+-- Size of extent: 87892
+-- Recording date/time: 1996-07-08 11:11:50 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: HARVFNT2.CFT;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0002B5E3
+-- Size of extent: 87892
+-- Recording date/time: 1996-07-08 11:12:40 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: HARVFONT.CFT;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00029E0E
+-- Size of extent: 19144
+-- Recording date/time: 1996-07-07 21:23:32 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MEDFONT1.CFT;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0002AA02
+-- Size of extent: 19144
+-- Recording date/time: 1996-07-07 21:23:40 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MEDFONT2.CFT;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0002772D
+-- Size of extent: 10972
+-- Recording date/time: 1996-07-07 21:23:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: TEXTFNT2.CFT;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00028C7E
+-- Size of extent: 10972
+-- Recording date/time: 1996-07-07 21:23:46 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: TEXTFONT.CFT;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001A
+-- Size of extent: 4096
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000018
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002DE25
+-- Size of extent: 270482
+-- Recording date/time: 1996-08-01 18:20:56 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: ALARM.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00027733
+-- Size of extent: 11161779
+-- Recording date/time: 1996-08-01 15:53:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C005.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00028C84
+-- Size of extent: 9193860
+-- Recording date/time: 1996-08-01 16:55:20 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C007.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00033BC5
+-- Size of extent: 518393
+-- Recording date/time: 1996-08-01 16:56:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C008A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002DEAA
+-- Size of extent: 3244390
+-- Recording date/time: 1996-08-01 16:58:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C008B.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002F586
+-- Size of extent: 2383391
+-- Recording date/time: 1996-08-01 17:01:24 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C011.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00036693
+-- Size of extent: 1110272
+-- Recording date/time: 1996-08-01 17:02:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C016A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003096B
+-- Size of extent: 2050766
+-- Recording date/time: 1996-08-01 17:04:38 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C019B.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x000368B2
+-- Size of extent: 1202903
+-- Recording date/time: 1996-08-01 17:05:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C021.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002E563
+-- Size of extent: 2545911
+-- Recording date/time: 1996-08-01 17:07:50 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C022A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002F040
+-- Size of extent: 2453786
+-- Recording date/time: 1996-08-01 17:09:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C022B.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002FAA9
+-- Size of extent: 2306579
+-- Recording date/time: 1996-08-01 17:11:50 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C023A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00031BD5
+-- Size of extent: 1896733
+-- Recording date/time: 1996-08-01 17:13:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C025A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x000353CE
+-- Size of extent: 1275982
+-- Recording date/time: 1996-08-05 11:51:28 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C025B.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00033133
+-- Size of extent: 1555383
+-- Recording date/time: 1996-08-05 11:54:12 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C027A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00033507
+-- Size of extent: 1555383
+-- Recording date/time: 1996-08-05 11:56:18 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C027B.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00034FD6
+-- Size of extent: 1325749
+-- Recording date/time: 1996-08-01 17:16:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C028.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002AA0C
+-- Size of extent: 6206082
+-- Recording date/time: 1996-08-01 17:22:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C044.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00035E0B
+-- Size of extent: 944725
+-- Recording date/time: 1996-08-05 11:57:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C048.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002D00A
+-- Size of extent: 3764920
+-- Recording date/time: 1996-08-01 17:26:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C050.FST;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003129D
+-- Size of extent: 2043294
+-- Recording date/time: 1996-08-01 17:28:32 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: C050PCHO.FST;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003173F
+-- Size of extent: 2018220
+-- Recording date/time: 1996-08-01 17:30:22 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: C050SHER.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x000328D5
+-- Size of extent: 1776862
+-- Recording date/time: 1996-08-01 17:31:58 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C051.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00029E18
+-- Size of extent: 6246195
+-- Recording date/time: 1996-08-01 17:37:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C052.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00035FD9
+-- Size of extent: 1223586
+-- Recording date/time: 1996-08-01 17:38:40 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C053.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002E4DB
+-- Size of extent: 277173
+-- Recording date/time: 1996-08-05 14:46:46 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C055.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002D739
+-- Size of extent: 245310
+-- Recording date/time: 1996-08-01 17:39:12 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C057.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003342B
+-- Size of extent: 449611
+-- Recording date/time: 1996-08-01 17:40:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C058.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00034706
+-- Size of extent: 627507
+-- Recording date/time: 1996-08-01 17:40:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C060.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00034ACC
+-- Size of extent: 627507
+-- Recording date/time: 1996-08-05 13:53:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C060A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002FF10
+-- Size of extent: 324927
+-- Recording date/time: 1996-08-01 17:41:18 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C063A.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x000303F7
+-- Size of extent: 324927
+-- Recording date/time: 1996-08-01 17:41:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C063B.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002C770
+-- Size of extent: 225190
+-- Recording date/time: 1996-08-05 14:34:04 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C063D.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x000308CB
+-- Size of extent: 326620
+-- Recording date/time: 1996-08-01 17:43:08 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: C063E.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002FFAF
+-- Size of extent: 2243428
+-- Recording date/time: 1996-08-01 17:45:32 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C070.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00034E90
+-- Size of extent: 665805
+-- Recording date/time: 1996-08-01 17:46:16 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C083.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x000311E9
+-- Size of extent: 366745
+-- Recording date/time: 1996-08-01 17:46:56 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C085.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0002B60E
+-- Size of extent: 4832080
+-- Recording date/time: 1996-08-01 17:51:14 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C086.FST;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x00030E01
+-- Size of extent: 2046515
+-- Recording date/time: 1996-08-01 17:52:50 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: C091.FST;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001C
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000018
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00025273
+-- Size of extent: 7199
+-- Recording date/time: 1995-12-18 14:26:50 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: CENSORED.PCX;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0002FA12
+-- Size of extent: 307212
+-- Recording date/time: 1996-07-30 10:21:28 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: INVHELP.BM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0002EFA9
+-- Size of extent: 307212
+-- Recording date/time: 1996-07-30 10:21:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: KEYSHELP.BM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0002F4EF
+-- Size of extent: 307212
+-- Recording date/time: 1996-07-30 10:20:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MOUSHELP.BM;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001D
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000018
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x000204BD
+-- Size of extent: 768
+-- Recording date/time: 1996-07-30 10:21:28 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: INVHELP.PAL;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001F
+-- Size of extent: 4096
+-- Recording date/time: 1996-09-07 17:22:31 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000001E
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:31 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x00020340
+-- Size of extent: 778841
+-- Recording date/time: 1996-03-14 10:15:06 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: ANXIETY.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0002007D
+-- Size of extent: 778841
+-- Recording date/time: 1996-03-14 10:15:06 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: ANXIETY1.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001EF77
+-- Size of extent: 511769
+-- Recording date/time: 1996-03-14 10:21:08 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: BARBER1.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001F21B
+-- Size of extent: 511769
+-- Recording date/time: 1996-03-14 10:21:08 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: BARBER2.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001A21D
+-- Size of extent: 322073
+-- Recording date/time: 1996-03-14 10:20:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: BATHDRP1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001A5C4
+-- Size of extent: 322073
+-- Recording date/time: 1996-03-14 10:20:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: BATHDRP2.CMP;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0001C4DC
+-- Size of extent: 352025
+-- Recording date/time: 1996-03-14 10:21:26 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: BEES1.CMP;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0001C1FB
+-- Size of extent: 352025
+-- Recording date/time: 1996-03-14 10:21:26 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: BEES2.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001935A
+-- Size of extent: 1869785
+-- Recording date/time: 1996-03-14 10:30:56 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: BEYOND.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001972A
+-- Size of extent: 1869785
+-- Recording date/time: 1996-03-14 10:30:56 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: BEYOND1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001D33D
+-- Size of extent: 496279
+-- Recording date/time: 1996-03-14 10:34:58 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: COWBOYS1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001D622
+-- Size of extent: 496279
+-- Recording date/time: 1996-03-14 10:34:58 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: COWBOYS2.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00019ABB
+-- Size of extent: 182490
+-- Recording date/time: 1996-03-14 10:20:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: CRICKET1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00019E6C
+-- Size of extent: 182490
+-- Recording date/time: 1996-03-14 10:20:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: CRICKET4.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001A662
+-- Size of extent: 1590041
+-- Recording date/time: 1996-03-14 10:18:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: DINER1.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001A2BB
+-- Size of extent: 1590041
+-- Recording date/time: 1996-03-14 10:18:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: DINER2.CMP;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0001BF13
+-- Size of extent: 347929
+-- Recording date/time: 1996-03-14 10:32:20 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: DNA1.CMP;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0001B932
+-- Size of extent: 347929
+-- Recording date/time: 1996-03-14 10:32:20 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: DNA2.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00016D6A
+-- Size of extent: 38041
+-- Recording date/time: 1996-03-19 14:09:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: DOGBARK1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x00016D7D
+-- Size of extent: 38041
+-- Recording date/time: 1996-03-19 14:09:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: DOGBARK2.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001C2A7
+-- Size of extent: 1156632
+-- Recording date/time: 1996-03-14 10:19:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: FACTORY1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001C588
+-- Size of extent: 1156632
+-- Recording date/time: 1996-03-14 10:19:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: FACTORYB.CMP;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x000196EB
+-- Size of extent: 128026
+-- Recording date/time: 1996-03-19 14:08:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: FIRE1.CMP;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0001931B
+-- Size of extent: 128026
+-- Recording date/time: 1996-03-19 14:08:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: FIRE2.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001B639
+-- Size of extent: 347929
+-- Recording date/time: 1996-03-14 10:24:20 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: FIRESTA1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001CB4C
+-- Size of extent: 1139737
+-- Recording date/time: 1996-03-14 10:25:04 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: FIRESTA2.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001BC2B
+-- Size of extent: 347929
+-- Recording date/time: 1996-03-14 10:24:20 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: FIRESTA3.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001C86E
+-- Size of extent: 1139737
+-- Recording date/time: 1996-03-14 10:25:04 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: FIRESTA4.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001B6E3
+-- Size of extent: 1209881
+-- Recording date/time: 1996-03-14 10:17:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: GRAVEYD1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001B9DC
+-- Size of extent: 1209881
+-- Recording date/time: 1996-03-14 10:17:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: GRAVEYD2.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001AD7C
+-- Size of extent: 1458201
+-- Recording date/time: 1996-03-14 10:24:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: HOTEL1.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001AA0F
+-- Size of extent: 1458201
+-- Recording date/time: 1996-03-14 10:24:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: HOTEL2.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001DBE9
+-- Size of extent: 499865
+-- Recording date/time: 1996-03-14 10:15:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: KITCHEN1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001D907
+-- Size of extent: 499865
+-- Recording date/time: 1996-03-14 10:15:34 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: KITCHEN2.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001EB0F
+-- Size of extent: 898201
+-- Recording date/time: 1996-03-14 10:16:58 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: MENACE.CMP;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0001EDC0
+-- Size of extent: 898201
+-- Recording date/time: 1996-03-14 10:16:58 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: MENACE1.CMP;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0001BFBD
+-- Size of extent: 1173721
+-- Recording date/time: 1996-03-14 10:29:16 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: MILITAR1.CMP;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000022
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EECB
+-- Size of extent: 3736
+-- Recording date/time: 1990-05-15 11:56:22 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: VVESA.COM;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000023
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EA31
+-- Size of extent: 392
+-- Recording date/time: 1990-08-14 18:40:16 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: README.TXT;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F001
+-- Size of extent: 8245
+-- Recording date/time: 1990-04-04 16:55:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: SETVESA.EXE;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E6FA
+-- Size of extent: 97
+-- Recording date/time: 1990-04-17 10:26:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: V452.BAT;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF08
+-- Size of extent: 4413
+-- Recording date/time: 1990-04-17 10:24:12 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: VESA.INC;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EC5F
+-- Size of extent: 1394
+-- Recording date/time: 1990-08-14 19:24:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESA451.COM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF29
+-- Size of extent: 23862
+-- Recording date/time: 1990-04-18 08:14:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESA452.ASM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED1F
+-- Size of extent: 1725
+-- Recording date/time: 1990-08-14 18:38:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESA452.COM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EDA6
+-- Size of extent: 2302
+-- Recording date/time: 1990-04-17 10:23:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESA452.INC;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF60
+-- Size of extent: 17125
+-- Recording date/time: 1990-04-26 09:48:08 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: VTEST.EXE;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000024
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEF9
+-- Size of extent: 4228
+-- Recording date/time: 1990-02-12 08:04:12 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: EVRXVESA.COM;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF69
+-- Size of extent: 5338
+-- Recording date/time: 1990-09-19 08:14:26 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: EVRXVESA.OUT;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EB2D
+-- Size of extent: 716
+-- Recording date/time: 1990-10-04 18:19:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: README.DOC;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEE9
+-- Size of extent: 4207
+-- Recording date/time: 1990-01-30 14:28:46 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: VESA.COM;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE0E
+-- Size of extent: 40057
+-- Recording date/time: 1990-01-11 07:43:14 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: VESA.DOC;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E326
+-- Size of extent: 9
+-- Recording date/time: 1990-01-30 13:50:26 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESAOFF.COM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E427
+-- Size of extent: 9
+-- Recording date/time: 1990-01-30 13:50:38 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: VESAON.COM;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000025
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEFC
+-- Size of extent: 24467
+-- Recording date/time: 1990-09-19 08:09:14 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESA16L.VGD;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF98
+-- Size of extent: 6992
+-- Recording date/time: 1990-09-19 08:09:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESA16S.VGD;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EEDC
+-- Size of extent: 25441
+-- Recording date/time: 1990-09-19 08:09:40 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESA256L.VGD;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFAE
+-- Size of extent: 7436
+-- Recording date/time: 1990-09-19 08:09:26 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESA256S.VGD;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000026
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F024
+-- Size of extent: 9712
+-- Recording date/time: 1990-04-11 16:10:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: GENBOX.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF84
+-- Size of extent: 15518
+-- Recording date/time: 1990-04-11 15:23:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: GENBOX.PAS;1
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E9E3
+-- Size of extent: 382
+-- Recording date/time: 1990-09-26 17:42:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 9
+-- File identifier: READ.ME;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE38
+-- Size of extent: 2857
+-- Recording date/time: 1990-08-31 15:27:04 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: VESA.COM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F038
+-- Size of extent: 9536
+-- Recording date/time: 1990-01-11 07:42:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESABOX.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF6C
+-- Size of extent: 15798
+-- Recording date/time: 1990-01-11 07:42:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESABOX.PAS;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFCE
+-- Size of extent: 7856
+-- Recording date/time: 1990-01-11 07:42:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESAMODE.EXE;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000027
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED71
+-- Size of extent: 1972
+-- Recording date/time: 1990-10-05 13:20:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: ORCHDVSA.COM;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ECC5
+-- Size of extent: 1499
+-- Recording date/time: 1990-10-05 13:20:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: README.DOC;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000028
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EBBE
+-- Size of extent: 911
+-- Recording date/time: 1990-08-22 15:09:02 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 9
+-- File identifier: READ.ME;1
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EC82
+-- Size of extent: 1447
+-- Recording date/time: 1990-09-13 13:30:38 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 10
+-- File identifier: VESA.EXE;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000029
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 44
+-- Extended attribute length: 0
+-- Location of extent: 0x0003ED72
+-- Size of extent: 51109
+-- Recording date/time: 1989-12-26 16:25:04 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 11
+-- File identifier: GARYL.PCX;1
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EC11
+-- Size of extent: 1204
+-- Recording date/time: 1990-10-04 18:26:52 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 9
+-- File identifier: READ.ME;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF43
+-- Size of extent: 4752
+-- Recording date/time: 1990-01-11 07:43:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: SAVEVESA.EXE;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EDF5
+-- Size of extent: 2452
+-- Recording date/time: 1990-01-11 07:42:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: SAVEVESA.PAS;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFE2
+-- Size of extent: 7984
+-- Recording date/time: 1990-01-11 07:42:42 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: TESTVESA.EXE;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F010
+-- Size of extent: 9821
+-- Recording date/time: 1990-01-11 07:42:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: TESTVESA.PAS;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE88
+-- Size of extent: 32326
+-- Recording date/time: 1989-11-27 10:56:32 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: TETRIS.PCX;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F03D
+-- Size of extent: 9536
+-- Recording date/time: 1990-01-11 07:42:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESABOX.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF78
+-- Size of extent: 15798
+-- Recording date/time: 1990-01-11 07:42:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESABOX.PAS;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F029
+-- Size of extent: 9360
+-- Recording date/time: 1990-04-17 08:25:24 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESALIST.EXE;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF90
+-- Size of extent: 14700
+-- Recording date/time: 1990-04-17 08:25:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESALIST.PAS;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFD8
+-- Size of extent: 7856
+-- Recording date/time: 1990-01-11 07:42:48 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESAMODE.EXE;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F006
+-- Size of extent: 9836
+-- Recording date/time: 1990-01-11 07:42:30 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESAMODE.PAS;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFB2
+-- Size of extent: 13312
+-- Recording date/time: 1990-10-05 05:44:50 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESAPCX.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EF0B
+-- Size of extent: 24448
+-- Recording date/time: 1990-10-05 05:44:38 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VESAPCX.PAS;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002A
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003E924
+-- Size of extent: 173
+-- Recording date/time: 1990-10-04 18:06:32 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 9
+-- File identifier: READ.ME;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EC3A
+-- Size of extent: 1279
+-- Recording date/time: 1990-09-18 12:00:00 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: SIGVESA.COM;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002B
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 42
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EBE8
+-- Size of extent: 1098
+-- Recording date/time: 1990-09-28 16:44:18 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 9
+-- File identifier: READ.ME;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EE22
+-- Size of extent: 2721
+-- Recording date/time: 1990-09-28 16:27:36 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: STB-VESA.COM;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002C
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EFA3
+-- Size of extent: 7360
+-- Recording date/time: 1990-09-24 10:50:14 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: VESATEST.C;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F033
+-- Size of extent: 9433
+-- Recording date/time: 1990-09-24 10:48:10 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESATEST.EXE;1
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EDDC
+-- Size of extent: 2388
+-- Recording date/time: 1990-04-18 18:15:32 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 13
+-- File identifier: VGAVESA.COM;1
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x0000002D
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 34
+-- Extended attribute length: 0
+-- Location of extent: 0x00000021
+-- Size of extent: 2048
+-- Recording date/time: 1996-09-07 17:22:44 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? true
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 1
+-- File identifier: 
+-----
+-- Directory record length: 46
+-- Extended attribute length: 0
+-- Location of extent: 0x0003EDC1
+-- Size of extent: 2346
+-- Recording date/time: 1990-09-17 15:08:54 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 12
+-- File identifier: V7VESA.COM;1
+-----
+-- Directory record length: 48
+-- Extended attribute length: 0
+-- Location of extent: 0x0003F01F
+-- Size of extent: 9360
+-- Recording date/time: 1990-04-17 08:25:24 (GMT-12)
+-- File flags:
+--- Hidden? false
+--- Directory? false
+--- Associated file? false
+--- Format info in extended attrib. record? false
+--- Owner/group perms in extended attrib. record? false
+--- Not final directory record? false
+-- File unit size: 0
+-- Interleave gap size: 0
+-- Volume sequence number: 1
+-- File identifier length: 14
+-- File identifier: VESALIST.EXE;1

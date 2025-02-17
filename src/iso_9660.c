@@ -488,20 +488,27 @@ extract_pvd_fs (FILE *input_fptr, Iso9660FileSystem_t *fs,
       goto clean_up3;
     }
 
-  size_t *dr_list_lens
-      = calloc (LIST_DIR_RECORD_STARTING_NUM_ENTRIES, sizeof (size_t));
+  size_t *dr_list_lens = calloc (max_num_ptable_entries, sizeof (size_t));
+  if (dr_list_lens == NULL)
+    goto clean_up4;
+
   if (populate_directory_record_list (input_fptr, block_size, root_pt_entries,
                                       max_num_ptable_entries, dr_list,
                                       dr_list_lens)
       != 0)
-    goto clean_up4;
+    goto clean_up5;
 
+  free (dr_list_lens);
   u_free_list_of_elements ((void **)dr_list, max_num_ptable_entries);
   free (dr_list);
   u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
   free (path_list);
   free (root_pt_entries);
   return 0;
+
+  // FIXME: refactor all this lmao
+clean_up5:
+  free (dr_list_lens);
 clean_up4:
   free (dr_list);
 clean_up3:
@@ -687,7 +694,7 @@ calculate_pvd_vol_id_len (const char *volume_identifier)
   return i;
 }
 
-//FIXME: Finish implementing
+// FIXME: Finish implementing
 int
 populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
                                 PathTableEntry_t *pt_list, size_t pt_list_len,
@@ -720,6 +727,22 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
       j = 0;
       while (1)
         {
+          /*
+           *  "Even if a directory spans multiple sectors, the directory
+           *  entries are not permitted to cross the sector boundary ... where
+           *  there is not enough space to record an entire directory entry at
+           *  the end of a sector, that sector is zero-padded and the next
+           *  consecutive sector is used."
+           *  @see: https://wiki.osdev.org/ISO_9660#Directories
+           */
+          size_t curr_sector = (size_t)(ftell (input_fptr) / lbs);
+          size_t next_sector = (size_t)((ftell (input_fptr)
+                                         + sizeof (Iso9660DirectoryRecord_t))
+                                        / lbs);
+          if (next_sector != curr_sector) // Entry crosses sector boundary
+            fseek (input_fptr,
+                   (size_t)((ftell (input_fptr) + (lbs - 1)) / lbs), SEEK_SET);
+
           Iso9660DirectoryRecord_t dir;
           if (read_dir_rec_from_file (input_fptr, &dir) != 0)
             goto clean_up;
@@ -737,17 +760,13 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
                 {
                   fprintf (stderr, "ERROR: Failed to reallocate memory for "
                                    "directory record.");
-                  goto clean_up;
+                  goto realloc_failure;
                 }
               dr_list[i] = temp;
             }
 
           memcpy ((void *)&dr_list[i][j], &dir,
                   sizeof (Iso9660DirectoryRecord_t));
-
-          // tmp, for readability
-          puts ("-----");
-          print_dir_rec (&dr_list[i][j]);
           j++;
         }
 
@@ -755,6 +774,8 @@ populate_directory_record_list (FILE *input_fptr, uint16_t lbs,
     }
 
   return 0;
+realloc_failure:
+  u_free_partial_list_elements ((void **)&dr_list[i], 0, j);
 clean_up:
   u_free_partial_list_elements ((void **)dr_list, 0, i);
   return -1;
