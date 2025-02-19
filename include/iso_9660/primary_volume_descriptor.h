@@ -1,7 +1,7 @@
 #ifndef _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_
 #define _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_
 
-#include "ISO9660/directory_record.h"
+#include "iso_9660/directory_record.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -68,5 +68,8 @@ int read_pvd_data_from_file (FILE *fptr,
  *  @see `ISO9660PrimaryVolumeDescriptorData_t`
  */
 void print_pvd_data (ISO9660PrimaryVolumeDescriptorData_t *pvdd);
+int extract_pvd_fs (FILE *input_fptr,
+                    ISO9660PrimaryVolumeDescriptorData_t *pvd,
+                    const char *output_dir_path);
 
 #endif /* _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_ */

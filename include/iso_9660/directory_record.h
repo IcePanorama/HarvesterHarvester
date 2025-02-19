@@ -1,6 +1,8 @@
 #ifndef _ISO_9660_DIRECTORY_RECORD_
 #define _ISO_9660_DIRECTORY_RECORD_
 
+#include "iso_9660/path_table_entry.h"
+
 #include <stdint.h>
 #include <stdio.h>
 
@@ -42,7 +44,15 @@ typedef struct ISO9660DirectoryRecord_s
  *  @returns zero on success, non-zero on failure.
  *  @see `ISO9660DirectoryRecord_t`.
  */
-int read_dir_rec_from_file (FILE *fptr, ISO9660DirectoryRecord_t *dr);
-void print_dir_rec (ISO9660DirectoryRecord_t *dr);
+int read_dir_rec_from_file (FILE fptr[static 1],
+                            ISO9660DirectoryRecord_t dr[static 1]);
+void print_dir_rec (ISO9660DirectoryRecord_t dr[static 1]);
+
+int
+populate_directory_record_list (FILE input_fptr[static 1], uint16_t lbs,
+                                ISO9660PathTableEntry_t pt_list[static 1],
+                                size_t pt_list_len,
+                                ISO9660DirectoryRecord_t *dr_list[static 1],
+                                size_t dr_list_lens[static 1]);
 
 #endif /* _ISO_9660_DIRECTORY_RECORD_ */

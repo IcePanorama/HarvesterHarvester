@@ -1,7 +1,7 @@
 #ifndef _ISO_9660_FILESYSTEM_H_
 #define _ISO_9660_FILESYSTEM_H_
 
-#include "ISO9660/primary_volume_descriptor.h"
+#include "iso_9660/primary_volume_descriptor.h"
 
 #include <stdint.h>
 #include <stdio.h>
