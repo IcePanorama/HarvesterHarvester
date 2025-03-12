@@ -13,11 +13,10 @@ typedef struct ISO9660PathTableEntry_s
   char directory_identifier[UINT8_MAX];
 } ISO9660PathTableEntry_t;
 
-int alloc_pt_entries_array (ISO9660PathTableEntry_t **pts, size_t size);
-int read_path_tables_from_file (FILE input_fptr[static 1],
-                                ISO9660PathTableEntry_t *pt_list[static 1],
-                                size_t ptable_entries_len[static 1],
-                                uint32_t pt_start_loc, uint32_t pt_size);
+int extract_path_tables (FILE input_fptr[static 1],
+                         ISO9660PathTableEntry_t *pt_list[static 1],
+                         size_t ptable_entries_len[static 1],
+                         uint32_t pt_start_loc, uint32_t pt_size);
 
 /**
  *  Creates a path string for every entry in a given path table.

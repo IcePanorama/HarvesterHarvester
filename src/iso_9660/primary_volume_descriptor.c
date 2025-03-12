@@ -144,90 +144,74 @@ print_pvd_date_time (const char *date_time_identifier,
           (-48 + dt->timezone) >> 2);
 }
 
+// int8_t extract_pvd_fs (FILE *input_fptr, ISO9660FileSystem_t *fs, const char
+// *output_dir_path)
 int
 extract_pvd_fs (FILE *input_fptr, ISO9660PrimaryVolumeDescriptorData_t *pvd,
                 const char *output_dir_path)
 {
-  int ret = 0; // return value of `extract_pvd_fs`.
-
-  // tmp, for refactoring
-  /* Read path tables from file. */
   size_t max_num_ptable_entries = (PTABLE_STARTING_NUM_ENTRIES);
-  // FIXME: This should be alloc'd and freed out here.
   ISO9660PathTableEntry_t *root_pt_entries = NULL;
-  alloc_pt_entries_array (&root_pt_entries, max_num_ptable_entries);
-  ret = (root_pt_entries != NULL) ? 0 : -1;
+  extract_path_tables (input_fptr, &root_pt_entries, &max_num_ptable_entries,
+                       pvd->type_l_path_table_location
+                           * pvd->logical_block_size,
+                       pvd->path_table_size);
 
-  if (ret != 0)
-    goto fn_end;
-
-  ret = read_path_tables_from_file (
-      input_fptr, &root_pt_entries, &max_num_ptable_entries,
-      pvd->type_l_path_table_location * pvd->logical_block_size,
-      pvd->path_table_size);
-  if (ret != 0)
-    goto pt_failure;
-  /*******************************/
-
-  /* Build path list. */
+  // 2
   char **path_list = calloc (max_num_ptable_entries, sizeof (char *));
-  ret = (path_list != NULL) ? 0 : -1;
-  if (ret != 0)
+  if (path_list == NULL)
     {
       fprintf (stderr,
                "ERROR: Failed to allocate memory for list of path strings.\n");
-      goto path_list_calloc_failure;
+      goto clean_up;
     }
 
-  ret = build_paths_from_pt_list (root_pt_entries, path_list,
-                                  max_num_ptable_entries,
-                                  pvd->volume_identifier, output_dir_path);
-  if (ret != 0)
-    goto path_list_general_failure;
-  /********************/
+  if (build_paths_from_pt_list (root_pt_entries, path_list,
+                                max_num_ptable_entries, pvd->volume_identifier,
+                                output_dir_path)
+      != 0)
+    goto clean_up2;
 
-  /* Process directory records. */
+  // 3
   ISO9660DirectoryRecord_t **dr_list;
   dr_list
       = calloc (max_num_ptable_entries, sizeof (ISO9660DirectoryRecord_t *));
-  ret = (dr_list != NULL) ? 0 : -1;
-  if (ret != 0)
+  if (dr_list == NULL)
     {
       fprintf (
           stderr,
           "ERROR: Failed to allocate memory for directory record list.\n");
-      goto dr_list_calloc_failure;
+      goto clean_up3;
     }
 
   size_t *dr_list_lens = calloc (max_num_ptable_entries, sizeof (size_t));
-  ret = (dr_list != NULL) ? 0 : -1;
   if (dr_list_lens == NULL)
-    {
-      // FIXME: awful error message.
-      fprintf (stderr, "ERROR: Failed to allocate memory for directory record "
-                       "list lengths list.\n");
-      goto dr_list_lens_calloc_failure;
-    }
+    goto clean_up4;
 
-  ret = populate_directory_record_list (
-      input_fptr, pvd->logical_block_size, root_pt_entries,
-      max_num_ptable_entries, dr_list, dr_list_lens);
-  if (ret != 0)
-    goto dr_list_pop_failure;
-  /******************************/
+  if (populate_directory_record_list (input_fptr, pvd->logical_block_size,
+                                      root_pt_entries, max_num_ptable_entries,
+                                      dr_list, dr_list_lens)
+      != 0)
+    goto clean_up5;
 
-dr_list_pop_failure:
   free (dr_list_lens);
   u_free_list_of_elements ((void **)dr_list, max_num_ptable_entries);
-dr_list_lens_calloc_failure:
   free (dr_list);
-dr_list_calloc_failure:
   u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
-path_list_general_failure:
   free (path_list);
-path_list_calloc_failure:
-pt_failure:
   free (root_pt_entries);
-fn_end:
-  return ret;
+  return 0;
+
+  // FIXME: refactor all this lmao
+clean_up5:
+  free (dr_list_lens);
+clean_up4:
+  free (dr_list);
+clean_up3:
+  u_free_list_of_elements ((void **)path_list, max_num_ptable_entries);
+clean_up2:
+  free (path_list);
+clean_up:
+  free (root_pt_entries);
+  return -1;
 }

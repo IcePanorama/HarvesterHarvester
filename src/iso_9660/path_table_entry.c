@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+static int alloc_pt_entries_array (ISO9660PathTableEntry_t **pts, size_t size);
 /**
  *  Processes all the entries in the path table that `input_fptr` currently
  *  points to, placing each entry in `pts` and updating `pt_max_size` as
@@ -30,12 +31,19 @@ static void print_pt (ISO9660PathTableEntry_t *pt);
 static int calculate_pvd_vol_id_len (const char *volume_identifier);
 
 int
-read_path_tables_from_file (FILE input_fptr[static 1],
-                            ISO9660PathTableEntry_t *pt_list[static 1],
-                            size_t ptable_entries_len[static 1],
-                            uint32_t pt_start_loc, uint32_t pt_size)
+extract_path_tables (FILE input_fptr[static 1],
+                     ISO9660PathTableEntry_t *pt_list[static 1],
+                     size_t ptable_entries_len[static 1],
+                     uint32_t pt_start_loc, uint32_t pt_size)
 {
+  // FIXME: now unnecessary to pass this in.
+  // size_t ptable_entries_len = (PTABLE_STARTING_NUM_ENTRIES);
+  if (alloc_pt_entries_array (pt_list, (*ptable_entries_len)) != 0)
+    return -1;
+
+  // FIXME: No longer necessary?
   uint64_t pt_end = pt_start_loc + pt_size;
+
   if (fseek (input_fptr, pt_start_loc, SEEK_SET) != 0)
     {
       fprintf (
@@ -45,11 +53,13 @@ read_path_tables_from_file (FILE input_fptr[static 1],
       goto clean_up;
     }
 
-  if (process_pt_entries (input_fptr, pt_list, ptable_entries_len, pt_end) != 0)
+  if (process_pt_entries (input_fptr, pt_list, ptable_entries_len, pt_end)
+      != 0)
     goto clean_up;
 
   return 0;
 clean_up:
+  free (*pt_list);
   return -1;
 }
 
@@ -201,7 +211,8 @@ build_paths_from_pt_list (ISO9660PathTableEntry_t pt_list[static 1],
     }
 
   // handle root dir, 2 for path separator & NULL-terminator
-  char *path = calloc (pvd_vol_id_len + strlen (output_dir) + 2, sizeof (char));
+  char *path
+      = calloc (pvd_vol_id_len + strlen (output_dir) + 2, sizeof (char));
   if (path == NULL)
     {
       u_free_partial_list_elements ((void **)path_list, 1, list_len);
