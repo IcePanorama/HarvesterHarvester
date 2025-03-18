@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.28)
+cmake_minimum_required(VERSION 3.30)
 
 project(HarvesterHarvester C)
 
@@ -6,7 +6,6 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 add_compile_options(
-    -std=c99
     -Wpedantic
     -Wextra
     -Werror
@@ -19,52 +18,53 @@ add_compile_options(
     -Wstringop-overflow=4
     -Wshadow
     -fanalyzer
-    -g
+    -g # TODO: exclude this from release builds
 )
 
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(SRC_FILES
-    "${SRC_DIR}/binary_reader.c"
-    "${SRC_DIR}/hh.c"
-    "${SRC_DIR}/iso_9660/filesystem.c"
-    "${SRC_DIR}/iso_9660/primary_volume_descriptor.c"
-    "${SRC_DIR}/iso_9660/directory_record.c"
-    "${SRC_DIR}/iso_9660/path_table_entry.c"
     "${SRC_DIR}/main.c"
-    "${SRC_DIR}/utils.c"
+    "${SRC_DIR}/harvester_harvester/hh.c"
+    "${SRC_DIR}/iso_9660/binary_reader.c"
+    "${SRC_DIR}/iso_9660/dir_rec.c"
+    "${SRC_DIR}/iso_9660/filesystem.c"
+    "${SRC_DIR}/iso_9660/fs_header.c"
+    "${SRC_DIR}/iso_9660/pri_vol_date_time.c"
+    "${SRC_DIR}/iso_9660/pri_vol_desc.c"
 )
 
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
 set(INCL_FILES
-    "${INCL_DIR}/binary_reader.h"
-    "${INCL_DIR}/hh.h"
+    "${INCL_DIR}/harvester_harvester/hh.h"
+    "${INCL_DIR}/iso_9660/binary_reader.h"
+    "${INCL_DIR}/iso_9660/dir_rec.h"
     "${INCL_DIR}/iso_9660/filesystem.h"
-    "${INCL_DIR}/iso_9660/primary_volume_descriptor.h"
-    "${INCL_DIR}/iso_9660/directory_record.h"
+    "${INCL_DIR}/iso_9660/fs_header.h"
     "${INCL_DIR}/iso_9660/path_table_entry.h"
-    "${INCL_DIR}/utils.h"
+    "${INCL_DIR}/iso_9660/pri_vol_date_time.h"
+    "${INCL_DIR}/iso_9660/pri_vol_desc.h"
 )
 
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
 add_executable(${PROJECT_NAME} ${SRC_FILES})
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_DIR})
 
-find_program(CLANG_FORMAT_EXECUTABLE NAMES clang-format)
-if(CLANG_FORMAT_EXECUTABLE)
+find_program(CLANG_FORMAT NAMES clang-format)
+if (CLANG_FORMAT)
     add_custom_target(format
-        COMMAND ${CLANG_FORMAT_EXECUTABLE} -style=GNU -i ${SRC_FILES} ${INCL_FILES}
+        COMMAND ${CLANG_FORMAT} -style=GNU -i ${SRC_FILES} ${INCL_FILES}
         COMMENT "Running clang-format on source files."
     )
 
     add_dependencies(${PROJECT_NAME} format)
-else()
+else () # not CLANG_FORMAT
     message(WARNING "clang-format not found. Code formatting skipped.")
-endif()
+endif ()
 
-find_program(VALGRIND_EXECUTABLE NAMES valgrind)
-if(VALGRIND_EXECUTABLE)
-    add_custom_target(test
-        COMMAND ${VALGRIND_EXECUTABLE} --leak-check=yes ./${PROJECT_NAME}
+find_program(VALGRIND NAMES valgrind)
+if (VALGRIND)
+    add_custom_target(leak_check
+        COMMAND ${VALGRIND} --leak-check=yes ./${PROJECT_NAME}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         COMMENT "Running valgrind leak check on executable."
     )
@@ -72,9 +72,9 @@ if(VALGRIND_EXECUTABLE)
     add_custom_target(full
         COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target clean
         COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}
-        COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target test
+        COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target leak_check
         COMMENT "Running full build (clean, format, build, & test)."
     )
-else()
+else () # not VALGRIND
     message(WARNING "valgrind not found. Memory leak check skipped.")
-endif()
+endif ()

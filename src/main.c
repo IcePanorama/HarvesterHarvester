@@ -1,12 +1,13 @@
-#include "hh.h"
+#include "harvester_harvester/hh.h"
+
+#include <stdlib.h>
 
 int
 main (void)
 {
-  const char *filename = "dat-files/HARVEST.DAT";
+  const char filename[] = "dat-files/HARVEST.DAT";
 
-  if (hh_extract_filesystem (filename, "output") != 0)
-    return -1;
+  int ret = hh_extract_filesystem (filename, "output");
 
-  return 0;
+  return ret == 0 ? EXIT_SUCCESS : EXIT_FAILURE;
 }

@@ -1,123 +1,143 @@
-#include "binary_reader.h"
-
 #include "iso_9660/filesystem.h"
+#include "iso_9660/fs_header.h"
+#include "iso_9660/pri_vol_desc.h"
 
-#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-#define PTABLE_STARTING_NUM_ENTRIES (10)
-#define LIST_DIR_RECORD_STARTING_NUM_ENTRIES ((PTABLE_STARTING_NUM_ENTRIES))
-
-/**
- *  Reads a volume descriptor type code from file.
- *  @returns zero on success, non-zero on failure.
- *  @see `enum VolumeDescriptorTypeCode_e`
- */
-static int8_t
-read_vd_type_code_from_file (FILE *fptr,
-                             enum VolumeDescriptorTypeCode_e *output);
-
-/**
- *  Outputs a filesystem in a human readiable form to stdout.
- *  @see `ISO9660FileSystem_t`
- */
-static void print_iso_9660_fs (ISO9660FileSystem_t *fs);
-
-int8_t
-iso_9660_create_filesystem_from_file (FILE fptr[static 1],
-                                      ISO9660FileSystem_t fs[static 1])
+/** See: https://wiki.osdev.org/ISO_9660. */
+struct ISO9660FileSystem_s
 {
-  memset (fs, 0, sizeof (ISO9660FileSystem_t));
-  if (fseek (fptr, 0x8000, SEEK_SET) != 0)
+  _FileSystem_Header_t header;
+
+  /** See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors. */
+  union _VolDescData_u
+  {
+    /** See: https://wiki.osdev.org/ISO_9660#The_Boot_Record. */
+    struct _BootRecVolDesc_s
+    {
+      char boot_system_identifier[32];
+      char boot_identifier[32];
+      uint8_t boot_system_data[1977]; // "Custom - used by the boot system."
+    } boot_vol_desc;
+
+    _PriVolDesc_t pri_vol_desc;
+
+    /**
+     *  Volume Descriptor Set Terminator data "does not define bytes 7-2047 of
+     *  its Volume Descriptor."
+     *  See: https://wiki.osdev.org/ISO_9660#Volume_Descriptor_Set_Terminator
+     *  TODO: decide: is it even worth creating a struct for this then?
+     *  In theory, we could put this into a (u)int8_t array.
+     */
+  } vol_desc_data;
+};
+
+ISO9660FileSystem_t *
+i9660_create_fs (void)
+{
+  ISO9660FileSystem_t *output = calloc (1, sizeof (ISO9660FileSystem_t));
+  return output;
+}
+
+void
+i9660_free_fs (ISO9660FileSystem_t *fs)
+{
+  if (fs == NULL)
+    return;
+
+  switch (fs->header.vol_desc_type_code)
+    {
+    case VDTC_PRIMARY_VOLUME:
+      _pvd_free (&fs->vol_desc_data.pri_vol_desc);
+      break;
+    default:
+      break;
+    }
+
+  free (fs);
+}
+
+static int
+process_vol_desc_data (enum _VolDescTypeCode_e type,
+                       union _VolDescData_u *data, FILE *input_fptr)
+{
+  switch (type)
+    {
+    case VDTC_PRIMARY_VOLUME:
+      _pvd_init (&data->pri_vol_desc, input_fptr);
+      break;
+    default:
+      fprintf (
+          stderr,
+          "Support for initializing type code %02X isn't implemented yet.\n",
+          type);
+      return -1;
+    }
+
+  return 0;
+}
+
+int
+i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
+{
+  if (fs == NULL)
+    return -1;
+
+  if (fseek (input_fptr, 0x8000, SEEK_SET) != 0)
     {
       fprintf (stderr, "ERROR: failed to seek past system area (32KiB).\n");
       return -1;
     }
 
-  if ((read_vd_type_code_from_file (fptr, &fs->volume_desc_type_code) != 0)
-      || (br_read_str_from_file (fptr, fs->volume_identifier, 5) != 0)
-      || (br_read_u8_from_file (fptr, &fs->volume_desc_version_num)))
+  if (_fs_header_init (&fs->header, input_fptr) != 0)
     return -1;
 
-  switch (fs->volume_desc_type_code)
-    {
-    case VDTC_PRIMARY_VOLUME:
-      if (read_pvd_data_from_file (fptr,
-                                   &fs->volume_desc_data.primary_vol_desc)
-          != 0)
-        return -1;
-      break;
-    case VDTC_BOOT_RECORD:
-    case VDTC_SUPPLEMENTARY_VOL:
-    case VDTC_VOL_PARTITION:
-    case VDTC_VOL_DESC_SET_TERMINATOR:
-      fprintf (stderr, "ERROR: No implemented support for type code, %02X.\n",
-               fs->volume_desc_type_code);
-      return -1;
-    }
-
-  print_iso_9660_fs (fs);
-
-  return 0;
-}
-
-int8_t
-read_vd_type_code_from_file (FILE *fptr,
-                             enum VolumeDescriptorTypeCode_e *output)
-{
-  uint8_t byte;
-  if (br_read_u8_from_file (fptr, &byte) != 0)
+  if (process_vol_desc_data (fs->header.vol_desc_type_code, &fs->vol_desc_data,
+                             input_fptr)
+      != 0)
     return -1;
 
-  if ((byte > VDTC_VOL_PARTITION) && (byte != VDTC_VOL_DESC_SET_TERMINATOR))
-    {
-      fprintf (stderr, "ERROR: unknown volume descriptor type code: %02X.\n",
-               byte);
-      return -1;
-    }
-
-  *output = (enum VolumeDescriptorTypeCode_e) (byte);
   return 0;
 }
 
 void
-print_iso_9660_fs (ISO9660FileSystem_t *fs)
+i9660_print_fs (ISO9660FileSystem_t *fs)
 {
-  printf ("Volume descriptor type code: %02X\n", fs->volume_desc_type_code);
-  printf ("Volume identifier: %.*s\n", 5, fs->volume_identifier);
-  printf ("Volume descriptor version: %02X\n", fs->volume_desc_version_num);
+  if (fs == NULL)
+    return;
 
-  switch (fs->volume_desc_type_code)
+  _fs_header_print (&fs->header);
+  switch (fs->header.vol_desc_type_code)
     {
     case VDTC_PRIMARY_VOLUME:
-      puts ("Primary volume data: ");
-      print_pvd_data (&fs->volume_desc_data.primary_vol_desc);
+      _pvd_print (&fs->vol_desc_data.pri_vol_desc);
       break;
     default:
+      fprintf (stderr,
+               "Support for printing type code %02X isn't implemented yet.\n",
+               fs->header.vol_desc_type_code);
       break;
     }
 }
 
-int8_t
-iso_9660_extract_filesystem (FILE input_fptr[static 1],
-                             ISO9660FileSystem_t fs[static 1],
-                             const char output_dir_path[static 1])
+int
+i9660_process_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
 {
-  switch (fs->volume_desc_type_code)
+  if (fs == NULL)
+    return -1;
+
+  switch (fs->header.vol_desc_type_code)
     {
     case VDTC_PRIMARY_VOLUME:
-      if (extract_pvd_fs (input_fptr, &fs->volume_desc_data.primary_vol_desc,
-                          output_dir_path)
-          != 0)
-        return -1;
+      _pvd_process (&fs->vol_desc_data.pri_vol_desc, input_fptr);
       break;
     default:
       fprintf (stderr,
-               "ERROR: No implemented support for extracting filesystems of "
-               "type code, %02X.\n",
-               fs->volume_desc_type_code);
+               "Support for processing type code %02X data isn't implemented "
+               "yet.\n",
+               fs->header.vol_desc_type_code);
       return -1;
     }
 

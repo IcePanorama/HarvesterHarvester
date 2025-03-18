@@ -2,29 +2,14 @@
 #define _ISO_9660_PATH_TABLE_ENTRY_H_
 
 #include <stdint.h>
-#include <stdio.h>
 
-typedef struct ISO9660PathTableEntry_s
+typedef struct _PathTableEntry_s
 {
-  uint8_t directory_identifier_length;
-  uint8_t extended_attribute_record_length;
-  uint32_t extent_location;
-  uint16_t parent_directory_number;
-  char directory_identifier[UINT8_MAX];
-} ISO9660PathTableEntry_t;
-
-int extract_path_tables (FILE input_fptr[static 1],
-                         ISO9660PathTableEntry_t *pt_list[static 1],
-                         size_t ptable_entries_len[static 1],
-                         uint32_t pt_start_loc, uint32_t pt_size);
-
-/**
- *  Creates a path string for every entry in a given path table.
- *  @returns zero on success, non-zero on failure.
- */
-int build_paths_from_pt_list (ISO9660PathTableEntry_t pt_list[static 1],
-                              char *path_list[static 1], size_t list_len,
-                              const char pvd_vol_id[static 1],
-                              const char output_dir[static 1]);
+  uint8_t dir_id_len;
+  uint8_t extended_attribute_record_len;
+  uint32_t extent_loc;
+  uint16_t parent_dir_num;
+  char dir_id[UINT8_MAX]; // See `dir_id_len`.
+} _PathTableEntry_t;
 
 #endif /* _ISO_9660_PATH_TABLE_ENTRY_H_ */
