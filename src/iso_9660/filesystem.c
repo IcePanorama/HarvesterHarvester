@@ -6,15 +6,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/** See: https://wiki.osdev.org/ISO_9660 */
+/** See: https://wiki.osdev.org/ISO_9660. */
 struct ISO9660FileSystem_s
 {
   _FileSystem_Header_t header;
 
-  /** See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors */
+  /** See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors. */
   union _VolDescData_u
   {
-    /** See: https://wiki.osdev.org/ISO_9660#The_Boot_Record */
+    /** See: https://wiki.osdev.org/ISO_9660#The_Boot_Record. */
     struct _BootRecVolDesc_s
     {
       char boot_system_identifier[32];

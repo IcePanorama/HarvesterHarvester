@@ -29,7 +29,6 @@ hh_extract_filesystem (const char input_path[static 1],
     }
 
   i9660_print_fs (fs);
-
   i9660_free_fs (fs);
   fclose (input_file);
   return 0;
