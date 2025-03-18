@@ -2,6 +2,7 @@
 #define _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_
 
 #include "dir_rec.h"
+#include "path_table_entry.h"
 #include "pri_vol_date_time.h"
 
 #include <stdint.h>
@@ -41,9 +42,15 @@ typedef struct _PriVolDesc_s
 
   uint8_t fs_ver; //!< Always `0x01`.
   uint8_t application_used_data[512];
+
+  _PathTableEntry_t *pt_list;
+  size_t pt_list_len;
 } _PriVolDesc_t;
 
 int _pvd_init (_PriVolDesc_t p[static 1], FILE input_fptr[static 1]);
 void _pvd_print (_PriVolDesc_t p[static 1]);
+/** Populates path table list and directory record list. */
+int _pvd_process (_PriVolDesc_t p[static 1], FILE input_fptr[static 1]);
+void _pvd_free (_PriVolDesc_t p[static 1]);
 
 #endif /* _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_ */

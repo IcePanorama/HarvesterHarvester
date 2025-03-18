@@ -40,6 +40,7 @@ set(INCL_FILES
     "${INCL_DIR}/iso_9660/dir_rec.h"
     "${INCL_DIR}/iso_9660/filesystem.h"
     "${INCL_DIR}/iso_9660/fs_header.h"
+    "${INCL_DIR}/iso_9660/path_table_entry.h"
     "${INCL_DIR}/iso_9660/pri_vol_date_time.h"
     "${INCL_DIR}/iso_9660/pri_vol_desc.h"
 )

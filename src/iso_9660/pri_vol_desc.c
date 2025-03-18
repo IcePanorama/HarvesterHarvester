@@ -1,6 +1,10 @@
 #include "iso_9660/pri_vol_desc.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/dir_rec.h"
+#include "iso_9660/path_table_entry.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int
 _pvd_init (_PriVolDesc_t p[static 1], FILE input_fptr[static 1])
@@ -90,4 +94,49 @@ _pvd_print (_PriVolDesc_t p[static 1])
   _pvddt_print (&p->effective_date_time, "Volume effective date time");
 
   printf ("File structure version: %d\n", p->fs_ver);
+}
+
+static int
+process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
+{
+  if (fseek (input_fptr, p->logical_blk_size * p->type_l_path_table_loc,
+             SEEK_SET)
+      != 0)
+    {
+      fprintf (stderr,
+               "Failed to seek to type-l path table location (%08X).\n",
+               p->logical_blk_size * p->type_l_path_table_loc);
+      return -1;
+    }
+
+  printf ("%08X - %d * %ld\n", p->logical_blk_size * p->type_l_path_table_loc,
+          p->path_table_size, sizeof (_PathTableEntry_t));
+
+  return 0;
+}
+
+int
+_pvd_process (_PriVolDesc_t p[static 1], FILE input_fptr[static 1])
+{
+  p->pt_list_len = 1;
+  p->pt_list = calloc (p->pt_list_len, sizeof (_PathTableEntry_t));
+  if (p->pt_list == NULL)
+    {
+      fprintf (stderr, "Failed to alloc path table entry list.\n");
+      return -1;
+    }
+
+  process_path_table_list (p, input_fptr);
+
+  return 0;
+}
+
+void
+_pvd_free (_PriVolDesc_t p[static 1])
+{
+  if (p->pt_list != NULL)
+    {
+      free (p->pt_list);
+      p->pt_list = NULL;
+    }
 }
