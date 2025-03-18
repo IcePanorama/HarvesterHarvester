@@ -3,7 +3,6 @@
 #include "iso_9660/pri_vol_desc.h"
 
 #include <stdint.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 /** See: https://wiki.osdev.org/ISO_9660 */
@@ -56,8 +55,20 @@ i9660_init_fs (ISO9660FileSystem_t *fs, FILE fptr[static 1])
   if (fs == NULL)
     return -1;
 
-  // tmp
-  printf ("%ld\n", ftell (fptr));
+  if (fseek (fptr, 0x8000, SEEK_SET) != 0)
+    {
+      fprintf (stderr, "ERROR: failed to seek past system area (32KiB).\n");
+      return -1;
+    }
+
+  if (_fs_header_init (&fs->header, fptr) != 0)
+    return -1;
 
   return 0;
+}
+
+void
+i9660_print_fs (ISO9660FileSystem_t *fs)
+{
+  _fs_header_print (&fs->header);
 }
