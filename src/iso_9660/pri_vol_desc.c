@@ -126,11 +126,7 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
       return -1;
     }
 
-  // ftell returns -1 on failure
-  // do
-  for (uint32_t i = pt_start;
-       i != (uint32_t)(-1) && i < pt_start + p->path_table_size;
-       i = ftell (input_fptr))
+  for (uint32_t i = pt_start; i < pt_start + p->path_table_size;)
     {
       _PathTableEntry_t curr = { 0 };
       if (_pte_init (&curr, input_fptr) != 0)
@@ -150,9 +146,13 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
       memcpy (&p->pt_list[p->pt_list_len], &curr, sizeof (_PathTableEntry_t));
       p->pt_list_len++;
 
-      // break;
+      i = ftell (input_fptr);
+      if (i == (uint32_t)-1)
+        {
+          fprintf (stderr, "ftell error while processing path table list.\n");
+          return -1;
+        }
     }
-  // while (1);
 
   return 0;
 }
