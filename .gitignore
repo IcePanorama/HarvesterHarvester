@@ -8,6 +8,7 @@ output/*
 .cache/*
 build/*
 .releases/*
+*.json
 
 # Valgrind
 vgcore.*
