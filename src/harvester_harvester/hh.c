@@ -23,6 +23,7 @@ hh_extract_filesystem (const char input_path[static 1],
 
   if (i9660_init_fs (fs, input_file) != 0)
     {
+      i9660_free_fs (fs);
       fclose (input_file);
       return -1;
     }

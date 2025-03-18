@@ -1,27 +1,17 @@
 #ifndef _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_
 #define _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_
 
-#include <stdint.h>
+#include "dir_rec.h"
+#include "pri_vol_date_time.h"
 
-/** See: https://wiki.osdev.org/ISO_9660#Date/time_format. */
-typedef struct _PVDDateTime_s
-{
-  char year[4];
-  char month[2];
-  char day[2];
-  char hour[2];
-  char min[2];
-  char sec[2];
-  char hundredths_of_sec[2];
-  /** "offset from GMT in 15 minute intervals, [from] -48 ... to 52." */
-  uint8_t timezone;
-} _PVDDateTime_t;
+#include <stdint.h>
+#include <stdio.h>
 
 /** See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor */
 typedef struct _PriVolDesc_s
 {
-  char system_id[32];
-  char volume_id[32];
+  char sys_id[32];
+  char vol_id[32];
 
   /** "number of logical blocks in which the volume is recorded." */
   uint32_t vol_space_size;
@@ -34,9 +24,7 @@ typedef struct _PriVolDesc_s
   uint32_t type_m_path_table_loc;
   uint32_t optional_type_m_path_table_loc;
 
-  /*
-  ISO9660DirectoryRecord_t root_directory_entry;
-  */
+  _DirRec_t root_directory_entry;
 
   char vol_set_id[128];
   char publisher_id[128];
@@ -51,8 +39,11 @@ typedef struct _PriVolDesc_s
   _PVDDateTime_t expiration_date_time;
   _PVDDateTime_t effective_date_time;
 
-  uint8_t fs_version; //!< Always `0x01`.
+  uint8_t fs_ver; //!< Always `0x01`.
   uint8_t application_used_data[512];
 } _PriVolDesc_t;
+
+int _pvd_init (_PriVolDesc_t p[static 1], FILE input_fptr[static 1]);
+void _pvd_print (_PriVolDesc_t p[static 1]);
 
 #endif /* _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_ */

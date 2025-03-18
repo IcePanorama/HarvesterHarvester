@@ -32,7 +32,6 @@ _fs_header_init (_FileSystem_Header_t *h, FILE *input_fptr)
       || (_br_read_str (input_fptr, h->vol_id, 5) != 0))
     return -1;
 
-  // FIXME: should check that ^ equals "CD001" here!
   if (strncmp ("CD001", h->vol_id, 5) != 0)
     {
       fprintf (stderr, "Incorrect file signature: expected %s, got %s.\n",

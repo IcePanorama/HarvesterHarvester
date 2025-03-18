@@ -3,6 +3,7 @@
 #include "iso_9660/pri_vol_desc.h"
 
 #include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 
 /** See: https://wiki.osdev.org/ISO_9660 */
@@ -49,19 +50,44 @@ i9660_free_fs (ISO9660FileSystem_t *fs)
   free (fs);
 }
 
+static int
+process_vol_desc_data (enum _VolDescTypeCode_e type,
+                       union _VolDescData_u *data, FILE *input_fptr)
+{
+  switch (type)
+    {
+    case VDTC_PRIMARY_VOLUME:
+      _pvd_init (&data->pri_vol_desc, input_fptr);
+      break;
+    default:
+      fprintf (
+          stderr,
+          "Support for initializing type code %02X isn't implemented yet.\n",
+          type);
+      return -1;
+    }
+
+  return 0;
+}
+
 int
-i9660_init_fs (ISO9660FileSystem_t *fs, FILE fptr[static 1])
+i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
 {
   if (fs == NULL)
     return -1;
 
-  if (fseek (fptr, 0x8000, SEEK_SET) != 0)
+  if (fseek (input_fptr, 0x8000, SEEK_SET) != 0)
     {
       fprintf (stderr, "ERROR: failed to seek past system area (32KiB).\n");
       return -1;
     }
 
-  if (_fs_header_init (&fs->header, fptr) != 0)
+  if (_fs_header_init (&fs->header, input_fptr) != 0)
+    return -1;
+
+  if (process_vol_desc_data (fs->header.vol_desc_type_code, &fs->vol_desc_data,
+                             input_fptr)
+      != 0)
     return -1;
 
   return 0;
@@ -71,4 +97,15 @@ void
 i9660_print_fs (ISO9660FileSystem_t *fs)
 {
   _fs_header_print (&fs->header);
+  switch (fs->header.vol_desc_type_code)
+    {
+    case VDTC_PRIMARY_VOLUME:
+      _pvd_print (&fs->vol_desc_data.pri_vol_desc);
+      break;
+    default:
+      fprintf (stderr,
+               "Support for printing type code %02X isn't implemented yet.\n",
+               fs->header.vol_desc_type_code);
+      break;
+    }
 }
