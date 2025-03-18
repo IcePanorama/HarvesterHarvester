@@ -29,6 +29,7 @@ set(SRC_FILES
     "${SRC_DIR}/iso_9660/dir_rec.c"
     "${SRC_DIR}/iso_9660/filesystem.c"
     "${SRC_DIR}/iso_9660/fs_header.c"
+    "${SRC_DIR}/iso_9660/path_table_entry.c"
     "${SRC_DIR}/iso_9660/pri_vol_date_time.c"
     "${SRC_DIR}/iso_9660/pri_vol_desc.c"
 )

@@ -5,6 +5,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int
 _pvd_init (_PriVolDesc_t p[static 1], FILE input_fptr[static 1])
@@ -97,11 +98,27 @@ _pvd_print (_PriVolDesc_t p[static 1])
 }
 
 static int
+resize_pt_list (_PriVolDesc_t *p)
+{
+  p->pt_list_max_size *= 2;
+  _PathTableEntry_t *tmp
+      = realloc (p->pt_list, p->pt_list_max_size * sizeof (_PathTableEntry_t));
+  if (tmp == NULL)
+    {
+      fprintf (stderr, "Failed to grow path table list to size %ld.\n",
+               p->pt_list_max_size);
+      return -1;
+    }
+
+  p->pt_list = tmp;
+  return 0;
+}
+
+static int
 process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
 {
-  if (fseek (input_fptr, p->logical_blk_size * p->type_l_path_table_loc,
-             SEEK_SET)
-      != 0)
+  uint32_t pt_start = p->logical_blk_size * p->type_l_path_table_loc;
+  if (fseek (input_fptr, pt_start, SEEK_SET) != 0)
     {
       fprintf (stderr,
                "Failed to seek to type-l path table location (%08X).\n",
@@ -109,8 +126,33 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
       return -1;
     }
 
-  printf ("%08X - %d * %ld\n", p->logical_blk_size * p->type_l_path_table_loc,
-          p->path_table_size, sizeof (_PathTableEntry_t));
+  // ftell returns -1 on failure
+  // do
+  for (uint32_t i = pt_start;
+       i != (uint32_t)(-1) && i < pt_start + p->path_table_size;
+       i = ftell (input_fptr))
+    {
+      _PathTableEntry_t curr = { 0 };
+      if (_pte_init (&curr, input_fptr) != 0)
+        {
+          fprintf (stderr, "Path table procesing failed.\n");
+          return -1;
+        }
+
+      _pte_print (&curr);
+
+      if (p->pt_list_len == p->pt_list_max_size)
+        {
+          if (resize_pt_list (p) != 0)
+            return -1;
+        }
+
+      memcpy (&p->pt_list[p->pt_list_len], &curr, sizeof (_PathTableEntry_t));
+      p->pt_list_len++;
+
+      // break;
+    }
+  // while (1);
 
   return 0;
 }
@@ -118,11 +160,11 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
 int
 _pvd_process (_PriVolDesc_t p[static 1], FILE input_fptr[static 1])
 {
-  p->pt_list_len = 1;
-  p->pt_list = calloc (p->pt_list_len, sizeof (_PathTableEntry_t));
+  p->pt_list_max_size = 1;
+  p->pt_list = calloc (p->pt_list_max_size, sizeof (_PathTableEntry_t));
   if (p->pt_list == NULL)
     {
-      fprintf (stderr, "Failed to alloc path table entry list.\n");
+      fprintf (stderr, "Failed to alloc path table list.\n");
       return -1;
     }
 

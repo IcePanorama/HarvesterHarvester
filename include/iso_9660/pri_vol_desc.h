@@ -44,7 +44,8 @@ typedef struct _PriVolDesc_s
   uint8_t application_used_data[512];
 
   _PathTableEntry_t *pt_list;
-  size_t pt_list_len;
+  size_t pt_list_len;      // num of entries stored.
+  size_t pt_list_max_size; // max num of entries.
 } _PriVolDesc_t;
 
 int _pvd_init (_PriVolDesc_t p[static 1], FILE input_fptr[static 1]);

@@ -2,6 +2,7 @@
 #define _ISO_9660_PATH_TABLE_ENTRY_H_
 
 #include <stdint.h>
+#include <stdio.h>
 
 typedef struct _PathTableEntry_s
 {
@@ -11,5 +12,8 @@ typedef struct _PathTableEntry_s
   uint16_t parent_dir_num;
   char dir_id[UINT8_MAX]; // See `dir_id_len`.
 } _PathTableEntry_t;
+
+int _pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1]);
+void _pte_print (_PathTableEntry_t p[static 1]);
 
 #endif /* _ISO_9660_PATH_TABLE_ENTRY_H_ */
