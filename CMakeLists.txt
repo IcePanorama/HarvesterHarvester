@@ -26,12 +26,15 @@ set(SRC_FILES
     "${SRC_DIR}/main.c"
     "${SRC_DIR}/harvester_harvester/hh.c"
     "${SRC_DIR}/iso_9660/filesystem.c"
+    #"${SRC_DIR}/iso_9660/fs_header.c"
 )
 
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
 set(INCL_FILES
     "${INCL_DIR}/harvester_harvester/hh.h"
     "${INCL_DIR}/iso_9660/filesystem.h"
+    "${INCL_DIR}/iso_9660/fs_header.h"
+    "${INCL_DIR}/iso_9660/pri_vol_desc.h"
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
