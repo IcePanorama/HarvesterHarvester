@@ -59,6 +59,7 @@ fseek_err:
   return -1;
 }
 
+/** FIXME: needs to be modified to support logging to files. */
 void
 _pvd_print (_PriVolDesc_t p[static 1])
 {
@@ -95,18 +96,25 @@ _pvd_print (_PriVolDesc_t p[static 1])
   _pvddt_print (&p->effective_date_time, "Volume effective date time");
 
   printf ("File structure version: %d\n", p->fs_ver);
+
+  if (p->pt_list == NULL)
+    return;
+
+  puts ("Path table:");
+  for (size_t i = 0; i < p->pt_list_len; i++)
+    _pte_print (&p->pt_list[i]);
 }
 
 static int
 resize_pt_list (_PriVolDesc_t *p)
 {
-  p->pt_list_max_size *= 2;
+  p->pt_list_capacity *= 2;
   _PathTableEntry_t *tmp
-      = realloc (p->pt_list, p->pt_list_max_size * sizeof (_PathTableEntry_t));
+      = realloc (p->pt_list, p->pt_list_capacity * sizeof (_PathTableEntry_t));
   if (tmp == NULL)
     {
       fprintf (stderr, "Failed to grow path table list to size %ld.\n",
-               p->pt_list_max_size);
+               p->pt_list_capacity);
       return -1;
     }
 
@@ -135,9 +143,7 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
           return -1;
         }
 
-      _pte_print (&curr);
-
-      if (p->pt_list_len == p->pt_list_max_size)
+      if (p->pt_list_len == p->pt_list_capacity)
         {
           if (resize_pt_list (p) != 0)
             return -1;
@@ -160,8 +166,8 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
 int
 _pvd_process (_PriVolDesc_t p[static 1], FILE input_fptr[static 1])
 {
-  p->pt_list_max_size = 1;
-  p->pt_list = calloc (p->pt_list_max_size, sizeof (_PathTableEntry_t));
+  p->pt_list_capacity = 1;
+  p->pt_list = calloc (p->pt_list_capacity, sizeof (_PathTableEntry_t));
   if (p->pt_list == NULL)
     {
       fprintf (stderr, "Failed to alloc path table list.\n");
