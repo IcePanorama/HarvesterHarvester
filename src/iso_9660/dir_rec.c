@@ -44,7 +44,7 @@ _dr_print (_DirRec_t dr[static 1])
 {
   printf ("Directory record length: %d\n", dr->len);
   printf ("Extended attribute length: %d\n", dr->extended_attrib_rec_len);
-  printf ("Location of extent: 0x%08X\n", dr->extent_loc);
+  printf ("Location of extent: %d\n", dr->extent_loc);
   printf ("Size of extent: %d\n", dr->extent_size);
 
   printf ("Recording date/time: %04d-%02d-%02d %02d:%02d:%02d (GMT%+02d)\n",
