@@ -206,6 +206,7 @@ calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
   return path_len;
 }
 
+// FIXME: create utility prepend string function, clean this up.
 static int
 build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
                       size_t output_len, size_t entry_idx,
@@ -282,9 +283,8 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
           return -1;
         }
 
-      printf ("%s\n", entry_path);
       int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr,
-                              path);
+                              entry_path);
       free (entry_path);
       if (ret != 0)
         return -1;
