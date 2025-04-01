@@ -70,11 +70,11 @@ _pvd_print (_PriVolDesc_t p[static 1])
   printf ("Logical block size: %d\n", p->logical_blk_size);
 
   printf ("Path table size: %d\n", p->path_table_size);
-  printf ("Location of type-l path table: 0x%08X\n", p->type_l_path_table_loc);
-  printf ("Location of optional type-l path table: 0x%08X\n",
+  printf ("Location of type-l path table: %d\n", p->type_l_path_table_loc);
+  printf ("Location of optional type-l path table: %d\n",
           p->optional_type_l_path_table_loc);
-  printf ("Location of type-m path table: 0x%08X\n", p->type_m_path_table_loc);
-  printf ("Location of optional type-m path table: 0x%08X\n",
+  printf ("Location of type-m path table: %d\n", p->type_m_path_table_loc);
+  printf ("Location of optional type-m path table: %d\n",
           p->optional_type_m_path_table_loc);
 
   puts ("Root directory entry:");
