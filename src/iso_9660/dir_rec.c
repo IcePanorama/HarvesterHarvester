@@ -112,3 +112,12 @@ _dr_dynamic_init (_DirRec_t *dr_list[static 1], size_t list_cap[static 1],
 
   return 0;
 }
+
+/*
+int
+_dr_extract (_DirRec_t dr[static 1], FILE input_fptr[static 1], const char
+path[static 1])
+{
+  return 0;
+}
+*/

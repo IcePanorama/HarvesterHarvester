@@ -2,6 +2,7 @@
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/path_table_entry.h"
+#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -189,6 +190,69 @@ _pvd_free (_PriVolDesc_t p[static 1])
     }
 }
 
+static size_t
+calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
+                     const char path[static 1])
+{
+  size_t path_len = strlen (path) + 1;
+  ssize_t i = entry_idx;
+  while (i > 0)
+    {
+      _PathTableEntry_t *curr = &p->pt_list[i];
+      path_len += strnlen (curr->dir_id, curr->dir_id_len) + 1;
+      i = curr->parent_dir_num - 1;
+    }
+  path_len++;
+  return path_len;
+}
+
+static int
+build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
+                      size_t output_len, size_t entry_idx,
+                      const char path[static 1])
+{
+  if (output == NULL)
+    return -1;
+
+  strncpy (output, p->pt_list[entry_idx].dir_id,
+           p->pt_list[entry_idx].dir_id_len);
+
+  ssize_t j = p->pt_list[entry_idx].parent_dir_num - 1;
+  while (j > 0)
+    {
+      _PathTableEntry_t *curr = &p->pt_list[j];
+      char *work = calloc (output_len, sizeof (char));
+      if (work == NULL)
+        goto out_of_mem_err;
+
+      strcpy (work, output);
+      strncpy (output, curr->dir_id, curr->dir_id_len);
+
+      // FIXME: handle cross-platform stuff here?
+      strcat (output, "/");
+
+      strcat (output, work);
+
+      j = curr->parent_dir_num - 1;
+      free (work);
+    }
+
+  char *work = calloc (output_len, sizeof (char));
+  if (work == NULL)
+    goto out_of_mem_err;
+
+  strcpy (work, output);
+  strcpy (output, path);
+  strcat (output, "/");
+  strcat (output, work);
+
+  free (work);
+  return 0;
+out_of_mem_err:
+  fprintf (stderr, "%s: Out of memory error.\n", __func__);
+  return -1;
+}
+
 int
 _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
               const char path[static 1])
@@ -202,12 +266,30 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
 
   for (size_t i = 0; i < p->pt_list_len; i++)
     {
-      if (_pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr) != 0)
+      size_t path_len = calc_entry_path_len (p, i, path);
+      char *entry_path = calloc (path_len, sizeof (char));
+      if (entry_path == NULL)
+        {
+          fprintf (stderr,
+                   "Error building path string for path table entry, %.*s\n",
+                   p->pt_list[i].dir_id_len, p->pt_list[i].dir_id);
+          return -1;
+        }
+
+      if (build_entry_path_str (p, entry_path, path_len, i, path) != 0)
+        {
+          free (entry_path);
+          return -1;
+        }
+
+      printf ("%s\n", entry_path);
+      int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr,
+                              path);
+      free (entry_path);
+      if (ret != 0)
         return -1;
       break;
     }
 
   return 0;
-  // tmp
-  puts (path);
 }
