@@ -15,5 +15,7 @@ typedef struct _PathTableEntry_s
 
 int _pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1]);
 void _pte_print (_PathTableEntry_t p[static 1]);
+int _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
+                  FILE input_fptr[static 1]);
 
 #endif /* _ISO_9660_PATH_TABLE_ENTRY_H_ */

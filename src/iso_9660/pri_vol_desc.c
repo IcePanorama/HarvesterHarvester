@@ -202,39 +202,8 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
 
   for (size_t i = 0; i < p->pt_list_len; i++)
     {
-      // using this var for readability.
-      uint32_t loc = p->logical_blk_size * p->pt_list[i].extent_loc;
-      if (fseek (input_fptr, loc, SEEK_SET) != 0)
-        {
-          fprintf (stderr,
-                   "Failed to seek to extant containing directory, %*.s.\n",
-                   p->pt_list[i].dir_id_len, p->pt_list[i].dir_id);
-          return -1;
-        }
-
-      size_t dr_list_capacity = 1;
-      size_t dr_list_len = 0;
-      _DirRec_t *dr_list = calloc (dr_list_capacity, sizeof (_DirRec_t));
-      if (_dr_dynamic_init (&dr_list, &dr_list_capacity, &dr_list_len,
-                            input_fptr)
-          != 0)
-        {
-          free (dr_list);
-          return -1;
-        }
-
-      for (size_t j = 0; j < dr_list_len; j++)
-        {
-          // See: https://wiki.osdev.org/ISO_9660#Directories.
-          if (dr_list[j].file_flags & 2)
-            continue;
-
-          // TODO: extract all files to path
-          _dr_print (&dr_list[j]);
-          puts ("---");
-        }
-
-      free (dr_list);
+      if (_pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr) != 0)
+        return -1;
       break;
     }
 

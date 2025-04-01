@@ -1,5 +1,8 @@
 #include "iso_9660/path_table_entry.h"
 #include "iso_9660/binary_reader.h"
+#include "iso_9660/dir_rec.h"
+
+#include <stdlib.h>
 
 int
 _pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1])
@@ -32,4 +35,41 @@ _pte_print (_PathTableEntry_t p[static 1])
   printf ("%.*s - Ext. attrib. len: %d, Loc: %d, Parent: %d\n", p->dir_id_len,
           p->dir_id, p->extended_attribute_record_len, p->extent_loc,
           p->parent_dir_num);
+}
+
+int
+_pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
+              FILE input_fptr[static 1])
+{
+  if (fseek (input_fptr, lb_size * p->extent_loc, SEEK_SET) != 0)
+    {
+      fprintf (stderr,
+               "Failed to seek to extant containing directory, %*.s.\n",
+               p->dir_id_len, p->dir_id);
+      return -1;
+    }
+
+  size_t dr_list_capacity = 1;
+  size_t dr_list_len = 0;
+  _DirRec_t *dr_list = calloc (dr_list_capacity, sizeof (_DirRec_t));
+  if (_dr_dynamic_init (&dr_list, &dr_list_capacity, &dr_list_len, input_fptr)
+      != 0)
+    {
+      free (dr_list);
+      return -1;
+    }
+
+  for (size_t i = 0; i < dr_list_len; i++)
+    {
+      // See: https://wiki.osdev.org/ISO_9660#Directories.
+      if (dr_list[i].file_flags & 2)
+        continue;
+
+      // TODO: extract all files to path
+      _dr_print (&dr_list[i]);
+      puts ("---");
+    }
+
+  free (dr_list);
+  return 0;
 }
