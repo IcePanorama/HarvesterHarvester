@@ -8,7 +8,10 @@
 #include <stdint.h>
 #include <stdio.h>
 
-/** See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor */
+/**
+ *  See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor.
+ *  FIXME: Should this implementation also be hidden in the .c file?
+ */
 typedef struct _PriVolDesc_s
 {
   char sys_id[32];
@@ -53,5 +56,7 @@ void _pvd_print (_PriVolDesc_t p[static 1]);
 /** Populates path table list and directory record list. */
 int _pvd_process (_PriVolDesc_t p[static 1], FILE input_fptr[static 1]);
 void _pvd_free (_PriVolDesc_t p[static 1]);
+int _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
+                  const char path[static 1]);
 
 #endif /* _ISO_9660_PRIMARY_VOLUME_DESCRIPTOR_H_ */

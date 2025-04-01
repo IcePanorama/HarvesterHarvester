@@ -1,6 +1,11 @@
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/binary_reader.h"
 
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 int
 _dr_init (_DirRec_t dr[static 1], FILE input_fptr[static 1])
 {
@@ -69,4 +74,41 @@ _dr_print (_DirRec_t dr[static 1])
   printf ("Volume sequence number: %d\n", dr->vol_seq_num);
   printf ("File identifier length: %d\n", dr->file_id_len);
   printf ("File identifier: %.*s\n", dr->file_id_len, dr->file_id);
+}
+
+int
+_dr_dynamic_init (_DirRec_t *dr_list[static 1], size_t list_cap[static 1],
+                  size_t list_len[static 1], FILE input_fptr[static 1])
+{
+  while (true)
+    {
+      _DirRec_t curr = { 0 };
+      if (_dr_init (&curr, input_fptr) != 0)
+        {
+          fprintf (stderr, "Error reading directory record from file.\n");
+          return -1;
+        }
+
+      if (curr.file_id_len == 0)
+        break;
+
+      if (*list_len == *list_cap)
+        {
+          *list_cap *= 2;
+          _DirRec_t *tmp = realloc (*dr_list, *list_cap * sizeof (_DirRec_t));
+          if (tmp == NULL)
+            {
+              fprintf (stderr,
+                       "Failed to grow directory record list to size %ld\n",
+                       *list_cap);
+              return -1;
+            }
+          *dr_list = tmp;
+        }
+
+      memcpy (&(*dr_list)[*list_len], &curr, sizeof (_DirRec_t));
+      (*list_len)++;
+    }
+
+  return 0;
 }

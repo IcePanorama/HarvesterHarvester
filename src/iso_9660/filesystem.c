@@ -66,7 +66,8 @@ process_vol_desc_data (enum _VolDescTypeCode_e type,
   switch (type)
     {
     case VDTC_PRIMARY_VOLUME:
-      _pvd_init (&data->pri_vol_desc, input_fptr);
+      if (_pvd_init (&data->pri_vol_desc, input_fptr) != 0)
+        return -1;
       break;
     default:
       fprintf (
@@ -131,12 +132,38 @@ i9660_process_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
   switch (fs->header.vol_desc_type_code)
     {
     case VDTC_PRIMARY_VOLUME:
-      _pvd_process (&fs->vol_desc_data.pri_vol_desc, input_fptr);
+      if (_pvd_process (&fs->vol_desc_data.pri_vol_desc, input_fptr) != 0)
+        return -1;
       break;
     default:
       fprintf (stderr,
                "Support for processing type code %02X data isn't implemented "
                "yet.\n",
+               fs->header.vol_desc_type_code);
+      return -1;
+    }
+
+  return 0;
+}
+
+int
+i9660_extract_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
+                  const char path[static 1])
+{
+  if (fs == NULL)
+    return -1;
+
+  switch (fs->header.vol_desc_type_code)
+    {
+    case VDTC_PRIMARY_VOLUME:
+      if (_pvd_extract (&fs->vol_desc_data.pri_vol_desc, input_fptr, path)
+          != 0)
+        return -1;
+      break;
+    default:
+      fprintf (stderr,
+               "No implemented support for extracting file systems of type "
+               "code %02X.\n",
                fs->header.vol_desc_type_code);
       return -1;
     }

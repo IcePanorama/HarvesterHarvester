@@ -11,5 +11,7 @@ void i9660_free_fs (ISO9660FileSystem_t *fs);
 int i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1]);
 void i9660_print_fs (ISO9660FileSystem_t *fs);
 int i9660_process_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1]);
+int i9660_extract_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
+                      const char path[static 1]);
 
 #endif /* _ISO_9660_FILESYSTEM_H_ */
