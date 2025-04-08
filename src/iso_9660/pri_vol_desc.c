@@ -205,8 +205,8 @@ calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
     }
   while (i > 0);
 
-  path_len += strlen (path) + 1;
-  path_len++; // null terminator
+  path_len += strlen (path) + 1; // + 1 for '/'
+  path_len++;                    // null terminator
 
   return path_len;
 }
@@ -224,11 +224,11 @@ build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
     {
       _PathTableEntry_t *curr = &p->pt_list[j];
 
-      /* clang-format off */
       if ((_u_prepend_str (output, output_len, "/", 2) != 0)
-          || (_u_prepend_str (output, output_len, curr->dir_id, curr->dir_id_len) != 0))
+          || (_u_prepend_str (output, output_len, curr->dir_id,
+                              curr->dir_id_len)
+              != 0))
         return -1;
-      /* clang-format on */
 
       j = curr->parent_dir_num - 1;
     }
@@ -277,13 +277,14 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
 
       printf ("I: %ld, Len: %ld, Entry path: %s\n", i, path_len, entry_path);
 
+      int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr,
+                              entry_path);
+
       free (entry_path);
-      /*
-        int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size,
-        input_fptr, entry_path);
       if (ret != 0)
         return -1;
-         */
+
+      break;
     }
 
   return 0;

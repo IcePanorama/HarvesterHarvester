@@ -15,6 +15,7 @@ typedef struct _PathTableEntry_s
 
 int _pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1]);
 void _pte_print (_PathTableEntry_t p[static 1]);
+/** Param:  lb_size logical block size. */
 int _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
                   FILE input_fptr[static 1], const char path[static 1]);
 

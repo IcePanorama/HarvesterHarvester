@@ -1,4 +1,5 @@
 #include "iso_9660/binary_reader.h"
+#include <stdio.h>
 
 int
 _br_read_u8 (FILE *fptr, uint8_t *output)

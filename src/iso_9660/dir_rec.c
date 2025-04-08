@@ -2,6 +2,7 @@
 #include "iso_9660/binary_reader.h"
 
 #include <stdbool.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -78,10 +79,27 @@ _dr_print (_DirRec_t dr[static 1])
 
 int
 _dr_dynamic_init (_DirRec_t *dr_list[static 1], size_t list_cap[static 1],
-                  size_t list_len[static 1], FILE input_fptr[static 1])
+                  size_t list_len[static 1], uint16_t lb_size,
+                  FILE input_fptr[static 1])
 {
   while (true)
     {
+      /*
+       *  Handle padding around sector boundaries.
+       *  See: https://wiki.osdev.org/ISO_9660#Directories.
+       */
+      size_t pos = ftell (input_fptr);
+      size_t next_sect = ((size_t)((pos + (lb_size - 1)) / lb_size)) * lb_size;
+      if ((pos + sizeof (_DirRec_t) - sizeof (char[UINT8_MAX])) > next_sect)
+        {
+          if (fseek (input_fptr, next_sect, SEEK_SET) != 0)
+            {
+              fprintf (stderr, "Failed to seek to next sector (%08lx).\n",
+                       next_sect);
+              return -1;
+            }
+        }
+
       _DirRec_t curr = { 0 };
       if (_dr_init (&curr, input_fptr) != 0)
         {

@@ -55,10 +55,20 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
   size_t dr_list_capacity = 1;
   size_t dr_list_len = 0;
   _DirRec_t *dr_list = calloc (dr_list_capacity, sizeof (_DirRec_t));
+  if (dr_list == NULL)
+    {
+      fprintf (stderr, "%s: Out of memory error.\n", __func__);
+      return -1;
+    }
+
   int ret = _dr_dynamic_init (&dr_list, &dr_list_capacity, &dr_list_len,
-                              input_fptr);
+                              lb_size, input_fptr);
   if (ret != 0)
     goto err_exit;
+
+  // tmp, remove me!
+  free (dr_list);
+  return 0;
 
   for (size_t i = 0; i < dr_list_len; i++)
     {
@@ -67,14 +77,17 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
         continue;
 
       // Minus 2 to remove the ";1" from the end.
-      printf ("%.*s\n", dr_list[i].file_id_len - 2, dr_list[i].file_id);
+      printf ("New file: %.*s\n", dr_list[i].file_id_len - 2,
+              dr_list[i].file_id);
       _dr_print (&dr_list[i]);
+
       /*
       if (_dr_extract(&dr_list[i], input_fptr, path) != 0)
         goto err_exit;
 
       puts ("---");
       */
+      break;
     }
 
   free (dr_list);
