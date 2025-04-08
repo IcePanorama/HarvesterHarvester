@@ -13,6 +13,7 @@ _u_prepend_str (char str[static 1], const size_t str_len,
     goto out_of_mem_err;
 
   strncpy (work, str, str_len);
+  memset (str, 0, sizeof (char) * str_len);
   strncpy (str, prefix, prefix_len);
   strncat (str, work, str_len);
 

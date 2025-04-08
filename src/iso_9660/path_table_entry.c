@@ -2,6 +2,7 @@
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/dir_rec.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -67,13 +68,13 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
 
       // Minus 2 to remove the ";1" from the end.
       printf ("%.*s\n", dr_list[i].file_id_len - 2, dr_list[i].file_id);
-      /*
       _dr_print (&dr_list[i]);
+      /*
       if (_dr_extract(&dr_list[i], input_fptr, path) != 0)
         goto err_exit;
 
       puts ("---");
-       */
+      */
     }
 
   free (dr_list);
@@ -83,4 +84,5 @@ err_exit:
   return -1;
   // tmp, prevent unused path param err
   puts (path);
+  printf ("%ld\n", ftell (input_fptr));
 }

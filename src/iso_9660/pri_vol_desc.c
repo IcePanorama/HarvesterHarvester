@@ -195,15 +195,19 @@ static size_t
 calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
                      const char path[static 1])
 {
-  size_t path_len = strlen (path) + 1;
+  size_t path_len = 0;
   ssize_t i = entry_idx;
-  while (i > 0)
+  do
     {
       _PathTableEntry_t *curr = &p->pt_list[i];
-      path_len += strnlen (curr->dir_id, curr->dir_id_len) + 1;
+      path_len += curr->dir_id_len + 1; // + 1 for '/'
       i = curr->parent_dir_num - 1;
     }
-  path_len++;
+  while (i > 0);
+
+  path_len += strlen (path) + 1;
+  path_len++; // null terminator
+
   return path_len;
 }
 
@@ -215,25 +219,28 @@ build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
   if (output == NULL)
     return -1;
 
-  strncpy (output, p->pt_list[entry_idx].dir_id,
-           p->pt_list[entry_idx].dir_id_len);
-
-  ssize_t j = p->pt_list[entry_idx].parent_dir_num - 1;
-  while (j > 0)
+  ssize_t j = entry_idx;
+  do
     {
       _PathTableEntry_t *curr = &p->pt_list[j];
 
+      /* clang-format off */
       if ((_u_prepend_str (output, output_len, "/", 2) != 0)
-          || (_u_prepend_str (output, output_len, curr->dir_id,
-                              curr->dir_id_len)
-              != 0))
+          || (_u_prepend_str (output, output_len, curr->dir_id, curr->dir_id_len) != 0))
         return -1;
+      /* clang-format on */
 
       j = curr->parent_dir_num - 1;
     }
+  while (j > 0);
 
-  if ((_u_prepend_str (output, output_len, "/", 2) != 0)
-      || (_u_prepend_str (output, output_len, path, strlen (path) + 1) != 0))
+  if (output[0] != '/') // when not dealing with root dir
+    {
+      if (_u_prepend_str (output, output_len, "/", 2) != 0)
+        return -1;
+    }
+
+  if (_u_prepend_str (output, output_len, path, strlen (path) + 1) != 0)
     return -1;
 
   return 0;
@@ -268,15 +275,17 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
           return -1;
         }
 
-      puts ("---");
-      printf ("Entry path: %.*s\n", (int)path_len, entry_path);
+      printf ("I: %ld, Len: %ld, Entry path: %s\n", i, path_len, entry_path);
 
-      int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr,
-                              entry_path);
       free (entry_path);
+      /*
+        int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size,
+        input_fptr, entry_path);
       if (ret != 0)
         return -1;
+         */
     }
 
   return 0;
+  printf ("%ld\n", ftell (input_fptr));
 }
