@@ -32,6 +32,7 @@ set(SRC_FILES
     "${SRC_DIR}/iso_9660/path_table_entry.c"
     "${SRC_DIR}/iso_9660/pri_vol_date_time.c"
     "${SRC_DIR}/iso_9660/pri_vol_desc.c"
+    "${SRC_DIR}/iso_9660/utils.c"
 )
 
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
@@ -44,6 +45,7 @@ set(INCL_FILES
     "${INCL_DIR}/iso_9660/path_table_entry.h"
     "${INCL_DIR}/iso_9660/pri_vol_date_time.h"
     "${INCL_DIR}/iso_9660/pri_vol_desc.h"
+    "${INCL_DIR}/iso_9660/utils.h"
 )
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})

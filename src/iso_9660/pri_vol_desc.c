@@ -2,6 +2,7 @@
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/path_table_entry.h"
+#include "iso_9660/utils.h"
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -206,7 +207,6 @@ calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
   return path_len;
 }
 
-// FIXME: create utility prepend string function, clean this up.
 static int
 build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
                       size_t output_len, size_t entry_idx,
@@ -222,36 +222,21 @@ build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
   while (j > 0)
     {
       _PathTableEntry_t *curr = &p->pt_list[j];
-      char *work = calloc (output_len, sizeof (char));
-      if (work == NULL)
-        goto out_of_mem_err;
 
-      strcpy (work, output);
-      strncpy (output, curr->dir_id, curr->dir_id_len);
-
-      // FIXME: handle cross-platform stuff here?
-      strcat (output, "/");
-
-      strcat (output, work);
+      if ((_u_prepend_str (output, output_len, "/", 2) != 0)
+          || (_u_prepend_str (output, output_len, curr->dir_id,
+                              curr->dir_id_len)
+              != 0))
+        return -1;
 
       j = curr->parent_dir_num - 1;
-      free (work);
     }
 
-  char *work = calloc (output_len, sizeof (char));
-  if (work == NULL)
-    goto out_of_mem_err;
+  if ((_u_prepend_str (output, output_len, "/", 2) != 0)
+      || (_u_prepend_str (output, output_len, path, strlen (path) + 1) != 0))
+    return -1;
 
-  strcpy (work, output);
-  strcpy (output, path);
-  strcat (output, "/");
-  strcat (output, work);
-
-  free (work);
   return 0;
-out_of_mem_err:
-  fprintf (stderr, "%s: Out of memory error.\n", __func__);
-  return -1;
 }
 
 int
@@ -283,12 +268,14 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
           return -1;
         }
 
+      puts ("---");
+      printf ("Entry path: %.*s\n", (int)path_len, entry_path);
+
       int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr,
                               entry_path);
       free (entry_path);
       if (ret != 0)
         return -1;
-      break;
     }
 
   return 0;
