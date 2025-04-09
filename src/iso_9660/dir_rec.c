@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -131,11 +132,92 @@ _dr_dynamic_init (_DirRec_t *dr_list[static 1], size_t list_cap[static 1],
   return 0;
 }
 
-/*
-int
-_dr_extract (_DirRec_t dr[static 1], FILE input_fptr[static 1], const char
-path[static 1])
+static int
+export_data (uint8_t *data, size_t data_size, const char *path)
 {
+  char *work = malloc (sizeof(char) * strlen(path));
+  if (work == NULL)
+  {
+    fprintf (stderr, "%s: out of memory error.\n", __func__);
+    return -1;
+  }
+
+  // TODO: LO here.
+
+  free (work);
   return 0;
 }
-*/
+
+int
+_dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
+             char path[static 1])
+{
+  /*
+   *  Handle unsupported file errors.
+   *  See: https://wiki.osdev.org/ISO_9660#Directories.
+   */
+  const char err_msg[] = "Error extracting file using directory record";
+  if (dr->file_flags & (1 << 7))
+    {
+      fprintf (stderr,
+               "%s: Support for files split across multiple extents is not "
+               "currently implemented.",
+               err_msg);
+      return -1;
+    }
+  else if (dr->file_flags & (1 << 2))
+    {
+      fprintf (
+          stderr,
+          "%s: Support for associated files is not currently implemented.",
+          err_msg);
+      return -1;
+    }
+
+  /*
+   *  Warn about missing support for additional data.
+   *  See: https://wiki.osdev.org/ISO_9660#Directories.
+   */
+  const char warning_fmt[] = "Warning: no implemented support for handling %s "
+                             "stored in the extended attribute record.";
+  if (dr->file_flags & (1 << 3))
+    printf (warning_fmt, "additional format information");
+  if (dr->file_flags & (1 << 4))
+    printf (warning_fmt, "owner and group permissions");
+
+  strncat (path, dr->file_id, dr->file_id_len - 2); // remove the ";1"
+
+  _dr_print (dr);
+
+  if (fseek (input_fptr, dr->extent_loc * lb_size, SEEK_SET) != 0)
+    {
+      // FIXME: really could use an standardized error handling interface.
+      fprintf (stderr, "%s: fseek error (0x%08lX).\n", __func__,
+               dr->extent_loc * lb_size);
+      return -1;
+    }
+
+  uint8_t *data = malloc (sizeof (uint8_t) * dr->extent_size);
+  if (data == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
+
+  if (_br_read_u8_array (input_fptr, data, dr->extent_size) != 0)
+    {
+      free (data);
+      return -1;
+    }
+
+  printf ("Extracting file: %s\n", path);
+  // TODO: actually extract it!
+  if (export_data (data, dr->extent_size, path) != 0)
+  {
+    free (data);
+    return -1;
+  }
+
+  free (data);
+  return 0;
+}

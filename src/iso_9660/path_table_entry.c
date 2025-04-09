@@ -41,7 +41,7 @@ _pte_print (_PathTableEntry_t p[static 1])
 
 int
 _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
-              FILE input_fptr[static 1], const char path[static 1])
+              FILE input_fptr[static 1], char path[static 1])
 {
   if (fseek (input_fptr, lb_size * p->extent_loc, SEEK_SET) != 0)
     {
@@ -66,27 +66,14 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
   if (ret != 0)
     goto err_exit;
 
-  // tmp, remove me!
-  free (dr_list);
-  return 0;
-
   for (size_t i = 0; i < dr_list_len; i++)
     {
       // Skip directories. See: https://wiki.osdev.org/ISO_9660#Directories.
       if (dr_list[i].file_flags & 2)
         continue;
 
-      // Minus 2 to remove the ";1" from the end.
-      printf ("New file: %.*s\n", dr_list[i].file_id_len - 2,
-              dr_list[i].file_id);
-      _dr_print (&dr_list[i]);
-
-      /*
-      if (_dr_extract(&dr_list[i], input_fptr, path) != 0)
+      if (_dr_extract (&dr_list[i], lb_size, input_fptr, path) != 0)
         goto err_exit;
-
-      puts ("---");
-      */
       break;
     }
 
@@ -95,7 +82,4 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
 err_exit:
   free (dr_list);
   return -1;
-  // tmp, prevent unused path param err
-  puts (path);
-  printf ("%ld\n", ftell (input_fptr));
 }

@@ -260,7 +260,9 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
   for (size_t i = 0; i < p->pt_list_len; i++)
     {
       size_t path_len = calc_entry_path_len (p, i, path);
-      char *entry_path = calloc (path_len, sizeof (char));
+
+      // + UINT8_MAX for the file identifier. See: `_DirRec_t`
+      char *entry_path = calloc (path_len + UINT8_MAX, sizeof (char));
       if (entry_path == NULL)
         {
           fprintf (stderr,
@@ -288,5 +290,4 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
     }
 
   return 0;
-  printf ("%ld\n", ftell (input_fptr));
 }
