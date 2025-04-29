@@ -206,7 +206,9 @@ calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
   while (i > 0);
 
   path_len += strlen (path) + 1; // + 1 for '/'
-  path_len++;                    // null terminator
+  path_len += strcspn (p->vol_id, " ");
+  path_len += 1;
+  path_len++; // null terminator
 
   return path_len;
 }
@@ -240,7 +242,10 @@ build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
         return -1;
     }
 
-  if (_u_prepend_str (output, output_len, path, strlen (path) + 1) != 0)
+  size_t vol_id_len = strcspn (p->vol_id, " ");
+  if ((_u_prepend_str (output, output_len, p->vol_id, vol_id_len) != 0)
+      || (_u_prepend_str (output, output_len, "/", 2) != 0)
+      || (_u_prepend_str (output, output_len, path, strlen (path) + 1) != 0))
     return -1;
 
   return 0;
