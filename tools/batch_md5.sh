@@ -1,4 +1,5 @@
 ## Create an md5 checksum for every file in a given directory.
+# TODO: convert to python
 #! /usr/bin/env bash
 directory="$1"
 output_file="checksums.txt"
