@@ -41,7 +41,8 @@ _pte_print (_PathTableEntry_t p[static 1])
 
 int
 _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
-              FILE input_fptr[static 1], char path[static 1])
+              FILE input_fptr[static 1], const char path[static 1],
+              const size_t path_len)
 {
   if (fseek (input_fptr, lb_size * p->extent_loc, SEEK_SET) != 0)
     {
@@ -72,9 +73,8 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
       if (dr_list[i].file_flags & 2)
         continue;
 
-      if (_dr_extract (&dr_list[i], lb_size, input_fptr, path) != 0)
+      if (_dr_extract (&dr_list[i], lb_size, input_fptr, path, path_len) != 0)
         goto err_exit;
-      break;
     }
 
   free (dr_list);

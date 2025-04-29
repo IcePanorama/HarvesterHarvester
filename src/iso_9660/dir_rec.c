@@ -214,7 +214,7 @@ export_data (uint8_t data[static 1], size_t data_size,
 
 int
 _dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
-             char path[static 1])
+             const char path[static 1], const size_t path_len)
 {
   /*
    *  Handle unsupported file errors.
@@ -249,10 +249,6 @@ _dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
   if (dr->file_flags & (1 << 4))
     printf (warning_fmt, "owner and group permissions");
 
-  strncat (path, dr->file_id, dr->file_id_len - 2); // remove the ";1"
-
-  _dr_print (dr);
-
   if (fseek (input_fptr, dr->extent_loc * lb_size, SEEK_SET) != 0)
     {
       // FIXME: really could use an standardized error handling interface.
@@ -274,14 +270,25 @@ _dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
       return -1;
     }
 
-  printf ("Extracting file: %s\n", path);
-  // TODO: actually extract it!
-  if (export_data (data, dr->extent_size, path) != 0)
+  char *file_path = calloc (path_len, sizeof (char));
+  if (file_path == NULL)
     {
+      fprintf (stderr, "Out of memory error: %s.", __func__);
+      return -1;
+    }
+
+  strcpy (file_path, path);
+  strncat (file_path, dr->file_id, dr->file_id_len - 2); // remove the ";1"
+
+  printf ("Extracting file: %s\n", file_path);
+  if (export_data (data, dr->extent_size, file_path) != 0)
+    {
+      free (file_path);
       free (data);
       return -1;
     }
 
+  free (file_path);
   free (data);
   return 0;
 }

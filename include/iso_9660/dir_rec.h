@@ -41,6 +41,7 @@ int _dr_dynamic_init (_DirRec_t *dr_list[static 1], size_t list_cap[static 1],
                       FILE input_fptr[static 1]);
 /** Param:  lb_size logical block size. */
 int _dr_extract (_DirRec_t dr[static 1], size_t lb_size,
-                 FILE input_fptr[static 1], char path[static 1]);
+                 FILE input_fptr[static 1], const char path[static 1],
+                 const size_t path_len);
 
 #endif /* _ISO_9660_DIRECTORY_RECORD_H_ */

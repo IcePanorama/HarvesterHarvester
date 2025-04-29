@@ -17,6 +17,7 @@ int _pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1]);
 void _pte_print (_PathTableEntry_t p[static 1]);
 /** Param:  lb_size logical block size. */
 int _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
-                  FILE input_fptr[static 1], char path[static 1]);
+                  FILE input_fptr[static 1], const char path[static 1],
+                  const size_t path_len);
 
 #endif /* _ISO_9660_PATH_TABLE_ENTRY_H_ */
