@@ -9,6 +9,8 @@ output/*
 build/*
 .releases/*
 *.json
+*.txt
+!old_hh_output_chksums.txt
 
 # Valgrind
 vgcore.*
