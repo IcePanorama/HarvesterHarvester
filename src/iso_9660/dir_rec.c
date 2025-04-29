@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 int
 _dr_init (_DirRec_t dr[static 1], FILE input_fptr[static 1])
@@ -133,19 +134,82 @@ _dr_dynamic_init (_DirRec_t *dr_list[static 1], size_t list_cap[static 1],
 }
 
 static int
-export_data (uint8_t *data, size_t data_size, const char *path)
+create_export_dir (const char path[static 1])
 {
-  char *work = malloc (sizeof(char) * strlen(path));
-  if (work == NULL)
-  {
-    fprintf (stderr, "%s: out of memory error.\n", __func__);
-    return -1;
-  }
+  char *path_cpy = malloc (sizeof (char) * strlen (path) + 1);
+  if (path_cpy == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
 
-  // TODO: LO here.
+  char *curr_path = calloc (strlen (path) + 1, sizeof (char));
+  if (curr_path == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      free (path_cpy);
+      return -1;
+    }
 
-  free (work);
+  strcpy (path_cpy, path);
+  char *tok = strtok (path_cpy, "/");
+  while (tok != NULL)
+    {
+      if (strchr (tok, '.') != NULL) // skip files.
+        break;
+
+      strcat (curr_path, tok);
+      struct stat path_info;
+      if (stat (curr_path, &path_info) != 0)
+        {
+          int status = mkdir (curr_path, 0700);
+          if (status != 0)
+            {
+              fprintf (stderr, "Failed to create output directory: %s.\n",
+                       curr_path);
+              free (curr_path);
+              free (path_cpy);
+              return -1;
+            }
+        }
+
+      tok = strtok (NULL, "/");
+      if (tok != NULL)
+        strcat (curr_path, "/");
+    }
+  free (curr_path);
+  free (path_cpy);
   return 0;
+}
+
+static int
+export_data (uint8_t data[static 1], size_t data_size,
+             const char path[static 1])
+{
+  if (create_export_dir (path) != 0)
+    return -1;
+
+  FILE *output_file = fopen (path, "wb");
+  if (output_file == NULL)
+    {
+      fprintf (stderr, "Failed to open file for export: %s.\n", path);
+      return -1;
+    }
+
+  int status = 0;
+  if (fwrite (data, sizeof (uint8_t), data_size, output_file) != data_size)
+    {
+      fprintf (stderr, "Error exporting file, %s.\n", path);
+      status = -1; // still need to attempt `fclose` below.
+    }
+
+  if (fclose (output_file) != 0)
+    {
+      fprintf (stderr, "Error closing file, %s.\n", path);
+      return -1;
+    }
+
+  return status;
 }
 
 int
@@ -213,10 +277,10 @@ _dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
   printf ("Extracting file: %s\n", path);
   // TODO: actually extract it!
   if (export_data (data, dr->extent_size, path) != 0)
-  {
-    free (data);
-    return -1;
-  }
+    {
+      free (data);
+      return -1;
+    }
 
   free (data);
   return 0;
