@@ -44,7 +44,7 @@ if __name__ == "__main__":
     print("Verifying checksums")
     for file in alt.keys():
         if (file not in original):
-            raise RuntimeError(f"Error: file, {file}, not in {sys.argv[1]}")
+            raise RuntimeError(f"Error: file, {file}, not in {sys.argv[1]}.")
         if (original[file] != alt[file]):
             raise RuntimeError(f"Chksum mismatch for {file}: original was {
                                original[file]}, alternative was {alt[file]}.")
