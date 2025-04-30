@@ -24,6 +24,7 @@ def init_chksum_dict(path: str) -> {str: str}:
             segments = line.split("  ")
             if (len(segments) < 2):
                 raise RuntimeError(f"Bad input: {line}")
+            segments[1] = segments[1][:-1]
             if (segments[1] in out):
                 raise RuntimeError(f"Duplicate key in {path}:"
                                    + f"{segments[1]} => {out[segments[1]]}")
