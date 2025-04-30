@@ -35,18 +35,23 @@ def init_chksum_dict(path: str) -> {str: str}:
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        raise ValueError("Invalid usage error. Try: " +
-                         f"`{sys.argv[0]} path_to_original.txt path_to_alt.txt`")
+        raise ValueError(f"Invalid usage error. Try: {sys.argv[0]} "
+                         + "path_to_original.txt path_to_alt.txt`")
 
     original = init_chksum_dict(sys.argv[1])
     alt = init_chksum_dict(sys.argv[2])
 
+    no_errs = True
     print("Verifying checksums")
+    # FIXME: work around for files not extracted by old HH, revert to
+    # exceptions at some point in the future.
     for file in alt.keys():
         if (file not in original):
-            raise RuntimeError(f"Error: file, {file}, not in {sys.argv[1]}.")
+            print(f"Error: file, {file}, not in {sys.argv[1]}.")
+            no_errs = False
+            continue
         if (original[file] != alt[file]):
-            raise RuntimeError(f"Chksum mismatch for {file}: original was {
-                               original[file]}, alternative was {alt[file]}.")
-
-    print("All checksums match... exiting.")
+            raise RuntimeError(f"Chksum mismatch for {file}: original was "
+                               + f"{original[file]}, new is {alt[file]}.")
+    if no_errs:
+        print("All checksums match... exiting.")
