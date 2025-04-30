@@ -14,20 +14,21 @@ def init_chksum_dict(path: str) -> {str: str}:
         param:  path    path to some checksum file.
         return: checksum dictionary.
     """
+    print(f"Creating chksum dictionary for file: {path}.")
     out = {}
     with open(path) as fptr:
         for line in fptr:
             if not line:
                 continue
 
-            segments = line.split(" ")
+            segments = line.split("  ")
             if (len(segments) < 2):
                 raise RuntimeError(f"Bad input: {line}")
-            if (segments[2] in out):
+            if (segments[1] in out):
                 raise RuntimeError(f"Duplicate key in {path}:"
-                                   + f"{segments[2]} => {out[segments[2]]}")
+                                   + f"{segments[1]} => {out[segments[1]]}")
 
-            out[segments[2]] = segments[0]
+            out[segments[1]] = segments[0]
     return out
 
 
@@ -41,7 +42,10 @@ if __name__ == "__main__":
 
     print("Verifying checksums")
     for file in alt.keys():
-        assert (file in original)
-        assert (original[file] == alt[file])
+        if (file not in original):
+            raise RuntimeError(f"Error: file, {file}, not in {sys.argv[1]}")
+        if (original[file] != alt[file]):
+            raise RuntimeError(f"Chksum mismatch for {file}: original was {
+                               original[file]}, alternative was {alt[file]}.")
 
     print("All checksums match... exiting.")
