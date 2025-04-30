@@ -226,16 +226,15 @@ export_data (uint8_t data[static 1], size_t data_size,
   return status;
 }
 
-int
-_dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
-             const char path[static 1], const size_t path_len)
+/*
+ *  Handle unsupported file errors.
+ *  Returns: Zero if file is supported, non-zero otherwise.
+ */
+static int
+unsupported_file_check (uint8_t flags)
 {
-  /*
-   *  Handle unsupported file errors.
-   *  See: https://wiki.osdev.org/ISO_9660#Directories.
-   */
   const char err_msg[] = "Error extracting file using directory record";
-  if (dr->file_flags & (1 << (FF_NOT_FINAL_DIR_BIT)))
+  if (flags & (1 << (FF_NOT_FINAL_DIR_BIT)))
     {
       fprintf (stderr,
                "%s: Support for files split across multiple extents is not "
@@ -243,7 +242,7 @@ _dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
                err_msg);
       return -1;
     }
-  else if (dr->file_flags & (1 << (FF_IS_ASSOC_FILE_BIT)))
+  else if (flags & (1 << (FF_IS_ASSOC_FILE_BIT)))
     {
       fprintf (
           stderr,
@@ -252,16 +251,32 @@ _dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
       return -1;
     }
 
-  /*
-   *  Warn about missing support for additional data.
-   *  See: https://wiki.osdev.org/ISO_9660#Directories.
-   */
+  return 0;
+}
+
+/*
+ *  Warn about missing support for additional data.
+ *  See: https://wiki.osdev.org/ISO_9660#Directories.
+ */
+static void
+handle_missing_support_warnings (uint8_t flags)
+{
   const char warning_fmt[] = "Warning: no implemented support for handling %s "
                              "stored in the extended attribute record.";
-  if (dr->file_flags & (1 << (FF_FMT_IN_EAR_BIT)))
+  if (flags & (1 << (FF_FMT_IN_EAR_BIT)))
     printf (warning_fmt, "additional format information");
-  if (dr->file_flags & (1 << (FF_PERMS_IN_EAR_BIT)))
+  if (flags & (1 << (FF_PERMS_IN_EAR_BIT)))
     printf (warning_fmt, "owner and group permissions");
+}
+
+int
+_dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
+             const char path[static 1], const size_t path_len)
+{
+  if (unsupported_file_check (dr->file_flags) != 0)
+    return -1;
+
+  handle_missing_support_warnings (dr->file_flags);
 
   if (fseek (input_fptr, dr->extent_loc * lb_size, SEEK_SET) != 0)
     {
