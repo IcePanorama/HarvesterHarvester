@@ -7,9 +7,65 @@
 #include <stdlib.h>
 #include <string.h>
 
-int
-_pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1])
+struct _PathTableEntry_s
 {
+  uint8_t dir_id_len;
+  uint8_t extended_attribute_record_len;
+  uint32_t extent_loc;
+  uint16_t parent_dir_num;
+  char dir_id[UINT8_MAX]; // See `dir_id_len`.
+};
+
+const size_t _PathTableEntry_SIZE_BYTES = sizeof (_PathTableEntry_t);
+
+_PathTableEntry_t *
+_pte_alloc (void)
+{
+  return calloc (1, sizeof (_PathTableEntry_t));
+}
+
+void
+_pte_free (_PathTableEntry_t *p)
+{
+  if (p == NULL)
+    return;
+
+  free (p);
+}
+
+uint8_t
+_pte_get_dir_id_len (const _PathTableEntry_t *e)
+{
+  if (e == NULL)
+    return 0;
+
+  return e->dir_id_len;
+}
+
+uint16_t
+_pte_get_parent_dir_num (const _PathTableEntry_t *e)
+{
+  if (e == NULL)
+    return 1;
+
+  return e->parent_dir_num;
+}
+
+const char *
+_pte_get_dir_id (const _PathTableEntry_t *e)
+{
+  if (e == NULL)
+    return NULL;
+
+  return e->dir_id;
+}
+
+int
+_pte_init (_PathTableEntry_t *p, FILE input_fptr[static 1])
+{
+  if (p == NULL)
+    return -1;
+
   if ((_br_read_u8 (input_fptr, &p->dir_id_len) != 0)
       || (_br_read_u8 (input_fptr, &p->extended_attribute_record_len) != 0)
       || (_br_read_le_u32 (input_fptr, &p->extent_loc) != 0)
@@ -33,18 +89,24 @@ _pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1])
 }
 
 void
-_pte_print (_PathTableEntry_t p[static 1])
+_pte_print (_PathTableEntry_t *p)
 {
+  if (p == NULL)
+    return;
+
   printf ("%.*s - Ext. attrib. len: %d, Loc: %d, Parent: %d\n", p->dir_id_len,
           p->dir_id, p->extended_attribute_record_len, p->extent_loc,
           p->parent_dir_num);
 }
 
 int
-_pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
+_pte_extract (_PathTableEntry_t *p, uint16_t lb_size,
               FILE input_fptr[static 1], const char path[static 1],
               const size_t path_len)
 {
+  if (p == NULL)
+    return -1;
+
   if (fseek (input_fptr, lb_size * p->extent_loc, SEEK_SET) != 0)
     {
       fprintf (stderr,

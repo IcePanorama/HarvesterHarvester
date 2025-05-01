@@ -65,7 +65,7 @@ resize_pt_list (_PriVolDesc_t *p)
 {
   p->pt_list_capacity *= 2;
   _PathTableEntry_t *tmp
-      = realloc (p->pt_list, p->pt_list_capacity * sizeof (_PathTableEntry_t));
+      = realloc (p->pt_list, p->pt_list_capacity * _PathTableEntry_SIZE_BYTES);
   if (tmp == NULL)
     {
       fprintf (stderr, "Failed to grow path table list to size %ld.\n",
@@ -77,6 +77,7 @@ resize_pt_list (_PriVolDesc_t *p)
   return 0;
 }
 
+// FIXME: Should this be in the path table file?
 static int
 process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
 {
@@ -91,8 +92,14 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
 
   for (uint32_t i = pt_start; i < pt_start + p->path_table_size;)
     {
-      _PathTableEntry_t curr = { 0 };
-      if (_pte_init (&curr, input_fptr) != 0)
+      _PathTableEntry_t *curr = _pte_alloc ();
+      if (curr == NULL)
+        {
+          fprintf (stderr, "%s: Out of memory error.\n", __func__);
+          return -1;
+        }
+
+      if (_pte_init (curr, input_fptr) != 0)
         {
           fprintf (stderr, "Path table procesing failed.\n");
           return -1;
@@ -104,7 +111,11 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
             return -1;
         }
 
-      memcpy (&p->pt_list[p->pt_list_len], &curr, sizeof (_PathTableEntry_t));
+      memcpy ((_PathTableEntry_t *)((char *)(p->pt_list)
+                                    + (p->pt_list_len
+                                       * _PathTableEntry_SIZE_BYTES)),
+              curr, _PathTableEntry_SIZE_BYTES);
+      _pte_free (curr);
       p->pt_list_len++;
 
       i = ftell (input_fptr);
@@ -188,7 +199,7 @@ _pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
     return -1;
 
   p->pt_list_capacity = 1;
-  p->pt_list = calloc (p->pt_list_capacity, sizeof (_PathTableEntry_t));
+  p->pt_list = calloc (p->pt_list_capacity, _PathTableEntry_SIZE_BYTES);
   if (p->pt_list == NULL)
     {
       fprintf (stderr, "Failed to alloc path table list.\n");
@@ -250,7 +261,8 @@ _pvd_print (_PriVolDesc_t *p)
 
   puts ("Path table:");
   for (size_t i = 0; i < p->pt_list_len; i++)
-    _pte_print (&p->pt_list[i]);
+    _pte_print ((_PathTableEntry_t *)((char *)(p->pt_list)
+                                      + (i * _PathTableEntry_SIZE_BYTES)));
 }
 
 void
@@ -284,9 +296,11 @@ calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
   ssize_t i = entry_idx;
   do
     {
-      _PathTableEntry_t *curr = &p->pt_list[i];
-      path_len += curr->dir_id_len + 1; // + 1 for '/'
-      i = curr->parent_dir_num - 1;
+      const _PathTableEntry_t *curr
+          = (_PathTableEntry_t *)((char *)(p->pt_list)
+                                  + (i * _PathTableEntry_SIZE_BYTES));
+      path_len += _pte_get_dir_id_len (curr) + 1; // + 1 for '/'
+      i = _pte_get_parent_dir_num (curr) - 1;
     }
   while (i > 0);
 
@@ -309,15 +323,17 @@ build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
   ssize_t j = entry_idx;
   do
     {
-      _PathTableEntry_t *curr = &p->pt_list[j];
+      const _PathTableEntry_t *curr
+          = (_PathTableEntry_t *)((char *)(p->pt_list)
+                                  + (j * _PathTableEntry_SIZE_BYTES));
 
       if ((_u_prepend_str (output, output_len, "/", 2) != 0)
-          || (_u_prepend_str (output, output_len, curr->dir_id,
-                              curr->dir_id_len)
+          || (_u_prepend_str (output, output_len, _pte_get_dir_id (curr),
+                              _pte_get_dir_id_len (curr))
               != 0))
         return -1;
 
-      j = curr->parent_dir_num - 1;
+      j = _pte_get_parent_dir_num (curr) - 1;
     }
   while (j > 0);
 
@@ -352,6 +368,11 @@ _pvd_extract (_PriVolDesc_t *p, FILE input_fptr[static 1],
 
   for (size_t i = 0; i < p->pt_list_len; i++)
     {
+      // FIXME: Can this be made const?
+      _PathTableEntry_t *curr
+          = (_PathTableEntry_t *)((char *)(p->pt_list)
+                                  + (i * _PathTableEntry_SIZE_BYTES));
+
       // + UINT8_MAX for the file identifier. See: `_DirRec_t`
       size_t path_len = calc_entry_path_len (p, i, path) + UINT8_MAX;
       char *entry_path = calloc (path_len, sizeof (char));
@@ -359,7 +380,7 @@ _pvd_extract (_PriVolDesc_t *p, FILE input_fptr[static 1],
         {
           fprintf (stderr,
                    "Error building path string for path table entry, %.*s\n",
-                   p->pt_list[i].dir_id_len, p->pt_list[i].dir_id);
+                   _pte_get_dir_id_len (curr), _pte_get_dir_id (curr));
           return -1;
         }
 
@@ -371,7 +392,7 @@ _pvd_extract (_PriVolDesc_t *p, FILE input_fptr[static 1],
 
       printf ("I: %ld, Len: %ld, Entry path: %s\n", i, path_len, entry_path);
 
-      int ret = _pte_extract (&p->pt_list[i], p->logical_blk_size, input_fptr,
+      int ret = _pte_extract (curr, p->logical_blk_size, input_fptr,
                               entry_path, path_len);
 
       free (entry_path);

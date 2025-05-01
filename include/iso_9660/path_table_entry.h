@@ -4,19 +4,22 @@
 #include <stdint.h>
 #include <stdio.h>
 
-typedef struct _PathTableEntry_s
-{
-  uint8_t dir_id_len;
-  uint8_t extended_attribute_record_len;
-  uint32_t extent_loc;
-  uint16_t parent_dir_num;
-  char dir_id[UINT8_MAX]; // See `dir_id_len`.
-} _PathTableEntry_t;
+typedef struct _PathTableEntry_s _PathTableEntry_t;
 
-int _pte_init (_PathTableEntry_t p[static 1], FILE input_fptr[static 1]);
-void _pte_print (_PathTableEntry_t p[static 1]);
+extern const size_t _PathTableEntry_SIZE_BYTES;
+
+_PathTableEntry_t *_pte_alloc (void);
+void _pte_free (_PathTableEntry_t *p);
+
+uint8_t _pte_get_dir_id_len (const _PathTableEntry_t *e);
+/** Returns 1 when `e` is NULL, as directories are 1-indexed. */
+uint16_t _pte_get_parent_dir_num (const _PathTableEntry_t *e);
+const char *_pte_get_dir_id (const _PathTableEntry_t *e);
+
+int _pte_init (_PathTableEntry_t *p, FILE input_fptr[static 1]);
+void _pte_print (_PathTableEntry_t *p);
 /** Param:  lb_size logical block size. */
-int _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
+int _pte_extract (_PathTableEntry_t *p, uint16_t lb_size,
                   FILE input_fptr[static 1], const char path[static 1],
                   const size_t path_len);
 
