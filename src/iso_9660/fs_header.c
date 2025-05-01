@@ -52,7 +52,7 @@ read_vd_type_code (FILE *fptr, enum _VolDescTypeCode_e *output)
 }
 
 int
-_fsh_init (_FileSysHeader_t *h, FILE *input_fptr)
+_fsh_init (_FileSysHeader_t *h, FILE input_fptr[static 1])
 {
   if (h == NULL)
     return -1;

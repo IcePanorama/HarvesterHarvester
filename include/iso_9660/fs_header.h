@@ -10,7 +10,7 @@ typedef struct _FileSysHeader_s _FileSysHeader_t;
 _FileSysHeader_t *_fsh_alloc (void);
 void _fsh_free (_FileSysHeader_t *h);
 
-int _fsh_init (_FileSysHeader_t *h, FILE *input_fptr);
+int _fsh_init (_FileSysHeader_t *h, FILE input_fptr[static 1]);
 void _fsh_print (_FileSysHeader_t *h);
 
 /**
