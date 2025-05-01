@@ -22,7 +22,7 @@ struct ISO9660FileSystem_s
       uint8_t boot_system_data[1977]; // "Custom - used by the boot system."
     } boot_vol_desc;
 
-    _PriVolDesc_t pri_vol_desc;
+    _PriVolDesc_t *pri_vol_desc;
 
     /**
      *  Volume Descriptor Set Terminator data "does not define bytes 7-2047 of
@@ -50,15 +50,13 @@ i9660_free_fs (ISO9660FileSystem_t *fs)
   switch (_fsh_get_vol_desc_type_code (fs->header))
     {
     case _VDTC_PRIMARY_VOLUME:
-      _pvd_free (&fs->vol_desc_data.pri_vol_desc);
+      _pvd_free (fs->vol_desc_data.pri_vol_desc);
       break;
     default:
       break;
     }
 
-  if (fs->header != NULL)
-    _fsh_free (fs->header);
-
+  _fsh_free (fs->header);
   free (fs);
 }
 
@@ -69,7 +67,9 @@ process_vol_desc_data (enum _VolDescTypeCode_e type,
   switch (type)
     {
     case _VDTC_PRIMARY_VOLUME:
-      if (_pvd_init (&data->pri_vol_desc, input_fptr) != 0)
+      data->pri_vol_desc = _pvd_alloc ();
+      if ((data->pri_vol_desc == NULL)
+          || (_pvd_init (data->pri_vol_desc, input_fptr) != 0))
         return -1;
       break;
     default:
@@ -107,7 +107,7 @@ i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
   switch (_fsh_get_vol_desc_type_code (fs->header))
     {
     case _VDTC_PRIMARY_VOLUME:
-      if (_pvd_process (&fs->vol_desc_data.pri_vol_desc, input_fptr) != 0)
+      if (_pvd_process (fs->vol_desc_data.pri_vol_desc, input_fptr) != 0)
         return -1;
       break;
     default:
@@ -131,7 +131,7 @@ i9660_print_fs (ISO9660FileSystem_t *fs)
   switch (_fsh_get_vol_desc_type_code (fs->header))
     {
     case _VDTC_PRIMARY_VOLUME:
-      _pvd_print (&fs->vol_desc_data.pri_vol_desc);
+      _pvd_print (fs->vol_desc_data.pri_vol_desc);
       break;
     default:
       fprintf (stderr,
@@ -151,8 +151,7 @@ i9660_extract_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
   switch (_fsh_get_vol_desc_type_code (fs->header))
     {
     case _VDTC_PRIMARY_VOLUME:
-      if (_pvd_extract (&fs->vol_desc_data.pri_vol_desc, input_fptr, path)
-          != 0)
+      if (_pvd_extract (fs->vol_desc_data.pri_vol_desc, input_fptr, path) != 0)
         return -1;
       break;
     default:
