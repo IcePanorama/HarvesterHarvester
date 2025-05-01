@@ -104,20 +104,6 @@ i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
       != 0)
     return -1;
 
-  switch (_fsh_get_vol_desc_type_code (fs->header))
-    {
-    case _VDTC_PRIMARY_VOLUME:
-      if (_pvd_process (fs->vol_desc_data.pri_vol_desc, input_fptr) != 0)
-        return -1;
-      break;
-    default:
-      fprintf (stderr,
-               "Support for processing type code %02X data isn't implemented "
-               "yet.\n",
-               _fsh_get_vol_desc_type_code (fs->header));
-      return -1;
-    }
-
   return 0;
 }
 
