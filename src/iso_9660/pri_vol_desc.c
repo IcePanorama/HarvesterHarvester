@@ -40,11 +40,12 @@ struct _PriVolDesc_s
   char abstract_file_id[37];
   char bibliographic_file_id[37];
 
-  _PVDDateTime_t creation_date_time;
-  _PVDDateTime_t modification_date_time;
-  _PVDDateTime_t expiration_date_time;
-  _PVDDateTime_t effective_date_time;
+  _PVDDateTime_t *creation_date_time;
+  _PVDDateTime_t *modification_date_time;
+  _PVDDateTime_t *expiration_date_time;
+  _PVDDateTime_t *effective_date_time;
 
+  // FIXME: are we double checking that this is correct?
   uint8_t fs_ver; // Should always be `0x01`.
   uint8_t application_used_data[512];
 
@@ -149,8 +150,9 @@ _pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
       || (_br_read_be_u32 (input_fptr, &p->type_m_path_table_loc) != 0)
       || (_br_read_be_u32 (input_fptr, &p->optional_type_m_path_table_loc) != 0))
     return -1;
+  /* clang-format on */
 
-  p->root_directory_entry = _dr_alloc();
+  p->root_directory_entry = _dr_alloc ();
   if ((p->root_directory_entry == NULL)
       || (_dr_init (p->root_directory_entry, input_fptr) != 0)
       || (_br_read_str (input_fptr, p->vol_set_id, 128) != 0)
@@ -159,15 +161,31 @@ _pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
       || (_br_read_str (input_fptr, p->application_id, 128) != 0)
       || (_br_read_str (input_fptr, p->copyright_file_id, 37) != 0)
       || (_br_read_str (input_fptr, p->abstract_file_id, 37) != 0)
-      || (_br_read_str (input_fptr, p->bibliographic_file_id, 37) != 0)
-      || (_pvddt_init (&p->creation_date_time, input_fptr) != 0)
-      || (_pvddt_init (&p->modification_date_time, input_fptr) != 0)
-      || (_pvddt_init (&p->expiration_date_time, input_fptr) != 0)
-      || (_pvddt_init (&p->effective_date_time, input_fptr) != 0)
-      || (_br_read_u8 (input_fptr, &p->fs_ver) != 0)
-      || (_br_read_u8_array(input_fptr, p->application_used_data, 512) != 0))
+      || (_br_read_str (input_fptr, p->bibliographic_file_id, 37) != 0))
     return -1;
-  /* clang-format on */
+
+  p->creation_date_time = _pvddt_alloc ();
+  // FIXME: should probably emit some out of memory err if dt is null!
+  if ((p->creation_date_time == NULL)
+      || (_pvddt_init (p->creation_date_time, input_fptr) != 0))
+    return -1;
+
+  p->modification_date_time = _pvddt_alloc ();
+  if ((p->modification_date_time == NULL)
+      || (_pvddt_init (p->modification_date_time, input_fptr) != 0))
+    return -1;
+
+  p->expiration_date_time = _pvddt_alloc ();
+  if ((p->expiration_date_time == NULL)
+      || (_pvddt_init (p->expiration_date_time, input_fptr) != 0))
+    return -1;
+
+  p->effective_date_time = _pvddt_alloc ();
+  if ((p->effective_date_time == NULL)
+      || (_pvddt_init (p->effective_date_time, input_fptr) != 0)
+      || (_br_read_u8 (input_fptr, &p->fs_ver) != 0)
+      || (_br_read_u8_array (input_fptr, p->application_used_data, 512) != 0))
+    return -1;
 
   p->pt_list_capacity = 1;
   p->pt_list = calloc (p->pt_list_capacity, sizeof (_PathTableEntry_t));
@@ -220,10 +238,10 @@ _pvd_print (_PriVolDesc_t *p)
   printf ("Bibliographic file identifier: %.*s\n", 37,
           p->bibliographic_file_id);
 
-  _pvddt_print (&p->creation_date_time, "Volume creation date time");
-  _pvddt_print (&p->modification_date_time, "Volume modification date time");
-  _pvddt_print (&p->expiration_date_time, "Volume expiration date time");
-  _pvddt_print (&p->effective_date_time, "Volume effective date time");
+  _pvddt_print (p->creation_date_time, "Volume creation date time");
+  _pvddt_print (p->modification_date_time, "Volume modification date time");
+  _pvddt_print (p->expiration_date_time, "Volume expiration date time");
+  _pvddt_print (p->effective_date_time, "Volume effective date time");
 
   printf ("File structure version: %d\n", p->fs_ver);
 
@@ -249,6 +267,11 @@ _pvd_free (_PriVolDesc_t *p)
       free (p->pt_list);
       p->pt_list = NULL;
     }
+
+  _pvddt_free (p->creation_date_time);
+  _pvddt_free (p->modification_date_time);
+  _pvddt_free (p->expiration_date_time);
+  _pvddt_free (p->effective_date_time);
 
   free (p);
 }
