@@ -9,7 +9,7 @@
 /** See: https://wiki.osdev.org/ISO_9660. */
 struct ISO9660FileSystem_s
 {
-  _FileSystem_Header_t header;
+  _FileSysHeader_t header;
 
   /** See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors. */
   union _VolDescData_u

@@ -26,7 +26,7 @@ read_vd_type_code (FILE *fptr, enum _VolDescTypeCode_e *output)
 }
 
 int
-_fs_header_init (_FileSystem_Header_t *h, FILE *input_fptr)
+_fs_header_init (_FileSysHeader_t *h, FILE *input_fptr)
 {
   if ((read_vd_type_code (input_fptr, &h->vol_desc_type_code) != 0)
       || (_br_read_str (input_fptr, h->vol_id, 5) != 0))
@@ -46,7 +46,7 @@ _fs_header_init (_FileSystem_Header_t *h, FILE *input_fptr)
 }
 
 void
-_fs_header_print (_FileSystem_Header_t *h)
+_fs_header_print (_FileSysHeader_t *h)
 {
   printf ("Volume descriptor type code: %02X\n", h->vol_desc_type_code);
   printf ("Volume identifier: %.*s\n", 5, h->vol_id);
