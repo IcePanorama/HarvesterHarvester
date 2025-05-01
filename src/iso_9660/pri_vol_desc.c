@@ -390,8 +390,7 @@ _pvd_extract (_PriVolDesc_t *p, FILE input_fptr[static 1],
           return -1;
         }
 
-      printf ("I: %ld, Len: %ld, Entry path: %s\n", i, path_len, entry_path);
-
+      printf ("Extracting directory: %s\n", entry_path);
       int ret = _pte_extract (curr, p->logical_blk_size, input_fptr,
                               entry_path, path_len);
 

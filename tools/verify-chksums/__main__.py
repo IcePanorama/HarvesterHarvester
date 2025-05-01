@@ -50,7 +50,8 @@ for file in alt.keys():
         no_errs = False
         continue
     if (original[file] != alt[file]):
-        raise RuntimeError(f"Chksum mismatch for {file}: original was "
-                           + f"{original[file]}, new is {alt[file]}.")
+        raise RuntimeError(f"Chksum mismatch for {file} (original: "
+                           + f"{original[file]}, new: {alt[file]}).")
+
 if no_errs:
     print("All checksums match... exiting.")
