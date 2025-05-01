@@ -1,17 +1,79 @@
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/binary_reader.h"
+#include "iso_9660/file_flags.h"
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <stdint.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 
-int
-_dr_init (_DirRec_t dr[static 1], FILE input_fptr[static 1])
+/** See:: https://wiki.osdev.org/ISO_9660#Directories */
+struct _DirRec_s
 {
+  uint8_t len;
+  uint8_t extended_attrib_rec_len;
+  uint32_t extent_loc;
+  uint32_t extent_size; // Also called its "data length".
+
+  struct _DRDateTime_s
+  {
+    uint8_t year; // number of years since 1900.
+    uint8_t month;
+    uint8_t day;
+    uint8_t hour;
+    uint8_t minute;
+    uint8_t second;
+    /** "Offset from GMT in 15 minute intervals from -48 ... to +52." */
+    uint8_t timezone;
+  } recording_date_time;
+
+  _FileFlags_t file_flags; // See: https://wiki.osdev.org/ISO_9660#Directories.
+  uint8_t file_unit_size;  // if recorded in interleaved mode, else 0.
+  uint8_t interleave_gap_size; // if recorded in interleaved mode, else 0.
+  uint16_t vol_seq_num;        // "the volume that this extent is recorded on."
+
+  uint8_t file_id_len;
+  /** Variable length file identifier. See:: `file_id_len`. */
+  char file_id[UINT8_MAX];
+};
+
+_DirRec_t *
+_dr_alloc (void)
+{
+  return calloc (1, sizeof (_DirRec_t));
+}
+
+void
+_dr_free (_DirRec_t *dr)
+{
+  if (dr == NULL)
+    return;
+
+  free (dr);
+}
+
+size_t
+_dr_size (void)
+{
+  return sizeof (_DirRec_t);
+}
+
+_FileFlags_t
+_dr_get_flags (_DirRec_t *dr)
+{
+  if (dr == NULL)
+    return (_FileFlags_t)-1;
+
+  return dr->file_flags;
+}
+
+int
+_dr_init (_DirRec_t *dr, FILE input_fptr[static 1])
+{
+  if (dr == NULL)
+    return -1;
+
   if ((_br_read_u8 (input_fptr, &dr->len) != 0)
       || (_br_read_u8 (input_fptr, &dr->extended_attrib_rec_len) != 0)
       || (_br_read_le_be_u32 (input_fptr, &dr->extent_loc) != 0)
@@ -48,8 +110,11 @@ _dr_init (_DirRec_t dr[static 1], FILE input_fptr[static 1])
 }
 
 void
-_dr_print (_DirRec_t dr[static 1])
+_dr_print (_DirRec_t *dr)
 {
+  if (dr == NULL)
+    return;
+
   printf ("Directory record length: %d\n", dr->len);
   printf ("Extended attribute length: %d\n", dr->extended_attrib_rec_len);
   printf ("Location of extent: %d\n", dr->extent_loc);
@@ -85,10 +150,13 @@ _dr_print (_DirRec_t dr[static 1])
 }
 
 int
-_dr_dynamic_init (_DirRec_t *dr_list[static 1], size_t list_cap[static 1],
+_dr_dynamic_init (_DirRec_t **dr_list, size_t list_cap[static 1],
                   size_t list_len[static 1], uint16_t lb_size,
                   FILE input_fptr[static 1])
 {
+  if (dr_list == NULL)
+    return -1;
+
   while (true)
     {
       /*
@@ -261,10 +329,10 @@ handle_missing_support_warnings (uint8_t flags)
 }
 
 int
-_dr_extract (_DirRec_t dr[static 1], size_t lb_size, FILE input_fptr[static 1],
+_dr_extract (_DirRec_t *dr, size_t lb_size, FILE input_fptr[static 1],
              const char path[static 1], const size_t path_len)
 {
-  if (unsupported_file_check (dr->file_flags) != 0)
+  if ((dr == NULL) || (unsupported_file_check (dr->file_flags) != 0))
     return -1;
 
   handle_missing_support_warnings (dr->file_flags);

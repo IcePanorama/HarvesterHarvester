@@ -56,7 +56,7 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
   // Extract every directory record associated with this entry
   size_t dr_list_capacity = 1;
   size_t dr_list_len = 0;
-  _DirRec_t *dr_list = calloc (dr_list_capacity, sizeof (_DirRec_t));
+  _DirRec_t *dr_list = calloc (dr_list_capacity, _dr_size ());
   if (dr_list == NULL)
     {
       fprintf (stderr, "%s: Out of memory error.\n", __func__);
@@ -70,11 +70,13 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
 
   for (size_t i = 0; i < dr_list_len; i++)
     {
+      _DirRec_t *curr = (_DirRec_t *)((char *)dr_list + (i * _dr_size ()));
+
       // Skip directories. See: https://wiki.osdev.org/ISO_9660#Directories.
-      if (dr_list[i].file_flags & (1 << (_FF_IS_DIRECTORY_BIT)))
+      if (_dr_get_flags (curr) & (1 << (_FF_IS_DIRECTORY_BIT)))
         continue;
 
-      if (_dr_extract (&dr_list[i], lb_size, input_fptr, path, path_len) != 0)
+      if (_dr_extract (curr, lb_size, input_fptr, path, path_len) != 0)
         goto err_exit;
     }
 

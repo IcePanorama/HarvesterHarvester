@@ -30,7 +30,7 @@ struct _PriVolDesc_s
   uint32_t type_m_path_table_loc;
   uint32_t optional_type_m_path_table_loc;
 
-  _DirRec_t root_directory_entry;
+  _DirRec_t *root_directory_entry;
 
   char vol_set_id[128];
   char publisher_id[128];
@@ -147,8 +147,12 @@ _pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
       || (_br_read_le_u32 (input_fptr, &p->type_l_path_table_loc) != 0)
       || (_br_read_le_u32 (input_fptr, &p->optional_type_l_path_table_loc) != 0)
       || (_br_read_be_u32 (input_fptr, &p->type_m_path_table_loc) != 0)
-      || (_br_read_be_u32 (input_fptr, &p->optional_type_m_path_table_loc) != 0)
-      || (_dr_init (&p->root_directory_entry, input_fptr) != 0)
+      || (_br_read_be_u32 (input_fptr, &p->optional_type_m_path_table_loc) != 0))
+    return -1;
+
+  p->root_directory_entry = _dr_alloc();
+  if ((p->root_directory_entry == NULL)
+      || (_dr_init (p->root_directory_entry, input_fptr) != 0)
       || (_br_read_str (input_fptr, p->vol_set_id, 128) != 0)
       || (_br_read_str (input_fptr, p->publisher_id, 128) != 0)
       || (_br_read_str (input_fptr, p->data_preparer_id, 128) != 0)
@@ -205,7 +209,7 @@ _pvd_print (_PriVolDesc_t *p)
           p->optional_type_m_path_table_loc);
 
   puts ("Root directory entry:");
-  _dr_print (&p->root_directory_entry);
+  _dr_print (p->root_directory_entry);
 
   printf ("Volume set identifier: %.*s\n", 128, p->vol_set_id);
   printf ("Publisher identifier: %.*s\n", 128, p->publisher_id);
@@ -236,6 +240,9 @@ _pvd_free (_PriVolDesc_t *p)
 {
   if (p == NULL)
     return;
+
+  if (p->root_directory_entry != NULL)
+    _dr_free (p->root_directory_entry);
 
   if (p->pt_list != NULL)
     {
