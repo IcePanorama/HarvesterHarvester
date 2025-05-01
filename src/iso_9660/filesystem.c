@@ -100,6 +100,20 @@ i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
       != 0)
     return -1;
 
+  switch (fs->header.vol_desc_type_code)
+    {
+    case VDTC_PRIMARY_VOLUME:
+      if (_pvd_process (&fs->vol_desc_data.pri_vol_desc, input_fptr) != 0)
+        return -1;
+      break;
+    default:
+      fprintf (stderr,
+               "Support for processing type code %02X data isn't implemented "
+               "yet.\n",
+               fs->header.vol_desc_type_code);
+      return -1;
+    }
+
   return 0;
 }
 
@@ -121,29 +135,6 @@ i9660_print_fs (ISO9660FileSystem_t *fs)
                fs->header.vol_desc_type_code);
       break;
     }
-}
-
-int
-i9660_process_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
-{
-  if (fs == NULL)
-    return -1;
-
-  switch (fs->header.vol_desc_type_code)
-    {
-    case VDTC_PRIMARY_VOLUME:
-      if (_pvd_process (&fs->vol_desc_data.pri_vol_desc, input_fptr) != 0)
-        return -1;
-      break;
-    default:
-      fprintf (stderr,
-               "Support for processing type code %02X data isn't implemented "
-               "yet.\n",
-               fs->header.vol_desc_type_code);
-      return -1;
-    }
-
-  return 0;
 }
 
 int

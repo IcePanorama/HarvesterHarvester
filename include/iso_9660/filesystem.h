@@ -7,14 +7,9 @@ typedef struct ISO9660FileSystem_s ISO9660FileSystem_t;
 
 ISO9660FileSystem_t *i9660_create_fs (void);
 void i9660_free_fs (ISO9660FileSystem_t *fs);
-/**
- *  Processes filesystem header and data sections.
- *  TODO: combine with `i9660_process_fs`.
- */
+/** Processes filesystem header and data sections. */
 int i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1]);
 void i9660_print_fs (ISO9660FileSystem_t *fs);
-/** TODO: combine with `i9660_init_fs`. */
-int i9660_process_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1]);
 int i9660_extract_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
                       const char path[static 1]);
 
