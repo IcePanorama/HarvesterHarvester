@@ -1,6 +1,8 @@
 #ifndef _ISO_9660_DIRECTORY_RECORD_H_
 #define _ISO_9660_DIRECTORY_RECORD_H_
 
+#include "iso_9660/file_flags.h"
+
 #include <stdint.h>
 #include <stdio.h>
 
@@ -24,8 +26,10 @@ typedef struct _DirRec_s
     uint8_t timezone;
   } recording_date_time;
 
-  uint8_t file_flags;     // See: https://wiki.osdev.org/ISO_9660#Directories.
-  uint8_t file_unit_size; // if recorded in interleaved mode, else 0.
+  // uint8_t file_flags;     // See:
+  // https://wiki.osdev.org/ISO_9660#Directories.
+  _FileFlags_t file_flags; // See: https://wiki.osdev.org/ISO_9660#Directories.
+  uint8_t file_unit_size;  // if recorded in interleaved mode, else 0.
   uint8_t interleave_gap_size; // if recorded in interleaved mode, else 0.
   uint16_t vol_seq_num;        // "the volume that this extent is recorded on."
   uint8_t file_id_len;

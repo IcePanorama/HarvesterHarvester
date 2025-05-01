@@ -1,6 +1,7 @@
 #include "iso_9660/path_table_entry.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/dir_rec.h"
+#include "iso_9660/file_flags.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -70,7 +71,7 @@ _pte_extract (_PathTableEntry_t p[static 1], uint16_t lb_size,
   for (size_t i = 0; i < dr_list_len; i++)
     {
       // Skip directories. See: https://wiki.osdev.org/ISO_9660#Directories.
-      if (dr_list[i].file_flags & 2)
+      if (dr_list[i].file_flags & (1 << (_FF_IS_DIRECTORY_BIT)))
         continue;
 
       if (_dr_extract (&dr_list[i], lb_size, input_fptr, path, path_len) != 0)

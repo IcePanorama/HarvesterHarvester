@@ -9,17 +9,6 @@
 #include <string.h>
 #include <sys/stat.h>
 
-/**
- *  File flag bits.
- *  See: https://wiki.osdev.org/ISO_9660#Directories.
- */
-#define FF_HIDDEN_FILE_BIT (0)
-#define FF_IS_DIRECTORY_BIT (1)
-#define FF_IS_ASSOC_FILE_BIT (2)
-#define FF_FMT_IN_EAR_BIT (3) // EAR: Extended attribute record
-#define FF_PERMS_IN_EAR_BIT (4)
-#define FF_NOT_FINAL_DIR_BIT (7)
-
 int
 _dr_init (_DirRec_t dr[static 1], FILE input_fptr[static 1])
 {
@@ -74,17 +63,19 @@ _dr_print (_DirRec_t dr[static 1])
 
   puts ("File flags:");
   printf ("Hidden? %s\n",
-          (dr->file_flags & (1 << (FF_HIDDEN_FILE_BIT))) ? "true" : "false");
+          (dr->file_flags & (1 << (_FF_HIDDEN_FILE_BIT))) ? "true" : "false");
   printf ("Directory? %s\n",
-          (dr->file_flags & (1 << (FF_IS_DIRECTORY_BIT))) ? "true" : "false");
+          (dr->file_flags & (1 << (_FF_IS_DIRECTORY_BIT))) ? "true" : "false");
   printf ("Associated file? %s\n",
-          (dr->file_flags & (1 << (FF_IS_ASSOC_FILE_BIT))) ? "true" : "false");
+          (dr->file_flags & (1 << (_FF_IS_ASSOC_FILE_BIT))) ? "true"
+                                                            : "false");
   printf ("Format info in extended attrib. record? %s\n",
-          (dr->file_flags & (1 << (FF_FMT_IN_EAR_BIT))) ? "true" : "false");
+          (dr->file_flags & (1 << (_FF_FMT_IN_EAR_BIT))) ? "true" : "false");
   printf ("Owner/group perms in extended attrib. record? %s\n",
-          (dr->file_flags & (1 << (FF_PERMS_IN_EAR_BIT))) ? "true" : "false");
+          (dr->file_flags & (1 << (_FF_PERMS_IN_EAR_BIT))) ? "true" : "false");
   printf ("Not final directory record? %s\n",
-          (dr->file_flags & (1 << (FF_NOT_FINAL_DIR_BIT))) ? "true" : "false");
+          (dr->file_flags & (1 << (_FF_NOT_FINAL_DIR_BIT))) ? "true"
+                                                            : "false");
 
   printf ("File unit size: %d\n", dr->file_unit_size);
   printf ("Interleave gap size: %d\n", dr->interleave_gap_size);
@@ -234,7 +225,7 @@ static int
 unsupported_file_check (uint8_t flags)
 {
   const char err_msg[] = "Error extracting file using directory record";
-  if (flags & (1 << (FF_NOT_FINAL_DIR_BIT)))
+  if (flags & (1 << (_FF_NOT_FINAL_DIR_BIT)))
     {
       fprintf (stderr,
                "%s: Support for files split across multiple extents is not "
@@ -242,7 +233,7 @@ unsupported_file_check (uint8_t flags)
                err_msg);
       return -1;
     }
-  else if (flags & (1 << (FF_IS_ASSOC_FILE_BIT)))
+  else if (flags & (1 << (_FF_IS_ASSOC_FILE_BIT)))
     {
       fprintf (
           stderr,
@@ -263,9 +254,9 @@ handle_missing_support_warnings (uint8_t flags)
 {
   const char warning_fmt[] = "Warning: no implemented support for handling %s "
                              "stored in the extended attribute record.";
-  if (flags & (1 << (FF_FMT_IN_EAR_BIT)))
+  if (flags & (1 << (_FF_FMT_IN_EAR_BIT)))
     printf (warning_fmt, "additional format information");
-  if (flags & (1 << (FF_PERMS_IN_EAR_BIT)))
+  if (flags & (1 << (_FF_PERMS_IN_EAR_BIT)))
     printf (warning_fmt, "owner and group permissions");
 }
 

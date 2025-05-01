@@ -289,8 +289,6 @@ _pvd_extract (_PriVolDesc_t p[static 1], FILE input_fptr[static 1],
       free (entry_path);
       if (ret != 0)
         return -1;
-
-      break;
     }
 
   return 0;
