@@ -1,7 +1,33 @@
 #include "iso_9660/fs_header.h"
 #include "iso_9660/binary_reader.h"
-#include <stdio.h>
+
+#include <stdint.h>
+#include <stdlib.h>
 #include <string.h>
+
+struct _FileSysHeader_s
+{
+  _VolDescTypeCode_t vol_desc_type_code;
+
+  char vol_id[5]; // Should always be `CD001`.
+  uint8_t vol_desc_ver;
+};
+
+_FileSysHeader_t *
+_fsh_alloc (void)
+{
+  _FileSysHeader_t *out = calloc (1, sizeof (_FileSysHeader_t));
+  return out;
+}
+
+void
+_fsh_free (_FileSysHeader_t *h)
+{
+  if (h == NULL)
+    return;
+
+  free (h);
+}
 
 /**
  *  Reads a volume descriptor type code from file.
@@ -15,7 +41,7 @@ read_vd_type_code (FILE *fptr, enum _VolDescTypeCode_e *output)
   if (_br_read_u8 (fptr, &byte) != 0)
     return -1;
 
-  if ((byte > VDTC_VOL_PARTITION) && (byte != VDTC_VOL_DESC_SET_TERMINATOR))
+  if ((byte > _VDTC_VOL_PARTITION) && (byte != _VDTC_VOL_DESC_SET_TERMINATOR))
     {
       fprintf (stderr, "Unknown volume descriptor type code: %02X.\n", byte);
       return -1;
@@ -26,8 +52,11 @@ read_vd_type_code (FILE *fptr, enum _VolDescTypeCode_e *output)
 }
 
 int
-_fs_header_init (_FileSysHeader_t *h, FILE *input_fptr)
+_fsh_init (_FileSysHeader_t *h, FILE *input_fptr)
 {
+  if (h == NULL)
+    return -1;
+
   if ((read_vd_type_code (input_fptr, &h->vol_desc_type_code) != 0)
       || (_br_read_str (input_fptr, h->vol_id, 5) != 0))
     return -1;
@@ -46,9 +75,21 @@ _fs_header_init (_FileSysHeader_t *h, FILE *input_fptr)
 }
 
 void
-_fs_header_print (_FileSysHeader_t *h)
+_fsh_print (_FileSysHeader_t *h)
 {
+  if (h == NULL)
+    return;
+
   printf ("Volume descriptor type code: %02X\n", h->vol_desc_type_code);
   printf ("Volume identifier: %.*s\n", 5, h->vol_id);
   printf ("Volume descriptor version: %02X\n", h->vol_desc_ver);
+}
+
+_VolDescTypeCode_t
+_fsh_get_vol_desc_type_code (_FileSysHeader_t *h)
+{
+  if (h == NULL)
+    return _VDTC_VOL_DESC_SET_TERMINATOR;
+
+  return h->vol_desc_type_code;
 }

@@ -9,7 +9,7 @@
 /** See: https://wiki.osdev.org/ISO_9660. */
 struct ISO9660FileSystem_s
 {
-  _FileSysHeader_t header;
+  _FileSysHeader_t *header;
 
   /** See: https://wiki.osdev.org/ISO_9660#Volume_Descriptors. */
   union _VolDescData_u
@@ -47,14 +47,17 @@ i9660_free_fs (ISO9660FileSystem_t *fs)
   if (fs == NULL)
     return;
 
-  switch (fs->header.vol_desc_type_code)
+  switch (_fsh_get_vol_desc_type_code (fs->header))
     {
-    case VDTC_PRIMARY_VOLUME:
+    case _VDTC_PRIMARY_VOLUME:
       _pvd_free (&fs->vol_desc_data.pri_vol_desc);
       break;
     default:
       break;
     }
+
+  if (fs->header != NULL)
+    _fsh_free (fs->header);
 
   free (fs);
 }
@@ -65,7 +68,7 @@ process_vol_desc_data (enum _VolDescTypeCode_e type,
 {
   switch (type)
     {
-    case VDTC_PRIMARY_VOLUME:
+    case _VDTC_PRIMARY_VOLUME:
       if (_pvd_init (&data->pri_vol_desc, input_fptr) != 0)
         return -1;
       break;
@@ -92,17 +95,18 @@ i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
       return -1;
     }
 
-  if (_fs_header_init (&fs->header, input_fptr) != 0)
+  fs->header = _fsh_alloc ();
+  if ((fs->header == NULL) || (_fsh_init (fs->header, input_fptr) != 0))
     return -1;
 
-  if (process_vol_desc_data (fs->header.vol_desc_type_code, &fs->vol_desc_data,
-                             input_fptr)
+  if (process_vol_desc_data (_fsh_get_vol_desc_type_code (fs->header),
+                             &fs->vol_desc_data, input_fptr)
       != 0)
     return -1;
 
-  switch (fs->header.vol_desc_type_code)
+  switch (_fsh_get_vol_desc_type_code (fs->header))
     {
-    case VDTC_PRIMARY_VOLUME:
+    case _VDTC_PRIMARY_VOLUME:
       if (_pvd_process (&fs->vol_desc_data.pri_vol_desc, input_fptr) != 0)
         return -1;
       break;
@@ -110,7 +114,7 @@ i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
       fprintf (stderr,
                "Support for processing type code %02X data isn't implemented "
                "yet.\n",
-               fs->header.vol_desc_type_code);
+               _fsh_get_vol_desc_type_code (fs->header));
       return -1;
     }
 
@@ -123,16 +127,16 @@ i9660_print_fs (ISO9660FileSystem_t *fs)
   if (fs == NULL)
     return;
 
-  _fs_header_print (&fs->header);
-  switch (fs->header.vol_desc_type_code)
+  _fsh_print (fs->header);
+  switch (_fsh_get_vol_desc_type_code (fs->header))
     {
-    case VDTC_PRIMARY_VOLUME:
+    case _VDTC_PRIMARY_VOLUME:
       _pvd_print (&fs->vol_desc_data.pri_vol_desc);
       break;
     default:
       fprintf (stderr,
                "Support for printing type code %02X isn't implemented yet.\n",
-               fs->header.vol_desc_type_code);
+               _fsh_get_vol_desc_type_code (fs->header));
       break;
     }
 }
@@ -144,9 +148,9 @@ i9660_extract_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
   if (fs == NULL)
     return -1;
 
-  switch (fs->header.vol_desc_type_code)
+  switch (_fsh_get_vol_desc_type_code (fs->header))
     {
-    case VDTC_PRIMARY_VOLUME:
+    case _VDTC_PRIMARY_VOLUME:
       if (_pvd_extract (&fs->vol_desc_data.pri_vol_desc, input_fptr, path)
           != 0)
         return -1;
@@ -155,7 +159,7 @@ i9660_extract_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
       fprintf (stderr,
                "No implemented support for extracting file systems of type "
                "code %02X.\n",
-               fs->header.vol_desc_type_code);
+               _fsh_get_vol_desc_type_code (fs->header));
       return -1;
     }
 
