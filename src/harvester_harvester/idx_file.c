@@ -24,10 +24,9 @@
 
 struct _IndexFile_s
 {
+  char *dir_path; // Path to idx file's dir. E.g., `output/DISK1/`.
   struct _IdxFileEntry_s
   {
-    // Don't really need this
-    // uint32_t loc; // Offset in bytes from the start of the file.
     char path[(MAX_PATH_LEN)]; // path to where this file should be extracted.
     /** Offset in bytes from the start of its associated dat file. */
     uint32_t extent_loc;
@@ -61,6 +60,8 @@ _idx_free (_IndexFile_t *i)
   if (i == NULL)
     return;
 
+  if (i->dir_path != NULL)
+    free (i->dir_path);
   if (i->entries != NULL)
     free (i->entries);
   free (i);
@@ -120,14 +121,31 @@ peek_eof (FILE *fptr)
   return false;
 }
 
+/** Change all occurences of '\\' to '/' in a given string. */
+static void
+flip_path_separators (char *str)
+{
+  char *work = str;
+  while (*work != '\0')
+    {
+      if (*work == '\\')
+        *work = '/';
+      work++;
+    }
+}
+
 static int
 init_entry (struct _IdxFileEntry_s *e, FILE *input_fptr)
 {
   if (fseek (input_fptr, 6, SEEK_CUR) != 0) // Seek past `XFILE#:`
     goto fseek_err;
 
-  if ((_hhbr_read_str (input_fptr, e->path, MAX_PATH_LEN) != 0)
-      || (_hhbr_read_le_u32 (input_fptr, &e->extent_loc) != 0)
+  if (_hhbr_read_str (input_fptr, e->path, MAX_PATH_LEN) != 0)
+    return -1;
+
+  flip_path_separators (e->path);
+
+  if ((_hhbr_read_le_u32 (input_fptr, &e->extent_loc) != 0)
       || (_hhbr_read_le_u32 (input_fptr, &e->size) != 0))
     {
       return -1;
@@ -161,10 +179,34 @@ fseek_err:
   return -1;
 }
 
-int
-_idx_init (_IndexFile_t *i, const char *path)
+static int
+find_dir_path (_IndexFile_t *i, const char *path)
 {
-  if (i == NULL)
+  char *end = strrchr (path, '/');
+  if (end == NULL)
+    {
+      fprintf (stderr,
+               "Given path string, %s, does not contain path separator, %c.\n",
+               path, '/');
+      return -1;
+    }
+
+  size_t new_len = (size_t)(end - path);
+  i->dir_path = calloc (new_len + 1, sizeof (char)); // +1 for NULL-terminator
+  if (i->dir_path == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
+  strncpy (i->dir_path, path, new_len);
+
+  return 0;
+}
+
+int
+_idx_init (_IndexFile_t *i, const char path[static 1])
+{
+  if ((i == NULL) || (find_dir_path (i, path) != 0))
     return -1;
 
   FILE *input_fptr = fopen (path, "rb");

@@ -22,7 +22,7 @@ typedef struct _IndexFile_s _IndexFile_t;
 _IndexFile_t *_idx_alloc (void);
 void _idx_free (_IndexFile_t *i);
 
-int _idx_init (_IndexFile_t *i, const char *path);
+int _idx_init (_IndexFile_t *i, const char path[static 1]);
 void _idx_print (_IndexFile_t *i);
 
 #endif /* _HARVESTER_HARVESTER_INDEX_FILE_H_ */
