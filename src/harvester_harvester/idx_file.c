@@ -120,6 +120,47 @@ peek_eof (FILE *fptr)
   return false;
 }
 
+static int
+init_entry (struct _IdxFileEntry_s *e, FILE *input_fptr)
+{
+  if (fseek (input_fptr, 6, SEEK_CUR) != 0) // Seek past `XFILE#:`
+    goto fseek_err;
+
+  if ((_hhbr_read_str (input_fptr, e->path, MAX_PATH_LEN) != 0)
+      || (_hhbr_read_le_u32 (input_fptr, &e->extent_loc) != 0)
+      || (_hhbr_read_le_u32 (input_fptr, &e->size) != 0))
+    {
+      return -1;
+    }
+
+  if (fseek (input_fptr, 4, SEEK_CUR) != 0) // Skip unused zeros.
+    goto fseek_err;
+
+  /**
+   *  Check repeated size matches original size read. Not sure why this is
+   *  duplicated in the first place, but we might as well, right?
+   */
+  uint32_t value;
+  if (_hhbr_read_le_u32 (input_fptr, &value) != 0)
+    {
+      return -1;
+    }
+
+  if (value != e->size)
+    {
+      fprintf (stderr,
+               "Repeated size value does not match original value read: got "
+               "0x%08X, expected 0x%08X\n",
+               value, e->size);
+      return -1;
+    }
+
+  return 0;
+fseek_err:
+  fprintf (stderr, "Error seeking forward in index file.\n");
+  return -1;
+}
+
 int
 _idx_init (_IndexFile_t *i, const char *path)
 {
@@ -135,44 +176,12 @@ _idx_init (_IndexFile_t *i, const char *path)
 
   while (!peek_eof (input_fptr))
     {
-      if (fseek (input_fptr, 6, SEEK_CUR) != 0)
-        goto fseek_err;
-
       struct _IdxFileEntry_s entry;
-      if ((_hhbr_read_str (input_fptr, entry.path, MAX_PATH_LEN) != 0)
-          || (_hhbr_read_le_u32 (input_fptr, &entry.extent_loc) != 0)
-          || (_hhbr_read_le_u32 (input_fptr, &entry.size) != 0))
+      if (init_entry (&entry, input_fptr) != 0)
         {
           fclose (input_fptr);
           return -1;
         }
-
-      if (fseek (input_fptr, 4, SEEK_CUR) != 0) // Skip unused zeros.
-        goto fseek_err;
-
-      /**
-       *  Check repeated size matches original size read. Not sure why this is
-       *  duplicated in the first place, but we might as well, right?
-       */
-      uint32_t value;
-      if (_hhbr_read_le_u32 (input_fptr, &value) != 0)
-        {
-          fclose (input_fptr);
-          return -1;
-        }
-
-      if (value != entry.size)
-        {
-          fprintf (
-              stderr,
-              "Repeated size value does not match original value read: got "
-              "0x%08X, expected 0x%08X\n",
-              value, entry.size);
-          fclose (input_fptr);
-          return -1;
-        }
-
-      _idxe_print (&entry);
 
       if (append_entry (i, &entry) != 0)
         {
@@ -181,12 +190,9 @@ _idx_init (_IndexFile_t *i, const char *path)
         }
     }
 
+  // tmp, remove me!
   _idx_print (i);
 
   fclose (input_fptr);
   return 0;
-fseek_err:
-  fprintf (stderr, "Error seeking forward in file, %s.\n", path);
-  fclose (input_fptr);
-  return -1;
 }
