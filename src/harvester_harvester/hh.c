@@ -7,7 +7,7 @@ int
 hh_extract_filesystem (const char input_path[static 1],
                        const char output_path[static 1])
 {
-  ISO9660FileSystem_t *fs = i9660_create_fs ();
+  ISO9660FileSystem_t *fs = i9660_alloc ();
   if (fs == NULL)
     {
       fprintf (stderr, "Out of memory error.\n");
@@ -21,15 +21,15 @@ hh_extract_filesystem (const char input_path[static 1],
       return -1;
     }
 
-  if ((i9660_init_fs (fs, input_file) != 0)
-      || (i9660_extract_fs (fs, input_file, output_path) != 0))
+  if ((i9660_init (fs, input_file) != 0)
+      || (i9660_extract (fs, input_file, output_path) != 0))
     {
-      i9660_free_fs (fs);
+      i9660_free (fs);
       fclose (input_file);
       return -1;
     }
 
-  i9660_free_fs (fs);
+  i9660_free (fs);
   fclose (input_file);
   return 0;
 }

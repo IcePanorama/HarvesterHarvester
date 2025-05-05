@@ -35,14 +35,14 @@ struct ISO9660FileSystem_s
 };
 
 ISO9660FileSystem_t *
-i9660_create_fs (void)
+i9660_alloc (void)
 {
   ISO9660FileSystem_t *output = calloc (1, sizeof (ISO9660FileSystem_t));
   return output;
 }
 
 void
-i9660_free_fs (ISO9660FileSystem_t *fs)
+i9660_free (ISO9660FileSystem_t *fs)
 {
   if (fs == NULL)
     return;
@@ -84,7 +84,7 @@ process_vol_desc_data (enum _VolDescTypeCode_e type,
 }
 
 int
-i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
+i9660_init (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
 {
   if (fs == NULL)
     return -1;
@@ -108,7 +108,7 @@ i9660_init_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
 }
 
 void
-i9660_print_fs (ISO9660FileSystem_t *fs)
+i9660_print (ISO9660FileSystem_t *fs)
 {
   if (fs == NULL)
     return;
@@ -128,8 +128,8 @@ i9660_print_fs (ISO9660FileSystem_t *fs)
 }
 
 int
-i9660_extract_fs (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
-                  const char path[static 1])
+i9660_extract (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
+               const char path[static 1])
 {
   if (fs == NULL)
     return -1;
