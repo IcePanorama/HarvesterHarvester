@@ -1,9 +1,11 @@
 #include "harvester_harvester/idx_file.h"
 #include "harvester_harvester/binary_reader.h"
 
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
  *  Each entry is 94h bytes. Each entry contains `XFLE#:`, followed by a NULL-
@@ -72,6 +74,52 @@ _idxe_print (struct _IdxFileEntry_s e[static 1])
   fprintf (stdout, "Size: 0x%08X\n", e->size);
 }
 
+void
+_idx_print (_IndexFile_t *i)
+{
+  if ((i == NULL) || (i->entries == NULL))
+    return;
+
+  for (size_t j = 0; j < i->size; j++)
+    {
+      fprintf (stdout, "Entry %ld: \n", j);
+      _idxe_print (&i->entries[j]);
+    }
+}
+
+static int
+append_entry (_IndexFile_t *i, const struct _IdxFileEntry_s *e)
+{
+  if (i->size == i->capacity)
+    {
+      size_t new_cap = i->capacity * 2;
+      struct _IdxFileEntry_s *tmp
+          = realloc (i->entries, new_cap * sizeof (struct _IdxFileEntry_s));
+      if (tmp == NULL)
+        return -1;
+
+      i->capacity = new_cap;
+      i->entries = tmp;
+    }
+
+  memcpy (&i->entries[i->size], e, sizeof (struct _IdxFileEntry_s));
+  i->size++;
+
+  return 0;
+}
+
+static bool
+peek_eof (FILE *fptr)
+{
+  int b = fgetc (fptr);
+  if (b == EOF)
+    return true;
+
+  ungetc (b, fptr);
+
+  return false;
+}
+
 int
 _idx_init (_IndexFile_t *i, const char *path)
 {
@@ -85,43 +133,55 @@ _idx_init (_IndexFile_t *i, const char *path)
       return -1;
     }
 
-  if (fseek (input_fptr, 6, SEEK_CUR) != 0)
-    goto fseek_err;
-
-  struct _IdxFileEntry_s entry;
-  if ((_hhbr_read_str (input_fptr, entry.path, MAX_PATH_LEN) != 0)
-      || (_hhbr_read_le_u32 (input_fptr, &entry.extent_loc) != 0)
-      || (_hhbr_read_le_u32 (input_fptr, &entry.size) != 0))
+  while (!peek_eof (input_fptr))
     {
-      fclose (input_fptr);
-      return -1;
+      if (fseek (input_fptr, 6, SEEK_CUR) != 0)
+        goto fseek_err;
+
+      struct _IdxFileEntry_s entry;
+      if ((_hhbr_read_str (input_fptr, entry.path, MAX_PATH_LEN) != 0)
+          || (_hhbr_read_le_u32 (input_fptr, &entry.extent_loc) != 0)
+          || (_hhbr_read_le_u32 (input_fptr, &entry.size) != 0))
+        {
+          fclose (input_fptr);
+          return -1;
+        }
+
+      if (fseek (input_fptr, 4, SEEK_CUR) != 0) // Skip unused zeros.
+        goto fseek_err;
+
+      /**
+       *  Check repeated size matches original size read. Not sure why this is
+       *  duplicated in the first place, but we might as well, right?
+       */
+      uint32_t value;
+      if (_hhbr_read_le_u32 (input_fptr, &value) != 0)
+        {
+          fclose (input_fptr);
+          return -1;
+        }
+
+      if (value != entry.size)
+        {
+          fprintf (
+              stderr,
+              "Repeated size value does not match original value read: got "
+              "0x%08X, expected 0x%08X\n",
+              value, entry.size);
+          fclose (input_fptr);
+          return -1;
+        }
+
+      _idxe_print (&entry);
+
+      if (append_entry (i, &entry) != 0)
+        {
+          fclose (input_fptr);
+          return -1;
+        }
     }
 
-  if (fseek (input_fptr, 4, SEEK_CUR) != 0) // Skip unused zeros.
-    goto fseek_err;
-
-  /**
-   *  Check repeated size matches original size read. Not sure why this is
-   *  duplicated in the first place, but we might as well, right?
-   */
-  uint32_t value;
-  if (_hhbr_read_le_u32 (input_fptr, &value) != 0)
-    {
-      fclose (input_fptr);
-      return -1;
-    }
-
-  if (value != entry.size)
-    {
-      fprintf (stderr,
-               "Repeated size value does not match original value read: got "
-               "0x%08X, expected 0x%08X\n",
-               value, entry.size);
-      fclose (input_fptr);
-      return -1;
-    }
-
-  _idxe_print (&entry);
+  _idx_print (i);
 
   fclose (input_fptr);
   return 0;
@@ -129,17 +189,4 @@ fseek_err:
   fprintf (stderr, "Error seeking forward in file, %s.\n", path);
   fclose (input_fptr);
   return -1;
-}
-
-void
-_idx_print (_IndexFile_t *i)
-{
-  if ((i == NULL) || (i->entries == NULL))
-    return;
-
-  for (size_t j = 0; j < i->size; j++)
-    {
-      fprintf (stdout, "Entry %ld: \n", j);
-      _idxe_print (&i->entries[j]);
-    }
 }
