@@ -25,9 +25,9 @@ set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(SRC_FILES
     "${SRC_DIR}/main.c"
     "${SRC_DIR}/harvester_harvester/hh.c"
+    "${SRC_DIR}/iso_9660.c"
     "${SRC_DIR}/iso_9660/binary_reader.c"
     "${SRC_DIR}/iso_9660/dir_rec.c"
-    "${SRC_DIR}/iso_9660/filesystem.c"
     "${SRC_DIR}/iso_9660/fs_header.c"
     "${SRC_DIR}/iso_9660/path_table_entry.c"
     "${SRC_DIR}/iso_9660/pri_vol_date_time.c"
@@ -38,9 +38,9 @@ set(SRC_FILES
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
 set(INCL_FILES
     "${INCL_DIR}/harvester_harvester/hh.h"
+    "${INCL_DIR}/iso_9660.h"
     "${INCL_DIR}/iso_9660/binary_reader.h"
     "${INCL_DIR}/iso_9660/dir_rec.h"
-    "${INCL_DIR}/iso_9660/filesystem.h"
     "${INCL_DIR}/iso_9660/fs_header.h"
     "${INCL_DIR}/iso_9660/path_table_entry.h"
     "${INCL_DIR}/iso_9660/pri_vol_date_time.h"
