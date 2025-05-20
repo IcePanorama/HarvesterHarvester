@@ -13,17 +13,22 @@ struct IntFileAssoc_s
 {
   const char *dat_files[3];
   const char *idx_files[3];
+  /* clang-format off */
 } int_assocs[] = {
-  { .dat_files
-    = { "DISK1/HARVEST.DAT", "DISK1/HARVEST2.DAT", "DISK1/SOUND.DAT" },
-    .idx_files = { "DISK1/INDEX.001", "DISK1/INDEX.003", "DISK1/INDEX.002" } },
-  { .dat_files
-    = { "DISK2/HARVEST.DAT", "DISK2/HARVEST2.DAT", "DISK2/SOUND.DAT" },
-    .idx_files = { "DISK2/INDEX.001", "DISK2/INDEX.003", "DISK2/INDEX.002" } },
-  { .dat_files
-    = { "DISK3/HARVEST.DAT", "DISK3/HARVEST2.DAT", "DISK3/SOUND.DAT" },
-    .idx_files = { "DISK3/INDEX.001", "DISK3/INDEX.003", "DISK3/INDEX.002" } }
+  { 
+    .dat_files = { "DISK1/HARVEST.DAT", "DISK1/HARVEST2.DAT", "DISK1/SOUND.DAT" },
+    .idx_files = { "DISK1/INDEX.001", "DISK1/INDEX.003", "DISK1/INDEX.002" }
+  },
+  {
+    .dat_files = { "DISK2/HARVEST.DAT", "DISK2/HARVEST2.DAT", "DISK2/SOUND.DAT" },
+    .idx_files = { "DISK2/INDEX.001", "DISK2/INDEX.003", "DISK2/INDEX.002" }
+  },
+  {
+    .dat_files = { "DISK3/HARVEST.DAT", "DISK3/HARVEST2.DAT", "DISK3/SOUND.DAT" },
+    .idx_files = { "DISK3/INDEX.001", "DISK3/INDEX.003", "DISK3/INDEX.002" }
+  }
 };
+/* clang-format on */
 
 bool
 _hhkf_is_known_i9660_file (const char path[static 1])
