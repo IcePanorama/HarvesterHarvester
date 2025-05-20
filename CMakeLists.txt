@@ -41,6 +41,7 @@ set(SRC_FILES
 set(INCL_DIR "${PROJECT_SOURCE_DIR}/include")
 set(INCL_FILES
     "${INCL_DIR}/harvester_harvester/hh.h"
+    "${INCL_DIR}/harvester_harvester/options.h"
     "${INCL_DIR}/harvester_harvester/idx_file.h"
     "${INCL_DIR}/harvester_harvester/binary_reader.h"
     "${INCL_DIR}/harvester_harvester/known_files.h"

@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+const HHOptions_t HH_DEFAULT_OPTIONS = { .skip_internal_dats = false };
+
 static int
 extract_i9660_fs (const char *input_path, const char *output_path)
 {
@@ -93,10 +95,22 @@ int
 hh_extract_filesystem (const char input_path[static 1],
                        const char output_path[static 1])
 {
+  return hh_extract_filesystem_w_options (input_path, output_path,
+                                          HH_DEFAULT_OPTIONS);
+}
+
+int
+hh_extract_filesystem_w_options (const char input_path[static 1],
+                                 const char output_path[static 1],
+                                 const HHOptions_t opts)
+{
   if (_hhkf_is_known_i9660_file (input_path))
     {
       if (extract_i9660_fs (input_path, output_path) != 0)
         return -1;
+
+      if (opts.skip_internal_dats)
+        return 0;
 
       const char **int_dat_files = _hhkf_get_i9660_int_dat_paths (input_path);
       const char **idx_files = _hhkf_get_i9660_int_idx_paths (input_path);
@@ -116,6 +130,7 @@ hh_extract_filesystem (const char input_path[static 1],
                "Unrecognized file: %s. Attempting to extract as ISO 9660 file "
                "system.\n",
                input_path);
+
       if (extract_i9660_fs (input_path, output_path) != 0)
         return -1;
     }

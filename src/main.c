@@ -30,6 +30,8 @@
 static const char def_output_path[] = "output";
 static char *output_path = (char *)def_output_path;
 
+static HHOptions_t opts = { 0 };
+
 static void
 print_ver_info (void)
 {
@@ -52,9 +54,11 @@ print_help_info (const char *exe_name)
 
   puts ("Options:");
   /* clang-format off */
-  puts ("  -h, --help\tPrint this help message");
-  puts ("  -o <path>\tSet output directory to `<path>` (default: `./output/`)");
-  puts ("  -v, --version\tPrint version information");
+  puts ("  -h, --help\t\tPrint this help message");
+  // TODO:add `--output` also
+  puts ("  -o <path>\t\tSet output directory to `<path>` (default: `./output/`)");
+  puts ("  --skip-internal-dats\tSkip the extraction of internal dat files");
+  puts ("  -v, --version\t\tPrint version information");
   /* clang-format on */
   putchar ('\n');
 
@@ -71,13 +75,13 @@ handle_args (int argc, char **argv)
           || (strcmp (argv[i], "--version") == 0))
         {
           print_ver_info ();
-          return 0;
+          exit (EXIT_SUCCESS);
         }
       else if ((strcmp (argv[i], "-h") == 0)
                || (strcmp (argv[i], "--help") == 0))
         {
           print_help_info (argv[0]);
-          return 0;
+          exit (EXIT_SUCCESS);
         }
       else if (strcmp (argv[i], "-o") == 0)
         {
@@ -91,13 +95,21 @@ handle_args (int argc, char **argv)
           output_path = argv[i + 1];
           i++;
         }
+      else if (strcmp (argv[i], "--skip-internal-dats") == 0)
+        {
+          opts.skip_internal_dats = true;
+        }
       else // assume remainder of args are paths to dat files
         {
+          // FIXME: move to separate func, too many levels of identation.
           for (int j = i; j < argc; j++)
             {
-              if (hh_extract_filesystem (argv[j], output_path) != 0)
+              if (hh_extract_filesystem_w_options (argv[j], output_path, opts)
+                  != 0)
                 return -1;
             }
+
+          exit (EXIT_SUCCESS);
         }
     }
 
@@ -107,21 +119,21 @@ handle_args (int argc, char **argv)
 int
 main (int argc, char **argv)
 {
+  opts = HH_DEFAULT_OPTIONS;
+
   if (argc > 1)
     {
       if (handle_args (argc, argv) != 0)
         return EXIT_FAILURE;
-
-      return EXIT_SUCCESS;
     }
 
   const char *filename[3]
       = { "dat-files/HARVEST.DAT", "dat-files/HARVEST3.DAT",
           "dat-files/HARVEST4.DAT" };
 
-  if ((hh_extract_filesystem (filename[0], output_path) != 0)
-      || (hh_extract_filesystem (filename[1], output_path) != 0)
-      || (hh_extract_filesystem (filename[2], output_path) != 0))
+  if ((hh_extract_filesystem_w_options (filename[0], output_path, opts) != 0)
+      || (hh_extract_filesystem_w_options (filename[1], output_path, opts) != 0)
+      || (hh_extract_filesystem_w_options (filename[2], output_path, opts) != 0))
     return EXIT_FAILURE;
 
   return EXIT_SUCCESS;
