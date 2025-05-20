@@ -27,6 +27,9 @@
   ("https://github.com/IcePanorama/HarvesterHarvester/issues")
 #define HOME_PAGE ("https://github.com/IcePanorama/HarvesterHarvester/")
 
+static const char def_output_path[] = "output";
+static char *output_path = (char *)def_output_path;
+
 static void
 print_ver_info (void)
 {
@@ -73,6 +76,14 @@ handle_args (int argc, char **argv)
           print_help_info (argv[0]);
           return 0;
         }
+      else // assume remainder of args are paths to dat files
+        {
+          for (int j = i; j < argc; j++)
+            {
+              if (hh_extract_filesystem (argv[j], output_path) != 0)
+                return -1;
+            }
+        }
     }
 
   return 0;
@@ -92,7 +103,6 @@ main (int argc, char **argv)
   const char *filename[3]
       = { "dat-files/HARVEST.DAT", "dat-files/HARVEST3.DAT",
           "dat-files/HARVEST4.DAT" };
-  const char output_path[] = "output";
 
   if ((hh_extract_filesystem (filename[0], output_path) != 0)
       || (hh_extract_filesystem (filename[1], output_path) != 0)
