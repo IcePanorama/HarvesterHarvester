@@ -10,12 +10,10 @@ main (void)
           "dat-files/HARVEST4.DAT" };
   const char output_path[] = "output";
 
-  int ret = (hh_extract_filesystem (filename[0], output_path));
-  // tmp
-  /*
-ret += (hh_extract_filesystem (filename[1], output_path));
-ret += (hh_extract_filesystem (filename[2], output_path));
-  */
+  if ((hh_extract_filesystem (filename[0], output_path) != 0)
+      || (hh_extract_filesystem (filename[1], output_path) != 0)
+      || (hh_extract_filesystem (filename[2], output_path) != 0))
+    return EXIT_FAILURE;
 
-  return ret == 0 ? EXIT_SUCCESS : EXIT_FAILURE;
+  return EXIT_SUCCESS;
 }
