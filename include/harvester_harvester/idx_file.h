@@ -24,5 +24,7 @@ void _idx_free (_IndexFile_t *i);
 
 int _idx_init (_IndexFile_t *i, const char path[static 1]);
 void _idx_print (_IndexFile_t *i);
+// FIXME: Should dat path be handled internally?
+int _idx_extract (_IndexFile_t *i, const char *dat_path);
 
 #endif /* _HARVESTER_HARVESTER_INDEX_FILE_H_ */

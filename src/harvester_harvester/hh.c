@@ -64,14 +64,20 @@ extract_int_dat_fs (const char *dat_path, const char *idx_path)
     }
 
   if (_idx_init (idx, idx_path) != 0)
-    {
-      _idx_free (idx);
-      return -1;
-    }
+    goto error;
+
+  // tmp, remove me!
+  _idx_print (idx);
+
+  if (_idx_extract (idx, dat_path) != 0)
+    goto error;
 
   _idx_free (idx);
   return 0;
-  printf ("%s %s\n", dat_path, idx_path);
+  printf ("%s\n", dat_path);
+error:
+  _idx_free (idx);
+  return -1;
 }
 
 int

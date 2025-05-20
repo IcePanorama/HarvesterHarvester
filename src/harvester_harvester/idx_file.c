@@ -1,3 +1,13 @@
+/**
+ *  NOTE: In effort to make the ISO 9660 code self-contained, there is
+ *  temporarily some duplicate code between here and `iso_9660/dir_rec.c`. Upon
+ *  making any changes here to `create_export_dir` or `export_data`, one should
+ *  make the same change over there as well, if necessary. All the ISO 9660
+ *  code will eventually be removed from this code base, as I plan on
+ *  converting that to its own library. At that point, HH will simply use said
+ *  library, and this weird duplicate-code business will no longer be
+ *  necessary.
+ */
 #include "harvester_harvester/idx_file.h"
 #include "harvester_harvester/binary_reader.h"
 
@@ -6,6 +16,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 /**
  *  Each entry is 94h bytes. Each entry contains `XFLE#:`, followed by a NULL-
@@ -18,7 +29,6 @@
  *  ignore this excess data. If it can be determined that the `MAX_PATH_LEN` is
  *  definitely less than 7Eh, this code should be updated so as to store those
  *  extra, unknown bytes in a simple `uint8_t` array of the remaining size.
- *  TODO: Read this value from a config file maybe?
  */
 #define MAX_PATH_LEN (0x7E)
 
@@ -32,8 +42,8 @@ struct _IndexFile_s
     uint32_t extent_loc;
     uint32_t size; // in bytes
   } *entries;
-  size_t size;
-  size_t capacity;
+  size_t size;     // logical size of entries
+  size_t capacity; // physical size of entries
 };
 
 _IndexFile_t *
@@ -230,11 +240,161 @@ _idx_init (_IndexFile_t *i, const char path[static 1])
           fclose (input_fptr);
           return -1;
         }
+      // tmp, remove me!
+      break;
     }
-
-  // tmp, remove me!
-  _idx_print (i);
 
   fclose (input_fptr);
   return 0;
+}
+
+static int
+create_export_dir (const char path[static 1])
+{
+  char *path_cpy = malloc (sizeof (char) * strlen (path) + 1);
+  if (path_cpy == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
+
+  char *curr_path = calloc (sizeof (char) * strlen (path) + 1, sizeof (char));
+  if (curr_path == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      free (path_cpy);
+      return -1;
+    }
+
+  strcpy (path_cpy, path);
+  char *tok = strtok (path_cpy, "/");
+  while (tok != NULL)
+    {
+      if (strchr (tok, '.') != NULL) // skip files.
+        break;
+
+      strcat (curr_path, tok);
+      struct stat path_info;
+      if (stat (curr_path, &path_info) != 0)
+        {
+          int status = mkdir (curr_path, 0700);
+          if (status != 0)
+            {
+              fprintf (stderr, "Failed to create output directory: %s.\n",
+                       curr_path);
+              free (curr_path);
+              free (path_cpy);
+              return -1;
+            }
+        }
+
+      tok = strtok (NULL, "/");
+      if (tok != NULL)
+        strcat (curr_path, "/");
+    }
+  free (curr_path);
+  free (path_cpy);
+  return 0;
+}
+
+static int
+export_data (uint8_t data[static 1], size_t data_size,
+             const char path[static 1])
+{
+  if (create_export_dir (path) != 0)
+    return -1;
+
+  FILE *output_file = fopen (path, "wb");
+  if (output_file == NULL)
+    {
+      fprintf (stderr, "Failed to open file for export: %s.\n", path);
+      return -1;
+    }
+
+  int status = 0;
+  if (fwrite (data, sizeof (uint8_t), data_size, output_file) != data_size)
+    {
+      fprintf (stderr, "Error exporting file, %s.\n", path);
+      status = -1; // still need to attempt `fclose` below.
+    }
+
+  if (fclose (output_file) != 0)
+    {
+      fprintf (stderr, "Error closing file, %s.\n", path);
+      return -1;
+    }
+
+  return status;
+}
+
+static int
+extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
+                   const char *output_path)
+{
+  if (fseek (dat_fptr, e->extent_loc, SEEK_SET) != 0)
+    {
+      fprintf (
+          stderr,
+          "fseek error: Failed to seek to extent location of %s (%08X).\n",
+          e->path, e->extent_loc);
+      return -1;
+    }
+
+  uint8_t *data = malloc (e->size);
+  if (data == NULL)
+    goto oom_error;
+
+  if (_hhbr_read_u8_array (dat_fptr, data, e->size) != 0)
+    {
+      fprintf (stderr, "Error reading data for %s.\n", e->path);
+      return -1;
+    }
+
+  char *path
+      = calloc (strlen (output_path) + strlen (e->path) + 1, sizeof (char));
+  if (path == NULL)
+    goto oom_error;
+  strcpy (path, output_path);
+  strcat (path, e->path);
+
+  printf ("Extracting file: %s.\n", path);
+  if (export_data (data, e->size, path) != 0)
+    {
+      free (path);
+      free (data);
+      return 1;
+    }
+
+  free (path);
+  free (data);
+  return 0;
+oom_error:
+  fprintf (stderr, "%s: Out of memory error.\n", __func__);
+  return -1;
+}
+
+int
+_idx_extract (_IndexFile_t *i, const char *dat_path)
+{
+  FILE *dat_fptr = fopen (dat_path, "rb");
+  if (dat_fptr == NULL)
+    {
+      fprintf (stderr, "Dat file does not exist: %s.\n", dat_path);
+      return -1;
+    }
+
+  for (size_t j = 0; j < i->size; j++)
+    {
+      if (extract_idx_entry (&i->entries[j], dat_fptr, i->dir_path) != 0)
+        {
+          fprintf (stderr, "Error extracting index file entry: %s%s.\n",
+                   i->dir_path, i->entries[j].path);
+          fclose (dat_fptr);
+          return -1;
+        }
+    }
+
+  fclose (dat_fptr);
+  return 0;
+  _idx_print (i);
 }

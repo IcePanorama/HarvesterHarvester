@@ -1,3 +1,13 @@
+/**
+ *  NOTE: In effort to make the ISO 9660 code self-contained, there is
+ *  temporarily some duplicate code between here and
+ *  `harvester_harvester/idx_file.c`. Upon making any changes here to
+ *  `create_export_dir` or `export_data`, one should make the same change over
+ *  there as well, if necessary. All the ISO 9660 code will eventually be
+ *  removed from this code base, as I plan on converting that to its own
+ *  library. At that point, HH will simply use said library, and this weird
+ *  duplicate-code business will no longer be necessary.
+ */
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/file_flags.h"
@@ -216,7 +226,7 @@ create_export_dir (const char path[static 1])
       return -1;
     }
 
-  char *curr_path = calloc (strlen (path) + 1, sizeof (char));
+  char *curr_path = calloc (sizeof (char) * strlen (path) + 1, sizeof (char));
   if (curr_path == NULL)
     {
       fprintf (stderr, "%s: out of memory error.\n", __func__);
