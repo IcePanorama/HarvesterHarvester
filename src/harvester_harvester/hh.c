@@ -1,6 +1,7 @@
 #include "harvester_harvester/hh.h"
 #include "harvester_harvester/idx_file.h"
 #include "harvester_harvester/known_files.h"
+#include "harvester_harvester/options.h"
 #include "iso_9660.h"
 
 #include <stdbool.h>
@@ -8,7 +9,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-const HHOptions_t HH_DEFAULT_OPTIONS = { .skip_internal_dats = false };
+const HHOptions_t HH_DEFAULT_OPTIONS
+    = { .processing_mode = _HHPM_NORMAL_PROCESSING };
 
 static int
 extract_i9660_fs (const char *input_path, const char *output_path)
@@ -104,12 +106,13 @@ hh_extract_filesystem_w_options (const char input_path[static 1],
                                  const char output_path[static 1],
                                  const HHOptions_t opts)
 {
-  if (_hhkf_is_known_i9660_file (input_path))
+  if ((opts.processing_mode != _HHPM_SKIP_I9660_DATS)
+      && (_hhkf_is_known_i9660_file (input_path)))
     {
       if (extract_i9660_fs (input_path, output_path) != 0)
         return -1;
 
-      if (opts.skip_internal_dats)
+      if (opts.processing_mode == _HHPM_SKIP_INTERNAL_DATS)
         return 0;
 
       const char **int_dat_files = _hhkf_get_i9660_int_dat_paths (input_path);
@@ -124,7 +127,11 @@ hh_extract_filesystem_w_options (const char input_path[static 1],
             return -1;
         }
     }
-  else
+  else if (opts.processing_mode == _HHPM_SKIP_I9660_DATS)
+    {
+      // TODO: finish implementing this.
+    }
+  else if (opts.processing_mode != _HHPM_SKIP_I9660_DATS)
     {
       fprintf (stderr,
                "Unrecognized file: %s. Attempting to extract as ISO 9660 file "

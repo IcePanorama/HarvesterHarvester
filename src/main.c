@@ -99,7 +99,7 @@ handle_args (int argc, char **argv)
         }
       else if (strcmp (argv[i], "--skip-internal-dats") == 0)
         {
-          opts.skip_internal_dats = true;
+          opts.processing_mode = _HHPM_SKIP_INTERNAL_DATS;
         }
       else // assume remainder of args are paths to dat files
         {
