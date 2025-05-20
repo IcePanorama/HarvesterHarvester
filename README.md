@@ -1,4 +1,11 @@
 # HarvesterHarvester
+
+HarvesterHarvester (HH) was my first ever large C project. Additionally, being a reverse engineering project, I was really figuring out the specifications for it as I went along. As a result, the original HH is in desperate need of a rewrite. This is currently an on-going project, the end product of which will be released as v2.0.0.
+
+This new version hopes to make HH more easily maintainable and extendible, with the hope being to apply the same processes used here for other, similar games in the future.
+
+# Old README
+
 A tool for harvesting data out of [_Harvester_'s (DigiFX Interactive, 1996)](https://en.wikipedia.org/wiki/Harvester_(video_game)) dat files.
 
 This program is the first piece of a toolchain that I'm developing as I work to reverse engineering *Harvester*. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering. 
