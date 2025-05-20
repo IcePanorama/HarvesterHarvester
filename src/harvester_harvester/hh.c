@@ -66,9 +66,6 @@ extract_int_dat_fs (const char *dat_path, const char *idx_path)
   if (_idx_init (idx, idx_path) != 0)
     goto error;
 
-  // tmp, remove me!
-  //_idx_print (idx);
-
   if (_idx_extract (idx, dat_path) != 0)
     goto error;
 
@@ -102,7 +99,6 @@ hh_extract_filesystem (const char input_path[static 1],
           if (extract_int_dat_fs (internal_dat_files[i], assoc_idx_files[i])
               != 0)
             return -1;
-          break;
         }
     }
   else
