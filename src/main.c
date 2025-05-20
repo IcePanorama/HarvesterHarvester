@@ -22,7 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define CURR_VERSION ("v2.0.0")
+#define CURR_VERSION ("v2.0.0b")
 #define ISSUES_PAGE                                                           \
   ("https://github.com/IcePanorama/HarvesterHarvester/issues")
 #define HOME_PAGE ("https://github.com/IcePanorama/HarvesterHarvester/")
@@ -51,8 +51,11 @@ print_help_info (const char *exe_name)
   putchar ('\n');
 
   puts ("Options:");
+  /* clang-format off */
   puts ("  -h, --help\tPrint this help message");
+  puts ("  -o <path>\tSet output directory to `<path>` (default: `./output/`)");
   puts ("  -v, --version\tPrint version information");
+  /* clang-format on */
   putchar ('\n');
 
   printf ("Report bugs here: <%s>\n", (ISSUES_PAGE));
@@ -75,6 +78,18 @@ handle_args (int argc, char **argv)
         {
           print_help_info (argv[0]);
           return 0;
+        }
+      else if (strcmp (argv[i], "-o") == 0)
+        {
+          if (i + 1 >= argc)
+            {
+              fprintf (stderr,
+                       "Improper usage error. Run `%s -h` for proper usage.\n",
+                       argv[0]);
+              return -1;
+            }
+          output_path = argv[i + 1];
+          i++;
         }
       else // assume remainder of args are paths to dat files
         {
