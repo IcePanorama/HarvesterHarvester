@@ -54,11 +54,10 @@ print_help_info (const char *exe_name)
 
   puts ("Options:");
   /* clang-format off */
-  puts ("  -h, --help\t\tPrint this help message");
-  // TODO:add `--output` also
-  puts ("  -o <path>\t\tSet output directory to `<path>` (default: `./output/`)");
-  puts ("  --skip-internal-dats\tSkip the extraction of internal dat files");
-  puts ("  -v, --version\t\tPrint version information");
+  printf ("  %-25s %s\n", "-h, --help", "Print this help message");
+  printf ("  %-25s %s\n", "-o <path>,--output <path>", "Set output directory to `<path>` (default: `./output/`)");
+  printf ("  %-25s %s\n", "--skip-internal-dats", "Skip the extraction of internal dat files");
+  printf ("  %-25s %s\n", "-v, --version", "Print version information");
   /* clang-format on */
   putchar ('\n');
 
@@ -83,7 +82,8 @@ handle_args (int argc, char **argv)
           print_help_info (argv[0]);
           exit (EXIT_SUCCESS);
         }
-      else if (strcmp (argv[i], "-o") == 0)
+      else if ((strcmp (argv[i], "-o") == 0)
+               || (strcmp (argv[i], "--output") == 0))
         {
           if (i + 1 >= argc)
             {
@@ -92,6 +92,7 @@ handle_args (int argc, char **argv)
                        argv[0]);
               return -1;
             }
+
           output_path = argv[i + 1];
           i++;
         }
@@ -132,8 +133,10 @@ main (int argc, char **argv)
           "dat-files/HARVEST4.DAT" };
 
   if ((hh_extract_filesystem_w_options (filename[0], output_path, opts) != 0)
-      || (hh_extract_filesystem_w_options (filename[1], output_path, opts) != 0)
-      || (hh_extract_filesystem_w_options (filename[2], output_path, opts) != 0))
+      || (hh_extract_filesystem_w_options (filename[1], output_path, opts)
+          != 0)
+      || (hh_extract_filesystem_w_options (filename[2], output_path, opts)
+          != 0))
     return EXIT_FAILURE;
 
   return EXIT_SUCCESS;
