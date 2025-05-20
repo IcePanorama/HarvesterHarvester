@@ -37,6 +37,7 @@ extract_i9660_fs (const char *input_path, const char *output_path)
   if (input_file == NULL)
     {
       fprintf (stderr, "Error opening file %s.\n", input_path);
+      i9660_free (fs);
       return -1;
     }
 
@@ -104,10 +105,11 @@ hh_extract_filesystem (const char input_path[static 1],
   else
     {
       fprintf (stderr,
-               "Error: Unrecognized ISO 9660 filesystem, or currently "
-               "unsupported file type: %s.\n",
+               "Unrecognized file: %s. Attempting to extract as ISO 9660 file "
+               "system.\n",
                input_path);
-      return -1;
+      if (extract_i9660_fs (input_path, output_path) != 0)
+        return -1;
     }
 
   return 0;
