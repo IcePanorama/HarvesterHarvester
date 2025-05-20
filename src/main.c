@@ -68,7 +68,8 @@ print_help_info (const char *exe_name)
 static int
 handle_args (int argc, char **argv)
 {
-  for (int i = 1; i < argc; i++)
+  int i;
+  for (i = 1; i < argc; i++)
     {
       if ((strcmp (argv[i], "-v") == 0)
           || (strcmp (argv[i], "--version") == 0))
@@ -102,16 +103,20 @@ handle_args (int argc, char **argv)
         }
       else // assume remainder of args are paths to dat files
         {
-          // FIXME: move to separate func, too many levels of identation.
-          for (int j = i; j < argc; j++)
-            {
-              if (hh_extract_filesystem_w_options (argv[j], output_path, opts)
-                  != 0)
-                return -1;
-            }
-
-          exit (EXIT_SUCCESS);
+          break;
         }
+    }
+
+  if (i != argc) // given list of files
+    {
+      for (int j = i; j < argc; j++)
+        {
+          if (hh_extract_filesystem_w_options (argv[j], output_path, opts)
+              != 0)
+            return -1;
+        }
+
+      exit (EXIT_SUCCESS);
     }
 
   return 0;
