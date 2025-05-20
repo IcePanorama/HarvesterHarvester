@@ -34,7 +34,8 @@
 
 struct _IndexFile_s
 {
-  char *dir_path; // Path to idx file's dir. E.g., `output/DISK1/`.
+  char *file_path; // Path to idx file itself.
+  char *dir_path;  // Path to idx file's dir. E.g., `output/DISK1/`.
   struct _IdxFileEntry_s
   {
     char path[(MAX_PATH_LEN)]; // path to where this file should be extracted.
@@ -70,6 +71,8 @@ _idx_free (_IndexFile_t *i)
   if (i == NULL)
     return;
 
+  if (i->file_path != NULL)
+    free (i->file_path);
   if (i->dir_path != NULL)
     free (i->dir_path);
   if (i->entries != NULL)
@@ -91,6 +94,7 @@ _idx_print (_IndexFile_t *i)
   if ((i == NULL) || (i->entries == NULL))
     return;
 
+  fprintf (stdout, "%s: \n", i->file_path);
   for (size_t j = 0; j < i->size; j++)
     {
       fprintf (stdout, "Entry %ld: \n", j);
@@ -219,6 +223,15 @@ _idx_init (_IndexFile_t *i, const char path[static 1])
   if ((i == NULL) || (find_dir_path (i, path) != 0))
     return -1;
 
+  i->file_path
+      = calloc (strlen (path) + 1, sizeof (char)); // +1 for NULL-terminator
+  if (i->file_path == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
+  strcpy (i->file_path, path);
+
   FILE *input_fptr = fopen (path, "rb");
   if (input_fptr == NULL)
     {
@@ -240,8 +253,6 @@ _idx_init (_IndexFile_t *i, const char path[static 1])
           fclose (input_fptr);
           return -1;
         }
-      // tmp, remove me!
-      break;
     }
 
   fclose (input_fptr);
@@ -357,7 +368,7 @@ extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
   strcpy (path, output_path);
   strcat (path, e->path);
 
-  printf ("Extracting file: %s.\n", path);
+  printf ("Extracting file: %s\n", path);
   if (export_data (data, e->size, path) != 0)
     {
       free (path);
@@ -383,6 +394,7 @@ _idx_extract (_IndexFile_t *i, const char *dat_path)
       return -1;
     }
 
+  printf ("Extracting index file: %s\n", i->file_path);
   for (size_t j = 0; j < i->size; j++)
     {
       if (extract_idx_entry (&i->entries[j], dat_fptr, i->dir_path) != 0)

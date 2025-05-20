@@ -67,7 +67,7 @@ extract_int_dat_fs (const char *dat_path, const char *idx_path)
     goto error;
 
   // tmp, remove me!
-  _idx_print (idx);
+  //_idx_print (idx);
 
   if (_idx_extract (idx, dat_path) != 0)
     goto error;
