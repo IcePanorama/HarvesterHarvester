@@ -1,5 +1,5 @@
 /**
- *  main.c - a command-line executable for HarvesterHarvester.
+ *  main.c - a command-line interface for HarvesterHarvester.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
@@ -127,6 +127,19 @@ handle_args (int argc, char **argv)
   return 0;
 }
 
+static int
+batch_process (const char **filenames, const size_t num_files)
+{
+  for (size_t i = 0; i < num_files; i++)
+    {
+      if (hh_extract_filesystem_w_options (filenames[i], output_path, opts)
+          != 0)
+        return -1;
+    }
+
+  return 0;
+}
+
 int
 main (int argc, char **argv)
 {
@@ -138,16 +151,31 @@ main (int argc, char **argv)
         return EXIT_FAILURE;
     }
 
-  const char *filename[3]
+  /*
+   *  NOTE: these two arrays are technically duplicated from
+   *  `harvester_harvester/known_files.c`, but given that the list of default
+   *  files is fixed, I think probably doesn't matter. Feel free to disagree
+   *  tho.
+   */
+  const char *i9660_files[3]
       = { "dat-files/HARVEST.DAT", "dat-files/HARVEST3.DAT",
           "dat-files/HARVEST4.DAT" };
+  const char *int_files[9]
+      = { "DISK1/HARVEST.DAT", "DISK1/HARVEST2.DAT", "DISK1/SOUND.DAT",
+          "DISK2/HARVEST.DAT", "DISK2/HARVEST2.DAT", "DISK2/SOUND.DAT",
+          "DISK3/HARVEST.DAT", "DISK3/HARVEST2.DAT", "DISK3/SOUND.DAT" };
 
-  if ((hh_extract_filesystem_w_options (filename[0], output_path, opts) != 0)
-      || (hh_extract_filesystem_w_options (filename[1], output_path, opts)
-          != 0)
-      || (hh_extract_filesystem_w_options (filename[2], output_path, opts)
-          != 0))
-    return EXIT_FAILURE;
+  switch (opts.processing_mode)
+    {
+    case _HHPM_SKIP_I9660_DATS:
+      if (batch_process (int_files, 9) != 0)
+        return EXIT_FAILURE;
+      break;
+    default:
+      if (batch_process (i9660_files, 3) != 0)
+        return EXIT_FAILURE;
+      break;
+    }
 
   return EXIT_SUCCESS;
 }

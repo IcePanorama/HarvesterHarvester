@@ -61,6 +61,7 @@ extract_int_dat (const char *output_path, const char *dat_path,
   strcat (full_idx_path, "/");
   strcat (full_idx_path, idx_path);
 
+  printf ("Extracting internal dat file: %s\n", dat_path);
   if (_idx_init (idx, full_idx_path) != 0)
     {
       _idx_free (idx);
