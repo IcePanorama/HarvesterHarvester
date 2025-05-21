@@ -14,8 +14,9 @@ struct IntFileAssoc_s
   const char *dat_files[3];
   const char *idx_files[3];
   /* clang-format off */
-} int_assocs[] = {
-  { 
+} int_assocs[] =
+{
+  {
     .dat_files = { "DISK1/HARVEST.DAT", "DISK1/HARVEST2.DAT", "DISK1/SOUND.DAT" },
     .idx_files = { "DISK1/INDEX.001", "DISK1/INDEX.003", "DISK1/INDEX.002" }
   },
@@ -35,6 +36,7 @@ _hhkf_is_known_i9660_file (const char path[static 1])
 {
   for (size_t i = 0; i < 3; i++)
     {
+      // FIXME: should be case insensitive.
       if (strcmp (known_i9660_fs[i], path) == 0)
         return true;
     }
@@ -42,15 +44,30 @@ _hhkf_is_known_i9660_file (const char path[static 1])
   return false;
 }
 
-const char **
-_hhkf_get_i9660_int_dat_paths (const char path[static 1])
+bool
+_hhkf_is_known_int_dat (const char path[static 1])
 {
   for (size_t i = 0; i < 3; i++)
     {
-      if (strcmp (known_i9660_fs[i], path) == 0)
+      for (size_t j = 0; j < 3; j++)
         {
-          return int_assocs[i].dat_files;
+          // FIXME: should be case insensitive.
+          if (strcmp (int_assocs[i].dat_files[j], path) == 0)
+            return true;
         }
+    }
+
+  return false;
+}
+
+const char **
+_hhkf_get_int_dat_paths_from_i9660 (const char path[static 1])
+{
+  for (size_t i = 0; i < 3; i++)
+    {
+      // FIXME: should be case insensitive.
+      if (strcmp (known_i9660_fs[i], path) == 0)
+        return int_assocs[i].dat_files;
     }
 
   fprintf (stderr, "%s: Unknown ISO 9660 filesystem, %s.\n", __func__, path);
@@ -58,16 +75,32 @@ _hhkf_get_i9660_int_dat_paths (const char path[static 1])
 }
 
 const char **
-_hhkf_get_i9660_int_idx_paths (const char path[static 1])
+_hhkf_get_int_idx_paths_from_i9660 (const char path[static 1])
 {
   for (size_t i = 0; i < 3; i++)
     {
+      // FIXME: should be case insensitive.
       if (strcmp (known_i9660_fs[i], path) == 0)
-        {
-          return int_assocs[i].idx_files;
-        }
+        return int_assocs[i].idx_files;
     }
 
   fprintf (stderr, "%s: Unknown ISO 9660 filesystem, %s.\n", __func__, path);
+  return NULL;
+}
+
+const char *
+_hhkf_get_idx_path_from_int_dat (const char path[static 1])
+{
+  for (size_t i = 0; i < 3; i++)
+    {
+      for (size_t j = 0; j < 3; j++)
+        {
+          // FIXME: should be case insensitive.
+          if (strcmp (int_assocs[i].dat_files[j], path) == 0)
+            return int_assocs[i].idx_files[j];
+        }
+    }
+
+  fprintf (stderr, "%s: Unknown internal dat file, %s.\n", __func__, path);
   return NULL;
 }

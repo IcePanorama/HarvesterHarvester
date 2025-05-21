@@ -55,6 +55,7 @@ print_help_info (const char *exe_name)
   puts ("Options:");
   /* clang-format off */
   printf ("  %-25s %s\n", "-h, --help", "Print this help message");
+  printf ("  %-25s %s\n", "--skip-i9660-dats", "Treat input as internal dat files.");
   printf ("  %-25s %s\n", "-o <path>,--output <path>", "Set output directory to `<path>` (default: `./output/`)");
   printf ("  %-25s %s\n", "--skip-internal-dats", "Skip the extraction of internal dat files");
   printf ("  %-25s %s\n", "-v, --version", "Print version information");
@@ -82,6 +83,10 @@ handle_args (int argc, char **argv)
         {
           print_help_info (argv[0]);
           exit (EXIT_SUCCESS);
+        }
+      else if (strcmp (argv[i], "--skip-i9660-dats") == 0)
+        {
+          opts.processing_mode = _HHPM_SKIP_I9660_DATS;
         }
       else if ((strcmp (argv[i], "-o") == 0)
                || (strcmp (argv[i], "--output") == 0))

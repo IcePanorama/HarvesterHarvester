@@ -101,6 +101,92 @@ hh_extract_filesystem (const char input_path[static 1],
                                           HH_DEFAULT_OPTIONS);
 }
 
+static int
+known_i9660_extraction (const char input_path[static 1],
+                        const char output_path[static 1],
+                        const HHOptions_t opts)
+{
+  if (extract_i9660_fs (input_path, output_path) != 0)
+    return -1;
+
+  if (opts.processing_mode == _HHPM_SKIP_INTERNAL_DATS)
+    return 0;
+
+  const char **int_dat_files = _hhkf_get_int_dat_paths_from_i9660 (input_path);
+  const char **idx_files = _hhkf_get_int_idx_paths_from_i9660 (input_path);
+  if ((int_dat_files == NULL) || (idx_files == NULL))
+    return -1;
+
+  for (size_t i = 0; i < 3; i++)
+    {
+      if (extract_int_dat (output_path, int_dat_files[i], idx_files[i]) != 0)
+        return -1;
+    }
+
+  return 0;
+}
+
+/**
+ *  Retrieves the internal dat file path at the end of `input_path`, which
+ *  should begin with `DISK#/`. If `DISK#/` is not found, it returns a pointer
+ *  to the NULL-terminator of `input_path`.
+ */
+static char *
+get_input_path_end (const char *input_path)
+{
+  const char *key = "DISK#/";
+  char *work = NULL;
+  for (work = (char *)input_path; (work != NULL) && (*work != '\0'); work++)
+    {
+      if (*work == *key)
+        {
+          char *key_ptr = (char *)(key) + 1;
+          char *tmp = (char *)(work) + 1;
+          while ((key_ptr != NULL) && (tmp != NULL)
+                 && ((*key_ptr == *tmp) || (*key_ptr == '#')))
+            {
+              key_ptr++;
+              tmp++;
+            }
+
+          if ((key_ptr != NULL) && (*key_ptr == '\0') && (tmp != NULL))
+            break;
+        }
+    }
+
+  return work;
+}
+
+/**
+ *  Presuming `input_path` points to some known, internal dat file in this
+ *  case.
+ */
+static int
+extraction_w_int_dat_input (const char input_path[static 1],
+                            const char output_path[static 1])
+{
+  char *work = get_input_path_end (input_path);
+  if (work == NULL)
+    {
+      fprintf (stderr, "Unrecognized internal dat file: %s. Aborting.\n",
+               input_path);
+      return -1;
+    }
+  else if (!_hhkf_is_known_int_dat (work))
+    {
+      fprintf (stderr, "Unrecognized internal dat file: %s. Aborting.\n",
+               input_path);
+      return -1;
+    }
+
+  const char *assoc_idx_path = _hhkf_get_idx_path_from_int_dat (work);
+  if ((assoc_idx_path == NULL)
+      || (extract_int_dat (output_path, work, assoc_idx_path) != 0))
+    return -1;
+
+  return 0;
+}
+
 int
 hh_extract_filesystem_w_options (const char input_path[static 1],
                                  const char output_path[static 1],
@@ -109,29 +195,13 @@ hh_extract_filesystem_w_options (const char input_path[static 1],
   if ((opts.processing_mode != _HHPM_SKIP_I9660_DATS)
       && (_hhkf_is_known_i9660_file (input_path)))
     {
-      if (extract_i9660_fs (input_path, output_path) != 0)
-        return -1;
-
-      if (opts.processing_mode == _HHPM_SKIP_INTERNAL_DATS)
-        return 0;
-
-      const char **int_dat_files = _hhkf_get_i9660_int_dat_paths (input_path);
-      const char **idx_files = _hhkf_get_i9660_int_idx_paths (input_path);
-      if ((int_dat_files == NULL) || (idx_files == NULL))
-        return -1;
-
-      for (size_t i = 0; i < 3; i++)
-        {
-          if (extract_int_dat (output_path, int_dat_files[i], idx_files[i])
-              != 0)
-            return -1;
-        }
+      return known_i9660_extraction (input_path, output_path, opts);
     }
   else if (opts.processing_mode == _HHPM_SKIP_I9660_DATS)
     {
-      // TODO: finish implementing this.
+      return extraction_w_int_dat_input (input_path, output_path);
     }
-  else if (opts.processing_mode != _HHPM_SKIP_I9660_DATS)
+  else
     {
       fprintf (stderr,
                "Unrecognized file: %s. Attempting to extract as ISO 9660 file "
