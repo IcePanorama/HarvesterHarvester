@@ -1,7 +1,7 @@
 /**
  *  iso_9660/binary_reader.h - an interface for reading binary data from files.
  *  Intended for internal usage. All public functions are prefixed by
- *  `_i9660br`. All functions return zero on success, non-zero on failure.
+ *  `_i9660br` and return zero on success, non-zero on failure.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
