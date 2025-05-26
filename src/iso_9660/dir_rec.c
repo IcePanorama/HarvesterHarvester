@@ -1,3 +1,19 @@
+/**
+ *  Copyright (C) 2024-2025  IcePanorama
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/file_flags.h"
@@ -9,7 +25,7 @@
 #include <string.h>
 
 /** See:: https://wiki.osdev.org/ISO_9660#Directories */
-struct _DirRec_s
+struct _ISO9660DirRec_s
 {
   uint8_t len;
   uint8_t extended_attrib_rec_len;
@@ -28,24 +44,34 @@ struct _DirRec_s
     uint8_t timezone;
   } recording_date_time;
 
-  _FileFlags_t file_flags; // See: https://wiki.osdev.org/ISO_9660#Directories.
-  uint8_t file_unit_size;  // if recorded in interleaved mode, else 0.
+  /**
+   *  See: https://wiki.osdev.org/ISO_9660#Directories
+   *  See: `_FileFlags_t`
+   */
+  _FileFlags_t file_flags;
+
+  uint8_t file_unit_size;      // if recorded in interleaved mode, else 0.
   uint8_t interleave_gap_size; // if recorded in interleaved mode, else 0.
   uint16_t vol_seq_num;        // "the volume that this extent is recorded on."
 
   uint8_t file_id_len;
-  /** Variable length file identifier. See:: `file_id_len`. */
+  /**
+   *  Variable length file identifier. Actual length determined by
+   *  `file_id_len`.
+   *
+   *  See: `file_id_len`.
+   */
   char file_id[UINT8_MAX];
 };
 
-_DirRec_t *
-_dr_alloc (void)
+_ISO9660DirRec_t *
+_i9660dr_alloc (void)
 {
-  return calloc (1, sizeof (_DirRec_t));
+  return calloc (1, sizeof (_ISO9660DirRec_t));
 }
 
 void
-_dr_free (_DirRec_t *dr)
+_i9660dr_free (_ISO9660DirRec_t *dr)
 {
   if (dr == NULL)
     return;
@@ -53,65 +79,8 @@ _dr_free (_DirRec_t *dr)
   free (dr);
 }
 
-size_t
-_dr_size (void)
-{
-  return sizeof (_DirRec_t);
-}
-
-_FileFlags_t
-_dr_get_flags (_DirRec_t *dr)
-{
-  if (dr == NULL)
-    return (_FileFlags_t)-1;
-
-  return dr->file_flags;
-}
-
-int
-_dr_init (_DirRec_t *dr, FILE input_fptr[static 1])
-{
-  if (dr == NULL)
-    return -1;
-
-  if ((_i9660br_read_u8 (input_fptr, &dr->len) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->extended_attrib_rec_len) != 0)
-      || (_i9660br_read_le_be_u32 (input_fptr, &dr->extent_loc) != 0)
-      || (_i9660br_read_le_be_u32 (input_fptr, &dr->extent_size) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.year) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.month) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.day) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.hour) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.minute) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.second) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.timezone)
-          != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->file_flags) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->file_unit_size) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->interleave_gap_size) != 0)
-      || (_i9660br_read_le_be_u16 (input_fptr, &dr->vol_seq_num) != 0)
-      || (_i9660br_read_u8 (input_fptr, &dr->file_id_len) != 0)
-      || (_i9660br_read_str (input_fptr, dr->file_id, dr->file_id_len) != 0))
-    {
-      return -1;
-    }
-
-  if ((dr->file_id_len % 2) == 0)
-    {
-      if (fseek (input_fptr, 1, SEEK_CUR) != 0)
-        {
-          fprintf (
-              stderr,
-              "ERROR: failed to seek past padding after directory record.\n");
-          return -1;
-        }
-    }
-
-  return 0;
-}
-
 void
-_dr_print (_DirRec_t *dr)
+_i9660dr_print (_ISO9660DirRec_t *dr)
 {
   if (dr == NULL)
     return;
@@ -151,33 +120,97 @@ _dr_print (_DirRec_t *dr)
 }
 
 int
-_dr_dynamic_init (_DirRec_t **dr_list, size_t list_cap[static 1],
-                  size_t list_len[static 1], uint16_t lb_size,
-                  FILE input_fptr[static 1])
+_i9660dr_init (_ISO9660DirRec_t *dr, FILE input_fptr[static 1])
+{
+  if (dr == NULL)
+    return -1;
+
+  /* clang-format off */
+  if ((_i9660br_read_u8 (input_fptr, &dr->len) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->extended_attrib_rec_len) != 0)
+      || (_i9660br_read_le_be_u32 (input_fptr, &dr->extent_loc) != 0)
+      || (_i9660br_read_le_be_u32 (input_fptr, &dr->extent_size) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.year) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.month) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.day) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.hour) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.minute) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.second) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.timezone) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->file_flags) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->file_unit_size) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->interleave_gap_size) != 0)
+      || (_i9660br_read_le_be_u16 (input_fptr, &dr->vol_seq_num) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->file_id_len) != 0)
+      || (_i9660br_read_str (input_fptr, dr->file_id, dr->file_id_len) != 0))
+    /* clang-format on */
+    {
+      return -1;
+    }
+
+  if ((dr->file_id_len % 2) == 0)
+    {
+      if (fseek (input_fptr, 1, SEEK_CUR) != 0)
+        {
+          fprintf (
+              stderr,
+              "ERROR: failed to seek past padding after directory record.\n");
+          return -1;
+        }
+    }
+
+  return 0;
+}
+
+/**
+ *  Handle padding around sector boundaries.
+ *  See: https://wiki.osdev.org/ISO_9660#Directories.
+ */
+static int
+handle_sector_padding (FILE *input_fptr, const uint16_t lb_size)
+{
+  size_t pos = ftell (input_fptr);
+  size_t next_sect = ((size_t)((pos + (lb_size - 1)) / lb_size)) * lb_size;
+  if ((pos + sizeof (_ISO9660DirRec_t) - sizeof (char[UINT8_MAX])) > next_sect)
+    {
+      if (fseek (input_fptr, next_sect, SEEK_SET) != 0)
+        {
+          fprintf (stderr, "Failed to seek to next sector (%08lx).\n",
+                   next_sect);
+          return -1;
+        }
+    }
+
+  return 0;
+}
+
+static int
+resize_dr_list (_ISO9660DirRec_t **dr_list, size_t *list_cap)
+{
+  *list_cap *= 2;
+  _ISO9660DirRec_t *tmp
+      = realloc (*dr_list, *list_cap * sizeof (_ISO9660DirRec_t));
+  if (tmp == NULL)
+    return -1;
+
+  *dr_list = tmp;
+  return 0;
+}
+
+int
+_i9660dr_dynamic_init (_ISO9660DirRec_t **dr_list, size_t list_cap[static 1],
+                       size_t list_len[static 1], const uint16_t lb_size,
+                       FILE input_fptr[static 1])
 {
   if (dr_list == NULL)
     return -1;
 
   while (true)
     {
-      /*
-       *  Handle padding around sector boundaries.
-       *  See: https://wiki.osdev.org/ISO_9660#Directories.
-       */
-      size_t pos = ftell (input_fptr);
-      size_t next_sect = ((size_t)((pos + (lb_size - 1)) / lb_size)) * lb_size;
-      if ((pos + sizeof (_DirRec_t) - sizeof (char[UINT8_MAX])) > next_sect)
-        {
-          if (fseek (input_fptr, next_sect, SEEK_SET) != 0)
-            {
-              fprintf (stderr, "Failed to seek to next sector (%08lx).\n",
-                       next_sect);
-              return -1;
-            }
-        }
+      handle_sector_padding (input_fptr, lb_size);
 
-      _DirRec_t curr = { 0 };
-      if (_dr_init (&curr, input_fptr) != 0)
+      _ISO9660DirRec_t curr = { 0 };
+      if (_i9660dr_init (&curr, input_fptr) != 0)
         {
           fprintf (stderr, "Error reading directory record from file.\n");
           return -1;
@@ -186,21 +219,14 @@ _dr_dynamic_init (_DirRec_t **dr_list, size_t list_cap[static 1],
       if (curr.file_id_len == 0)
         break;
 
-      if (*list_len == *list_cap)
+      if ((*list_len == *list_cap)
+          && (resize_dr_list (dr_list, list_cap) != 0))
         {
-          *list_cap *= 2;
-          _DirRec_t *tmp = realloc (*dr_list, *list_cap * sizeof (_DirRec_t));
-          if (tmp == NULL)
-            {
-              fprintf (stderr,
-                       "Failed to grow directory record list to size %ld\n",
-                       *list_cap);
-              return -1;
-            }
-          *dr_list = tmp;
+          fprintf (stderr, "%s: Out of memory error.\n", __func__);
+          return -1;
         }
 
-      memcpy (&(*dr_list)[*list_len], &curr, sizeof (_DirRec_t));
+      memcpy (&(*dr_list)[*list_len], &curr, sizeof (_ISO9660DirRec_t));
       (*list_len)++;
     }
 
@@ -208,7 +234,8 @@ _dr_dynamic_init (_DirRec_t **dr_list, size_t list_cap[static 1],
 }
 
 /*
- *  Handle unsupported file errors.
+ *  Check for unsupported files.
+ *
  *  Returns: Zero if file is supported, non-zero otherwise.
  */
 static int
@@ -244,6 +271,7 @@ handle_missing_support_warnings (uint8_t flags)
 {
   const char warning_fmt[] = "Warning: no implemented support for handling %s "
                              "stored in the extended attribute record.";
+
   if (flags & (1 << (_FF_FMT_IN_EAR_BIT)))
     printf (warning_fmt, "additional format information");
   if (flags & (1 << (_FF_PERMS_IN_EAR_BIT)))
@@ -251,8 +279,9 @@ handle_missing_support_warnings (uint8_t flags)
 }
 
 int
-_dr_extract (_DirRec_t *dr, size_t lb_size, FILE input_fptr[static 1],
-             const char path[static 1], const size_t path_len)
+_i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
+                  FILE input_fptr[static 1], const char path[static 1],
+                  const size_t path_len)
 {
   if ((dr == NULL) || (unsupported_file_check (dr->file_flags) != 0))
     return -1;
@@ -262,7 +291,7 @@ _dr_extract (_DirRec_t *dr, size_t lb_size, FILE input_fptr[static 1],
   if (fseek (input_fptr, dr->extent_loc * lb_size, SEEK_SET) != 0)
     {
       // FIXME: really could use an standardized error handling interface.
-      fprintf (stderr, "%s: fseek error (0x%08lX).\n", __func__,
+      fprintf (stderr, "%s: fseek error (0x%08X).\n", __func__,
                dr->extent_loc * lb_size);
       return -1;
     }
@@ -301,4 +330,19 @@ _dr_extract (_DirRec_t *dr, size_t lb_size, FILE input_fptr[static 1],
   free (file_path);
   free (data);
   return 0;
+}
+
+size_t
+_i9660dr_size (void)
+{
+  return sizeof (_ISO9660DirRec_t);
+}
+
+_FileFlags_t
+_i9660dr_get_flags (_ISO9660DirRec_t *dr)
+{
+  if (dr == NULL)
+    return (_FileFlags_t)-1;
+
+  return dr->file_flags;
 }

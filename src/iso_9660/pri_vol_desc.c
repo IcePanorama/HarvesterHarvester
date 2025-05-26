@@ -43,7 +43,7 @@ struct _ISO9660PriVolDesc_s
   uint32_t type_m_path_table_loc;
   uint32_t optional_type_m_path_table_loc;
 
-  _DirRec_t *root_directory_entry;
+  _ISO9660DirRec_t *root_directory_entry;
 
   char vol_set_id[128];
   char publisher_id[128];
@@ -79,7 +79,7 @@ _i9660pvd_free (_ISO9660PriVolDesc_t *p)
     return;
 
   if (p->root_directory_entry != NULL)
-    _dr_free (p->root_directory_entry);
+    _i9660dr_free (p->root_directory_entry);
 
   if (p->pt_list != NULL)
     {
@@ -127,7 +127,7 @@ _i9660pvd_print (_ISO9660PriVolDesc_t *p)
           p->optional_type_m_path_table_loc);
 
   puts ("Root directory entry:");
-  _dr_print (p->root_directory_entry);
+  _i9660dr_print (p->root_directory_entry);
 
   printf ("Volume set identifier: %.*s\n", 128, p->vol_set_id);
   printf ("Publisher identifier: %.*s\n", 128, p->publisher_id);
@@ -271,9 +271,9 @@ _i9660pvd_init (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1])
     return -1;
   /* clang-format on */
 
-  p->root_directory_entry = _dr_alloc ();
+  p->root_directory_entry = _i9660dr_alloc ();
   if ((p->root_directory_entry == NULL)
-      || (_dr_init (p->root_directory_entry, input_fptr) != 0)
+      || (_i9660dr_init (p->root_directory_entry, input_fptr) != 0)
       || (_i9660br_read_str (input_fptr, p->vol_set_id, 128) != 0)
       || (_i9660br_read_str (input_fptr, p->publisher_id, 128) != 0)
       || (_i9660br_read_str (input_fptr, p->data_preparer_id, 128) != 0)
@@ -405,7 +405,7 @@ _i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
 
       /*
        *  `+ UINT8_MAX` for the file identifier.
-       *  See: `_DirRec_t`
+       *  See: `_ISO9660DirRec_t`
        */
       size_t path_len = calc_entry_path_len (p, i, path) + UINT8_MAX;
       char *entry_path = calloc (path_len, sizeof (char));
