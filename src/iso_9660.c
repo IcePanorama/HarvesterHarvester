@@ -17,7 +17,6 @@
 #include "iso_9660.h"
 #include "iso_9660/fs_header.h"
 #include "iso_9660/pri_vol_desc.h"
-#include "iso_9660/vol_desc_type_code.h"
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -25,7 +24,7 @@
 /** See:  https://wiki.osdev.org/ISO_9660. */
 struct ISO9660FileSystem_s
 {
-  _FileSysHeader_t *header;
+  _ISO9660Header_t *header;
 
   /**
    *  See:  https://wiki.osdev.org/ISO_9660#Volume_Descriptors.
@@ -67,7 +66,7 @@ i9660_free (ISO9660FileSystem_t *fs)
   if (fs == NULL)
     return;
 
-  switch (_fsh_get_vol_desc_type_code (fs->header))
+  switch (_i9660h_get_vol_desc_type_code (fs->header))
     {
     case _VDTC_PRIMARY_VOLUME:
       _pvd_free (fs->vol_desc_data.pri_vol_desc);
@@ -76,11 +75,11 @@ i9660_free (ISO9660FileSystem_t *fs)
       fprintf (stderr,
                "There is currently no support for freeing volume descriptor "
                "data of type %02X.\n",
-               _fsh_get_vol_desc_type_code (fs->header));
+               _i9660h_get_vol_desc_type_code (fs->header));
       break;
     }
 
-  _fsh_free (fs->header);
+  _i9660h_free (fs->header);
   free (fs);
 }
 
@@ -90,8 +89,8 @@ i9660_print (ISO9660FileSystem_t *fs)
   if (fs == NULL)
     return;
 
-  _fsh_print (fs->header);
-  _VolDescTypeCode_t type = _fsh_get_vol_desc_type_code (fs->header);
+  _i9660h_print (fs->header);
+  _ISO9660VolDescTypeCode_t type = _i9660h_get_vol_desc_type_code (fs->header);
   switch (type)
     {
     case _VDTC_PRIMARY_VOLUME:
@@ -119,12 +118,12 @@ i9660_init (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
       return -1;
     }
 
-  fs->header = _fsh_alloc ();
-  if ((fs->header == NULL) || (_fsh_init (fs->header, input_fptr) != 0))
+  fs->header = _i9660h_alloc ();
+  if ((fs->header == NULL) || (_i9660h_init (fs->header, input_fptr) != 0))
     return -1;
 
   union _VolDescData_u *data = &fs->vol_desc_data;
-  _VolDescTypeCode_t type = _fsh_get_vol_desc_type_code (fs->header);
+  _ISO9660VolDescTypeCode_t type = _i9660h_get_vol_desc_type_code (fs->header);
   switch (type)
     {
     case _VDTC_PRIMARY_VOLUME:
@@ -151,7 +150,7 @@ i9660_extract (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
   if (fs == NULL)
     return -1;
 
-  _VolDescTypeCode_t type = _fsh_get_vol_desc_type_code (fs->header);
+  _ISO9660VolDescTypeCode_t type = _i9660h_get_vol_desc_type_code (fs->header);
   switch (type)
     {
     case _VDTC_PRIMARY_VOLUME:

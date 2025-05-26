@@ -39,7 +39,6 @@ ISO9660FileSystem_t *i9660_alloc (void);
  *  immediately.
  *
  *  Param:  fs  a pointer to an ISO9660FileSystem_t
- *  See:  `i9660_alloc`
  */
 void i9660_free (ISO9660FileSystem_t *fs);
 
