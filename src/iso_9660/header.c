@@ -14,7 +14,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-#include "iso_9660/fs_header.h"
+#include "iso_9660/header.h"
 #include "iso_9660/binary_reader.h"
 
 #include <stdint.h>

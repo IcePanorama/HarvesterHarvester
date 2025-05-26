@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 #include "iso_9660.h"
-#include "iso_9660/fs_header.h"
+#include "iso_9660/header.h"
 #include "iso_9660/pri_vol_desc.h"
 
 #include <stdint.h>
