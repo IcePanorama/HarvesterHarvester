@@ -7,9 +7,11 @@
  *  converting that to its own library. At that point, HH will simply use said
  *  library, and this weird duplicate-code business will no longer be
  *  necessary.
+ *  FIXME: move `create_export_dir` or `export_data` to some i9660 utils file,
+ *  and just use that here.
  */
 #include "harvester_harvester/idx_file.h"
-#include "harvester_harvester/binary_reader.h"
+#include "iso_9660/binary_reader.h"
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -154,13 +156,13 @@ init_entry (struct _IdxFileEntry_s *e, FILE *input_fptr)
   if (fseek (input_fptr, 6, SEEK_CUR) != 0) // Seek past `XFILE#:`
     goto fseek_err;
 
-  if (_hhbr_read_str (input_fptr, e->path, MAX_PATH_LEN) != 0)
+  if (_br_read_str (input_fptr, e->path, MAX_PATH_LEN) != 0)
     return -1;
 
   flip_path_separators (e->path);
 
-  if ((_hhbr_read_le_u32 (input_fptr, &e->extent_loc) != 0)
-      || (_hhbr_read_le_u32 (input_fptr, &e->size) != 0))
+  if ((_br_read_le_u32 (input_fptr, &e->extent_loc) != 0)
+      || (_br_read_le_u32 (input_fptr, &e->size) != 0))
     {
       return -1;
     }
@@ -173,7 +175,7 @@ init_entry (struct _IdxFileEntry_s *e, FILE *input_fptr)
    *  duplicated in the first place, but we might as well, right?
    */
   uint32_t value;
-  if (_hhbr_read_le_u32 (input_fptr, &value) != 0)
+  if (_br_read_le_u32 (input_fptr, &value) != 0)
     {
       return -1;
     }
@@ -355,7 +357,7 @@ extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
   if (data == NULL)
     goto oom_error;
 
-  if (_hhbr_read_u8_array (dat_fptr, data, e->size) != 0)
+  if (_br_read_u8_array (dat_fptr, data, e->size) != 0)
     {
       fprintf (stderr, "Error reading data for %s.\n", e->path);
       return -1;

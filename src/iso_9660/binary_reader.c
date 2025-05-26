@@ -1,13 +1,3 @@
-/**
- *  NOTE: In effort to make the ISO 9660 code self-contained, there is
- *  temporarily some duplicate code between here and
- *  `HarvesterHarvester/binary_reader.c`. Upon making any changes here, one
- *  should make the same change over there as well, if necessary. All the ISO
- *  9660 code will eventually be removed from this code base, as I plan on
- *  converting that to its own library. At that point, HH will simply use said
- *  library, and this weird duplicate-code business will no longer be
- *  necessary.
- */
 #include "iso_9660/binary_reader.h"
 
 #include <stdio.h>
