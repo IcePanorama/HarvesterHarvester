@@ -1,6 +1,7 @@
 /**
  *  harvester_harvester/hh.h - an interface for extracting data from the .dat
- *  files of DigiFX Interactive's 1996 game, Harvester.
+ *  files of DigiFX Interactive's 1996 game, Harvester. All public functions
+ *  and data fields are prefixed by `hh`.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
