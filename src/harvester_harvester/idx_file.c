@@ -1,13 +1,3 @@
-/**
- *  NOTE: In effort to make the ISO 9660 code self-contained, there is
- *  temporarily some duplicate code between here and `iso_9660/dir_rec.c`. Upon
- *  making any changes here to `export_data`, one should make the same change
- *  over there as well, if necessary. All the ISO 9660 code will eventually be
- *  removed from this code base, as I plan on converting that to its own
- *  library. At that point, HH will simply use said library, and this weird
- *  duplicate-code business will no longer be necessary.
- *  FIXME: move `export_data` to some i9660 utils file, and just use that here.
- */
 #include "harvester_harvester/idx_file.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/utils.h"
@@ -260,36 +250,6 @@ _idx_init (_IndexFile_t *i, const char path[static 1])
 }
 
 static int
-export_data (uint8_t data[static 1], size_t data_size,
-             const char path[static 1])
-{
-  if (_u_create_export_dir (path) != 0)
-    return -1;
-
-  FILE *output_file = fopen (path, "wb");
-  if (output_file == NULL)
-    {
-      fprintf (stderr, "Failed to open file for export: %s.\n", path);
-      return -1;
-    }
-
-  int status = 0;
-  if (fwrite (data, sizeof (uint8_t), data_size, output_file) != data_size)
-    {
-      fprintf (stderr, "Error exporting file, %s.\n", path);
-      status = -1; // still need to attempt `fclose` below.
-    }
-
-  if (fclose (output_file) != 0)
-    {
-      fprintf (stderr, "Error closing file, %s.\n", path);
-      return -1;
-    }
-
-  return status;
-}
-
-static int
 extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
                    const char *output_path)
 {
@@ -320,7 +280,7 @@ extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
   strcat (path, e->path);
 
   printf ("Extracting file: %s\n", path);
-  if (export_data (data, e->size, path) != 0)
+  if (_u_export_data (data, e->size, path) != 0)
     {
       free (path);
       free (data);

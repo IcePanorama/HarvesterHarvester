@@ -1,13 +1,3 @@
-/**
- *  NOTE: In effort to make the ISO 9660 code self-contained, there is
- *  temporarily some duplicate code between here and
- *  `harvester_harvester/idx_file.c`. Upon making any changes here to
- *  `export_data`, one should make the same change over there as well, if
- *  necessary. All the ISO 9660 code will eventually be removed from this code
- *  base, as I plan on converting that to its own library. At that point, HH
- *  will simply use said library, and this weird duplicate-code business will
- *  no longer be necessary.
- */
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/file_flags.h"
@@ -216,36 +206,6 @@ _dr_dynamic_init (_DirRec_t **dr_list, size_t list_cap[static 1],
   return 0;
 }
 
-static int
-export_data (uint8_t data[static 1], size_t data_size,
-             const char path[static 1])
-{
-  if (_u_create_export_dir (path) != 0)
-    return -1;
-
-  FILE *output_file = fopen (path, "wb");
-  if (output_file == NULL)
-    {
-      fprintf (stderr, "Failed to open file for export: %s.\n", path);
-      return -1;
-    }
-
-  int status = 0;
-  if (fwrite (data, sizeof (uint8_t), data_size, output_file) != data_size)
-    {
-      fprintf (stderr, "Error exporting file, %s.\n", path);
-      status = -1; // still need to attempt `fclose` below.
-    }
-
-  if (fclose (output_file) != 0)
-    {
-      fprintf (stderr, "Error closing file, %s.\n", path);
-      return -1;
-    }
-
-  return status;
-}
-
 /*
  *  Handle unsupported file errors.
  *  Returns: Zero if file is supported, non-zero otherwise.
@@ -330,7 +290,7 @@ _dr_extract (_DirRec_t *dr, size_t lb_size, FILE input_fptr[static 1],
   strncat (file_path, dr->file_id, dr->file_id_len - 2); // remove the ";1"
 
   printf ("Extracting file: %s\n", file_path);
-  if (export_data (data, dr->extent_size, file_path) != 0)
+  if (_u_export_data (data, dr->extent_size, file_path) != 0)
     {
       free (file_path);
       free (data);
