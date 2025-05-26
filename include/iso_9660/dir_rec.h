@@ -107,7 +107,7 @@ size_t _i9660dr_size (void);
 
 /**
  *  Returns the file flags of `dr`. Returns `(_ISO9660FileFlags_t)-1` if `dr`
- * is NULL.
+ *  is NULL.
  *
  *  See: `_ISO9660FileFlags_t`
  */
