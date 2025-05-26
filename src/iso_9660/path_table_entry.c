@@ -137,7 +137,7 @@ _pte_extract (_PathTableEntry_t *p, uint16_t lb_size,
           = (_ISO9660DirRec_t *)((char *)dr_list + (i * _i9660dr_size ()));
 
       // Skip directories. See: https://wiki.osdev.org/ISO_9660#Directories.
-      if (_i9660dr_get_flags (curr) & (1 << (_FF_IS_DIRECTORY_BIT)))
+      if (_i9660dr_get_flags (curr) & (1 << (_I9660FF_IS_DIRECTORY_BIT)))
         continue;
 
       if (_i9660dr_extract (curr, lb_size, input_fptr, path, path_len) != 0)
