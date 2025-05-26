@@ -2,21 +2,21 @@
  *  NOTE: In effort to make the ISO 9660 code self-contained, there is
  *  temporarily some duplicate code between here and
  *  `harvester_harvester/idx_file.c`. Upon making any changes here to
- *  `create_export_dir` or `export_data`, one should make the same change over
- *  there as well, if necessary. All the ISO 9660 code will eventually be
- *  removed from this code base, as I plan on converting that to its own
- *  library. At that point, HH will simply use said library, and this weird
- *  duplicate-code business will no longer be necessary.
+ *  `export_data`, one should make the same change over there as well, if
+ *  necessary. All the ISO 9660 code will eventually be removed from this code
+ *  base, as I plan on converting that to its own library. At that point, HH
+ *  will simply use said library, and this weird duplicate-code business will
+ *  no longer be necessary.
  */
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/file_flags.h"
+#include "iso_9660/utils.h"
 
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/stat.h>
 
 /** See:: https://wiki.osdev.org/ISO_9660#Directories */
 struct _DirRec_s
@@ -217,59 +217,10 @@ _dr_dynamic_init (_DirRec_t **dr_list, size_t list_cap[static 1],
 }
 
 static int
-create_export_dir (const char path[static 1])
-{
-  char *path_cpy = malloc (sizeof (char) * strlen (path) + 1);
-  if (path_cpy == NULL)
-    {
-      fprintf (stderr, "%s: out of memory error.\n", __func__);
-      return -1;
-    }
-
-  char *curr_path = calloc (sizeof (char) * strlen (path) + 1, sizeof (char));
-  if (curr_path == NULL)
-    {
-      fprintf (stderr, "%s: out of memory error.\n", __func__);
-      free (path_cpy);
-      return -1;
-    }
-
-  strcpy (path_cpy, path);
-  char *tok = strtok (path_cpy, "/");
-  while (tok != NULL)
-    {
-      if (strchr (tok, '.') != NULL) // skip files.
-        break;
-
-      strcat (curr_path, tok);
-      struct stat path_info;
-      if (stat (curr_path, &path_info) != 0)
-        {
-          int status = mkdir (curr_path, 0700);
-          if (status != 0)
-            {
-              fprintf (stderr, "Failed to create output directory: %s.\n",
-                       curr_path);
-              free (curr_path);
-              free (path_cpy);
-              return -1;
-            }
-        }
-
-      tok = strtok (NULL, "/");
-      if (tok != NULL)
-        strcat (curr_path, "/");
-    }
-  free (curr_path);
-  free (path_cpy);
-  return 0;
-}
-
-static int
 export_data (uint8_t data[static 1], size_t data_size,
              const char path[static 1])
 {
-  if (create_export_dir (path) != 0)
+  if (_u_create_export_dir (path) != 0)
     return -1;
 
   FILE *output_file = fopen (path, "wb");

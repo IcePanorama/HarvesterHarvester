@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 int
 _u_prepend_str (char str[static 1], const size_t str_len,
@@ -22,4 +23,53 @@ _u_prepend_str (char str[static 1], const size_t str_len,
 out_of_mem_err:
   fprintf (stderr, "%s: Out of memory error.\n", __func__);
   return -1;
+}
+
+int
+_u_create_export_dir (const char path[static 1])
+{
+  char *path_cpy = malloc (sizeof (char) * strlen (path) + 1);
+  if (path_cpy == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
+
+  char *curr_path = calloc (sizeof (char) * strlen (path) + 1, sizeof (char));
+  if (curr_path == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      free (path_cpy);
+      return -1;
+    }
+
+  strcpy (path_cpy, path);
+  char *tok = strtok (path_cpy, "/");
+  while (tok != NULL)
+    {
+      if (strchr (tok, '.') != NULL) // skip files.
+        break;
+
+      strcat (curr_path, tok);
+      struct stat path_info;
+      if (stat (curr_path, &path_info) != 0)
+        {
+          int status = mkdir (curr_path, 0700);
+          if (status != 0)
+            {
+              fprintf (stderr, "Failed to create output directory: %s.\n",
+                       curr_path);
+              free (curr_path);
+              free (path_cpy);
+              return -1;
+            }
+        }
+
+      tok = strtok (NULL, "/");
+      if (tok != NULL)
+        strcat (curr_path, "/");
+    }
+  free (curr_path);
+  free (path_cpy);
+  return 0;
 }
