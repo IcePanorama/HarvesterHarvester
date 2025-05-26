@@ -45,9 +45,9 @@ struct _ISO9660DirRec_s
 
   /**
    *  See: https://wiki.osdev.org/ISO_9660#Directories
-   *  See: `_FileFlags_t`
+   *  See: `_ISO9660FileFlags_t`
    */
-  _FileFlags_t file_flags;
+  _ISO9660FileFlags_t file_flags;
 
   uint8_t file_unit_size;      // if recorded in interleaved mode, else 0.
   uint8_t interleave_gap_size; // if recorded in interleaved mode, else 0.
@@ -341,11 +341,11 @@ _i9660dr_size (void)
   return sizeof (_ISO9660DirRec_t);
 }
 
-_FileFlags_t
+_ISO9660FileFlags_t
 _i9660dr_get_flags (_ISO9660DirRec_t *dr)
 {
   if (dr == NULL)
-    return (_FileFlags_t)-1;
+    return (_ISO9660FileFlags_t)-1;
 
   return dr->file_flags;
 }

@@ -22,7 +22,7 @@
 
 #include <stdint.h>
 
-typedef uint8_t _FileFlags_t;
+typedef uint8_t _ISO9660FileFlags_t;
 
 /**
  *  File flag bits.

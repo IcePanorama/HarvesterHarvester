@@ -106,10 +106,11 @@ int _i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
 size_t _i9660dr_size (void);
 
 /**
- *  Returns the file flags of `dr`. Returns `(_FileFlags_t)-1` if `dr` is NULL.
+ *  Returns the file flags of `dr`. Returns `(_ISO9660FileFlags_t)-1` if `dr`
+ * is NULL.
  *
- *  See: `_FileFlags_t`
+ *  See: `_ISO9660FileFlags_t`
  */
-_FileFlags_t _i9660dr_get_flags (_ISO9660DirRec_t *dr);
+_ISO9660FileFlags_t _i9660dr_get_flags (_ISO9660DirRec_t *dr);
 
 #endif /* _ISO_9660_DIRECTORY_RECORD_H_ */
