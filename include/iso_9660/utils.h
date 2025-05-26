@@ -12,12 +12,6 @@ int _u_prepend_str (char str[static 1], const size_t str_len,
                     const char prefix[static 1], const size_t prefix_len);
 
 /**
- *  Create directory given by `path` to be used for exporting data.
- *  Returns: Zero on success, non-zero on failure.
- */
-int _u_create_export_dir (const char path[static 1]);
-
-/**
  *  Writes `data` to file at `path`.
  *  Returns: Zero on success, non-zero on failure.
  */

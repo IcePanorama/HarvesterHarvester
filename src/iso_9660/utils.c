@@ -25,8 +25,12 @@ out_of_mem_err:
   return -1;
 }
 
-int
-_u_create_export_dir (const char path[static 1])
+/**
+ *  Create directory given by `path` to be used for exporting data.
+ *  Returns: Zero on success, non-zero on failure.
+ */
+static int
+create_export_dir (const char path[static 1])
 {
   char *path_cpy = malloc (sizeof (char) * strlen (path) + 1);
   if (path_cpy == NULL)
@@ -78,8 +82,7 @@ int
 _u_export_data (uint8_t data[static 1], size_t data_size,
                 const char path[static 1])
 {
-  // FIXME: Can `_u_create_export_dir` be a static function?
-  if (_u_create_export_dir (path) != 0)
+  if (create_export_dir (path) != 0)
     return -1;
 
   FILE *output_file = fopen (path, "wb");
