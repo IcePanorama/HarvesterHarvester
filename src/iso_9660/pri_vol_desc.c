@@ -138,41 +138,41 @@ _pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
   if (fseek (input_fptr, 1, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
-  if ((_br_read_str (input_fptr, p->sys_id, 32) != 0)
-      || (_br_read_str (input_fptr, p->vol_id, 32)))
+  if ((_i9660br_read_str (input_fptr, p->sys_id, 32) != 0)
+      || (_i9660br_read_str (input_fptr, p->vol_id, 32)))
     return -1;
 
   if (fseek (input_fptr, 8, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
-  if (_br_read_le_be_u32 (input_fptr, &p->vol_space_size) != 0)
+  if (_i9660br_read_le_be_u32 (input_fptr, &p->vol_space_size) != 0)
     return -1;
 
   if (fseek (input_fptr, 32, SEEK_CUR) != 0) // Unused
     goto fseek_err;
 
   /* clang-format off */
-  if ((_br_read_le_be_u16 (input_fptr, &p->vol_set_size) != 0)
-      || (_br_read_le_be_u16 (input_fptr, &p->vol_seq_num) != 0)
-      || (_br_read_le_be_u16 (input_fptr, &p->logical_blk_size) != 0)
-      || (_br_read_le_be_u32 (input_fptr, &p->path_table_size) != 0)
-      || (_br_read_le_u32 (input_fptr, &p->type_l_path_table_loc) != 0)
-      || (_br_read_le_u32 (input_fptr, &p->optional_type_l_path_table_loc) != 0)
-      || (_br_read_be_u32 (input_fptr, &p->type_m_path_table_loc) != 0)
-      || (_br_read_be_u32 (input_fptr, &p->optional_type_m_path_table_loc) != 0))
+  if ((_i9660br_read_le_be_u16 (input_fptr, &p->vol_set_size) != 0)
+      || (_i9660br_read_le_be_u16 (input_fptr, &p->vol_seq_num) != 0)
+      || (_i9660br_read_le_be_u16 (input_fptr, &p->logical_blk_size) != 0)
+      || (_i9660br_read_le_be_u32 (input_fptr, &p->path_table_size) != 0)
+      || (_i9660br_read_le_u32 (input_fptr, &p->type_l_path_table_loc) != 0)
+      || (_i9660br_read_le_u32 (input_fptr, &p->optional_type_l_path_table_loc) != 0)
+      || (_i9660br_read_be_u32 (input_fptr, &p->type_m_path_table_loc) != 0)
+      || (_i9660br_read_be_u32 (input_fptr, &p->optional_type_m_path_table_loc) != 0))
     return -1;
   /* clang-format on */
 
   p->root_directory_entry = _dr_alloc ();
   if ((p->root_directory_entry == NULL)
       || (_dr_init (p->root_directory_entry, input_fptr) != 0)
-      || (_br_read_str (input_fptr, p->vol_set_id, 128) != 0)
-      || (_br_read_str (input_fptr, p->publisher_id, 128) != 0)
-      || (_br_read_str (input_fptr, p->data_preparer_id, 128) != 0)
-      || (_br_read_str (input_fptr, p->application_id, 128) != 0)
-      || (_br_read_str (input_fptr, p->copyright_file_id, 37) != 0)
-      || (_br_read_str (input_fptr, p->abstract_file_id, 37) != 0)
-      || (_br_read_str (input_fptr, p->bibliographic_file_id, 37) != 0))
+      || (_i9660br_read_str (input_fptr, p->vol_set_id, 128) != 0)
+      || (_i9660br_read_str (input_fptr, p->publisher_id, 128) != 0)
+      || (_i9660br_read_str (input_fptr, p->data_preparer_id, 128) != 0)
+      || (_i9660br_read_str (input_fptr, p->application_id, 128) != 0)
+      || (_i9660br_read_str (input_fptr, p->copyright_file_id, 37) != 0)
+      || (_i9660br_read_str (input_fptr, p->abstract_file_id, 37) != 0)
+      || (_i9660br_read_str (input_fptr, p->bibliographic_file_id, 37) != 0))
     return -1;
 
   p->creation_date_time = _pvddt_alloc ();
@@ -194,8 +194,9 @@ _pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
   p->effective_date_time = _pvddt_alloc ();
   if ((p->effective_date_time == NULL)
       || (_pvddt_init (p->effective_date_time, input_fptr) != 0)
-      || (_br_read_u8 (input_fptr, &p->fs_ver) != 0)
-      || (_br_read_u8_array (input_fptr, p->application_used_data, 512) != 0))
+      || (_i9660br_read_u8 (input_fptr, &p->fs_ver) != 0)
+      || (_i9660br_read_u8_array (input_fptr, p->application_used_data, 512)
+          != 0))
     return -1;
 
   p->pt_list_capacity = 1;

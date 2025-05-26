@@ -66,7 +66,7 @@ static int
 read_vd_type_code (FILE *fptr, _ISO9660VolDescTypeCode_t *output)
 {
   uint8_t byte;
-  if (_br_read_u8 (fptr, &byte) != 0)
+  if (_i9660br_read_u8 (fptr, &byte) != 0)
     return -1;
 
   if ((byte > _VDTC_VOL_PARTITION) && (byte != _VDTC_VOL_DESC_SET_TERMINATOR))
@@ -86,7 +86,7 @@ _i9660h_init (_ISO9660Header_t *h, FILE input_fptr[static 1])
     return -1;
 
   if ((read_vd_type_code (input_fptr, &h->vol_desc_type_code) != 0)
-      || (_br_read_str (input_fptr, h->vol_id, 5) != 0))
+      || (_i9660br_read_str (input_fptr, h->vol_id, 5) != 0))
     return -1;
 
   if (strncmp ("CD001", h->vol_id, 5) != 0)
@@ -96,7 +96,7 @@ _i9660h_init (_ISO9660Header_t *h, FILE input_fptr[static 1])
       return -1;
     }
 
-  if (_br_read_u8 (input_fptr, &h->vol_desc_ver))
+  if (_i9660br_read_u8 (input_fptr, &h->vol_desc_ver))
     return -1;
 
   return 0;

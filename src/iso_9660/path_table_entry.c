@@ -66,11 +66,12 @@ _pte_init (_PathTableEntry_t *p, FILE input_fptr[static 1])
   if (p == NULL)
     return -1;
 
-  if ((_br_read_u8 (input_fptr, &p->dir_id_len) != 0)
-      || (_br_read_u8 (input_fptr, &p->extended_attribute_record_len) != 0)
-      || (_br_read_le_u32 (input_fptr, &p->extent_loc) != 0)
-      || (_br_read_le_u16 (input_fptr, &p->parent_dir_num) != 0)
-      || (_br_read_str (input_fptr, p->dir_id, p->dir_id_len) != 0))
+  if ((_i9660br_read_u8 (input_fptr, &p->dir_id_len) != 0)
+      || (_i9660br_read_u8 (input_fptr, &p->extended_attribute_record_len)
+          != 0)
+      || (_i9660br_read_le_u32 (input_fptr, &p->extent_loc) != 0)
+      || (_i9660br_read_le_u16 (input_fptr, &p->parent_dir_num) != 0)
+      || (_i9660br_read_str (input_fptr, p->dir_id, p->dir_id_len) != 0))
     {
       return -1;
     }

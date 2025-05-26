@@ -39,14 +39,14 @@ _pvddt_init (_PVDDateTime_t *dt, FILE input_fptr[static 1])
   if (dt == NULL)
     return -1;
 
-  if ((_br_read_str (input_fptr, dt->year, 4) != 0)
-      || (_br_read_str (input_fptr, dt->month, 2) != 0)
-      || (_br_read_str (input_fptr, dt->day, 2) != 0)
-      || (_br_read_str (input_fptr, dt->hour, 2) != 0)
-      || (_br_read_str (input_fptr, dt->min, 2) != 0)
-      || (_br_read_str (input_fptr, dt->sec, 2) != 0)
-      || (_br_read_str (input_fptr, dt->hundredths_of_sec, 2) != 0)
-      || (_br_read_u8 (input_fptr, &dt->timezone) != 0))
+  if ((_i9660br_read_str (input_fptr, dt->year, 4) != 0)
+      || (_i9660br_read_str (input_fptr, dt->month, 2) != 0)
+      || (_i9660br_read_str (input_fptr, dt->day, 2) != 0)
+      || (_i9660br_read_str (input_fptr, dt->hour, 2) != 0)
+      || (_i9660br_read_str (input_fptr, dt->min, 2) != 0)
+      || (_i9660br_read_str (input_fptr, dt->sec, 2) != 0)
+      || (_i9660br_read_str (input_fptr, dt->hundredths_of_sec, 2) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dt->timezone) != 0))
     {
       return -1;
     }

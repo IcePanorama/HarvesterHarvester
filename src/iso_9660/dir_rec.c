@@ -74,23 +74,24 @@ _dr_init (_DirRec_t *dr, FILE input_fptr[static 1])
   if (dr == NULL)
     return -1;
 
-  if ((_br_read_u8 (input_fptr, &dr->len) != 0)
-      || (_br_read_u8 (input_fptr, &dr->extended_attrib_rec_len) != 0)
-      || (_br_read_le_be_u32 (input_fptr, &dr->extent_loc) != 0)
-      || (_br_read_le_be_u32 (input_fptr, &dr->extent_size) != 0)
-      || (_br_read_u8 (input_fptr, &dr->recording_date_time.year) != 0)
-      || (_br_read_u8 (input_fptr, &dr->recording_date_time.month) != 0)
-      || (_br_read_u8 (input_fptr, &dr->recording_date_time.day) != 0)
-      || (_br_read_u8 (input_fptr, &dr->recording_date_time.hour) != 0)
-      || (_br_read_u8 (input_fptr, &dr->recording_date_time.minute) != 0)
-      || (_br_read_u8 (input_fptr, &dr->recording_date_time.second) != 0)
-      || (_br_read_u8 (input_fptr, &dr->recording_date_time.timezone) != 0)
-      || (_br_read_u8 (input_fptr, &dr->file_flags) != 0)
-      || (_br_read_u8 (input_fptr, &dr->file_unit_size) != 0)
-      || (_br_read_u8 (input_fptr, &dr->interleave_gap_size) != 0)
-      || (_br_read_le_be_u16 (input_fptr, &dr->vol_seq_num) != 0)
-      || (_br_read_u8 (input_fptr, &dr->file_id_len) != 0)
-      || (_br_read_str (input_fptr, dr->file_id, dr->file_id_len) != 0))
+  if ((_i9660br_read_u8 (input_fptr, &dr->len) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->extended_attrib_rec_len) != 0)
+      || (_i9660br_read_le_be_u32 (input_fptr, &dr->extent_loc) != 0)
+      || (_i9660br_read_le_be_u32 (input_fptr, &dr->extent_size) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.year) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.month) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.day) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.hour) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.minute) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.second) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->recording_date_time.timezone)
+          != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->file_flags) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->file_unit_size) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->interleave_gap_size) != 0)
+      || (_i9660br_read_le_be_u16 (input_fptr, &dr->vol_seq_num) != 0)
+      || (_i9660br_read_u8 (input_fptr, &dr->file_id_len) != 0)
+      || (_i9660br_read_str (input_fptr, dr->file_id, dr->file_id_len) != 0))
     {
       return -1;
     }
@@ -273,7 +274,7 @@ _dr_extract (_DirRec_t *dr, size_t lb_size, FILE input_fptr[static 1],
       return -1;
     }
 
-  if (_br_read_u8_array (input_fptr, data, dr->extent_size) != 0)
+  if (_i9660br_read_u8_array (input_fptr, data, dr->extent_size) != 0)
     {
       free (data);
       return -1;

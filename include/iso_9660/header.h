@@ -1,7 +1,7 @@
 /**
- *  iso_9660/fs_header.h - an interface for ISO 9660 file system headers.
- *  Intended for internal usage. All functions are prefixed by `_i9660h`. All
- *  data types are prefixed by `_ISO9660Header`.
+ *  iso_9660/header.h - an interface for ISO 9660 file system headers. Intended
+ *  for internal usage. All functions are prefixed by `_i9660h`. All data types
+ *  are prefixed by `_ISO9660Header`.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
