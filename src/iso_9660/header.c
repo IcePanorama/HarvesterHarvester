@@ -17,7 +17,6 @@
 #include "iso_9660/header.h"
 #include "iso_9660/binary_reader.h"
 
-#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 

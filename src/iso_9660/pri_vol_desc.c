@@ -1,3 +1,19 @@
+/**
+ *  Copyright (C) 2024-2025  IcePanorama
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 #include "iso_9660/pri_vol_desc.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/dir_rec.h"
@@ -10,11 +26,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-/**
- *  See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor.
- *  FIXME: Should this implementation also be hidden in the .c file?
- */
-struct _PriVolDesc_s
+/** See: https://wiki.osdev.org/ISO_9660#The_Primary_Volume_Descriptor. */
+struct _ISO9660PriVolDesc_s
 {
   char sys_id[32];
   char vol_id[32];
@@ -45,7 +58,6 @@ struct _PriVolDesc_s
   _PVDDateTime_t *expiration_date_time;
   _PVDDateTime_t *effective_date_time;
 
-  // FIXME: are we double checking that this is correct?
   uint8_t fs_ver; // Should always be `0x01`.
   uint8_t application_used_data[512];
 
@@ -54,14 +66,111 @@ struct _PriVolDesc_s
   size_t pt_list_capacity; // max num of entries.
 };
 
-_PriVolDesc_t *
-_pvd_alloc (void)
+_ISO9660PriVolDesc_t *
+_i9660pvd_alloc (void)
 {
-  return calloc (1, sizeof (_PriVolDesc_t));
+  return calloc (1, sizeof (_ISO9660PriVolDesc_t));
+}
+
+void
+_i9660pvd_free (_ISO9660PriVolDesc_t *p)
+{
+  if (p == NULL)
+    return;
+
+  if (p->root_directory_entry != NULL)
+    _dr_free (p->root_directory_entry);
+
+  if (p->pt_list != NULL)
+    {
+      free (p->pt_list);
+      p->pt_list = NULL;
+    }
+
+  /*
+   *  `_pvddt_free` will behave well on NULL inputs. Checking in advance,
+   *  however, allows us to avoid the penality associated with an additional,
+   *  unnecessary function call (at the expense of a potential branch
+   *  misprediction).
+   */
+  if (p->creation_date_time != NULL)
+    _pvddt_free (p->creation_date_time);
+  if (p->modification_date_time != NULL)
+    _pvddt_free (p->modification_date_time);
+  if (p->expiration_date_time != NULL)
+    _pvddt_free (p->expiration_date_time);
+  if (p->effective_date_time != NULL)
+    _pvddt_free (p->effective_date_time);
+
+  free (p);
+}
+
+void
+_i9660pvd_print (_ISO9660PriVolDesc_t *p)
+{
+  if (p == NULL)
+    return;
+
+  printf ("System identifier: %.*s\n", 32, p->sys_id);
+  printf ("Volume identifier: %.*s\n", 32, p->vol_id);
+  printf ("Volume space size: %d\n", p->vol_space_size);
+  printf ("Volume set size: %d\n", p->vol_set_size);
+  printf ("Volume sequence number: %d\n", p->vol_seq_num);
+  printf ("Logical block size: %d\n", p->logical_blk_size);
+
+  printf ("Path table size: %d\n", p->path_table_size);
+  printf ("Location of type-l path table: %d\n", p->type_l_path_table_loc);
+  printf ("Location of optional type-l path table: %d\n",
+          p->optional_type_l_path_table_loc);
+  printf ("Location of type-m path table: %d\n", p->type_m_path_table_loc);
+  printf ("Location of optional type-m path table: %d\n",
+          p->optional_type_m_path_table_loc);
+
+  puts ("Root directory entry:");
+  _dr_print (p->root_directory_entry);
+
+  printf ("Volume set identifier: %.*s\n", 128, p->vol_set_id);
+  printf ("Publisher identifier: %.*s\n", 128, p->publisher_id);
+  printf ("Data preparer identifier: %.*s\n", 128, p->data_preparer_id);
+  printf ("Application identifier: %.*s\n", 128, p->application_id);
+  printf ("Copyright file identifier: %.*s\n", 37, p->copyright_file_id);
+  printf ("Abstract file identifier: %.*s\n", 37, p->abstract_file_id);
+  printf ("Bibliographic file identifier: %.*s\n", 37,
+          p->bibliographic_file_id);
+
+  _pvddt_print (p->creation_date_time, "Volume creation date time");
+  _pvddt_print (p->modification_date_time, "Volume modification date time");
+  _pvddt_print (p->expiration_date_time, "Volume expiration date time");
+  _pvddt_print (p->effective_date_time, "Volume effective date time");
+
+  printf ("File structure version: %d\n", p->fs_ver);
+
+  if (p->pt_list == NULL)
+    return;
+
+  puts ("Path table:");
+  for (size_t i = 0; i < p->pt_list_len; i++)
+    _pte_print ((_PathTableEntry_t *)((char *)(p->pt_list)
+                                      + (i * _PathTableEntry_SIZE_BYTES)));
 }
 
 static int
-resize_pt_list (_PriVolDesc_t *p)
+handle_date_time_data (_PVDDateTime_t **d, FILE *input_fptr)
+{
+  *d = _pvddt_alloc ();
+  if (*d == NULL)
+    {
+      fprintf (stderr, "%s: Out of memory error.\n", __func__);
+      return -1;
+    }
+  else if (_pvddt_init (*d, input_fptr) != 0)
+    return -1;
+
+  return 0;
+}
+
+static int
+resize_pt_list (_ISO9660PriVolDesc_t *p)
 {
   p->pt_list_capacity *= 2;
   _PathTableEntry_t *tmp
@@ -77,9 +186,8 @@ resize_pt_list (_PriVolDesc_t *p)
   return 0;
 }
 
-// FIXME: Should this be in the path table file?
 static int
-process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
+process_path_table_list (_ISO9660PriVolDesc_t *p, FILE *input_fptr)
 {
   uint32_t pt_start = p->logical_blk_size * p->type_l_path_table_loc;
   if (fseek (input_fptr, pt_start, SEEK_SET) != 0)
@@ -130,25 +238,25 @@ process_path_table_list (_PriVolDesc_t *p, FILE *input_fptr)
 }
 
 int
-_pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
+_i9660pvd_init (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1])
 {
   if (p == NULL)
     return -1;
 
-  if (fseek (input_fptr, 1, SEEK_CUR) != 0) // Unused
+  if (fseek (input_fptr, 1, SEEK_CUR) != 0) // Unused byte
     goto fseek_err;
 
   if ((_i9660br_read_str (input_fptr, p->sys_id, 32) != 0)
-      || (_i9660br_read_str (input_fptr, p->vol_id, 32)))
+      || (_i9660br_read_str (input_fptr, p->vol_id, 32) != 0))
     return -1;
 
-  if (fseek (input_fptr, 8, SEEK_CUR) != 0) // Unused
+  if (fseek (input_fptr, 8, SEEK_CUR) != 0) // Unused bytes
     goto fseek_err;
 
   if (_i9660br_read_le_be_u32 (input_fptr, &p->vol_space_size) != 0)
     return -1;
 
-  if (fseek (input_fptr, 32, SEEK_CUR) != 0) // Unused
+  if (fseek (input_fptr, 32, SEEK_CUR) != 0) // Unused bytes
     goto fseek_err;
 
   /* clang-format off */
@@ -175,28 +283,23 @@ _pvd_init (_PriVolDesc_t *p, FILE input_fptr[static 1])
       || (_i9660br_read_str (input_fptr, p->bibliographic_file_id, 37) != 0))
     return -1;
 
-  p->creation_date_time = _pvddt_alloc ();
-  // FIXME: should probably emit some out of memory err if dt is null!
-  if ((p->creation_date_time == NULL)
-      || (_pvddt_init (p->creation_date_time, input_fptr) != 0))
+  if ((handle_date_time_data (&p->creation_date_time, input_fptr) != 0)
+      || (handle_date_time_data (&p->modification_date_time, input_fptr) != 0)
+      || (handle_date_time_data (&p->expiration_date_time, input_fptr) != 0)
+      || (handle_date_time_data (&p->effective_date_time, input_fptr) != 0))
     return -1;
 
-  p->modification_date_time = _pvddt_alloc ();
-  if ((p->modification_date_time == NULL)
-      || (_pvddt_init (p->modification_date_time, input_fptr) != 0))
+  if (_i9660br_read_u8 (input_fptr, &p->fs_ver) != 0)
     return -1;
+  else if (p->fs_ver != 0x01)
+    {
+      fprintf (stderr,
+               "Incorrect file system version: expected %02X, got %02X.\n",
+               0x01, p->fs_ver);
+      return -1;
+    }
 
-  p->expiration_date_time = _pvddt_alloc ();
-  if ((p->expiration_date_time == NULL)
-      || (_pvddt_init (p->expiration_date_time, input_fptr) != 0))
-    return -1;
-
-  p->effective_date_time = _pvddt_alloc ();
-  if ((p->effective_date_time == NULL)
-      || (_pvddt_init (p->effective_date_time, input_fptr) != 0)
-      || (_i9660br_read_u8 (input_fptr, &p->fs_ver) != 0)
-      || (_i9660br_read_u8_array (input_fptr, p->application_used_data, 512)
-          != 0))
+  if (_i9660br_read_u8_array (input_fptr, p->application_used_data, 512) != 0)
     return -1;
 
   p->pt_list_capacity = 1;
@@ -216,81 +319,8 @@ fseek_err:
   return -1;
 }
 
-/** FIXME: needs to be modified to support logging to files. */
-void
-_pvd_print (_PriVolDesc_t *p)
-{
-  if (p == NULL)
-    return;
-
-  printf ("System identifier: %.*s\n", 32, p->sys_id);
-  printf ("Volume identifier: %.*s\n", 32, p->vol_id);
-  printf ("Volume space size: %d\n", p->vol_space_size);
-  printf ("Volume set size: %d\n", p->vol_set_size);
-  printf ("Volume sequence number: %d\n", p->vol_seq_num);
-  printf ("Logical block size: %d\n", p->logical_blk_size);
-
-  printf ("Path table size: %d\n", p->path_table_size);
-  printf ("Location of type-l path table: %d\n", p->type_l_path_table_loc);
-  printf ("Location of optional type-l path table: %d\n",
-          p->optional_type_l_path_table_loc);
-  printf ("Location of type-m path table: %d\n", p->type_m_path_table_loc);
-  printf ("Location of optional type-m path table: %d\n",
-          p->optional_type_m_path_table_loc);
-
-  puts ("Root directory entry:");
-  _dr_print (p->root_directory_entry);
-
-  printf ("Volume set identifier: %.*s\n", 128, p->vol_set_id);
-  printf ("Publisher identifier: %.*s\n", 128, p->publisher_id);
-  printf ("Data preparer identifier: %.*s\n", 128, p->data_preparer_id);
-  printf ("Application identifier: %.*s\n", 128, p->application_id);
-  printf ("Copyright file identifier: %.*s\n", 37, p->copyright_file_id);
-  printf ("Abstract file identifier: %.*s\n", 37, p->abstract_file_id);
-  printf ("Bibliographic file identifier: %.*s\n", 37,
-          p->bibliographic_file_id);
-
-  _pvddt_print (p->creation_date_time, "Volume creation date time");
-  _pvddt_print (p->modification_date_time, "Volume modification date time");
-  _pvddt_print (p->expiration_date_time, "Volume expiration date time");
-  _pvddt_print (p->effective_date_time, "Volume effective date time");
-
-  printf ("File structure version: %d\n", p->fs_ver);
-
-  if (p->pt_list == NULL)
-    return;
-
-  puts ("Path table:");
-  for (size_t i = 0; i < p->pt_list_len; i++)
-    _pte_print ((_PathTableEntry_t *)((char *)(p->pt_list)
-                                      + (i * _PathTableEntry_SIZE_BYTES)));
-}
-
-void
-_pvd_free (_PriVolDesc_t *p)
-{
-  if (p == NULL)
-    return;
-
-  if (p->root_directory_entry != NULL)
-    _dr_free (p->root_directory_entry);
-
-  if (p->pt_list != NULL)
-    {
-      free (p->pt_list);
-      p->pt_list = NULL;
-    }
-
-  _pvddt_free (p->creation_date_time);
-  _pvddt_free (p->modification_date_time);
-  _pvddt_free (p->expiration_date_time);
-  _pvddt_free (p->effective_date_time);
-
-  free (p);
-}
-
 static size_t
-calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
+calc_entry_path_len (_ISO9660PriVolDesc_t p[static 1], size_t entry_idx,
                      const char path[static 1])
 {
   size_t path_len = 0;
@@ -314,7 +344,7 @@ calc_entry_path_len (_PriVolDesc_t p[static 1], size_t entry_idx,
 }
 
 static int
-build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
+build_entry_path_str (_ISO9660PriVolDesc_t p[static 1], char *output,
                       size_t output_len, size_t entry_idx,
                       const char path[static 1])
 {
@@ -354,8 +384,8 @@ build_entry_path_str (_PriVolDesc_t p[static 1], char *output,
 }
 
 int
-_pvd_extract (_PriVolDesc_t *p, FILE input_fptr[static 1],
-              const char path[static 1])
+_i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
+                   const char path[static 1])
 {
   if (p == NULL)
     return -1;
@@ -369,12 +399,14 @@ _pvd_extract (_PriVolDesc_t *p, FILE input_fptr[static 1],
 
   for (size_t i = 0; i < p->pt_list_len; i++)
     {
-      // FIXME: Can this be made const?
       _PathTableEntry_t *curr
           = (_PathTableEntry_t *)((char *)(p->pt_list)
                                   + (i * _PathTableEntry_SIZE_BYTES));
 
-      // + UINT8_MAX for the file identifier. See: `_DirRec_t`
+      /*
+       *  `+ UINT8_MAX` for the file identifier.
+       *  See: `_DirRec_t`
+       */
       size_t path_len = calc_entry_path_len (p, i, path) + UINT8_MAX;
       char *entry_path = calloc (path_len, sizeof (char));
       if (entry_path == NULL)

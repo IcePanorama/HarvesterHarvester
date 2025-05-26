@@ -34,7 +34,7 @@ struct ISO9660FileSystem_s
   {
     /**
      *  See:  https://wiki.osdev.org/ISO_9660#The_Boot_Record.
-     *  TODO: Move to its own file/interface similar to `_PriVolDesc_t`.
+     *  TODO: Move to its own file/interface similar to `_ISO9660PriVolDesc_t`.
      */
     struct _BootRecVolDesc_s
     {
@@ -43,7 +43,7 @@ struct ISO9660FileSystem_s
       uint8_t boot_system_data[1977]; // "Custom - used by the boot system."
     } boot_vol_desc;
 
-    _PriVolDesc_t *pri_vol_desc;
+    _ISO9660PriVolDesc_t *pri_vol_desc;
 
     /**
      *  Volume Descriptor Set Terminator data "does not define bytes 7-2047 of
@@ -69,7 +69,7 @@ i9660_free (ISO9660FileSystem_t *fs)
   switch (_i9660h_get_vol_desc_type_code (fs->header))
     {
     case _VDTC_PRIMARY_VOLUME:
-      _pvd_free (fs->vol_desc_data.pri_vol_desc);
+      _i9660pvd_free (fs->vol_desc_data.pri_vol_desc);
       break;
     default:
       fprintf (stderr,
@@ -94,7 +94,7 @@ i9660_print (ISO9660FileSystem_t *fs)
   switch (type)
     {
     case _VDTC_PRIMARY_VOLUME:
-      _pvd_print (fs->vol_desc_data.pri_vol_desc);
+      _i9660pvd_print (fs->vol_desc_data.pri_vol_desc);
       break;
     default:
       fprintf (stderr,
@@ -127,9 +127,9 @@ i9660_init (ISO9660FileSystem_t *fs, FILE input_fptr[static 1])
   switch (type)
     {
     case _VDTC_PRIMARY_VOLUME:
-      data->pri_vol_desc = _pvd_alloc ();
+      data->pri_vol_desc = _i9660pvd_alloc ();
       if ((data->pri_vol_desc == NULL)
-          || (_pvd_init (data->pri_vol_desc, input_fptr) != 0))
+          || (_i9660pvd_init (data->pri_vol_desc, input_fptr) != 0))
         return -1;
       break;
     default:
@@ -154,7 +154,8 @@ i9660_extract (ISO9660FileSystem_t *fs, FILE input_fptr[static 1],
   switch (type)
     {
     case _VDTC_PRIMARY_VOLUME:
-      if (_pvd_extract (fs->vol_desc_data.pri_vol_desc, input_fptr, path) != 0)
+      if (_i9660pvd_extract (fs->vol_desc_data.pri_vol_desc, input_fptr, path)
+          != 0)
         return -1;
       break;
     default:
