@@ -99,7 +99,10 @@ int _i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
                       FILE input_fptr[static 1], const char path[static 1],
                       const size_t path_len);
 
-/** Returns the size of a `_ISO9660DirRec_t` in bytes. */
+/**
+ *  Returns the size of a `_ISO9660DirRec_t` in bytes.
+ *  FIXME: Why isn't this just a global var?
+ */
 size_t _i9660dr_size (void);
 
 /**

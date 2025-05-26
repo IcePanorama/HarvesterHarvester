@@ -16,7 +16,6 @@
  */
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/binary_reader.h"
-#include "iso_9660/file_flags.h"
 #include "iso_9660/utils.h"
 
 #include <stdbool.h>
@@ -236,9 +235,9 @@ _i9660dr_dynamic_init (_ISO9660DirRec_t **dr_list, size_t list_cap[static 1],
 /*
  *  Check for unsupported files.
  *
- *  Returns: Zero if file is supported, non-zero otherwise.
+ *  Returns: True if file is unsupported, false otherwise.
  */
-static int
+static bool
 unsupported_file_check (uint8_t flags)
 {
   const char err_msg[] = "Error extracting file using directory record";
@@ -248,7 +247,7 @@ unsupported_file_check (uint8_t flags)
                "%s: Support for files split across multiple extents is not "
                "currently implemented.",
                err_msg);
-      return -1;
+      return true;
     }
   else if (flags & (1 << (_FF_IS_ASSOC_FILE_BIT)))
     {
@@ -256,10 +255,10 @@ unsupported_file_check (uint8_t flags)
           stderr,
           "%s: Support for associated files is not currently implemented.",
           err_msg);
-      return -1;
+      return true;
     }
 
-  return 0;
+  return false;
 }
 
 /*
@@ -283,7 +282,7 @@ _i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
                   FILE input_fptr[static 1], const char path[static 1],
                   const size_t path_len)
 {
-  if ((dr == NULL) || (unsupported_file_check (dr->file_flags) != 0))
+  if ((dr == NULL) || (unsupported_file_check (dr->file_flags)))
     return -1;
 
   handle_missing_support_warnings (dr->file_flags);
