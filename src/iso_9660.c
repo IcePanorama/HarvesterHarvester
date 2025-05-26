@@ -27,10 +27,16 @@ struct ISO9660FileSystem_s
 {
   _FileSysHeader_t *header;
 
-  /** See:  https://wiki.osdev.org/ISO_9660#Volume_Descriptors. */
+  /**
+   *  See:  https://wiki.osdev.org/ISO_9660#Volume_Descriptors.
+   *  FIXME: Should this be an anonymous union?
+   */
   union _VolDescData_u
   {
-    /** See:  https://wiki.osdev.org/ISO_9660#The_Boot_Record. */
+    /**
+     *  See:  https://wiki.osdev.org/ISO_9660#The_Boot_Record.
+     *  TODO: Move to its own file/interface similar to `_PriVolDesc_t`.
+     */
     struct _BootRecVolDesc_s
     {
       char boot_system_identifier[32];
