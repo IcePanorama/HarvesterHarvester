@@ -52,14 +52,15 @@ print_help_info (const char *exe_name)
   printf ("  %s [options] [path/to/file.dat ...]\n", exe_name);
   putchar ('\n');
 
+  const char opts_fmt[] = "  %-25s %s\n";
   puts ("Options:");
-  /* clang-format off */
-  printf ("  %-25s %s\n", "-h, --help", "Print this help message");
-  printf ("  %-25s %s\n", "--skip-i9660-dats", "Treat input as internal dat files.");
-  printf ("  %-25s %s\n", "-o <path>,--output <path>", "Set output directory to `<path>` (default: `./output/`)");
-  printf ("  %-25s %s\n", "--skip-internal-dats", "Skip the extraction of internal dat files");
-  printf ("  %-25s %s\n", "-v, --version", "Print version information");
-  /* clang-format on */
+  printf (opts_fmt, "-h, --help", "Print this help message");
+  printf (opts_fmt, "--skip-i9660-dats", "Treat input as internal dat files.");
+  printf (opts_fmt, "-o <path>,--output <path>",
+          "Set output directory to `<path>` (default: `./output/`)");
+  printf (opts_fmt, "--skip-internal-dats",
+          "Skip the extraction of internal dat files");
+  printf (opts_fmt, "-v, --version", "Print version information");
   putchar ('\n');
 
   printf ("Report bugs here: <%s>\n", (ISSUES_PAGE));
