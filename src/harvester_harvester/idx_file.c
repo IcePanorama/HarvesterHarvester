@@ -1,3 +1,19 @@
+/**
+ *  Copyright (C) 2024-2025  IcePanorama
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 #include "harvester_harvester/idx_file.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/utils.h"
@@ -167,8 +183,7 @@ init_entry (struct _IdxFileEntry_s *e, FILE *input_fptr)
     {
       return -1;
     }
-
-  if (value != e->size)
+  else if (value != e->size)
     {
       fprintf (stderr,
                "Repeated size value does not match original value read: got "

@@ -67,22 +67,23 @@ void _hhidx_free (_HHIndexFile_t *i);
 void _hhidx_print (_HHIndexFile_t *i);
 
 /**
- *  Initializes all the data fields of `i` using the data provided via
- *  `input_fptr`. Returns non-zero if `i` is NULL.
+ *  Initializes all the data fields of `i` using the data provided via the
+ *  index file at location, `path`. Returns non-zero if `i` is NULL.
  *
- *  Param:  i           some _HHIndexFile_t
- *  Param:  input_fptr  file pointer to some index file data
+ *  Param:  i     some _HHIndexFile_t
+ *  Param:  path  a path to some index file data
  *  Return:  Zero on success, non-zero on failure.
+ *  FIXME: this is the only interface which takes a file path instead of a
+ *  `FILE *`.
  */
 int _hhidx_init (_HHIndexFile_t *i, const char path[static 1]);
 
 /**
- *  Extracts `i` using the data provided via `input_fptr` to the directory
- *  pointed to by `path`. Returns non-zero if `i` is NULL.
+ *  Uses `i` in order to extract the data provided contained within the .dat
+ *  file located at `dat_path`. Returns non-zero if `i` is NULL.
  *
- *  Param:  i           some _HHIndexFile_t
- *  Param:  input_fptr  file pointer to some internal .dat file data
- *  Param:  path        some directory where `i` should be extracted
+ *  Param:  i         some _HHIndexFile_t
+ *  Param:  dat_path  path to some internal .dat file data
  *  Return:  Zero on success, non-zero on failure.
  *  FIXME: Should dat path be handled internally?
  */
