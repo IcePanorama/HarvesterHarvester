@@ -21,7 +21,7 @@ def init_chksum_dict(path: str) -> {str: str}:
             if not line:
                 continue
 
-            segments = line.split("  ")
+            segments = line.split("\t")
             if (len(segments) < 2):
                 raise RuntimeError(f"Bad input: {line}")
             segments[1] = segments[1][:-1]
