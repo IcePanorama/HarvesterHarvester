@@ -61,7 +61,7 @@ struct _ISO9660PriVolDesc_s
   uint8_t fs_ver; // Should always be `0x01`.
   uint8_t application_used_data[512];
 
-  _PathTableEntry_t *pt_list;
+  _ISO9660PathTableEntry_t *pt_list;
   size_t pt_list_len;      // num of entries stored.
   size_t pt_list_capacity; // max num of entries.
 };
@@ -150,8 +150,9 @@ _i9660pvd_print (_ISO9660PriVolDesc_t *p)
 
   puts ("Path table:");
   for (size_t i = 0; i < p->pt_list_len; i++)
-    _pte_print ((_PathTableEntry_t *)((char *)(p->pt_list)
-                                      + (i * _PathTableEntry_SIZE_BYTES)));
+    _i9660pte_print (
+        (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
+                                     + (i * _I9660PTE_SIZE_BYTES)));
 }
 
 static int
@@ -173,8 +174,8 @@ static int
 resize_pt_list (_ISO9660PriVolDesc_t *p)
 {
   p->pt_list_capacity *= 2;
-  _PathTableEntry_t *tmp
-      = realloc (p->pt_list, p->pt_list_capacity * _PathTableEntry_SIZE_BYTES);
+  _ISO9660PathTableEntry_t *tmp
+      = realloc (p->pt_list, p->pt_list_capacity * _I9660PTE_SIZE_BYTES);
   if (tmp == NULL)
     {
       fprintf (stderr, "Failed to grow path table list to size %ld.\n",
@@ -200,14 +201,14 @@ process_path_table_list (_ISO9660PriVolDesc_t *p, FILE *input_fptr)
 
   for (uint32_t i = pt_start; i < pt_start + p->path_table_size;)
     {
-      _PathTableEntry_t *curr = _pte_alloc ();
+      _ISO9660PathTableEntry_t *curr = _i9660pte_alloc ();
       if (curr == NULL)
         {
           fprintf (stderr, "%s: Out of memory error.\n", __func__);
           return -1;
         }
 
-      if (_pte_init (curr, input_fptr) != 0)
+      if (_i9660pte_init (curr, input_fptr) != 0)
         {
           fprintf (stderr, "Path table procesing failed.\n");
           return -1;
@@ -219,11 +220,11 @@ process_path_table_list (_ISO9660PriVolDesc_t *p, FILE *input_fptr)
             return -1;
         }
 
-      memcpy ((_PathTableEntry_t *)((char *)(p->pt_list)
-                                    + (p->pt_list_len
-                                       * _PathTableEntry_SIZE_BYTES)),
-              curr, _PathTableEntry_SIZE_BYTES);
-      _pte_free (curr);
+      memcpy ((_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
+                                           + (p->pt_list_len
+                                              * _I9660PTE_SIZE_BYTES)),
+              curr, _I9660PTE_SIZE_BYTES);
+      _i9660pte_free (curr);
       p->pt_list_len++;
 
       i = ftell (input_fptr);
@@ -303,7 +304,7 @@ _i9660pvd_init (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1])
     return -1;
 
   p->pt_list_capacity = 1;
-  p->pt_list = calloc (p->pt_list_capacity, _PathTableEntry_SIZE_BYTES);
+  p->pt_list = calloc (p->pt_list_capacity, _I9660PTE_SIZE_BYTES);
   if (p->pt_list == NULL)
     {
       fprintf (stderr, "Failed to alloc path table list.\n");
@@ -327,11 +328,11 @@ calc_entry_path_len (_ISO9660PriVolDesc_t p[static 1], size_t entry_idx,
   ssize_t i = entry_idx;
   do
     {
-      const _PathTableEntry_t *curr
-          = (_PathTableEntry_t *)((char *)(p->pt_list)
-                                  + (i * _PathTableEntry_SIZE_BYTES));
-      path_len += _pte_get_dir_id_len (curr) + 1; // + 1 for '/'
-      i = _pte_get_parent_dir_num (curr) - 1;
+      const _ISO9660PathTableEntry_t *curr
+          = (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
+                                         + (i * _I9660PTE_SIZE_BYTES));
+      path_len += _i9660pte_get_dir_id_len (curr) + 1; // + 1 for '/'
+      i = _i9660pte_get_parent_dir_num (curr) - 1;
     }
   while (i > 0);
 
@@ -354,17 +355,18 @@ build_entry_path_str (_ISO9660PriVolDesc_t p[static 1], char *output,
   ssize_t j = entry_idx;
   do
     {
-      const _PathTableEntry_t *curr
-          = (_PathTableEntry_t *)((char *)(p->pt_list)
-                                  + (j * _PathTableEntry_SIZE_BYTES));
+      const _ISO9660PathTableEntry_t *curr
+          = (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
+                                         + (j * _I9660PTE_SIZE_BYTES));
 
       if ((_i9660u_prepend_str (output, output_len, "/", 2) != 0)
-          || (_i9660u_prepend_str (output, output_len, _pte_get_dir_id (curr),
-                                   _pte_get_dir_id_len (curr))
+          || (_i9660u_prepend_str (output, output_len,
+                                   _i9660pte_get_dir_id (curr),
+                                   _i9660pte_get_dir_id_len (curr))
               != 0))
         return -1;
 
-      j = _pte_get_parent_dir_num (curr) - 1;
+      j = _i9660pte_get_parent_dir_num (curr) - 1;
     }
   while (j > 0);
 
@@ -400,9 +402,9 @@ _i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
 
   for (size_t i = 0; i < p->pt_list_len; i++)
     {
-      _PathTableEntry_t *curr
-          = (_PathTableEntry_t *)((char *)(p->pt_list)
-                                  + (i * _PathTableEntry_SIZE_BYTES));
+      _ISO9660PathTableEntry_t *curr
+          = (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
+                                         + (i * _I9660PTE_SIZE_BYTES));
 
       /*
        *  `+ UINT8_MAX` for the file identifier, +1 for NULL-terminator.
@@ -414,7 +416,8 @@ _i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
         {
           fprintf (stderr,
                    "Error building path string for path table entry, %.*s\n",
-                   _pte_get_dir_id_len (curr), _pte_get_dir_id (curr));
+                   _i9660pte_get_dir_id_len (curr),
+                   _i9660pte_get_dir_id (curr));
           return -1;
         }
 
@@ -425,8 +428,8 @@ _i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
         }
 
       printf ("Extracting directory: %s\n", entry_path);
-      int ret = _pte_extract (curr, p->logical_blk_size, input_fptr,
-                              entry_path, path_len);
+      int ret = _i9660pte_extract (curr, p->logical_blk_size, input_fptr,
+                                   entry_path, path_len);
 
       free (entry_path);
       if (ret != 0)

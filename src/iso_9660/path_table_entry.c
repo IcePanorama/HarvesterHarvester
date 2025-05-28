@@ -1,13 +1,28 @@
+/**
+ *  Copyright (C) 2024-2025  IcePanorama
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 #include "iso_9660/path_table_entry.h"
 #include "iso_9660/binary_reader.h"
 #include "iso_9660/dir_rec.h"
 #include "iso_9660/file_flags.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-struct _PathTableEntry_s
+struct _I9660PathTableEntry_s
 {
   uint8_t dir_id_len;
   uint8_t extended_attribute_record_len;
@@ -16,16 +31,16 @@ struct _PathTableEntry_s
   char dir_id[UINT8_MAX]; // See `dir_id_len`.
 };
 
-const size_t _PathTableEntry_SIZE_BYTES = sizeof (_PathTableEntry_t);
+const size_t _I9660PTE_SIZE_BYTES = sizeof (_ISO9660PathTableEntry_t);
 
-_PathTableEntry_t *
-_pte_alloc (void)
+_ISO9660PathTableEntry_t *
+_i9660pte_alloc (void)
 {
-  return calloc (1, sizeof (_PathTableEntry_t));
+  return calloc (1, sizeof (_ISO9660PathTableEntry_t));
 }
 
 void
-_pte_free (_PathTableEntry_t *p)
+_i9660pte_free (_ISO9660PathTableEntry_t *p)
 {
   if (p == NULL)
     return;
@@ -34,34 +49,34 @@ _pte_free (_PathTableEntry_t *p)
 }
 
 uint8_t
-_pte_get_dir_id_len (const _PathTableEntry_t *e)
+_i9660pte_get_dir_id_len (const _ISO9660PathTableEntry_t *p)
 {
-  if (e == NULL)
+  if (p == NULL)
     return 0;
 
-  return e->dir_id_len;
+  return p->dir_id_len;
 }
 
 uint16_t
-_pte_get_parent_dir_num (const _PathTableEntry_t *e)
+_i9660pte_get_parent_dir_num (const _ISO9660PathTableEntry_t *p)
 {
-  if (e == NULL)
+  if (p == NULL)
     return 1;
 
-  return e->parent_dir_num;
+  return p->parent_dir_num;
 }
 
 const char *
-_pte_get_dir_id (const _PathTableEntry_t *e)
+_i9660pte_get_dir_id (const _ISO9660PathTableEntry_t *p)
 {
-  if (e == NULL)
+  if (p == NULL)
     return NULL;
 
-  return e->dir_id;
+  return p->dir_id;
 }
 
 int
-_pte_init (_PathTableEntry_t *p, FILE input_fptr[static 1])
+_i9660pte_init (_ISO9660PathTableEntry_t *p, FILE input_fptr[static 1])
 {
   if (p == NULL)
     return -1;
@@ -90,7 +105,7 @@ _pte_init (_PathTableEntry_t *p, FILE input_fptr[static 1])
 }
 
 void
-_pte_print (_PathTableEntry_t *p)
+_i9660pte_print (_ISO9660PathTableEntry_t *p)
 {
   if (p == NULL)
     return;
@@ -101,9 +116,9 @@ _pte_print (_PathTableEntry_t *p)
 }
 
 int
-_pte_extract (_PathTableEntry_t *p, uint16_t lb_size,
-              FILE input_fptr[static 1], const char path[static 1],
-              const size_t path_len)
+_i9660pte_extract (_ISO9660PathTableEntry_t *p, uint16_t lb_size,
+                   FILE input_fptr[static 1], const char path[static 1],
+                   const size_t path_len)
 {
   if (p == NULL)
     return -1;
@@ -116,7 +131,6 @@ _pte_extract (_PathTableEntry_t *p, uint16_t lb_size,
       return -1;
     }
 
-  // Extract every directory record associated with this entry
   size_t dr_list_capacity = 1;
   size_t dr_list_len = 0;
   _ISO9660DirRec_t *dr_list = calloc (dr_list_capacity, _i9660dr_size ());
@@ -131,12 +145,12 @@ _pte_extract (_PathTableEntry_t *p, uint16_t lb_size,
   if (ret != 0)
     goto err_exit;
 
+  const size_t DR_SIZE = _i9660dr_size ();
   for (size_t i = 0; i < dr_list_len; i++)
     {
       _ISO9660DirRec_t *curr
-          = (_ISO9660DirRec_t *)((char *)dr_list + (i * _i9660dr_size ()));
+          = (_ISO9660DirRec_t *)((char *)dr_list + (i * DR_SIZE));
 
-      // Skip directories. See: https://wiki.osdev.org/ISO_9660#Directories.
       if (_i9660dr_get_flags (curr) & (1 << (_I9660FF_IS_DIRECTORY_BIT)))
         continue;
 
