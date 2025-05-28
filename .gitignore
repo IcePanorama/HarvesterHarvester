@@ -10,7 +10,7 @@ build/*
 .releases/*
 *.json
 *.txt
-!old_hh_output_chksums.txt
+!old_hh_output_checksums.txt
 
 # Valgrind
 vgcore.*
