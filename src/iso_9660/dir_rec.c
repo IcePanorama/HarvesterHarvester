@@ -178,7 +178,7 @@ handle_sector_padding (FILE *input_fptr, const uint16_t lb_size)
     {
       if (fseek (input_fptr, next_sect, SEEK_SET) != 0)
         {
-          fprintf (stderr, "Failed to seek to next sector (%08lx).\n",
+          fprintf (stderr, "Failed to seek to next sector (%08lX).\n",
                    next_sect);
           return -1;
         }
@@ -323,7 +323,7 @@ _i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
   strncat (file_path, dr->file_id, dr->file_id_len - 2); // remove the ";1"
 
   printf ("Extracting file: %s\n", file_path);
-  if (_u_export_data (data, dr->extent_size, file_path) != 0)
+  if (_i9660u_export_data (data, dr->extent_size, file_path) != 0)
     {
       free (file_path);
       free (data);

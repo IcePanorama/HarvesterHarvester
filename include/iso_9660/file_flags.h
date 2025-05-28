@@ -2,6 +2,8 @@
  *  iso_9660/file_flags.h - the file flags of a directory record. Intended for
  *  internal usage. All public defines are prefixed by `_I9660FF`.
  *
+ *  See: https://wiki.osdev.org/ISO_9660#Directories.
+ *
  *  Copyright (C) 2024-2025  IcePanorama
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -24,10 +26,6 @@
 
 typedef uint8_t _ISO9660FileFlags_t;
 
-/**
- *  File flag bits.
- *  See: https://wiki.osdev.org/ISO_9660#Directories.
- */
 #define _I9660FF_HIDDEN_FILE_BIT (0)
 #define _I9660FF_IS_DIRECTORY_BIT (1)
 #define _I9660FF_IS_ASSOC_FILE_BIT (2)

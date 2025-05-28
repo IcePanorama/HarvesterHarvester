@@ -358,9 +358,9 @@ build_entry_path_str (_ISO9660PriVolDesc_t p[static 1], char *output,
           = (_PathTableEntry_t *)((char *)(p->pt_list)
                                   + (j * _PathTableEntry_SIZE_BYTES));
 
-      if ((_u_prepend_str (output, output_len, "/", 2) != 0)
-          || (_u_prepend_str (output, output_len, _pte_get_dir_id (curr),
-                              _pte_get_dir_id_len (curr))
+      if ((_i9660u_prepend_str (output, output_len, "/", 2) != 0)
+          || (_i9660u_prepend_str (output, output_len, _pte_get_dir_id (curr),
+                                   _pte_get_dir_id_len (curr))
               != 0))
         return -1;
 
@@ -370,14 +370,15 @@ build_entry_path_str (_ISO9660PriVolDesc_t p[static 1], char *output,
 
   if (output[0] != '/') // when not dealing with root dir
     {
-      if (_u_prepend_str (output, output_len, "/", 2) != 0)
+      if (_i9660u_prepend_str (output, output_len, "/", 2) != 0)
         return -1;
     }
 
   size_t vol_id_len = strcspn (p->vol_id, " ");
-  if ((_u_prepend_str (output, output_len, p->vol_id, vol_id_len) != 0)
-      || (_u_prepend_str (output, output_len, "/", 2) != 0)
-      || (_u_prepend_str (output, output_len, path, strlen (path) + 1) != 0))
+  if ((_i9660u_prepend_str (output, output_len, p->vol_id, vol_id_len) != 0)
+      || (_i9660u_prepend_str (output, output_len, "/", 2) != 0)
+      || (_i9660u_prepend_str (output, output_len, path, strlen (path) + 1)
+          != 0))
     return -1;
 
   return 0;
@@ -404,10 +405,10 @@ _i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
                                   + (i * _PathTableEntry_SIZE_BYTES));
 
       /*
-       *  `+ UINT8_MAX` for the file identifier.
+       *  `+ UINT8_MAX` for the file identifier, +1 for NULL-terminator.
        *  See: `_ISO9660DirRec_t`
        */
-      size_t path_len = calc_entry_path_len (p, i, path) + UINT8_MAX;
+      size_t path_len = calc_entry_path_len (p, i, path) + UINT8_MAX + 1;
       char *entry_path = calloc (path_len, sizeof (char));
       if (entry_path == NULL)
         {

@@ -280,7 +280,7 @@ extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
   strcat (path, e->path);
 
   printf ("Extracting file: %s\n", path);
-  if (_u_export_data (data, e->size, path) != 0)
+  if (_i9660u_export_data (data, e->size, path) != 0)
     {
       free (path);
       free (data);
