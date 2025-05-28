@@ -75,9 +75,9 @@ def handle_command_line_args(arg_list: list[str]) -> None:
 if len(sys.argv) < 2:
     throw_invalid_usage_err()
 else:
-    # Assume last arg is input dir path
     handle_command_line_args(sys.argv[1:])
 
+# Assume last arg is input dir path
 input_dir: str = sys.argv[-1]
 if input_dir[-1] != '/':
     input_dir += '/'
