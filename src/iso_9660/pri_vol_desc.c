@@ -53,10 +53,10 @@ struct _ISO9660PriVolDesc_s
   char abstract_file_id[37];
   char bibliographic_file_id[37];
 
-  _PVDDateTime_t *creation_date_time;
-  _PVDDateTime_t *modification_date_time;
-  _PVDDateTime_t *expiration_date_time;
-  _PVDDateTime_t *effective_date_time;
+  _ISO9660PVDDateTime_t *creation_date_time;
+  _ISO9660PVDDateTime_t *modification_date_time;
+  _ISO9660PVDDateTime_t *expiration_date_time;
+  _ISO9660PVDDateTime_t *effective_date_time;
 
   uint8_t fs_ver; // Should always be `0x01`.
   uint8_t application_used_data[512];
@@ -88,19 +88,19 @@ _i9660pvd_free (_ISO9660PriVolDesc_t *p)
     }
 
   /*
-   *  `_pvddt_free` will behave well on NULL inputs. Checking in advance,
+   *  `_i9660pvddt_free` will behave well on NULL inputs. Checking in advance,
    *  however, allows us to avoid the penality associated with an additional,
    *  unnecessary function call (at the expense of a potential branch
    *  misprediction).
    */
   if (p->creation_date_time != NULL)
-    _pvddt_free (p->creation_date_time);
+    _i9660pvddt_free (p->creation_date_time);
   if (p->modification_date_time != NULL)
-    _pvddt_free (p->modification_date_time);
+    _i9660pvddt_free (p->modification_date_time);
   if (p->expiration_date_time != NULL)
-    _pvddt_free (p->expiration_date_time);
+    _i9660pvddt_free (p->expiration_date_time);
   if (p->effective_date_time != NULL)
-    _pvddt_free (p->effective_date_time);
+    _i9660pvddt_free (p->effective_date_time);
 
   free (p);
 }
@@ -138,10 +138,11 @@ _i9660pvd_print (_ISO9660PriVolDesc_t *p)
   printf ("Bibliographic file identifier: %.*s\n", 37,
           p->bibliographic_file_id);
 
-  _pvddt_print (p->creation_date_time, "Volume creation date time");
-  _pvddt_print (p->modification_date_time, "Volume modification date time");
-  _pvddt_print (p->expiration_date_time, "Volume expiration date time");
-  _pvddt_print (p->effective_date_time, "Volume effective date time");
+  _i9660pvddt_print (p->creation_date_time, "Volume creation date time");
+  _i9660pvddt_print (p->modification_date_time,
+                     "Volume modification date time");
+  _i9660pvddt_print (p->expiration_date_time, "Volume expiration date time");
+  _i9660pvddt_print (p->effective_date_time, "Volume effective date time");
 
   printf ("File structure version: %d\n", p->fs_ver);
 
@@ -156,15 +157,15 @@ _i9660pvd_print (_ISO9660PriVolDesc_t *p)
 }
 
 static int
-handle_date_time_data (_PVDDateTime_t **d, FILE *input_fptr)
+handle_date_time_data (_ISO9660PVDDateTime_t **d, FILE *input_fptr)
 {
-  *d = _pvddt_alloc ();
+  *d = _i9660pvddt_alloc ();
   if (*d == NULL)
     {
       fprintf (stderr, "%s: Out of memory error.\n", __func__);
       return -1;
     }
-  else if (_pvddt_init (*d, input_fptr) != 0)
+  else if (_i9660pvddt_init (*d, input_fptr) != 0)
     return -1;
 
   return 0;

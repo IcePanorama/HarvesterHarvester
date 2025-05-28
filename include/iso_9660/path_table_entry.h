@@ -1,7 +1,7 @@
 /**
  *  iso_9660/path_table_entry.h - an interface for processing and extracting
- *  ISO 9660 path tables and path table entries. All public functions are
- *  prefixed by `_i9660pte`.
+ *  ISO 9660 path tables and path table entries. Intended for internal usage.
+ *  All public functions are prefixed by `_i9660pte`.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *

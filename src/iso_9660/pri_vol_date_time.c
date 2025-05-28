@@ -1,11 +1,26 @@
+/**
+ *  Copyright (C) 2024-2025  IcePanorama
+ *
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 #include "iso_9660/pri_vol_date_time.h"
 #include "iso_9660/binary_reader.h"
 
 #include <stdint.h>
 #include <stdlib.h>
 
-/** See: https://wiki.osdev.org/ISO_9660#Date/time_format. */
-struct _PVDDateTime_s
+struct _ISO9660PVDDateTime_s
 {
   char year[4];
   char month[2];
@@ -18,14 +33,14 @@ struct _PVDDateTime_s
   uint8_t timezone;
 };
 
-_PVDDateTime_t *
-_pvddt_alloc (void)
+_ISO9660PVDDateTime_t *
+_i9660pvddt_alloc (void)
 {
-  return calloc (1, sizeof (_PVDDateTime_t));
+  return calloc (1, sizeof (_ISO9660PVDDateTime_t));
 }
 
 void
-_pvddt_free (_PVDDateTime_t *dt)
+_i9660pvddt_free (_ISO9660PVDDateTime_t *dt)
 {
   if (dt == NULL)
     return;
@@ -34,7 +49,7 @@ _pvddt_free (_PVDDateTime_t *dt)
 }
 
 int
-_pvddt_init (_PVDDateTime_t *dt, FILE input_fptr[static 1])
+_i9660pvddt_init (_ISO9660PVDDateTime_t *dt, FILE input_fptr[static 1])
 {
   if (dt == NULL)
     return -1;
@@ -55,7 +70,7 @@ _pvddt_init (_PVDDateTime_t *dt, FILE input_fptr[static 1])
 }
 
 void
-_pvddt_print (_PVDDateTime_t *dt, const char dt_id[static 1])
+_i9660pvddt_print (_ISO9660PVDDateTime_t *dt, const char dt_id[static 1])
 {
   if (dt == NULL)
     return;
