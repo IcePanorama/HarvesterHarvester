@@ -22,7 +22,7 @@
  */
 #define MAX_PATH_LEN (0x7E)
 
-struct _IndexFile_s
+struct _HHIndexFile_s
 {
   char *file_path; // Path to idx file itself.
   char *dir_path;  // Path to idx file's dir. E.g., `output/DISK1/`.
@@ -37,10 +37,10 @@ struct _IndexFile_s
   size_t capacity; // physical size of entries
 };
 
-_IndexFile_t *
-_idx_alloc (void)
+_HHIndexFile_t *
+_hhidx_alloc (void)
 {
-  _IndexFile_t *out = calloc (1, sizeof (_IndexFile_t));
+  _HHIndexFile_t *out = calloc (1, sizeof (_HHIndexFile_t));
   if (out == NULL)
     return NULL;
 
@@ -48,7 +48,7 @@ _idx_alloc (void)
   out->entries = calloc (out->capacity, sizeof (struct _IdxFileEntry_s));
   if (out->entries == NULL)
     {
-      _idx_free (out);
+      _hhidx_free (out);
       return NULL;
     }
 
@@ -56,7 +56,7 @@ _idx_alloc (void)
 }
 
 void
-_idx_free (_IndexFile_t *i)
+_hhidx_free (_HHIndexFile_t *i)
 {
   if (i == NULL)
     return;
@@ -71,7 +71,7 @@ _idx_free (_IndexFile_t *i)
 }
 
 static void
-_idxe_print (struct _IdxFileEntry_s e[static 1])
+_hhidxe_print (struct _IdxFileEntry_s e[static 1])
 {
   fprintf (stdout, "Path: %.*s\n", MAX_PATH_LEN, e->path);
   fprintf (stdout, "Extent location: 0x%08X\n", e->extent_loc);
@@ -79,7 +79,7 @@ _idxe_print (struct _IdxFileEntry_s e[static 1])
 }
 
 void
-_idx_print (_IndexFile_t *i)
+_hhidx_print (_HHIndexFile_t *i)
 {
   if ((i == NULL) || (i->entries == NULL))
     return;
@@ -88,12 +88,12 @@ _idx_print (_IndexFile_t *i)
   for (size_t j = 0; j < i->size; j++)
     {
       fprintf (stdout, "Entry %ld: \n", j);
-      _idxe_print (&i->entries[j]);
+      _hhidxe_print (&i->entries[j]);
     }
 }
 
 static int
-append_entry (_IndexFile_t *i, const struct _IdxFileEntry_s *e)
+append_entry (_HHIndexFile_t *i, const struct _IdxFileEntry_s *e)
 {
   if (i->size == i->capacity)
     {
@@ -184,7 +184,7 @@ fseek_err:
 }
 
 static int
-find_dir_path (_IndexFile_t *i, const char *path)
+find_dir_path (_HHIndexFile_t *i, const char *path)
 {
   char *end = strrchr (path, '/');
   if (end == NULL)
@@ -208,7 +208,7 @@ find_dir_path (_IndexFile_t *i, const char *path)
 }
 
 int
-_idx_init (_IndexFile_t *i, const char path[static 1])
+_hhidx_init (_HHIndexFile_t *i, const char path[static 1])
 {
   if ((i == NULL) || (find_dir_path (i, path) != 0))
     return -1;
@@ -296,7 +296,7 @@ oom_error:
 }
 
 int
-_idx_extract (_IndexFile_t *i, const char *dat_path)
+_hhidx_extract (_HHIndexFile_t *i, const char *dat_path)
 {
   FILE *dat_fptr = fopen (dat_path, "rb");
   if (dat_fptr == NULL)
@@ -319,5 +319,5 @@ _idx_extract (_IndexFile_t *i, const char *dat_path)
 
   fclose (dat_fptr);
   return 0;
-  _idx_print (i);
+  _hhidx_print (i);
 }

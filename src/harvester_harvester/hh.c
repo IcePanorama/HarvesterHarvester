@@ -30,7 +30,7 @@ static int
 extract_int_dat (const char *output_path, const char *dat_path,
                  const char *idx_path)
 {
-  _IndexFile_t *idx = _idx_alloc ();
+  _HHIndexFile_t *idx = _hhidx_alloc ();
   if (idx == NULL)
     goto oom_error;
 
@@ -45,9 +45,9 @@ extract_int_dat (const char *output_path, const char *dat_path,
   strcat (full_idx_path, idx_path);
 
   printf ("Extracting internal dat file: %s\n", dat_path);
-  if (_idx_init (idx, full_idx_path) != 0)
+  if (_hhidx_init (idx, full_idx_path) != 0)
     {
-      _idx_free (idx);
+      _hhidx_free (idx);
       free (full_idx_path);
       return -1;
     }
@@ -62,15 +62,15 @@ extract_int_dat (const char *output_path, const char *dat_path,
   strcat (full_dat_path, "/");
   strcat (full_dat_path, dat_path);
 
-  if (_idx_extract (idx, full_dat_path) != 0)
+  if (_hhidx_extract (idx, full_dat_path) != 0)
     {
-      _idx_free (idx);
+      _hhidx_free (idx);
       free (full_dat_path);
       return -1;
     }
   free (full_dat_path);
 
-  _idx_free (idx);
+  _hhidx_free (idx);
   return 0;
 oom_error:
   fprintf (stderr, "%s: Out of memory error.\n", __func__);
