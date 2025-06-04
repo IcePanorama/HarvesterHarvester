@@ -97,7 +97,7 @@ class ChecksumDict:
         for file, chksum in o._dict.items():
             if file not in self._dict:
                 logging.warn(f"Warning: file, {file}, not found in "
-                             + f"{o._filename}.")
+                             + f"{self._filename}.")
             elif self._dict[file] != chksum:
                 raise self.ChecksumMismatchError(
                     file, self._dict[file], chksum)
