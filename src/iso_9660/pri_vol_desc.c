@@ -36,12 +36,13 @@ struct _ISO9660PriVolDesc_s
   uint32_t vol_space_size;
   uint16_t vol_set_size; // "number of disks."
   uint16_t vol_seq_num;  // number of this disk in the set.
-  uint16_t logical_blk_size;
+
+  uint16_t logical_blk_size; // Used for logical block addressing below.
   uint32_t path_table_size;
-  uint32_t type_l_path_table_loc;
-  uint32_t optional_type_l_path_table_loc;
-  uint32_t type_m_path_table_loc;
-  uint32_t optional_type_m_path_table_loc;
+  uint32_t type_l_path_table_loc;     // little-endian path table
+  uint32_t opt_type_l_path_table_loc; // optional
+  uint32_t type_m_path_table_loc;     // big-endian path table
+  uint32_t opt_type_m_path_table_loc; // optional
 
   _ISO9660DirRec_t *root_directory_entry;
 
@@ -61,9 +62,13 @@ struct _ISO9660PriVolDesc_s
   uint8_t fs_ver; // Should always be `0x01`.
   uint8_t application_used_data[512];
 
+  /*
+   *  The following three data fields are not included in specification, but
+   *  are used internally for extracting primary volume descriptor data.
+   */
   _ISO9660PathTableEntry_t *pt_list;
-  size_t pt_list_len;      // num of entries stored.
-  size_t pt_list_capacity; // max num of entries.
+  size_t pt_list_len;      // logical size of `pt_list`
+  size_t pt_list_capacity; // physical size of `pt_list`
 };
 
 _ISO9660PriVolDesc_t *
@@ -91,7 +96,8 @@ _i9660pvd_free (_ISO9660PriVolDesc_t *p)
    *  `_i9660pvddt_free` will behave well on NULL inputs. Checking in advance,
    *  however, allows us to avoid the penality associated with an additional,
    *  unnecessary function call (at the expense of a potential branch
-   *  misprediction).
+   *  misprediction penalty). Checking makes more sense logically, in my
+   *  opinion. Totally unnecesary and needlessly complicated? Almost certainly.
    */
   if (p->creation_date_time != NULL)
     _i9660pvddt_free (p->creation_date_time);
@@ -116,15 +122,15 @@ _i9660pvd_print (_ISO9660PriVolDesc_t *p)
   printf ("Volume space size: %d\n", p->vol_space_size);
   printf ("Volume set size: %d\n", p->vol_set_size);
   printf ("Volume sequence number: %d\n", p->vol_seq_num);
-  printf ("Logical block size: %d\n", p->logical_blk_size);
 
+  printf ("Logical block size: %d\n", p->logical_blk_size);
   printf ("Path table size: %d\n", p->path_table_size);
   printf ("Location of type-l path table: %d\n", p->type_l_path_table_loc);
   printf ("Location of optional type-l path table: %d\n",
-          p->optional_type_l_path_table_loc);
+          p->opt_type_l_path_table_loc);
   printf ("Location of type-m path table: %d\n", p->type_m_path_table_loc);
   printf ("Location of optional type-m path table: %d\n",
-          p->optional_type_m_path_table_loc);
+          p->opt_type_m_path_table_loc);
 
   puts ("Root directory entry:");
   _i9660dr_print (p->root_directory_entry);
@@ -151,11 +157,19 @@ _i9660pvd_print (_ISO9660PriVolDesc_t *p)
 
   puts ("Path table:");
   for (size_t i = 0; i < p->pt_list_len; i++)
-    _i9660pte_print (
-        (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
-                                     + (i * _I9660PTE_SIZE_BYTES)));
+    {
+      _ISO9660PathTableEntry_t *curr
+          = (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
+                                         + (i * _I9660PTE_SIZE_BYTES));
+      _i9660pte_print (curr);
+    }
 }
 
+/**
+ *  Wrapper for `_i9660pvddt_init` which handles necessary set up stuff.
+ *
+ *  Return: Zero on success, non-zero on failure.
+ */
 static int
 handle_date_time_data (_ISO9660PVDDateTime_t **d, FILE *input_fptr)
 {
@@ -171,12 +185,17 @@ handle_date_time_data (_ISO9660PVDDateTime_t **d, FILE *input_fptr)
   return 0;
 }
 
+/**
+ *  Doubles the size of given primary volume descriptor data's path table list.
+ *
+ *  Return:  Zero on success, non-zero on failure.
+ */
 static int
 resize_pt_list (_ISO9660PriVolDesc_t *p)
 {
   p->pt_list_capacity *= 2;
-  _ISO9660PathTableEntry_t *tmp
-      = realloc (p->pt_list, p->pt_list_capacity * _I9660PTE_SIZE_BYTES);
+  const size_t SIZE_BYTES = p->pt_list_capacity * _I9660PTE_SIZE_BYTES;
+  _ISO9660PathTableEntry_t *tmp = realloc (p->pt_list, SIZE_BYTES);
   if (tmp == NULL)
     {
       fprintf (stderr, "Failed to grow path table list to size %ld.\n",
@@ -188,6 +207,11 @@ resize_pt_list (_ISO9660PriVolDesc_t *p)
   return 0;
 }
 
+/**
+ *  Builds a path table list using data from `input_fptr`.
+ *
+ *  Return:  Zero on success, non-zero on failure.
+ */
 static int
 process_path_table_list (_ISO9660PriVolDesc_t *p, FILE *input_fptr)
 {
@@ -196,11 +220,12 @@ process_path_table_list (_ISO9660PriVolDesc_t *p, FILE *input_fptr)
     {
       fprintf (stderr,
                "Failed to seek to type-l path table location (%08X).\n",
-               p->logical_blk_size * p->type_l_path_table_loc);
+               pt_start);
       return -1;
     }
 
-  for (uint32_t i = pt_start; i < pt_start + p->path_table_size;)
+  const uint32_t PT_END = pt_start + p->path_table_size;
+  for (uint32_t i = pt_start; i < PT_END;)
     {
       _ISO9660PathTableEntry_t *curr = _i9660pte_alloc ();
       if (curr == NULL)
@@ -221,10 +246,11 @@ process_path_table_list (_ISO9660PriVolDesc_t *p, FILE *input_fptr)
             return -1;
         }
 
-      memcpy ((_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
-                                           + (p->pt_list_len
-                                              * _I9660PTE_SIZE_BYTES)),
-              curr, _I9660PTE_SIZE_BYTES);
+      _ISO9660PathTableEntry_t *entry
+          = (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
+                                         + (p->pt_list_len
+                                            * _I9660PTE_SIZE_BYTES));
+      memcpy (entry, curr, _I9660PTE_SIZE_BYTES);
       _i9660pte_free (curr);
       p->pt_list_len++;
 
@@ -267,9 +293,9 @@ _i9660pvd_init (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1])
       || (_i9660br_read_le_be_u16 (input_fptr, &p->logical_blk_size) != 0)
       || (_i9660br_read_le_be_u32 (input_fptr, &p->path_table_size) != 0)
       || (_i9660br_read_le_u32 (input_fptr, &p->type_l_path_table_loc) != 0)
-      || (_i9660br_read_le_u32 (input_fptr, &p->optional_type_l_path_table_loc) != 0)
+      || (_i9660br_read_le_u32 (input_fptr, &p->opt_type_l_path_table_loc) != 0)
       || (_i9660br_read_be_u32 (input_fptr, &p->type_m_path_table_loc) != 0)
-      || (_i9660br_read_be_u32 (input_fptr, &p->optional_type_m_path_table_loc) != 0))
+      || (_i9660br_read_be_u32 (input_fptr, &p->opt_type_m_path_table_loc) != 0))
     return -1;
   /* clang-format on */
 
@@ -291,13 +317,14 @@ _i9660pvd_init (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1])
       || (handle_date_time_data (&p->effective_date_time, input_fptr) != 0))
     return -1;
 
+  const uint8_t EXP_VER = 0x01; // See above.
   if (_i9660br_read_u8 (input_fptr, &p->fs_ver) != 0)
     return -1;
-  else if (p->fs_ver != 0x01)
+  else if (p->fs_ver != EXP_VER)
     {
       fprintf (stderr,
                "Incorrect file system version: expected %02X, got %02X.\n",
-               0x01, p->fs_ver);
+               EXP_VER, p->fs_ver);
       return -1;
     }
 
@@ -321,6 +348,9 @@ fseek_err:
   return -1;
 }
 
+/**
+ *  Calculates how long the full path of a given entry (`entry_idx`) must be.
+ */
 static size_t
 calc_entry_path_len (_ISO9660PriVolDesc_t p[static 1], size_t entry_idx,
                      const char path[static 1])
@@ -329,7 +359,7 @@ calc_entry_path_len (_ISO9660PriVolDesc_t p[static 1], size_t entry_idx,
   ssize_t i = entry_idx;
   do
     {
-      const _ISO9660PathTableEntry_t *curr
+      _ISO9660PathTableEntry_t *curr
           = (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
                                          + (i * _I9660PTE_SIZE_BYTES));
       path_len += _i9660pte_get_dir_id_len (curr) + 1; // + 1 for '/'
@@ -345,6 +375,11 @@ calc_entry_path_len (_ISO9660PriVolDesc_t p[static 1], size_t entry_idx,
   return path_len;
 }
 
+/**
+ *  Builds path string (`output`) for a given entry (`entry_idx`).
+ *
+ *  Return: Zero on success, non-zero on failure.
+ */
 static int
 build_entry_path_str (_ISO9660PriVolDesc_t p[static 1], char *output,
                       size_t output_len, size_t entry_idx,
@@ -353,18 +388,17 @@ build_entry_path_str (_ISO9660PriVolDesc_t p[static 1], char *output,
   if (output == NULL)
     return -1;
 
-  ssize_t j = entry_idx;
+  size_t j = entry_idx;
   do
     {
       const _ISO9660PathTableEntry_t *curr
           = (_ISO9660PathTableEntry_t *)((char *)(p->pt_list)
                                          + (j * _I9660PTE_SIZE_BYTES));
 
+      const char *id = _i9660pte_get_dir_id (curr);
+      const uint8_t id_len = _i9660pte_get_dir_id_len (curr);
       if ((_i9660u_prepend_str (output, output_len, "/", 2) != 0)
-          || (_i9660u_prepend_str (output, output_len,
-                                   _i9660pte_get_dir_id (curr),
-                                   _i9660pte_get_dir_id_len (curr))
-              != 0))
+          || (_i9660u_prepend_str (output, output_len, id, id_len) != 0))
         return -1;
 
       j = _i9660pte_get_parent_dir_num (curr) - 1;
@@ -378,10 +412,10 @@ build_entry_path_str (_ISO9660PriVolDesc_t p[static 1], char *output,
     }
 
   size_t vol_id_len = strcspn (p->vol_id, " ");
+  const size_t path_len = strlen (path) + 1;
   if ((_i9660u_prepend_str (output, output_len, p->vol_id, vol_id_len) != 0)
       || (_i9660u_prepend_str (output, output_len, "/", 2) != 0)
-      || (_i9660u_prepend_str (output, output_len, path, strlen (path) + 1)
-          != 0))
+      || (_i9660u_prepend_str (output, output_len, path, path_len) != 0))
     return -1;
 
   return 0;
@@ -415,10 +449,11 @@ _i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
       char *entry_path = calloc (path_len, sizeof (char));
       if (entry_path == NULL)
         {
+          const char *id = _i9660pte_get_dir_id (curr);
+          const uint8_t id_len = _i9660pte_get_dir_id_len (curr);
           fprintf (stderr,
                    "Error building path string for path table entry, %.*s\n",
-                   _i9660pte_get_dir_id_len (curr),
-                   _i9660pte_get_dir_id (curr));
+                   id_len, id);
           return -1;
         }
 
@@ -429,6 +464,7 @@ _i9660pvd_extract (_ISO9660PriVolDesc_t *p, FILE input_fptr[static 1],
         }
 
       printf ("Extracting directory: %s\n", entry_path);
+      // still need to free `entry_path` b4 handling potential errors.
       int ret = _i9660pte_extract (curr, p->logical_blk_size, input_fptr,
                                    entry_path, path_len);
 
