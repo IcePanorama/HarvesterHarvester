@@ -26,10 +26,7 @@ struct ISO9660FileSystem_s
 {
   _ISO9660Header_t *header;
 
-  /**
-   *  See:  https://wiki.osdev.org/ISO_9660#Volume_Descriptors.
-   *  FIXME: Should this be an anonymous union?
-   */
+  /** See:  https://wiki.osdev.org/ISO_9660#Volume_Descriptors. */
   union _VolDescData_u
   {
     /**
