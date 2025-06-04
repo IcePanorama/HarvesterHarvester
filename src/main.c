@@ -1,5 +1,11 @@
 /**
- *  main.c - a command-line interface for HarvesterHarvester.
+ *  main.c - a command-line interface for HarvesterHarvester (HH).
+ *
+ *  NOTE: This file remains a bit messy. Yes, some of this logic (e.g., the
+ *  command-line argument stuff) could easily be abstracted away into its own
+ *  file. Given that this stuff is a rather  minor part of the overall program
+ *  though--the core HH stuff is the real focus--I think it's probably fine as
+ *  is; It's functional, and that's what matters.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
@@ -155,8 +161,7 @@ main (int argc, char **argv)
   /*
    *  NOTE: these two arrays are technically duplicated from
    *  `harvester_harvester/known_files.c`, but given that the list of default
-   *  files is fixed, I think probably doesn't matter. Feel free to disagree
-   *  tho.
+   *  files is fixed, it probably doesn't matter.
    */
   const char *i9660_files[3]
       = { "dat-files/HARVEST.DAT", "dat-files/HARVEST3.DAT",
