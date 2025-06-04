@@ -186,7 +186,7 @@ handle_date_time_data (_ISO9660PVDDateTime_t **d, FILE *input_fptr)
 }
 
 /**
- *  Doubles the size of given primary volume descriptor data's path table list.
+ *  Doubles the size of the path table list on `p`.
  *
  *  Return:  Zero on success, non-zero on failure.
  */
