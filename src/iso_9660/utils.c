@@ -42,7 +42,8 @@ out_of_mem_err:
 }
 
 /**
- *  Create directory given by `path` to be used for exporting data.
+ *  Recursively creates directories along `path`.
+ *  Param:  path  a NULL-terminated path string for a directory
  *  Returns: Zero on success, non-zero on failure.
  */
 static int
@@ -54,8 +55,9 @@ create_export_dir (const char path[static 1])
       fprintf (stderr, "%s: out of memory error.\n", __func__);
       return -1;
     }
+  strcpy (path_cpy, path);
 
-  char *curr_path = calloc (sizeof (char) * strlen (path) + 1, sizeof (char));
+  char *curr_path = calloc (strlen (path) + 1, sizeof (char));
   if (curr_path == NULL)
     {
       fprintf (stderr, "%s: out of memory error.\n", __func__);
@@ -63,7 +65,6 @@ create_export_dir (const char path[static 1])
       return -1;
     }
 
-  strcpy (path_cpy, path);
   char *tok = strtok (path_cpy, "/");
   while (tok != NULL)
     {
@@ -89,6 +90,7 @@ create_export_dir (const char path[static 1])
       if (tok != NULL)
         strcat (curr_path, "/");
     }
+
   free (curr_path);
   free (path_cpy);
   return 0;
