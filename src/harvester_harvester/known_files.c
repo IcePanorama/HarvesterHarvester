@@ -20,7 +20,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-// TODO: these defaults could be loaded from some config file.
+/**
+ *  Yes, these defaults could be loaded from some config file, however, they're
+ *  also unchanging, at least for our use cases. Should users express interest
+ *  in being able to customize these in the future, then we'll worry about all
+ *  that.
+ */
 static const char *known_i9660_fs[3]
     = { "dat-files/HARVEST.DAT", "dat-files/HARVEST3.DAT",
         "dat-files/HARVEST4.DAT" };
