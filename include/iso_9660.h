@@ -1,7 +1,6 @@
 /**
  *  iso_9660.h - an interface for processing and extracting ISO 9660/ECMA-119
- *  file systems. All public functions are prefixed by `i9660` and all public
- *  data types are prefixed by `ISO9660`.
+ *  file systems. All public functions are prefixed by `i9660`.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *

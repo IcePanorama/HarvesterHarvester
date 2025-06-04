@@ -26,6 +26,27 @@
 const HHOptions_t HH_DEFAULT_OPTIONS
     = { .processing_mode = _HHPM_NORMAL_PROCESSING };
 
+/**
+ *  Constructs a string (`full_path`) that is `output_path` + '/' +
+ *  `file_path`. Assumes `full_path` is not NULL and is NULL-terminated.
+ *
+ *  Param:  full_path  stores the output of this function
+ */
+static void
+build_path_str (char *full_path, const char *output_path,
+                const char *file_path)
+{
+  strcpy (full_path, output_path);
+  strcat (full_path, "/");
+  strcat (full_path, file_path);
+}
+
+/**
+ *  Extracts an internal dat file (`dat_path`) to `output_path` using the index
+ *  file at `idx_path`.
+ *
+ *  Return:  Zero on success, non-zero on failure.
+ */
 static int
 extract_int_dat (const char *output_path, const char *dat_path,
                  const char *idx_path)
@@ -35,16 +56,15 @@ extract_int_dat (const char *output_path, const char *dat_path,
     goto oom_error;
 
   size_t output_len = strlen (output_path);
+
   // +2 for path separator and NULL terminator.
-  char *full_idx_path
-      = calloc ((output_len + strlen (idx_path)) + 2, sizeof (char));
+  size_t full_idx_path_len = (output_len + strlen (idx_path)) + 2;
+  char *full_idx_path = calloc (full_idx_path_len, sizeof (char));
   if (full_idx_path == NULL)
     goto oom_error;
-  strcpy (full_idx_path, output_path);
-  strcat (full_idx_path, "/");
-  strcat (full_idx_path, idx_path);
 
-  printf ("Extracting internal dat file: %s\n", dat_path);
+  printf ("Processing internal index file: %s\n", idx_path);
+  build_path_str (full_idx_path, output_path, idx_path);
   if (_hhidx_init (idx, full_idx_path) != 0)
     {
       _hhidx_free (idx);
@@ -54,22 +74,21 @@ extract_int_dat (const char *output_path, const char *dat_path,
   free (full_idx_path);
 
   // +2 for path separator and NULL terminator.
-  char *full_dat_path
-      = calloc ((output_len + strlen (dat_path)) + 2, sizeof (char));
+  size_t full_dat_path_len = (output_len + strlen (dat_path)) + 2;
+  char *full_dat_path = calloc (full_dat_path_len, sizeof (char));
   if (full_dat_path == NULL)
     goto oom_error;
-  strcpy (full_dat_path, output_path);
-  strcat (full_dat_path, "/");
-  strcat (full_dat_path, dat_path);
 
+  printf ("Extracting internal dat file: %s\n", dat_path);
+  build_path_str (full_dat_path, output_path, dat_path);
   if (_hhidx_extract (idx, full_dat_path) != 0)
     {
       _hhidx_free (idx);
       free (full_dat_path);
       return -1;
     }
-  free (full_dat_path);
 
+  free (full_dat_path);
   _hhidx_free (idx);
   return 0;
 oom_error:
@@ -79,11 +98,13 @@ oom_error:
 
 /**
  *  Retrieves the internal dat file path at the end of `input_path`, which
- *  should begin with `DISK#/`. If `DISK#/` is not found, it returns a pointer
- *  to the NULL-terminator of `input_path`.
+ *  should begin with `DISK#/`, where '#' is some number. If `DISK#/` is not
+ *  found, it returns a pointer to the NULL-terminator of `input_path`.
+ *
+ *  Return:  a "canonical" internal dat file path
  */
 static char *
-get_input_path_end (const char *input_path)
+get_canonical_input_path (const char *input_path)
 {
   const char *key = "DISK#/";
   char *work = NULL;
@@ -109,21 +130,16 @@ get_input_path_end (const char *input_path)
 }
 
 /**
- *  Presuming `input_path` points to some known, internal dat file in this
- *  case.
+ *  When HH is given a path to some internal dat file as input, this func does
+ *  initialize everything needed for calling `extract_int_dat`.
+ *
+ *  Return:  Zero on success, non-zero on failure.
  */
 static int
-extraction_w_int_dat_input (const char input_path[static 1],
-                            const char output_path[static 1])
+extraction_w_int_dat_input (const char *input_path, const char *output_path)
 {
-  char *work = get_input_path_end (input_path);
-  if (work == NULL)
-    {
-      fprintf (stderr, "Unrecognized internal dat file: %s. Aborting.\n",
-               input_path);
-      return -1;
-    }
-  else if (!_hhkf_is_known_int_dat (work))
+  char *work = get_canonical_input_path (input_path);
+  if ((work == NULL) || (!_hhkf_is_known_int_dat (work)))
     {
       fprintf (stderr, "Unrecognized internal dat file: %s. Aborting.\n",
                input_path);
@@ -138,6 +154,11 @@ extraction_w_int_dat_input (const char input_path[static 1],
   return 0;
 }
 
+/**
+ *  Extracts an I9660 file system (`input_path`) to `output_path`.
+ *
+ *  Returns: Zero on success, non-zero on failure.
+ */
 static int
 extract_i9660_fs (const char *input_path, const char *output_path)
 {
@@ -159,16 +180,21 @@ extract_i9660_fs (const char *input_path, const char *output_path)
   if ((i9660_init (fs, input_file) != 0)
       || (i9660_extract (fs, input_file, output_path) != 0))
     {
-      i9660_free (fs);
       fclose (input_file);
+      i9660_free (fs);
       return -1;
     }
 
-  i9660_free (fs);
   fclose (input_file);
+  i9660_free (fs);
   return 0;
 }
 
+/**
+ *  Extracts a known I9660 file system, as well as its internal dat files,
+ *  `opts` permitting. This function differs from `extract_i9660_fs` as it
+ *  attempts to handle those internal dat file automatically.
+ */
 static int
 known_i9660_extraction (const char *input_path, const char *output_path,
                         const HHOptions_t *opts)
@@ -196,14 +222,14 @@ known_i9660_extraction (const char *input_path, const char *output_path,
 int
 hh_extract_filesystem_w_options (const char input_path[static 1],
                                  const char output_path[static 1],
-                                 const HHOptions_t opts)
+                                 const HHOptions_t opts[static 1])
 {
-  if ((opts.processing_mode != _HHPM_SKIP_I9660_DATS)
+  if ((opts->processing_mode != _HHPM_SKIP_I9660_DATS)
       && (_hhkf_is_known_i9660_file (input_path)))
     {
-      return known_i9660_extraction (input_path, output_path, &opts);
+      return known_i9660_extraction (input_path, output_path, opts);
     }
-  else if (opts.processing_mode == _HHPM_SKIP_I9660_DATS)
+  else if (opts->processing_mode == _HHPM_SKIP_I9660_DATS)
     {
       return extraction_w_int_dat_input (input_path, output_path);
     }
@@ -226,5 +252,5 @@ hh_extract_filesystem (const char input_path[static 1],
                        const char output_path[static 1])
 {
   return hh_extract_filesystem_w_options (input_path, output_path,
-                                          HH_DEFAULT_OPTIONS);
+                                          &HH_DEFAULT_OPTIONS);
 }

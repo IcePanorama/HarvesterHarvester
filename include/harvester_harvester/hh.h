@@ -36,7 +36,7 @@ extern const HHOptions_t HH_DEFAULT_OPTIONS;
  */
 int hh_extract_filesystem_w_options (const char input_path[static 1],
                                      const char output_path[static 1],
-                                     const HHOptions_t opts);
+                                     const HHOptions_t opts[static 1]);
 
 /**
  *  Extracts the given i9660 or Harvester file system (`input_path`) to the

@@ -123,7 +123,7 @@ handle_args (int argc, char **argv)
     {
       for (int j = i; j < argc; j++)
         {
-          if (hh_extract_filesystem_w_options (argv[j], output_path, opts)
+          if (hh_extract_filesystem_w_options (argv[j], output_path, &opts)
               != 0)
             return -1;
         }
@@ -139,7 +139,7 @@ batch_process (const char **filenames, const size_t num_files)
 {
   for (size_t i = 0; i < num_files; i++)
     {
-      if (hh_extract_filesystem_w_options (filenames[i], output_path, opts)
+      if (hh_extract_filesystem_w_options (filenames[i], output_path, &opts)
           != 0)
         return -1;
     }
