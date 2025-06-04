@@ -32,9 +32,7 @@
  *  remaining space after its name but before its data with all zeros. I'm not
  *  sure what that data is supposed to be, be it permissions, a checksum, or
  *  something else entriely. The old hh extracted these files w/o issue while
- *  ignore this excess data. If it can be determined that the `MAX_PATH_LEN` is
- *  definitely less than 7Eh, this code should be updated so as to store those
- *  extra, unknown bytes in a simple `uint8_t` array of the remaining size.
+ *  ignoring this excess data though.
  */
 #define MAX_PATH_LEN (0x7E)
 
@@ -42,6 +40,7 @@ struct _HHIndexFile_s
 {
   char *file_path; // Path to idx file itself.
   char *dir_path;  // Path to idx file's dir. E.g., `output/DISK1/`.
+
   struct _IdxFileEntry_s
   {
     char path[(MAX_PATH_LEN)]; // path to where this file should be extracted.
@@ -86,6 +85,10 @@ _hhidx_free (_HHIndexFile_t *i)
   free (i);
 }
 
+/**
+ *  NOTE: using `fprintf` here to make switching to file logging easier in the
+ *  future (inb4 YAGNI, probably).
+ */
 static void
 _hhidxe_print (struct _IdxFileEntry_s e[static 1])
 {
@@ -108,6 +111,11 @@ _hhidx_print (_HHIndexFile_t *i)
     }
 }
 
+/**
+ *  Appends an index file entry (`e`) to the entries list of `i`.
+ *
+ *  Returns: Zero on success, non-zero on failure.
+ */
 static int
 append_entry (_HHIndexFile_t *i, const struct _IdxFileEntry_s *e)
 {
@@ -129,6 +137,11 @@ append_entry (_HHIndexFile_t *i, const struct _IdxFileEntry_s *e)
   return 0;
 }
 
+/**
+ *  Checks whether `fptr` is at the end of its file.
+ *
+ *  Returns:  True if yes, else false
+ */
 static bool
 peek_eof (FILE *fptr)
 {
@@ -154,6 +167,11 @@ flip_path_separators (char *str)
     }
 }
 
+/**
+ *  Initializes a single index file entry (`e`), using data from `input_fptr`.
+ *
+ *  Returns:  Zero on success, non-zero on failure.
+ */
 static int
 init_entry (struct _IdxFileEntry_s *e, FILE *input_fptr)
 {
@@ -198,6 +216,11 @@ fseek_err:
   return -1;
 }
 
+/**
+ *  Finds the path of the directory in which `i` exists.
+ *
+ *  Returns:  Zero on success, non-zero on failure.
+ */
 static int
 find_dir_path (_HHIndexFile_t *i, const char *path)
 {
@@ -228,13 +251,14 @@ _hhidx_init (_HHIndexFile_t *i, const char path[static 1])
   if ((i == NULL) || (find_dir_path (i, path) != 0))
     return -1;
 
-  i->file_path
-      = calloc (strlen (path) + 1, sizeof (char)); // +1 for NULL-terminator
+  const size_t file_path_len = strlen (path) + 1; // +1 for NULL-terminator
+  i->file_path = calloc (file_path_len, sizeof (char));
   if (i->file_path == NULL)
     {
       fprintf (stderr, "%s: out of memory error.\n", __func__);
       return -1;
     }
+
   strcpy (i->file_path, path);
 
   FILE *input_fptr = fopen (path, "rb");
@@ -248,22 +272,25 @@ _hhidx_init (_HHIndexFile_t *i, const char path[static 1])
     {
       struct _IdxFileEntry_s entry;
       if (init_entry (&entry, input_fptr) != 0)
-        {
-          fclose (input_fptr);
-          return -1;
-        }
+        goto loop_err_exit;
 
       if (append_entry (i, &entry) != 0)
-        {
-          fclose (input_fptr);
-          return -1;
-        }
+        goto loop_err_exit;
     }
 
   fclose (input_fptr);
   return 0;
+loop_err_exit:
+  fclose (input_fptr);
+  return -1;
 }
 
+/**
+ *  Extracts a single index entry (`e`) to `output_path` using data from
+ *  `dat_fptr`.
+ *
+ *  Returns: Zero on success, non-zero on failure.
+ */
 static int
 extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
                    const char *output_path)
@@ -334,5 +361,4 @@ _hhidx_extract (_HHIndexFile_t *i, const char *dat_path)
 
   fclose (dat_fptr);
   return 0;
-  _hhidx_print (i);
 }

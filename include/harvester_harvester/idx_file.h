@@ -3,6 +3,10 @@
  *  Harvester's index files. Intended for internal usage. All public functions
  *  are prefixed by `_hhidx`.
  *
+ *  Index files simply contain filenames, sizes, and offset to data stored in
+ *  an accompanying .dat file. We use them here to extract data from those dat
+ *  files.
+ *
  *  NOTE: The datatype and the functions contained herein were created using my
  *  own observations from studying these files and their associated .dat's in a
  *  hexeditor. It's worth noting that there is some data included in these
