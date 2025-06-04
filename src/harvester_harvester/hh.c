@@ -130,8 +130,8 @@ get_canonical_input_path (const char *input_path)
 }
 
 /**
- *  When HH is given a path to some internal dat file as input, this func does
- *  initialize everything needed for calling `extract_int_dat`.
+ *  When HH is given a path to some internal dat file as input, this func
+ *  initializes everything needed for calling `extract_int_dat`.
  *
  *  Return:  Zero on success, non-zero on failure.
  */
