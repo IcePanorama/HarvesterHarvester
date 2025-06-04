@@ -187,12 +187,20 @@ handle_sector_padding (FILE *input_fptr, const uint16_t lb_size)
   return 0;
 }
 
+/**
+ *  Resizes `dr_list` to double the size of its original `list_cap`.
+ *  NOTE: On realloc failure, this function DOES NOT free the original
+ *  `dr_list`. The caller assumes responsiblity for freeing any memory used by
+ *  `dr_list`.
+ *
+ *  Returns: Zero on success, non-zero on failure.
+ */
 static int
 resize_dr_list (_ISO9660DirRec_t **dr_list, size_t *list_cap)
 {
   *list_cap *= 2;
-  _ISO9660DirRec_t *tmp
-      = realloc (*dr_list, *list_cap * sizeof (_ISO9660DirRec_t));
+  const size_t NEW_SIZE = *list_cap * sizeof (_ISO9660DirRec_t);
+  _ISO9660DirRec_t *tmp = realloc (*dr_list, NEW_SIZE);
   if (tmp == NULL)
     return -1;
 
@@ -219,7 +227,7 @@ _i9660dr_dynamic_init (_ISO9660DirRec_t **dr_list, size_t list_cap[static 1],
           return -1;
         }
 
-      if (curr.file_id_len == 0)
+      if (curr.file_id_len == 0) // Reached the end of dr chunk
         break;
 
       if ((*list_len == *list_cap)
@@ -237,9 +245,13 @@ _i9660dr_dynamic_init (_ISO9660DirRec_t **dr_list, size_t list_cap[static 1],
 }
 
 /*
- *  Check for unsupported files.
+ *  Checks `flags` to determine if it indicates a currently unsupported file.
+ *  Unfortunately, I need examples of these sorts of files/filesystems in order
+ *  to develop these currently nonexistent functionalities. If you've found
+ *  one and are somehow reading this now, please open up a new issue on this
+ *  project's home page!
  *
- *  Returns: True if file is unsupported, false otherwise.
+ *  Returns: True if file is unsupported, else false.
  */
 static bool
 unsupported_file_check (uint8_t flags)
@@ -266,7 +278,11 @@ unsupported_file_check (uint8_t flags)
 }
 
 /*
- *  Warn about missing support for additional data.
+ *  Warn about missing support for additional data. Again, I need examples of
+ *  these sorts of files/file systems in order to develop the necessary
+ *  functionalities to process them. If you're getting a warning related to
+ *  this, please open up a new issue on the project's home page!
+ *
  *  See: https://wiki.osdev.org/ISO_9660#Directories.
  */
 static void

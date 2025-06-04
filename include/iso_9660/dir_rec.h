@@ -101,7 +101,7 @@ int _i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
 
 /**
  *  Returns the size of a `_ISO9660DirRec_t` in bytes.
- *  FIXME: Why isn't this just a global var?
+ *  FIXME: Why isn't this just a global (extern) var?
  */
 size_t _i9660dr_size (void);
 
