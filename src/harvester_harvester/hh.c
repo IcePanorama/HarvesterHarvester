@@ -173,27 +173,30 @@ extract_i9660_fs (const char *input_path, const char *output_path)
   if (input_file == NULL)
     {
       fprintf (stderr, "Error opening file %s.\n", input_path);
-      i9660_free (fs);
-      return -1;
+      goto err_exit;
     }
 
   if ((i9660_init (fs, input_file) != 0)
       || (i9660_extract (fs, input_file, output_path) != 0))
     {
       fclose (input_file);
-      i9660_free (fs);
-      return -1;
+      goto err_exit;
     }
 
   fclose (input_file);
   i9660_free (fs);
   return 0;
+err_exit:
+  i9660_free (fs);
+  return -1;
 }
 
 /**
  *  Extracts a known I9660 file system, as well as its internal dat files,
  *  `opts` permitting. This function differs from `extract_i9660_fs` as it
  *  attempts to handle those internal dat file automatically.
+ *
+ *  Returns: Zero on success, non-zero on failure.
  */
 static int
 known_i9660_extraction (const char *input_path, const char *output_path,
