@@ -88,10 +88,11 @@ _i9660h_init (_ISO9660Header_t *h, FILE input_fptr[static 1])
       || (_i9660br_read_str (input_fptr, h->vol_id, 5) != 0))
     return -1;
 
-  if (strncmp ("CD001", h->vol_id, 5) != 0)
+  const char *cd_sig = "CD001";
+  if (strncmp (cd_sig, h->vol_id, 5) != 0)
     {
       fprintf (stderr, "Incorrect file signature: expected %s, got %s.\n",
-               "CD001", h->vol_id);
+               cd_sig, h->vol_id);
       return -1;
     }
 

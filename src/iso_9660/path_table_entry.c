@@ -25,7 +25,7 @@
 struct _I9660PathTableEntry_s
 {
   uint8_t dir_id_len;
-  uint8_t extended_attribute_record_len;
+  uint8_t ext_attrib_rec_len;
   uint32_t extent_loc;
   uint16_t parent_dir_num;
   char dir_id[UINT8_MAX]; // See `dir_id_len`.
@@ -82,8 +82,7 @@ _i9660pte_init (_ISO9660PathTableEntry_t *p, FILE input_fptr[static 1])
     return -1;
 
   if ((_i9660br_read_u8 (input_fptr, &p->dir_id_len) != 0)
-      || (_i9660br_read_u8 (input_fptr, &p->extended_attribute_record_len)
-          != 0)
+      || (_i9660br_read_u8 (input_fptr, &p->ext_attrib_rec_len) != 0)
       || (_i9660br_read_le_u32 (input_fptr, &p->extent_loc) != 0)
       || (_i9660br_read_le_u16 (input_fptr, &p->parent_dir_num) != 0)
       || (_i9660br_read_str (input_fptr, p->dir_id, p->dir_id_len) != 0))
@@ -111,8 +110,7 @@ _i9660pte_print (_ISO9660PathTableEntry_t *p)
     return;
 
   printf ("%.*s - Ext. attrib. len: %d, Loc: %d, Parent: %d\n", p->dir_id_len,
-          p->dir_id, p->extended_attribute_record_len, p->extent_loc,
-          p->parent_dir_num);
+          p->dir_id, p->ext_attrib_rec_len, p->extent_loc, p->parent_dir_num);
 }
 
 int
