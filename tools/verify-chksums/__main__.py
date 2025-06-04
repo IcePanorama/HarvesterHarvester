@@ -20,21 +20,22 @@ import sys
 import logging
 from checksum_dict import ChecksumDict
 
-logging.basicConfig(level=logging.DEBUG,
-                    format='[%(asctime)s][%(levelname)s] %(message)s')
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.DEBUG,
+                        format='[%(levelname)s] %(message)s')
 
-if len(sys.argv) < 3:
-    logging.error(f"Invalid usage error. Try: {sys.argv[0]} "
-                  + "path_to_original.txt path_to_alt.txt`")
-    exit(1)
+    if len(sys.argv) < 3:
+        logging.error(f"Invalid usage error. Try: {sys.argv[0]} "
+                      + "path_to_original.txt path_to_alt.txt`")
+        exit(1)
 
-try:
-    original = ChecksumDict(sys.argv[1])
-    alt = ChecksumDict(sys.argv[2])
+    try:
+        original = ChecksumDict(sys.argv[1])
+        alt = ChecksumDict(sys.argv[2])
 
-    if (original == alt):
-        logging.info("All checksums match... exiting.")
-        exit(0)
-except (RuntimeError, ChecksumDict.ChecksumMismatchError) as e:
-    logging.error(e)
-    exit(1)
+        if (original == alt):
+            logging.info("All checksums match... exiting.")
+            exit(0)
+    except (RuntimeError, ChecksumDict.ChecksumMismatchError) as e:
+        logging.error(e)
+        exit(1)
