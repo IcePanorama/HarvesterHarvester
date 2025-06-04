@@ -44,8 +44,6 @@ if __name__ == "__main__":
                 print(opts_fmt.format("-h, --help", "Print this help message"))
                 print(opts_fmt.format("-o, --output",
                       "Set output file name (default: checksums.txt)"))
-                print(opts_fmt.format("-v, --version",
-                      "Print version information"))
                 exit(0)
             elif (arg == "-o" or arg == "--output"):
                 if (i + 1) >= len(arg_list):
