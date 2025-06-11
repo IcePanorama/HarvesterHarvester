@@ -1,5 +1,6 @@
 /**
- *  harvester_harvester/options.h - options for using HH.
+ *  harvester_harvester/options.h - options for using HarvesterHarvester. Not
+ *  using a forward declaration here for simplicity's sake.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
