@@ -97,7 +97,7 @@ create_export_dir (const char path[static 1])
 }
 
 int
-_i9660u_export_data (uint8_t data[static 1], size_t data_size,
+_i9660u_export_data (uint8_t data[static 1], const size_t data_size,
                      const char path[static 1])
 {
   if (create_export_dir (path) != 0)

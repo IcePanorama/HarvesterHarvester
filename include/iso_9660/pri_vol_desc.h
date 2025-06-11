@@ -36,8 +36,7 @@ typedef struct _ISO9660PriVolDesc_s _ISO9660PriVolDesc_t;
 _ISO9660PriVolDesc_t *_i9660pvd_alloc (void);
 
 /**
- *  Frees memory allocated by `p`. If `p` is NULL, this simply returns
- *  immediately.
+ *  Frees memory allocated by `p`. Returns immediately if `p` is NULL.
  *
  *  Param:  p  a pointer to an _ISO9660PriVolDesc_t
  */

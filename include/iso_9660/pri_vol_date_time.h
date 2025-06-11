@@ -2,6 +2,7 @@
  *  iso_9660/pri_vol_date_time.h - an interface for processing primary volume
  *  descriptor date/time data. Intended for internal usage. All public
  *  functions are prefixed by `_i9660pvddt`.
+ *
  *  FIXME: Currently not doing anything with this data. Technically could be
  *  used for file metadata.
  *
@@ -30,7 +31,7 @@
 typedef struct _ISO9660PVDDateTime_s _ISO9660PVDDateTime_t;
 
 /**
- *  Allocates an _ISO9660PVDDateTime_t. Said primary volume date time data must
+ *  Allocates an _ISO9660PVDDateTime_t. Said primary volume date/time data must
  *  later be freed via `_i9660pvddt_free`. Return value may be NULL upon calloc
  *  failure.
  *
@@ -40,8 +41,7 @@ typedef struct _ISO9660PVDDateTime_s _ISO9660PVDDateTime_t;
 _ISO9660PVDDateTime_t *_i9660pvddt_alloc (void);
 
 /**
- *  Frees memory allocated by `dt`. If `dt` is NULL, this simply returns
- *  immediately.
+ *  Frees memory allocated by `dt`. Returns immediately if `dt` is NULL.
  *
  *  Param:  dt  a pointer to some _ISO9660PVDDateTime_t
  */

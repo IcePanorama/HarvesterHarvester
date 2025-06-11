@@ -1,8 +1,6 @@
 /**
  *  iso_9660/file_flags.h - the file flags of a directory record. Intended for
- *  internal usage. All public defines are prefixed by `_I9660FF`.
- *
- *  See: https://wiki.osdev.org/ISO_9660#Directories.
+ *  internal usage.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *

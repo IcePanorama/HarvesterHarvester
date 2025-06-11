@@ -1,7 +1,6 @@
 /**
  *  iso_9660/header.h - an interface for ISO 9660 file system headers. Intended
- *  for internal usage. All functions are prefixed by `_i9660h`. All data types
- *  are prefixed by `_ISO9660Header`.
+ *  for internal usage. All public functions are prefixed by `_i9660h`.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
@@ -37,8 +36,7 @@ typedef struct _ISO9660Header_s _ISO9660Header_t;
 _ISO9660Header_t *_i9660h_alloc (void);
 
 /**
- *  Frees memory allocated by `h`. If `h` is NULL, this simply returns
- *  immediately.
+ *  Frees memory allocated by `h`. Returns immediately if `h` is NULL.
  *
  *  Param:  h  a pointer to some _ISO9660Header_t
  */

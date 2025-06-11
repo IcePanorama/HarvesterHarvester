@@ -1,7 +1,7 @@
 /**
- *  iso_9660/utils.h - a set of utility functions for processing and extracting
- *  ISO 9660 file systems. Intended for internal usage. All public functions
- *  are prefixed by `_i9660u`.
+ *  iso_9660/utils.h - utility functions for processing and extracting ISO 9660
+ *  file systems. Intended for internal usage. All public functions are
+ *  prefixed by `_i9660u`.
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *
@@ -26,7 +26,8 @@
 
 /**
  *  Prepends `str` of length `str_len` with `prefix` of length `prefix_len`.
- *  Assumes `str` is large enough to prepend.
+ *  Assumes `str` is large enough to accomidate `prefix`.
+ *
  *  Returns: zero on success, non-zero on failure.
  */
 int _i9660u_prepend_str (char str[static 1], const size_t str_len,
@@ -34,9 +35,10 @@ int _i9660u_prepend_str (char str[static 1], const size_t str_len,
 
 /**
  *  Writes `data_size` bytes of `data` to file at `path`.
+ *
  *  Returns: Zero on success, non-zero on failure.
  */
-int _i9660u_export_data (uint8_t data[static 1], size_t data_size,
+int _i9660u_export_data (uint8_t data[static 1], const size_t data_size,
                          const char path[static 1]);
 
 #endif /* _ISO_9660_UTILITIES_H_ */

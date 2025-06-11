@@ -39,8 +39,7 @@ extern const size_t _I9660DR_SIZE_BYTES;
 _ISO9660DirRec_t *_i9660dr_alloc (void);
 
 /**
- *  Frees memory allocated by `dr`. If `dr` is NULL, this simply returns
- *  immediately.
+ *  Frees memory allocated by `dr`. Returns immediately if `dr` is NULL.
  *
  *  Param:  dr  a pointer to an _ISO9660DirRec_t
  */

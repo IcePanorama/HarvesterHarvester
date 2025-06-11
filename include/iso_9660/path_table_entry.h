@@ -25,7 +25,6 @@
 #include <stdio.h>
 
 typedef struct _I9660PathTableEntry_s _ISO9660PathTableEntry_t;
-
 extern const size_t _I9660PTE_SIZE_BYTES;
 
 /**
@@ -38,8 +37,7 @@ extern const size_t _I9660PTE_SIZE_BYTES;
 _ISO9660PathTableEntry_t *_i9660pte_alloc (void);
 
 /**
- *  Frees memory allocated by `p`. If `p` is NULL, this simply returns
- *  immediately.
+ *  Frees memory allocated by `p`. Returns immediately if `p` is NULL.
  *
  *  Param:  p  a pointer to an _ISO9660PathTableEntry_t
  */
@@ -58,13 +56,13 @@ void _i9660pte_print (_ISO9660PathTableEntry_t *p);
  *  `input_fptr`. Returns non-zero if `p` is NULL.
  *
  *  Param:  p           some _ISO9660PathTableEntry_t
- *  Param:  input_fptr  file pointer to some directory record data
+ *  Param:  input_fptr  file pointer to some path table entry data
  *  Return:  Zero on success, non-zero on failure.
  */
 int _i9660pte_init (_ISO9660PathTableEntry_t *p, FILE input_fptr[static 1]);
 
 /**
- *  Builds a list of every directory record in `p`, and extracts them using
+ *  Builds a list of every path table in `p`, and extracts them using
  *  `input_fptr` to the directory `path`. Returns non-zero if `p` is NULL.
  *  `lb_size` is needed to navigate padding present in ISO 9660 file systems.
  *

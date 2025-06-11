@@ -2,6 +2,10 @@
  *  iso_9660.h - an interface for processing and extracting ISO 9660/ECMA-119
  *  file systems. All public functions are prefixed by `i9660`.
  *
+ *  This is the main header through which developers are intended to interact
+ *  with this ISO 9660 library, although additional methods and data structures
+ *  are accessible via the other headers in the `iso_9660` folder also.
+ *
  *  Copyright (C) 2024-2025  IcePanorama
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -34,8 +38,7 @@ typedef struct ISO9660FileSystem_s ISO9660FileSystem_t;
 ISO9660FileSystem_t *i9660_alloc (void);
 
 /**
- *  Frees memory allocated by `fs`. If `fs` is NULL, this simply returns
- *  immediately.
+ *  Frees memory allocated by `fs`. Returns immediately if `fs` is NULL.
  *
  *  Param:  fs  a pointer to an ISO9660FileSystem_t
  */
