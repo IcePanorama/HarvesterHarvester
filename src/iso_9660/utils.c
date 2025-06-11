@@ -19,10 +19,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 #ifdef _WIN32
 #include <direct.h>
-#include <sys/stat.h>
 #include <sys/types.h>
 
 #define MKDIR(path) (_mkdir (path))
@@ -30,8 +30,6 @@
 
 typedef struct _stat stat_t;
 #else /* not _WIN32 */
-#include <sys/stat.h>
-
 #define MKDIR(path) (mkdir (path, 0700))
 #define STAT(path, buff) (stat (path, buff))
 
