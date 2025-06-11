@@ -25,7 +25,7 @@ class ChecksumDict:
     Designed to work in conjunction with `batch-md5`.
 
     Attributes:
-        _dict: An dictionary used internal for storing said correlations.
+        _dict: An dictionary used internally for storing said correlations.
         _filename: The filename of the file used to create this instance.
     """
     class ChecksumMismatchError(Exception):
