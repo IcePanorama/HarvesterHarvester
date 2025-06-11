@@ -110,7 +110,7 @@ _hhidx_print (_HHIndexFile_t *i)
   fprintf (stdout, "%s: \n", i->file_path);
   for (size_t j = 0; j < i->size; j++)
     {
-      fprintf (stdout, "Entry %ld: \n", j);
+      fprintf (stdout, "Entry %zu: \n", j);
       _hhidxe_print (&i->entries[j]);
     }
 }

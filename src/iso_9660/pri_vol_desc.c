@@ -198,7 +198,7 @@ resize_pt_list (_ISO9660PriVolDesc_t *p)
   _ISO9660PathTableEntry_t *tmp = realloc (p->pt_list, SIZE_BYTES);
   if (tmp == NULL)
     {
-      fprintf (stderr, "Failed to grow path table list to size %ld.\n",
+      fprintf (stderr, "Failed to grow path table list to size %zu.\n",
                p->pt_list_capacity);
       return -1;
     }

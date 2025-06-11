@@ -5,6 +5,13 @@ project(HarvesterHarvester C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
+if(NOT CMAKE_BUILD_TYPE MATCHES "Debug|Release")
+    message(WARNING "CMAKE_BUILD_TYPE not set, defaulting to Debug.")
+    set(CMAKE_BUILD_TYPE "Debug")
+else ()
+    message(STATUS "CMAKE_BUILD_TYPE is ${CMAKE_BUILD_TYPE}.")
+endif()
+
 add_compile_options(
     -Wpedantic
     -Wextra
@@ -18,8 +25,13 @@ add_compile_options(
     -Wstringop-overflow=4
     -Wshadow
     -fanalyzer
-    -g # TODO: exclude this from release builds
 )
+
+if (CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_compile_options (-O3)
+else () # not (CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_compile_options (-g -O0)
+endif ()
 
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(SRC_FILES
@@ -55,6 +67,11 @@ set(INCL_FILES
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
 add_executable(${PROJECT_NAME} ${SRC_FILES})
+
+set(ARCH_SUFFIX "${CMAKE_SYSTEM_NAME}-${CMAKE_SYSTEM_PROCESSOR}")
+set(EXE_NAME "${PROJECT_NAME}-${ARCH_SUFFIX}")
+set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "${EXE_NAME}")
+
 target_include_directories(${PROJECT_NAME} PRIVATE ${INCL_DIR})
 
 find_program(CLANG_FORMAT NAMES clang-format)
@@ -72,7 +89,7 @@ endif ()
 find_program(VALGRIND NAMES valgrind)
 if (VALGRIND)
     add_custom_target(leak_check
-        COMMAND ${VALGRIND} --leak-check=yes ./${PROJECT_NAME}
+        COMMAND ${VALGRIND} --leak-check=yes ./${EXE_NAME}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
         COMMENT "Running valgrind leak check on executable."
     )

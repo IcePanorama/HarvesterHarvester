@@ -158,7 +158,7 @@ _i9660br_read_u8_array (FILE *fptr, uint8_t *output, size_t length)
   size_t bytes_read = fread (output, sizeof (uint8_t), length, fptr);
   if (bytes_read != sizeof (uint8_t) * length)
     {
-      fprintf (stderr, "Error reading uint8 array of size %ld from file.\n",
+      fprintf (stderr, "Error reading uint8 array of size %zu from file.\n",
                length);
       return -1;
     }
