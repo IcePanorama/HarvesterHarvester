@@ -1,20 +1,20 @@
 # HarvesterHarvester specific
-!bin/
-HarvesterHarvester
-HarvesterHarvester_i686.exe
-HarvesterHarvester_x86_64.exe
-HARVEST*
-output/*
+HarvesterHarvester*
+*.DAT
+*.dat
+
 .cache/*
-build/*
 .releases/*
-*.json
-*.txt
-!old_hh_output_checksums.txt
+
+build/*
+output/*
+compile_commands.json
 
 # Valgrind
 vgcore.*
 
+## C Stuff
+## See: https://github.com/github/gitignore/blob/main/C.gitignore
 # Prerequisites
 *.d
 
@@ -63,6 +63,7 @@ Mkfile.old
 dkms.conf
 
 ## Python stuff
+## See: https://github.com/github/gitignore/blob/main/Python.gitignore
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
