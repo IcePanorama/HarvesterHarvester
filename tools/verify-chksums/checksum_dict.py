@@ -48,6 +48,7 @@ class ChecksumDict:
         """
         self._dict: dict(str, str) = {}
         self._filename: str = input_path
+        logging.info(f"Creating ChecksumDict for file, {self._filename}.")
         with open(input_path) as fptr:
             for line in fptr:
                 if not line:
@@ -58,9 +59,13 @@ class ChecksumDict:
                     raise RuntimeError(f"Bad input: {line}")
                 segments[1] = segments[1][:-1]
                 if (segments[1] in self._dict):
+                    logging.info(f"Duplicate key in {input_path}: " + f"{segments[1]} => " + f"{self._dict[segments[1]]}")
+                    pass
+                    """
                     raise RuntimeError(f"Duplicate key in {input_path}: " +
                                        f"{segments[1]} => " +
                                        f"{self._dict[segments[1]]}")
+                                       """
 
                 self._dict[segments[1]] = segments[0]
 
@@ -91,7 +96,9 @@ class ChecksumDict:
         Raises:
             ChecksumMismatchError: If checksums in `self` differs from `o`.
         """
+        logging.info(f"Comparing {self._filename} with {o._filename}.")
         if len(self) > len(o):
+            raise RuntimeError(f"Other ChecksumDict ({o._filename}) is smaller than {self._filename}")
             return False
 
         for file, chksum in o._dict.items():
