@@ -19,7 +19,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef _WIN32
+#include <direct.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+
+#define MKDIR(path) (_mkdir (path))
+#define STAT(path, buff) (_stat (path, buff))
+
+typedef struct _stat stat_t;
+#else /* not _WIN32 */
+#include <sys/stat.h>
+
+#define MKDIR(path) (mkdir (path, 0700))
+#define STAT(path, buff) (stat (path, buff))
+
+typedef struct stat stat_t;
+#endif /* not _WIN32 */
 
 int
 _i9660u_prepend_str (char str[static 1], const size_t str_len,
@@ -72,10 +89,10 @@ create_export_dir (const char path[static 1])
         break;
 
       strcat (curr_path, tok);
-      struct stat path_info;
-      if (stat (curr_path, &path_info) != 0)
+      stat_t path_info;
+      if ((STAT (curr_path, &path_info)) != 0)
         {
-          int status = mkdir (curr_path, 0700);
+          int status = (MKDIR (curr_path));
           if (status != 0)
             {
               fprintf (stderr, "Failed to create output directory: %s.\n",

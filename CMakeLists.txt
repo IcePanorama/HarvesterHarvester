@@ -87,7 +87,7 @@ else () # not CLANG_FORMAT
 endif ()
 
 find_program(VALGRIND NAMES valgrind)
-if (VALGRIND)
+if (VALGRIND AND (NOT WIN32))
     add_custom_target(leak_check
         COMMAND ${VALGRIND} --leak-check=yes ./${EXE_NAME}
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
@@ -100,6 +100,9 @@ if (VALGRIND)
         COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target leak_check
         COMMENT "Running full build (clean, format, build, & test)."
     )
-else () # not VALGRIND
+elseif (NOT VALGRIND)
     message(WARNING "valgrind not found. Memory leak check skipped.")
+else () # WIN32
+    # FIXME: need a good, cross-platform way to do memory leak checks.
+    message(WARNING "Windows build detected. Memory leak check skipped.")
 endif ()
