@@ -131,7 +131,7 @@ _i9660pte_extract (_ISO9660PathTableEntry_t *p, uint16_t lb_size,
 
   size_t dr_list_capacity = 1;
   size_t dr_list_len = 0;
-  _ISO9660DirRec_t *dr_list = calloc (dr_list_capacity, _i9660dr_size ());
+  _ISO9660DirRec_t *dr_list = calloc (dr_list_capacity, _I9660DR_SIZE_BYTES);
   if (dr_list == NULL)
     {
       fprintf (stderr, "%s: Out of memory error.\n", __func__);
@@ -143,7 +143,7 @@ _i9660pte_extract (_ISO9660PathTableEntry_t *p, uint16_t lb_size,
   if (ret != 0)
     goto err_exit;
 
-  const size_t DR_SIZE = _i9660dr_size ();
+  const size_t DR_SIZE = _I9660DR_SIZE_BYTES;
   for (size_t i = 0; i < dr_list_len; i++)
     {
       _ISO9660DirRec_t *curr

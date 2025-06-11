@@ -27,11 +27,11 @@
 #include <stdio.h>
 
 typedef struct _ISO9660DirRec_s _ISO9660DirRec_t;
+extern const size_t _I9660DR_SIZE_BYTES;
 
 /**
- *  Allocates an _ISO9660DirRec_t. Said primary volume descriptor data must
- *  later be freed via `_i9660dr_free`. Return value may be NULL upon calloc
- *  failure.
+ *  Allocates an _ISO9660DirRec_t. Said directory record data must later be
+ *  freed via `_i9660dr_free`. Return value may be NULL upon calloc failure.
  *
  *  Return:  pointer to allocated directory record
  *  See:  `_i9660dr_free`
@@ -71,7 +71,7 @@ int _i9660dr_init (_ISO9660DirRec_t *dr, FILE input_fptr[static 1]);
  *  `dr_list` when necessary. Caller is responsible for allocating and freeing
  *  `dr_list`.
  *
- *  Param:  dr_list     some list of type _ISO9660DirRec_t
+ *  Param:  dr_list     pointer to a list of type _ISO9660DirRec_t
  *  Param:  list_cap    pointer to the physical size of `dr_list`
  *  Param:  list_len    pointer to the logical size of `dr_list`
  *  Param:  input_fptr  file pointer to some directory record data
@@ -98,12 +98,6 @@ int _i9660dr_dynamic_init (_ISO9660DirRec_t **dr_list,
 int _i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
                       FILE input_fptr[static 1], const char path[static 1],
                       const size_t path_len);
-
-/**
- *  Returns the size of a `_ISO9660DirRec_t` in bytes.
- *  FIXME: Why isn't this just a global (extern) var?
- */
-size_t _i9660dr_size (void);
 
 /**
  *  Returns the file flags of `dr`. Returns `(_ISO9660FileFlags_t)-1` if `dr`

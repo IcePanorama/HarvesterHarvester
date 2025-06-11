@@ -63,6 +63,8 @@ struct _ISO9660DirRec_s
   char file_id[UINT8_MAX];
 };
 
+const size_t _I9660DR_SIZE_BYTES = sizeof (_ISO9660DirRec_t);
+
 _ISO9660DirRec_t *
 _i9660dr_alloc (void)
 {
@@ -349,12 +351,6 @@ _i9660dr_extract (_ISO9660DirRec_t *dr, const uint16_t lb_size,
   free (file_path);
   free (data);
   return 0;
-}
-
-size_t
-_i9660dr_size (void)
-{
-  return sizeof (_ISO9660DirRec_t);
 }
 
 _ISO9660FileFlags_t
