@@ -18,7 +18,7 @@
  *  open an issue or pull request! Thanks!
  *
  *  See: `harvester_harvester/idx_file.c`
- *  See: `../../.github/extra_idx_data.md`
+ *  See: `.github/extra_idx_data.md`
  *
  *  Copyright (C) 2024-2025  IcePanorama
  *

@@ -28,11 +28,15 @@
  *  Each entry is 94h bytes. Each entry contains `XFLE#:`, followed by a NULL-
  *  terminated path string, and finally 10h bytes of data. `MAX_PATH_LEN` is
  *  calculated as follows: 94h - len(`XFLE#:`) - 10h = 94h - 6 - 10h = 7Eh.
+ *
  *  NOTE: While all path strings *are* NULL-terminated, not every one fills the
  *  remaining space after its name but before its data with all zeros. I'm not
  *  sure what that data is supposed to be, be it permissions, a checksum, or
  *  something else entriely. The old hh extracted these files w/o issue while
  *  ignoring this excess data though.
+ *
+ *  See: `harvester_harvester/idx_file.h`
+ *  See: `.github/extra_idx_data.md`
  */
 #define MAX_PATH_LEN (0x7E)
 
