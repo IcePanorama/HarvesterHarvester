@@ -1,6 +1,6 @@
 # Extra Index File Data
 
-Note that the last 16 bytes of data in both files is as follows:
+Note that the last 16 bytes of data in both hexdumps is as follows:
 * `4c13 0000` - The offset to file data in `HARVEST.DAT`
 * `5ca6 0000` - The size of the file data in bytes
 * `0000 0000` - Zeros (padding?)
