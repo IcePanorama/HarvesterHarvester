@@ -21,7 +21,12 @@
 #include <string.h>
 #include <sys/stat.h>
 
-#ifdef _WIN32
+#ifdef __linux__
+#define MKDIR(path) (mkdir (path, 0700))
+#define STAT(path, buff) (stat (path, buff))
+
+typedef struct stat stat_t;
+#else /* not __linux__ */
 #include <direct.h>
 #include <sys/types.h>
 
@@ -29,12 +34,7 @@
 #define STAT(path, buff) (_stat (path, buff))
 
 typedef struct _stat stat_t;
-#else /* not _WIN32 */
-#define MKDIR(path) (mkdir (path, 0700))
-#define STAT(path, buff) (stat (path, buff))
-
-typedef struct stat stat_t;
-#endif /* not _WIN32 */
+#endif /* not __linux__ */
 
 int
 _i9660u_prepend_str (char str[static 1], const size_t str_len,

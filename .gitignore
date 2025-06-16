@@ -2,6 +2,8 @@
 HarvesterHarvester*
 *.DAT
 *.dat
+*.txt
+!.github/
 
 .cache/*
 .releases/*
