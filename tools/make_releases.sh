@@ -1,7 +1,12 @@
+# make_releases - a script for generating every possible version of
+# HarvesterHarvester.
+# This script basically just runs each `X.cmake` toolchain file in `./.cmake`.
+# It's implementation is quite specific to my current setup, however, that
+# should be fine as I'll likely be the only person to ever actually make
+# release builds.
 #! /usr/bin/env bash
 BUILD_DIR=build
 HH_OUTPUT_DIR=output
-RELEASES_DIR=.releases
 
 function setup ()
 {
