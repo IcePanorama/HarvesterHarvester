@@ -100,9 +100,17 @@ if (VALGRIND AND (NOT WIN32))
         COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target leak_check
         COMMENT "Running full build (clean, format, build, & test)."
     )
-elseif (NOT VALGRIND)
-    message(WARNING "valgrind not found. Memory leak check skipped.")
 else () # WIN32
-    # FIXME: need a good, cross-platform way to do memory leak checks.
-    message(WARNING "Windows build detected. Memory leak check skipped.")
+    if (WIN32)
+        # FIXME: need a good, cross-platform way to do memory leak checks.
+        message(WARNING "Windows build detected. Memory leak check skipped.")
+    else ()
+        message(WARNING "valgrind not found. Memory leak check skipped.")
+    endif ()
+
+    add_custom_target(full
+        COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target clean
+        COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target ${PROJECT_NAME}
+        COMMENT "Running full build (clean, format, build, & test)."
+    )
 endif ()
