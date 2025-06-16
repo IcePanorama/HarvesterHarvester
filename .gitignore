@@ -3,7 +3,8 @@ HarvesterHarvester*
 *.DAT
 *.dat
 *.txt
-!.github/
+!./.github/
+!./CMakeLists.txt
 
 .cache/*
 .releases/*
