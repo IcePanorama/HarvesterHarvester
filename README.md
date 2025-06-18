@@ -1,67 +1,80 @@
 # HarvesterHarvester
 
-HarvesterHarvester (HH) was my first ever large C project. Additionally, being a reverse engineering project, I was really figuring out the specifications for it as I went along. As a result, the original HH is in desperate need of a rewrite. This is currently an on-going project, the end product of which will be released as v2.0.0.
+**HarvesterHarvester** (HH) is a tool for "harvesting" data from the .dat files of [DigiFX Interactive's 1996 game, *Harvester*](https://en.wikipedia.org/wiki/Harvester_(video_game)) (along with other file systems too)!
 
-This new version hopes to make HH more easily maintainable and extendible, with the hope being to apply the same processes used here for other, similar games in the future.
+Intended to be the first piece in [a toolchain for reverse engineering *Harvester*](https://segfaulteddreams.neocities.org/projects/openharvester/), HH first reconstructs the original disk images that the game would've shipped with during its initial release before then extracting data from the .dat files contained within that new file system. In total, HH restores approximately 2.1 GiB of data.
 
-# Old README
+**New in v2.0.0** is the ability to apply these same processes to other, similar file systems as well! \[TODO: ADD NOTE ABOUT WHAT OTHER KINDS OF FILE SYSTEMS THIS TOOL HAS BEEN TESTED ON]
 
-A tool for harvesting data out of [_Harvester_'s (DigiFX Interactive, 1996)](https://en.wikipedia.org/wiki/Harvester_(video_game)) dat files.
+## Getting HH
 
-This program is the first piece of a toolchain that I'm developing as I work to reverse engineering *Harvester*. The ultimate goal of this project is to eventually port the game to a more modern graphics framework (Raylib or OpenGL) just for fun/to teach myself the basics of reverse engineering. 
+The simpliest way to try HH for yourself is to navigate to [the releases page](https://github.com/IcePanorama/HarvesterHarvester/releases/latest) and download the correct zip file for your system. Once downloaded, simply extract the zip file wherever you'd like and you're ready to start *harvesting*. See [USAGE]() for more details on how to run HH itself.
 
-The program works in two steps: 
-1. It reconstructs the original disk images that Harvester would've shipped with in 1996
-   * _Note_: if you own the original game disks, this step is not needed.
-   * See [USAGE.md](.github/USAGE.md) for more details.
-2. It extracts the dat files contained within those new directories in order to give you full access to all of the game's files (~2GiB in total!).
+If you're unsure which zip file to use on your system, `HarvesterHarvester-<?>-Windows-amd64.zip` will likely be what you're looking for. If not, see below:
 
-### Future Projects
+### Which release version is right for me?
 
-The next step for me in this project will be creating an asset viewer.
-
-This will require me to reverse engineer all of the various, non-standardized file formats that DigiFX used when making the game, which will be essential for porting the game in the future.
-
-So far, I've already been able to reverse engineer the `*.BM` files, which are used for all the static backgrounds in the games, for character portraits, the map, and more.  Unfortunately, I likely can't to share these files, at least not in bulk (see [below](#A-note-on-piracy)). I will, however, be sharing a small handful of these images as I show this project off online and I'll make sure to add a link here in the future if you wish to view those! 
-
-## Installation
-### Easiest Way
-Navigate to the [releases](https://github.com/IcePanorama/HarvesterHarvester/releases) page and download the latest zip file.
-
-Once downloaded, extract the zip file wherever you'd like and you're done! See [USAGE.md](.github/USAGE.md) for more details on how to run the program.
-
-### Building from source (Linux/MacOS/Unix)
-1) Install the following dependencies:
 ```
-gcc make cmake mingw32-gcc clang-tools-extra valgrind doxygen
+# Windows
+HarvesterHarvester-<?>-Windows-amd64 # 64-bit Windows (amd64/x86_64/x64)
+HarvesterHarvester-<?>-Windows-i686  # 32-bit Windows (i686/x86)
+
+# Linux/Unix/MacOS
+HarvesterHarvester-<?>-Linux-amd64   # 64-bit Linux   (amd64/x86_64/x64)
+HarvesterHarvester-<?>-Linux-i686    # 32-bit Linux   (i686/x86)
 ```
-2) Clone the repo and cd into this new directory:
-```bash
+
+**NOTE**: I am currently unable to test whether MacOS support works. If you run into issues on MacOS, please open up a new [issue](https://github.com/IcePanorama/HarvesterHarvester/issues) provided one doesn't already exist! Thanks!
+
+Prior to release, HH has been tested as working on Fedora Linux 42, Windows 10, and Windows 98. Continued support to all of these platforms, however, is not guaranteed.
+
+### Building from Source
+
+1. Install the following dependencies:
+
+```
+gcc make cmake        # Required
+clang-format valgrind # Optional, but strongly recommended for developers
+```
+
+2. Download a copy of the source code:
+
+```
 $ git clone https://github.com/IcePanorama/HarvesterHarvester/ && cd HarvesterHarvester
-# ... or, alternatively ...
+# Or, alternatively ...
 $ git clone git@github.com:IcePanorama/HarvesterHarvester.git && cd HarvesterHarvester
 ```
-3) Create a build directory and cd into there:
+
+3. Use CMake to generate the necessary build files:
+
 ```
 $ mkdir build && cd build
+$ cmake -DCMAKE_BUILD_TYPE=<?> -DCMAKE_TOOLCHAIN_FILE=<?> ..
 ```
-3) Build using cmake and make:
-```bash
-$ cmake ..
-$ make release # for *nix, x86_64, and i686 executables
-# ... or, alternatively ...
-$ make full    # for just the *nix executable
+
+Where `CMAKE_BUILD_TYPE` is either `Release` or `Debug` and `CMAKE_TOOLCHAIN_FILE` is a path to one of the many toolchain files in [the cmake directory](./.cmake).
+
+**Note**: you may be required to define `CMAKE_C_COMPILER` while attempting to build a Windows executable on Linux (and, potentially, vice versa).
+
+4. Build the final executable with `make`:
+
 ```
-Running `make release` is strongly recommended as the build process for the release target makes use of every single dependency listed above, thus ensuring that you have all the correct packages installed on your machine.
+$ make
+# Or, alternatively:
+$ make full # Also checks for memory leaks via Valgrind
+```
 
-Congrats! You're now all set to [use the program](.github/USAGE.md) or [start contributing](.github/CONTRIBUTING.md).
+## Piracy Notice
 
-## A note on piracy
+HH requires that you supply your own .dat files for use.
 
-This program requires that you legally own a copy of _Harvester_ in order to source the necessary dat files. 
+The GOG version around which this project was built [is available here for $5.99](https://www.gog.com/en/game/harvester), although it is worth noting that it does go on sale rather often. Alternatively, visit any of the retailers [listed here](https://isthereanydeal.com/game/harvester/info/) if you'd rather shop elsewhere.
 
-The GOG version (which this project was built around) [is available here for $5.99](https://www.gog.com/en/game/harvester), although it's worth noting that it does go on sale rather often.
+This project in no way intends to encourage the piracy of DigiFX Interactive's software.
 
-[Alternatively, visit any of the retailers on this link if you'd rather shop elsewhere](https://isthereanydeal.com/game/harvester/info/).
+## License
 
-This project in no way intends to encourage the piracy of DigiFX' software.
+HarvesterHarvester is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
