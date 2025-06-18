@@ -61,9 +61,10 @@ print_help_info (const char *exe_name)
   const char opts_fmt[] = "  %-25s %s\n";
   puts ("Options:");
   printf (opts_fmt, "-h, --help", "Print this help message");
-  printf (opts_fmt, "--skip-i9660-dats", "Treat input as internal dat files.");
   printf (opts_fmt, "-o <path>,--output <path>",
           "Set output directory to `<path>` (default: `./output/`)");
+  printf (opts_fmt, "--skip-i9660-dats",
+          "Treat input like internal dat files.");
   printf (opts_fmt, "--skip-internal-dats",
           "Skip the extraction of internal dat files");
   printf (opts_fmt, "-v, --version", "Print version information");
