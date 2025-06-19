@@ -227,14 +227,21 @@ hh_extract_filesystem_w_options (const char input_path[static 1],
                                  const char output_path[static 1],
                                  const HHOptions_t opts[static 1])
 {
-  if ((opts->processing_mode != _HHPM_SKIP_I9660_DATS)
-      && (_hhkf_is_known_i9660_file (input_path)))
+  /*
+   *  In order to allow end users to use HH from anywhere,
+   *  `_hhkf_is_known_int_dat` and `_hhkf_is_known_i9660_file` work by
+   *  comparing the end of `input_path` to our internally known file paths.
+   *  Because the paths for known i9660 files are shorter than int dats, this
+   *  will produce false positives where `DISK1/HARVEST.DAT` (an int dat file)
+   *  will be treated like `HARVEST.DAT` (an i9660 dat file) when it shouldn't.
+   *  A simple fix for this, is just to check whether our input is a known int
+   *  dat file first.
+   */
+  if (_hhkf_is_known_int_dat (input_path))
+    return extraction_w_int_dat_input (input_path, output_path);
+  else if (_hhkf_is_known_i9660_file (input_path))
     {
       return known_i9660_extraction (input_path, output_path, opts);
-    }
-  else if (opts->processing_mode == _HHPM_SKIP_I9660_DATS)
-    {
-      return extraction_w_int_dat_input (input_path, output_path);
     }
   else
     {

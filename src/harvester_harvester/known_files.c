@@ -27,8 +27,7 @@
  *  that.
  */
 static const char *known_i9660_fs[3]
-    = { "dat-files/HARVEST.DAT", "dat-files/HARVEST3.DAT",
-        "dat-files/HARVEST4.DAT" };
+    = { "HARVEST.DAT", "HARVEST3.DAT", "HARVEST4.DAT" };
 
 struct IntFileAssoc_s
 {
@@ -52,13 +51,32 @@ struct IntFileAssoc_s
 };
 /* clang-format on */
 
-bool
-_hhkf_is_known_i9660_file (const char path[static 1])
+/**
+ *  Compares the end of `a` to `b`. Param `a_len` is just there to let me cache
+ *  that value when doing repeated function calls (instead of calculating
+ *  strlen each time).
+ *  FIXME: should be case insensitive.
+ */
+static bool
+strequ_from_end (const char *a, const size_t a_len, const char *b)
 {
+  const size_t b_len = strlen (b);
+  if (a_len > b_len)
+    {
+      const char *a_end = a + (a_len - b_len);
+      return strcmp (b, a_end) == 0;
+    }
+  else
+    return strcmp (b, a) == 0;
+}
+
+static bool
+str_found_in_arr (const char *str, const char **arr)
+{
+  const size_t str_len = strlen (str);
   for (size_t i = 0; i < 3; i++)
     {
-      // FIXME: should be case insensitive.
-      if (strcmp (known_i9660_fs[i], path) == 0)
+      if (strequ_from_end (str, str_len, arr[i]))
         return true;
     }
 
@@ -66,16 +84,18 @@ _hhkf_is_known_i9660_file (const char path[static 1])
 }
 
 bool
+_hhkf_is_known_i9660_file (const char path[static 1])
+{
+  return str_found_in_arr (path, known_i9660_fs);
+}
+
+bool
 _hhkf_is_known_int_dat (const char path[static 1])
 {
   for (size_t i = 0; i < 3; i++)
     {
-      for (size_t j = 0; j < 3; j++)
-        {
-          // FIXME: should be case insensitive.
-          if (strcmp (int_assocs[i].dat_files[j], path) == 0)
-            return true;
-        }
+      if (str_found_in_arr (path, int_assocs[i].dat_files))
+        return true;
     }
 
   return false;
@@ -84,10 +104,10 @@ _hhkf_is_known_int_dat (const char path[static 1])
 const char **
 _hhkf_get_int_dat_paths_from_i9660 (const char path[static 1])
 {
+  const size_t path_len = strlen (path);
   for (size_t i = 0; i < 3; i++)
     {
-      // FIXME: should be case insensitive.
-      if (strcmp (known_i9660_fs[i], path) == 0)
+      if (strequ_from_end (path, path_len, known_i9660_fs[i]))
         return int_assocs[i].dat_files;
     }
 
@@ -98,10 +118,10 @@ _hhkf_get_int_dat_paths_from_i9660 (const char path[static 1])
 const char **
 _hhkf_get_int_idx_paths_from_i9660 (const char path[static 1])
 {
+  const size_t path_len = strlen (path);
   for (size_t i = 0; i < 3; i++)
     {
-      // FIXME: should be case insensitive.
-      if (strcmp (known_i9660_fs[i], path) == 0)
+      if (strequ_from_end (path, path_len, known_i9660_fs[i]))
         return int_assocs[i].idx_files;
     }
 
@@ -112,12 +132,12 @@ _hhkf_get_int_idx_paths_from_i9660 (const char path[static 1])
 const char *
 _hhkf_get_idx_path_from_int_dat (const char path[static 1])
 {
+  const size_t path_len = strlen (path);
   for (size_t i = 0; i < 3; i++)
     {
       for (size_t j = 0; j < 3; j++)
         {
-          // FIXME: should be case insensitive.
-          if (strcmp (int_assocs[i].dat_files[j], path) == 0)
+          if (strequ_from_end (path, path_len, int_assocs[i].dat_files[j]))
             return int_assocs[i].idx_files[j];
         }
     }
