@@ -172,6 +172,7 @@ main (int argc, char **argv)
           "DISK2/HARVEST.DAT", "DISK2/HARVEST2.DAT", "DISK2/SOUND.DAT",
           "DISK3/HARVEST.DAT", "DISK3/HARVEST2.DAT", "DISK3/SOUND.DAT" };
 
+  puts ("No input files given, defaulting to batch processing mode.");
   switch (opts.processing_mode)
     {
     case _HHPM_SKIP_I9660_DATS:
