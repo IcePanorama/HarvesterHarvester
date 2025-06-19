@@ -8,7 +8,7 @@ Intended to be the first piece in [a toolchain for reverse engineering *Harveste
 
 ## Getting HH
 
-The simpliest way to try HH for yourself is to navigate to [the releases page](https://github.com/IcePanorama/HarvesterHarvester/releases/latest) and download the correct zip file for your system. Once downloaded, simply extract the zip file wherever you'd like and you're ready to start *harvesting*. See [USAGE]() for more details on how to run HH itself.
+The simpliest way to try HH for yourself is to navigate to [the releases page](https://github.com/IcePanorama/HarvesterHarvester/releases/latest) and download the correct zip file for your system. Once downloaded, simply extract the zip file wherever you'd like and you're ready to start *harvesting*. See [USAGE.md](.github/USAGE.md) for more details on how to run HH itself.
 
 If you're unsure which zip file to use on your system, `HarvesterHarvester-<?>-Windows-amd64.zip` will likely be what you're looking for. If not, see below:
 
