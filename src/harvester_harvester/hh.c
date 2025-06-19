@@ -172,7 +172,7 @@ extract_i9660_fs (const char *input_path, const char *output_path)
   FILE *input_file = fopen (input_path, "rb");
   if (input_file == NULL)
     {
-      fprintf (stderr, "Error opening file %s.\n", input_path);
+      fprintf (stderr, "Error opening file: %s\n", input_path);
       goto err_exit;
     }
 

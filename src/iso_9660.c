@@ -63,6 +63,12 @@ i9660_free (ISO9660FileSystem_t *fs)
   if (fs == NULL)
     return;
 
+  if (fs->header == NULL)
+    {
+      free (fs);
+      return;
+    }
+
   switch (_i9660h_get_vol_desc_type_code (fs->header))
     {
     case _VDTC_PRIMARY_VOLUME:
