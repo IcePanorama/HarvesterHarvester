@@ -168,9 +168,11 @@ main (int argc, char **argv)
       = { "dat-files/HARVEST.DAT", "dat-files/HARVEST3.DAT",
           "dat-files/HARVEST4.DAT" };
   const char *int_files[9]
-      = { "DISK1/HARVEST.DAT", "DISK1/HARVEST2.DAT", "DISK1/SOUND.DAT",
-          "DISK2/HARVEST.DAT", "DISK2/HARVEST2.DAT", "DISK2/SOUND.DAT",
-          "DISK3/HARVEST.DAT", "DISK3/HARVEST2.DAT", "DISK3/SOUND.DAT" };
+      = { "dat-files/DISK1/HARVEST.DAT",  "dat-files/DISK1/HARVEST2.DAT",
+          "dat-files/DISK1/SOUND.DAT",    "dat-files/DISK2/HARVEST.DAT",
+          "dat-files/DISK2/HARVEST2.DAT", "dat-files/DISK2/SOUND.DAT",
+          "dat-files/DISK3/HARVEST.DAT",  "dat-files/DISK3/HARVEST2.DAT",
+          "dat-files/DISK3/SOUND.DAT" };
 
   puts ("No input files given, defaulting to batch processing mode.");
   switch (opts.processing_mode)

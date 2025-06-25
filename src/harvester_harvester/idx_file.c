@@ -42,8 +42,8 @@
 
 struct _HHIndexFile_s
 {
-  char *file_path; // Path to idx file itself.
-  char *dir_path;  // Path to idx file's dir. E.g., `output/DISK1/`.
+  char *file_path;  // Path to idx file itself.
+  char *output_dir; // Path to idx file's dir. E.g., `output/DISK1/`.
 
   struct _IdxFileEntry_s
   {
@@ -82,8 +82,8 @@ _hhidx_free (_HHIndexFile_t *i)
 
   if (i->file_path != NULL)
     free (i->file_path);
-  if (i->dir_path != NULL)
-    free (i->dir_path);
+  if (i->output_dir != NULL)
+    free (i->output_dir);
   if (i->entries != NULL)
     free (i->entries);
   free (i);
@@ -225,6 +225,7 @@ fseek_err:
  *
  *  Returns:  Zero on success, non-zero on failure.
  */
+/*
 static int
 find_dir_path (_HHIndexFile_t *i, const char *path)
 {
@@ -238,22 +239,34 @@ find_dir_path (_HHIndexFile_t *i, const char *path)
     }
 
   size_t new_len = (size_t)(end - path);
-  i->dir_path = calloc (new_len + 1, sizeof (char)); // +1 for NULL-terminator
-  if (i->dir_path == NULL)
+  i->output_dir
+      = calloc (new_len + 1, sizeof (char)); // +1 for NULL-terminator
+  if (i->output_dir == NULL)
     {
       fprintf (stderr, "%s: out of memory error.\n", __func__);
       return -1;
     }
-  strncpy (i->dir_path, path, new_len);
+  strncpy (i->output_dir, path, new_len);
 
   return 0;
 }
+*/
 
 int
-_hhidx_init (_HHIndexFile_t *i, const char path[static 1])
+_hhidx_init (_HHIndexFile_t *i, const char path[static 1],
+             const char output_dir[static 1])
 {
-  if ((i == NULL) || (find_dir_path (i, path) != 0))
+  if (i == NULL) // || (find_dir_path (i, path) != 0))
     return -1;
+
+  const size_t dir_path_len = strlen (path) + 1; // +1 for NULL-terminator
+  i->output_dir = calloc (dir_path_len, sizeof (char));
+  if (i->output_dir == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
+  strcpy (i->output_dir, output_dir);
 
   const size_t file_path_len = strlen (path) + 1; // +1 for NULL-terminator
   i->file_path = calloc (file_path_len, sizeof (char));
@@ -262,7 +275,6 @@ _hhidx_init (_HHIndexFile_t *i, const char path[static 1])
       fprintf (stderr, "%s: out of memory error.\n", __func__);
       return -1;
     }
-
   strcpy (i->file_path, path);
 
   FILE *input_fptr = fopen (path, "rb");
@@ -289,15 +301,36 @@ loop_err_exit:
   return -1;
 }
 
+/*
+int
+_hhidx_init_w_dir_path (_HHIndexFile_t *i, const char path[static 1], const
+char output_dir[static 1])
+{
+  if (i == NULL)
+    return -1;
+
+  const size_t dir_path_len = strlen (path) + 1; // +1 for NULL-terminator
+  i->output_dir = calloc (dir_path_len, sizeof (char));
+  if (i->output_dir == NULL)
+    {
+      fprintf (stderr, "%s: out of memory error.\n", __func__);
+      return -1;
+    }
+  strcpy (i->output_dir, output_dir);
+
+  return 0;
+}
+*/
+
 /**
- *  Extracts a single index entry (`e`) to `output_path` using data from
+ *  Extracts a single index entry (`e`) to `output_dir` using data from
  *  `dat_fptr`.
  *
  *  Returns: Zero on success, non-zero on failure.
  */
 static int
 extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
-                   const char *output_path)
+                   const char *output_dir)
 {
   if (fseek (dat_fptr, e->extent_loc, SEEK_SET) != 0)
     {
@@ -319,10 +352,10 @@ extract_idx_entry (struct _IdxFileEntry_s *e, FILE *dat_fptr,
     }
 
   char *path
-      = calloc (strlen (output_path) + strlen (e->path) + 1, sizeof (char));
+      = calloc (strlen (output_dir) + strlen (e->path) + 1, sizeof (char));
   if (path == NULL)
     goto oom_error;
-  strcpy (path, output_path);
+  strcpy (path, output_dir);
   strcat (path, e->path);
 
   printf ("Extracting file: %s\n", path);
@@ -354,10 +387,10 @@ _hhidx_extract (_HHIndexFile_t *i, const char *dat_path)
   printf ("Extracting index file: %s\n", i->file_path);
   for (size_t j = 0; j < i->size; j++)
     {
-      if (extract_idx_entry (&i->entries[j], dat_fptr, i->dir_path) != 0)
+      if (extract_idx_entry (&i->entries[j], dat_fptr, i->output_dir) != 0)
         {
           fprintf (stderr, "Error extracting index file entry: %s%s.\n",
-                   i->dir_path, i->entries[j].path);
+                   i->output_dir, i->entries[j].path);
           fclose (dat_fptr);
           return -1;
         }
