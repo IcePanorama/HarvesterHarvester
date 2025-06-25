@@ -220,38 +220,6 @@ fseek_err:
   return -1;
 }
 
-/**
- *  Finds the path of the directory in which `i` exists.
- *
- *  Returns:  Zero on success, non-zero on failure.
- */
-/*
-static int
-find_dir_path (_HHIndexFile_t *i, const char *path)
-{
-  char *end = strrchr (path, '/');
-  if (end == NULL)
-    {
-      fprintf (stderr,
-               "Given path string, %s, does not contain path separator, %c.\n",
-               path, '/');
-      return -1;
-    }
-
-  size_t new_len = (size_t)(end - path);
-  i->output_dir
-      = calloc (new_len + 1, sizeof (char)); // +1 for NULL-terminator
-  if (i->output_dir == NULL)
-    {
-      fprintf (stderr, "%s: out of memory error.\n", __func__);
-      return -1;
-    }
-  strncpy (i->output_dir, path, new_len);
-
-  return 0;
-}
-*/
-
 int
 _hhidx_init (_HHIndexFile_t *i, const char path[static 1],
              const char output_dir[static 1])
@@ -300,27 +268,6 @@ loop_err_exit:
   fclose (input_fptr);
   return -1;
 }
-
-/*
-int
-_hhidx_init_w_dir_path (_HHIndexFile_t *i, const char path[static 1], const
-char output_dir[static 1])
-{
-  if (i == NULL)
-    return -1;
-
-  const size_t dir_path_len = strlen (path) + 1; // +1 for NULL-terminator
-  i->output_dir = calloc (dir_path_len, sizeof (char));
-  if (i->output_dir == NULL)
-    {
-      fprintf (stderr, "%s: out of memory error.\n", __func__);
-      return -1;
-    }
-  strcpy (i->output_dir, output_dir);
-
-  return 0;
-}
-*/
 
 /**
  *  Extracts a single index entry (`e`) to `output_dir` using data from
