@@ -25,9 +25,9 @@ The benefit of the first approach is that HH will automatically search the `dat-
 
 As noted in the [README.md](../README.md), HH works in two steps, the first of which reconstructs the original disk images that *Harvester* would've shipped with at the time of its release. If you still have the game disks, however, this first step is not needed.
 
-At this point, you can execute HH via a command prompt or terminal by providing a path to each CD's `HARVEST.DAT`, `HARVEST2.DAT`, and `SOUND.DAT` files. HH will automatically detect that these files are internal dat files and extract them.
+At this point, you can execute HH via a command prompt or terminal by providing a path to each CD's `HARVEST.DAT`, `HARVEST2.DAT`, and `SOUND.DAT` files. HH will automatically detect that these files are internal dat files and extract them. Note that HH assumes that each .dat file's associated index file is also stored in the same directory.
 
-Alternatively, you can place each disc's dat files into `<HH_DIR>/dat-files/DISK<?>`, where `<?>` corresponds to each disc's number and can be either `1`, `2`, or `3`. The benefit of this second approach is that HH can automatically search the `dat-files` directory for those dat files, saving you from typing out the paths directly.
+Alternatively, you can place each disc's dat and index files into `<HH_DIR>/dat-files/DISK<?>`, where `<?>` corresponds to each disc's number and can be either `1`, `2`, or `3`. The benefit of this second approach is that HH can automatically search the `dat-files` directory for those dat/index files, saving you from typing out the paths directly.
 
 If you do take this second approach, you'll be recreating the following structure in `dat-files`:
 
@@ -37,20 +37,27 @@ dat-files/
 ├── DISK1
 │   ├── HARVEST.DAT
 │   ├── HARVEST2.DAT
-│   └── SOUND.DAT
+│   ├── SOUND.DAT
+│   ├── INDEX.000
+│   ├── INDEX.001
+│   └── INDEX.002
 ├── DISK2
 │   ├── HARVEST.DAT
 │   ├── HARVEST2.DAT
-│   └── SOUND.DAT
+│   ├── SOUND.DAT
+│   ├── INDEX.000
+│   ├── INDEX.001
+│   └── INDEX.002
 └── DISK3
     ├── HARVEST.DAT
     ├── HARVEST2.DAT
-    └── SOUND.DAT
+    ├── SOUND.DAT
+    ├── INDEX.000
+    ├── INDEX.001
+    └── INDEX.002
 ```
 
 In order for this to work, however, you MUST execute HH with the  `--skip-i9660-dats` flag. See [Advanced Usage](#advanced-usage) below for more details.
-
-**Note**: `HARVEST2.DAT` is not needed as its contents are contained within the other .dat files.
 
 ## Using HH as a Library
 
