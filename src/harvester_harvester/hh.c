@@ -60,32 +60,6 @@ get_canonical_input_path (const char *input_path)
 }
 
 /**
- *  When HH is given a path to some internal dat file as input, this func
- *  initializes everything needed for calling `extract_int_dat`.
- *
- *  Return:  Zero on success, non-zero on failure.
- */
-static int
-extraction_w_int_dat_input (const char *input_path, const char *output_path)
-{
-  char *work = get_canonical_input_path (input_path);
-  if ((work == NULL) || (!_hhkf_is_known_int_dat (work)))
-    {
-      fprintf (stderr, "Unrecognized internal dat file: %s. Aborting.\n",
-               input_path);
-      return -1;
-    }
-
-  const char *assoc_idx_path = _hhkf_get_idx_path_from_int_dat (work);
-  if (assoc_idx_path == NULL)
-    //|| (extract_int_dat (output_path, work, assoc_idx_path) != 0))
-    return -1;
-
-  return 0;
-  puts (output_path);
-}
-
-/**
  *  Extracts an I9660 file system (`input_path`) to `output_path`.
  *
  *  Returns: Zero on success, non-zero on failure.
@@ -220,6 +194,36 @@ known_i9660_extraction (const char *input_path, const char *output_path,
   return 0;
 }
 
+/**
+ *  Extracts a known internal dat file. This function just does some prep work
+ *  before calling `extract_int_dat` internally.
+ *
+ *  Param:  input_path  the path to some internal dat file
+ *  Param:  output_path the directory where said file should be extracted
+ *  Returns:  Zero on success, non-zero on failure.
+ */
+static int
+known_int_dat_extraction (const char *input_path, const char *output_path)
+{
+  size_t dir_len = get_canonical_input_path (input_path) - input_path;
+  const char *idx_path = _hhkf_get_idx_path_from_int_dat (input_path);
+  size_t full_idx_len = dir_len + strlen (idx_path) + 1;
+
+  char *full_idx = calloc (full_idx_len, sizeof (char));
+  if (full_idx == NULL)
+    {
+      fprintf (stderr, "%s: Out of memory error.\n", full_idx);
+      return -1;
+    }
+
+  strncpy (full_idx, input_path, dir_len);
+  strcat (full_idx, idx_path);
+
+  int ret = extract_int_dat (input_path, full_idx, output_path);
+  free (full_idx);
+  return ret;
+}
+
 int
 hh_extract_filesystem_w_options (const char input_path[static 1],
                                  const char output_path[static 1],
@@ -236,11 +240,7 @@ hh_extract_filesystem_w_options (const char input_path[static 1],
    *  dat file first.
    */
   if (_hhkf_is_known_int_dat (input_path))
-    {
-      printf ("%s => %s\n", input_path, output_path);
-      return -1;
-      return extraction_w_int_dat_input (input_path, output_path);
-    }
+    return known_int_dat_extraction (input_path, output_path);
   else if (_hhkf_is_known_i9660_file (input_path))
     return known_i9660_extraction (input_path, output_path, opts);
   else
