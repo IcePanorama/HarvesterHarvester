@@ -4,7 +4,7 @@ Thanks for your interest in contributing to HH! Any contributions/issues/pull re
 
 ## Code of Conduct
 
-This project is governed by the [\[CODE OF CONDUCT NAME\] Code of Conduct](CODE_OF_CONDUCT.md).
+This project is governed by the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md).
 
 If you ever feel that this code of coduct is being infringed upon by someone, please feel free to send an email to <open-harvester@proton.me> or <segfaulteddreams@proton.me> letting me know.
 
