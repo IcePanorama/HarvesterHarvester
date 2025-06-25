@@ -377,6 +377,9 @@ oom_error:
 int
 _hhidx_extract (_HHIndexFile_t *i, const char *dat_path)
 {
+  if (i == NULL)
+    return -1;
+
   FILE *dat_fptr = fopen (dat_path, "rb");
   if (dat_fptr == NULL)
     {

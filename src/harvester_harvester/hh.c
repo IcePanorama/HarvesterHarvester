@@ -27,76 +27,6 @@ const HHOptions_t HH_DEFAULT_OPTIONS
     = { .processing_mode = _HHPM_NORMAL_PROCESSING };
 
 /**
- *  Constructs a string (`full_path`) that is `output_path` + '/' +
- *  `file_path`. Assumes `full_path` is not NULL and is NULL-terminated.
- *
- *  Param:  full_path  stores the output of this function
- */
-static void
-build_path_str (char *full_path, const char *output_path,
-                const char *file_path)
-{
-  strcpy (full_path, output_path);
-  strcat (full_path, "/");
-  strcat (full_path, file_path);
-}
-
-/**
- *  Extracts an internal dat file (`dat_path`) to `output_path` using the index
- *  file at `idx_path`.
- *
- *  Return:  Zero on success, non-zero on failure.
- */
-static int
-extract_int_dat (const char *output_path, const char *dat_path,
-                 const char *idx_path)
-{
-  _HHIndexFile_t *idx = _hhidx_alloc ();
-  if (idx == NULL)
-    goto oom_error;
-
-  size_t output_len = strlen (output_path);
-
-  // +2 for path separator and NULL terminator.
-  size_t full_idx_path_len = (output_len + strlen (idx_path)) + 2;
-  char *full_idx_path = calloc (full_idx_path_len, sizeof (char));
-  if (full_idx_path == NULL)
-    goto oom_error;
-
-  printf ("Processing internal index file: %s\n", idx_path);
-  build_path_str (full_idx_path, output_path, idx_path);
-  if (_hhidx_init (idx, full_idx_path) != 0)
-    {
-      _hhidx_free (idx);
-      free (full_idx_path);
-      return -1;
-    }
-  free (full_idx_path);
-
-  // +2 for path separator and NULL terminator.
-  size_t full_dat_path_len = (output_len + strlen (dat_path)) + 2;
-  char *full_dat_path = calloc (full_dat_path_len, sizeof (char));
-  if (full_dat_path == NULL)
-    goto oom_error;
-
-  printf ("Extracting internal dat file: %s\n", dat_path);
-  build_path_str (full_dat_path, output_path, dat_path);
-  if (_hhidx_extract (idx, full_dat_path) != 0)
-    {
-      _hhidx_free (idx);
-      free (full_dat_path);
-      return -1;
-    }
-
-  free (full_dat_path);
-  _hhidx_free (idx);
-  return 0;
-oom_error:
-  fprintf (stderr, "%s: Out of memory error.\n", __func__);
-  return -1;
-}
-
-/**
  *  Retrieves the internal dat file path at the end of `input_path`, which
  *  should begin with `DISK#/`, where '#' is some number. If `DISK#/` is not
  *  found, it returns a pointer to the NULL-terminator of `input_path`.
@@ -147,11 +77,12 @@ extraction_w_int_dat_input (const char *input_path, const char *output_path)
     }
 
   const char *assoc_idx_path = _hhkf_get_idx_path_from_int_dat (work);
-  if ((assoc_idx_path == NULL)
-      || (extract_int_dat (output_path, work, assoc_idx_path) != 0))
+  if (assoc_idx_path == NULL)
+    //|| (extract_int_dat (output_path, work, assoc_idx_path) != 0))
     return -1;
 
   return 0;
+  puts (output_path);
 }
 
 /**
@@ -191,6 +122,43 @@ err_exit:
   return -1;
 }
 
+static int
+extract_int_dat (const char *dat_path, const char *idx_path,
+                 const char *output_dir)
+{
+  const char *disk_name = get_canonical_input_path (dat_path);
+  // +5 = `strlen ("DISK#")`
+  size_t output_len = ((disk_name + 5) - dat_path) + 1;
+
+  _HHIndexFile_t *idx = _hhidx_alloc ();
+  char *output = calloc (output_len, sizeof (char));
+  if ((idx == NULL) || (output == NULL))
+    {
+      fprintf (stderr, "%s: Out of memory error.\n", __func__);
+      if (idx != NULL)
+        _hhidx_free (idx);
+      if (output != NULL)
+        free (output);
+      return -1;
+    }
+
+  strcpy (output, output_dir);
+  strcat (output, "/");
+  strncat (output, disk_name, 5);
+
+  if ((_hhidx_init (idx, idx_path, output) != 0)
+      || (_hhidx_extract (idx, dat_path) != 0))
+    {
+      _hhidx_free (idx);
+      free (output);
+      return -1;
+    }
+
+  _hhidx_free (idx);
+  free (output);
+  return 0;
+}
+
 /**
  *  Extracts a known I9660 file system, as well as its internal dat files,
  *  `opts` permitting. This function differs from `extract_i9660_fs` as it
@@ -208,15 +176,45 @@ known_i9660_extraction (const char *input_path, const char *output_path,
   if (opts->processing_mode == _HHPM_SKIP_INTERNAL_DATS)
     return 0;
 
-  const char **int_dat_files = _hhkf_get_int_dat_paths_from_i9660 (input_path);
-  const char **idx_files = _hhkf_get_int_idx_paths_from_i9660 (input_path);
-  if ((int_dat_files == NULL) || (idx_files == NULL))
+  const char **dat_paths = _hhkf_get_int_dat_paths_from_i9660 (input_path);
+  const char **idx_paths = _hhkf_get_int_idx_paths_from_i9660 (input_path);
+  if ((dat_paths == NULL) || (idx_paths == NULL))
     return -1;
 
+  const size_t output_len = strlen (output_path);
   for (size_t i = 0; i < 3; i++)
     {
-      if (extract_int_dat (output_path, int_dat_files[i], idx_files[i]) != 0)
-        return -1;
+      const size_t dat_len = output_len + strlen (dat_paths[i]) + 2;
+      const size_t idx_len = output_len + strlen (idx_paths[i]) + 2;
+
+      char *dat_path = calloc (dat_len, sizeof (char));
+      char *idx_path = calloc (idx_len, sizeof (char));
+      if ((dat_path == NULL) | (idx_path == NULL))
+        {
+          fprintf (stderr, "%s: Out of memory error.\n", __func__);
+          if (dat_path != NULL)
+            free (dat_path);
+          if (idx_path != NULL)
+            free (idx_path);
+          return -1;
+        }
+
+      strcpy (dat_path, output_path);
+      strcpy (idx_path, output_path);
+      strcat (dat_path, "/");
+      strcat (idx_path, "/");
+      strcat (dat_path, dat_paths[i]);
+      strcat (idx_path, idx_paths[i]);
+
+      if (extract_int_dat (dat_path, idx_path, output_path) != 0)
+        {
+          free (dat_path);
+          free (idx_path);
+          return -1;
+        }
+
+      free (dat_path);
+      free (idx_path);
     }
 
   return 0;
@@ -238,11 +236,13 @@ hh_extract_filesystem_w_options (const char input_path[static 1],
    *  dat file first.
    */
   if (_hhkf_is_known_int_dat (input_path))
-    return extraction_w_int_dat_input (input_path, output_path);
-  else if (_hhkf_is_known_i9660_file (input_path))
     {
-      return known_i9660_extraction (input_path, output_path, opts);
+      printf ("%s => %s\n", input_path, output_path);
+      return -1;
+      return extraction_w_int_dat_input (input_path, output_path);
     }
+  else if (_hhkf_is_known_i9660_file (input_path))
+    return known_i9660_extraction (input_path, output_path, opts);
   else
     {
       fprintf (stderr,

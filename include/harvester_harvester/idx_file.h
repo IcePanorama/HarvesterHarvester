@@ -73,7 +73,8 @@ void _hhidx_print (_HHIndexFile_t *i);
  *  Param:  path  a path to some index file data
  *  Return:  Zero on success, non-zero on failure.
  */
-int _hhidx_init (_HHIndexFile_t *i, const char path[static 1], const char output_dir[static 1]);
+int _hhidx_init (_HHIndexFile_t *i, const char path[static 1],
+                 const char output_dir[static 1]);
 
 /**
  *  Uses `i` in order to extract the data provided contained within the .dat
