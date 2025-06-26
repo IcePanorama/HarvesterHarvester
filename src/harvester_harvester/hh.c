@@ -101,6 +101,9 @@ extract_int_dat (const char *dat_path, const char *idx_path,
                  const char *output_dir)
 {
   const char *disk_name = get_canonical_input_path (dat_path);
+  if (disk_name == NULL)
+    return -1;
+
   // +5 = `strlen ("DISK#")`
   size_t output_len = ((disk_name + 5) - dat_path) + 1;
 
@@ -212,7 +215,7 @@ known_int_dat_extraction (const char *input_path, const char *output_path)
   char *full_idx = calloc (full_idx_len, sizeof (char));
   if (full_idx == NULL)
     {
-      fprintf (stderr, "%s: Out of memory error.\n", full_idx);
+      fprintf (stderr, "%s: Out of memory error.\n", __func__);
       return -1;
     }
 

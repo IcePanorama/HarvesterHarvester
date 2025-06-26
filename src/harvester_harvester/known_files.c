@@ -64,10 +64,10 @@ strequ_from_end (const char *a, const size_t a_len, const char *b)
   if (a_len > b_len)
     {
       const char *a_end = a + (a_len - b_len);
-      return strcmp (b, a_end) == 0;
+      return strncmp (b, a_end, b_len) == 0;
     }
   else
-    return strcmp (b, a) == 0;
+    return strncmp (b, a, b_len) == 0;
 }
 
 static bool
