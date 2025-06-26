@@ -4,6 +4,13 @@
 
 Intended to be the first piece in [a toolchain for reverse engineering *Harvester*](https://segfaulteddreams.neocities.org/projects/openharvester/), HH first reconstructs the original disk images that the game would've shipped with during its initial release before then extracting data from the .dat files contained within that new file system. In total, HH restores approximately 2.1 GiB of data.
 
+\[TODO: double check that these links are good.\]
+
+**Related tools**:
+
++ BMtoBMP: a tool for converting *Harvester*'s BM/PAL files into bitmap images. ([Homepage](https://segfaulteddreams.neocities.org/projects/bmtobmp/)/[GitHub](https://github.com/IcePanorama/BMtoBMP))
++ CMPto???: a tool for converting *Harvester*'s CMP files into some regular sound format. \[COMING SOON!\]
+
 **New in v2.0.0** is the ability to apply these same processes to other, similar file systems as well! \[TODO: ADD NOTE ABOUT WHAT OTHER KINDS OF FILE SYSTEMS THIS TOOL HAS BEEN TESTED ON]
 
 ## Getting HH
