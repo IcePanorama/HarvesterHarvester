@@ -228,9 +228,9 @@ known_int_dat_extraction (const char *input_path, const char *output_path)
 }
 
 int
-hh_extract_filesystem_w_options (const char input_path[static 1],
-                                 const char output_path[static 1],
-                                 const HHOptions_t opts[static 1])
+hh_extract_fs_w_opts (const char input_path[static 1],
+                      const char output_path[static 1],
+                      const HHOptions_t opts[static 1])
 {
   /*
    *  In order to allow end users to use HH from anywhere,
@@ -261,9 +261,8 @@ hh_extract_filesystem_w_options (const char input_path[static 1],
 }
 
 int
-hh_extract_filesystem (const char input_path[static 1],
-                       const char output_path[static 1])
+hh_extract_fs (const char input_path[static 1],
+               const char output_path[static 1])
 {
-  return hh_extract_filesystem_w_options (input_path, output_path,
-                                          &HH_DEFAULT_OPTIONS);
+  return hh_extract_fs_w_opts (input_path, output_path, &HH_DEFAULT_OPTIONS);
 }

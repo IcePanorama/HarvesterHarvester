@@ -38,20 +38,20 @@ extern const HHOptions_t HH_DEFAULT_OPTIONS;
  *  param:  opts         customized options for extraction
  *  returns: zero on success, non-zero on failure.
  */
-int hh_extract_filesystem_w_options (const char input_path[static 1],
-                                     const char output_path[static 1],
-                                     const HHOptions_t opts[static 1]);
+int hh_extract_fs_w_opts (const char input_path[static 1],
+                          const char output_path[static 1],
+                          const HHOptions_t opts[static 1]);
 
 /**
  *  Extracts the given i9660 or Harvester file system (`input_path`) to the
  *  provided `output_path` using `HH_DEFAULT_OPTIONS`. Internally, this just
- *  calls `hh_extract_filesystem_w_options`.
+ *  calls `hh_extract_fs_w_opts`.
  *
  *  param:  input_path   path to some dat file.
  *  param:  output_path  directory where extracted data should be placed.
  *  returns: zero on success, non-zero on failure.
  */
-int hh_extract_filesystem (const char input_path[static 1],
-                           const char output_path[static 1]);
+int hh_extract_fs (const char input_path[static 1],
+                   const char output_path[static 1]);
 
 #endif /* _HARVESTER_HARVESTER_H_ */
