@@ -73,15 +73,13 @@ That being said, technologically-inclined readers could probably get a library t
 
 When one provides HH with a file path that it doesn't recognize, it defaults to extracting this unknown entity as an ISO 9660 (I9660) file system. Therefore, HH can also be used like a generic I9660 file system extractor.
 
-This functionality has been tested to work on \[TODO: list what things have been tested in this way].
+This functionality has been tested to work on the Harvester demo, \[TODO: add other files tested on].
 
 To use HH in this capacity, simply provide a path to said file system as an argument:
 
-\[TODO: EDIT THE FOLLOWING USAGE EXAMPLE TO MAKE SURE THIS IS ACTUAL CORRECT]
-
 ```
 # Example:
-$ ./HarvesterHarvester path/to/fs.bin # the extension can be anything, in fact.
+$ ./HarvesterHarvester path/to/file.ext # the extension can be anything, in fact.
 ```
 
 **Note**: support for other file systems is currently experimental and not fully implemented. This is admittedly due to the fact that I need examples of different kinds of I9660 file systems other than ones with primary volume descriptor data in order to finalize these functionalities. If you run HH on something other than *Harvester*, and you get an error message, please open up [a new issue]()! Thanks!
@@ -102,5 +100,5 @@ Options:
   -v, --version             Print version information
 ```
 
-Where `HarvesterHarvester` is the appropriate executable for your system.
+Where `<HarvesterHarvester>` is the appropriate executable for your system.
 
