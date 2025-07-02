@@ -51,6 +51,10 @@ print_ver_info (void)
   puts ("There is NO WARRANTY, to the extent permitted by law.");
 }
 
+/**
+ *  Please update the advanced usage section of USAGE.md upon making changes
+ *  here!
+ */
 static void
 print_help_info (const char *exe_name)
 {
@@ -61,17 +65,25 @@ print_help_info (const char *exe_name)
   const char opts_fmt[] = "  %-25s %s\n";
   puts ("Options:");
   printf (opts_fmt, "-h, --help", "Print this help message");
+  printf (
+      opts_fmt, "--idx <idx> <dat>",
+      "Extract internal dat `<dat>` using <idx>, ignore all input after this");
   printf (opts_fmt, "-o <path>,--output <path>",
           "Set output directory to `<path>` (default: `./output/`)");
-  printf (opts_fmt, "--skip-i9660-dats",
-          "Treat input like internal dat files.");
-  printf (opts_fmt, "--skip-internal-dats",
-          "Skip the extraction of internal dat files");
+  printf (opts_fmt, "--skip-i9660-dats", "Treat input like internal dat");
+  printf (opts_fmt, "--skip-internal-dats", "Don't extract internal dats");
   printf (opts_fmt, "-v, --version", "Print version information");
   putchar ('\n');
 
   printf ("Report bugs here: <%s>\n", (ISSUES_PAGE));
   printf ("HarvesterHarvester home page: <%s>\n", (HOME_PAGE));
+}
+
+static void
+improper_usage_err_output (const char *exe_name)
+{
+  fprintf (stderr, "Improper usage error. Run `%s -h` for proper usage.\n",
+           exe_name);
 }
 
 static int
@@ -92,6 +104,18 @@ handle_args (int argc, char **argv)
           print_help_info (argv[0]);
           exit (EXIT_SUCCESS);
         }
+      else if (strcmp (argv[i], "--idx") == 0)
+        {
+          if (i + 2 >= argc)
+            {
+              improper_usage_err_output (argv[0]);
+              return -1;
+            }
+
+          if (hh_extract_int_dat (argv[i + 2], argv[i + 1], output_path) != 0)
+            return -1;
+          exit (EXIT_SUCCESS);
+        }
       else if (strcmp (argv[i], "--skip-i9660-dats") == 0)
         {
           opts.processing_mode = _HHPM_SKIP_I9660_DATS;
@@ -101,9 +125,7 @@ handle_args (int argc, char **argv)
         {
           if (i + 1 >= argc)
             {
-              fprintf (stderr,
-                       "Improper usage error. Run `%s -h` for proper usage.\n",
-                       argv[0]);
+              improper_usage_err_output (argv[0]);
               return -1;
             }
 
@@ -124,8 +146,7 @@ handle_args (int argc, char **argv)
     {
       for (int j = i; j < argc; j++)
         {
-          if (hh_extract_filesystem_w_options (argv[j], output_path, &opts)
-              != 0)
+          if (hh_extract_fs_w_opts (argv[j], output_path, &opts) != 0)
             return -1;
         }
 
@@ -140,8 +161,7 @@ batch_process (const char **filenames, const size_t num_files)
 {
   for (size_t i = 0; i < num_files; i++)
     {
-      if (hh_extract_filesystem_w_options (filenames[i], output_path, &opts)
-          != 0)
+      if (hh_extract_fs_w_opts (filenames[i], output_path, &opts) != 0)
         return -1;
     }
 

@@ -25,7 +25,13 @@ The benefit of the first approach is that HH will automatically search the `dat-
 
 As noted in the [README.md](../README.md), HH works in two steps, the first of which reconstructs the original disk images that *Harvester* would've shipped with at the time of its release. If you still have the game disks, however, this first step is not needed.
 
-At this point, you can execute HH via a command prompt or terminal by providing a path to each CD's `HARVEST.DAT`, `HARVEST2.DAT`, and `SOUND.DAT` files. HH will automatically detect that these files are internal dat files and extract them. Note that HH assumes that each .dat file's associated index file is also stored in the same directory.
+At this point, you can execute HH via a command prompt or terminal using the following command:
+
+```
+$ <HH_executable> --skip-i9660-dats path/to/HARVEST.DAT path/to/HARVEST2.DAT path/to/SOUND.DAT
+```
+
+Where <HH_executable> is the appropriate executable for your platform. Also, do note that HH assumes that each .dat file's associated index file is stored in the same directory in which it resides.
 
 Alternatively, you can place each disc's dat and index files into `<HH_DIR>/dat-files/DISK<?>`, where `<?>` corresponds to each disc's number and can be either `1`, `2`, or `3`. The benefit of this second approach is that HH can automatically search the `dat-files` directory for those dat/index files, saving you from typing out the paths directly.
 
@@ -59,6 +65,17 @@ dat-files/
 
 In order for this to work, however, you MUST execute HH with the  `--skip-i9660-dats` flag. See [Advanced Usage](#advanced-usage) below for more details.
 
+## Using HH With the Demo of *Harvester*
+
+The two dat files included with the demo version of *Harvester*, `HARVEST.DAT` and `SOUND.DAT`, can be extracted by HH using the following commands:
+
+```
+$ <HH_exe> --idx demo/path/INDEX.001 demo/path/HARVEST.DAT
+$ <HH_exe> --idx demo/path/INDEX.002 demo/path/SOUND.DAT
+```
+
+Where <HH_executable> is the appropriate executable for your platform.
+
 ## Using HH as a Library
 
 HH v2.0.0 has temporarily removed the static library targets from its releases. This functionality is expected to return in an upcoming minor update (that is, v2.x.0).
@@ -73,8 +90,6 @@ That being said, technologically-inclined readers could probably get a library t
 
 When one provides HH with a file path that it doesn't recognize, it defaults to extracting this unknown entity as an ISO 9660 (I9660) file system. Therefore, HH can also be used like a generic I9660 file system extractor.
 
-This functionality has been tested to work on the Harvester demo, \[TODO: add other files tested on].
-
 To use HH in this capacity, simply provide a path to said file system as an argument:
 
 ```
@@ -82,7 +97,9 @@ To use HH in this capacity, simply provide a path to said file system as an argu
 $ ./HarvesterHarvester path/to/file.ext # the extension can be anything, in fact.
 ```
 
-**Note**: support for other file systems is currently experimental and not fully implemented. This is admittedly due to the fact that I need examples of different kinds of I9660 file systems other than ones with primary volume descriptor data in order to finalize these functionalities. If you run HH on something other than *Harvester*, and you get an error message, please open up [a new issue]()! Thanks!
+This functionality has been tested to work on (some, but not all) .iso files. Currently, support is only implemented for pure i9660 file systems with primary volume descriptors. I hope to add support for i9660 extensions such as CD-ROM XA in future versions of the i9660 library.
+
+This lack of support for more file systems is admittedly due to the fact that I need examples of these different kinds file systems in order to finalize the implementation of these functionalities. If you run HH on something other than *Harvester*, and you get an error message, please open up [a new issue]()! Thanks!
 
 \[TODO: add issues link above.]
 
@@ -94,9 +111,10 @@ Usage:
 
 Options:
   -h, --help                Print this help message
+  --idx <idx> <dat>         Extract internal dat `<dat>` using <idx>, ignore all input after this
   -o <path>,--output <path> Set output directory to `<path>` (default: `./output/`)
-  --skip-i9660-dats         Treat input like internal dat files.
-  --skip-internal-dats      Skip the extraction of internal dat files
+  --skip-i9660-dats         Treat input like internal dat
+  --skip-internal-dats      Don't extract internal dats
   -v, --version             Print version information
 ```
 

@@ -54,4 +54,17 @@ int hh_extract_fs_w_opts (const char input_path[static 1],
 int hh_extract_fs (const char input_path[static 1],
                    const char output_path[static 1]);
 
+/**
+ *  Extracts the given internal dat file (`dat_path`) to `output_path` using
+ *  the data present in `idx_path`.
+ *
+ *  param:  dat_path     path to some internal dat file
+ *  param:  idx_path     path to the index file associated with `dat_path`
+ *  param:  output_path  directory where extracted data should be placed.
+ *  returns:  zero on success, non-zero on failure.
+ */
+int hh_extract_int_dat (const char dat_path[static 1],
+                        const char idx_path[static 1],
+                        const char output_dir[static 1]);
+
 #endif /* _HARVESTER_HARVESTER_H_ */

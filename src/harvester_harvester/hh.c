@@ -27,36 +27,38 @@ const HHOptions_t HH_DEFAULT_OPTIONS
     = { .processing_mode = _HHPM_NORMAL_PROCESSING };
 
 /**
- *  Retrieves the internal dat file path at the end of `input_path`, which
- *  should begin with `DISK#/`, where '#' is some number. If `DISK#/` is not
+ *  Retrieves the "disk name" of `input_path`. This is usually (but not always)
+ *  `DISK#` or `HARVDEMO`, where '#' is some number. If this disk name is not
  *  found, it returns a pointer to the NULL-terminator of `input_path`.
+ *  NOTE: this function allocates memory on the heap--memory which the caller
+ *  is responsible for later freeing.
  *
- *  Return:  a "canonical" internal dat file path
+ *  param:  input_path  the file for which you want to get its disk name
+ *  Return:  a heap-allocated string containing the disk name
  */
 static char *
-get_canonical_input_path (const char *input_path)
+get_disk_name (const char *input_path)
 {
-  const char *key = "DISK#/";
-  char *work = NULL;
-  for (work = (char *)input_path; (work != NULL) && (*work != '\0'); work++)
-    {
-      if (*work == *key)
-        {
-          char *key_ptr = (char *)(key) + 1;
-          char *tmp = (char *)(work) + 1;
-          while ((key_ptr != NULL) && (tmp != NULL)
-                 && ((*key_ptr == *tmp) || (*key_ptr == '#')))
-            {
-              key_ptr++;
-              tmp++;
-            }
+  char *work = strdup (input_path);
+  if (work == NULL)
+    return calloc (1, sizeof (char));
 
-          if ((key_ptr != NULL) && (*key_ptr == '\0') && (tmp != NULL))
-            break;
+  char *segment = NULL;
+  for (int i = 0; i < 2; i++)
+    {
+      segment = strrchr (work, '/');
+      if (segment == NULL)
+        {
+          free (work);
+          return calloc (1, sizeof (char));
         }
+      *segment = '\0';
+      segment++;
     }
 
-  return work;
+  char *out = strndup (segment, strlen (segment) + 1);
+  free (work);
+  return out;
 }
 
 /**
@@ -96,22 +98,27 @@ err_exit:
   return -1;
 }
 
-static int
-extract_int_dat (const char *dat_path, const char *idx_path,
-                 const char *output_dir)
+int
+hh_extract_int_dat (const char dat_path[static 1],
+                    const char idx_path[static 1],
+                    const char output_dir[static 1])
 {
-  const char *disk_name = get_canonical_input_path (dat_path);
+  char *disk_name = get_disk_name (dat_path);
   if (disk_name == NULL)
-    return -1;
-
-  // +5 = `strlen ("DISK#")`
-  size_t output_len = ((disk_name + 5) - dat_path) + 1;
+    {
+      fprintf (stderr, "%s: could not find disk name in input, %s\n", __func__,
+               dat_path);
+      return -1;
+    }
 
   _HHIndexFile_t *idx = _hhidx_alloc ();
+  // +2 for '/' & NULL-terminator
+  const size_t output_len = strlen (output_dir) + strlen (disk_name) + 2;
   char *output = calloc (output_len, sizeof (char));
   if ((idx == NULL) || (output == NULL))
     {
       fprintf (stderr, "%s: Out of memory error.\n", __func__);
+      free (disk_name);
       if (idx != NULL)
         _hhidx_free (idx);
       if (output != NULL)
@@ -120,8 +127,10 @@ extract_int_dat (const char *dat_path, const char *idx_path,
     }
 
   strcpy (output, output_dir);
-  strcat (output, "/");
-  strncat (output, disk_name, 5);
+  if ((output[strlen (output) - 1] != '/') && (strlen (disk_name) > 0))
+    strcat (output, "/");
+  strcat (output, disk_name);
+  free (disk_name);
 
   if ((_hhidx_init (idx, idx_path, output) != 0)
       || (_hhidx_extract (idx, dat_path) != 0))
@@ -183,7 +192,7 @@ known_i9660_extraction (const char *input_path, const char *output_path,
       strcat (dat_path, dat_paths[i]);
       strcat (idx_path, idx_paths[i]);
 
-      if (extract_int_dat (dat_path, idx_path, output_path) != 0)
+      if (hh_extract_int_dat (dat_path, idx_path, output_path) != 0)
         {
           free (dat_path);
           free (idx_path);
@@ -199,7 +208,7 @@ known_i9660_extraction (const char *input_path, const char *output_path,
 
 /**
  *  Extracts a known internal dat file. This function just does some prep work
- *  before calling `extract_int_dat` internally.
+ *  before calling `hh_extract_int_dat` internally.
  *
  *  Param:  input_path  the path to some internal dat file
  *  Param:  output_path the directory where said file should be extracted
@@ -208,7 +217,21 @@ known_i9660_extraction (const char *input_path, const char *output_path,
 static int
 known_int_dat_extraction (const char *input_path, const char *output_path)
 {
-  size_t dir_len = get_canonical_input_path (input_path) - input_path;
+  char *input_dir = strrchr (input_path, '/');
+  if (input_dir == NULL)
+    {
+      fprintf (stderr, "%s: couldn't find disk name for input, %s", __func__,
+               input_path);
+      return -1;
+    }
+
+  char *disk_name = get_disk_name (input_path);
+  if (disk_name == NULL)
+    return -1;
+
+  size_t dir_len = input_dir - input_path - strlen (disk_name);
+  free (disk_name);
+
   const char *idx_path = _hhkf_get_idx_path_from_int_dat (input_path);
   size_t full_idx_len = dir_len + strlen (idx_path) + 1;
 
@@ -222,7 +245,7 @@ known_int_dat_extraction (const char *input_path, const char *output_path)
   strncpy (full_idx, input_path, dir_len);
   strcat (full_idx, idx_path);
 
-  int ret = extract_int_dat (input_path, full_idx, output_path);
+  int ret = hh_extract_int_dat (input_path, full_idx, output_path);
   free (full_idx);
   return ret;
 }
