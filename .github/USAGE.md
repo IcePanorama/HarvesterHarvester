@@ -31,7 +31,7 @@ At this point, you can execute HH via a command prompt or terminal using the fol
 $ <HH_executable> --skip-i9660-dats path/to/HARVEST.DAT path/to/HARVEST2.DAT path/to/SOUND.DAT
 ```
 
-Where <HH_executable> is the appropriate executable for your platform. Also, do note that HH assumes that each .dat file's associated index file is stored in the same directory in which it resides.
+Where `<HH_executable>` is the appropriate executable for your platform. Also, do note that HH assumes that each .dat file's associated index file is stored in the same directory in which it resides.
 
 Alternatively, you can place each disc's dat and index files into `<HH_DIR>/dat-files/DISK<?>`, where `<?>` corresponds to each disc's number and can be either `1`, `2`, or `3`. The benefit of this second approach is that HH can automatically search the `dat-files` directory for those dat/index files, saving you from typing out the paths directly.
 
@@ -88,20 +88,18 @@ That being said, technologically-inclined readers could probably get a library t
 
 ## Using HH With Other ISO 9660 File Systems
 
-When one provides HH with a file path that it doesn't recognize, it defaults to extracting this unknown entity as an ISO 9660 (I9660) file system. Therefore, HH can also be used like a generic I9660 file system extractor.
+When one provides HH with a path to a file that it doesn't recognize, it defaults to extracting this unknown entity as an ISO 9660 (I9660) file system. Therefore, HH can also be used like a generic I9660 file system extractor.
 
 To use HH in this capacity, simply provide a path to said file system as an argument:
 
 ```
 # Example:
-$ ./HarvesterHarvester path/to/file.ext # the extension can be anything, in fact.
+$ ./HarvesterHarvester path/to/file.ext # the extension can be anything, in fact
 ```
 
-This functionality has been tested to work on (some, but not all) .iso files. Currently, support is only implemented for pure i9660 file systems with primary volume descriptors. I hope to add support for i9660 extensions such as CD-ROM XA in future versions of the i9660 library.
+This functionality has been tested to work on (some, but not all) .iso files. Currently, support is only implemented for pure i9660 file systems with primary volume descriptors. I hope to add support for i9660 extensions (such as CD-ROM XA) in future versions of the i9660 library.
 
-This lack of support for more file systems is admittedly due to the fact that I need examples of these different kinds file systems in order to finalize the implementation of these functionalities. If you run HH on something other than *Harvester*, and you get an error message, please open up [a new issue]()! Thanks!
-
-\[TODO: add issues link above.]
+This lack of support for more file systems is admittedly due to the fact that I need examples of these different kinds file systems in order to finalize the implementation of these functionalities. If you run HH on something other than *Harvester*, and you get an error message, please open up [a new issue](https://github.com/IcePanorama/HarvesterHarvester/issues/)! Thanks!
 
 ## Advanced Usage
 
