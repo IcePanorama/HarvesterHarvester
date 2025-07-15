@@ -2,7 +2,7 @@
 
 The following guide assumes you've already installed HH onto your computer. If this is not the case, then please see [README.md](../README.md#getting-hh) for installation instructions. The location of HH on your computer will hereafter be referred to as `HH_DIR`.
 
-\[TODO: add note for Windows 10/11 users about making their HH directory case-sensitive for best results].
+**NOTE**: For best results, it is *strongly* recommened that Windows 10/11 users make their `HH_DIR` case insensitive. [Click here for instructions on to do so](https://learn.microsoft.com/en-us/windows/wsl/case-sensitivity#change-the-case-sensitivity-of-files-and-directories). See \[TODO: Add link to case sensitivity issue here!].
 
 ## Using HH With Modern Releases of *Harvester* (GOG/Steam)
 
@@ -74,7 +74,7 @@ $ <HH_exe> --idx demo/path/INDEX.001 demo/path/HARVEST.DAT
 $ <HH_exe> --idx demo/path/INDEX.002 demo/path/SOUND.DAT
 ```
 
-Where <HH_executable> is the appropriate executable for your platform.
+Where `<HH_exe>` is the appropriate executable for your platform.
 
 ## Using HH as a Library
 
