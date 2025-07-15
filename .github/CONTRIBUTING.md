@@ -8,7 +8,7 @@ This project is governed by the [Contributor Covenant Code of Conduct](CODE_OF_C
 
 If you ever feel that this code of coduct is being infringed upon by someone, please feel free to send an email to <open-harvester@proton.me> or <segfaulteddreams@proton.me> letting me know.
 
-## Styleguide
+## Style Guide
 
 This project uses clang-format for autoformatting our C source files. If you are unable to use clang-format, please follow the [GNU C conventions](https://www.gnu.org/prep/standards/html_node/Writing-C.html). When in doubt, just take a look at what's already being done in the code base and try your best to match that.
 
