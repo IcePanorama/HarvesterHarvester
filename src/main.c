@@ -86,6 +86,16 @@ improper_usage_err_output (const char *exe_name)
            exe_name);
 }
 
+static void
+flip_path_separators (char *s)
+{
+  for (char *curr = s; (curr != NULL) && (*curr != '\0'); curr++)
+    {
+      if (*curr == '\\')
+        *curr = '/';
+    }
+}
+
 static int
 handle_args (int argc, char **argv)
 {
@@ -146,6 +156,7 @@ handle_args (int argc, char **argv)
     {
       for (int j = i; j < argc; j++)
         {
+          flip_path_separators (argv[j]);
           if (hh_extract_fs_w_opts (argv[j], output_path, &opts) != 0)
             return -1;
         }
