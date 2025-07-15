@@ -23,6 +23,42 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ *  `strdup`/`strndup` isn't defined on Windows, but its being added to the C
+ *  standard libary in C2X. Currently, we're building for C99, but this should
+ *  make things easier should that ever change.
+ *  See:
+ * https://stackoverflow.com/questions/78655661/is-there-a-windows-equivalent-of-strndup
+ */
+#if (defined(_WIN32)) && (defined(__STDC__)) && (__STDC_VERSION__ <= 201710L)
+static char *
+__strdup (const char *s) /* _strdup is defined in mingw */
+{
+  const size_t len = strlen (s);
+  char *out = malloc (len + 1);
+  if (out)
+    {
+      strcpy (out, s);
+      out[len] = '\0';
+    }
+  return out;
+}
+
+static char *
+_strndup (const char *s, const size_t n)
+{
+  size_t len = strlen (s);
+  len = len < n ? len : n;
+  char *out = malloc (len + 1);
+  if (out)
+    {
+      strncpy (out, s, len);
+      out[len] = '\0';
+    }
+  return out;
+}
+#endif /* (_WIN32) && (__STDC__) && (__STDC_VERSION__ <= 201710L) */
+
 const HHOptions_t HH_DEFAULT_OPTIONS
     = { .processing_mode = _HHPM_NORMAL_PROCESSING };
 
@@ -39,7 +75,11 @@ const HHOptions_t HH_DEFAULT_OPTIONS
 static char *
 get_disk_name (const char *input_path)
 {
+#ifdef __linux__
   char *work = strdup (input_path);
+#else  /* not __linux__ */
+  char *work = __strdup (input_path);
+#endif /* not __linux__ */
   if (work == NULL)
     return calloc (1, sizeof (char));
 
@@ -56,7 +96,11 @@ get_disk_name (const char *input_path)
       segment++;
     }
 
+#ifdef __linux__
   char *out = strndup (segment, strlen (segment) + 1);
+#else  /* not __linux__ */
+  char *out = _strndup (segment, strlen (segment) + 1);
+#endif /* not __linux__ */
   free (work);
   return out;
 }
