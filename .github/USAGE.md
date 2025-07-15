@@ -2,7 +2,7 @@
 
 The following guide assumes you've already installed HH onto your computer. If this is not the case, then please see [README.md](../README.md#getting-hh) for installation instructions. The location of HH on your computer will hereafter be referred to as `HH_DIR`.
 
-**NOTE**: For best results, it is *strongly* recommened that Windows 10/11 users make their `HH_DIR` case insensitive. [Click here for instructions on to do so](https://learn.microsoft.com/en-us/windows/wsl/case-sensitivity#change-the-case-sensitivity-of-files-and-directories). Please see #3 for more info on why this is necessary in the first place.
+**NOTE**: For best results, it is *strongly* recommened that Windows 10/11 users make their `HH_DIR` case insensitive. [Click here for instructions on to do so](https://learn.microsoft.com/en-us/windows/wsl/case-sensitivity#change-the-case-sensitivity-of-files-and-directories). Please see [the following issue](https://github.com/IcePanorama/HarvesterHarvester/issues/3) for more info on why this is necessary in the first place.
 
 ## Using HH With Modern Releases of *Harvester* (GOG/Steam)
 
