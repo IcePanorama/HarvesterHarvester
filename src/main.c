@@ -31,7 +31,7 @@
 #define CURR_VERSION ("v2.0.0b")
 #define ISSUES_PAGE                                                           \
   ("https://github.com/IcePanorama/HarvesterHarvester/issues")
-#define HOME_PAGE ("https://github.com/IcePanorama/HarvesterHarvester/")
+#define HOME_PAGE ("https://github.com/IcePanorama/HarvesterHarvester")
 
 static const char def_output_path[] = "output";
 static char *output_path = (char *)def_output_path;
@@ -86,6 +86,14 @@ improper_usage_err_output (const char *exe_name)
            exe_name);
 }
 
+/**
+ *  NOTE: Using '/' as a path separator every technically isn't the best way to
+ *  go about things. In theory, old versions of Windows won't respond well to
+ *  this. That being said, I've tested HH on Windows 98SE and it worked
+ *  flawlessly there. I could test this further, under Win95, 3.1, etc. but I
+ *  think I'll wait for issues to arise rather than seek them out directly; the
+ *  goal here isn't to run perfectly on every machine under the sun.
+ */
 static void
 flip_path_separators (char *s)
 {

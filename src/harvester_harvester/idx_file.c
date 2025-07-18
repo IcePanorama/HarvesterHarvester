@@ -158,7 +158,11 @@ peek_eof (FILE *fptr)
   return false;
 }
 
-/** Change all occurences of '\\' to '/' in a given string. */
+/**
+ *  Change all occurences of '\\' to '/' in a given string.
+ *  NOTE: this is currently duplicated in main.c also. See there for
+ *  information regarding issues with using forward slashes.
+ */
 static void
 flip_path_separators (char *str)
 {
