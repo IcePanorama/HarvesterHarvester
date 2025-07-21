@@ -111,6 +111,10 @@ create_export_dir (const char path[static 1])
   return 0;
 }
 
+/**
+ *  Necessary to prevent fwrite errors on certain platforms (Win98SE).
+ *  Returns:  zero on success, non-zero on failure
+ */
 static int
 chunked_export (const uint8_t *data, const size_t data_size, FILE *out_fptr)
 {
@@ -132,9 +136,8 @@ chunked_export (const uint8_t *data, const size_t data_size, FILE *out_fptr)
   return 0;
 }
 
-// FIXME: Any reason data isn't/can't be const?
 int
-_i9660u_export_data (uint8_t data[static 1], const size_t data_size,
+_i9660u_export_data (const uint8_t data[static 1], const size_t data_size,
                      const char path[static 1])
 {
   if (create_export_dir (path) != 0)

@@ -38,7 +38,7 @@ int _i9660u_prepend_str (char str[static 1], const size_t str_len,
  *
  *  Returns: Zero on success, non-zero on failure.
  */
-int _i9660u_export_data (uint8_t data[static 1], const size_t data_size,
+int _i9660u_export_data (const uint8_t data[static 1], const size_t data_size,
                          const char path[static 1]);
 
 #endif /* _ISO_9660_UTILITIES_H_ */
