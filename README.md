@@ -1,21 +1,19 @@
 # HarvesterHarvester
 
-**HarvesterHarvester** (HH) is a tool for "harvesting" data from the .dat files of [DigiFX Interactive's 1996 game, *Harvester*](https://en.wikipedia.org/wiki/Harvester_(video_game)) (along with other file systems too)!
+**HarvesterHarvester** (HH) is a tool for "harvesting" data from the .dat files of [DigiFX Interactive's 1996 game, *Harvester*](https://en.wikipedia.org/wiki/Harvester_(video_game)).
 
-Intended to be the first piece in [a toolchain for reverse engineering *Harvester*](https://segfaulteddreams.neocities.org/projects/openharvester/), HH first reconstructs the original disk images that the game would've shipped with during its initial release before then extracting data from the .dat files contained within that new file system. In total, HH restores approximately 2.1 GiB of data.
-
-\[TODO: double check that these links are good.\]
+Intended to be the first piece in [a toolchain for reverse engineering *Harvester*](https://segfaulteddreams.neocities.org/projects/openharvester/), HH first reconstructs the original disk images that _Harvester_ would've shipped with during its initial release before then extracting data from the .dat files contained within that new file system. In total, HH restores approximately 2.1 GiB of data.
 
 **Related tools**:
 
 + BMtoBMP: a tool for converting *Harvester*'s BM/PAL files into bitmap images. ([Homepage](https://segfaulteddreams.neocities.org/projects/bmtobmp/)/[GitHub](https://github.com/IcePanorama/BMtoBMP))
 + CMPto???: a tool for converting *Harvester*'s CMP files into some regular sound format. \[COMING SOON!\]
 
-**New in v2.0.0** is the ability to apply these same processes to other, similar file systems as well! \[TODO: ADD NOTE ABOUT WHAT OTHER KINDS OF FILE SYSTEMS THIS TOOL HAS BEEN TESTED ON]
+**New in v2.0.0** is the ability to apply these same processes to other, similar file systems as well!
 
 ## Getting HH
 
-The simpliest way to try HH for yourself is to navigate to [the releases page](https://github.com/IcePanorama/HarvesterHarvester/releases/latest) and download the correct zip file for your system. Once downloaded, simply extract the zip file wherever you'd like and you're ready to start *harvesting*. See [USAGE.md](.github/USAGE.md) for more details on how to run HH itself.
+The simplest way to try HH for yourself is to navigate to [the releases page](https://github.com/IcePanorama/HarvesterHarvester/releases/latest) and download the correct zip file for your system. Once downloaded, simply extract the zip file wherever you'd like and you're ready to start *harvesting*. See [USAGE.md](.github/USAGE.md) for more details on how to run HH itself.
 
 If you're unsure which zip file to use on your system, `HarvesterHarvester-<?>-Windows-amd64.zip` will likely be what you're looking for. If not, see below:
 
@@ -59,7 +57,7 @@ $ mkdir build && cd build
 $ cmake -DCMAKE_BUILD_TYPE=<?> -DCMAKE_TOOLCHAIN_FILE=<?> ..
 ```
 
-Where `CMAKE_BUILD_TYPE` is either `Release` or `Debug` and `CMAKE_TOOLCHAIN_FILE` is a path to one of the many toolchain files in [the cmake directory](./.cmake).
+Where `CMAKE_BUILD_TYPE` is either `Release` or `Debug` and `CMAKE_TOOLCHAIN_FILE` is a path to one of the many toolchain files in [the `.cmake` directory](./.cmake).
 
 **Note**: you may be required to define `CMAKE_C_COMPILER` while attempting to build a Windows executable on Linux (and, potentially, vice versa).
 
