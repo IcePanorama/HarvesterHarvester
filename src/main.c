@@ -28,10 +28,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define CURR_VERSION ("v2.0.0b")
+#define CURR_VERSION ("v2.0.0")
 #define ISSUES_PAGE                                                           \
   ("https://github.com/IcePanorama/HarvesterHarvester/issues")
-#define HOME_PAGE ("https://github.com/IcePanorama/HarvesterHarvester")
+#define HOME_PAGE ("http://segfaulteddreams.neocities.org/")
 
 static const char def_output_path[] = "output";
 static char *output_path = (char *)def_output_path;
