@@ -1,6 +1,6 @@
 # HarvesterHarvester
 
-**HarvesterHarvester** (HH) is a tool for "harvesting" data from the .dat files of [DigiFX Interactive's 1996 game, *Harvester*](https://en.wikipedia.org/wiki/Harvester_(video_game)).
+**HarvesterHarvester** (HH) is a tool for "harvesting" data from the dat files of [DigiFX Interactive's 1996 game, *Harvester*](https://en.wikipedia.org/wiki/Harvester_(video_game)).
 
 Intended to be the first piece in [a toolchain for reverse engineering *Harvester*](https://segfaulteddreams.neocities.org/projects/openharvester/), HH first reconstructs the original disk images that _Harvester_ would've shipped with during its initial release before then extracting data from the .dat files contained within that new file system. In total, HH restores approximately 2.1 GiB of data.
 
