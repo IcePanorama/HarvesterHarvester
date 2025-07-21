@@ -111,6 +111,28 @@ create_export_dir (const char path[static 1])
   return 0;
 }
 
+static int
+chunked_export (const uint8_t *data, const size_t data_size, FILE *out_fptr)
+{
+  size_t off = 0;
+  while (off < data_size)
+    {
+      size_t rem = data_size - off;
+      size_t chnk = rem < BUFSIZ ? rem : BUFSIZ;
+      if (fwrite (data + off, sizeof (uint8_t), chnk, out_fptr) != chnk)
+        {
+          fprintf (stderr,
+                   "%s failed: off: %zu (%zu/%zu), BUFSIZE: %zu, chnk: %zu",
+                   __func__, off, rem, data_size, (size_t)BUFSIZ, chnk);
+          return -1;
+        }
+      off += chnk;
+    }
+
+  return 0;
+}
+
+// FIXME: Any reason data isn't/can't be const?
 int
 _i9660u_export_data (uint8_t data[static 1], const size_t data_size,
                      const char path[static 1])
@@ -126,23 +148,9 @@ _i9660u_export_data (uint8_t data[static 1], const size_t data_size,
     }
 
   int status = 0;
-  if (fwrite (data, sizeof (uint8_t), data_size, output_file) != data_size)
-    {
-      /** FIXME: this is a fix for Win98, need to clean this up via preprocessor macros later. */
-      perror ("fwrite");
-      printf ("errno: %d\n", errno);
-      fprintf (stderr, "Error exporting file, %s.\n", path);
-      status = -1; // still need to attempt `fclose` below.
-    }
+  if (chunked_export (data, data_size, output_file) != 0)
+    status = -1; // still need to attempt `fclose` below!
 
-  /** LO: try the following: */
-  /*
-  if (fflush(output_file) != 0)
-    {
-      perror("fflush");
-      status = -1;
-    }
-  */
   if (fclose (output_file) != 0)
     {
       fprintf (stderr, "Error closing file, %s.\n", path);
